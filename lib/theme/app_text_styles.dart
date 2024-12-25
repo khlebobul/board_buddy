@@ -1,0 +1,21 @@
+import 'package:flutter/material.dart';
+import 'app_colors.dart';
+
+class AppTextStyles {
+  static const _defaultFontFamily = 'CourierNew';
+  
+  static TextTheme get textTheme {
+    return const TextTheme(
+      displayLarge: TextStyle(
+        fontSize: 30,
+        fontFamily: _defaultFontFamily,
+        color: AppColors.text,
+      ),
+      displayMedium: TextStyle(
+        fontSize: 30,
+        fontFamily: _defaultFontFamily,
+        color: AppColors.primary,
+      ),
+    );
+  }
+} 
