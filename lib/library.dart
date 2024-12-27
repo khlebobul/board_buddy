@@ -1,6 +1,7 @@
 library path;
 
 export 'package:flutter/material.dart';
+export 'package:flutter/services.dart';
 
 // packages
 export 'generated/l10n.dart';
@@ -12,7 +13,6 @@ export 'package:gen_art_bg/gen_art_bg.dart';
 // theme
 export 'theme/app_colors.dart';
 export 'theme/app_theme.dart';
-export 'theme/app_text_styles.dart';
 
 // widgets
 export 'widgets/custom_app_bar.dart';

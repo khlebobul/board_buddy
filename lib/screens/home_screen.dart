@@ -16,7 +16,7 @@ class _MyHomePageState extends State<MyHomePage> {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final theme = UIThemes.of(context);
 
     final menuItems = [
       {'title': S.of(context).about, 'route': '/about'},
@@ -30,8 +30,8 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Positioned.fill(
             child: BubbleField(
-              backgroundColor: AppColors.background,
-              circleColor: AppColors.secondaryText.withOpacity(0.3),
+              backgroundColor: theme.bgColor,
+              circleColor: theme.secondaryTextColor.withOpacity(0.3),
             ),
           ),
           Positioned.fill(
@@ -45,7 +45,7 @@ class _MyHomePageState extends State<MyHomePage> {
                     const SizedBox(height: 12),
                     TextScramble(
                       text: S.of(context).boardBuddy,
-                      style: textTheme.displayMedium,
+                      style: theme.display1.copyWith(color: theme.redColor),
                     ),
                     const Spacer(),
                     ...menuItems.map(
@@ -55,7 +55,7 @@ class _MyHomePageState extends State<MyHomePage> {
                           onTap: () => _navigateTo(context, item['route']!),
                           child: TextScramble(
                             text: item['title']!,
-                            style: textTheme.displayLarge,
+                            style: theme.display1,
                           ),
                         ),
                       ),

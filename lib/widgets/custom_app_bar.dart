@@ -16,10 +16,10 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
 
   @override
   Widget build(BuildContext context) {
-    final textTheme = Theme.of(context).textTheme;
+    final theme = UIThemes.of(context);
     return AppBar(
       automaticallyImplyLeading: false,
-      backgroundColor: AppColors.background,
+      backgroundColor: theme.bgColor,
       elevation: 0,
       title: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
@@ -28,15 +28,14 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             onTap: onLeftButtonPressed,
             child: TextScramble(
               text: leftButtonText,
-              style: textTheme.bodyLarge?.copyWith(color: AppColors.primary),
+              style: theme.display2.copyWith(color: theme.redColor),
             ),
           ),
           GestureDetector(
             onTap: onRightButtonPressed,
             child: TextScramble(
               text: rightButtonText,
-              style:
-                  textTheme.bodyLarge?.copyWith(color: AppColors.secondaryText),
+              style: theme.display2.copyWith(color: theme.secondaryTextColor),
             ),
           ),
         ],

@@ -17,7 +17,7 @@ class MyApp extends StatelessWidget {
         '/settings': (context) => const SettingsScreen(),
       },
       debugShowCheckedModeBanner: false,
-      theme: AppTheme.lightTheme,
+      theme: UIThemes.lightTheme(),
       home: const MyHomePage(title: 'Board Buddy'),
       locale: const Locale('en'),
       localizationsDelegates: const [
