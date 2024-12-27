@@ -1,5 +1,4 @@
-import 'package:flutter/material.dart';
-import 'app_colors.dart';
+import '../library.dart';
 
 class AppTextStyles {
   static const _defaultFontFamily = 'CourierNew';

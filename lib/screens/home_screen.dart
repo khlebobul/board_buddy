@@ -1,8 +1,4 @@
-import 'package:board_buddy/generated/l10n.dart';
-import 'package:flutter/material.dart';
-import 'package:gen_art_bg/gen_art_bg.dart';
-import 'package:use_scramble/use_scramble.dart';
-import '../theme/app_colors.dart';
+import '../library.dart';
 
 class MyHomePage extends StatefulWidget {
   const MyHomePage({super.key, required this.title});

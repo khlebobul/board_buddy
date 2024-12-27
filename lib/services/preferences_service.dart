@@ -1,4 +1,4 @@
-import 'package:shared_preferences/shared_preferences.dart';
+import '../library.dart';
 
 class PreferencesService {
   static const String _languageKey = 'language_code';
@@ -12,4 +12,4 @@ class PreferencesService {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setString(_languageKey, languageCode);
   }
-} 
+}

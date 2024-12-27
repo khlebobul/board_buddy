@@ -1,6 +1,4 @@
-import 'package:board_buddy/theme/app_colors.dart';
-import 'package:flutter/material.dart';
-import 'package:use_scramble/use_scramble.dart';
+import '../library.dart';
 
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final String leftButtonText;
