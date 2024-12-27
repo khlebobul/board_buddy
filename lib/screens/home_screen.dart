@@ -14,35 +14,28 @@ class MyHomePage extends StatefulWidget {
 }
 
 class _MyHomePageState extends State<MyHomePage> {
+  void _navigateTo(BuildContext context, String routeName) {
+    Navigator.pushNamed(context, routeName);
+  }
+
   @override
   Widget build(BuildContext context) {
     final textTheme = Theme.of(context).textTheme;
 
     final menuItems = [
-      S.of(context).about,
-      S.of(context).games,
-      S.of(context).rules,
-      S.of(context).settings,
+      {'title': S.of(context).about, 'route': '/about'},
+      {'title': S.of(context).games, 'route': '/games'},
+      {'title': S.of(context).rules, 'route': '/rules'},
+      {'title': S.of(context).settings, 'route': '/settings'},
     ];
 
     return Scaffold(
       body: Stack(
         children: [
           Positioned.fill(
-            child:
-                // Still thinking about this one
-                // AsciiCube(
-                //   backgroundColor: AppColors.background,
-                //   textColor: AppColors.ascii,
-                //   animationSpeed: 1.0,
-                //   scale: 0.9,
-                //   showDots: true,
-                //   edgeChars: ['#', '#', '#', '#', '#', '#'],
-                //   dotChar: '%',
-                // ),
-                BubbleField(
+            child: BubbleField(
               backgroundColor: AppColors.background,
-              circleColor: AppColors.ascii.withOpacity(0.3),
+              circleColor: AppColors.secondaryText.withOpacity(0.3),
             ),
           ),
           Positioned.fill(
@@ -62,9 +55,12 @@ class _MyHomePageState extends State<MyHomePage> {
                     ...menuItems.map(
                       (item) => Padding(
                         padding: const EdgeInsets.only(bottom: 25),
-                        child: TextScramble(
-                          text: item,
-                          style: textTheme.displayLarge,
+                        child: GestureDetector(
+                          onTap: () => _navigateTo(context, item['route']!),
+                          child: TextScramble(
+                            text: item['title']!,
+                            style: textTheme.displayLarge,
+                          ),
                         ),
                       ),
                     ),
