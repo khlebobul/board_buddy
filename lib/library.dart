@@ -9,6 +9,7 @@ export 'package:flutter_localizations/flutter_localizations.dart';
 export 'package:use_scramble/use_scramble.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:gen_art_bg/gen_art_bg.dart';
+export 'package:url_launcher/url_launcher.dart';
 
 // theme
 export 'theme/app_colors.dart';
@@ -16,6 +17,7 @@ export 'theme/app_theme.dart';
 
 // widgets
 export 'widgets/custom_app_bar.dart';
+export 'widgets/link_btn.dart';
 
 // screens
 export 'screens/home_screen.dart';

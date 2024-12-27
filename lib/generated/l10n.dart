@@ -109,6 +109,126 @@ class S {
       args: [],
     );
   }
+
+  /// `check my website`
+  String get checkMyWebsite {
+    return Intl.message(
+      'check my website',
+      name: 'checkMyWebsite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `follow me on x (twitter)`
+  String get followMeOnXTwitter {
+    return Intl.message(
+      'follow me on x (twitter)',
+      name: 'followMeOnXTwitter',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `github repository`
+  String get githubRepository {
+    return Intl.message(
+      'github repository',
+      name: 'githubRepository',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `since this is an open-source project, feel free to contribute to it`
+  String get sinceThisIsAnOpenSourceProjectYouCanLeave {
+    return Intl.message(
+      'since this is an open-source project, feel free to contribute to it',
+      name: 'sinceThisIsAnOpenSourceProjectYouCanLeave',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `don't have your favourite game? email me!`
+  String get dontHaveYourFavouriteGameEmailMe {
+    return Intl.message(
+      'don\'t have your favourite game? email me!',
+      name: 'dontHaveYourFavouriteGameEmailMe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `telegram`
+  String get telegram {
+    return Intl.message(
+      'telegram',
+      name: 'telegram',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `project website`
+  String get projectWebsite {
+    return Intl.message(
+      'project website',
+      name: 'projectWebsite',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `rate the app`
+  String get rateTheApp {
+    return Intl.message(
+      'rate the app',
+      name: 'rateTheApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `share with friends`
+  String get shareWithFriends {
+    return Intl.message(
+      'share with friends',
+      name: 'shareWithFriends',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// ` lets you track scores and key moments effortlessly, keeping your focus on the game`
+  String get letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour {
+    return Intl.message(
+      ' lets you track scores and key moments effortlessly, keeping your focus on the game',
+      name: 'letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `hey! my name is gleb`
+  String get heyMyNameIsGleb {
+    return Intl.message(
+      'hey! my name is gleb',
+      name: 'heyMyNameIsGleb',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `email copied`
+  String get emailCopied {
+    return Intl.message(
+      'email copied',
+      name: 'emailCopied',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

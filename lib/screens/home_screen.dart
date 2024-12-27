@@ -32,6 +32,7 @@ class _MyHomePageState extends State<MyHomePage> {
             child: BubbleField(
               backgroundColor: theme.bgColor,
               circleColor: theme.secondaryTextColor.withOpacity(0.3),
+              padding: 3,
             ),
           ),
           Positioned.fill(

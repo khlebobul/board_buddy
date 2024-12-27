@@ -24,7 +24,7 @@ class UIThemes {
         elevation: 0,
       ),
       colorScheme: const ColorScheme.light(
-        primary: LightModeColors.red,
+        primary: Colors.transparent,
         surface: LightModeColors.background,
       ),
     );
@@ -49,7 +49,7 @@ class UIThemes {
         elevation: 0,
       ),
       colorScheme: const ColorScheme.dark(
-        primary: DarkModeColors.red,
+        primary: Colors.transparent,
         surface: DarkModeColors.background,
       ),
     );
@@ -61,6 +61,7 @@ class UIThemes {
 
   bool get isDarkTheme => brightness == Brightness.dark;
 
+  // Text styles
   TextStyle get display1 => TextStyle(
         fontSize: 30,
         fontFamily: 'CourierNew',
@@ -90,6 +91,5 @@ class UIThemes {
       : LightModeColors.secondaryText;
 
   // Red color
-  Color get redColor =>
-      isDarkTheme ? DarkModeColors.red : LightModeColors.red;
+  Color get redColor => isDarkTheme ? DarkModeColors.red : LightModeColors.red;
 }

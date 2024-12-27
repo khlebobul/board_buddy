@@ -4,5 +4,17 @@
   "games": "games",
   "rules": "rules",
   "settings": "settings",
-  "back": "back"
+  "back": "back",
+  "checkMyWebsite": "check my website",
+  "followMeOnXTwitter": "follow me on x (twitter)",
+  "githubRepository": "github repository",
+  "sinceThisIsAnOpenSourceProjectYouCanLeave": "since this is an open-source project, feel free to contribute to it",
+  "dontHaveYourFavouriteGameEmailMe": "don't have your favourite game? email me!",
+  "telegram": "telegram",
+  "projectWebsite": "project website",
+  "rateTheApp": "rate the app",
+  "shareWithFriends": "share with friends",
+  "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour": " lets you track scores and key moments effortlessly, keeping your focus on the game",
+  "heyMyNameIsGleb": "hey! my name is gleb",
+  "emailCopied": "email copied"
 }

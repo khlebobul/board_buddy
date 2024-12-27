@@ -21,24 +21,28 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
       automaticallyImplyLeading: false,
       backgroundColor: theme.bgColor,
       elevation: 0,
-      title: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-        children: [
-          GestureDetector(
-            onTap: onLeftButtonPressed,
-            child: TextScramble(
-              text: leftButtonText,
-              style: theme.display2.copyWith(color: theme.redColor),
+      titleSpacing: 0,
+      title: Padding(
+        padding: const EdgeInsets.symmetric(horizontal: 12),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            GestureDetector(
+              onTap: onLeftButtonPressed,
+              child: TextScramble(
+                text: leftButtonText,
+                style: theme.display2.copyWith(color: theme.redColor),
+              ),
             ),
-          ),
-          GestureDetector(
-            onTap: onRightButtonPressed,
-            child: TextScramble(
-              text: rightButtonText,
-              style: theme.display2.copyWith(color: theme.secondaryTextColor),
+            GestureDetector(
+              onTap: onRightButtonPressed,
+              child: TextScramble(
+                text: rightButtonText,
+                style: theme.display2.copyWith(color: theme.secondaryTextColor),
+              ),
             ),
-          ),
-        ],
+          ],
+        ),
       ),
     );
   }

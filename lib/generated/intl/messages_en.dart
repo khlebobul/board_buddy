@@ -25,8 +25,32 @@ class MessageLookup extends MessageLookupByLibrary {
         "about": MessageLookupByLibrary.simpleMessage("about"),
         "back": MessageLookupByLibrary.simpleMessage("back"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
+        "checkMyWebsite":
+            MessageLookupByLibrary.simpleMessage("check my website"),
+        "dontHaveYourFavouriteGameEmailMe":
+            MessageLookupByLibrary.simpleMessage(
+                "don\'t have your favourite game? email me!"),
+        "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
+        "followMeOnXTwitter":
+            MessageLookupByLibrary.simpleMessage("follow me on x (twitter)"),
         "games": MessageLookupByLibrary.simpleMessage("games"),
+        "githubRepository":
+            MessageLookupByLibrary.simpleMessage("github repository"),
+        "heyMyNameIsGleb":
+            MessageLookupByLibrary.simpleMessage("hey! my name is gleb"),
+        "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
+            MessageLookupByLibrary.simpleMessage(
+                " lets you track scores and key moments effortlessly, keeping your focus on the game"),
+        "projectWebsite":
+            MessageLookupByLibrary.simpleMessage("project website"),
+        "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
         "rules": MessageLookupByLibrary.simpleMessage("rules"),
-        "settings": MessageLookupByLibrary.simpleMessage("settings")
+        "settings": MessageLookupByLibrary.simpleMessage("settings"),
+        "shareWithFriends":
+            MessageLookupByLibrary.simpleMessage("share with friends"),
+        "sinceThisIsAnOpenSourceProjectYouCanLeave":
+            MessageLookupByLibrary.simpleMessage(
+                "since this is an open-source project, feel free to contribute to it"),
+        "telegram": MessageLookupByLibrary.simpleMessage("telegram")
       };
 }
