@@ -46,7 +46,7 @@ class ScrabbleRulesScreen extends StatelessWidget {
                   'комплект игры:',
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(contentText: 'поле 15×15 клеток.'),
+                const BulletPointText(contentText: 'поле 15 на 15 клеток.'),
                 const BulletPointText(
                     contentText: '104 буквы (включая 2 пустышки).'),
                 const BulletPointText(
@@ -113,8 +113,6 @@ class ScrabbleRulesScreen extends StatelessWidget {
                   'конец игры:',
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText: 'игра заканчивается, когда:'),
                 const BulletPointText(
                     pointSimbol: bulletOne,
                     contentText:

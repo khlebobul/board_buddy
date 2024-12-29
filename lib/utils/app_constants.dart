@@ -30,6 +30,7 @@ const feedback = 'feedback';
 const bulletOne = '1. ';
 const bulletTwo = '2. ';
 const bulletThree = '3. ';
+const bulletFour = '4. ';
 const point = '• ';
 
 // rules
@@ -42,3 +43,6 @@ const dosPlayers = '2-4';
 // scrabble
 const scrabbleAge = '10+';
 const scrabblePlayers = '2-4';
+// set
+const setAge = '8+';
+const setPlayers = '2-10';

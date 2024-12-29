@@ -38,6 +38,7 @@ export '../screens/rules/rules_screen.dart';
 export '../screens/rules/uno_rules.dart';
 export '../screens/rules/dos_rules.dart';
 export '../screens/rules/scrabble_rules.dart';
+export '../screens/rules/set_rules.dart';
 
 // others
 export '../services/preferences_service.dart';
