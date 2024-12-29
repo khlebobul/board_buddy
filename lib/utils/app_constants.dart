@@ -35,4 +35,7 @@ const point = '• ';
 // rules
 // uno 
 const unoAge = '7+';
-const unoPlayers = '2 - 10';
+const unoPlayers = '2-10';
+// dos
+const dosAge = '7+';
+const dosPlayers = '2-4';

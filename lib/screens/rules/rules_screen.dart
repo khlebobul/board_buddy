@@ -44,9 +44,17 @@ class RulesScreen extends StatelessWidget {
                 style: theme.display1,
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '04 - ${S.of(context).dos}',
-                style: theme.display1,
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const DosRulesScreen(),
+                  ),
+                ),
+                child: TextScramble(
+                  text: '04 - ${S.of(context).dos}',
+                  style: theme.display1,
+                ),
               ),
               const SizedBox(height: 5),
               TextScramble(
