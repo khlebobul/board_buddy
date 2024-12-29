@@ -25,14 +25,17 @@ export '../theme/app_theme.dart';
 export '../widgets/custom_app_bar.dart';
 export '../widgets/link_btn.dart';
 export '../widgets/add_favourite_game.dart';
+export '../widgets/bullet_poit_text.dart';
 
 // screens
 export '../screens/home_screen.dart';
 export '../screens/about_screen.dart';
 export '../screens/games_screen.dart';
-export '../screens/rules_screen.dart';
 export '../screens/settings_screen.dart';
 export '../screens/splash_screen.dart';
+// rules
+export '../screens/rules/rules_screen.dart';
+export '../screens/rules/uno_rules.dart';
 
 // others
 export '../services/preferences_service.dart';

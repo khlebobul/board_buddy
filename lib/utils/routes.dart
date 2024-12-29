@@ -1,4 +1,4 @@
-import './library.dart';
+import 'library.dart';
 
 class AppRoutes {
   static const String about = '/about';

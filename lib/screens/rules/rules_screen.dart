@@ -1,4 +1,4 @@
-import '../utils/library.dart';
+import '../../utils/library.dart';
 
 class RulesScreen extends StatelessWidget {
   const RulesScreen({super.key});
@@ -21,9 +21,17 @@ class RulesScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextScramble(
-                text: '01 - ${S.of(context).uno}',
-                style: theme.display1,
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const UnoRulesScreen(),
+                  ),
+                ),
+                child: TextScramble(
+                  text: '01 - ${S.of(context).uno}',
+                  style: theme.display1,
+                ),
               ),
               const SizedBox(height: 5),
               TextScramble(

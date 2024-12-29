@@ -25,3 +25,14 @@ const gameRequest = 'game request';
 const bug = 'bug';
 const feature = 'feature';
 const feedback = 'feedback';
+
+// bullet points
+const bulletOne = '1. ';
+const bulletTwo = '2. ';
+const bulletThree = '3. ';
+const point = '• ';
+
+// rules
+// uno 
+const unoAge = '7+';
+const unoPlayers = '2 - 10';
