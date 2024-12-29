@@ -40,40 +40,44 @@ class SettingsScreenState extends State<SettingsScreen> {
         rightButtonText: S.of(context).settings,
         onRightButtonPressed: () {},
       ),
-      body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12) +
-            const EdgeInsets.only(top: 12),
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.start,
-          crossAxisAlignment: CrossAxisAlignment.start,
-          children: [
-            Text(
-              S.of(context).languages,
-              style: theme.display2.copyWith(color: theme.secondaryTextColor),
-            ),
-            _buildLanguageOption(context, 'english', 'en'),
-            _buildLanguageOption(context, 'russian', 'ru'),
-            const SizedBox(height: 12),
-            Text(
-              S.of(context).others,
-              style: theme.display2.copyWith(color: theme.secondaryTextColor),
-            ),
-            _buildMailOption(
-              context,
-              S.of(context).reportABug,
-              bug,
-            ),
-            _buildMailOption(
-              context,
-              S.of(context).shareFeedback,
-              feedback,
-            ),
-            _buildMailOption(
-              context,
-              S.of(context).featureRequest,
-              feature,
-            ),
-          ],
+      body: SafeArea(
+        child: Padding(
+          padding: const EdgeInsets.symmetric(horizontal: 12) +
+              const EdgeInsets.only(top: 12),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.start,
+            crossAxisAlignment: CrossAxisAlignment.start,
+            children: [
+              Text(
+                S.of(context).languages,
+                style: theme.display2.copyWith(color: theme.secondaryTextColor),
+              ),
+              _buildLanguageOption(context, 'english', 'en'),
+              _buildLanguageOption(context, 'russian', 'ru'),
+              const SizedBox(height: 12),
+              Text(
+                S.of(context).others,
+                style: theme.display2.copyWith(color: theme.secondaryTextColor),
+              ),
+              _buildMailOption(
+                context,
+                S.of(context).reportABug,
+                bug,
+              ),
+              _buildMailOption(
+                context,
+                S.of(context).shareFeedback,
+                feedback,
+              ),
+              _buildMailOption(
+                context,
+                S.of(context).featureRequest,
+                feature,
+              ),
+              const Spacer(),
+              const AddFavouriteGame(),
+            ],
+          ),
         ),
       ),
     );
@@ -105,7 +109,7 @@ class SettingsScreenState extends State<SettingsScreen> {
   Widget _buildMailOption(BuildContext context, String label, String subject) {
     final theme = UIThemes.of(context);
     return GestureDetector(
-      onTap: () => _sendEmail(context, subject),
+      onTap: () => sendEmail(context, email, subject),
       child: Padding(
         padding: const EdgeInsets.only(left: 14),
         child: TextScramble(
@@ -113,27 +117,6 @@ class SettingsScreenState extends State<SettingsScreen> {
           style: theme.display2,
         ),
       ),
-    );
-  }
-}
-
-Future<void> _sendEmail(BuildContext context, String subject) async {
-  final Uri emailLaunchUri = Uri(
-    scheme: 'mailto',
-    path: 'khlebobul@gmail.com',
-    queryParameters: {
-      'subject': subject,
-    },
-  );
-
-  if (await canLaunchUrl(emailLaunchUri)) {
-    await launchUrl(emailLaunchUri);
-  } else {
-    await Clipboard.setData(const ClipboardData(text: email));
-    // ignore: use_build_context_synchronously
-    ScaffoldMessenger.of(context).showSnackBar(
-      // ignore: use_build_context_synchronously
-      SnackBar(content: Text(S.of(context).emailCopied)),
     );
   }
 }

@@ -12,8 +12,9 @@ export 'package:shared_preferences/shared_preferences.dart';
 export 'package:gen_art_bg/gen_art_bg.dart';
 export 'package:url_launcher/url_launcher.dart';
 
-// constants
+// utils
 export 'utils/app_constants.dart';
+export 'utils/useful_methods.dart';
 
 // theme
 export 'theme/app_colors.dart';
@@ -22,6 +23,7 @@ export 'theme/app_theme.dart';
 // widgets
 export 'widgets/custom_app_bar.dart';
 export 'widgets/link_btn.dart';
+export 'widgets/add_favourite_game.dart';
 
 // screens
 export 'screens/home_screen.dart';
