@@ -47,9 +47,17 @@ class RulesScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '03 - ${S.of(context).unoFlip}',
-                style: theme.display1,
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const UnoFlipRulesScreen(),
+                  ),
+                ),
+                child: TextScramble(
+                  text: '03 - ${S.of(context).unoFlip}',
+                  style: theme.display1,
+                ),
               ),
               const SizedBox(height: 5),
               GestureDetector(

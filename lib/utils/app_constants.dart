@@ -46,3 +46,6 @@ const scrabblePlayers = '2-4';
 // set
 const setAge = '8+';
 const setPlayers = '2-10';
+// uno flip
+const unoFlipAge = '7+';
+const unoFlipPlayers = '2-10';
