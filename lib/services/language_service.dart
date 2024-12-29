@@ -1,4 +1,4 @@
-import '../library.dart';
+import '../utils/library.dart';
 
 class LanguageService {
   static void changeLanguage(BuildContext context, String languageCode) {

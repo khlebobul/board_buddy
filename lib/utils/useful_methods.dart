@@ -1,4 +1,4 @@
-import '../library.dart';
+import 'library.dart';
 
 // send email
 Future<void> sendEmail(

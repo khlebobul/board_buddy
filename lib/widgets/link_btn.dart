@@ -1,4 +1,4 @@
-import '../library.dart';
+import '../utils/library.dart';
 
 class LinkBtnWidget extends StatelessWidget {
   final String text;

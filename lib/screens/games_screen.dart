@@ -1,4 +1,4 @@
-import '../library.dart';
+import '../utils/library.dart';
 
 class GamesScreen extends StatelessWidget {
   const GamesScreen({super.key});

@@ -1,4 +1,4 @@
-import '../library.dart';
+import '../utils/library.dart';
 
 class LightModeColors {
   static const Color red = Color(0xffFE0000);

@@ -1,4 +1,4 @@
-import '../library.dart';
+import '../utils/library.dart';
 
 class UIThemes {
   final Brightness brightness;

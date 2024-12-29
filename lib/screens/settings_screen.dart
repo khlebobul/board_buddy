@@ -1,4 +1,4 @@
-import '../library.dart';
+import '../utils/library.dart';
 
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});

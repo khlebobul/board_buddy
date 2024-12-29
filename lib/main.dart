@@ -1,4 +1,4 @@
-import 'library.dart';
+import 'utils/library.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
@@ -23,12 +23,7 @@ class MyApp extends StatelessWidget {
           return Container();
         } else {
           return MaterialApp(
-            routes: {
-              '/about': (context) => const AboutScreen(),
-              '/games': (context) => const GamesScreen(),
-              '/rules': (context) => const RulesScreen(),
-              '/settings': (context) => const SettingsScreen(),
-            },
+            routes: AppRoutes.routes,
             debugShowCheckedModeBanner: false,
             theme: UIThemes.lightTheme(),
             home: const SplashScreen(),

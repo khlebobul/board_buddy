@@ -1,4 +1,4 @@
-import '../library.dart';
+import '../utils/library.dart';
 
 class AddFavouriteGame extends StatelessWidget {
   const AddFavouriteGame({

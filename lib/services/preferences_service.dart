@@ -1,4 +1,4 @@
-import '../library.dart';
+import '../utils/library.dart';
 
 class PreferencesService {
   static const String _languageKey = 'language_code';
