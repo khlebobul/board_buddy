@@ -1,5 +1,5 @@
 // DO NOT EDIT. This is code generated via package:intl/generate_localized.dart
-// This is a library that provides messages for a en locale. All the
+// This is a library that provides messages for a ru locale. All the
 // messages from the main program should be duplicated here with the same
 // function name.
 
@@ -18,45 +18,46 @@ final messages = new MessageLookup();
 typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 
 class MessageLookup extends MessageLookupByLibrary {
-  String get localeName => 'en';
+  String get localeName => 'ru';
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-        "about": MessageLookupByLibrary.simpleMessage("about"),
-        "back": MessageLookupByLibrary.simpleMessage("back"),
+        "about": MessageLookupByLibrary.simpleMessage("о проекте"),
+        "back": MessageLookupByLibrary.simpleMessage("назад"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
         "checkMyWebsite":
-            MessageLookupByLibrary.simpleMessage("check my website"),
+            MessageLookupByLibrary.simpleMessage("посетите мой сайт"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
-                "don\'t have your favourite game? email me!"),
-        "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
+                "нет вашей любимой игры? напишите мне!"),
+        "emailCopied": MessageLookupByLibrary.simpleMessage(
+            "электронная почта скопирована"),
         "featureRequest":
             MessageLookupByLibrary.simpleMessage("feature request"),
-        "followMeOnXTwitter":
-            MessageLookupByLibrary.simpleMessage("follow me on x (twitter)"),
-        "games": MessageLookupByLibrary.simpleMessage("games"),
+        "followMeOnXTwitter": MessageLookupByLibrary.simpleMessage(
+            "подписывайтесь на меня в x (twitter)"),
+        "games": MessageLookupByLibrary.simpleMessage("игры"),
         "githubRepository":
-            MessageLookupByLibrary.simpleMessage("github repository"),
+            MessageLookupByLibrary.simpleMessage("репозиторий github"),
         "heyMyNameIsGleb":
-            MessageLookupByLibrary.simpleMessage("hey! my name is gleb"),
+            MessageLookupByLibrary.simpleMessage("привет! меня зовут глеб"),
         "languages": MessageLookupByLibrary.simpleMessage("languages"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
-                " lets you track scores and key moments effortlessly, keeping your focus on the game"),
+                "позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
         "others": MessageLookupByLibrary.simpleMessage("others"),
-        "projectWebsite":
-            MessageLookupByLibrary.simpleMessage("project website"),
-        "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
+        "projectWebsite": MessageLookupByLibrary.simpleMessage("сайт проекта"),
+        "rateTheApp":
+            MessageLookupByLibrary.simpleMessage("оцените приложение"),
         "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
-        "rules": MessageLookupByLibrary.simpleMessage("rules"),
-        "settings": MessageLookupByLibrary.simpleMessage("settings"),
+        "rules": MessageLookupByLibrary.simpleMessage("правила"),
+        "settings": MessageLookupByLibrary.simpleMessage("настройки"),
         "shareFeedback": MessageLookupByLibrary.simpleMessage("share feedback"),
         "shareWithFriends":
-            MessageLookupByLibrary.simpleMessage("share with friends"),
+            MessageLookupByLibrary.simpleMessage("поделитесь с друзьями"),
         "sinceThisIsAnOpenSourceProjectYouCanLeave":
             MessageLookupByLibrary.simpleMessage(
-                "since this is an open-source project, feel free to contribute to it"),
-        "telegram": MessageLookupByLibrary.simpleMessage("telegram")
+                "так как это проект с открытым исходным кодом, вы можете внести свой вклад"),
+        "telegram": MessageLookupByLibrary.simpleMessage("телеграм")
       };
 }

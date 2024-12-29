@@ -16,5 +16,10 @@
   "shareWithFriends": "share with friends",
   "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour": " lets you track scores and key moments effortlessly, keeping your focus on the game",
   "heyMyNameIsGleb": "hey! my name is gleb",
-  "emailCopied": "email copied"
+  "emailCopied": "email copied",
+  "languages": "languages",
+  "reportABug": "report a bug",
+  "shareFeedback": "share feedback",
+  "featureRequest": "feature request",
+  "others": "others"
 }

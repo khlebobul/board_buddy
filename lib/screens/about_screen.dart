@@ -3,22 +3,6 @@ import '../library.dart';
 class AboutScreen extends StatelessWidget {
   const AboutScreen({super.key});
 
-  static const link = 'https://khlebobul.github.io';
-  static const myWebSitelink = 'https://khlebobul.github.io';
-  static const telegramLink = 'https://t.me/khlebobul_dev';
-  static const xLink = 'https://twitter.com/khlebobul';
-  static const githubLink = 'https://github.com/khlebobul/board_buddy';
-  static const webSitelink = 'https://boardbuddyapp.vercel.app';
-
-  static const email = 'khlebobul@gmail.com';
-  static const appName = 'board buddy';
-
-  // TODO fix rate link
-  static const rateAppStore =
-      'https://itunes.apple.com/app/id6737812039?action=write-review';
-  static const rateGooglePlay =
-      'https://play.google.com/store/apps/details?hl=ru&gl=ru&id=com.khlebobul.knights_graph';
-
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
@@ -77,12 +61,13 @@ class AboutScreen extends StatelessWidget {
                 url: telegramLink,
               ),
               const SizedBox(height: 10),
+              // TODO make separate widget
               Text(
                 S.of(context).dontHaveYourFavouriteGameEmailMe,
                 style: theme.display2.copyWith(color: theme.secondaryTextColor),
               ),
               GestureDetector(
-                onTap: () => _sendEmail(context, 'game request'),
+                onTap: () => _sendEmail(context, gameRequest),
                 child: Text(
                   email,
                   style: theme.display2.copyWith(
@@ -128,7 +113,7 @@ Future<void> _sendEmail(BuildContext context, String subject) async {
   if (await canLaunchUrl(emailLaunchUri)) {
     await launchUrl(emailLaunchUri);
   } else {
-    await Clipboard.setData(const ClipboardData(text: AboutScreen.email));
+    await Clipboard.setData(const ClipboardData(text: email));
     // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
       // ignore: use_build_context_synchronously

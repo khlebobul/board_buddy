@@ -229,6 +229,56 @@ class S {
       args: [],
     );
   }
+
+  /// `languages`
+  String get languages {
+    return Intl.message(
+      'languages',
+      name: 'languages',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `report a bug`
+  String get reportABug {
+    return Intl.message(
+      'report a bug',
+      name: 'reportABug',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `share feedback`
+  String get shareFeedback {
+    return Intl.message(
+      'share feedback',
+      name: 'shareFeedback',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `feature request`
+  String get featureRequest {
+    return Intl.message(
+      'feature request',
+      name: 'featureRequest',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `others`
+  String get others {
+    return Intl.message(
+      'others',
+      name: 'others',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -237,6 +287,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'ru'),
     ];
   }
 
