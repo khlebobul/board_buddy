@@ -5,8 +5,8 @@
   "rules": "правила",
   "settings": "настройки",
   "back": "назад",
-  "checkMyWebsite": "посетите мой сайт",
-  "followMeOnXTwitter": "подписывайтесь на меня в x (twitter)",
+  "checkMyWebsite": "мой сайт",
+  "followMeOnXTwitter": "мой x (twitter)",
   "githubRepository": "репозиторий github",
   "sinceThisIsAnOpenSourceProjectYouCanLeave": "так как это проект с открытым исходным кодом, вы можете внести свой вклад",
   "dontHaveYourFavouriteGameEmailMe": "нет вашей любимой игры? напишите мне!",
@@ -17,9 +17,11 @@
   "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour": "позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре",
   "heyMyNameIsGleb": "привет! меня зовут глеб",
   "emailCopied": "электронная почта скопирована",
-  "languages": "languages",
-  "reportABug": "report a bug",
-  "shareFeedback": "share feedback",
-  "featureRequest": "feature request",
-  "others": "others"
+  "languages": "языки",
+  "reportABug": "сообщить об ошибке",
+  "shareFeedback": "обратная связь",
+  "featureRequest": "новый функционал",
+  "others": "другое",
+  "english": "англиский",
+  "russian": "русский"
 }

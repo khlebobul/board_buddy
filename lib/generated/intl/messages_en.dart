@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "don\'t have your favourite game? email me!"),
         "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
+        "english": MessageLookupByLibrary.simpleMessage("english"),
         "featureRequest":
             MessageLookupByLibrary.simpleMessage("feature request"),
         "followMeOnXTwitter":
@@ -50,6 +51,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
         "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
         "rules": MessageLookupByLibrary.simpleMessage("rules"),
+        "russian": MessageLookupByLibrary.simpleMessage("russian"),
         "settings": MessageLookupByLibrary.simpleMessage("settings"),
         "shareFeedback": MessageLookupByLibrary.simpleMessage("share feedback"),
         "shareWithFriends":

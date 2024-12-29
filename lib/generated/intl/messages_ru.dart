@@ -25,34 +25,36 @@ class MessageLookup extends MessageLookupByLibrary {
         "about": MessageLookupByLibrary.simpleMessage("о проекте"),
         "back": MessageLookupByLibrary.simpleMessage("назад"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
-        "checkMyWebsite":
-            MessageLookupByLibrary.simpleMessage("посетите мой сайт"),
+        "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
                 "нет вашей любимой игры? напишите мне!"),
         "emailCopied": MessageLookupByLibrary.simpleMessage(
             "электронная почта скопирована"),
+        "english": MessageLookupByLibrary.simpleMessage("англиский"),
         "featureRequest":
-            MessageLookupByLibrary.simpleMessage("feature request"),
-        "followMeOnXTwitter": MessageLookupByLibrary.simpleMessage(
-            "подписывайтесь на меня в x (twitter)"),
+            MessageLookupByLibrary.simpleMessage("новый функционал"),
+        "followMeOnXTwitter":
+            MessageLookupByLibrary.simpleMessage("мой x (twitter)"),
         "games": MessageLookupByLibrary.simpleMessage("игры"),
         "githubRepository":
             MessageLookupByLibrary.simpleMessage("репозиторий github"),
         "heyMyNameIsGleb":
             MessageLookupByLibrary.simpleMessage("привет! меня зовут глеб"),
-        "languages": MessageLookupByLibrary.simpleMessage("languages"),
+        "languages": MessageLookupByLibrary.simpleMessage("языки"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 "позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
-        "others": MessageLookupByLibrary.simpleMessage("others"),
+        "others": MessageLookupByLibrary.simpleMessage("другое"),
         "projectWebsite": MessageLookupByLibrary.simpleMessage("сайт проекта"),
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("оцените приложение"),
-        "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
+        "reportABug":
+            MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
         "rules": MessageLookupByLibrary.simpleMessage("правила"),
+        "russian": MessageLookupByLibrary.simpleMessage("русский"),
         "settings": MessageLookupByLibrary.simpleMessage("настройки"),
-        "shareFeedback": MessageLookupByLibrary.simpleMessage("share feedback"),
+        "shareFeedback": MessageLookupByLibrary.simpleMessage("обратная связь"),
         "shareWithFriends":
             MessageLookupByLibrary.simpleMessage("поделитесь с друзьями"),
         "sinceThisIsAnOpenSourceProjectYouCanLeave":

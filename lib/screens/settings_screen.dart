@@ -52,8 +52,8 @@ class SettingsScreenState extends State<SettingsScreen> {
                 S.of(context).languages,
                 style: theme.display2.copyWith(color: theme.secondaryTextColor),
               ),
-              _buildLanguageOption(context, 'english', 'en'),
-              _buildLanguageOption(context, 'russian', 'ru'),
+              _buildLanguageOption(context, S.of(context).english, 'en'),
+              _buildLanguageOption(context, S.of(context).russian, 'ru'),
               const SizedBox(height: 12),
               Text(
                 S.of(context).others,
@@ -87,7 +87,10 @@ class SettingsScreenState extends State<SettingsScreen> {
       BuildContext context, String languageName, String languageCode) {
     final theme = UIThemes.of(context);
     return GestureDetector(
-      onTap: () => _changeLanguage(languageCode),
+      onTap: () {
+        _changeLanguage(languageCode);
+        LanguageService.changeLanguage(context, languageCode);
+      },
       child: Row(
         children: [
           CircleAvatar(

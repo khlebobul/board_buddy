@@ -36,8 +36,8 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             GestureDetector(
               onTap: onRightButtonPressed,
-              child: TextScramble(
-                text: rightButtonText,
+              child: Text(
+                rightButtonText,
                 style: theme.display2.copyWith(color: theme.secondaryTextColor),
               ),
             ),

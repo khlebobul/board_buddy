@@ -21,5 +21,7 @@
   "reportABug": "report a bug",
   "shareFeedback": "share feedback",
   "featureRequest": "feature request",
-  "others": "others"
+  "others": "others",
+  "english": "english",
+  "russian": "russian"
 }
