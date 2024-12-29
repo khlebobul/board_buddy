@@ -34,9 +34,17 @@ class RulesScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '02 - ${S.of(context).scrabble}',
-                style: theme.display1,
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const ScrabbleRulesScreen(),
+                  ),
+                ),
+                child: TextScramble(
+                  text: '02 - ${S.of(context).scrabble}',
+                  style: theme.display1,
+                ),
               ),
               const SizedBox(height: 5),
               TextScramble(

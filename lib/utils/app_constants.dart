@@ -39,3 +39,6 @@ const unoPlayers = '2-10';
 // dos
 const dosAge = '7+';
 const dosPlayers = '2-4';
+// scrabble
+const scrabbleAge = '10+';
+const scrabblePlayers = '2-4';
