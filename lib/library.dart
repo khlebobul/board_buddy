@@ -2,6 +2,7 @@ library path;
 
 export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
+export 'dart:io';
 
 // packages
 export 'generated/l10n.dart';

@@ -7,9 +7,17 @@ class AboutScreen extends StatelessWidget {
   static const myWebSitelink = 'https://khlebobul.github.io';
   static const telegramLink = 'https://t.me/khlebobul_dev';
   static const xLink = 'https://twitter.com/khlebobul';
+  static const githubLink = 'https://github.com/khlebobul/board_buddy';
+  static const webSitelink = 'https://boardbuddyapp.vercel.app';
 
   static const email = 'khlebobul@gmail.com';
   static const appName = 'board buddy';
+
+  // TODO fix rate link
+  static const rateAppStore =
+      'https://itunes.apple.com/app/id6737812039?action=write-review';
+  static const rateGooglePlay =
+      'https://play.google.com/store/apps/details?hl=ru&gl=ru&id=com.khlebobul.knights_graph';
 
   @override
   Widget build(BuildContext context) {
@@ -56,20 +64,13 @@ class AboutScreen extends StatelessWidget {
                 overflow: TextOverflow.clip,
               ),
               const SizedBox(height: 10),
-              // TODO add share link
-              LinkBtnWidget(
-                text: S.of(context).shareWithFriends,
-                url: link,
-              ),
-              // TODO add rate link
               LinkBtnWidget(
                 text: S.of(context).rateTheApp,
-                url: link,
+                url: Platform.isIOS ? rateAppStore : rateGooglePlay,
               ),
-              // TODO add project website link
               LinkBtnWidget(
                 text: S.of(context).projectWebsite,
-                url: link,
+                url: webSitelink,
               ),
               LinkBtnWidget(
                 text: S.of(context).telegram,
@@ -94,10 +95,9 @@ class AboutScreen extends StatelessWidget {
                 S.of(context).sinceThisIsAnOpenSourceProjectYouCanLeave,
                 style: theme.display2.copyWith(color: theme.secondaryTextColor),
               ),
-              // TODO add github link
               LinkBtnWidget(
                 text: S.of(context).githubRepository,
-                url: link,
+                url: githubLink,
               ),
               const SizedBox(height: 10),
               LinkBtnWidget(
@@ -131,8 +131,8 @@ Future<void> _sendEmail(BuildContext context, String subject) async {
     await Clipboard.setData(const ClipboardData(text: AboutScreen.email));
     // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
-       // ignore: use_build_context_synchronously
-       SnackBar(content: Text(S.of(context).emailCopied)),
+      // ignore: use_build_context_synchronously
+      SnackBar(content: Text(S.of(context).emailCopied)),
     );
   }
 }

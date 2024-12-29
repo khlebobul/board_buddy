@@ -16,7 +16,9 @@ class LinkBtnWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         final uri = Uri.parse(url);
-        if (uri.toString().isNotEmpty) {
+        if (uri.toString().isNotEmpty &&
+            uri.hasScheme &&
+            (uri.scheme == 'http' || uri.scheme == 'https')) {
           await launchUrl(uri);
         } else {
           // ignore: use_build_context_synchronously
