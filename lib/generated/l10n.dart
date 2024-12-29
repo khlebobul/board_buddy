@@ -299,6 +299,66 @@ class S {
       args: [],
     );
   }
+
+  /// `uno`
+  String get uno {
+    return Intl.message(
+      'uno',
+      name: 'uno',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `scrabble`
+  String get scrabble {
+    return Intl.message(
+      'scrabble',
+      name: 'scrabble',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `uno flip`
+  String get unoFlip {
+    return Intl.message(
+      'uno flip',
+      name: 'unoFlip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `dos`
+  String get dos {
+    return Intl.message(
+      'dos',
+      name: 'dos',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `set`
+  String get set {
+    return Intl.message(
+      'set',
+      name: 'set',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `munchkin`
+  String get munchkin {
+    return Intl.message(
+      'munchkin',
+      name: 'munchkin',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

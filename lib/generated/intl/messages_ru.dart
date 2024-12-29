@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
                 "нет вашей любимой игры? напишите мне!"),
+        "dos": MessageLookupByLibrary.simpleMessage("dos"),
         "emailCopied": MessageLookupByLibrary.simpleMessage(
             "электронная почта скопирована"),
         "english": MessageLookupByLibrary.simpleMessage("англиский"),
@@ -45,6 +46,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
+        "munchkin": MessageLookupByLibrary.simpleMessage("манчкин"),
         "others": MessageLookupByLibrary.simpleMessage("другое"),
         "projectWebsite": MessageLookupByLibrary.simpleMessage("сайт проекта"),
         "rateTheApp":
@@ -53,6 +55,8 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
         "rules": MessageLookupByLibrary.simpleMessage("правила"),
         "russian": MessageLookupByLibrary.simpleMessage("русский"),
+        "scrabble": MessageLookupByLibrary.simpleMessage("скраббл"),
+        "set": MessageLookupByLibrary.simpleMessage("set"),
         "settings": MessageLookupByLibrary.simpleMessage("настройки"),
         "shareFeedback": MessageLookupByLibrary.simpleMessage("обратная связь"),
         "shareWithFriends":
@@ -60,6 +64,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "sinceThisIsAnOpenSourceProjectYouCanLeave":
             MessageLookupByLibrary.simpleMessage(
                 "так как это проект с открытым исходным кодом, вы можете внести свой вклад"),
-        "telegram": MessageLookupByLibrary.simpleMessage("телеграм")
+        "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
+        "uno": MessageLookupByLibrary.simpleMessage("uno"),
+        "unoFlip": MessageLookupByLibrary.simpleMessage("uno flip")
       };
 }

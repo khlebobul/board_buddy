@@ -8,10 +8,11 @@ class AboutScreen extends StatelessWidget {
     final theme = UIThemes.of(context);
     return Scaffold(
       appBar: CustomAppBar(
-          leftButtonText: S.of(context).back,
-          onLeftButtonPressed: () => Navigator.pop(context),
-          rightButtonText: S.of(context).about,
-          onRightButtonPressed: () {}),
+        leftButtonText: S.of(context).back,
+        onLeftButtonPressed: () => Navigator.pop(context),
+        rightButtonText: S.of(context).about,
+        onRightButtonPressed: () {},
+      ),
       body: SafeArea(
         child: SingleChildScrollView(
           child: Padding(

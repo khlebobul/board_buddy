@@ -23,5 +23,11 @@
   "featureRequest": "новый функционал",
   "others": "другое",
   "english": "англиский",
-  "russian": "русский"
+  "russian": "русский",
+  "uno": "uno",
+  "scrabble": "скраббл",
+  "unoFlip": "uno flip",
+  "dos": "dos",
+  "set": "set",
+  "munchkin": "манчкин"
 }

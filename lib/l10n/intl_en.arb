@@ -23,5 +23,11 @@
   "featureRequest": "feature request",
   "others": "others",
   "english": "english",
-  "russian": "russian"
+  "russian": "russian",
+  "uno": "uno",
+  "scrabble": "scrabble",
+  "unoFlip": "uno flip",
+  "dos": "dos",
+  "set": "set",
+  "munchkin": "munchkin"
 }

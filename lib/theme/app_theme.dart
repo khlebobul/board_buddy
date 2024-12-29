@@ -66,16 +66,12 @@ class UIThemes {
         fontSize: 30,
         fontFamily: 'CourierNew',
         color: textColor,
-        // fontWeight: FontWeight.w700,
-        // height: 1.2,
       );
 
   TextStyle get display2 => TextStyle(
         fontSize: 20,
         fontFamily: 'CourierNew',
         color: textColor,
-        // fontWeight: FontWeight.w700,
-        // height: 1.2,
       );
 
   // Colors
