@@ -44,7 +44,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "languages": MessageLookupByLibrary.simpleMessage("языки"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
-                "позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
+                " позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
         "others": MessageLookupByLibrary.simpleMessage("другое"),
         "projectWebsite": MessageLookupByLibrary.simpleMessage("сайт проекта"),
         "rateTheApp":

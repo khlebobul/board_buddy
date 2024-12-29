@@ -31,7 +31,6 @@ class MyApp extends StatelessWidget {
             },
             debugShowCheckedModeBanner: false,
             theme: UIThemes.lightTheme(),
-            //home: const MyHomePage(title: 'Board Buddy'),
             home: const SplashScreen(),
             locale: Locale(snapshot.data ?? 'en'),
             localizationsDelegates: const [
