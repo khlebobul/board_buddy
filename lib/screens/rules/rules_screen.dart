@@ -86,9 +86,17 @@ class RulesScreen extends StatelessWidget {
                 ),
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '06 - ${S.of(context).munchkin}',
-                style: theme.display1,
+              GestureDetector(
+                onTap: () => Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => const MunchkinRulesScreen(),
+                  ),
+                ),
+                child: TextScramble(
+                  text: '06 - ${S.of(context).munchkin}',
+                  style: theme.display1,
+                ),
               ),
               const Spacer(),
               const AddFavouriteGame(),

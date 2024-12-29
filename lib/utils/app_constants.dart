@@ -31,10 +31,11 @@ const bulletOne = '1. ';
 const bulletTwo = '2. ';
 const bulletThree = '3. ';
 const bulletFour = '4. ';
-const point = '• ';
+const pointOne = '• ';
+const pointTwo = '◦ ';
 
 // rules
-// uno 
+// uno
 const unoAge = '7+';
 const unoPlayers = '2-10';
 // dos
@@ -49,3 +50,6 @@ const setPlayers = '2-10';
 // uno flip
 const unoFlipAge = '7+';
 const unoFlipPlayers = '2-10';
+// munchkin
+const munchkinAge = '12+';
+const munchkinPlayers = '3-6';

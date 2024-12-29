@@ -7,7 +7,7 @@ class BulletPointText extends StatelessWidget {
   const BulletPointText({
     super.key,
     required this.contentText,
-    this.pointSimbol = point,
+    this.pointSimbol = pointOne,
   });
 
   @override
