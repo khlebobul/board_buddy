@@ -85,8 +85,6 @@ flutter:
       fonts:
         - asset: assets/fonts/courier_new.ttf
           weight: 400
-        # - asset: assets/fonts/courier_new_bold.ttf
-        # - asset: assets/fonts/courier_new_italic.ttf
   # For details regarding fonts from package dependencies,
   # see https://flutter.dev/to/font-from-package
 flutter_intl:

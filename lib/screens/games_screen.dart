@@ -22,33 +22,38 @@ class GamesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               TextScramble(
+                text: '00 - ${S.of(context).common}',
+                style: theme.display3.copyWith(color: theme.secondaryTextColor),
+              ),
+              const SizedBox(height: 5),
+              TextScramble(
                 text: '01 - ${S.of(context).uno}',
-                style: theme.display1,
+                style: theme.display3,
               ),
               const SizedBox(height: 5),
               TextScramble(
                 text: '02 - ${S.of(context).scrabble}',
-                style: theme.display1,
+                style: theme.display3,
               ),
               const SizedBox(height: 5),
               TextScramble(
                 text: '03 - ${S.of(context).unoFlip}',
-                style: theme.display1,
+                style: theme.display3,
               ),
               const SizedBox(height: 5),
               TextScramble(
                 text: '04 - ${S.of(context).dos}',
-                style: theme.display1,
+                style: theme.display3,
               ),
               const SizedBox(height: 5),
               TextScramble(
                 text: '05 - ${S.of(context).set}',
-                style: theme.display1,
+                style: theme.display3,
               ),
               const SizedBox(height: 5),
               TextScramble(
                 text: '06 - ${S.of(context).munchkin}',
-                style: theme.display1,
+                style: theme.display3,
               ),
               const Spacer(),
               const AddFavouriteGame(),

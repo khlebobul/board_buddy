@@ -359,6 +359,16 @@ class S {
       args: [],
     );
   }
+
+  /// `common`
+  String get common {
+    return Intl.message(
+      'common',
+      name: 'common',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

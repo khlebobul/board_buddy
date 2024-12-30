@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
         "checkMyWebsite":
             MessageLookupByLibrary.simpleMessage("check my website"),
+        "common": MessageLookupByLibrary.simpleMessage("common"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
                 "don\'t have your favourite game? email me!"),

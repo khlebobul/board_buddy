@@ -61,15 +61,24 @@ class UIThemes {
 
   bool get isDarkTheme => brightness == Brightness.dark;
 
-  // Text styles
+  // text styles
+  // main menu
   TextStyle get display1 => TextStyle(
         fontSize: 30,
         fontFamily: 'CourierNew',
         color: textColor,
       );
 
+  // basic text
   TextStyle get display2 => TextStyle(
         fontSize: 20,
+        fontFamily: 'CourierNew',
+        color: textColor,
+      );
+
+  // rules and games screen
+  TextStyle get display3 => TextStyle(
+        fontSize: 27,
         fontFamily: 'CourierNew',
         color: textColor,
       );

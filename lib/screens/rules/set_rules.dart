@@ -46,8 +46,10 @@ class SetRulesScreen extends StatelessWidget {
                   'признаки карт:',
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText: 'каждая карта уникальна и имеет 4 признака:'),
+                Text(
+                  'каждая карта уникальна и имеет 4 признака:',
+                  style: theme.display2,
+                ),
                 const BulletPointText(
                     pointSimbol: bulletOne,
                     contentText: 'количество символов: 1, 2 или 3.'),
@@ -73,7 +75,7 @@ class SetRulesScreen extends StatelessWidget {
                 const BulletPointText(
                     pointSimbol: bulletTwo,
                     contentText:
-                        'игроки одновременно ищут сет. кто первым находит, объявляет: "сет!".'),
+                        'игроки одновременно ищут сет. кто первым находит, объявляет: «сет!».'),
                 const BulletPointText(
                     pointSimbol: bulletThree,
                     contentText:
@@ -87,14 +89,14 @@ class SetRulesScreen extends StatelessWidget {
                 ),
                 const BulletPointText(
                     contentText:
-                        'признак "цвет": разный (красный, зеленый, фиолетовый).'),
+                        'признак «цвет»: разный (красный, зеленый, фиолетовый).'),
                 const BulletPointText(
-                    contentText: 'признак "количество": одинаковый (два).'),
+                    contentText: 'признак «количество»: одинаковый (два).'),
                 const BulletPointText(
-                    contentText: 'признак "тип": разный (овал, ромб, волна).'),
+                    contentText: 'признак «тип»: разный (овал, ромб, волна).'),
                 const BulletPointText(
                     contentText:
-                        'признак "заполнение": одинаковое (заштрихованное).'),
+                        'признак «заполнение»: одинаковое (заштрихованное).'),
                 const SizedBox(height: 15),
                 Text(
                   'что делать, если сет не найден:',

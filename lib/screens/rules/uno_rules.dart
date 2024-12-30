@@ -108,7 +108,7 @@ class UnoRulesScreen extends StatelessWidget {
                 ),
                 const BulletPointText(
                     contentText:
-                        'забыл крикнуть "уно"? возьми 2 карты, если заметили до хода следующего игрока.'),
+                        'забыл крикнуть «уно»? возьми 2 карты, если заметили до хода следующего игрока.'),
                 const BulletPointText(
                     contentText:
                         'если кончилась колода добора, сброс перетасовывается.'),

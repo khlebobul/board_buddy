@@ -32,7 +32,6 @@ const bulletTwo = '2. ';
 const bulletThree = '3. ';
 const bulletFour = '4. ';
 const pointOne = '• ';
-const pointTwo = '◦ ';
 
 // rules
 // uno

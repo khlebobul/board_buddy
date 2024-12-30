@@ -63,7 +63,7 @@ class UnoFlipRulesScreen extends StatelessWidget {
                         'если подходящей карты нет, возьмите карту из колоды.'),
                 const BulletPointText(
                     contentText:
-                        'карта "переверните" меняет сторону игры с "светлой" на "тёмную" и наоборот.'),
+                        'карта «переверните» меняет сторону игры с «светлой» на «тёмную» и наоборот.'),
                 const SizedBox(height: 15),
                 Text(
                   'активные карты:',
@@ -74,23 +74,23 @@ class UnoFlipRulesScreen extends StatelessWidget {
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
-                const BulletPointText(contentText: '"возьми одну".'),
-                const BulletPointText(contentText: '"смени направление".'),
-                const BulletPointText(contentText: '"пропусти ход".'),
-                const BulletPointText(contentText: '"дикая карта".'),
-                const BulletPointText(contentText: '"дикая +2".'),
+                const BulletPointText(contentText: '«возьми одну».'),
+                const BulletPointText(contentText: '«смени направление».'),
+                const BulletPointText(contentText: '«пропусти ход».'),
+                const BulletPointText(contentText: '«дикая карта».'),
+                const BulletPointText(contentText: '«дикая +2».'),
                 const SizedBox(height: 10),
                 Text(
                   'тёмная сторона:',
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
-                const BulletPointText(contentText: '"возьми пять".'),
-                const BulletPointText(contentText: '"смени направление".'),
-                const BulletPointText(contentText: '"все пропускают ход".'),
-                const BulletPointText(contentText: '"дикая карта".'),
+                const BulletPointText(contentText: '«возьми пять».'),
+                const BulletPointText(contentText: '«смени направление».'),
+                const BulletPointText(contentText: '«все пропускают ход».'),
+                const BulletPointText(contentText: '«дикая карта».'),
                 const BulletPointText(
-                    contentText: '"бери, пока не вытянешь нужный цвет".'),
+                    contentText: '«бери, пока не вытянешь нужный цвет».'),
                 const SizedBox(height: 15),
                 Text(
                   'ключевые моменты:',
@@ -98,10 +98,10 @@ class UnoFlipRulesScreen extends StatelessWidget {
                 ),
                 const BulletPointText(
                     contentText:
-                        'после карты "переверните" вся игра меняет сторону.'),
+                        'после карты «переверните» вся игра меняет сторону.'),
                 const BulletPointText(
                     contentText:
-                        'если игрок играет предпоследней картой, он должен сказать "уно!". если забыл, берёт 2 карты.'),
+                        'если игрок играет предпоследней картой, он должен сказать «уно!». если забыл, берёт 2 карты.'),
                 const SizedBox(height: 15),
                 Text(
                   'подсчёт очков:',

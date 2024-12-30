@@ -26,6 +26,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "back": MessageLookupByLibrary.simpleMessage("назад"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
         "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
+        "common": MessageLookupByLibrary.simpleMessage("общий"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
                 "нет вашей любимой игры? напишите мне!"),
