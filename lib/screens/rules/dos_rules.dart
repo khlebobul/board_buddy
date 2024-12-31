@@ -103,9 +103,10 @@ class DosRulesScreen extends StatelessWidget {
                   'особое правило:',
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'если у вас осталось 2 карты, крикните «дос!». если забудете и другой игрок заметит, возьмите 2 карты.'),
+                Text(
+                  'если у вас осталось 2 карты, крикните «дос!». если забудете и другой игрок заметит, возьмите 2 карты.',
+                  style: theme.display2,
+                ),
                 const SizedBox(height: 15),
                 Text(
                   'подсчет очков:',
@@ -121,8 +122,10 @@ class DosRulesScreen extends StatelessWidget {
                   'победа:',
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText: 'игрок выигрывает, набрав 200 очков.'),
+                Text(
+                  'игрок выигрывает, набрав 200 очков.',
+                  style: theme.display2,
+                ),
                 const SizedBox(height: 20),
                 Text(
                   'dos® является зарегистрированной торговой маркой компании mattel',

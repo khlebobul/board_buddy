@@ -76,7 +76,7 @@ class UIThemes {
         color: textColor,
       );
 
-  // rules and games screen
+  // rules and games screen menu
   TextStyle get display3 => TextStyle(
         fontSize: 27,
         fontFamily: 'CourierNew',

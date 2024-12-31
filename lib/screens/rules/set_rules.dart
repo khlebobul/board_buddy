@@ -102,9 +102,9 @@ class SetRulesScreen extends StatelessWidget {
                   'что делать, если сет не найден:',
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'если среди 12 карт сета нет, раздающий добавляет 3 карты (максимум до 21 карты). среди 21 карты сет есть всегда.'),
+                Text(
+                    'если среди 12 карт сета нет, раздающий добавляет 3 карты (максимум до 21 карты). среди 21 карты сет есть всегда.',
+                    style: theme.display2),
                 const SizedBox(height: 15),
                 Text(
                   'подсчет очков:',

@@ -125,6 +125,9 @@ class UnoFlipRulesScreen extends StatelessWidget {
                 const BulletPointText(
                     contentText:
                         'игрок, набравший 500 очков, выигрывает игру.'),
+                const BulletPointText(
+                    contentText:
+                        'альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.'),
                 const SizedBox(height: 20),
                 Text(
                   'uno flip® является зарегистрированной торговой маркой компании mattel',

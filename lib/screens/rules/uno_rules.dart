@@ -117,8 +117,7 @@ class UnoRulesScreen extends StatelessWidget {
                   'подсчет очков:',
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText: 'цифровые карты: их номинал.'),
+                Text('цифровые карты: их номинал.', style: theme.display2),
                 const BulletPointText(
                     contentText:
                         '«пропусти ход», «возьми две», «смени направление»: 20 очков.'),
