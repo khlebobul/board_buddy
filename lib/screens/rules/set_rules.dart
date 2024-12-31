@@ -34,104 +34,93 @@ class SetRulesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'цель игры:',
+                  S.of(context).gameGoal,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'найти сет (набор из 3 карт), где каждый признак: полностью совпадает на всех картах, или полностью различается на всех картах.',
+                  S.of(context).setGameObjectiveDescription,
                   style: theme.display2.copyWith(color: theme.textColor),
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  'признаки карт:',
+                  S.of(context).setCardAttributesTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'каждая карта уникальна и имеет 4 признака:',
+                  S.of(context).setCardAttributesDescription,
                   style: theme.display2,
                 ),
-                const BulletPointText(
+                BulletPointText(
                     pointSimbol: bulletOne,
-                    contentText: 'количество символов: 1, 2 или 3.'),
-                const BulletPointText(
+                    contentText: S.of(context).setCardAttributeNumberOfSymbols),
+                BulletPointText(
                     pointSimbol: bulletTwo,
-                    contentText: 'тип символов: овал, ромб, волна.'),
-                const BulletPointText(
+                    contentText: S.of(context).setCardAttributeSymbolType),
+                BulletPointText(
                     pointSimbol: bulletThree,
-                    contentText:
-                        'цвет символов: красный, зеленый, фиолетовый.'),
-                const BulletPointText(
+                    contentText: S.of(context).setCardAttributeSymbolColor),
+                BulletPointText(
                     pointSimbol: bulletFour,
-                    contentText:
-                        'заполнение: пустое, заштрихованное, закрашенное.'),
+                    contentText: S.of(context).setCardAttributeFillType),
                 const SizedBox(height: 15),
                 Text(
-                  'ход игры:',
+                  S.of(context).gameTurnTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
+                BulletPointText(
                     pointSimbol: bulletOne,
-                    contentText: 'раздающий выкладывает 12 карт.'),
-                const BulletPointText(
+                    contentText: S.of(context).setGameTurnStepDealerSetup),
+                BulletPointText(
                     pointSimbol: bulletTwo,
-                    contentText:
-                        'игроки одновременно ищут сет. кто первым находит, объявляет: «сет!».'),
-                const BulletPointText(
+                    contentText: S.of(context).setGameTurnStepFindingSet),
+                BulletPointText(
                     pointSimbol: bulletThree,
-                    contentText:
-                        'проверяется правильность: если верно, игрок забирает карты, раздающий добавляет 3 новые. если ошибка, игрок теряет 1 очко или пропускает ход (по договоренности).'),
-                const BulletPointText(
-                    pointSimbol: bulletFour, contentText: 'игра продолжается.'),
+                    contentText: S.of(context).setGameTurnStepValidation),
+                BulletPointText(
+                    pointSimbol: bulletFour,
+                    contentText: S.of(context).setGameTurnStepContinue),
                 const SizedBox(height: 15),
                 Text(
-                  'пример правильного сета:',
+                  S.of(context).setGameTurnStepContinue,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'признак «цвет»: разный (красный, зеленый, фиолетовый).'),
-                const BulletPointText(
-                    contentText: 'признак «количество»: одинаковый (два).'),
-                const BulletPointText(
-                    contentText: 'признак «тип»: разный (овал, ромб, волна).'),
-                const BulletPointText(
-                    contentText:
-                        'признак «заполнение»: одинаковое (заштрихованное).'),
+                BulletPointText(
+                    contentText: S.of(context).setExampleOfValidSetTitle),
+                BulletPointText(
+                    contentText: S.of(context).setExampleOfValidSetNumber),
+                BulletPointText(
+                    contentText: S.of(context).setExampleOfValidSetType),
+                BulletPointText(
+                    contentText: S.of(context).setExampleOfValidSetFill),
                 const SizedBox(height: 15),
                 Text(
-                  'что делать, если сет не найден:',
+                  S.of(context).setNoSetFoundTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                Text(
-                    'если среди 12 карт сета нет, раздающий добавляет 3 карты (максимум до 21 карты). среди 21 карты сет есть всегда.',
+                Text(S.of(context).setNoSetFoundDescription,
                     style: theme.display2),
                 const SizedBox(height: 15),
                 Text(
-                  'подсчет очков:',
+                  S.of(context).setScoringTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText: 'за каждый найденный сет — 1 очко.'),
-                const BulletPointText(
-                    contentText:
-                        'игра заканчивается, когда карты в колоде заканчиваются или достигнуто оговоренное количество очков.'),
+                BulletPointText(
+                    contentText: S.of(context).setScoringPointPerSet),
+                BulletPointText(contentText: S.of(context).setScoringGameEnd),
                 const SizedBox(height: 15),
                 Text(
-                  'важные правила:',
+                  S.of(context).setImportantRulesTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'новый сет нельзя объявлять, пока предыдущий не подтвержден.'),
-                const BulletPointText(
-                    contentText:
-                        'карты, образующие сет, могут располагаться как угодно.'),
-                const BulletPointText(
-                    contentText:
-                        'для обучения можно упростить игру, используя только 3 признака.'),
+                BulletPointText(
+                    contentText: S.of(context).setImportantRuleConfirmation),
+                BulletPointText(
+                    contentText: S.of(context).setImportantRuleCardPosition),
+                BulletPointText(
+                    contentText: S.of(context).setImportantRuleSimplifiedMode),
                 const SizedBox(height: 20),
                 Text(
-                  'set® является зарегистрированной торговой маркой компании set enterprises, inc.',
+                  S.of(context).setTrademarkNotice,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),

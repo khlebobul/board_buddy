@@ -23,121 +23,107 @@ class MunchkinRulesScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  '12+',
+                  munchkinAge,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 Text(
-                  '3-6',
+                  munchkinPlayers,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'цель игры:',
+                  S.of(context).gameGoal,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'первым достичь 10 уровня, сражаясь с монстрами, используя карты снаряжения, проклятия и умения.',
+                  S.of(context).munchkinGameObjectiveDescription,
                   style: theme.display2.copyWith(color: theme.textColor),
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  'подготовка:',
+                  S.of(context).preparation,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'перемешайте карты дверей и сокровищ и разложите их в две отдельные колоды.'),
-                const BulletPointText(
-                    contentText:
-                        'каждый игрок берет по: 4 карты из колоды дверей и 4 карты из колоды сокровищ.'),
-                const BulletPointText(
-                    contentText:
-                        'игроки выкладывают на стол начальные карты снаряжения, если таковые есть.'),
+                BulletPointText(
+                    contentText: S.of(context).munchkinShuffleCardsInstruction),
+                BulletPointText(
+                    contentText: S.of(context).munchkinInitialCardsInstruction),
+                BulletPointText(
+                    contentText: S.of(context).munchkinStartingGearInstruction),
                 const SizedBox(height: 15),
                 Text(
-                  'ход игры:',
+                  S.of(context).gameTurnTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'игрок открывает верхнюю карту из колоды дверей. возможные ситуации:',
+                  S.of(context).munchkinTurnDescription,
                   style: theme.display2,
                 ),
-                const BulletPointText(
-                    contentText: 'монстр: сразитесь с ним (см. «бой»).'),
-                const BulletPointText(
-                    contentText: 'проклятие: немедленно примените его к себе.'),
-                const BulletPointText(
-                    contentText: 'любая другая карта: оставьте ее в руке.'),
-                Text('если монстра нет, игрок может:', style: theme.display2),
-                const BulletPointText(
+                BulletPointText(
+                    contentText: S.of(context).munchkinMonsterEncounter),
+                BulletPointText(
+                    contentText: S.of(context).munchkinCurseEncounter),
+                BulletPointText(
+                    contentText: S.of(context).munchkinOtherCardEncounter),
+                Text(S.of(context).munchkinNoMonsterActionsTitle,
+                    style: theme.display2),
+                BulletPointText(
                     contentText:
-                        'выложить монстра из руки для боя (опционально) или залезть в «поиск неприятностей» (взять карту из колоды дверей в руку).'),
+                        S.of(context).munchkinNoMonsterActionsDescription),
                 const SizedBox(height: 10),
                 Text(
-                  'бой (если есть монстр):',
+                  S.of(context).munchkinCombatTitle,
                   style: theme.display2,
                 ),
-                const BulletPointText(
-                    contentText:
-                        'сравните уровень вашего персонажа (с учетом бонусов) с уровнем монстра.'),
-                const BulletPointText(
-                    contentText:
-                        'если ваш уровень выше или равен — вы побеждаете и получаете сокровища, а также уровень.'),
-                const BulletPointText(
-                    contentText:
-                        'если ваш уровень меньше, можно: попросить помощи у другого игрока (по договоренности) или использовать карты из руки для усиления.'),
-                const BulletPointText(
-                    contentText:
-                        'если вы не смогли победить, убегайте (киньте кубик). успешный побег на 5 или 6. если не сбежали, применяются последствия, указанные на карте монстра.'),
+                BulletPointText(
+                    contentText: S.of(context).munchkinCombatCompareLevels),
+                BulletPointText(
+                    contentText: S.of(context).munchkinCombatWinCondition),
+                BulletPointText(
+                    contentText: S.of(context).munchkinCombatHelpOrBoost),
+                BulletPointText(
+                    contentText: S.of(context).munchkinCombatEscapeRules),
                 const SizedBox(height: 10),
-                Text(
-                    'в конце хода сбросьте лишние карты, если их больше 5. отдайте их игроку с самым низким уровнем.',
+                Text(S.of(context).munchkinEndTurnDiscardRules,
                     style: theme.display2),
                 const SizedBox(height: 15),
                 Text(
-                  'типы карт:',
+                  S.of(context).cardTypesTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
+                BulletPointText(
+                    contentText: S.of(context).munchkinMonstersCardType),
+                BulletPointText(
+                    contentText: S.of(context).munchkinEquipmentCardType),
+                BulletPointText(
+                    contentText: S.of(context).munchkinCursesCardType),
+                BulletPointText(
                     contentText:
-                        'монстры — сражайтесь с ними, чтобы повышать уровень.'),
-                const BulletPointText(
-                    contentText: 'снаряжение — дает бонусы к уровню в бою.'),
-                const BulletPointText(
-                    contentText:
-                        'проклятия — ухудшают персонажа или мешают другим игрокам.'),
-                const BulletPointText(
-                    contentText:
-                        'усилители монстров — увеличивают силу монстра.'),
-                const BulletPointText(
-                    contentText:
-                        'одноразовые предметы — используются в бою или для других эффектов.'),
+                        S.of(context).munchkinMonsterEnhancersCardType),
+                BulletPointText(
+                    contentText: S.of(context).munchkinOneTimeItemsCardType),
                 const SizedBox(height: 15),
                 Text(
-                  'особые правила:',
+                  S.of(context).specialRulesTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'победа над монстром: за победу над монстром получаете уровень и сокровища.'),
-                const BulletPointText(
-                    contentText:
-                        'уровень 10: последний уровень можно достичь только победой над монстром.'),
-                const BulletPointText(
-                    contentText:
-                        'смерть: игрок теряет все карты, кроме уровня и рас (или классов).'),
+                BulletPointText(
+                    contentText: S.of(context).munchkinMonsterVictoryReward),
+                BulletPointText(
+                    contentText: S.of(context).munchkinLevel10Condition),
+                BulletPointText(contentText: S.of(context).munchkinDeathRules),
                 const SizedBox(height: 15),
                 Text(
-                  'победа:',
+                  S.of(context).victoryTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                Text('игрок, первым достигший 10 уровня, побеждает!',
+                Text(S.of(context).munchkinVictoryCondition,
                     style: theme.display2),
                 const SizedBox(height: 20),
                 Text(
-                  'munchkin® является зарегистрированной торговой маркой компании steve jackson games',
+                  S.of(context).munchkinTrademarkNotice,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),

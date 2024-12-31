@@ -34,101 +34,92 @@ class DosRulesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'цель игры:',
+                  S.of(context).dosGameObjectiveTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'избавиться от всех своих карт и набрать очки за карты, оставшиеся у соперников. побеждает игрок, набравший 200 очков.',
+                  S.of(context).dosGameObjectiveDescription,
                   style: theme.display2.copyWith(color: theme.textColor),
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  'подготовка:',
+                  S.of(context).preparation,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText: 'каждому игроку раздается по 7 карт.'),
-                const BulletPointText(
-                    contentText: 'выкладываются 2 карты в «центральный ряд».'),
-                const BulletPointText(
-                    contentText:
-                        'остальная колода кладется рядом (колода для добора).'),
+                BulletPointText(
+                    contentText: S.of(context).dosPreparationDealCards),
+                BulletPointText(
+                    contentText: S.of(context).dosPreparationCentralRow),
+                BulletPointText(
+                    contentText: S.of(context).dosPreparationDrawPile),
                 const SizedBox(height: 15),
                 Text(
-                  'ход игры:',
+                  S.of(context).gameTurnTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
+                BulletPointText(
                     pointSimbol: bulletOne,
-                    contentText:
-                        'игроки по очереди подбирают карты из руки к картам в «центральном ряду»:'),
-                const BulletPointText(
-                    contentText:
-                        'одиночное совпадение: карта совпадает по числу.'),
-                const BulletPointText(
-                    contentText:
-                        'двойное совпадение: сумма двух ваших карт равна числу карты из ряда.'),
-                const BulletPointText(
+                    contentText: S.of(context).dosTurnRulePickCards),
+                BulletPointText(
+                    contentText: S.of(context).dosTurnRuleSingleMatch),
+                BulletPointText(
+                    contentText: S.of(context).dosTurnRuleDoubleMatch),
+                BulletPointText(
                     pointSimbol: bulletTwo,
-                    contentText:
-                        'если подходящих карт нет, возьмите карту из колоды. если она подходит, можно сыграть.'),
-                const BulletPointText(
+                    contentText: S.of(context).dosTurnRuleDrawCard),
+                BulletPointText(
                     pointSimbol: bulletThree,
-                    contentText:
-                        'в конце хода дополните «центральный ряд» до 2 карт.'),
+                    contentText: S.of(context).dosTurnRuleEndTurn),
                 const SizedBox(height: 15),
                 Text(
-                  'бонусы:',
+                  S.of(context).dosBonus,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
+                BulletPointText(
+                    contentText: S.of(context).dosBonusNumberColorMatchAddCard),
+                BulletPointText(
                     contentText:
-                        'за совпадение по числу и цвету: добавьте 1 карту из руки в «центральный ряд».'),
-                const BulletPointText(
-                    contentText:
-                        'за двойное совпадение цвета: остальные игроки берут по 1 карте из колоды.'),
+                        S.of(context).dosBonusDoubleColorMatchDrawCard),
                 const SizedBox(height: 15),
                 Text(
-                  'особые карты:',
+                  S.of(context).specialCardsTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        '«дикая карта dos»: заменяет две карты любого цвета.'),
-                const BulletPointText(
-                    contentText:
-                        '«дикая карта #»: заменяет любое число (1–10) своего цвета.'),
+                BulletPointText(
+                    contentText: S.of(context).dosSpecialCardWildDos),
+                BulletPointText(
+                    contentText: S.of(context).dosSpecialCardWildNumber),
                 const SizedBox(height: 15),
                 Text(
-                  'особое правило:',
+                  S.of(context).dosSpecialRule,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'если у вас осталось 2 карты, крикните «дос!». если забудете и другой игрок заметит, возьмите 2 карты.',
+                  S.of(context).dosSpecialRuleDosCall,
                   style: theme.display2,
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  'подсчет очков:',
+                  S.of(context).dosScoring,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(contentText: 'цифровые карты: номинал.'),
-                const BulletPointText(
-                    contentText: '«дикая карта dos»: 20 очков.'),
-                const BulletPointText(
-                    contentText: '«дикая карта #»: 40 очков.'),
+                BulletPointText(
+                    contentText: S.of(context).dosScoringNumberCards),
+                BulletPointText(contentText: S.of(context).dosScoringWildDos),
+                BulletPointText(
+                    contentText: S.of(context).dosScoringWildNumber),
                 const SizedBox(height: 15),
                 Text(
-                  'победа:',
+                  S.of(context).victoryTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'игрок выигрывает, набрав 200 очков.',
+                  S.of(context).dosVictory200Points,
                   style: theme.display2,
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'dos® является зарегистрированной торговой маркой компании mattel',
+                  S.of(context).dosTrademarkNotice,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),

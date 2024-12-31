@@ -34,103 +34,104 @@ class UnoFlipRulesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'цель игры:',
+                  S.of(context).gameGoal,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'избавьтесь от всех своих карт и наберите очки за карты соперников. побеждает игрок, набравший 500 очков.',
+                  S.of(context).unoFlipGameObjectiveDescription,
                   style: theme.display2.copyWith(color: theme.textColor),
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  'начало игры:',
+                  S.of(context).unoFlipGameStartTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText: 'каждый игрок получает 7 карт.'),
-                const BulletPointText(
-                    contentText: 'игру начинают светлой стороной колоды.'),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipGameStartDealCards),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipGameStartLightSide),
                 const SizedBox(height: 15),
                 Text(
-                  'ход игры:',
+                  S.of(context).gameTurnTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'сыграйте карту, совпадающую по цвету, числу или символу с верхней картой сброса.'),
-                const BulletPointText(
-                    contentText:
-                        'если подходящей карты нет, возьмите карту из колоды.'),
-                const BulletPointText(
-                    contentText:
-                        'карта «переверните» меняет сторону игры с «светлой» на «тёмную» и наоборот.'),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipTurnRuleMatchCard),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipTurnRuleDrawCard),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipTurnRuleFlipCard),
                 const SizedBox(height: 15),
                 Text(
-                  'активные карты:',
+                  S.of(context).unoActiveCardsTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'светлая сторона:',
+                  S.of(context).unoFlipLightSideCardsTitle,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
-                const BulletPointText(contentText: '«возьми одну».'),
-                const BulletPointText(contentText: '«смени направление».'),
-                const BulletPointText(contentText: '«пропусти ход».'),
-                const BulletPointText(contentText: '«дикая карта».'),
-                const BulletPointText(contentText: '«дикая +2».'),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipLightSideDrawOne),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipLightSideReverse),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipLightSideSkipTurn),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipLightSideWildCard),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipLightSideWildDrawTwo),
                 const SizedBox(height: 10),
                 Text(
-                  'тёмная сторона:',
+                  S.of(context).unoFlipDarkSideCardsTitle,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
-                const BulletPointText(contentText: '«возьми пять».'),
-                const BulletPointText(contentText: '«смени направление».'),
-                const BulletPointText(contentText: '«все пропускают ход».'),
-                const BulletPointText(contentText: '«дикая карта».'),
-                const BulletPointText(
-                    contentText: '«бери, пока не вытянешь нужный цвет».'),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipDarkSideDrawFive),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipDarkSideReverse),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipDarkSideSkipAll),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipDarkSideWildCard),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipDarkSideDrawUntilColor),
                 const SizedBox(height: 15),
                 Text(
-                  'ключевые моменты:',
+                  S.of(context).unoFlipKeyMoment,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'после карты «переверните» вся игра меняет сторону.'),
-                const BulletPointText(
-                    contentText:
-                        'если игрок играет предпоследней картой, он должен сказать «уно!». если забыл, берёт 2 карты.'),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipKeyMomentFlipCardEffect),
+                BulletPointText(
+                    contentText: S.of(context).unoFlipKeyMomentUnoCall),
                 const SizedBox(height: 15),
                 Text(
-                  'подсчёт очков:',
+                  S.of(context).unoFlipScoringTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'победитель раунда получает очки за оставшиеся карты соперников:'),
-                const BulletPointText(
+                BulletPointText(
+                    contentText: S.of(context).unoFlipScoringRoundWinnerPoints),
+                BulletPointText(
                     pointSimbol: bulletOne,
-                    contentText: 'карты с цифрами: по их номиналу.'),
-                const BulletPointText(
+                    contentText: S.of(context).unoFlipScoringNumberCards),
+                BulletPointText(
                     pointSimbol: bulletTwo,
-                    contentText:
-                        'активные карты: 20–60 очков в зависимости от типа.'),
+                    contentText: S.of(context).unoFlipScoringActiveCards),
                 const SizedBox(height: 15),
                 Text(
-                  'победа:',
+                  S.of(context).victoryTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
+                BulletPointText(
+                    contentText: S.of(context).unoFlipVictory500Points),
+                BulletPointText(
                     contentText:
-                        'игрок, набравший 500 очков, выигрывает игру.'),
-                const BulletPointText(
-                    contentText:
-                        'альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.'),
+                        S.of(context).unoFlipVictoryLowestScoreAlternative),
                 const SizedBox(height: 20),
                 Text(
-                  'uno flip® является зарегистрированной торговой маркой компании mattel',
+                  S.of(context).unoFlipTrademarkNotice,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),

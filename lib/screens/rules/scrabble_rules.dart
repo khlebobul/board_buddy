@@ -34,112 +34,101 @@ class ScrabbleRulesScreen extends StatelessWidget {
                 ),
                 const SizedBox(height: 20),
                 Text(
-                  'цель игры:',
+                  S.of(context).gameGoal,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 Text(
-                  'составляйте слова на игровом поле по принципу кроссворда. заработайте больше очков, чем соперники.',
+                  S.of(context).scrabbleGameObjectiveDescription,
                   style: theme.display2.copyWith(color: theme.textColor),
                 ),
                 const SizedBox(height: 15),
                 Text(
-                  'комплект игры:',
+                  S.of(context).scrabbleGameSetTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(contentText: 'поле 15 на 15 клеток.'),
-                const BulletPointText(
-                    contentText: '104 буквы (включая 2 пустышки).'),
-                const BulletPointText(
-                    contentText: '4 подставки, мешочек для букв.'),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleGameSetBoard),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleGameSetLetters),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleGameSetAccessories),
                 const SizedBox(height: 15),
                 Text(
-                  'подготовка к игре:',
+                  S.of(context).preparation,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText: 'перемешайте буквы в мешочке.'),
-                const BulletPointText(
-                    contentText: 'каждый игрок берет 7 букв.'),
-                const BulletPointText(
+                BulletPointText(
+                    contentText: S.of(context).scrabblePreparationShuffle),
+                BulletPointText(
+                    contentText: S.of(context).scrabblePreparationDrawTiles),
+                BulletPointText(
                     contentText:
-                        'первый ход делает тот, чья случайно вытянутая буква ближе к началу алфавита.'),
+                        S.of(context).scrabblePreparationFirstTurnRule),
                 const SizedBox(height: 15),
                 Text(
-                  'правила хода:',
+                  S.of(context).scrabbleTurnRulesTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
+                BulletPointText(
                     pointSimbol: bulletOne,
-                    contentText:
-                        'первый ход: слово должно проходить через центральную клетку (звездочка).'),
-                const BulletPointText(
+                    contentText: S.of(context).scrabbleTurnRuleFirstWord),
+                BulletPointText(
                     pointSimbol: bulletTwo,
-                    contentText:
-                        'все слова выкладываются горизонтально или вертикально.'),
-                const BulletPointText(
+                    contentText: S.of(context).scrabbleTurnRuleWordDirection),
+                BulletPointText(
+                    pointSimbol: bulletThree,
+                    contentText: S.of(context).scrabbleTurnRuleLetterPlacement),
+                const SizedBox(height: 15),
+                Text(
+                  S.of(context).scrabbleScoringTitle,
+                  style: theme.display2.copyWith(color: theme.redColor),
+                ),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleScoringWordPoints),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleScoringBlueBonus),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleScoringRedBonus),
+                const SizedBox(height: 15),
+                Text(
+                  S.of(context).scrabbleFeaturesTitle,
+                  style: theme.display2.copyWith(color: theme.redColor),
+                ),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleFeatureBlankTile),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleFeatureSevenTileBonus),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleFeatureRefillTiles),
+                const SizedBox(height: 15),
+                Text(
+                  S.of(context).endGameTitle,
+                  style: theme.display2.copyWith(color: theme.redColor),
+                ),
+                BulletPointText(
+                    pointSimbol: bulletOne,
+                    contentText: S.of(context).scrabbleEndGameNoTiles),
+                BulletPointText(
+                    pointSimbol: bulletTwo,
+                    contentText: S.of(context).scrabbleEndGameSkippedTurns),
+                BulletPointText(
                     pointSimbol: bulletThree,
                     contentText:
-                        'каждая новая буква должна быть частью нового или существующего слова.'),
+                        S.of(context).scrabbleEndGameRemainingTilesPenalty),
                 const SizedBox(height: 15),
                 Text(
-                  'подсчет очков:',
+                  S.of(context).scrabbleAdditionalPointsTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                const BulletPointText(
-                    contentText:
-                        'очки за слово: сумма очков букв + бонусы от клеток.'),
-                const BulletPointText(
-                    contentText:
-                        'синий цвет удваивает/утраивает очки за букву.'),
-                const BulletPointText(
-                    contentText:
-                        'красный цвет удваивает/утраивает очки за слово.'),
-                const SizedBox(height: 15),
-                Text(
-                  'особенности:',
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
-                const BulletPointText(
-                    contentText:
-                        'пустышка заменяет любую букву, но не дает очков.'),
-                const BulletPointText(
-                    contentText:
-                        'если использованы все 7 букв за ход, игрок получает 50 бонусных очков.'),
-                const BulletPointText(
-                    contentText:
-                        'каждый ход игрок добирает буквы, чтобы снова иметь 7.'),
-                const SizedBox(height: 15),
-                Text(
-                  'конец игры:',
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
-                const BulletPointText(
-                    pointSimbol: bulletOne,
-                    contentText:
-                        'закончились буквы в мешочке, и никто не может сделать ход.'),
-                const BulletPointText(
-                    pointSimbol: bulletTwo,
-                    contentText: 'все игроки пропустили ходы дважды.'),
-                const BulletPointText(
-                    pointSimbol: bulletThree,
-                    contentText:
-                        'оставшиеся буквы на подставках вычитаются из очков.'),
-                const SizedBox(height: 15),
-                Text(
-                  'дополнительные моменты:',
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
-                const BulletPointText(
-                    contentText: 'можно заменить буквы, пропустив ход.'),
-                const BulletPointText(
-                    contentText:
-                        'спорные слова проверяются в согласованном словаре.'),
-                const BulletPointText(
-                    contentText:
-                        'все слова должны быть завершенными и соответствовать правилам языка.'),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleAdditionalReplaceTiles),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleAdditionalDisputedWords),
+                BulletPointText(
+                    contentText: S.of(context).scrabbleAdditionalWordRules),
                 const SizedBox(height: 20),
                 Text(
-                  'scrabble® является зарегистрированной торговой маркой компании hasbro, inc.',
+                  S.of(context).scrabbleTrademarkNotice,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
