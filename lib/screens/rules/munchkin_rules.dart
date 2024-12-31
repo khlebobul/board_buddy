@@ -68,14 +68,16 @@ class MunchkinRulesScreen extends StatelessWidget {
                 BulletPointText(
                     contentText: S.of(context).munchkinOtherCardEncounter),
                 Text(S.of(context).munchkinNoMonsterActionsTitle,
-                    style: theme.display2),
+                    style: theme.display2
+                        .copyWith(color: theme.secondaryTextColor)),
                 BulletPointText(
                     contentText:
                         S.of(context).munchkinNoMonsterActionsDescription),
                 const SizedBox(height: 10),
                 Text(
                   S.of(context).munchkinCombatTitle,
-                  style: theme.display2,
+                  style:
+                      theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 BulletPointText(
                     contentText: S.of(context).munchkinCombatCompareLevels),

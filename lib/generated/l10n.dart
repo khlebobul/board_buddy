@@ -2029,6 +2029,16 @@ class S {
       args: [],
     );
   }
+
+  /// `игра продолжается`
+  String get setGameTurnStepFour {
+    return Intl.message(
+      'игра продолжается',
+      name: 'setGameTurnStepFour',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

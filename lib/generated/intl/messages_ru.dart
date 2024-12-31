@@ -35,8 +35,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "dosBonus": MessageLookupByLibrary.simpleMessage("бонусы:"),
         "dosBonusDoubleColorMatchDrawCard": MessageLookupByLibrary.simpleMessage(
             "за двойное совпадение цвета: остальные игроки берут по 1 карте из колоды."),
-        "dosBonusNumberColorMatchAddCard":
-            MessageLookupByLibrary.simpleMessage("бонусы:"),
+        "dosBonusNumberColorMatchAddCard": MessageLookupByLibrary.simpleMessage(
+            "за совпадение по числу и цвету: добавьте 1 карту из руки в «центральный ряд»."),
         "dosGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
             "избавиться от всех своих карт и набрать очки за карты, оставшиеся у соперников. побеждает игрок, набравший 200 очков."),
         "dosGameObjectiveTitle":
@@ -247,6 +247,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "раздающий выкладывает 12 карт."),
         "setGameTurnStepFindingSet": MessageLookupByLibrary.simpleMessage(
             "игроки одновременно ищут сет. кто первым находит, объявляет: «сет!»."),
+        "setGameTurnStepFour":
+            MessageLookupByLibrary.simpleMessage("игра продолжается"),
         "setGameTurnStepValidation": MessageLookupByLibrary.simpleMessage(
             "проверяется правильность: если верно, игрок забирает карты, раздающий добавляет 3 новые. если ошибка, игрок теряет 1 очко или пропускает ход (по договоренности)."),
         "setImportantRuleCardPosition": MessageLookupByLibrary.simpleMessage(

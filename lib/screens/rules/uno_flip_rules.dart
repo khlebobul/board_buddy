@@ -111,8 +111,8 @@ class UnoFlipRulesScreen extends StatelessWidget {
                   S.of(context).unoFlipScoringTitle,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
-                BulletPointText(
-                    contentText: S.of(context).unoFlipScoringRoundWinnerPoints),
+                Text(S.of(context).unoFlipScoringRoundWinnerPoints,
+                    style: theme.display2),
                 BulletPointText(
                     pointSimbol: bulletOne,
                     contentText: S.of(context).unoFlipScoringNumberCards),

@@ -78,7 +78,7 @@ class SetRulesScreen extends StatelessWidget {
                     contentText: S.of(context).setGameTurnStepValidation),
                 BulletPointText(
                     pointSimbol: bulletFour,
-                    contentText: S.of(context).setGameTurnStepContinue),
+                    contentText: S.of(context).setGameTurnStepFour),
                 const SizedBox(height: 15),
                 Text(
                   S.of(context).setGameTurnStepContinue,

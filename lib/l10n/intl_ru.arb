@@ -184,7 +184,7 @@
   "dosTurnRuleDoubleMatch": "двойное совпадение: сумма двух ваших карт равна числу карты из ряда.",
   "dosTurnRuleDrawCard": "если подходящих карт нет, возьмите карту из колоды. если она подходит, можно сыграть.",
   "dosTurnRuleEndTurn": "в конце хода дополните «центральный ряд» до 2 карт.",
-  "dosBonusNumberColorMatchAddCard": "бонусы:",
+  "dosBonusNumberColorMatchAddCard": "за совпадение по числу и цвету: добавьте 1 карту из руки в «центральный ряд».",
   "dosBonus": "бонусы:",
   "dosBonusDoubleColorMatchDrawCard": "за двойное совпадение цвета: остальные игроки берут по 1 карте из колоды.",
   "dosSpecialCardWildDos": "«дикая карта dos»: заменяет две карты любого цвета.",
@@ -196,5 +196,6 @@
   "dosScoringWildDos": "«дикая карта dos»: 20 очков.",
   "dosScoringWildNumber": "«дикая карта #»: 40 очков.",
   "dosVictory200Points": "игрок выигрывает, набрав 200 очков.",
-  "dosTrademarkNotice": "dos® является зарегистрированной торговой маркой компании mattel"
+  "dosTrademarkNotice": "dos® является зарегистрированной торговой маркой компании mattel",
+  "setGameTurnStepFour": "игра продолжается"
 }

@@ -196,5 +196,6 @@
   "dosScoringWildDos": "«дикая карта dos»: 20 очков.",
   "dosScoringWildNumber": "«дикая карта #»: 40 очков.",
   "dosVictory200Points": "игрок выигрывает, набрав 200 очков.",
-  "dosTrademarkNotice": "dos® является зарегистрированной торговой маркой компании mattel"
+  "dosTrademarkNotice": "dos® является зарегистрированной торговой маркой компании mattel",
+  "setGameTurnStepFour": "игра продолжается"
 }

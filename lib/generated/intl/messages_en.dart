@@ -246,6 +246,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "раздающий выкладывает 12 карт."),
         "setGameTurnStepFindingSet": MessageLookupByLibrary.simpleMessage(
             "игроки одновременно ищут сет. кто первым находит, объявляет: «сет!»."),
+        "setGameTurnStepFour":
+            MessageLookupByLibrary.simpleMessage("игра продолжается"),
         "setGameTurnStepValidation": MessageLookupByLibrary.simpleMessage(
             "проверяется правильность: если верно, игрок забирает карты, раздающий добавляет 3 новые. если ошибка, игрок теряет 1 очко или пропускает ход (по договоренности)."),
         "setImportantRuleCardPosition": MessageLookupByLibrary.simpleMessage(
