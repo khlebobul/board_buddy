@@ -6,6 +6,7 @@ class RulesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
+
     return Scaffold(
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
@@ -22,12 +23,7 @@ class RulesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const UnoRulesScreen(),
-                  ),
-                ),
+                onTap: () => Navigator.pushNamed(context, '/unoRules'),
                 child: TextScramble(
                   text: '01 - ${S.of(context).uno}',
                   style: theme.display3,
@@ -35,12 +31,7 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const ScrabbleRulesScreen(),
-                  ),
-                ),
+                onTap: () => Navigator.pushNamed(context, '/scrabbleRules'),
                 child: TextScramble(
                   text: '02 - ${S.of(context).scrabble}',
                   style: theme.display3,
@@ -48,12 +39,7 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const UnoFlipRulesScreen(),
-                  ),
-                ),
+                onTap: () => Navigator.pushNamed(context, '/unoFlipRules'),
                 child: TextScramble(
                   text: '03 - ${S.of(context).unoFlip}',
                   style: theme.display3,
@@ -61,12 +47,7 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const DosRulesScreen(),
-                  ),
-                ),
+                onTap: () => Navigator.pushNamed(context, '/dosRules'),
                 child: TextScramble(
                   text: '04 - ${S.of(context).dos}',
                   style: theme.display3,
@@ -74,12 +55,7 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const SetRulesScreen(),
-                  ),
-                ),
+                onTap: () => Navigator.pushNamed(context, '/setRules'),
                 child: TextScramble(
                   text: '05 - ${S.of(context).set}',
                   style: theme.display3,
@@ -87,12 +63,7 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
-                onTap: () => Navigator.push(
-                  context,
-                  MaterialPageRoute(
-                    builder: (context) => const MunchkinRulesScreen(),
-                  ),
-                ),
+                onTap: () => Navigator.pushNamed(context, '/munchkinRules'),
                 child: TextScramble(
                   text: '06 - ${S.of(context).munchkin}',
                   style: theme.display3,
