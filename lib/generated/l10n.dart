@@ -370,1670 +370,1670 @@ class S {
     );
   }
 
-  /// `цель игры:`
+  /// `game goal:`
   String get gameGoal {
     return Intl.message(
-      'цель игры:',
+      'game goal:',
       name: 'gameGoal',
       desc: '',
       args: [],
     );
   }
 
-  /// `подготовка:`
+  /// `preparation:`
   String get preparation {
     return Intl.message(
-      'подготовка:',
+      'preparation:',
       name: 'preparation',
       desc: '',
       args: [],
     );
   }
 
-  /// `первым достичь 10 уровня, сражаясь с монстрами, используя карты снаряжения, проклятия и умения.`
+  /// `be the first to reach level 10 by fighting monsters, using equipment, curses, and abilities cards.`
   String get munchkinGameObjectiveDescription {
     return Intl.message(
-      'первым достичь 10 уровня, сражаясь с монстрами, используя карты снаряжения, проклятия и умения.',
+      'be the first to reach level 10 by fighting monsters, using equipment, curses, and abilities cards.',
       name: 'munchkinGameObjectiveDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `перемешайте карты дверей и сокровищ и разложите их в две отдельные колоды.`
+  /// `shuffle the Door and Treasure cards and divide them into two separate decks.`
   String get munchkinShuffleCardsInstruction {
     return Intl.message(
-      'перемешайте карты дверей и сокровищ и разложите их в две отдельные колоды.',
+      'shuffle the Door and Treasure cards and divide them into two separate decks.',
       name: 'munchkinShuffleCardsInstruction',
       desc: '',
       args: [],
     );
   }
 
-  /// `каждый игрок берет по: 4 карты из колоды дверей и 4 карты из колоды сокровищ.`
+  /// `each player takes: 4 cards from the Door deck and 4 cards from the Treasure deck.`
   String get munchkinInitialCardsInstruction {
     return Intl.message(
-      'каждый игрок берет по: 4 карты из колоды дверей и 4 карты из колоды сокровищ.',
+      'each player takes: 4 cards from the Door deck and 4 cards from the Treasure deck.',
       name: 'munchkinInitialCardsInstruction',
       desc: '',
       args: [],
     );
   }
 
-  /// `игроки выкладывают на стол начальные карты снаряжения, если таковые есть.`
+  /// `players place their starting equipment cards on the table, if they have any.`
   String get munchkinStartingGearInstruction {
     return Intl.message(
-      'игроки выкладывают на стол начальные карты снаряжения, если таковые есть.',
+      'players place their starting equipment cards on the table, if they have any.',
       name: 'munchkinStartingGearInstruction',
       desc: '',
       args: [],
     );
   }
 
-  /// `ход игры:`
+  /// `game turn:`
   String get gameTurnTitle {
     return Intl.message(
-      'ход игры:',
+      'game turn:',
       name: 'gameTurnTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `игрок открывает верхнюю карту из колоды дверей. возможные ситуации:`
+  /// `the player draws the top card from the Door deck. possible outcomes:`
   String get munchkinTurnDescription {
     return Intl.message(
-      'игрок открывает верхнюю карту из колоды дверей. возможные ситуации:',
+      'the player draws the top card from the Door deck. possible outcomes:',
       name: 'munchkinTurnDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `монстр: сразитесь с ним (см. «бой»).`
+  /// `monster: fight it (see 'Combat').`
   String get munchkinMonsterEncounter {
     return Intl.message(
-      'монстр: сразитесь с ним (см. «бой»).',
+      'monster: fight it (see \'Combat\').',
       name: 'munchkinMonsterEncounter',
       desc: '',
       args: [],
     );
   }
 
-  /// `проклятие: немедленно примените его к себе.`
+  /// `curse: immediately apply it to yourself.`
   String get munchkinCurseEncounter {
     return Intl.message(
-      'проклятие: немедленно примените его к себе.',
+      'curse: immediately apply it to yourself.',
       name: 'munchkinCurseEncounter',
       desc: '',
       args: [],
     );
   }
 
-  /// `любая другая карта: оставьте ее в руке.`
+  /// `any other card: keep it in your hand.`
   String get munchkinOtherCardEncounter {
     return Intl.message(
-      'любая другая карта: оставьте ее в руке.',
+      'any other card: keep it in your hand.',
       name: 'munchkinOtherCardEncounter',
       desc: '',
       args: [],
     );
   }
 
-  /// `если монстра нет, игрок может:`
+  /// `if there's no monster, the player can:`
   String get munchkinNoMonsterActionsTitle {
     return Intl.message(
-      'если монстра нет, игрок может:',
+      'if there\'s no monster, the player can:',
       name: 'munchkinNoMonsterActionsTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `выложить монстра из руки для боя (опционально) или залезть в «поиск неприятностей» (взять карту из колоды дверей в руку).`
+  /// `play a monster from their hand to fight (optional) or go 'Looking for Trouble' (draw a card from the Door deck into their hand).`
   String get munchkinNoMonsterActionsDescription {
     return Intl.message(
-      'выложить монстра из руки для боя (опционально) или залезть в «поиск неприятностей» (взять карту из колоды дверей в руку).',
+      'play a monster from their hand to fight (optional) or go \'Looking for Trouble\' (draw a card from the Door deck into their hand).',
       name: 'munchkinNoMonsterActionsDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `бой (если есть монстр):`
+  /// `combat (if there's a monster):`
   String get munchkinCombatTitle {
     return Intl.message(
-      'бой (если есть монстр):',
+      'combat (if there\'s a monster):',
       name: 'munchkinCombatTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `сравните уровень вашего персонажа (с учетом бонусов) с уровнем монстра.`
+  /// `compare your character's level (including bonuses) with the monster's level.`
   String get munchkinCombatCompareLevels {
     return Intl.message(
-      'сравните уровень вашего персонажа (с учетом бонусов) с уровнем монстра.',
+      'compare your character\'s level (including bonuses) with the monster\'s level.',
       name: 'munchkinCombatCompareLevels',
       desc: '',
       args: [],
     );
   }
 
-  /// `если ваш уровень выше или равен — вы побеждаете и получаете сокровища, а также уровень.`
+  /// `if your level is equal to or higher, you win and gain treasures and a level.`
   String get munchkinCombatWinCondition {
     return Intl.message(
-      'если ваш уровень выше или равен — вы побеждаете и получаете сокровища, а также уровень.',
+      'if your level is equal to or higher, you win and gain treasures and a level.',
       name: 'munchkinCombatWinCondition',
       desc: '',
       args: [],
     );
   }
 
-  /// `если ваш уровень меньше, можно: попросить помощи у другого игрока (по договоренности) или использовать карты из руки для усиления.`
+  /// `if your level is lower, you can: ask another player for help (negotiated) or use cards from your hand to boost yourself.`
   String get munchkinCombatHelpOrBoost {
     return Intl.message(
-      'если ваш уровень меньше, можно: попросить помощи у другого игрока (по договоренности) или использовать карты из руки для усиления.',
+      'if your level is lower, you can: ask another player for help (negotiated) or use cards from your hand to boost yourself.',
       name: 'munchkinCombatHelpOrBoost',
       desc: '',
       args: [],
     );
   }
 
-  /// `если вы не смогли победить, убегайте (киньте кубик). успешный побег на 5 или 6. если не сбежали, применяются последствия, указанные на карте монстра.`
+  /// `if you fail to win, escape (roll a die). a roll of 5 or 6 succeeds. if you fail to escape, follow the consequences listed on the monster card.`
   String get munchkinCombatEscapeRules {
     return Intl.message(
-      'если вы не смогли победить, убегайте (киньте кубик). успешный побег на 5 или 6. если не сбежали, применяются последствия, указанные на карте монстра.',
+      'if you fail to win, escape (roll a die). a roll of 5 or 6 succeeds. if you fail to escape, follow the consequences listed on the monster card.',
       name: 'munchkinCombatEscapeRules',
       desc: '',
       args: [],
     );
   }
 
-  /// `в конце хода сбросьте лишние карты, если их больше 5. отдайте их игроку с самым низким уровнем.`
+  /// `at the end of your turn, discard excess cards if you have more than 5. give them to the player with the lowest level.`
   String get munchkinEndTurnDiscardRules {
     return Intl.message(
-      'в конце хода сбросьте лишние карты, если их больше 5. отдайте их игроку с самым низким уровнем.',
+      'at the end of your turn, discard excess cards if you have more than 5. give them to the player with the lowest level.',
       name: 'munchkinEndTurnDiscardRules',
       desc: '',
       args: [],
     );
   }
 
-  /// `типы карт:`
+  /// `types of cards:`
   String get cardTypesTitle {
     return Intl.message(
-      'типы карт:',
+      'types of cards:',
       name: 'cardTypesTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `монстры — сражайтесь с ними, чтобы повышать уровень.`
+  /// `monsters — fight them to level up.`
   String get munchkinMonstersCardType {
     return Intl.message(
-      'монстры — сражайтесь с ними, чтобы повышать уровень.',
+      'monsters — fight them to level up.',
       name: 'munchkinMonstersCardType',
       desc: '',
       args: [],
     );
   }
 
-  /// `снаряжение — дает бонусы к уровню в бою.`
+  /// `equipment — provides bonuses to your level during combat.`
   String get munchkinEquipmentCardType {
     return Intl.message(
-      'снаряжение — дает бонусы к уровню в бою.',
+      'equipment — provides bonuses to your level during combat.',
       name: 'munchkinEquipmentCardType',
       desc: '',
       args: [],
     );
   }
 
-  /// `проклятия — ухудшают персонажа или мешают другим игрокам.`
+  /// `curses — hinder your character or other players.`
   String get munchkinCursesCardType {
     return Intl.message(
-      'проклятия — ухудшают персонажа или мешают другим игрокам.',
+      'curses — hinder your character or other players.',
       name: 'munchkinCursesCardType',
       desc: '',
       args: [],
     );
   }
 
-  /// `усилители монстров — увеличивают силу монстра.`
+  /// `monster enhancers — increase the monster's strength.`
   String get munchkinMonsterEnhancersCardType {
     return Intl.message(
-      'усилители монстров — увеличивают силу монстра.',
+      'monster enhancers — increase the monster\'s strength.',
       name: 'munchkinMonsterEnhancersCardType',
       desc: '',
       args: [],
     );
   }
 
-  /// `одноразовые предметы — используются в бою или для других эффектов.`
+  /// `one-time-use items — used in combat or for other effects.`
   String get munchkinOneTimeItemsCardType {
     return Intl.message(
-      'одноразовые предметы — используются в бою или для других эффектов.',
+      'one-time-use items — used in combat or for other effects.',
       name: 'munchkinOneTimeItemsCardType',
       desc: '',
       args: [],
     );
   }
 
-  /// `особые правила:`
+  /// `special rules:`
   String get specialRulesTitle {
     return Intl.message(
-      'особые правила:',
+      'special rules:',
       name: 'specialRulesTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `победа над монстром: за победу над монстром получаете уровень и сокровища.`
+  /// `monster victory: defeating a monster grants you a level and treasures.`
   String get munchkinMonsterVictoryReward {
     return Intl.message(
-      'победа над монстром: за победу над монстром получаете уровень и сокровища.',
+      'monster victory: defeating a monster grants you a level and treasures.',
       name: 'munchkinMonsterVictoryReward',
       desc: '',
       args: [],
     );
   }
 
-  /// `уровень 10: последний уровень можно достичь только победой над монстром.`
+  /// `level 10: the final level can only be achieved by defeating a monster.`
   String get munchkinLevel10Condition {
     return Intl.message(
-      'уровень 10: последний уровень можно достичь только победой над монстром.',
+      'level 10: the final level can only be achieved by defeating a monster.',
       name: 'munchkinLevel10Condition',
       desc: '',
       args: [],
     );
   }
 
-  /// `смерть: игрок теряет все карты, кроме уровня и рас (или классов).`
+  /// `death: you lose all cards except your level and races (or classes).`
   String get munchkinDeathRules {
     return Intl.message(
-      'смерть: игрок теряет все карты, кроме уровня и рас (или классов).',
+      'death: you lose all cards except your level and races (or classes).',
       name: 'munchkinDeathRules',
       desc: '',
       args: [],
     );
   }
 
-  /// `победа:`
+  /// `victory:`
   String get victoryTitle {
     return Intl.message(
-      'победа:',
+      'victory:',
       name: 'victoryTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `игрок, первым достигший 10 уровня, побеждает!`
+  /// `the first player to reach level 10 wins!`
   String get munchkinVictoryCondition {
     return Intl.message(
-      'игрок, первым достигший 10 уровня, побеждает!',
+      'the first player to reach level 10 wins!',
       name: 'munchkinVictoryCondition',
       desc: '',
       args: [],
     );
   }
 
-  /// `munchkin® является зарегистрированной торговой маркой компании steve jackson games`
+  /// `munchkin® is a registered trademark of Steve Jackson Games.`
   String get munchkinTrademarkNotice {
     return Intl.message(
-      'munchkin® является зарегистрированной торговой маркой компании steve jackson games',
+      'munchkin® is a registered trademark of Steve Jackson Games.',
       name: 'munchkinTrademarkNotice',
       desc: '',
       args: [],
     );
   }
 
-  /// `найти сет (набор из 3 карт), где каждый признак: полностью совпадает на всех картах, или полностью различается на всех картах.`
+  /// `find a set (a group of 3 cards) where each attribute is either the same across all cards or different on all cards.`
   String get setGameObjectiveDescription {
     return Intl.message(
-      'найти сет (набор из 3 карт), где каждый признак: полностью совпадает на всех картах, или полностью различается на всех картах.',
+      'find a set (a group of 3 cards) where each attribute is either the same across all cards or different on all cards.',
       name: 'setGameObjectiveDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `признаки карт:`
+  /// `card attributes:`
   String get setCardAttributesTitle {
     return Intl.message(
-      'признаки карт:',
+      'card attributes:',
       name: 'setCardAttributesTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `каждая карта уникальна и имеет 4 признака:`
+  /// `each card is unique and has 4 attributes:`
   String get setCardAttributesDescription {
     return Intl.message(
-      'каждая карта уникальна и имеет 4 признака:',
+      'each card is unique and has 4 attributes:',
       name: 'setCardAttributesDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `количество символов: 1, 2 или 3.`
+  /// `number of symbols: 1, 2, or 3.`
   String get setCardAttributeNumberOfSymbols {
     return Intl.message(
-      'количество символов: 1, 2 или 3.',
+      'number of symbols: 1, 2, or 3.',
       name: 'setCardAttributeNumberOfSymbols',
       desc: '',
       args: [],
     );
   }
 
-  /// `тип символов: овал, ромб, волна.`
+  /// `symbol type: oval, diamond, wave.`
   String get setCardAttributeSymbolType {
     return Intl.message(
-      'тип символов: овал, ромб, волна.',
+      'symbol type: oval, diamond, wave.',
       name: 'setCardAttributeSymbolType',
       desc: '',
       args: [],
     );
   }
 
-  /// `цвет символов: красный, зеленый, фиолетовый.`
+  /// `symbol color: red, green, purple.`
   String get setCardAttributeSymbolColor {
     return Intl.message(
-      'цвет символов: красный, зеленый, фиолетовый.',
+      'symbol color: red, green, purple.',
       name: 'setCardAttributeSymbolColor',
       desc: '',
       args: [],
     );
   }
 
-  /// `заполнение: пустое, заштрихованное, закрашенное.`
+  /// `fill type: empty, striped, solid.`
   String get setCardAttributeFillType {
     return Intl.message(
-      'заполнение: пустое, заштрихованное, закрашенное.',
+      'fill type: empty, striped, solid.',
       name: 'setCardAttributeFillType',
       desc: '',
       args: [],
     );
   }
 
-  /// `раздающий выкладывает 12 карт.`
+  /// `the dealer places 12 cards.`
   String get setGameTurnStepDealerSetup {
     return Intl.message(
-      'раздающий выкладывает 12 карт.',
+      'the dealer places 12 cards.',
       name: 'setGameTurnStepDealerSetup',
       desc: '',
       args: [],
     );
   }
 
-  /// `игроки одновременно ищут сет. кто первым находит, объявляет: «сет!».`
+  /// `players simultaneously search for a set. the first to find one calls out: 'Set!'`
   String get setGameTurnStepFindingSet {
     return Intl.message(
-      'игроки одновременно ищут сет. кто первым находит, объявляет: «сет!».',
+      'players simultaneously search for a set. the first to find one calls out: \'Set!\'',
       name: 'setGameTurnStepFindingSet',
       desc: '',
       args: [],
     );
   }
 
-  /// `проверяется правильность: если верно, игрок забирает карты, раздающий добавляет 3 новые. если ошибка, игрок теряет 1 очко или пропускает ход (по договоренности).`
+  /// `validate correctness: if correct, the player takes the cards, and the dealer replaces them with 3 new ones. if incorrect, the player loses 1 point or skips a turn (as agreed).`
   String get setGameTurnStepValidation {
     return Intl.message(
-      'проверяется правильность: если верно, игрок забирает карты, раздающий добавляет 3 новые. если ошибка, игрок теряет 1 очко или пропускает ход (по договоренности).',
+      'validate correctness: if correct, the player takes the cards, and the dealer replaces them with 3 new ones. if incorrect, the player loses 1 point or skips a turn (as agreed).',
       name: 'setGameTurnStepValidation',
       desc: '',
       args: [],
     );
   }
 
-  /// `пример правильного сета:`
+  /// `example of a correct set:`
   String get setGameTurnStepContinue {
     return Intl.message(
-      'пример правильного сета:',
+      'example of a correct set:',
       name: 'setGameTurnStepContinue',
       desc: '',
       args: [],
     );
   }
 
-  /// `признак «цвет»: разный (красный, зеленый, фиолетовый).`
+  /// `attribute 'color': different (red, green, purple).`
   String get setExampleOfValidSetTitle {
     return Intl.message(
-      'признак «цвет»: разный (красный, зеленый, фиолетовый).',
+      'attribute \'color\': different (red, green, purple).',
       name: 'setExampleOfValidSetTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `признак «количество»: одинаковый (два).`
+  /// `attribute 'number': same (two).`
   String get setExampleOfValidSetColor {
     return Intl.message(
-      'признак «количество»: одинаковый (два).',
+      'attribute \'number\': same (two).',
       name: 'setExampleOfValidSetColor',
       desc: '',
       args: [],
     );
   }
 
-  /// `признак «тип»: разный (овал, ромб, волна).`
+  /// `attribute 'type': different (oval, diamond, wave).`
   String get setExampleOfValidSetNumber {
     return Intl.message(
-      'признак «тип»: разный (овал, ромб, волна).',
+      'attribute \'type\': different (oval, diamond, wave).',
       name: 'setExampleOfValidSetNumber',
       desc: '',
       args: [],
     );
   }
 
-  /// `признак «заполнение»: одинаковое (заштрихованное).`
+  /// `attribute 'fill': same (striped).`
   String get setExampleOfValidSetType {
     return Intl.message(
-      'признак «заполнение»: одинаковое (заштрихованное).',
+      'attribute \'fill\': same (striped).',
       name: 'setExampleOfValidSetType',
       desc: '',
       args: [],
     );
   }
 
-  /// `что делать, если сет не найден:`
+  /// `what to do if no set is found:`
   String get setExampleOfValidSetFill {
     return Intl.message(
-      'что делать, если сет не найден:',
+      'what to do if no set is found:',
       name: 'setExampleOfValidSetFill',
       desc: '',
       args: [],
     );
   }
 
-  /// `что делать, если сет не найден:`
+  /// `what to do if no set is found:`
   String get setNoSetFoundTitle {
     return Intl.message(
-      'что делать, если сет не найден:',
+      'what to do if no set is found:',
       name: 'setNoSetFoundTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `если среди 12 карт сета нет, раздающий добавляет 3 карты (максимум до 21 карты). среди 21 карты сет есть всегда.`
+  /// `if no set exists among the 12 cards, the dealer adds 3 cards (up to a maximum of 21 cards). among 21 cards, a set always exists.`
   String get setNoSetFoundDescription {
     return Intl.message(
-      'если среди 12 карт сета нет, раздающий добавляет 3 карты (максимум до 21 карты). среди 21 карты сет есть всегда.',
+      'if no set exists among the 12 cards, the dealer adds 3 cards (up to a maximum of 21 cards). among 21 cards, a set always exists.',
       name: 'setNoSetFoundDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `подсчет очков:`
+  /// `scoring:`
   String get setScoringTitle {
     return Intl.message(
-      'подсчет очков:',
+      'scoring:',
       name: 'setScoringTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `за каждый найденный сет — 1 очко.`
+  /// `1 point per found set.`
   String get setScoringPointPerSet {
     return Intl.message(
-      'за каждый найденный сет — 1 очко.',
+      '1 point per found set.',
       name: 'setScoringPointPerSet',
       desc: '',
       args: [],
     );
   }
 
-  /// `игра заканчивается, когда карты в колоде заканчиваются или достигнуто оговоренное количество очков.`
+  /// `the game ends when the deck runs out or a predefined point total is reached.`
   String get setScoringGameEnd {
     return Intl.message(
-      'игра заканчивается, когда карты в колоде заканчиваются или достигнуто оговоренное количество очков.',
+      'the game ends when the deck runs out or a predefined point total is reached.',
       name: 'setScoringGameEnd',
       desc: '',
       args: [],
     );
   }
 
-  /// `важные правила:`
+  /// `important rules:`
   String get setImportantRulesTitle {
     return Intl.message(
-      'важные правила:',
+      'important rules:',
       name: 'setImportantRulesTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `новый сет нельзя объявлять, пока предыдущий не подтвержден.`
+  /// `a new set cannot be declared until the previous one is confirmed.`
   String get setImportantRuleConfirmation {
     return Intl.message(
-      'новый сет нельзя объявлять, пока предыдущий не подтвержден.',
+      'a new set cannot be declared until the previous one is confirmed.',
       name: 'setImportantRuleConfirmation',
       desc: '',
       args: [],
     );
   }
 
-  /// `карты, образующие сет, могут располагаться как угодно.`
+  /// `cards forming a set can be arranged in any order.`
   String get setImportantRuleCardPosition {
     return Intl.message(
-      'карты, образующие сет, могут располагаться как угодно.',
+      'cards forming a set can be arranged in any order.',
       name: 'setImportantRuleCardPosition',
       desc: '',
       args: [],
     );
   }
 
-  /// `для обучения можно упростить игру, используя только 3 признака.`
+  /// `for learning, the game can be simplified by using only 3 attributes.`
   String get setImportantRuleSimplifiedMode {
     return Intl.message(
-      'для обучения можно упростить игру, используя только 3 признака.',
+      'for learning, the game can be simplified by using only 3 attributes.',
       name: 'setImportantRuleSimplifiedMode',
       desc: '',
       args: [],
     );
   }
 
-  /// `set® является зарегистрированной торговой маркой компании set enterprises, inc.`
+  /// `set® is a registered trademark of Set Enterprises, Inc.`
   String get setTrademarkNotice {
     return Intl.message(
-      'set® является зарегистрированной торговой маркой компании set enterprises, inc.',
+      'set® is a registered trademark of Set Enterprises, Inc.',
       name: 'setTrademarkNotice',
       desc: '',
       args: [],
     );
   }
 
-  /// `комплект игры:`
+  /// `game set:`
   String get scrabbleGameSetTitle {
     return Intl.message(
-      'комплект игры:',
+      'game set:',
       name: 'scrabbleGameSetTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `составляйте слова на игровом поле по принципу кроссворда. заработайте больше очков, чем соперники.`
+  /// `form words on the board crossword-style. score more points than your opponents.`
   String get scrabbleGameObjectiveDescription {
     return Intl.message(
-      'составляйте слова на игровом поле по принципу кроссворда. заработайте больше очков, чем соперники.',
+      'form words on the board crossword-style. score more points than your opponents.',
       name: 'scrabbleGameObjectiveDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `поле 15 на 15 клеток.`
+  /// `15x15 board.`
   String get scrabbleGameSetBoard {
     return Intl.message(
-      'поле 15 на 15 клеток.',
+      '15x15 board.',
       name: 'scrabbleGameSetBoard',
       desc: '',
       args: [],
     );
   }
 
-  /// `104 буквы (включая 2 пустышки).`
+  /// `104 tiles (including 2 blanks).`
   String get scrabbleGameSetLetters {
     return Intl.message(
-      '104 буквы (включая 2 пустышки).',
+      '104 tiles (including 2 blanks).',
       name: 'scrabbleGameSetLetters',
       desc: '',
       args: [],
     );
   }
 
-  /// `4 подставки, мешочек для букв.`
+  /// `4 racks, tile bag.`
   String get scrabbleGameSetAccessories {
     return Intl.message(
-      '4 подставки, мешочек для букв.',
+      '4 racks, tile bag.',
       name: 'scrabbleGameSetAccessories',
       desc: '',
       args: [],
     );
   }
 
-  /// `перемешайте буквы в мешочке.`
+  /// `shuffle the tiles in the bag.`
   String get scrabblePreparationShuffle {
     return Intl.message(
-      'перемешайте буквы в мешочке.',
+      'shuffle the tiles in the bag.',
       name: 'scrabblePreparationShuffle',
       desc: '',
       args: [],
     );
   }
 
-  /// `каждый игрок берет 7 букв.`
+  /// `each player draws 7 tiles.`
   String get scrabblePreparationDrawTiles {
     return Intl.message(
-      'каждый игрок берет 7 букв.',
+      'each player draws 7 tiles.',
       name: 'scrabblePreparationDrawTiles',
       desc: '',
       args: [],
     );
   }
 
-  /// `первый ход делает тот, чья случайно вытянутая буква ближе к началу алфавита.`
+  /// `the first turn goes to the player whose randomly drawn tile is closest to the start of the alphabet.`
   String get scrabblePreparationFirstTurnRule {
     return Intl.message(
-      'первый ход делает тот, чья случайно вытянутая буква ближе к началу алфавита.',
+      'the first turn goes to the player whose randomly drawn tile is closest to the start of the alphabet.',
       name: 'scrabblePreparationFirstTurnRule',
       desc: '',
       args: [],
     );
   }
 
-  /// `правила хода:`
+  /// `turn rules:`
   String get scrabbleTurnRulesTitle {
     return Intl.message(
-      'правила хода:',
+      'turn rules:',
       name: 'scrabbleTurnRulesTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `первый ход: слово должно проходить через центральную клетку (звездочка).`
+  /// `first word: must pass through the center square (star).`
   String get scrabbleTurnRuleFirstWord {
     return Intl.message(
-      'первый ход: слово должно проходить через центральную клетку (звездочка).',
+      'first word: must pass through the center square (star).',
       name: 'scrabbleTurnRuleFirstWord',
       desc: '',
       args: [],
     );
   }
 
-  /// `все слова выкладываются горизонтально или вертикально.`
+  /// `all words must be placed horizontally or vertically.`
   String get scrabbleTurnRuleWordDirection {
     return Intl.message(
-      'все слова выкладываются горизонтально или вертикально.',
+      'all words must be placed horizontally or vertically.',
       name: 'scrabbleTurnRuleWordDirection',
       desc: '',
       args: [],
     );
   }
 
-  /// `каждая новая буква должна быть частью нового или существующего слова.`
+  /// `each new tile must form part of a new or existing word.`
   String get scrabbleTurnRuleLetterPlacement {
     return Intl.message(
-      'каждая новая буква должна быть частью нового или существующего слова.',
+      'each new tile must form part of a new or existing word.',
       name: 'scrabbleTurnRuleLetterPlacement',
       desc: '',
       args: [],
     );
   }
 
-  /// `подсчет очков:`
+  /// `scoring:`
   String get scrabbleScoringTitle {
     return Intl.message(
-      'подсчет очков:',
+      'scoring:',
       name: 'scrabbleScoringTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `очки за слово: сумма очков букв + бонусы от клеток.`
+  /// `points for a word: sum of tile points + bonuses from board spaces.`
   String get scrabbleScoringWordPoints {
     return Intl.message(
-      'очки за слово: сумма очков букв + бонусы от клеток.',
+      'points for a word: sum of tile points + bonuses from board spaces.',
       name: 'scrabbleScoringWordPoints',
       desc: '',
       args: [],
     );
   }
 
-  /// `синий цвет удваивает/утраивает очки за букву.`
+  /// `blue spaces double/triple the letter score.`
   String get scrabbleScoringBlueBonus {
     return Intl.message(
-      'синий цвет удваивает/утраивает очки за букву.',
+      'blue spaces double/triple the letter score.',
       name: 'scrabbleScoringBlueBonus',
       desc: '',
       args: [],
     );
   }
 
-  /// `красный цвет удваивает/утраивает очки за слово.`
+  /// `red spaces double/triple the word score.`
   String get scrabbleScoringRedBonus {
     return Intl.message(
-      'красный цвет удваивает/утраивает очки за слово.',
+      'red spaces double/triple the word score.',
       name: 'scrabbleScoringRedBonus',
       desc: '',
       args: [],
     );
   }
 
-  /// `особенности:`
+  /// `features:`
   String get scrabbleFeaturesTitle {
     return Intl.message(
-      'особенности:',
+      'features:',
       name: 'scrabbleFeaturesTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `пустышка заменяет любую букву, но не дает очков.`
+  /// `blank tiles can represent any letter but score no points.`
   String get scrabbleFeatureBlankTile {
     return Intl.message(
-      'пустышка заменяет любую букву, но не дает очков.',
+      'blank tiles can represent any letter but score no points.',
       name: 'scrabbleFeatureBlankTile',
       desc: '',
       args: [],
     );
   }
 
-  /// `если использованы все 7 букв за ход, игрок получает 50 бонусных очков.`
+  /// `using all 7 tiles in a turn earns a 50-point bonus.`
   String get scrabbleFeatureSevenTileBonus {
     return Intl.message(
-      'если использованы все 7 букв за ход, игрок получает 50 бонусных очков.',
+      'using all 7 tiles in a turn earns a 50-point bonus.',
       name: 'scrabbleFeatureSevenTileBonus',
       desc: '',
       args: [],
     );
   }
 
-  /// `каждый ход игрок добирает буквы, чтобы снова иметь 7.`
+  /// `players draw tiles after each turn to refill their racks to 7.`
   String get scrabbleFeatureRefillTiles {
     return Intl.message(
-      'каждый ход игрок добирает буквы, чтобы снова иметь 7.',
+      'players draw tiles after each turn to refill their racks to 7.',
       name: 'scrabbleFeatureRefillTiles',
       desc: '',
       args: [],
     );
   }
 
-  /// `конец игры:`
+  /// `end of game:`
   String get endGameTitle {
     return Intl.message(
-      'конец игры:',
+      'end of game:',
       name: 'endGameTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `закончились буквы в мешочке, и никто не может сделать ход.`
+  /// `the game ends when there are no tiles left and no moves can be made.`
   String get scrabbleEndGameNoTiles {
     return Intl.message(
-      'закончились буквы в мешочке, и никто не может сделать ход.',
+      'the game ends when there are no tiles left and no moves can be made.',
       name: 'scrabbleEndGameNoTiles',
       desc: '',
       args: [],
     );
   }
 
-  /// `все игроки пропустили ходы дважды.`
+  /// `the game ends if all players pass their turns twice.`
   String get scrabbleEndGameSkippedTurns {
     return Intl.message(
-      'все игроки пропустили ходы дважды.',
+      'the game ends if all players pass their turns twice.',
       name: 'scrabbleEndGameSkippedTurns',
       desc: '',
       args: [],
     );
   }
 
-  /// `оставшиеся буквы на подставках вычитаются из очков.`
+  /// `unplayed tiles are subtracted from the player's score.`
   String get scrabbleEndGameRemainingTilesPenalty {
     return Intl.message(
-      'оставшиеся буквы на подставках вычитаются из очков.',
+      'unplayed tiles are subtracted from the player\'s score.',
       name: 'scrabbleEndGameRemainingTilesPenalty',
       desc: '',
       args: [],
     );
   }
 
-  /// `дополнительные моменты:`
+  /// `additional rules:`
   String get scrabbleAdditionalPointsTitle {
     return Intl.message(
-      'дополнительные моменты:',
+      'additional rules:',
       name: 'scrabbleAdditionalPointsTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `можно заменить буквы, пропустив ход.`
+  /// `players may swap tiles and pass their turn.`
   String get scrabbleAdditionalReplaceTiles {
     return Intl.message(
-      'можно заменить буквы, пропустив ход.',
+      'players may swap tiles and pass their turn.',
       name: 'scrabbleAdditionalReplaceTiles',
       desc: '',
       args: [],
     );
   }
 
-  /// `спорные слова проверяются в согласованном словаре.`
+  /// `challenged words are checked in an agreed-upon dictionary.`
   String get scrabbleAdditionalDisputedWords {
     return Intl.message(
-      'спорные слова проверяются в согласованном словаре.',
+      'challenged words are checked in an agreed-upon dictionary.',
       name: 'scrabbleAdditionalDisputedWords',
       desc: '',
       args: [],
     );
   }
 
-  /// `все слова должны быть завершенными и соответствовать правилам языка.`
+  /// `all words must be complete and adhere to language rules.`
   String get scrabbleAdditionalWordRules {
     return Intl.message(
-      'все слова должны быть завершенными и соответствовать правилам языка.',
+      'all words must be complete and adhere to language rules.',
       name: 'scrabbleAdditionalWordRules',
       desc: '',
       args: [],
     );
   }
 
-  /// `scrabble® является зарегистрированной торговой маркой компании hasbro, inc.`
+  /// `scrabble® is a registered trademark of hasbro, inc.`
   String get scrabbleTrademarkNotice {
     return Intl.message(
-      'scrabble® является зарегистрированной торговой маркой компании hasbro, inc.',
+      'scrabble® is a registered trademark of hasbro, inc.',
       name: 'scrabbleTrademarkNotice',
       desc: '',
       args: [],
     );
   }
 
-  /// `первым избавиться от всех своих карт и набрать очки за карты, оставшиеся у соперников. побеждает игрок, набравший 500 очков.`
+  /// `be the first to play all your cards and score points from your opponents' remaining cards. the first player to reach 500 points wins.`
   String get unoGameObjectiveDescription {
     return Intl.message(
-      'первым избавиться от всех своих карт и набрать очки за карты, оставшиеся у соперников. побеждает игрок, набравший 500 очков.',
+      'be the first to play all your cards and score points from your opponents\' remaining cards. the first player to reach 500 points wins.',
       name: 'unoGameObjectiveDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `каждому игроку раздается по 7 карт.`
+  /// `deal 7 cards to each player.`
   String get unoPreparationDistributeCards {
     return Intl.message(
-      'каждому игроку раздается по 7 карт.',
+      'deal 7 cards to each player.',
       name: 'unoPreparationDistributeCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `остальная колода кладется в центр (это колода для добора).`
+  /// `place the remaining deck in the center as the draw pile.`
   String get unoPreparationDeckInCenter {
     return Intl.message(
-      'остальная колода кладется в центр (это колода для добора).',
+      'place the remaining deck in the center as the draw pile.',
       name: 'unoPreparationDeckInCenter',
       desc: '',
       args: [],
     );
   }
 
-  /// `верхняя карта переворачивается (это начальная карта сброса).`
+  /// `flip the top card to start the discard pile.`
   String get unoPreparationFlipFirstCard {
     return Intl.message(
-      'верхняя карта переворачивается (это начальная карта сброса).',
+      'flip the top card to start the discard pile.',
       name: 'unoPreparationFlipFirstCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `игроки по очереди сбрасывают карту, совпадающую с верхней картой по цвету, числу или символу.`
+  /// `players take turns playing a card that matches the top card by color, number, or symbol.`
   String get unoGameTurnTitle {
     return Intl.message(
-      'игроки по очереди сбрасывают карту, совпадающую с верхней картой по цвету, числу или символу.',
+      'players take turns playing a card that matches the top card by color, number, or symbol.',
       name: 'unoGameTurnTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `игроки по очереди сбрасывают карту, совпадающую с верхней картой по цвету, числу или символу.`
+  /// `players take turns playing a card that matches the top card by color, number, or symbol.`
   String get unoTurnRuleMatchCard {
     return Intl.message(
-      'игроки по очереди сбрасывают карту, совпадающую с верхней картой по цвету, числу или символу.',
+      'players take turns playing a card that matches the top card by color, number, or symbol.',
       name: 'unoTurnRuleMatchCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `если подходящей карты нет, берется карта из колоды. если она подходит, можно сыграть.`
+  /// `if you can't play, draw a card. if it's playable, you can play it immediately.`
   String get unoTurnRuleDrawCard {
     return Intl.message(
-      'если подходящей карты нет, берется карта из колоды. если она подходит, можно сыграть.',
+      'if you can\'t play, draw a card. if it\'s playable, you can play it immediately.',
       name: 'unoTurnRuleDrawCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `игрок может взять карту, даже если у него есть подходящая, но использовать ее в этом ходу нельзя.`
+  /// `players may draw a card even if they have a playable one, but they can't play it on the same turn.`
   String get unoTurnRuleOptionalDraw {
     return Intl.message(
-      'игрок может взять карту, даже если у него есть подходящая, но использовать ее в этом ходу нельзя.',
+      'players may draw a card even if they have a playable one, but they can\'t play it on the same turn.',
       name: 'unoTurnRuleOptionalDraw',
       desc: '',
       args: [],
     );
   }
 
-  /// `активные карты:`
+  /// `action cards:`
   String get unoActiveCardsTitle {
     return Intl.message(
-      'активные карты:',
+      'action cards:',
       name: 'unoActiveCardsTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `«пропусти ход»: следующий игрок пропускает ход.`
+  /// `'skip': the next player loses their turn.`
   String get unoActiveCardSkipTurn {
     return Intl.message(
-      '«пропусти ход»: следующий игрок пропускает ход.',
+      '\'skip\': the next player loses their turn.',
       name: 'unoActiveCardSkipTurn',
       desc: '',
       args: [],
     );
   }
 
-  /// `«возьми две»: следующий игрок берет 2 карты и пропускает ход.`
+  /// `'draw two': the next player draws 2 cards and loses their turn.`
   String get unoActiveCardDrawTwo {
     return Intl.message(
-      '«возьми две»: следующий игрок берет 2 карты и пропускает ход.',
+      '\'draw two\': the next player draws 2 cards and loses their turn.',
       name: 'unoActiveCardDrawTwo',
       desc: '',
       args: [],
     );
   }
 
-  /// `«смени направление»: меняет направление игры.`
+  /// `'reverse': reverses the direction of play.`
   String get unoActiveCardReverse {
     return Intl.message(
-      '«смени направление»: меняет направление игры.',
+      '\'reverse\': reverses the direction of play.',
       name: 'unoActiveCardReverse',
       desc: '',
       args: [],
     );
   }
 
-  /// `дикая карта: позволяет выбрать цвет игры.`
+  /// `'wild': allows you to choose the color of play.`
   String get unoActiveCardWild {
     return Intl.message(
-      'дикая карта: позволяет выбрать цвет игры.',
+      '\'wild\': allows you to choose the color of play.',
       name: 'unoActiveCardWild',
       desc: '',
       args: [],
     );
   }
 
-  /// `дикая карта «возьми четыре»: позволяет выбрать цвет, а следующий игрок берет 4 карты. можно сыграть, только если нет других карт того же цвета.`
+  /// `'wild draw four': choose the color, and the next player draws 4 cards. you can only play it if you have no matching cards.`
   String get unoActiveCardWildDrawFour {
     return Intl.message(
-      'дикая карта «возьми четыре»: позволяет выбрать цвет, а следующий игрок берет 4 карты. можно сыграть, только если нет других карт того же цвета.',
+      '\'wild draw four\': choose the color, and the next player draws 4 cards. you can only play it if you have no matching cards.',
       name: 'unoActiveCardWildDrawFour',
       desc: '',
       args: [],
     );
   }
 
-  /// `особые карты:`
+  /// `special cards:`
   String get specialCardsTitle {
     return Intl.message(
-      'особые карты:',
+      'special cards:',
       name: 'specialCardsTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `«обмен»: обмен картами с любым игроком и выбор цвета.`
+  /// `'swap hands': swap hands with any player and choose the color.`
   String get unoSpecialCardSwap {
     return Intl.message(
-      '«обмен»: обмен картами с любым игроком и выбор цвета.',
+      '\'swap hands\': swap hands with any player and choose the color.',
       name: 'unoSpecialCardSwap',
       desc: '',
       args: [],
     );
   }
 
-  /// `пустая карта: придумайте правило перед игрой.`
+  /// `'blank card': make a rule before starting the game.`
   String get unoSpecialCardBlank {
     return Intl.message(
-      'пустая карта: придумайте правило перед игрой.',
+      '\'blank card\': make a rule before starting the game.',
       name: 'unoSpecialCardBlank',
       desc: '',
       args: [],
     );
   }
 
-  /// `забыл крикнуть «уно»? возьми 2 карты, если заметили до хода следующего игрока.`
+  /// `forget to say 'uno'? draw 2 cards if caught before the next player's turn.`
   String get unoSpecialRuleUnoCall {
     return Intl.message(
-      'забыл крикнуть «уно»? возьми 2 карты, если заметили до хода следующего игрока.',
+      'forget to say \'uno\'? draw 2 cards if caught before the next player\'s turn.',
       name: 'unoSpecialRuleUnoCall',
       desc: '',
       args: [],
     );
   }
 
-  /// `если кончилась колода добора, сброс перетасовывается.`
+  /// `if the draw pile is empty, reshuffle the discard pile.`
   String get unoSpecialRuleReshuffle {
     return Intl.message(
-      'если кончилась колода добора, сброс перетасовывается.',
+      'if the draw pile is empty, reshuffle the discard pile.',
       name: 'unoSpecialRuleReshuffle',
       desc: '',
       args: [],
     );
   }
 
-  /// `подсчет очков:`
+  /// `scoring:`
   String get unoScoringTitle {
     return Intl.message(
-      'подсчет очков:',
+      'scoring:',
       name: 'unoScoringTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `цифровые карты: их номинал.`
+  /// `number cards: face value.`
   String get unoScoringNumberCards {
     return Intl.message(
-      'цифровые карты: их номинал.',
+      'number cards: face value.',
       name: 'unoScoringNumberCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `«пропусти ход», «возьми две», «смени направление»: 20 очков.`
+  /// `'skip', 'draw two', 'reverse': 20 points.`
   String get unoScoring20PointsCards {
     return Intl.message(
-      '«пропусти ход», «возьми две», «смени направление»: 20 очков.',
+      '\'skip\', \'draw two\', \'reverse\': 20 points.',
       name: 'unoScoring20PointsCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `дикая карта, «возьми четыре»: 50 очков.`
+  /// `'wild', 'wild draw four': 50 points.`
   String get unoScoring50PointsCards {
     return Intl.message(
-      'дикая карта, «возьми четыре»: 50 очков.',
+      '\'wild\', \'wild draw four\': 50 points.',
       name: 'unoScoring50PointsCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `«обмен», пустая карта: 40 очков.`
+  /// `'swap hands', 'blank card': 40 points.`
   String get unoScoring40PointsCards {
     return Intl.message(
-      '«обмен», пустая карта: 40 очков.',
+      '\'swap hands\', \'blank card\': 40 points.',
       name: 'unoScoring40PointsCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `игрок выигрывает, набрав 500 очков.`
+  /// `the first player to reach 500 points wins.`
   String get unoVictory500Points {
     return Intl.message(
-      'игрок выигрывает, набрав 500 очков.',
+      'the first player to reach 500 points wins.',
       name: 'unoVictory500Points',
       desc: '',
       args: [],
     );
   }
 
-  /// `альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.`
+  /// `alternative: the player with the lowest score wins after the game ends.`
   String get unoVictoryLowestScoreAlternative {
     return Intl.message(
-      'альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.',
+      'alternative: the player with the lowest score wins after the game ends.',
       name: 'unoVictoryLowestScoreAlternative',
       desc: '',
       args: [],
     );
   }
 
-  /// `uno® является зарегистрированной торговой маркой компании mattel`
+  /// `uno® is a registered trademark of mattel.`
   String get unoTrademarkNotice {
     return Intl.message(
-      'uno® является зарегистрированной торговой маркой компании mattel',
+      'uno® is a registered trademark of mattel.',
       name: 'unoTrademarkNotice',
       desc: '',
       args: [],
     );
   }
 
-  /// `избавьтесь от всех своих карт и наберите очки за карты соперников. побеждает игрок, набравший 500 очков.`
+  /// `play all your cards and score points from your opponents' remaining cards. the first player to reach 500 points wins.`
   String get unoFlipGameObjectiveDescription {
     return Intl.message(
-      'избавьтесь от всех своих карт и наберите очки за карты соперников. побеждает игрок, набравший 500 очков.',
+      'play all your cards and score points from your opponents\' remaining cards. the first player to reach 500 points wins.',
       name: 'unoFlipGameObjectiveDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `начало игры:`
+  /// `game start:`
   String get unoFlipGameStartTitle {
     return Intl.message(
-      'начало игры:',
+      'game start:',
       name: 'unoFlipGameStartTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `каждый игрок получает 7 карт.`
+  /// `each player receives 7 cards.`
   String get unoFlipGameStartDealCards {
     return Intl.message(
-      'каждый игрок получает 7 карт.',
+      'each player receives 7 cards.',
       name: 'unoFlipGameStartDealCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `игру начинают светлой стороной колоды.`
+  /// `start the game on the light side of the deck.`
   String get unoFlipGameStartLightSide {
     return Intl.message(
-      'игру начинают светлой стороной колоды.',
+      'start the game on the light side of the deck.',
       name: 'unoFlipGameStartLightSide',
       desc: '',
       args: [],
     );
   }
 
-  /// `сыграйте карту, совпадающую по цвету, числу или символу с верхней картой сброса.`
+  /// `play a card matching the top card by color, number, or symbol.`
   String get unoFlipTurnRuleMatchCard {
     return Intl.message(
-      'сыграйте карту, совпадающую по цвету, числу или символу с верхней картой сброса.',
+      'play a card matching the top card by color, number, or symbol.',
       name: 'unoFlipTurnRuleMatchCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `если подходящей карты нет, возьмите карту из колоды.`
+  /// `if no matching card is available, draw from the pile.`
   String get unoFlipTurnRuleDrawCard {
     return Intl.message(
-      'если подходящей карты нет, возьмите карту из колоды.',
+      'if no matching card is available, draw from the pile.',
       name: 'unoFlipTurnRuleDrawCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `карта «переверните» меняет сторону игры с «светлой» на «тёмную» и наоборот.`
+  /// `'flip' card switches the game to the other side of the deck.`
   String get unoFlipTurnRuleFlipCard {
     return Intl.message(
-      'карта «переверните» меняет сторону игры с «светлой» на «тёмную» и наоборот.',
+      '\'flip\' card switches the game to the other side of the deck.',
       name: 'unoFlipTurnRuleFlipCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `светлая сторона:`
+  /// `light side:`
   String get unoFlipLightSideCardsTitle {
     return Intl.message(
-      'светлая сторона:',
+      'light side:',
       name: 'unoFlipLightSideCardsTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `«возьми одну».`
+  /// `'draw one.'`
   String get unoFlipLightSideDrawOne {
     return Intl.message(
-      '«возьми одну».',
+      '\'draw one.\'',
       name: 'unoFlipLightSideDrawOne',
       desc: '',
       args: [],
     );
   }
 
-  /// `«смени направление».`
+  /// `'reverse.'`
   String get unoFlipLightSideReverse {
     return Intl.message(
-      '«смени направление».',
+      '\'reverse.\'',
       name: 'unoFlipLightSideReverse',
       desc: '',
       args: [],
     );
   }
 
-  /// `«пропусти ход».`
+  /// `'skip turn.'`
   String get unoFlipLightSideSkipTurn {
     return Intl.message(
-      '«пропусти ход».',
+      '\'skip turn.\'',
       name: 'unoFlipLightSideSkipTurn',
       desc: '',
       args: [],
     );
   }
 
-  /// `«дикая карта».`
+  /// `'wild.'`
   String get unoFlipLightSideWildCard {
     return Intl.message(
-      '«дикая карта».',
+      '\'wild.\'',
       name: 'unoFlipLightSideWildCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `«дикая +2».`
+  /// `'wild draw two.'`
   String get unoFlipLightSideWildDrawTwo {
     return Intl.message(
-      '«дикая +2».',
+      '\'wild draw two.\'',
       name: 'unoFlipLightSideWildDrawTwo',
       desc: '',
       args: [],
     );
   }
 
-  /// `тёмная сторона:`
+  /// `dark side:`
   String get unoFlipDarkSideCardsTitle {
     return Intl.message(
-      'тёмная сторона:',
+      'dark side:',
       name: 'unoFlipDarkSideCardsTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `«возьми пять».`
+  /// `'draw five.'`
   String get unoFlipDarkSideDrawFive {
     return Intl.message(
-      '«возьми пять».',
+      '\'draw five.\'',
       name: 'unoFlipDarkSideDrawFive',
       desc: '',
       args: [],
     );
   }
 
-  /// `«смени направление».`
+  /// `'reverse.'`
   String get unoFlipDarkSideReverse {
     return Intl.message(
-      '«смени направление».',
+      '\'reverse.\'',
       name: 'unoFlipDarkSideReverse',
       desc: '',
       args: [],
     );
   }
 
-  /// `«все пропускают ход».`
+  /// `'skip all.'`
   String get unoFlipDarkSideSkipAll {
     return Intl.message(
-      '«все пропускают ход».',
+      '\'skip all.\'',
       name: 'unoFlipDarkSideSkipAll',
       desc: '',
       args: [],
     );
   }
 
-  /// `«дикая карта».`
+  /// `'wild.'`
   String get unoFlipDarkSideWildCard {
     return Intl.message(
-      '«дикая карта».',
+      '\'wild.\'',
       name: 'unoFlipDarkSideWildCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `«бери, пока не вытянешь нужный цвет».`
+  /// `'draw until matching color.'`
   String get unoFlipDarkSideDrawUntilColor {
     return Intl.message(
-      '«бери, пока не вытянешь нужный цвет».',
+      '\'draw until matching color.\'',
       name: 'unoFlipDarkSideDrawUntilColor',
       desc: '',
       args: [],
     );
   }
 
-  /// `после карты «переверните» вся игра меняет сторону.`
+  /// `after a 'flip' card, the entire game switches sides.`
   String get unoFlipKeyMomentFlipCardEffect {
     return Intl.message(
-      'после карты «переверните» вся игра меняет сторону.',
+      'after a \'flip\' card, the entire game switches sides.',
       name: 'unoFlipKeyMomentFlipCardEffect',
       desc: '',
       args: [],
     );
   }
 
-  /// `ключевые моменты:`
+  /// `key moments:`
   String get unoFlipKeyMoment {
     return Intl.message(
-      'ключевые моменты:',
+      'key moments:',
       name: 'unoFlipKeyMoment',
       desc: '',
       args: [],
     );
   }
 
-  /// `если игрок играет предпоследней картой, он должен сказать «уно!». если забыл, берёт 2 карты.`
+  /// `when playing your second-to-last card, call 'uno!' if you forget and are caught, draw 2 cards.`
   String get unoFlipKeyMomentUnoCall {
     return Intl.message(
-      'если игрок играет предпоследней картой, он должен сказать «уно!». если забыл, берёт 2 карты.',
+      'when playing your second-to-last card, call \'uno!\' if you forget and are caught, draw 2 cards.',
       name: 'unoFlipKeyMomentUnoCall',
       desc: '',
       args: [],
     );
   }
 
-  /// `подсчёт очков:`
+  /// `scoring:`
   String get unoFlipScoringTitle {
     return Intl.message(
-      'подсчёт очков:',
+      'scoring:',
       name: 'unoFlipScoringTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `победитель раунда получает очки за оставшиеся карты соперников:`
+  /// `round winner scores points for opponents' remaining cards:`
   String get unoFlipScoringRoundWinnerPoints {
     return Intl.message(
-      'победитель раунда получает очки за оставшиеся карты соперников:',
+      'round winner scores points for opponents\' remaining cards:',
       name: 'unoFlipScoringRoundWinnerPoints',
       desc: '',
       args: [],
     );
   }
 
-  /// `карты с цифрами: по их номиналу.`
+  /// `number cards: face value.`
   String get unoFlipScoringNumberCards {
     return Intl.message(
-      'карты с цифрами: по их номиналу.',
+      'number cards: face value.',
       name: 'unoFlipScoringNumberCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `активные карты: 20–60 очков в зависимости от типа.`
+  /// `action cards: 20–60 points depending on type.`
   String get unoFlipScoringActiveCards {
     return Intl.message(
-      'активные карты: 20–60 очков в зависимости от типа.',
+      'action cards: 20–60 points depending on type.',
       name: 'unoFlipScoringActiveCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `игрок, набравший 500 очков, выигрывает игру.`
+  /// `the first player to reach 500 points wins.`
   String get unoFlipVictory500Points {
     return Intl.message(
-      'игрок, набравший 500 очков, выигрывает игру.',
+      'the first player to reach 500 points wins.',
       name: 'unoFlipVictory500Points',
       desc: '',
       args: [],
     );
   }
 
-  /// `альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.`
+  /// `alternative: the player with the lowest score wins after the game ends.`
   String get unoFlipVictoryLowestScoreAlternative {
     return Intl.message(
-      'альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.',
+      'alternative: the player with the lowest score wins after the game ends.',
       name: 'unoFlipVictoryLowestScoreAlternative',
       desc: '',
       args: [],
     );
   }
 
-  /// `uno flip® является зарегистрированной торговой маркой компании mattel`
+  /// `uno flip® is a registered trademark of mattel.`
   String get unoFlipTrademarkNotice {
     return Intl.message(
-      'uno flip® является зарегистрированной торговой маркой компании mattel',
+      'uno flip® is a registered trademark of mattel.',
       name: 'unoFlipTrademarkNotice',
       desc: '',
       args: [],
     );
   }
 
-  /// `цель игры:`
+  /// `objective:`
   String get dosGameObjectiveTitle {
     return Intl.message(
-      'цель игры:',
+      'objective:',
       name: 'dosGameObjectiveTitle',
       desc: '',
       args: [],
     );
   }
 
-  /// `избавиться от всех своих карт и набрать очки за карты, оставшиеся у соперников. побеждает игрок, набравший 200 очков.`
+  /// `play all your cards and score points from your opponents' remaining cards. the first player to reach 200 points wins.`
   String get dosGameObjectiveDescription {
     return Intl.message(
-      'избавиться от всех своих карт и набрать очки за карты, оставшиеся у соперников. побеждает игрок, набравший 200 очков.',
+      'play all your cards and score points from your opponents\' remaining cards. the first player to reach 200 points wins.',
       name: 'dosGameObjectiveDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `каждому игроку раздается по 7 карт.`
+  /// `deal 7 cards to each player.`
   String get dosPreparationDealCards {
     return Intl.message(
-      'каждому игроку раздается по 7 карт.',
+      'deal 7 cards to each player.',
       name: 'dosPreparationDealCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `выкладываются 2 карты в «центральный ряд».`
+  /// `place 2 cards in the 'center row.'`
   String get dosPreparationCentralRow {
     return Intl.message(
-      'выкладываются 2 карты в «центральный ряд».',
+      'place 2 cards in the \'center row.\'',
       name: 'dosPreparationCentralRow',
       desc: '',
       args: [],
     );
   }
 
-  /// `остальная колода кладется рядом (колода для добора).`
+  /// `put the rest of the deck next to it as the draw pile.`
   String get dosPreparationDrawPile {
     return Intl.message(
-      'остальная колода кладется рядом (колода для добора).',
+      'put the rest of the deck next to it as the draw pile.',
       name: 'dosPreparationDrawPile',
       desc: '',
       args: [],
     );
   }
 
-  /// `игроки по очереди подбирают карты из руки к картам в «центральном ряду»:`
+  /// `players take turns matching cards from their hand to cards in the center row:`
   String get dosTurnRulePickCards {
     return Intl.message(
-      'игроки по очереди подбирают карты из руки к картам в «центральном ряду»:',
+      'players take turns matching cards from their hand to cards in the center row:',
       name: 'dosTurnRulePickCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `одиночное совпадение: карта совпадает по числу.`
+  /// `single match: a card matches by number.`
   String get dosTurnRuleSingleMatch {
     return Intl.message(
-      'одиночное совпадение: карта совпадает по числу.',
+      'single match: a card matches by number.',
       name: 'dosTurnRuleSingleMatch',
       desc: '',
       args: [],
     );
   }
 
-  /// `двойное совпадение: сумма двух ваших карт равна числу карты из ряда.`
+  /// `double match: two cards add up to the number on a center row card.`
   String get dosTurnRuleDoubleMatch {
     return Intl.message(
-      'двойное совпадение: сумма двух ваших карт равна числу карты из ряда.',
+      'double match: two cards add up to the number on a center row card.',
       name: 'dosTurnRuleDoubleMatch',
       desc: '',
       args: [],
     );
   }
 
-  /// `если подходящих карт нет, возьмите карту из колоды. если она подходит, можно сыграть.`
+  /// `if no match is possible, draw a card. if it matches, you can play it.`
   String get dosTurnRuleDrawCard {
     return Intl.message(
-      'если подходящих карт нет, возьмите карту из колоды. если она подходит, можно сыграть.',
+      'if no match is possible, draw a card. if it matches, you can play it.',
       name: 'dosTurnRuleDrawCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `в конце хода дополните «центральный ряд» до 2 карт.`
+  /// `at the end of your turn, refill the center row to 2 cards.`
   String get dosTurnRuleEndTurn {
     return Intl.message(
-      'в конце хода дополните «центральный ряд» до 2 карт.',
+      'at the end of your turn, refill the center row to 2 cards.',
       name: 'dosTurnRuleEndTurn',
       desc: '',
       args: [],
     );
   }
 
-  /// `бонусы:`
+  /// `bonuses:`
   String get dosBonusNumberColorMatchAddCard {
     return Intl.message(
-      'бонусы:',
+      'bonuses:',
       name: 'dosBonusNumberColorMatchAddCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `бонусы:`
+  /// `bonuses:`
   String get dosBonus {
     return Intl.message(
-      'бонусы:',
+      'bonuses:',
       name: 'dosBonus',
       desc: '',
       args: [],
     );
   }
 
-  /// `за двойное совпадение цвета: остальные игроки берут по 1 карте из колоды.`
+  /// `double color match: all other players draw 1 card.`
   String get dosBonusDoubleColorMatchDrawCard {
     return Intl.message(
-      'за двойное совпадение цвета: остальные игроки берут по 1 карте из колоды.',
+      'double color match: all other players draw 1 card.',
       name: 'dosBonusDoubleColorMatchDrawCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `«дикая карта dos»: заменяет две карты любого цвета.`
+  /// `'wild dos': substitutes for two cards of any color.`
   String get dosSpecialCardWildDos {
     return Intl.message(
-      '«дикая карта dos»: заменяет две карты любого цвета.',
+      '\'wild dos\': substitutes for two cards of any color.',
       name: 'dosSpecialCardWildDos',
       desc: '',
       args: [],
     );
   }
 
-  /// `«дикая карта #»: заменяет любое число (1–10) своего цвета.`
+  /// `'wild #': substitutes for any number (1–10) of its color.`
   String get dosSpecialCardWildNumber {
     return Intl.message(
-      '«дикая карта #»: заменяет любое число (1–10) своего цвета.',
+      '\'wild #\': substitutes for any number (1–10) of its color.',
       name: 'dosSpecialCardWildNumber',
       desc: '',
       args: [],
     );
   }
 
-  /// `если у вас осталось 2 карты, крикните «дос!». если забудете и другой игрок заметит, возьмите 2 карты.`
+  /// `when you have 2 cards left, call 'dos!' if you forget and are caught, draw 2 cards.`
   String get dosSpecialRuleDosCall {
     return Intl.message(
-      'если у вас осталось 2 карты, крикните «дос!». если забудете и другой игрок заметит, возьмите 2 карты.',
+      'when you have 2 cards left, call \'dos!\' if you forget and are caught, draw 2 cards.',
       name: 'dosSpecialRuleDosCall',
       desc: '',
       args: [],
     );
   }
 
-  /// `особое правило:`
+  /// `special rule:`
   String get dosSpecialRule {
     return Intl.message(
-      'особое правило:',
+      'special rule:',
       name: 'dosSpecialRule',
       desc: '',
       args: [],
     );
   }
 
-  /// `цифровые карты: номинал.`
+  /// `number cards: face value.`
   String get dosScoringNumberCards {
     return Intl.message(
-      'цифровые карты: номинал.',
+      'number cards: face value.',
       name: 'dosScoringNumberCards',
       desc: '',
       args: [],
     );
   }
 
-  /// `подсчет очков:`
+  /// `scoring:`
   String get dosScoring {
     return Intl.message(
-      'подсчет очков:',
+      'scoring:',
       name: 'dosScoring',
       desc: '',
       args: [],
     );
   }
 
-  /// `«дикая карта dos»: 20 очков.`
+  /// `'wild dos': 20 points.`
   String get dosScoringWildDos {
     return Intl.message(
-      '«дикая карта dos»: 20 очков.',
+      '\'wild dos\': 20 points.',
       name: 'dosScoringWildDos',
       desc: '',
       args: [],
     );
   }
 
-  /// `«дикая карта #»: 40 очков.`
+  /// `'wild #': 40 points.`
   String get dosScoringWildNumber {
     return Intl.message(
-      '«дикая карта #»: 40 очков.',
+      '\'wild #\': 40 points.',
       name: 'dosScoringWildNumber',
       desc: '',
       args: [],
     );
   }
 
-  /// `игрок выигрывает, набрав 200 очков.`
+  /// `the first player to reach 200 points wins.`
   String get dosVictory200Points {
     return Intl.message(
-      'игрок выигрывает, набрав 200 очков.',
+      'the first player to reach 200 points wins.',
       name: 'dosVictory200Points',
       desc: '',
       args: [],
     );
   }
 
-  /// `dos® является зарегистрированной торговой маркой компании mattel`
+  /// `dos® is a registered trademark of mattel.`
   String get dosTrademarkNotice {
     return Intl.message(
-      'dos® является зарегистрированной торговой маркой компании mattel',
+      'dos® is a registered trademark of mattel.',
       name: 'dosTrademarkNotice',
       desc: '',
       args: [],
     );
   }
 
-  /// `игра продолжается`
+  /// `the game continues.`
   String get setGameTurnStepFour {
     return Intl.message(
-      'игра продолжается',
+      'the game continues.',
       name: 'setGameTurnStepFour',
       desc: '',
       args: [],

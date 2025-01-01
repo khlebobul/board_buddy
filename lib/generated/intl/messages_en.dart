@@ -25,7 +25,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "about": MessageLookupByLibrary.simpleMessage("about"),
         "back": MessageLookupByLibrary.simpleMessage("back"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
-        "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
+        "cardTypesTitle":
+            MessageLookupByLibrary.simpleMessage("types of cards:"),
         "checkMyWebsite":
             MessageLookupByLibrary.simpleMessage("check my website"),
         "common": MessageLookupByLibrary.simpleMessage("common"),
@@ -33,59 +34,59 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "don\'t have your favourite game? email me!"),
         "dos": MessageLookupByLibrary.simpleMessage("dos"),
-        "dosBonus": MessageLookupByLibrary.simpleMessage("бонусы:"),
-        "dosBonusDoubleColorMatchDrawCard": MessageLookupByLibrary.simpleMessage(
-            "за двойное совпадение цвета: остальные игроки берут по 1 карте из колоды."),
+        "dosBonus": MessageLookupByLibrary.simpleMessage("bonuses:"),
+        "dosBonusDoubleColorMatchDrawCard":
+            MessageLookupByLibrary.simpleMessage(
+                "double color match: all other players draw 1 card."),
         "dosBonusNumberColorMatchAddCard":
-            MessageLookupByLibrary.simpleMessage("бонусы:"),
+            MessageLookupByLibrary.simpleMessage("bonuses:"),
         "dosGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-            "избавиться от всех своих карт и набрать очки за карты, оставшиеся у соперников. побеждает игрок, набравший 200 очков."),
+            "play all your cards and score points from your opponents\' remaining cards. the first player to reach 200 points wins."),
         "dosGameObjectiveTitle":
-            MessageLookupByLibrary.simpleMessage("цель игры:"),
+            MessageLookupByLibrary.simpleMessage("objective:"),
         "dosPreparationCentralRow": MessageLookupByLibrary.simpleMessage(
-            "выкладываются 2 карты в «центральный ряд»."),
+            "place 2 cards in the \'center row.\'"),
         "dosPreparationDealCards": MessageLookupByLibrary.simpleMessage(
-            "каждому игроку раздается по 7 карт."),
+            "deal 7 cards to each player."),
         "dosPreparationDrawPile": MessageLookupByLibrary.simpleMessage(
-            "остальная колода кладется рядом (колода для добора)."),
-        "dosScoring": MessageLookupByLibrary.simpleMessage("подсчет очков:"),
+            "put the rest of the deck next to it as the draw pile."),
+        "dosScoring": MessageLookupByLibrary.simpleMessage("scoring:"),
         "dosScoringNumberCards":
-            MessageLookupByLibrary.simpleMessage("цифровые карты: номинал."),
-        "dosScoringWildDos": MessageLookupByLibrary.simpleMessage(
-            "«дикая карта dos»: 20 очков."),
+            MessageLookupByLibrary.simpleMessage("number cards: face value."),
+        "dosScoringWildDos":
+            MessageLookupByLibrary.simpleMessage("\'wild dos\': 20 points."),
         "dosScoringWildNumber":
-            MessageLookupByLibrary.simpleMessage("«дикая карта #»: 40 очков."),
+            MessageLookupByLibrary.simpleMessage("\'wild #\': 40 points."),
         "dosSpecialCardWildDos": MessageLookupByLibrary.simpleMessage(
-            "«дикая карта dos»: заменяет две карты любого цвета."),
+            "\'wild dos\': substitutes for two cards of any color."),
         "dosSpecialCardWildNumber": MessageLookupByLibrary.simpleMessage(
-            "«дикая карта #»: заменяет любое число (1–10) своего цвета."),
-        "dosSpecialRule":
-            MessageLookupByLibrary.simpleMessage("особое правило:"),
+            "\'wild #\': substitutes for any number (1–10) of its color."),
+        "dosSpecialRule": MessageLookupByLibrary.simpleMessage("special rule:"),
         "dosSpecialRuleDosCall": MessageLookupByLibrary.simpleMessage(
-            "если у вас осталось 2 карты, крикните «дос!». если забудете и другой игрок заметит, возьмите 2 карты."),
+            "when you have 2 cards left, call \'dos!\' if you forget and are caught, draw 2 cards."),
         "dosTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-            "dos® является зарегистрированной торговой маркой компании mattel"),
+            "dos® is a registered trademark of mattel."),
         "dosTurnRuleDoubleMatch": MessageLookupByLibrary.simpleMessage(
-            "двойное совпадение: сумма двух ваших карт равна числу карты из ряда."),
+            "double match: two cards add up to the number on a center row card."),
         "dosTurnRuleDrawCard": MessageLookupByLibrary.simpleMessage(
-            "если подходящих карт нет, возьмите карту из колоды. если она подходит, можно сыграть."),
+            "if no match is possible, draw a card. if it matches, you can play it."),
         "dosTurnRuleEndTurn": MessageLookupByLibrary.simpleMessage(
-            "в конце хода дополните «центральный ряд» до 2 карт."),
+            "at the end of your turn, refill the center row to 2 cards."),
         "dosTurnRulePickCards": MessageLookupByLibrary.simpleMessage(
-            "игроки по очереди подбирают карты из руки к картам в «центральном ряду»:"),
+            "players take turns matching cards from their hand to cards in the center row:"),
         "dosTurnRuleSingleMatch": MessageLookupByLibrary.simpleMessage(
-            "одиночное совпадение: карта совпадает по числу."),
+            "single match: a card matches by number."),
         "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
-            "игрок выигрывает, набрав 200 очков."),
+            "the first player to reach 200 points wins."),
         "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
-        "endGameTitle": MessageLookupByLibrary.simpleMessage("конец игры:"),
+        "endGameTitle": MessageLookupByLibrary.simpleMessage("end of game:"),
         "english": MessageLookupByLibrary.simpleMessage("english"),
         "featureRequest":
             MessageLookupByLibrary.simpleMessage("feature request"),
         "followMeOnXTwitter":
             MessageLookupByLibrary.simpleMessage("follow me on x (twitter)"),
-        "gameGoal": MessageLookupByLibrary.simpleMessage("цель игры:"),
-        "gameTurnTitle": MessageLookupByLibrary.simpleMessage("ход игры:"),
+        "gameGoal": MessageLookupByLibrary.simpleMessage("game goal:"),
+        "gameTurnTitle": MessageLookupByLibrary.simpleMessage("game turn:"),
         "games": MessageLookupByLibrary.simpleMessage("games"),
         "githubRepository":
             MessageLookupByLibrary.simpleMessage("github repository"),
@@ -97,60 +98,60 @@ class MessageLookup extends MessageLookupByLibrary {
                 " lets you track scores and key moments effortlessly, keeping your focus on the game"),
         "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
         "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
-            "сравните уровень вашего персонажа (с учетом бонусов) с уровнем монстра."),
+            "compare your character\'s level (including bonuses) with the monster\'s level."),
         "munchkinCombatEscapeRules": MessageLookupByLibrary.simpleMessage(
-            "если вы не смогли победить, убегайте (киньте кубик). успешный побег на 5 или 6. если не сбежали, применяются последствия, указанные на карте монстра."),
+            "if you fail to win, escape (roll a die). a roll of 5 or 6 succeeds. if you fail to escape, follow the consequences listed on the monster card."),
         "munchkinCombatHelpOrBoost": MessageLookupByLibrary.simpleMessage(
-            "если ваш уровень меньше, можно: попросить помощи у другого игрока (по договоренности) или использовать карты из руки для усиления."),
-        "munchkinCombatTitle":
-            MessageLookupByLibrary.simpleMessage("бой (если есть монстр):"),
+            "if your level is lower, you can: ask another player for help (negotiated) or use cards from your hand to boost yourself."),
+        "munchkinCombatTitle": MessageLookupByLibrary.simpleMessage(
+            "combat (if there\'s a monster):"),
         "munchkinCombatWinCondition": MessageLookupByLibrary.simpleMessage(
-            "если ваш уровень выше или равен — вы побеждаете и получаете сокровища, а также уровень."),
+            "if your level is equal to or higher, you win and gain treasures and a level."),
         "munchkinCurseEncounter": MessageLookupByLibrary.simpleMessage(
-            "проклятие: немедленно примените его к себе."),
+            "curse: immediately apply it to yourself."),
         "munchkinCursesCardType": MessageLookupByLibrary.simpleMessage(
-            "проклятия — ухудшают персонажа или мешают другим игрокам."),
+            "curses — hinder your character or other players."),
         "munchkinDeathRules": MessageLookupByLibrary.simpleMessage(
-            "смерть: игрок теряет все карты, кроме уровня и рас (или классов)."),
+            "death: you lose all cards except your level and races (or classes)."),
         "munchkinEndTurnDiscardRules": MessageLookupByLibrary.simpleMessage(
-            "в конце хода сбросьте лишние карты, если их больше 5. отдайте их игроку с самым низким уровнем."),
+            "at the end of your turn, discard excess cards if you have more than 5. give them to the player with the lowest level."),
         "munchkinEquipmentCardType": MessageLookupByLibrary.simpleMessage(
-            "снаряжение — дает бонусы к уровню в бою."),
+            "equipment — provides bonuses to your level during combat."),
         "munchkinGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-            "первым достичь 10 уровня, сражаясь с монстрами, используя карты снаряжения, проклятия и умения."),
+            "be the first to reach level 10 by fighting monsters, using equipment, curses, and abilities cards."),
         "munchkinInitialCardsInstruction": MessageLookupByLibrary.simpleMessage(
-            "каждый игрок берет по: 4 карты из колоды дверей и 4 карты из колоды сокровищ."),
+            "each player takes: 4 cards from the Door deck and 4 cards from the Treasure deck."),
         "munchkinLevel10Condition": MessageLookupByLibrary.simpleMessage(
-            "уровень 10: последний уровень можно достичь только победой над монстром."),
+            "level 10: the final level can only be achieved by defeating a monster."),
         "munchkinMonsterEncounter": MessageLookupByLibrary.simpleMessage(
-            "монстр: сразитесь с ним (см. «бой»)."),
+            "monster: fight it (see \'Combat\')."),
         "munchkinMonsterEnhancersCardType":
             MessageLookupByLibrary.simpleMessage(
-                "усилители монстров — увеличивают силу монстра."),
+                "monster enhancers — increase the monster\'s strength."),
         "munchkinMonsterVictoryReward": MessageLookupByLibrary.simpleMessage(
-            "победа над монстром: за победу над монстром получаете уровень и сокровища."),
+            "monster victory: defeating a monster grants you a level and treasures."),
         "munchkinMonstersCardType": MessageLookupByLibrary.simpleMessage(
-            "монстры — сражайтесь с ними, чтобы повышать уровень."),
+            "monsters — fight them to level up."),
         "munchkinNoMonsterActionsDescription": MessageLookupByLibrary.simpleMessage(
-            "выложить монстра из руки для боя (опционально) или залезть в «поиск неприятностей» (взять карту из колоды дверей в руку)."),
+            "play a monster from their hand to fight (optional) or go \'Looking for Trouble\' (draw a card from the Door deck into their hand)."),
         "munchkinNoMonsterActionsTitle": MessageLookupByLibrary.simpleMessage(
-            "если монстра нет, игрок может:"),
+            "if there\'s no monster, the player can:"),
         "munchkinOneTimeItemsCardType": MessageLookupByLibrary.simpleMessage(
-            "одноразовые предметы — используются в бою или для других эффектов."),
+            "one-time-use items — used in combat or for other effects."),
         "munchkinOtherCardEncounter": MessageLookupByLibrary.simpleMessage(
-            "любая другая карта: оставьте ее в руке."),
+            "any other card: keep it in your hand."),
         "munchkinShuffleCardsInstruction": MessageLookupByLibrary.simpleMessage(
-            "перемешайте карты дверей и сокровищ и разложите их в две отдельные колоды."),
+            "shuffle the Door and Treasure cards and divide them into two separate decks."),
         "munchkinStartingGearInstruction": MessageLookupByLibrary.simpleMessage(
-            "игроки выкладывают на стол начальные карты снаряжения, если таковые есть."),
+            "players place their starting equipment cards on the table, if they have any."),
         "munchkinTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-            "munchkin® является зарегистрированной торговой маркой компании steve jackson games"),
+            "munchkin® is a registered trademark of Steve Jackson Games."),
         "munchkinTurnDescription": MessageLookupByLibrary.simpleMessage(
-            "игрок открывает верхнюю карту из колоды дверей. возможные ситуации:"),
+            "the player draws the top card from the Door deck. possible outcomes:"),
         "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
-            "игрок, первым достигший 10 уровня, побеждает!"),
+            "the first player to reach level 10 wins!"),
         "others": MessageLookupByLibrary.simpleMessage("others"),
-        "preparation": MessageLookupByLibrary.simpleMessage("подготовка:"),
+        "preparation": MessageLookupByLibrary.simpleMessage("preparation:"),
         "projectWebsite":
             MessageLookupByLibrary.simpleMessage("project website"),
         "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
@@ -159,117 +160,116 @@ class MessageLookup extends MessageLookupByLibrary {
         "russian": MessageLookupByLibrary.simpleMessage("russian"),
         "scrabble": MessageLookupByLibrary.simpleMessage("scrabble"),
         "scrabbleAdditionalDisputedWords": MessageLookupByLibrary.simpleMessage(
-            "спорные слова проверяются в согласованном словаре."),
+            "challenged words are checked in an agreed-upon dictionary."),
         "scrabbleAdditionalPointsTitle":
-            MessageLookupByLibrary.simpleMessage("дополнительные моменты:"),
+            MessageLookupByLibrary.simpleMessage("additional rules:"),
         "scrabbleAdditionalReplaceTiles": MessageLookupByLibrary.simpleMessage(
-            "можно заменить буквы, пропустив ход."),
+            "players may swap tiles and pass their turn."),
         "scrabbleAdditionalWordRules": MessageLookupByLibrary.simpleMessage(
-            "все слова должны быть завершенными и соответствовать правилам языка."),
+            "all words must be complete and adhere to language rules."),
         "scrabbleEndGameNoTiles": MessageLookupByLibrary.simpleMessage(
-            "закончились буквы в мешочке, и никто не может сделать ход."),
+            "the game ends when there are no tiles left and no moves can be made."),
         "scrabbleEndGameRemainingTilesPenalty":
             MessageLookupByLibrary.simpleMessage(
-                "оставшиеся буквы на подставках вычитаются из очков."),
+                "unplayed tiles are subtracted from the player\'s score."),
         "scrabbleEndGameSkippedTurns": MessageLookupByLibrary.simpleMessage(
-            "все игроки пропустили ходы дважды."),
+            "the game ends if all players pass their turns twice."),
         "scrabbleFeatureBlankTile": MessageLookupByLibrary.simpleMessage(
-            "пустышка заменяет любую букву, но не дает очков."),
+            "blank tiles can represent any letter but score no points."),
         "scrabbleFeatureRefillTiles": MessageLookupByLibrary.simpleMessage(
-            "каждый ход игрок добирает буквы, чтобы снова иметь 7."),
+            "players draw tiles after each turn to refill their racks to 7."),
         "scrabbleFeatureSevenTileBonus": MessageLookupByLibrary.simpleMessage(
-            "если использованы все 7 букв за ход, игрок получает 50 бонусных очков."),
+            "using all 7 tiles in a turn earns a 50-point bonus."),
         "scrabbleFeaturesTitle":
-            MessageLookupByLibrary.simpleMessage("особенности:"),
+            MessageLookupByLibrary.simpleMessage("features:"),
         "scrabbleGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-            "составляйте слова на игровом поле по принципу кроссворда. заработайте больше очков, чем соперники."),
-        "scrabbleGameSetAccessories": MessageLookupByLibrary.simpleMessage(
-            "4 подставки, мешочек для букв."),
+            "form words on the board crossword-style. score more points than your opponents."),
+        "scrabbleGameSetAccessories":
+            MessageLookupByLibrary.simpleMessage("4 racks, tile bag."),
         "scrabbleGameSetBoard":
-            MessageLookupByLibrary.simpleMessage("поле 15 на 15 клеток."),
+            MessageLookupByLibrary.simpleMessage("15x15 board."),
         "scrabbleGameSetLetters": MessageLookupByLibrary.simpleMessage(
-            "104 буквы (включая 2 пустышки)."),
+            "104 tiles (including 2 blanks)."),
         "scrabbleGameSetTitle":
-            MessageLookupByLibrary.simpleMessage("комплект игры:"),
+            MessageLookupByLibrary.simpleMessage("game set:"),
         "scrabblePreparationDrawTiles":
-            MessageLookupByLibrary.simpleMessage("каждый игрок берет 7 букв."),
+            MessageLookupByLibrary.simpleMessage("each player draws 7 tiles."),
         "scrabblePreparationFirstTurnRule": MessageLookupByLibrary.simpleMessage(
-            "первый ход делает тот, чья случайно вытянутая буква ближе к началу алфавита."),
+            "the first turn goes to the player whose randomly drawn tile is closest to the start of the alphabet."),
         "scrabblePreparationShuffle": MessageLookupByLibrary.simpleMessage(
-            "перемешайте буквы в мешочке."),
+            "shuffle the tiles in the bag."),
         "scrabbleScoringBlueBonus": MessageLookupByLibrary.simpleMessage(
-            "синий цвет удваивает/утраивает очки за букву."),
+            "blue spaces double/triple the letter score."),
         "scrabbleScoringRedBonus": MessageLookupByLibrary.simpleMessage(
-            "красный цвет удваивает/утраивает очки за слово."),
+            "red spaces double/triple the word score."),
         "scrabbleScoringTitle":
-            MessageLookupByLibrary.simpleMessage("подсчет очков:"),
+            MessageLookupByLibrary.simpleMessage("scoring:"),
         "scrabbleScoringWordPoints": MessageLookupByLibrary.simpleMessage(
-            "очки за слово: сумма очков букв + бонусы от клеток."),
+            "points for a word: sum of tile points + bonuses from board spaces."),
         "scrabbleTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-            "scrabble® является зарегистрированной торговой маркой компании hasbro, inc."),
+            "scrabble® is a registered trademark of hasbro, inc."),
         "scrabbleTurnRuleFirstWord": MessageLookupByLibrary.simpleMessage(
-            "первый ход: слово должно проходить через центральную клетку (звездочка)."),
+            "first word: must pass through the center square (star)."),
         "scrabbleTurnRuleLetterPlacement": MessageLookupByLibrary.simpleMessage(
-            "каждая новая буква должна быть частью нового или существующего слова."),
+            "each new tile must form part of a new or existing word."),
         "scrabbleTurnRuleWordDirection": MessageLookupByLibrary.simpleMessage(
-            "все слова выкладываются горизонтально или вертикально."),
+            "all words must be placed horizontally or vertically."),
         "scrabbleTurnRulesTitle":
-            MessageLookupByLibrary.simpleMessage("правила хода:"),
+            MessageLookupByLibrary.simpleMessage("turn rules:"),
         "set": MessageLookupByLibrary.simpleMessage("set"),
         "setCardAttributeFillType": MessageLookupByLibrary.simpleMessage(
-            "заполнение: пустое, заштрихованное, закрашенное."),
+            "fill type: empty, striped, solid."),
         "setCardAttributeNumberOfSymbols": MessageLookupByLibrary.simpleMessage(
-            "количество символов: 1, 2 или 3."),
+            "number of symbols: 1, 2, or 3."),
         "setCardAttributeSymbolColor": MessageLookupByLibrary.simpleMessage(
-            "цвет символов: красный, зеленый, фиолетовый."),
+            "symbol color: red, green, purple."),
         "setCardAttributeSymbolType": MessageLookupByLibrary.simpleMessage(
-            "тип символов: овал, ромб, волна."),
+            "symbol type: oval, diamond, wave."),
         "setCardAttributesDescription": MessageLookupByLibrary.simpleMessage(
-            "каждая карта уникальна и имеет 4 признака:"),
+            "each card is unique and has 4 attributes:"),
         "setCardAttributesTitle":
-            MessageLookupByLibrary.simpleMessage("признаки карт:"),
+            MessageLookupByLibrary.simpleMessage("card attributes:"),
         "setExampleOfValidSetColor": MessageLookupByLibrary.simpleMessage(
-            "признак «количество»: одинаковый (два)."),
+            "attribute \'number\': same (two)."),
         "setExampleOfValidSetFill": MessageLookupByLibrary.simpleMessage(
-            "что делать, если сет не найден:"),
+            "what to do if no set is found:"),
         "setExampleOfValidSetNumber": MessageLookupByLibrary.simpleMessage(
-            "признак «тип»: разный (овал, ромб, волна)."),
+            "attribute \'type\': different (oval, diamond, wave)."),
         "setExampleOfValidSetTitle": MessageLookupByLibrary.simpleMessage(
-            "признак «цвет»: разный (красный, зеленый, фиолетовый)."),
+            "attribute \'color\': different (red, green, purple)."),
         "setExampleOfValidSetType": MessageLookupByLibrary.simpleMessage(
-            "признак «заполнение»: одинаковое (заштрихованное)."),
+            "attribute \'fill\': same (striped)."),
         "setGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-            "найти сет (набор из 3 карт), где каждый признак: полностью совпадает на всех картах, или полностью различается на всех картах."),
+            "find a set (a group of 3 cards) where each attribute is either the same across all cards or different on all cards."),
         "setGameTurnStepContinue":
-            MessageLookupByLibrary.simpleMessage("пример правильного сета:"),
-        "setGameTurnStepDealerSetup": MessageLookupByLibrary.simpleMessage(
-            "раздающий выкладывает 12 карт."),
+            MessageLookupByLibrary.simpleMessage("example of a correct set:"),
+        "setGameTurnStepDealerSetup":
+            MessageLookupByLibrary.simpleMessage("the dealer places 12 cards."),
         "setGameTurnStepFindingSet": MessageLookupByLibrary.simpleMessage(
-            "игроки одновременно ищут сет. кто первым находит, объявляет: «сет!»."),
+            "players simultaneously search for a set. the first to find one calls out: \'Set!\'"),
         "setGameTurnStepFour":
-            MessageLookupByLibrary.simpleMessage("игра продолжается"),
+            MessageLookupByLibrary.simpleMessage("the game continues."),
         "setGameTurnStepValidation": MessageLookupByLibrary.simpleMessage(
-            "проверяется правильность: если верно, игрок забирает карты, раздающий добавляет 3 новые. если ошибка, игрок теряет 1 очко или пропускает ход (по договоренности)."),
+            "validate correctness: if correct, the player takes the cards, and the dealer replaces them with 3 new ones. if incorrect, the player loses 1 point or skips a turn (as agreed)."),
         "setImportantRuleCardPosition": MessageLookupByLibrary.simpleMessage(
-            "карты, образующие сет, могут располагаться как угодно."),
+            "cards forming a set can be arranged in any order."),
         "setImportantRuleConfirmation": MessageLookupByLibrary.simpleMessage(
-            "новый сет нельзя объявлять, пока предыдущий не подтвержден."),
+            "a new set cannot be declared until the previous one is confirmed."),
         "setImportantRuleSimplifiedMode": MessageLookupByLibrary.simpleMessage(
-            "для обучения можно упростить игру, используя только 3 признака."),
+            "for learning, the game can be simplified by using only 3 attributes."),
         "setImportantRulesTitle":
-            MessageLookupByLibrary.simpleMessage("важные правила:"),
+            MessageLookupByLibrary.simpleMessage("important rules:"),
         "setNoSetFoundDescription": MessageLookupByLibrary.simpleMessage(
-            "если среди 12 карт сета нет, раздающий добавляет 3 карты (максимум до 21 карты). среди 21 карты сет есть всегда."),
+            "if no set exists among the 12 cards, the dealer adds 3 cards (up to a maximum of 21 cards). among 21 cards, a set always exists."),
         "setNoSetFoundTitle": MessageLookupByLibrary.simpleMessage(
-            "что делать, если сет не найден:"),
+            "what to do if no set is found:"),
         "setScoringGameEnd": MessageLookupByLibrary.simpleMessage(
-            "игра заканчивается, когда карты в колоде заканчиваются или достигнуто оговоренное количество очков."),
-        "setScoringPointPerSet": MessageLookupByLibrary.simpleMessage(
-            "за каждый найденный сет — 1 очко."),
-        "setScoringTitle":
-            MessageLookupByLibrary.simpleMessage("подсчет очков:"),
+            "the game ends when the deck runs out or a predefined point total is reached."),
+        "setScoringPointPerSet":
+            MessageLookupByLibrary.simpleMessage("1 point per found set."),
+        "setScoringTitle": MessageLookupByLibrary.simpleMessage("scoring:"),
         "setTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-            "set® является зарегистрированной торговой маркой компании set enterprises, inc."),
+            "set® is a registered trademark of Set Enterprises, Inc."),
         "settings": MessageLookupByLibrary.simpleMessage("settings"),
         "shareFeedback": MessageLookupByLibrary.simpleMessage("share feedback"),
         "shareWithFriends":
@@ -278,123 +278,121 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "since this is an open-source project, feel free to contribute to it"),
         "specialCardsTitle":
-            MessageLookupByLibrary.simpleMessage("особые карты:"),
+            MessageLookupByLibrary.simpleMessage("special cards:"),
         "specialRulesTitle":
-            MessageLookupByLibrary.simpleMessage("особые правила:"),
+            MessageLookupByLibrary.simpleMessage("special rules:"),
         "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
-            "«возьми две»: следующий игрок берет 2 карты и пропускает ход."),
+            "\'draw two\': the next player draws 2 cards and loses their turn."),
         "unoActiveCardReverse": MessageLookupByLibrary.simpleMessage(
-            "«смени направление»: меняет направление игры."),
+            "\'reverse\': reverses the direction of play."),
         "unoActiveCardSkipTurn": MessageLookupByLibrary.simpleMessage(
-            "«пропусти ход»: следующий игрок пропускает ход."),
+            "\'skip\': the next player loses their turn."),
         "unoActiveCardWild": MessageLookupByLibrary.simpleMessage(
-            "дикая карта: позволяет выбрать цвет игры."),
+            "\'wild\': allows you to choose the color of play."),
         "unoActiveCardWildDrawFour": MessageLookupByLibrary.simpleMessage(
-            "дикая карта «возьми четыре»: позволяет выбрать цвет, а следующий игрок берет 4 карты. можно сыграть, только если нет других карт того же цвета."),
+            "\'wild draw four\': choose the color, and the next player draws 4 cards. you can only play it if you have no matching cards."),
         "unoActiveCardsTitle":
-            MessageLookupByLibrary.simpleMessage("активные карты:"),
+            MessageLookupByLibrary.simpleMessage("action cards:"),
         "unoFlip": MessageLookupByLibrary.simpleMessage("uno flip"),
         "unoFlipDarkSideCardsTitle":
-            MessageLookupByLibrary.simpleMessage("тёмная сторона:"),
+            MessageLookupByLibrary.simpleMessage("dark side:"),
         "unoFlipDarkSideDrawFive":
-            MessageLookupByLibrary.simpleMessage("«возьми пять»."),
+            MessageLookupByLibrary.simpleMessage("\'draw five.\'"),
         "unoFlipDarkSideDrawUntilColor": MessageLookupByLibrary.simpleMessage(
-            "«бери, пока не вытянешь нужный цвет»."),
+            "\'draw until matching color.\'"),
         "unoFlipDarkSideReverse":
-            MessageLookupByLibrary.simpleMessage("«смени направление»."),
+            MessageLookupByLibrary.simpleMessage("\'reverse.\'"),
         "unoFlipDarkSideSkipAll":
-            MessageLookupByLibrary.simpleMessage("«все пропускают ход»."),
+            MessageLookupByLibrary.simpleMessage("\'skip all.\'"),
         "unoFlipDarkSideWildCard":
-            MessageLookupByLibrary.simpleMessage("«дикая карта»."),
+            MessageLookupByLibrary.simpleMessage("\'wild.\'"),
         "unoFlipGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-            "избавьтесь от всех своих карт и наберите очки за карты соперников. побеждает игрок, набравший 500 очков."),
+            "play all your cards and score points from your opponents\' remaining cards. the first player to reach 500 points wins."),
         "unoFlipGameStartDealCards": MessageLookupByLibrary.simpleMessage(
-            "каждый игрок получает 7 карт."),
+            "each player receives 7 cards."),
         "unoFlipGameStartLightSide": MessageLookupByLibrary.simpleMessage(
-            "игру начинают светлой стороной колоды."),
+            "start the game on the light side of the deck."),
         "unoFlipGameStartTitle":
-            MessageLookupByLibrary.simpleMessage("начало игры:"),
+            MessageLookupByLibrary.simpleMessage("game start:"),
         "unoFlipKeyMoment":
-            MessageLookupByLibrary.simpleMessage("ключевые моменты:"),
+            MessageLookupByLibrary.simpleMessage("key moments:"),
         "unoFlipKeyMomentFlipCardEffect": MessageLookupByLibrary.simpleMessage(
-            "после карты «переверните» вся игра меняет сторону."),
+            "after a \'flip\' card, the entire game switches sides."),
         "unoFlipKeyMomentUnoCall": MessageLookupByLibrary.simpleMessage(
-            "если игрок играет предпоследней картой, он должен сказать «уно!». если забыл, берёт 2 карты."),
+            "when playing your second-to-last card, call \'uno!\' if you forget and are caught, draw 2 cards."),
         "unoFlipLightSideCardsTitle":
-            MessageLookupByLibrary.simpleMessage("светлая сторона:"),
+            MessageLookupByLibrary.simpleMessage("light side:"),
         "unoFlipLightSideDrawOne":
-            MessageLookupByLibrary.simpleMessage("«возьми одну»."),
+            MessageLookupByLibrary.simpleMessage("\'draw one.\'"),
         "unoFlipLightSideReverse":
-            MessageLookupByLibrary.simpleMessage("«смени направление»."),
+            MessageLookupByLibrary.simpleMessage("\'reverse.\'"),
         "unoFlipLightSideSkipTurn":
-            MessageLookupByLibrary.simpleMessage("«пропусти ход»."),
+            MessageLookupByLibrary.simpleMessage("\'skip turn.\'"),
         "unoFlipLightSideWildCard":
-            MessageLookupByLibrary.simpleMessage("«дикая карта»."),
+            MessageLookupByLibrary.simpleMessage("\'wild.\'"),
         "unoFlipLightSideWildDrawTwo":
-            MessageLookupByLibrary.simpleMessage("«дикая +2»."),
+            MessageLookupByLibrary.simpleMessage("\'wild draw two.\'"),
         "unoFlipScoringActiveCards": MessageLookupByLibrary.simpleMessage(
-            "активные карты: 20–60 очков в зависимости от типа."),
-        "unoFlipScoringNumberCards": MessageLookupByLibrary.simpleMessage(
-            "карты с цифрами: по их номиналу."),
+            "action cards: 20–60 points depending on type."),
+        "unoFlipScoringNumberCards":
+            MessageLookupByLibrary.simpleMessage("number cards: face value."),
         "unoFlipScoringRoundWinnerPoints": MessageLookupByLibrary.simpleMessage(
-            "победитель раунда получает очки за оставшиеся карты соперников:"),
-        "unoFlipScoringTitle":
-            MessageLookupByLibrary.simpleMessage("подсчёт очков:"),
+            "round winner scores points for opponents\' remaining cards:"),
+        "unoFlipScoringTitle": MessageLookupByLibrary.simpleMessage("scoring:"),
         "unoFlipTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-            "uno flip® является зарегистрированной торговой маркой компании mattel"),
+            "uno flip® is a registered trademark of mattel."),
         "unoFlipTurnRuleDrawCard": MessageLookupByLibrary.simpleMessage(
-            "если подходящей карты нет, возьмите карту из колоды."),
+            "if no matching card is available, draw from the pile."),
         "unoFlipTurnRuleFlipCard": MessageLookupByLibrary.simpleMessage(
-            "карта «переверните» меняет сторону игры с «светлой» на «тёмную» и наоборот."),
+            "\'flip\' card switches the game to the other side of the deck."),
         "unoFlipTurnRuleMatchCard": MessageLookupByLibrary.simpleMessage(
-            "сыграйте карту, совпадающую по цвету, числу или символу с верхней картой сброса."),
+            "play a card matching the top card by color, number, or symbol."),
         "unoFlipVictory500Points": MessageLookupByLibrary.simpleMessage(
-            "игрок, набравший 500 очков, выигрывает игру."),
+            "the first player to reach 500 points wins."),
         "unoFlipVictoryLowestScoreAlternative":
             MessageLookupByLibrary.simpleMessage(
-                "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры."),
+                "alternative: the player with the lowest score wins after the game ends."),
         "unoGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-            "первым избавиться от всех своих карт и набрать очки за карты, оставшиеся у соперников. побеждает игрок, набравший 500 очков."),
+            "be the first to play all your cards and score points from your opponents\' remaining cards. the first player to reach 500 points wins."),
         "unoGameTurnTitle": MessageLookupByLibrary.simpleMessage(
-            "игроки по очереди сбрасывают карту, совпадающую с верхней картой по цвету, числу или символу."),
+            "players take turns playing a card that matches the top card by color, number, or symbol."),
         "unoPreparationDeckInCenter": MessageLookupByLibrary.simpleMessage(
-            "остальная колода кладется в центр (это колода для добора)."),
+            "place the remaining deck in the center as the draw pile."),
         "unoPreparationDistributeCards": MessageLookupByLibrary.simpleMessage(
-            "каждому игроку раздается по 7 карт."),
+            "deal 7 cards to each player."),
         "unoPreparationFlipFirstCard": MessageLookupByLibrary.simpleMessage(
-            "верхняя карта переворачивается (это начальная карта сброса)."),
+            "flip the top card to start the discard pile."),
         "unoScoring20PointsCards": MessageLookupByLibrary.simpleMessage(
-            "«пропусти ход», «возьми две», «смени направление»: 20 очков."),
+            "\'skip\', \'draw two\', \'reverse\': 20 points."),
         "unoScoring40PointsCards": MessageLookupByLibrary.simpleMessage(
-            "«обмен», пустая карта: 40 очков."),
+            "\'swap hands\', \'blank card\': 40 points."),
         "unoScoring50PointsCards": MessageLookupByLibrary.simpleMessage(
-            "дикая карта, «возьми четыре»: 50 очков."),
+            "\'wild\', \'wild draw four\': 50 points."),
         "unoScoringNumberCards":
-            MessageLookupByLibrary.simpleMessage("цифровые карты: их номинал."),
-        "unoScoringTitle":
-            MessageLookupByLibrary.simpleMessage("подсчет очков:"),
+            MessageLookupByLibrary.simpleMessage("number cards: face value."),
+        "unoScoringTitle": MessageLookupByLibrary.simpleMessage("scoring:"),
         "unoSpecialCardBlank": MessageLookupByLibrary.simpleMessage(
-            "пустая карта: придумайте правило перед игрой."),
+            "\'blank card\': make a rule before starting the game."),
         "unoSpecialCardSwap": MessageLookupByLibrary.simpleMessage(
-            "«обмен»: обмен картами с любым игроком и выбор цвета."),
+            "\'swap hands\': swap hands with any player and choose the color."),
         "unoSpecialRuleReshuffle": MessageLookupByLibrary.simpleMessage(
-            "если кончилась колода добора, сброс перетасовывается."),
+            "if the draw pile is empty, reshuffle the discard pile."),
         "unoSpecialRuleUnoCall": MessageLookupByLibrary.simpleMessage(
-            "забыл крикнуть «уно»? возьми 2 карты, если заметили до хода следующего игрока."),
+            "forget to say \'uno\'? draw 2 cards if caught before the next player\'s turn."),
         "unoTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-            "uno® является зарегистрированной торговой маркой компании mattel"),
+            "uno® is a registered trademark of mattel."),
         "unoTurnRuleDrawCard": MessageLookupByLibrary.simpleMessage(
-            "если подходящей карты нет, берется карта из колоды. если она подходит, можно сыграть."),
+            "if you can\'t play, draw a card. if it\'s playable, you can play it immediately."),
         "unoTurnRuleMatchCard": MessageLookupByLibrary.simpleMessage(
-            "игроки по очереди сбрасывают карту, совпадающую с верхней картой по цвету, числу или символу."),
+            "players take turns playing a card that matches the top card by color, number, or symbol."),
         "unoTurnRuleOptionalDraw": MessageLookupByLibrary.simpleMessage(
-            "игрок может взять карту, даже если у него есть подходящая, но использовать ее в этом ходу нельзя."),
+            "players may draw a card even if they have a playable one, but they can\'t play it on the same turn."),
         "unoVictory500Points": MessageLookupByLibrary.simpleMessage(
-            "игрок выигрывает, набрав 500 очков."),
+            "the first player to reach 500 points wins."),
         "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
-            "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры."),
-        "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:")
+            "alternative: the player with the lowest score wins after the game ends."),
+        "victoryTitle": MessageLookupByLibrary.simpleMessage("victory:")
       };
 }
