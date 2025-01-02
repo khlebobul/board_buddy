@@ -16,9 +16,18 @@ class AppRoutes {
   static const String setRules = '/setRules';
   static const String munchkinRules = '/munchkinRules';
 
+  // games
+  static const String unoGame = '/unoGame';
+  static const String scrabbleGame = '/scrabbleGame';
+  static const String unoFlipGame = '/unoFlipGame';
+  static const String dosGame = '/dosGame';
+  static const String setGame = '/setGame';
+  static const String munchkinGame = '/munchkinGame';
+  static const String commonGame = '/commonGame';
+
   static Map<String, WidgetBuilder> get routes => {
         about: (context) => const AboutScreen(),
-        games: (context) => const CommonGame(),
+        games: (context) => const GamesScreen(),
         rules: (context) => const RulesScreen(),
         settings: (context) => const SettingsScreen(),
 
@@ -29,6 +38,15 @@ class AppRoutes {
         dosRules: (context) => const DosRulesScreen(),
         setRules: (context) => const SetRulesScreen(),
         munchkinRules: (context) => const MunchkinRulesScreen(),
+
+        // games
+        unoGame: (context) => const UnoGame(),
+        scrabbleGame: (context) => const ScrabbleGame(),
+        unoFlipGame: (context) => const UnoFlipGame(),
+        dosGame: (context) => const DosGame(),
+        setGame: (context) => const SetGame(),
+        munchkinGame: (context) => const MunchkinGame(),
+        commonGame: (context) => const CommonGame(),
       };
 
   static Widget get initialRoute => const SplashScreen();

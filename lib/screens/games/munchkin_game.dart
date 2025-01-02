@@ -1,7 +1,7 @@
 import '../../utils/library.dart';
 
-class MunchkinScreen extends StatelessWidget {
-  const MunchkinScreen({super.key});
+class MunchkinGame extends StatelessWidget {
+  const MunchkinGame({super.key});
 
   @override
   Widget build(BuildContext context) {

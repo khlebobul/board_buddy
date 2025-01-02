@@ -21,39 +21,61 @@ class GamesScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              TextScramble(
-                text: '00 - ${S.of(context).common}',
-                style: theme.display3.copyWith(color: theme.secondaryTextColor),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/commonGame'),
+                child: TextScramble(
+                  text: '00 - ${S.of(context).common}',
+                  style:
+                      theme.display3.copyWith(color: theme.secondaryTextColor),
+                ),
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '01 - ${S.of(context).uno}',
-                style: theme.display3,
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/unoGame'),
+                child: TextScramble(
+                  text: '01 - ${S.of(context).uno}',
+                  style: theme.display3,
+                ),
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '02 - ${S.of(context).scrabble}',
-                style: theme.display3,
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/scrabbleGame'),
+                child: TextScramble(
+                  text: '02 - ${S.of(context).scrabble}',
+                  style: theme.display3,
+                ),
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '03 - ${S.of(context).unoFlip}',
-                style: theme.display3,
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/unoFlipGame'),
+                child: TextScramble(
+                  text: '03 - ${S.of(context).unoFlip}',
+                  style: theme.display3,
+                ),
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '04 - ${S.of(context).dos}',
-                style: theme.display3,
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/dosGame'),
+                child: TextScramble(
+                  text: '04 - ${S.of(context).dos}',
+                  style: theme.display3,
+                ),
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '05 - ${S.of(context).set}',
-                style: theme.display3,
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/setGame'),
+                child: TextScramble(
+                  text: '05 - ${S.of(context).set}',
+                  style: theme.display3,
+                ),
               ),
               const SizedBox(height: 5),
-              TextScramble(
-                text: '06 - ${S.of(context).munchkin}',
-                style: theme.display3,
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/munchkinGame'),
+                child: TextScramble(
+                  text: '06 - ${S.of(context).munchkin}',
+                  style: theme.display3,
+                ),
               ),
               const Spacer(),
               const AddFavouriteGame(),
