@@ -18,7 +18,7 @@ class AppRoutes {
 
   static Map<String, WidgetBuilder> get routes => {
         about: (context) => const AboutScreen(),
-        games: (context) => const GamesScreen(),
+        games: (context) => const CommonGame(),
         rules: (context) => const RulesScreen(),
         settings: (context) => const SettingsScreen(),
 

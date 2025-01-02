@@ -1,4 +1,4 @@
-import '../../utils/library.dart';
+import '../utils/library.dart';
 
 class RulesScreen extends StatelessWidget {
   const RulesScreen({super.key});
