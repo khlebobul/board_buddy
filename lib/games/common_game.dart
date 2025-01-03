@@ -28,26 +28,10 @@ class CommonGameState extends State<CommonGame> {
             children: [
               Row(
                 crossAxisAlignment: CrossAxisAlignment.center,
+                mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   // TODO add timer
-                  SvgPicture.asset(
-                    CustomIcons.play,
-                    width: 15,
-                    height: 15,
-                    color: theme.textColor,
-                  ),
-                  const SizedBox(width: 15),
-                  Text(
-                    '00:00',
-                    style: theme.display2,
-                  ),
-                  const SizedBox(width: 15),
-                  SvgPicture.asset(
-                    CustomIcons.refresh,
-                    width: 15,
-                    height: 15,
-                    color: theme.textColor,
-                  ),
+
                   const Spacer(),
                   GestureDetector(
                     onTap: () => DiceModal.show(context),
