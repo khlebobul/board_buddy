@@ -1,18 +1,10 @@
 import '../utils/library.dart';
 
-class UnoGame extends StatefulWidget {
+class UnoGame extends StatelessWidget {
   const UnoGame({super.key});
 
   @override
-  UnoGameState createState() => UnoGameState();
-}
-
-class UnoGameState extends State<UnoGame> {
-  int _currentValue = 500;
-
-  @override
   Widget build(BuildContext context) {
-    final theme = UIThemes.of(context);
     return Scaffold(
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
