@@ -14,11 +14,13 @@ class PlayerPicker extends StatefulWidget {
 class PlayerPickerState extends State<PlayerPicker> {
   int _currentValue = 1;
   late double _angle;
+  int? _lastValue;
 
   @override
   void initState() {
     super.initState();
     _angle = -pi / 2;
+    _lastValue = _currentValue;
   }
 
   void _updateValue(Offset localPosition) {
@@ -37,6 +39,11 @@ class PlayerPickerState extends State<PlayerPicker> {
         _currentValue = 1;
       } else {
         _currentValue = newValue == 0 ? widget.maxPlayers : newValue;
+      }
+
+      if (_lastValue != _currentValue) {
+        HapticFeedback.selectionClick();
+        _lastValue = _currentValue;
       }
 
       widget.onValueChanged(_currentValue);

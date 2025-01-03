@@ -14,6 +14,8 @@ class CommonGame extends StatelessWidget {
         onRightButtonPressed: () {},
       ),
       body: Center(
+        // TODO make separate widget
+        // TODO state management
         child: PlayerPicker(
           maxPlayers: 10,
           onValueChanged: (value) {
