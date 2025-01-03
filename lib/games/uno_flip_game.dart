@@ -1,7 +1,7 @@
-import '../../utils/library.dart';
+import '../utils/library.dart';
 
-class ScrabbleGame extends StatelessWidget {
-  const ScrabbleGame({super.key});
+class UnoFlipGame extends StatelessWidget {
+  const UnoFlipGame({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class ScrabbleGame extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: S.of(context).scrabble,
+        rightButtonText: S.of(context).unoFlip,
         onRightButtonPressed: () {},
       ),
     );

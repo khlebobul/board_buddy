@@ -1,7 +1,7 @@
-import '../../utils/library.dart';
+import '../utils/library.dart';
 
-class MunchkinGame extends StatelessWidget {
-  const MunchkinGame({super.key});
+class UnoGame extends StatelessWidget {
+  const UnoGame({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -10,7 +10,7 @@ class MunchkinGame extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: S.of(context).munchkin,
+        rightButtonText: S.of(context).uno,
         onRightButtonPressed: () {},
       ),
     );

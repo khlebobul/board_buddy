@@ -42,13 +42,13 @@ export '../screens/rules/set_rules.dart';
 export '../screens/rules/uno_flip_rules.dart';
 export '../screens/rules/munchkin_rules.dart';
 // games
-export '../screens/games/uno_game.dart';
-export '../screens/games/uno_flip_game.dart';
-export '../screens/games/dos_game.dart';
-export '../screens/games/scrabble_game.dart';
-export '../screens/games/set_game.dart';
-export '../screens/games/munchkin_game.dart';
-export '../screens/games/common_game.dart';
+export '../games/uno_game.dart';
+export '../games/uno_flip_game.dart';
+export '../games/dos_game.dart';
+export '../games/scrabble_game.dart';
+export '../games/set_game.dart';
+export '../games/munchkin_game.dart';
+export '../games/common_game.dart';
 
 // others
 export '../services/preferences_service.dart';

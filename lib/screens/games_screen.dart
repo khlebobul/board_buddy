@@ -25,8 +25,7 @@ class GamesScreen extends StatelessWidget {
                 onTap: () => Navigator.pushNamed(context, '/commonGame'),
                 child: TextScramble(
                   text: '00 - ${S.of(context).common}',
-                  style:
-                      theme.display3.copyWith(color: theme.secondaryTextColor),
+                  style: theme.display3,
                 ),
               ),
               const SizedBox(height: 5),
