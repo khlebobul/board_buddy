@@ -10,7 +10,7 @@ class UIThemes {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
-      fontFamily: 'CourierNew',
+      fontFamily: 'RobotoMono',
       scaffoldBackgroundColor: LightModeColors.background,
       dividerColor: Colors.transparent,
       appBarTheme: const AppBarTheme(
@@ -35,7 +35,7 @@ class UIThemes {
     return ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
-      fontFamily: 'CourierNew',
+      fontFamily: 'RobotoMono',
       scaffoldBackgroundColor: DarkModeColors.background,
       dividerColor: Colors.transparent,
       appBarTheme: const AppBarTheme(
@@ -65,21 +65,28 @@ class UIThemes {
   // main menu
   TextStyle get display1 => TextStyle(
         fontSize: 30,
-        fontFamily: 'CourierNew',
+        fontFamily: 'RobotoMono',
         color: textColor,
       );
 
   // basic text
   TextStyle get display2 => TextStyle(
         fontSize: 20,
-        fontFamily: 'CourierNew',
+        fontFamily: 'RobotoMono',
         color: textColor,
       );
 
   // rules and games screen menu
   TextStyle get display3 => TextStyle(
         fontSize: 27,
-        fontFamily: 'CourierNew',
+        fontFamily: 'RobotoMono',
+        color: textColor,
+      );
+
+  // timer
+  TextStyle get display4 => TextStyle(
+        fontSize: 25,
+        fontFamily: 'RobotoMono',
         color: textColor,
       );
 

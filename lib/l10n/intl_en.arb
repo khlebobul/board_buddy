@@ -30,7 +30,7 @@
   "dos": "dos",
   "set": "set",
   "munchkin": "munchkin",
-  "common": "common",
+  "common": "counter",
   "gameGoal": "game goal:",
   "preparation": "preparation:",
   "munchkinGameObjectiveDescription": "be the first to reach level 10 by fighting monsters, using equipment, curses, and abilities cards.",

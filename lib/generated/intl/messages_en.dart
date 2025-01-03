@@ -29,7 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("types of cards:"),
         "checkMyWebsite":
             MessageLookupByLibrary.simpleMessage("check my website"),
-        "common": MessageLookupByLibrary.simpleMessage("common"),
+        "common": MessageLookupByLibrary.simpleMessage("counter"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
                 "don\'t have your favourite game? email me!"),

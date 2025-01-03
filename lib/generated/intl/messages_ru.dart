@@ -27,7 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
         "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
         "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
-        "common": MessageLookupByLibrary.simpleMessage("общий"),
+        "common": MessageLookupByLibrary.simpleMessage("счетчик"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
                 "нет вашей любимой игры? напишите мне!"),

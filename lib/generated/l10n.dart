@@ -360,10 +360,10 @@ class S {
     );
   }
 
-  /// `common`
+  /// `counter`
   String get common {
     return Intl.message(
-      'common',
+      'counter',
       name: 'common',
       desc: '',
       args: [],
