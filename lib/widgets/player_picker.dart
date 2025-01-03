@@ -53,6 +53,7 @@ class PlayerPickerState extends State<PlayerPicker> {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
+
     return GestureDetector(
       onPanUpdate: (details) {
         _updateValue(details.localPosition);
