@@ -30,6 +30,7 @@ export '../widgets/link_btn.dart';
 export '../widgets/add_favourite_game.dart';
 export '../widgets/bullet_poit_text.dart';
 export '../widgets/dice_modal.dart';
+export '../widgets/timer.dart';
 
 // screens
 export '../screens/home_screen.dart';

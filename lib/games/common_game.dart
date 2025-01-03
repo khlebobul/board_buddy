@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import '../utils/library.dart';
 
 class CommonGame extends StatefulWidget {
@@ -30,25 +28,8 @@ class CommonGameState extends State<CommonGame> {
                 crossAxisAlignment: CrossAxisAlignment.center,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
-                  // TODO add timer
-                  SvgPicture.asset(
-                    CustomIcons.play,
-                    width: 25,
-                    height: 25,
-                    color: theme.textColor,
-                  ),
-                  const SizedBox(width: 15),
-                  Text(
-                    '00:00',
-                    style: theme.display4,
-                  ),
-                  const SizedBox(width: 15),
-                  SvgPicture.asset(
-                    CustomIcons.refresh,
-                    width: 25,
-                    height: 25,
-                    color: theme.textColor,
-                  ),
+                  const TimerWidget(),
+                  const Spacer(),
                   const Spacer(),
                   GestureDetector(
                     onTap: () => DiceModal.show(context),
@@ -56,6 +37,7 @@ class CommonGameState extends State<CommonGame> {
                       CustomIcons.dice,
                       width: 27,
                       height: 27,
+                      // ignore: deprecated_member_use
                       color: theme.textColor,
                     ),
                   ),

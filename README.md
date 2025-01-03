@@ -4,5 +4,5 @@ A new Flutter project.
 
 ## Thanks to
 
-- [Licide icons](https://lucide.dev)
+- [Lucide icons](https://lucide.dev)
 
