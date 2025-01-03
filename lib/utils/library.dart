@@ -11,6 +11,7 @@ export 'package:use_scramble/use_scramble.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:gen_art_bg/gen_art_bg.dart';
 export 'package:url_launcher/url_launcher.dart';
+export 'package:wheel_slider/wheel_slider.dart';
 
 // utils
 export 'app_constants.dart';

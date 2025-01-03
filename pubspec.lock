@@ -807,6 +807,22 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  wheel_chooser:
+    dependency: transitive
+    description:
+      name: wheel_chooser
+      sha256: "3fee36f081f321c58a0b7b4afcdd92599f2ca520b3a1420084774e6b19cca1d8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
+  wheel_slider:
+    dependency: "direct main"
+    description:
+      name: wheel_slider
+      sha256: "6e29d2be088591fdc8d63fff647fe7ec0bd87f872165eabf8b73e59168d9b733"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.2.2"
   xdg_directories:
     dependency: transitive
     description:
