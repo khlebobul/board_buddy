@@ -20,33 +20,6 @@ class UnoGameState extends State<UnoGame> {
         rightButtonText: S.of(context).uno,
         onRightButtonPressed: () {},
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'max points: $_currentValue',
-              style: theme.display2.copyWith(color: theme.secondaryTextColor),
-            ),
-            const SizedBox(height: 12),
-            // TODO make separate widget for this
-            WheelSlider(
-              interval: 1,
-              totalCount: 10000,
-              initValue: _currentValue,
-              pointerColor: theme.redColor,
-              lineColor: theme.textColor,
-              pointerWidth: 2,
-              onValueChanged: (val) {
-                setState(() {
-                  _currentValue = val;
-                });
-              },
-              hapticFeedbackType: HapticFeedbackType.selectionClick,
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

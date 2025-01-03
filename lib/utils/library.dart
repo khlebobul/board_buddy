@@ -12,7 +12,6 @@ export 'package:use_scramble/use_scramble.dart';
 export 'package:shared_preferences/shared_preferences.dart';
 export 'package:gen_art_bg/gen_art_bg.dart';
 export 'package:url_launcher/url_launcher.dart';
-export 'package:wheel_slider/wheel_slider.dart';
 
 // utils
 export 'app_constants.dart';
@@ -28,7 +27,6 @@ export '../widgets/custom_app_bar.dart';
 export '../widgets/link_btn.dart';
 export '../widgets/add_favourite_game.dart';
 export '../widgets/bullet_poit_text.dart';
-export '../widgets/player_picker.dart';
 
 // screens
 export '../screens/home_screen.dart';

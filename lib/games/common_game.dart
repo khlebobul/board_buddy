@@ -19,27 +19,6 @@ class CommonGameState extends State<CommonGame> {
         rightButtonText: S.of(context).common,
         onRightButtonPressed: () {},
       ),
-      body: Center(
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            Text(
-              'Selected Player: $_currentPlayer',
-              style: theme.display2.copyWith(color: theme.secondaryTextColor),
-            ),
-            const SizedBox(height: 12),
-            // TODO make separate widget for this
-            PlayerPicker(
-              maxPlayers: 10,
-              onValueChanged: (value) {
-                setState(() {
-                  _currentPlayer = value;
-                });
-              },
-            ),
-          ],
-        ),
-      ),
     );
   }
 }

@@ -42,8 +42,7 @@ dependencies:
   intl: ^0.19.0
   url_launcher: ^6.3.1
   url_launcher_ios: ^6.3.2
-  wheel_slider: ^1.2.2
-  
+
 dev_dependencies:
   flutter_test:
     sdk: flutter
