@@ -13,6 +13,14 @@ class CommonGame extends StatelessWidget {
         rightButtonText: S.of(context).common,
         onRightButtonPressed: () {},
       ),
+      body: Center(
+        child: PlayerPicker(
+          maxPlayers: 10,
+          onValueChanged: (value) {
+            debugPrint('Selected player: $value');
+          },
+        ),
+      ),
     );
   }
 }

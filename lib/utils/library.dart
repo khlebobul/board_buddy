@@ -3,6 +3,7 @@ library path;
 export 'package:flutter/material.dart';
 export 'package:flutter/services.dart';
 export 'dart:io';
+export 'dart:math';
 
 // packages
 export '../generated/l10n.dart';
@@ -27,6 +28,7 @@ export '../widgets/custom_app_bar.dart';
 export '../widgets/link_btn.dart';
 export '../widgets/add_favourite_game.dart';
 export '../widgets/bullet_poit_text.dart';
+export '../widgets/player_picker.dart';
 
 // screens
 export '../screens/home_screen.dart';
