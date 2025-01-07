@@ -1,7 +1,34 @@
+import 'dart:ui' as ui;
 import '../utils/library.dart';
 
 class LanguageService {
+  static const String _languageCodeKey = 'language_code';
+  static const List<String> supportedLanguageCodes = ['en', 'ru'];
+
+  static Future<String> getInitialLanguage() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+
+    final String? savedLanguage = prefs.getString(_languageCodeKey);
+    if (savedLanguage != null) {
+      return savedLanguage;
+    }
+
+    // ignore: deprecated_member_use
+    final String deviceLanguage = ui.window.locale.languageCode.toLowerCase();
+
+    final String initialLanguage =
+        supportedLanguageCodes.contains(deviceLanguage) ? deviceLanguage : 'en';
+
+    await prefs.setString(_languageCodeKey, initialLanguage);
+
+    return initialLanguage;
+  }
+
   static void changeLanguage(BuildContext context, String languageCode) {
+    if (!supportedLanguageCodes.contains(languageCode)) {
+      throw ArgumentError('Unsupported language code: $languageCode');
+    }
+
     Locale newLocale = Locale(languageCode);
     PreferencesService.setLanguageCode(languageCode).then((_) {
       S.load(newLocale).then((_) {

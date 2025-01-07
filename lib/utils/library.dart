@@ -27,7 +27,7 @@ export '../theme/app_theme.dart';
 // widgets
 export '../widgets/custom_app_bar.dart';
 export '../widgets/link_btn.dart';
-export '../widgets/add_favourite_game.dart';
+export '../widgets/add_new_game.dart';
 export '../widgets/bullet_poit_text.dart';
 export '../widgets/dice_modal.dart';
 export '../widgets/timer.dart';
