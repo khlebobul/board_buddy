@@ -3,6 +3,8 @@ import 'utils/library.dart';
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();
 
+  await ThemeService.initializeTheme();
+
   SystemChrome.setPreferredOrientations([
     DeviceOrientation.portraitUp,
     DeviceOrientation.portraitDown,
@@ -16,30 +18,37 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return FutureBuilder(
-      future: LanguageService.getInitialLanguage(),
-      builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
-        if (snapshot.connectionState == ConnectionState.waiting) {
-          return Container();
-        } else {
-          return MaterialApp(
-            routes: AppRoutes.routes,
-            debugShowCheckedModeBanner: false,
-            theme: UIThemes.lightTheme(),
-            home: const SplashScreen(),
-            locale: Locale(snapshot.data ?? 'en'),
-            localizationsDelegates: const [
-              S.delegate,
-              GlobalMaterialLocalizations.delegate,
-              GlobalWidgetsLocalizations.delegate,
-              GlobalCupertinoLocalizations.delegate,
-            ],
-            supportedLocales: const [
-              Locale('en', ''),
-              Locale('ru', ''),
-            ],
-          );
-        }
+    return ValueListenableBuilder<ThemeMode>(
+      valueListenable: ThemeService.themeNotifier,
+      builder: (context, themeMode, child) {
+        return FutureBuilder(
+          future: LanguageService.getInitialLanguage(),
+          builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
+            if (snapshot.connectionState == ConnectionState.waiting) {
+              return Container();
+            } else {
+              return MaterialApp(
+                routes: AppRoutes.routes,
+                debugShowCheckedModeBanner: false,
+                theme: UIThemes.lightTheme(),
+                darkTheme: UIThemes.darkTheme(),
+                themeMode: themeMode,
+                home: const SplashScreen(),
+                locale: Locale(snapshot.data ?? 'en'),
+                localizationsDelegates: const [
+                  S.delegate,
+                  GlobalMaterialLocalizations.delegate,
+                  GlobalWidgetsLocalizations.delegate,
+                  GlobalCupertinoLocalizations.delegate,
+                ],
+                supportedLocales: const [
+                  Locale('en', ''),
+                  Locale('ru', ''),
+                ],
+              );
+            }
+          },
+        );
       },
     );
   }

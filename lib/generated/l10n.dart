@@ -2039,6 +2039,36 @@ class S {
       args: [],
     );
   }
+
+  /// `theme`
+  String get theme {
+    return Intl.message(
+      'theme',
+      name: 'theme',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `light`
+  String get light {
+    return Intl.message(
+      'light',
+      name: 'light',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `dark`
+  String get dark {
+    return Intl.message(
+      'dark',
+      name: 'dark',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -197,5 +197,8 @@
   "dosScoringWildNumber": "'wild #': 40 points.",
   "dosVictory200Points": "the first player to reach 200 points wins.",
   "dosTrademarkNotice": "dos® is a registered trademark of mattel.",
-  "setGameTurnStepFour": "the game continues."
+  "setGameTurnStepFour": "the game continues.",
+  "theme": "theme",
+  "light": "light",
+  "dark": "dark"
 }

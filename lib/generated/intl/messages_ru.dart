@@ -28,6 +28,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
         "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
         "common": MessageLookupByLibrary.simpleMessage("счетчик"),
+        "dark": MessageLookupByLibrary.simpleMessage("темная"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
                 "нет вашей любимой игры? напишите мне!"),
@@ -95,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
+        "light": MessageLookupByLibrary.simpleMessage("светлая"),
         "munchkin": MessageLookupByLibrary.simpleMessage("манчкин"),
         "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
             "сравните уровень вашего персонажа (с учетом бонусов) с уровнем монстра."),
@@ -283,6 +285,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "specialRulesTitle":
             MessageLookupByLibrary.simpleMessage("особые правила:"),
         "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
+        "theme": MessageLookupByLibrary.simpleMessage("тема"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
             "«возьми две»: следующий игрок берет 2 карты и пропускает ход."),

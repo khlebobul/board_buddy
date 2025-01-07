@@ -30,6 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "checkMyWebsite":
             MessageLookupByLibrary.simpleMessage("check my website"),
         "common": MessageLookupByLibrary.simpleMessage("counter"),
+        "dark": MessageLookupByLibrary.simpleMessage("dark"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
                 "don\'t have your favourite game? email me!"),
@@ -96,6 +97,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " lets you track scores and key moments effortlessly, keeping your focus on the game"),
+        "light": MessageLookupByLibrary.simpleMessage("light"),
         "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
         "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
             "compare your character\'s level (including bonuses) with the monster\'s level."),
@@ -282,6 +284,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "specialRulesTitle":
             MessageLookupByLibrary.simpleMessage("special rules:"),
         "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
+        "theme": MessageLookupByLibrary.simpleMessage("theme"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
             "\'draw two\': the next player draws 2 cards and loses their turn."),

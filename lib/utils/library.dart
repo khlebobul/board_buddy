@@ -55,6 +55,7 @@ export '../games/set_game.dart';
 export '../games/munchkin_game.dart';
 export '../games/common_game.dart';
 
-// others
+// services
 export '../services/preferences_service.dart';
 export '../services/language_service.dart';
+export '../services/theme_service.dart';

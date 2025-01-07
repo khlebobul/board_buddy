@@ -9,13 +9,16 @@ class SettingsScreen extends StatefulWidget {
 
 class SettingsScreenState extends State<SettingsScreen> {
   String _selectedLanguage = 'en';
+  bool _isDarkModeEnabled = false;
 
   @override
   void initState() {
     super.initState();
     _loadSelectedLanguage();
+    _loadDarkModePreference();
   }
 
+  // language
   Future<void> _loadSelectedLanguage() async {
     final languageCode = await PreferencesService.getLanguageCode();
     setState(() {
@@ -27,6 +30,22 @@ class SettingsScreenState extends State<SettingsScreen> {
     await PreferencesService.setLanguageCode(languageCode);
     setState(() {
       _selectedLanguage = languageCode;
+    });
+  }
+
+  // theme
+  Future<void> _loadDarkModePreference() async {
+    final isDarkMode = await PreferencesService.getDarkModeEnabled();
+    setState(() {
+      _isDarkModeEnabled = isDarkMode;
+    });
+  }
+
+  Future<void> _changeTheme(bool isDarkMode) async {
+    await PreferencesService.setDarkModeEnabled(isDarkMode);
+    ThemeService.updateTheme(isDarkMode);
+    setState(() {
+      _isDarkModeEnabled = isDarkMode;
     });
   }
 
@@ -54,6 +73,13 @@ class SettingsScreenState extends State<SettingsScreen> {
               ),
               _buildLanguageOption(context, S.of(context).english, 'en'),
               _buildLanguageOption(context, S.of(context).russian, 'ru'),
+              const SizedBox(height: 12),
+              Text(
+                S.of(context).theme,
+                style: theme.display2.copyWith(color: theme.secondaryTextColor),
+              ),
+              _buildThemeOption(context, S.of(context).light, false),
+              _buildThemeOption(context, S.of(context).dark, true),
               const SizedBox(height: 12),
               Text(
                 S.of(context).others,
@@ -102,6 +128,31 @@ class SettingsScreenState extends State<SettingsScreen> {
           const SizedBox(width: 8),
           TextScramble(
             text: languageName,
+            style: theme.display2,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildThemeOption(
+      BuildContext context, String themeName, bool isDarkMode) {
+    final theme = UIThemes.of(context);
+    return GestureDetector(
+      onTap: () {
+        _changeTheme(isDarkMode);
+      },
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundColor: _isDarkModeEnabled == isDarkMode
+                ? theme.redColor
+                : Colors.transparent,
+            radius: 3,
+          ),
+          const SizedBox(width: 8),
+          TextScramble(
+            text: themeName,
             style: theme.display2,
           ),
         ],
