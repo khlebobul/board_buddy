@@ -13,6 +13,7 @@ export 'package:shared_preferences/shared_preferences.dart';
 export 'package:gen_art_bg/gen_art_bg.dart';
 export 'package:url_launcher/url_launcher.dart';
 export 'package:flutter_svg/flutter_svg.dart';
+export 'package:flutter_bloc/flutter_bloc.dart';
 
 // utils
 export 'app_constants.dart';
@@ -36,8 +37,10 @@ export '../widgets/timer.dart';
 export '../screens/home_screen.dart';
 export '../screens/about_screen.dart';
 export '../screens/games_screen.dart';
-export '../screens/settings/settings_screen.dart';
 export '../screens/splash_screen.dart';
+// settings
+export '../screens/settings/settings_screen.dart';
+export '../screens/settings/bloc/settings_bloc.dart';
 // rules
 export '../screens/rules_screen.dart';
 export '../screens/rules/uno_rules.dart';
