@@ -32,6 +32,7 @@ export '../widgets/add_new_game.dart';
 export '../widgets/bullet_poit_text.dart';
 export '../widgets/dice_modal.dart';
 export '../widgets/timer.dart';
+export '../widgets/modal_window_widget.dart';
 
 // screens
 export '../screens/home_screen.dart';

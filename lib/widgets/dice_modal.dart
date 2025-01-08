@@ -7,7 +7,9 @@ class DiceModal extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final theme = UIThemes.of(context);
     return Dialog(
+      backgroundColor: theme.bgColor,
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
       child: Column(
         mainAxisSize: MainAxisSize.min,
