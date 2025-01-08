@@ -1,5 +1,6 @@
-import '../utils/library.dart';
+import '../../utils/library.dart';
 
+// TODO add state management
 class SettingsScreen extends StatefulWidget {
   const SettingsScreen({super.key});
 

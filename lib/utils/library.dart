@@ -36,7 +36,7 @@ export '../widgets/timer.dart';
 export '../screens/home_screen.dart';
 export '../screens/about_screen.dart';
 export '../screens/games_screen.dart';
-export '../screens/settings_screen.dart';
+export '../screens/settings/settings_screen.dart';
 export '../screens/splash_screen.dart';
 // rules
 export '../screens/rules_screen.dart';

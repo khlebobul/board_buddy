@@ -3,6 +3,7 @@ import '../utils/library.dart';
 class PreferencesService {
   static const String _languageKey = 'language_code';
   static const String _darkModeKey = 'dark_mode';
+  static const String _hasStoredThemeKey = 'has_stored_theme';
 
   static Future<String> getLanguageCode() async {
     final prefs = await SharedPreferences.getInstance();
@@ -14,7 +15,7 @@ class PreferencesService {
     await prefs.setString(_languageKey, languageCode);
   }
 
-    static Future<bool> getDarkModeEnabled() async {
+  static Future<bool> getDarkModeEnabled() async {
     final prefs = await SharedPreferences.getInstance();
     return prefs.getBool(_darkModeKey) ?? false;
   }
@@ -22,5 +23,11 @@ class PreferencesService {
   static Future<void> setDarkModeEnabled(bool value) async {
     final prefs = await SharedPreferences.getInstance();
     await prefs.setBool(_darkModeKey, value);
+    await prefs.setBool(_hasStoredThemeKey, true);
+  }
+
+  static Future<bool> hasStoredThemePreference() async {
+    final prefs = await SharedPreferences.getInstance();
+    return prefs.getBool(_hasStoredThemeKey) ?? false;
   }
 }
