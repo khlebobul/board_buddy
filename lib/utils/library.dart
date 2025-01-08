@@ -33,6 +33,8 @@ export '../widgets/bullet_poit_text.dart';
 export '../widgets/dice_modal.dart';
 export '../widgets/timer.dart';
 export '../widgets/modal_window_widget.dart';
+// bottom sheets
+export '../widgets/bottom_sheets/game_results_bs.dart';
 
 // screens
 export '../screens/home_screen.dart';

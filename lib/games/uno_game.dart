@@ -10,7 +10,13 @@ class UnoGame extends StatelessWidget {
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
         rightButtonText: S.of(context).uno,
-        onRightButtonPressed: () {},
+        // for testing
+        onRightButtonPressed: () {
+          showModalBottomSheet(
+            context: context,
+            builder: (context) => const GameResultsBottomSheet(),
+          );
+        },
       ),
     );
   }

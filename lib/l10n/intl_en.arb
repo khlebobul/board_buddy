@@ -200,5 +200,7 @@
   "setGameTurnStepFour": "the game continues.",
   "theme": "theme",
   "light": "light",
-  "dark": "dark"
+  "dark": "dark",
+  "results": "results",
+  "close": "close"
 }

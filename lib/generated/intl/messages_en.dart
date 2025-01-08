@@ -29,6 +29,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("types of cards:"),
         "checkMyWebsite":
             MessageLookupByLibrary.simpleMessage("check my website"),
+        "close": MessageLookupByLibrary.simpleMessage("close"),
         "common": MessageLookupByLibrary.simpleMessage("counter"),
         "dark": MessageLookupByLibrary.simpleMessage("dark"),
         "dontHaveYourFavouriteGameEmailMe":
@@ -158,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("project website"),
         "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
         "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
+        "results": MessageLookupByLibrary.simpleMessage("results"),
         "rules": MessageLookupByLibrary.simpleMessage("rules"),
         "russian": MessageLookupByLibrary.simpleMessage("russian"),
         "scrabble": MessageLookupByLibrary.simpleMessage("scrabble"),

@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
         "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
         "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
+        "close": MessageLookupByLibrary.simpleMessage("закрыть"),
         "common": MessageLookupByLibrary.simpleMessage("счетчик"),
         "dark": MessageLookupByLibrary.simpleMessage("темная"),
         "dontHaveYourFavouriteGameEmailMe":
@@ -158,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("оцените приложение"),
         "reportABug":
             MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
+        "results": MessageLookupByLibrary.simpleMessage("результаты"),
         "rules": MessageLookupByLibrary.simpleMessage("правила"),
         "russian": MessageLookupByLibrary.simpleMessage("русский"),
         "scrabble": MessageLookupByLibrary.simpleMessage("скраббл"),
