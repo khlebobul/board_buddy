@@ -67,3 +67,6 @@ export '../games/common_game.dart';
 export '../services/preferences_service.dart';
 export '../services/language_service.dart';
 export '../services/theme_service.dart';
+
+// models
+export '../models/player_model.dart';

@@ -1,23 +1,20 @@
 import '../../utils/library.dart';
 
 class AddPlayersBottomSheet extends StatelessWidget {
-  const AddPlayersBottomSheet({super.key});
+  final int maxPlayers;
+  const AddPlayersBottomSheet({
+    this.maxPlayers = 4,
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
 
-    const int maxPlayers = 4;
-    final List<Map<String, dynamic>> players = [
-      {'name': 'player 1'},
-      {'name': 'player 2'},
+    final List<Player> players = [
+      Player(name: 'player 1', id: 01),
+      Player(name: 'player 2', id: 02),
     ];
-
-    void addPlayer() {
-      if (players.length < maxPlayers) {
-        players.add({'name': ''});
-      }
-    }
 
     return SafeArea(
       child: StatefulBuilder(
@@ -66,14 +63,13 @@ class AddPlayersBottomSheet extends StatelessWidget {
                       const SizedBox(width: 10),
                       Expanded(
                         child: CustomTextInput(
-                          hintText:
-                              player['name'].isEmpty ? 'name' : player['name'],
+                          hintText: player.name.isEmpty ? 'name' : player.name,
                           key: Key('player_input_$index'),
                         ),
                       ),
                       GestureDetector(
                         onTap: () {
-                          // TODO : edit player
+                          // TODO : edit player's name
                         },
                         child: SvgPicture.asset(
                           CustomIcons.edit,
@@ -99,11 +95,7 @@ class AddPlayersBottomSheet extends StatelessWidget {
                 }),
                 const SizedBox(height: 10),
                 GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      addPlayer();
-                    });
-                  },
+                  onTap: () {},
                   child: Text(
                     players.length >= maxPlayers ? '' : 'add player',
                     style: theme.display2.copyWith(

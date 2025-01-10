@@ -6,10 +6,9 @@ class GameResultsBottomSheet extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-    // TODO add players model
-    final players = [
-      {'name': 'player 1', 'score': 100},
-      {'name': 'player 2', 'score': 20},
+    final List<Player> players = [
+      Player(name: 'player 1', id: 01),
+      Player(name: 'player 2', id: 02),
     ];
 
     return SafeArea(
@@ -49,11 +48,11 @@ class GameResultsBottomSheet extends StatelessWidget {
                     mainAxisAlignment: MainAxisAlignment.spaceBetween,
                     children: [
                       Text(
-                        player['name'].toString(),
+                        player.name,
                         style: theme.display2,
                       ),
                       Text(
-                        player['score'].toString(),
+                        player.score.toString(),
                         style: theme.display2,
                       ),
                     ],
