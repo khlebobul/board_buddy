@@ -14,7 +14,7 @@ class UnoGame extends StatelessWidget {
         onRightButtonPressed: () {
           showModalBottomSheet(
             context: context,
-            builder: (context) => const GameResultsBottomSheet(),
+            builder: (context) => const AddPlayersBottomSheet(),
           );
         },
       ),

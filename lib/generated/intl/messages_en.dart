@@ -154,6 +154,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
             "the first player to reach level 10 wins!"),
         "others": MessageLookupByLibrary.simpleMessage("others"),
+        "players": MessageLookupByLibrary.simpleMessage("players"),
         "preparation": MessageLookupByLibrary.simpleMessage("preparation:"),
         "projectWebsite":
             MessageLookupByLibrary.simpleMessage("project website"),

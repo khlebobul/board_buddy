@@ -202,5 +202,6 @@
   "light": "light",
   "dark": "dark",
   "results": "results",
-  "close": "close"
+  "close": "close",
+  "players": "players"
 }

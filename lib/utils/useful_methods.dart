@@ -22,3 +22,8 @@ Future<void> sendEmail(
     );
   }
 }
+
+// players number format
+String formatPlayerNumber(int number) {
+  return number < 10 ? '0$number' : '$number';
+}
