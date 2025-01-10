@@ -95,6 +95,10 @@ class UIThemes {
   Color get bgColor =>
       isDarkTheme ? DarkModeColors.background : LightModeColors.background;
 
+  // Forground color
+  Color get fgColor =>
+      isDarkTheme ? DarkModeColors.foreground : LightModeColors.foreground;
+
   // Text color
   Color get textColor =>
       isDarkTheme ? DarkModeColors.text : LightModeColors.text;
@@ -104,4 +108,8 @@ class UIThemes {
 
   // Red color
   Color get redColor => isDarkTheme ? DarkModeColors.red : LightModeColors.red;
+
+  // Border color
+  Color get borderColor =>
+      isDarkTheme ? DarkModeColors.border : LightModeColors.border;
 }

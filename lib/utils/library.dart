@@ -34,6 +34,7 @@ export '../widgets/dice_modal.dart';
 export '../widgets/timer.dart';
 export '../widgets/modal_window_widget.dart';
 export '../widgets/custom_text_input.dart';
+export '../widgets/points_keyboard.dart';
 // bottom sheets
 export '../widgets/bottom_sheets/game_results_bs.dart';
 export '../widgets/bottom_sheets/add_player_bs.dart';

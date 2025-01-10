@@ -1,3 +1,5 @@
+// TODO : simplify player model
+
 class Player {
   String name;
   final int id;
