@@ -1,11 +1,15 @@
 import 'package:board_buddy/utils/library.dart';
 
 class CustomKeyboard extends StatelessWidget {
-  final List<List<KeyboardButton>> buttons; // Список строк клавиш
+  final List<List<KeyboardButton>> buttons;
+  final String buttonText;
+  final String buttonIconPath;
 
   const CustomKeyboard({
     super.key,
     required this.buttons,
+    this.buttonText = '',
+    this.buttonIconPath = '',
   });
 
   @override
@@ -22,7 +26,7 @@ class CustomKeyboard extends StatelessWidget {
         shrinkWrap: true,
         gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
           crossAxisCount: _calculateMaxColumns(),
-          childAspectRatio: 1.0,
+          //childAspectRatio: 1.0,
           crossAxisSpacing: 4.0,
           mainAxisSpacing: 4.0,
         ),
@@ -32,15 +36,22 @@ class CustomKeyboard extends StatelessWidget {
           final button = flatButtons[index];
           return GestureDetector(
             onTap: button.onPressed,
-            child: Container(
-              decoration: BoxDecoration(
-                border: Border.all(color: Colors.grey),
-                borderRadius: BorderRadius.circular(8.0),
-                color: button.backgroundColor ?? Colors.white,
-              ),
-              alignment: Alignment.center,
-              child: button.child,
-            ),
+            child: button.buttonIcon.isEmpty
+                ? Text(
+                    button.buttonText,
+                    style: theme.display2.copyWith(
+                      color: theme.textColor,
+                    ),
+                  )
+                : SizedBox(
+                    width: button.iconSize,
+                    height: button.iconSize,
+                    child: SvgPicture.asset(
+                      button.buttonIcon,
+                      fit: BoxFit.contain,
+                      color: theme.textColor,
+                    ),
+                  ),
           );
         },
       ),
@@ -53,13 +64,17 @@ class CustomKeyboard extends StatelessWidget {
 }
 
 class KeyboardButton {
-  final Widget child;
+  final String buttonIcon;
+  final String buttonText;
   final VoidCallback? onPressed;
   final Color? backgroundColor;
+  final double iconSize;
 
   KeyboardButton({
-    required this.child,
+    this.buttonIcon = '',
+    this.buttonText = '',
     this.onPressed,
     this.backgroundColor,
+    this.iconSize = 27.0,
   });
 }
