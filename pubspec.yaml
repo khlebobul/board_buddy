@@ -74,6 +74,8 @@ flutter:
     - assets/images/
     - assets/images/dice/
     - assets/icons/
+    - assets/icons/game_cards/
+    - assets/icons/game_cards/uno_like/
 
   fonts:
     - family: RobotoMono
