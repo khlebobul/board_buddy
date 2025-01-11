@@ -21,45 +21,51 @@ class CustomKeyboard extends StatelessWidget {
         borderRadius: BorderRadius.circular(8.0),
         color: theme.fgColor,
       ),
-      padding: const EdgeInsets.all(8.0),
-      child: GridView.builder(
-        shrinkWrap: true,
-        gridDelegate: SliverGridDelegateWithFixedCrossAxisCount(
-          crossAxisCount: _calculateMaxColumns(),
-          //childAspectRatio: 1.0,
-          crossAxisSpacing: 4.0,
-          mainAxisSpacing: 4.0,
+      child: Table(
+        defaultColumnWidth: const FlexColumnWidth(),
+        border: TableBorder.symmetric(
+          inside: BorderSide(color: theme.borderColor, width: 1),
         ),
-        itemCount: buttons.expand((row) => row).toList().length,
-        itemBuilder: (context, index) {
-          final flatButtons = buttons.expand((row) => row).toList();
-          final button = flatButtons[index];
-          return GestureDetector(
-            onTap: button.onPressed,
-            child: button.buttonIcon.isEmpty
-                ? Text(
-                    button.buttonText,
-                    style: theme.display2.copyWith(
-                      color: theme.textColor,
-                    ),
-                  )
-                : SizedBox(
-                    width: button.iconSize,
-                    height: button.iconSize,
-                    child: SvgPicture.asset(
-                      button.buttonIcon,
-                      fit: BoxFit.contain,
-                      color: theme.textColor,
-                    ),
-                  ),
-          );
-        },
+        children: buttons.map((row) => _buildTableRow(row, theme)).toList(),
       ),
     );
   }
 
-  int _calculateMaxColumns() {
-    return buttons.isNotEmpty ? buttons.first.length : 1;
+  TableRow _buildTableRow(List<KeyboardButton> row, theme) {
+    return TableRow(
+      children: row.map((button) => _buildButtonCell(button, theme)).toList(),
+    );
+  }
+
+  Widget _buildButtonCell(KeyboardButton button, theme) {
+    return GestureDetector(
+      onTap: button.onPressed,
+      child: Container(
+        margin: const EdgeInsets.all(14.0),
+        decoration: BoxDecoration(
+          color: button.backgroundColor,
+          borderRadius: BorderRadius.circular(8.0),
+        ),
+        alignment: Alignment.center,
+        child: button.buttonIcon.isEmpty
+            ? Text(
+                button.buttonText,
+                style: theme.display1.copyWith(
+                  color: theme.textColor,
+                ),
+              )
+            : SizedBox(
+                width: button.iconSize,
+                height: button.iconSize,
+                child: SvgPicture.asset(
+                  button.buttonIcon,
+                  fit: BoxFit.contain,
+                  // ignore: deprecated_member_use
+                  color: theme.textColor,
+                ),
+              ),
+      ),
+    );
   }
 }
 

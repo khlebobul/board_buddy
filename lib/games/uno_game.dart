@@ -28,49 +28,51 @@ class UnoGame extends StatelessWidget {
                 onPressed: () {},
               ),
               KeyboardButton(
-                buttonIcon: CustomIcons.dice,
-                iconSize: 3,
+                buttonText: '2',
                 onPressed: () {},
               ),
               KeyboardButton(
-                buttonIcon: CustomIcons.dice,
-                iconSize: 3,
+                buttonText: '3',
                 onPressed: () {},
               ),
               KeyboardButton(
-                buttonIcon: CustomIcons.dice,
-                iconSize: 3,
-                onPressed: () {},
-              ),
-              KeyboardButton(
-                buttonIcon: CustomIcons.dice,
-                iconSize: 3,
+                buttonText: '4',
                 onPressed: () {},
               ),
             ],
             [
               KeyboardButton(
-                buttonText: '1',
+                buttonText: '5',
                 onPressed: () {},
               ),
               KeyboardButton(
-                buttonIcon: CustomIcons.dice,
-                iconSize: 3,
+                buttonText: '6',
                 onPressed: () {},
               ),
               KeyboardButton(
-                buttonIcon: CustomIcons.dice,
-                iconSize: 3,
+                buttonText: '7',
                 onPressed: () {},
               ),
               KeyboardButton(
-                buttonIcon: CustomIcons.dice,
-                iconSize: 3,
+                buttonText: '8',
+                onPressed: () {},
+              ),
+            ],
+            [
+              KeyboardButton(
+                buttonText: '9',
                 onPressed: () {},
               ),
               KeyboardButton(
-                buttonIcon: CustomIcons.dice,
-                iconSize: 3,
+                buttonText: '0',
+                onPressed: () {},
+              ),
+              KeyboardButton(
+                buttonText: 'x',
+                onPressed: () {},
+              ),
+              KeyboardButton(
+                buttonText: 'y',
                 onPressed: () {},
               ),
             ],
