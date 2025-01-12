@@ -63,7 +63,9 @@ class AddPlayersBottomSheet extends StatelessWidget {
                       const SizedBox(width: 10),
                       Expanded(
                         child: CustomTextInput(
-                          hintText: player.name.isEmpty ? 'name' : player.name,
+                          hintText: player.name.isEmpty
+                              ? 'name'
+                              : player.name.toLowerCase(),
                           key: Key('player_input_$index'),
                         ),
                       ),

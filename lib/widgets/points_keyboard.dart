@@ -17,7 +17,7 @@ class CustomKeyboard extends StatelessWidget {
     final theme = UIThemes.of(context);
     return Container(
       decoration: BoxDecoration(
-        border: Border.all(color: theme.borderColor, width: 2),
+        border: Border.all(color: theme.borderColor, width: 1),
         borderRadius: BorderRadius.circular(8.0),
         color: theme.fgColor,
       ),

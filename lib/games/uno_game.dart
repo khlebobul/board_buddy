@@ -13,6 +13,13 @@ class UnoGame extends StatelessWidget {
         // for testing
         onRightButtonPressed: () {},
       ),
+      body: const Padding(
+        padding: EdgeInsets.all(8.0),
+        child: PlayerCard(
+          playerName: 'player 1',
+          score: 0,
+        ),
+      ),
     );
   }
 }

@@ -90,6 +90,13 @@ class UIThemes {
         color: textColor,
       );
 
+  // players card score
+  TextStyle get display5 => TextStyle(
+        fontSize: 50,
+        fontFamily: 'RobotoMono',
+        color: textColor,
+      );
+
   // Colors
   // Background color
   Color get bgColor =>
