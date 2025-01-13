@@ -5,6 +5,11 @@ class UnoGame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final List<Map<String, dynamic>> players = [
+      {'name': 'player 1', 'score': 0},
+      {'name': 'name', 'score': 10},
+      {'name': 'test', 'score': 20},
+    ];
     return Scaffold(
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
@@ -13,11 +18,43 @@ class UnoGame extends StatelessWidget {
         // for testing
         onRightButtonPressed: () {},
       ),
-      body: const Padding(
-        padding: EdgeInsets.all(8.0),
-        child: PlayerCard(
-          playerName: 'player 1',
-          score: 0,
+      body: Padding(
+        padding: const EdgeInsets.all(8.0),
+        child: Column(
+          children: [
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                children: players
+                    .map((player) => Padding(
+                          padding: const EdgeInsets.only(right: 8.0),
+                          child: PlayerCard(
+                            playerName: player['name'],
+                            score: player['score'],
+                          ),
+                        ))
+                    .toList(),
+              ),
+            ),
+            const SizedBox(height: 10),
+            SingleChildScrollView(
+              scrollDirection: Axis.horizontal,
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: players.asMap().entries.map((entry) {
+                  final index = entry.key;
+                  final player = entry.value;
+                  final firstLetter =
+                      player['name'].toString().characters.first;
+
+                  return PlayerIndicator(
+                    letter: firstLetter,
+                    isActive: index == 0,
+                  );
+                }).toList(),
+              ),
+            ),
+          ],
         ),
       ),
       bottomNavigationBar: BottomGameBar(

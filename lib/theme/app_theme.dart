@@ -97,6 +97,13 @@ class UIThemes {
         color: textColor,
       );
 
+  // players indicator
+  TextStyle get display6 => TextStyle(
+        fontSize: 15,
+        fontFamily: 'RobotoMono',
+        color: textColor,
+      );
+
   // Colors
   // Background color
   Color get bgColor =>
