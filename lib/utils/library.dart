@@ -36,6 +36,7 @@ export '../widgets/modal_window_widget.dart';
 export '../widgets/custom_text_input.dart';
 export '../widgets/points_keyboard.dart';
 export '../widgets/player_card.dart';
+export '../widgets/bottom_game_widget.dart';
 // bottom sheets
 export '../widgets/bottom_sheets/game_results_bs.dart';
 export '../widgets/bottom_sheets/add_player_bs.dart';

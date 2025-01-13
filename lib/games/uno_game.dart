@@ -20,6 +20,11 @@ class UnoGame extends StatelessWidget {
           score: 0,
         ),
       ),
+      bottomNavigationBar: BottomGameBar(
+        leftButtonText: S.of(context).rules,
+        isArrow: true,
+        rightButtonText: S.of(context).rules,
+      ),
     );
   }
 }

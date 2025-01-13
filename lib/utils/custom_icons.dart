@@ -5,6 +5,8 @@ class CustomIcons {
   static const String refresh = 'assets/icons/rotate-ccw.svg';
   static const String edit = 'assets/icons/edit.svg';
   static const String remove = 'assets/icons/remove.svg';
+  static const String leftArrow = 'assets/icons/left-arrow.svg';
+  static const String rightArrow = 'assets/icons/right-arrow.svg';
 
   // game cards
   // uno, dos, uno flip
