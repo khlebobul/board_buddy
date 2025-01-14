@@ -203,5 +203,8 @@
   "dark": "темная",
   "results": "результаты",
   "close": "закрыть",
-  "players": "игроки"
+  "players": "игроки",
+  "total": "total",
+  "name": "name",
+  "round": "round"
 }

@@ -203,5 +203,8 @@
   "dark": "dark",
   "results": "results",
   "close": "close",
-  "players": "players"
+  "players": "players",
+  "total": "total",
+  "name": "name",
+  "round": "round"
 }

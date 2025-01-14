@@ -2099,6 +2099,36 @@ class S {
       args: [],
     );
   }
+
+  /// `total`
+  String get total {
+    return Intl.message(
+      'total',
+      name: 'total',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `name`
+  String get name {
+    return Intl.message(
+      'name',
+      name: 'name',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `round`
+  String get round {
+    return Intl.message(
+      'round',
+      name: 'round',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

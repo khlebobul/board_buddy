@@ -152,6 +152,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "игрок открывает верхнюю карту из колоды дверей. возможные ситуации:"),
         "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
             "игрок, первым достигший 10 уровня, побеждает!"),
+        "name": MessageLookupByLibrary.simpleMessage("name"),
         "others": MessageLookupByLibrary.simpleMessage("другое"),
         "players": MessageLookupByLibrary.simpleMessage("игроки"),
         "preparation": MessageLookupByLibrary.simpleMessage("подготовка:"),
@@ -161,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "reportABug":
             MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
         "results": MessageLookupByLibrary.simpleMessage("результаты"),
+        "round": MessageLookupByLibrary.simpleMessage("round"),
         "rules": MessageLookupByLibrary.simpleMessage("правила"),
         "russian": MessageLookupByLibrary.simpleMessage("русский"),
         "scrabble": MessageLookupByLibrary.simpleMessage("скраббл"),
@@ -289,6 +291,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("особые правила:"),
         "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
         "theme": MessageLookupByLibrary.simpleMessage("тема"),
+        "total": MessageLookupByLibrary.simpleMessage("total"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
             "«возьми две»: следующий игрок берет 2 карты и пропускает ход."),

@@ -153,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "the player draws the top card from the Door deck. possible outcomes:"),
         "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
             "the first player to reach level 10 wins!"),
+        "name": MessageLookupByLibrary.simpleMessage("name"),
         "others": MessageLookupByLibrary.simpleMessage("others"),
         "players": MessageLookupByLibrary.simpleMessage("players"),
         "preparation": MessageLookupByLibrary.simpleMessage("preparation:"),
@@ -161,6 +162,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
         "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
         "results": MessageLookupByLibrary.simpleMessage("results"),
+        "round": MessageLookupByLibrary.simpleMessage("round"),
         "rules": MessageLookupByLibrary.simpleMessage("rules"),
         "russian": MessageLookupByLibrary.simpleMessage("russian"),
         "scrabble": MessageLookupByLibrary.simpleMessage("scrabble"),
@@ -288,6 +290,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("special rules:"),
         "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
         "theme": MessageLookupByLibrary.simpleMessage("theme"),
+        "total": MessageLookupByLibrary.simpleMessage("total"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
             "\'draw two\': the next player draws 2 cards and loses their turn."),
