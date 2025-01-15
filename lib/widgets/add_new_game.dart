@@ -1,4 +1,10 @@
-import '../utils/library.dart';
+import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/app_constants.dart';
+import 'package:board_buddy/utils/useful_methods.dart';
+import 'package:flutter/material.dart';
+import 'package:use_scramble/use_scramble.dart';
+
 
 class AddFavouriteGame extends StatelessWidget {
   const AddFavouriteGame({

@@ -1,4 +1,22 @@
-import 'library.dart';
+import 'package:board_buddy/games/common_game.dart';
+import 'package:board_buddy/games/dos_game.dart';
+import 'package:board_buddy/games/munchkin_game.dart';
+import 'package:board_buddy/games/scrabble_game.dart';
+import 'package:board_buddy/games/set_game.dart';
+import 'package:board_buddy/games/uno_flip_game.dart';
+import 'package:board_buddy/games/uno_game.dart';
+import 'package:board_buddy/screens/about_screen.dart';
+import 'package:board_buddy/screens/games_screen.dart';
+import 'package:board_buddy/screens/rules/dos_rules.dart';
+import 'package:board_buddy/screens/rules/munchkin_rules.dart';
+import 'package:board_buddy/screens/rules/scrabble_rules.dart';
+import 'package:board_buddy/screens/rules/set_rules.dart';
+import 'package:board_buddy/screens/rules/uno_flip_rules.dart';
+import 'package:board_buddy/screens/rules/uno_rules.dart';
+import 'package:board_buddy/screens/rules_screen.dart';
+import 'package:board_buddy/screens/settings/settings_screen.dart';
+import 'package:board_buddy/screens/splash_screen.dart';
+import 'package:flutter/material.dart';
 
 class AppRoutes {
   // screens

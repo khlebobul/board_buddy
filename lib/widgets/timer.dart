@@ -1,7 +1,11 @@
 // ignore_for_file: deprecated_member_use
 
-import '../utils/library.dart';
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/custom_icons.dart';
+import 'package:flutter/material.dart';
 import 'dart:async';
+
+import 'package:flutter_svg/svg.dart';
 
 class TimerWidget extends StatefulWidget {
   const TimerWidget({super.key});

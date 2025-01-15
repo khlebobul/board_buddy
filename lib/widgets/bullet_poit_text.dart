@@ -1,4 +1,6 @@
-import '../utils/library.dart';
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/app_constants.dart';
+import 'package:flutter/material.dart';
 
 class BulletPointText extends StatelessWidget {
   final String contentText;

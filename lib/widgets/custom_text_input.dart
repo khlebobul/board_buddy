@@ -1,4 +1,5 @@
-import '../utils/library.dart';
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:flutter/material.dart';
 
 class CustomTextInput extends StatefulWidget {
   final String hintText;

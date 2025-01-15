@@ -1,6 +1,10 @@
 // ignore_for_file: deprecated_member_use
 
-import 'package:board_buddy/utils/library.dart';
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/custom_icons.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter_svg/svg.dart';
+import 'package:use_scramble/use_scramble.dart';
 
 class BottomGameBar extends StatelessWidget {
   final String leftButtonText;

@@ -1,4 +1,10 @@
-import '../utils/library.dart';
+import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/widgets/add_new_game.dart';
+import 'package:board_buddy/widgets/custom_app_bar.dart';
+import 'package:flutter/material.dart';
+import 'package:use_scramble/use_scramble.dart';
+
 
 class RulesScreen extends StatelessWidget {
   const RulesScreen({super.key});

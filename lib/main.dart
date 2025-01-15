@@ -1,4 +1,14 @@
-import 'utils/library.dart';
+
+
+import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/screens/splash_screen.dart';
+import 'package:board_buddy/services/language_service.dart';
+import 'package:board_buddy/services/theme_service.dart';
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/routes.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:flutter_localizations/flutter_localizations.dart';
 
 void main() async {
   WidgetsFlutterBinding.ensureInitialized();

@@ -1,4 +1,9 @@
-import '../utils/library.dart';
+import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/widgets/bottom_game_widget.dart';
+import 'package:board_buddy/widgets/custom_app_bar.dart';
+import 'package:board_buddy/widgets/player_card.dart';
+import 'package:board_buddy/widgets/players_indicator.dart';
+import 'package:flutter/material.dart';
 
 class UnoGame extends StatelessWidget {
   const UnoGame({super.key});

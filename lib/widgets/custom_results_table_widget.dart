@@ -1,4 +1,6 @@
-import 'package:board_buddy/utils/library.dart';
+import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:flutter/material.dart';
 
 class ResultsTableWidget extends StatelessWidget {
   final List<Map<String, dynamic>> playersData;

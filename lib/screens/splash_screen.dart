@@ -1,4 +1,9 @@
-import '../utils/library.dart';
+import 'package:board_buddy/screens/home_screen.dart';
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/app_constants.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
+import 'package:use_scramble/use_scramble.dart';
 
 class SplashScreen extends StatefulWidget {
   const SplashScreen({super.key});

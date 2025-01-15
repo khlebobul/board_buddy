@@ -1,5 +1,9 @@
 import 'dart:ui' as ui;
-import '../utils/library.dart';
+import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/screens/splash_screen.dart';
+import 'package:board_buddy/services/preferences_service.dart';
+import 'package:flutter/material.dart';
+import 'package:shared_preferences/shared_preferences.dart';
 
 class LanguageService {
   static const String _languageCodeKey = 'language_code';

@@ -1,4 +1,8 @@
-import '../utils/library.dart';
+import 'dart:math';
+
+import 'package:board_buddy/theme/app_theme.dart';
+import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class DiceModal extends StatelessWidget {
   final int diceNumber;

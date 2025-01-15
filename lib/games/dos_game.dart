@@ -1,4 +1,8 @@
-import '../utils/library.dart';
+import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/widgets/custom_app_bar.dart';
+import 'package:board_buddy/widgets/custom_results_table_widget.dart';
+import 'package:flutter/material.dart';
+
 
 class DosGame extends StatelessWidget {
   const DosGame({super.key});
