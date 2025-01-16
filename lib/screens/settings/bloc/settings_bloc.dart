@@ -1,5 +1,3 @@
-
-
 import 'package:board_buddy/services/preferences_service.dart';
 import 'package:board_buddy/services/theme_service.dart';
 import 'package:flutter/material.dart';

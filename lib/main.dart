@@ -1,5 +1,3 @@
-
-
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/screens/splash_screen.dart';
 import 'package:board_buddy/services/language_service.dart';
