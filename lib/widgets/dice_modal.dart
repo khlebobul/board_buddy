@@ -21,7 +21,9 @@ class DiceModal extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Image.asset(
-              'assets/images/dice/dice_$diceNumber.png',
+              theme.isDarkTheme
+                  ? 'assets/images/dice/dice_dark_$diceNumber.png'
+                  : 'assets/images/dice/dice_light_$diceNumber.png',
               width: 300,
               height: 300,
             ),
