@@ -58,6 +58,4 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 
 ## license
 
-[MIT](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
-
-- TODO GNU General Public License
+This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
