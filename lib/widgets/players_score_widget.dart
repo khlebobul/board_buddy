@@ -3,12 +3,12 @@ import 'package:board_buddy/theme/app_theme.dart';
 import 'package:board_buddy/utils/useful_methods.dart';
 import 'package:flutter/material.dart';
 
-class MultiPlayersCounterWidget extends StatelessWidget {
+class PlayersScoreWidget extends StatelessWidget {
   final List<Player> players;
   final void Function(int index) onIncrease;
   final void Function(int index) onDecrease;
 
-  const MultiPlayersCounterWidget({
+  const PlayersScoreWidget({
     required this.players,
     required this.onIncrease,
     required this.onDecrease,
@@ -18,6 +18,45 @@ class MultiPlayersCounterWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
+
+    if (players.length == 1) {
+      return Container(
+        margin: const EdgeInsets.all(10.0),
+        decoration: BoxDecoration(
+          border: Border.all(color: theme.borderColor, width: 1),
+          borderRadius: BorderRadius.circular(20),
+          color: theme.fgColor,
+        ),
+        child: Padding(
+          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
+          child: Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              GestureDetector(
+                onTap: () => onDecrease(0),
+                child: Text(
+                  '-',
+                  style: theme.display1.copyWith(color: theme.redColor),
+                ),
+              ),
+              Text(
+                players[0].score.toString(),
+                style: theme.display2.copyWith(
+                  color: theme.textColor,
+                ),
+              ),
+              GestureDetector(
+                onTap: () => onIncrease(0),
+                child: Text(
+                  '+',
+                  style: theme.display1.copyWith(color: theme.redColor),
+                ),
+              ),
+            ],
+          ),
+        ),
+      );
+    }
 
     return Container(
       margin: const EdgeInsets.all(10.0),
