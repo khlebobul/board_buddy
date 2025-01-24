@@ -25,13 +25,7 @@ class CustomIcons {
       'assets/icons/games_icons/uno_like/wild_draw_color.svg';
 
   // munchkin
-  static const String flask = 'assets/icons/games_icons/munchkin/flask.svg';
-  static const String hat = 'assets/icons/games_icons/munchkin/hat.svg';
-  static const String shield = 'assets/icons/games_icons/munchkin/shield.svg';
-  static const String sparkles =
-      'assets/icons/games_icons/munchkin/sparkles.svg';
-  static const String sword = 'assets/icons/games_icons/munchkin/sword.svg';
-  static const String swords = 'assets/icons/games_icons/munchkin/swords.svg';
+  static const String rip = 'assets/icons/games_icons/munchkin/rip.svg';
   static const String male = 'assets/icons/games_icons/munchkin/male.svg';
   static const String female = 'assets/icons/games_icons/munchkin/female.svg';
 }
