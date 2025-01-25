@@ -1,9 +1,9 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:board_buddy/utils/custom_icons.dart';
-import 'package:board_buddy/widgets/custom_app_bar.dart';
-import 'package:board_buddy/widgets/dice_modal.dart';
-import 'package:board_buddy/widgets/timer.dart';
+import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
+import 'package:board_buddy/widgets/game_widgets/dice_modal.dart';
+import 'package:board_buddy/widgets/game_widgets/timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 

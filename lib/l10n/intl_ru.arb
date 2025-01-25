@@ -206,5 +206,8 @@
   "players": "игроки",
   "total": "total",
   "name": "name",
-  "round": "round"
+  "round": "round",
+  "gear": "gear",
+  "level": "level",
+  "totalStrength": "total strength: "
 }

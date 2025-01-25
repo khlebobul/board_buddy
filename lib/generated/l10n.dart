@@ -2129,6 +2129,36 @@ class S {
       args: [],
     );
   }
+
+  /// `gear`
+  String get gear {
+    return Intl.message(
+      'gear',
+      name: 'gear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `level`
+  String get level {
+    return Intl.message(
+      'level',
+      name: 'level',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `total strength: `
+  String get totalStrength {
+    return Intl.message(
+      'total strength: ',
+      name: 'totalStrength',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

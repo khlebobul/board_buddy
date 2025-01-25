@@ -89,6 +89,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gameGoal": MessageLookupByLibrary.simpleMessage("цель игры:"),
         "gameTurnTitle": MessageLookupByLibrary.simpleMessage("ход игры:"),
         "games": MessageLookupByLibrary.simpleMessage("игры"),
+        "gear": MessageLookupByLibrary.simpleMessage("gear"),
         "githubRepository":
             MessageLookupByLibrary.simpleMessage("репозиторий github"),
         "heyMyNameIsGleb":
@@ -97,6 +98,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
+        "level": MessageLookupByLibrary.simpleMessage("level"),
         "light": MessageLookupByLibrary.simpleMessage("светлая"),
         "munchkin": MessageLookupByLibrary.simpleMessage("манчкин"),
         "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
@@ -292,6 +294,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
         "theme": MessageLookupByLibrary.simpleMessage("тема"),
         "total": MessageLookupByLibrary.simpleMessage("total"),
+        "totalStrength":
+            MessageLookupByLibrary.simpleMessage("total strength: "),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
             "«возьми две»: следующий игрок берет 2 карты и пропускает ход."),

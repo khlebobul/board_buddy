@@ -1,5 +1,5 @@
 import 'package:board_buddy/generated/l10n.dart';
-import 'package:board_buddy/widgets/custom_app_bar.dart';
+import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 
 class ScrabbleGame extends StatelessWidget {

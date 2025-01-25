@@ -90,6 +90,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "gameGoal": MessageLookupByLibrary.simpleMessage("game goal:"),
         "gameTurnTitle": MessageLookupByLibrary.simpleMessage("game turn:"),
         "games": MessageLookupByLibrary.simpleMessage("games"),
+        "gear": MessageLookupByLibrary.simpleMessage("gear"),
         "githubRepository":
             MessageLookupByLibrary.simpleMessage("github repository"),
         "heyMyNameIsGleb":
@@ -98,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " lets you track scores and key moments effortlessly, keeping your focus on the game"),
+        "level": MessageLookupByLibrary.simpleMessage("level"),
         "light": MessageLookupByLibrary.simpleMessage("light"),
         "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
         "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
@@ -291,6 +293,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
         "theme": MessageLookupByLibrary.simpleMessage("theme"),
         "total": MessageLookupByLibrary.simpleMessage("total"),
+        "totalStrength":
+            MessageLookupByLibrary.simpleMessage("total strength: "),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
             "\'draw two\': the next player draws 2 cards and loses their turn."),
