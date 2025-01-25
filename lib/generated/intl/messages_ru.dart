@@ -23,10 +23,21 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("о проекте"),
+        "addPlayer": MessageLookupByLibrary.simpleMessage("добавить игрока"),
+        "armour": MessageLookupByLibrary.simpleMessage("броня"),
         "back": MessageLookupByLibrary.simpleMessage("назад"),
+        "bigArmour": MessageLookupByLibrary.simpleMessage("большая броня"),
+        "bigBoots": MessageLookupByLibrary.simpleMessage("большие ботинки"),
+        "bigHelmet": MessageLookupByLibrary.simpleMessage("большой шлем"),
+        "bigMagic": MessageLookupByLibrary.simpleMessage("большая магия"),
+        "bigSword": MessageLookupByLibrary.simpleMessage("большой меч"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
+        "boots": MessageLookupByLibrary.simpleMessage("ботинки"),
         "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
         "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
+        "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
+        "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
+        "cleric": MessageLookupByLibrary.simpleMessage("клирик"),
         "close": MessageLookupByLibrary.simpleMessage("закрыть"),
         "common": MessageLookupByLibrary.simpleMessage("счетчик"),
         "dark": MessageLookupByLibrary.simpleMessage("темная"),
@@ -78,28 +89,39 @@ class MessageLookup extends MessageLookupByLibrary {
             "одиночное совпадение: карта совпадает по числу."),
         "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
             "игрок выигрывает, набрав 200 очков."),
+        "dwarf": MessageLookupByLibrary.simpleMessage("гном"),
+        "elf": MessageLookupByLibrary.simpleMessage("эльф"),
         "emailCopied": MessageLookupByLibrary.simpleMessage(
             "электронная почта скопирована"),
         "endGameTitle": MessageLookupByLibrary.simpleMessage("конец игры:"),
         "english": MessageLookupByLibrary.simpleMessage("англиский"),
         "featureRequest":
             MessageLookupByLibrary.simpleMessage("новый функционал"),
+        "firstBonus": MessageLookupByLibrary.simpleMessage("первый бонус"),
         "followMeOnXTwitter":
             MessageLookupByLibrary.simpleMessage("мой x (twitter)"),
         "gameGoal": MessageLookupByLibrary.simpleMessage("цель игры:"),
         "gameTurnTitle": MessageLookupByLibrary.simpleMessage("ход игры:"),
         "games": MessageLookupByLibrary.simpleMessage("игры"),
-        "gear": MessageLookupByLibrary.simpleMessage("gear"),
+        "gear": MessageLookupByLibrary.simpleMessage("снаряжение"),
         "githubRepository":
             MessageLookupByLibrary.simpleMessage("репозиторий github"),
+        "halfBreed": MessageLookupByLibrary.simpleMessage("полукровка"),
+        "halfling": MessageLookupByLibrary.simpleMessage("хоббит"),
+        "headGear": MessageLookupByLibrary.simpleMessage("головной убор"),
+        "helmet": MessageLookupByLibrary.simpleMessage("шлем"),
         "heyMyNameIsGleb":
             MessageLookupByLibrary.simpleMessage("привет! меня зовут глеб"),
+        "human": MessageLookupByLibrary.simpleMessage("человек"),
         "languages": MessageLookupByLibrary.simpleMessage("языки"),
+        "leftHand": MessageLookupByLibrary.simpleMessage("левая рука"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
-        "level": MessageLookupByLibrary.simpleMessage("level"),
+        "level": MessageLookupByLibrary.simpleMessage("уровень"),
         "light": MessageLookupByLibrary.simpleMessage("светлая"),
+        "magic": MessageLookupByLibrary.simpleMessage("магия"),
+        "modifiers": MessageLookupByLibrary.simpleMessage("модификаторы"),
         "munchkin": MessageLookupByLibrary.simpleMessage("манчкин"),
         "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
             "сравните уровень вашего персонажа (с учетом бонусов) с уровнем монстра."),
@@ -154,17 +176,21 @@ class MessageLookup extends MessageLookupByLibrary {
             "игрок открывает верхнюю карту из колоды дверей. возможные ситуации:"),
         "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
             "игрок, первым достигший 10 уровня, побеждает!"),
-        "name": MessageLookupByLibrary.simpleMessage("name"),
+        "name": MessageLookupByLibrary.simpleMessage("имя"),
+        "noClass": MessageLookupByLibrary.simpleMessage("без класса"),
+        "noItem": MessageLookupByLibrary.simpleMessage("без предмета"),
         "others": MessageLookupByLibrary.simpleMessage("другое"),
         "players": MessageLookupByLibrary.simpleMessage("игроки"),
         "preparation": MessageLookupByLibrary.simpleMessage("подготовка:"),
         "projectWebsite": MessageLookupByLibrary.simpleMessage("сайт проекта"),
+        "race1": MessageLookupByLibrary.simpleMessage("раса 1"),
         "rateTheApp":
             MessageLookupByLibrary.simpleMessage("оцените приложение"),
         "reportABug":
             MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
         "results": MessageLookupByLibrary.simpleMessage("результаты"),
-        "round": MessageLookupByLibrary.simpleMessage("round"),
+        "rightHand": MessageLookupByLibrary.simpleMessage("правая рука"),
+        "round": MessageLookupByLibrary.simpleMessage("раунд"),
         "rules": MessageLookupByLibrary.simpleMessage("правила"),
         "russian": MessageLookupByLibrary.simpleMessage("русский"),
         "scrabble": MessageLookupByLibrary.simpleMessage("скраббл"),
@@ -225,6 +251,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "все слова выкладываются горизонтально или вертикально."),
         "scrabbleTurnRulesTitle":
             MessageLookupByLibrary.simpleMessage("правила хода:"),
+        "secondBonus": MessageLookupByLibrary.simpleMessage("второй бонус"),
+        "secondRace": MessageLookupByLibrary.simpleMessage("вторая раса"),
         "set": MessageLookupByLibrary.simpleMessage("set"),
         "setCardAttributeFillType": MessageLookupByLibrary.simpleMessage(
             "заполнение: пустое, заштрихованное, закрашенное."),
@@ -291,11 +319,14 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("особые карты:"),
         "specialRulesTitle":
             MessageLookupByLibrary.simpleMessage("особые правила:"),
+        "superMunch": MessageLookupByLibrary.simpleMessage("супер-жор"),
+        "sword": MessageLookupByLibrary.simpleMessage("меч"),
         "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
         "theme": MessageLookupByLibrary.simpleMessage("тема"),
-        "total": MessageLookupByLibrary.simpleMessage("total"),
-        "totalStrength":
-            MessageLookupByLibrary.simpleMessage("total strength: "),
+        "thief": MessageLookupByLibrary.simpleMessage("вор"),
+        "total": MessageLookupByLibrary.simpleMessage("всего"),
+        "totalStrength": MessageLookupByLibrary.simpleMessage("общая сила: "),
+        "twoHanded": MessageLookupByLibrary.simpleMessage("двуручный"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
             "«возьми две»: следующий игрок берет 2 карты и пропускает ход."),
@@ -409,6 +440,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "игрок выигрывает, набрав 500 очков."),
         "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
             "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры."),
-        "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:")
+        "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:"),
+        "warrior": MessageLookupByLibrary.simpleMessage("воин"),
+        "wizard": MessageLookupByLibrary.simpleMessage("маг")
       };
 }

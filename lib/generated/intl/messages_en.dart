@@ -23,12 +23,23 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("about"),
+        "addPlayer": MessageLookupByLibrary.simpleMessage("add player"),
+        "armour": MessageLookupByLibrary.simpleMessage("armour"),
         "back": MessageLookupByLibrary.simpleMessage("back"),
+        "bigArmour": MessageLookupByLibrary.simpleMessage("big armour"),
+        "bigBoots": MessageLookupByLibrary.simpleMessage("big boots"),
+        "bigHelmet": MessageLookupByLibrary.simpleMessage("big helmet"),
+        "bigMagic": MessageLookupByLibrary.simpleMessage("big magic"),
+        "bigSword": MessageLookupByLibrary.simpleMessage("big sword"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
+        "boots": MessageLookupByLibrary.simpleMessage("boots"),
         "cardTypesTitle":
             MessageLookupByLibrary.simpleMessage("types of cards:"),
         "checkMyWebsite":
             MessageLookupByLibrary.simpleMessage("check my website"),
+        "class1": MessageLookupByLibrary.simpleMessage("class 1"),
+        "class2": MessageLookupByLibrary.simpleMessage("class 2"),
+        "cleric": MessageLookupByLibrary.simpleMessage("cleric"),
         "close": MessageLookupByLibrary.simpleMessage("close"),
         "common": MessageLookupByLibrary.simpleMessage("counter"),
         "dark": MessageLookupByLibrary.simpleMessage("dark"),
@@ -80,11 +91,14 @@ class MessageLookup extends MessageLookupByLibrary {
             "single match: a card matches by number."),
         "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
             "the first player to reach 200 points wins."),
+        "dwarf": MessageLookupByLibrary.simpleMessage("dwarf"),
+        "elf": MessageLookupByLibrary.simpleMessage("elf"),
         "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
         "endGameTitle": MessageLookupByLibrary.simpleMessage("end of game:"),
         "english": MessageLookupByLibrary.simpleMessage("english"),
         "featureRequest":
             MessageLookupByLibrary.simpleMessage("feature request"),
+        "firstBonus": MessageLookupByLibrary.simpleMessage("first bonus"),
         "followMeOnXTwitter":
             MessageLookupByLibrary.simpleMessage("follow me on x (twitter)"),
         "gameGoal": MessageLookupByLibrary.simpleMessage("game goal:"),
@@ -93,14 +107,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "gear": MessageLookupByLibrary.simpleMessage("gear"),
         "githubRepository":
             MessageLookupByLibrary.simpleMessage("github repository"),
+        "halfBreed": MessageLookupByLibrary.simpleMessage("half breed"),
+        "halfling": MessageLookupByLibrary.simpleMessage("halfling"),
+        "headGear": MessageLookupByLibrary.simpleMessage("head gear"),
+        "helmet": MessageLookupByLibrary.simpleMessage("helmet"),
         "heyMyNameIsGleb":
             MessageLookupByLibrary.simpleMessage("hey! my name is gleb"),
+        "human": MessageLookupByLibrary.simpleMessage("human"),
         "languages": MessageLookupByLibrary.simpleMessage("languages"),
+        "leftHand": MessageLookupByLibrary.simpleMessage("left hand"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " lets you track scores and key moments effortlessly, keeping your focus on the game"),
         "level": MessageLookupByLibrary.simpleMessage("level"),
         "light": MessageLookupByLibrary.simpleMessage("light"),
+        "magic": MessageLookupByLibrary.simpleMessage("magic"),
+        "modifiers": MessageLookupByLibrary.simpleMessage("modifiers"),
         "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
         "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
             "compare your character\'s level (including bonuses) with the monster\'s level."),
@@ -156,14 +178,18 @@ class MessageLookup extends MessageLookupByLibrary {
         "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
             "the first player to reach level 10 wins!"),
         "name": MessageLookupByLibrary.simpleMessage("name"),
+        "noClass": MessageLookupByLibrary.simpleMessage("no class"),
+        "noItem": MessageLookupByLibrary.simpleMessage("no item"),
         "others": MessageLookupByLibrary.simpleMessage("others"),
         "players": MessageLookupByLibrary.simpleMessage("players"),
         "preparation": MessageLookupByLibrary.simpleMessage("preparation:"),
         "projectWebsite":
             MessageLookupByLibrary.simpleMessage("project website"),
+        "race1": MessageLookupByLibrary.simpleMessage("race 1"),
         "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
         "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
         "results": MessageLookupByLibrary.simpleMessage("results"),
+        "rightHand": MessageLookupByLibrary.simpleMessage("right hand"),
         "round": MessageLookupByLibrary.simpleMessage("round"),
         "rules": MessageLookupByLibrary.simpleMessage("rules"),
         "russian": MessageLookupByLibrary.simpleMessage("russian"),
@@ -225,6 +251,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "all words must be placed horizontally or vertically."),
         "scrabbleTurnRulesTitle":
             MessageLookupByLibrary.simpleMessage("turn rules:"),
+        "secondBonus": MessageLookupByLibrary.simpleMessage("second bonus"),
+        "secondRace": MessageLookupByLibrary.simpleMessage("2nd race"),
         "set": MessageLookupByLibrary.simpleMessage("set"),
         "setCardAttributeFillType": MessageLookupByLibrary.simpleMessage(
             "fill type: empty, striped, solid."),
@@ -290,11 +318,15 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("special cards:"),
         "specialRulesTitle":
             MessageLookupByLibrary.simpleMessage("special rules:"),
+        "superMunch": MessageLookupByLibrary.simpleMessage("super munch."),
+        "sword": MessageLookupByLibrary.simpleMessage("sword"),
         "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
         "theme": MessageLookupByLibrary.simpleMessage("theme"),
+        "thief": MessageLookupByLibrary.simpleMessage("thief"),
         "total": MessageLookupByLibrary.simpleMessage("total"),
         "totalStrength":
             MessageLookupByLibrary.simpleMessage("total strength: "),
+        "twoHanded": MessageLookupByLibrary.simpleMessage("two handed"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
             "\'draw two\': the next player draws 2 cards and loses their turn."),
@@ -406,6 +438,8 @@ class MessageLookup extends MessageLookupByLibrary {
             "the first player to reach 500 points wins."),
         "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
             "alternative: the player with the lowest score wins after the game ends."),
-        "victoryTitle": MessageLookupByLibrary.simpleMessage("victory:")
+        "victoryTitle": MessageLookupByLibrary.simpleMessage("victory:"),
+        "warrior": MessageLookupByLibrary.simpleMessage("warrior"),
+        "wizard": MessageLookupByLibrary.simpleMessage("wizard")
       };
 }

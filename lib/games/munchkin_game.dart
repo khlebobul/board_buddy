@@ -1,15 +1,18 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/models/player_model.dart';
+import 'package:board_buddy/theme/app_theme.dart';
 import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
+import 'package:board_buddy/widgets/bottom_sheets/munchkin_modifiers_bs.dart';
 import 'package:board_buddy/widgets/game_widgets/munchkin_score_widget.dart';
 import 'package:flutter/material.dart';
+import 'package:use_scramble/use_scramble.dart';
 
 class MunchkinGame extends StatelessWidget {
   const MunchkinGame({super.key});
 
   @override
   Widget build(BuildContext context) {
-    // final theme = UIThemes.of(context);
+    final theme = UIThemes.of(context);
     final players = [
       Player(name: 'Player 1', score: 0, id: 1),
     ];
@@ -51,6 +54,19 @@ class MunchkinGame extends StatelessWidget {
               onDecrease: print,
               onIncrease: print,
               isSinglePlayer: true,
+            ),
+            const SizedBox(height: 50),
+            GestureDetector(
+              onTap: () => showModalBottomSheet(
+                isScrollControlled: true,
+                
+                context: context,
+                builder: (context) => const MunchkinModifiersBottomSheet(),
+              ),
+              child: TextScramble(
+                text: S.of(context).modifiers,
+                style: theme.display2.copyWith(color: theme.redColor),
+              ),
             ),
           ],
         ),

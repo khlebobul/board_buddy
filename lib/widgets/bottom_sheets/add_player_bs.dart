@@ -107,7 +107,7 @@ class AddPlayersBottomSheet extends StatelessWidget {
                 GestureDetector(
                   onTap: () {},
                   child: Text(
-                    players.length >= maxPlayers ? '' : 'add player',
+                    players.length >= maxPlayers ? '' : S.of(context).addPlayer,
                     style: theme.display2.copyWith(
                       color: players.length >= maxPlayers
                           ? theme.secondaryTextColor

@@ -2159,6 +2159,346 @@ class S {
       args: [],
     );
   }
+
+  /// `modifiers`
+  String get modifiers {
+    return Intl.message(
+      'modifiers',
+      name: 'modifiers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `add player`
+  String get addPlayer {
+    return Intl.message(
+      'add player',
+      name: 'addPlayer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `race 1`
+  String get race1 {
+    return Intl.message(
+      'race 1',
+      name: 'race1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `dwarf`
+  String get dwarf {
+    return Intl.message(
+      'dwarf',
+      name: 'dwarf',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `elf`
+  String get elf {
+    return Intl.message(
+      'elf',
+      name: 'elf',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `halfling`
+  String get halfling {
+    return Intl.message(
+      'halfling',
+      name: 'halfling',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `half breed`
+  String get halfBreed {
+    return Intl.message(
+      'half breed',
+      name: 'halfBreed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `human`
+  String get human {
+    return Intl.message(
+      'human',
+      name: 'human',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `2nd race`
+  String get secondRace {
+    return Intl.message(
+      '2nd race',
+      name: 'secondRace',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `class 1`
+  String get class1 {
+    return Intl.message(
+      'class 1',
+      name: 'class1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cleric`
+  String get cleric {
+    return Intl.message(
+      'cleric',
+      name: 'cleric',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `thief`
+  String get thief {
+    return Intl.message(
+      'thief',
+      name: 'thief',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `warrior`
+  String get warrior {
+    return Intl.message(
+      'warrior',
+      name: 'warrior',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `wizard`
+  String get wizard {
+    return Intl.message(
+      'wizard',
+      name: 'wizard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `super munch.`
+  String get superMunch {
+    return Intl.message(
+      'super munch.',
+      name: 'superMunch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `no class`
+  String get noClass {
+    return Intl.message(
+      'no class',
+      name: 'noClass',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `class 2`
+  String get class2 {
+    return Intl.message(
+      'class 2',
+      name: 'class2',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `left hand`
+  String get leftHand {
+    return Intl.message(
+      'left hand',
+      name: 'leftHand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `no item`
+  String get noItem {
+    return Intl.message(
+      'no item',
+      name: 'noItem',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sword`
+  String get sword {
+    return Intl.message(
+      'sword',
+      name: 'sword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `big sword`
+  String get bigSword {
+    return Intl.message(
+      'big sword',
+      name: 'bigSword',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `two handed`
+  String get twoHanded {
+    return Intl.message(
+      'two handed',
+      name: 'twoHanded',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `right hand`
+  String get rightHand {
+    return Intl.message(
+      'right hand',
+      name: 'rightHand',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `first bonus`
+  String get firstBonus {
+    return Intl.message(
+      'first bonus',
+      name: 'firstBonus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `second bonus`
+  String get secondBonus {
+    return Intl.message(
+      'second bonus',
+      name: 'secondBonus',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `head gear`
+  String get headGear {
+    return Intl.message(
+      'head gear',
+      name: 'headGear',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `armour`
+  String get armour {
+    return Intl.message(
+      'armour',
+      name: 'armour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `boots`
+  String get boots {
+    return Intl.message(
+      'boots',
+      name: 'boots',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `magic`
+  String get magic {
+    return Intl.message(
+      'magic',
+      name: 'magic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `big magic`
+  String get bigMagic {
+    return Intl.message(
+      'big magic',
+      name: 'bigMagic',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `helmet`
+  String get helmet {
+    return Intl.message(
+      'helmet',
+      name: 'helmet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `big helmet`
+  String get bigHelmet {
+    return Intl.message(
+      'big helmet',
+      name: 'bigHelmet',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `big armour`
+  String get bigArmour {
+    return Intl.message(
+      'big armour',
+      name: 'bigArmour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `big boots`
+  String get bigBoots {
+    return Intl.message(
+      'big boots',
+      name: 'bigBoots',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
