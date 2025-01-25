@@ -9,6 +9,7 @@ class MunchkinScoreWidget extends StatelessWidget {
   final int level;
   final void Function(int index) onIncrease;
   final void Function(int index) onDecrease;
+  final bool isSinglePlayer;
 
   const MunchkinScoreWidget({
     required this.onDecrease,
@@ -17,6 +18,7 @@ class MunchkinScoreWidget extends StatelessWidget {
     required this.totalScore,
     required this.gearScore,
     required this.level,
+    this.isSinglePlayer = false,
     super.key,
   });
 
@@ -26,7 +28,7 @@ class MunchkinScoreWidget extends StatelessWidget {
     final screenWidth = MediaQuery.of(context).size.width;
 
     return Container(
-      width: screenWidth * 0.8,
+      width: isSinglePlayer ? screenWidth : screenWidth * 0.8,
       decoration: BoxDecoration(
         border: Border.all(color: theme.borderColor, width: 1),
         borderRadius: BorderRadius.circular(20),
@@ -35,19 +37,21 @@ class MunchkinScoreWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Padding(
-            padding: const EdgeInsets.all(12.0),
-            child: Text(
-              playerName,
-              style: theme.display2.copyWith(
-                color: theme.textColor,
+          if (!isSinglePlayer) ...[
+            Padding(
+              padding: const EdgeInsets.all(12.0),
+              child: Text(
+                playerName,
+                style: theme.display2.copyWith(
+                  color: theme.textColor,
+                ),
               ),
             ),
-          ),
-          Divider(
-            color: theme.borderColor,
-            height: 1,
-          ),
+            Divider(
+              color: theme.borderColor,
+              height: 1,
+            ),
+          ],
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             child: ScoreRowWidget(
