@@ -3,7 +3,7 @@ import 'package:board_buddy/models/player_model.dart';
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:board_buddy/utils/custom_icons.dart';
 import 'package:board_buddy/utils/useful_methods.dart';
-import 'package:board_buddy/widgets/game_widgets/custom_text_input.dart';
+import 'package:board_buddy/widgets/app_widgets/custom_text_input.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:use_scramble/use_scramble.dart';

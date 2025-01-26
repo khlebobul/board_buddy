@@ -25,21 +25,3 @@ class PlayerIndicator extends StatelessWidget {
     );
   }
 }
-
-// SingleChildScrollView(
-//               scrollDirection: Axis.horizontal,
-//               child: Row(
-//                 mainAxisAlignment: MainAxisAlignment.center,
-//                 children: players.asMap().entries.map((entry) {
-//                   final index = entry.key;
-//                   final player = entry.value;
-//                   final firstLetter =
-//                       player['name'].toString().characters.first;
-
-//                   return PlayerIndicator(
-//                     letter: firstLetter,
-//                     isActive: index == 0,
-//                   );
-//                 }).toList(),
-//               ),
-//             ),

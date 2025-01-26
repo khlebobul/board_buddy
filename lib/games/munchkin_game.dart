@@ -59,7 +59,6 @@ class MunchkinGame extends StatelessWidget {
             GestureDetector(
               onTap: () => showModalBottomSheet(
                 isScrollControlled: true,
-                
                 context: context,
                 builder: (context) => const MunchkinModifiersBottomSheet(),
               ),

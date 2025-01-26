@@ -4,7 +4,10 @@ import 'package:flutter/material.dart';
 
 class ResultsTableWidget extends StatelessWidget {
   final List<Map<String, dynamic>> playersData;
-  const ResultsTableWidget({this.playersData = const [], super.key});
+  const ResultsTableWidget({
+    this.playersData = const [],
+    super.key,
+  });
 
   @override
   Widget build(BuildContext context) {

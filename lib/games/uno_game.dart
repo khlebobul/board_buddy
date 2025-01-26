@@ -1,4 +1,5 @@
 import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/models/player_model.dart';
 import 'package:board_buddy/widgets/app_widgets/bottom_game_widget.dart';
 import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:board_buddy/widgets/game_widgets/player_card.dart';
@@ -10,10 +11,10 @@ class UnoGame extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    final List<Map<String, dynamic>> players = [
-      {'name': 'player 1', 'score': 0},
-      {'name': 'name', 'score': 10},
-      {'name': 'test', 'score': 20},
+    final List<Player> players = [
+      Player(name: 'player 1', id: 1, score: 0),
+      Player(name: 'name', id: 2, score: 10),
+      Player(name: 'test', id: 3, score: 20),
     ];
     return Scaffold(
       appBar: CustomAppBar(
@@ -34,8 +35,7 @@ class UnoGame extends StatelessWidget {
                     .map((player) => Padding(
                           padding: const EdgeInsets.only(right: 8.0),
                           child: PlayerCard(
-                            playerName: player['name'],
-                            score: player['score'],
+                            player: player,
                           ),
                         ))
                     .toList(),
@@ -49,9 +49,7 @@ class UnoGame extends StatelessWidget {
                 children: players.asMap().entries.map((entry) {
                   final index = entry.key;
                   final player = entry.value;
-                  final firstLetter =
-                      player['name'].toString().characters.first;
-
+                  final firstLetter = player.name.characters.first;
                   return PlayerIndicator(
                     letter: firstLetter,
                     isActive: index == 0,

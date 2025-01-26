@@ -3,7 +3,6 @@ import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:board_buddy/widgets/game_widgets/custom_results_table_widget.dart';
 import 'package:flutter/material.dart';
 
-
 class DosGame extends StatelessWidget {
   const DosGame({super.key});
 
