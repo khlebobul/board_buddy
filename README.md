@@ -1,6 +1,6 @@
 # board_buddy
 
-- dadges
+- badges
 - demo image
 
 board buddy lets you track scores and key moments effortlessly, keeping your focus on the boardgames

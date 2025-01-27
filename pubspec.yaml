@@ -77,6 +77,7 @@ flutter:
     - assets/icons/games_icons/
     - assets/icons/games_icons/uno_like/
     - assets/icons/games_icons/munchkin/
+    - assets/icons/games_icons/scrabble/
 
   fonts:
     - family: RobotoMono

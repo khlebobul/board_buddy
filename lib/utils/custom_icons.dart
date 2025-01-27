@@ -28,4 +28,10 @@ class CustomIcons {
   static const String rip = 'assets/icons/games_icons/munchkin/rip.svg';
   static const String male = 'assets/icons/games_icons/munchkin/male.svg';
   static const String female = 'assets/icons/games_icons/munchkin/female.svg';
+
+  // scrabble
+  static const String arrowCorner =
+      'assets/icons/games_icons/scrabble/arrow_corner.svg';
+  static const String star =
+      'assets/icons/games_icons/scrabble/star.svg';
 }
