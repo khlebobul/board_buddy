@@ -1,5 +1,6 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/scrabble_letter_values.dart';
 import 'package:flutter/material.dart';
 
 class ScrabbleWordInputWidget extends StatefulWidget {
@@ -91,12 +92,11 @@ class _ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                         ),
                       ),
                     ),
-                    // TODO points for each letter
                     Positioned(
                       right: 2,
                       bottom: 2,
                       child: Text(
-                        '1',
+                        ScrabbleLetterValues.getLetterValue(letter).toString(),
                         style: theme.display7.copyWith(color: theme.redColor),
                       ),
                     ),
