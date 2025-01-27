@@ -95,6 +95,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "электронная почта скопирована"),
         "endGameTitle": MessageLookupByLibrary.simpleMessage("конец игры:"),
         "english": MessageLookupByLibrary.simpleMessage("англиский"),
+        "enterAWord": MessageLookupByLibrary.simpleMessage("введите слово"),
         "featureRequest":
             MessageLookupByLibrary.simpleMessage("новый функционал"),
         "firstBonus": MessageLookupByLibrary.simpleMessage("первый бонус"),

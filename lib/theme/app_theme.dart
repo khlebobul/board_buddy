@@ -106,6 +106,13 @@ class UIThemes {
         color: textColor,
       );
 
+  // scramble text
+  TextStyle get display7 => TextStyle(
+        fontSize: 10,
+        fontFamily: 'RobotoMono',
+        color: textColor,
+      );
+
   // Colors
   // Background color
   Color get bgColor =>

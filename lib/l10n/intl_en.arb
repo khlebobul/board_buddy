@@ -243,5 +243,6 @@
   "helmet": "helmet",
   "bigHelmet": "big helmet",
   "bigArmour": "big armour",
-  "bigBoots": "big boots"
+  "bigBoots": "big boots",
+  "enterAWord": "enter a word"
 }

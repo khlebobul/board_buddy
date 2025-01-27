@@ -2499,6 +2499,16 @@ class S {
       args: [],
     );
   }
+
+  /// `enter a word`
+  String get enterAWord {
+    return Intl.message(
+      'enter a word',
+      name: 'enterAWord',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

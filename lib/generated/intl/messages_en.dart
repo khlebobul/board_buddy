@@ -96,6 +96,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
         "endGameTitle": MessageLookupByLibrary.simpleMessage("end of game:"),
         "english": MessageLookupByLibrary.simpleMessage("english"),
+        "enterAWord": MessageLookupByLibrary.simpleMessage("enter a word"),
         "featureRequest":
             MessageLookupByLibrary.simpleMessage("feature request"),
         "firstBonus": MessageLookupByLibrary.simpleMessage("first bonus"),
