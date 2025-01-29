@@ -2509,6 +2509,26 @@ class S {
       args: [],
     );
   }
+
+  /// `blank\ntile`
+  String get blankTile {
+    return Intl.message(
+      'blank\ntile',
+      name: 'blankTile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `\nword`
+  String get nWord {
+    return Intl.message(
+      '\nword',
+      name: 'nWord',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

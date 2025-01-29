@@ -272,6 +272,14 @@ packages:
     description: flutter
     source: sdk
     version: "0.0.0"
+  flutter_popup:
+    dependency: "direct main"
+    description:
+      name: flutter_popup
+      sha256: "8f93cb4ec7341330ee585b4624ac6596f02587aaefc47297344cb7b5af26aa07"
+      url: "https://pub.dev"
+    source: hosted
+    version: "3.3.4"
   flutter_svg:
     dependency: "direct main"
     description:

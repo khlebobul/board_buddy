@@ -44,6 +44,7 @@ dependencies:
   url_launcher_ios: ^6.3.2
   flutter_svg: ^2.0.16
   flutter_bloc: ^8.1.6
+  flutter_popup: ^3.3.4
 
 dev_dependencies:
   flutter_test:

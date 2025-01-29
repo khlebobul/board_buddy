@@ -7,6 +7,7 @@ class CustomIcons {
   static const String remove = 'assets/icons/remove.svg';
   static const String leftArrow = 'assets/icons/left-arrow.svg';
   static const String rightArrow = 'assets/icons/right-arrow.svg';
+  static const String info = 'assets/icons/info.svg';
 
   // games icons
   // uno, dos, uno flip
@@ -30,6 +31,5 @@ class CustomIcons {
   static const String female = 'assets/icons/games_icons/munchkin/female.svg';
 
   // scrabble
-  static const String star =
-      'assets/icons/games_icons/scrabble/star.svg';
+  static const String star = 'assets/icons/games_icons/scrabble/star.svg';
 }

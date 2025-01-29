@@ -244,5 +244,7 @@
   "bigHelmet": "big helmet",
   "bigArmour": "big armour",
   "bigBoots": "big boots",
-  "enterAWord": "enter a word"
+  "enterAWord": "enter a word",
+  "blankTile": "blank\ntile",
+  "nWord": "\nword"
 }

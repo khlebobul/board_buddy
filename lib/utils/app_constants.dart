@@ -52,3 +52,8 @@ const unoFlipPlayers = '2-10';
 // munchkin
 const munchkinAge = '12+';
 const munchkinPlayers = '3-6';
+
+// game
+// scrabble game
+const scrabblex2 = '×2';
+const scrabblex3 = '×3';

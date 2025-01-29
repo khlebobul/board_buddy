@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bigHelmet": MessageLookupByLibrary.simpleMessage("большой шлем"),
         "bigMagic": MessageLookupByLibrary.simpleMessage("большая магия"),
         "bigSword": MessageLookupByLibrary.simpleMessage("большой меч"),
+        "blankTile": MessageLookupByLibrary.simpleMessage("пустая\nклетка"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
         "boots": MessageLookupByLibrary.simpleMessage("ботинки"),
         "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
@@ -177,6 +178,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "игрок открывает верхнюю карту из колоды дверей. возможные ситуации:"),
         "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
             "игрок, первым достигший 10 уровня, побеждает!"),
+        "nWord": MessageLookupByLibrary.simpleMessage("\nслово"),
         "name": MessageLookupByLibrary.simpleMessage("имя"),
         "noClass": MessageLookupByLibrary.simpleMessage("без класса"),
         "noItem": MessageLookupByLibrary.simpleMessage("без предмета"),

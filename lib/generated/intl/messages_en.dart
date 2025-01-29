@@ -31,6 +31,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "bigHelmet": MessageLookupByLibrary.simpleMessage("big helmet"),
         "bigMagic": MessageLookupByLibrary.simpleMessage("big magic"),
         "bigSword": MessageLookupByLibrary.simpleMessage("big sword"),
+        "blankTile": MessageLookupByLibrary.simpleMessage("blank\ntile"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
         "boots": MessageLookupByLibrary.simpleMessage("boots"),
         "cardTypesTitle":
@@ -178,6 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "the player draws the top card from the Door deck. possible outcomes:"),
         "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
             "the first player to reach level 10 wins!"),
+        "nWord": MessageLookupByLibrary.simpleMessage("\nword"),
         "name": MessageLookupByLibrary.simpleMessage("name"),
         "noClass": MessageLookupByLibrary.simpleMessage("no class"),
         "noItem": MessageLookupByLibrary.simpleMessage("no item"),

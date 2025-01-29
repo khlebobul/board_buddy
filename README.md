@@ -55,6 +55,7 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 - [flutter_svg](https://pub.dev/packages/flutter_svg): a flutter library for rendering svg files with high fidelity.
 - [flutter_bloc](https://pub.dev/packages/flutter_bloc): a predictable state management library based on the bloc pattern.
 - [isar](https://pub.dev/packages/isar): a high-performance nosql database designed specifically for flutter.
+- [flutter_popup](https://pub.dev/packages/flutter_popup): a flutter tooltip with custom styling and positioning options.
 
 ## license
 

@@ -244,5 +244,7 @@
   "bigHelmet": "большой шлем",
   "bigArmour": "большая броня",
   "bigBoots": "большие ботинки",
-  "enterAWord": "введите слово"
+  "enterAWord": "введите слово",
+  "blankTile": "пустая\nклетка",
+  "nWord": "\nслово"
 }
