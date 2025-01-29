@@ -2,6 +2,7 @@
 
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:board_buddy/utils/custom_icons.dart';
+import 'package:board_buddy/widgets/info_dialog_widgets/info_uno_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:use_scramble/use_scramble.dart';
@@ -14,6 +15,7 @@ class BottomGameBar extends StatelessWidget {
   final bool isArrow;
   final VoidCallback? onLeftArrowTap;
   final VoidCallback? onRightArrowTap;
+  final Widget? dialogWidget;
 
   const BottomGameBar({
     super.key,
@@ -24,13 +26,15 @@ class BottomGameBar extends StatelessWidget {
     this.isArrow = false,
     this.onLeftArrowTap,
     this.onRightArrowTap,
+    this.dialogWidget,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
     return Padding(
-      padding: const EdgeInsets.all(16.0),
+      padding: const EdgeInsets.symmetric(horizontal: 16) +
+          const EdgeInsets.only(bottom: 30),
       child: Row(
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
@@ -53,7 +57,23 @@ class BottomGameBar extends StatelessWidget {
                     width: 20,
                   ),
                 ),
-                const SizedBox(width: 16),
+                const SizedBox(width: 20),
+                GestureDetector(
+                  onTap: () {
+                    showDialog(
+                      context: context,
+                      builder: (BuildContext context) {
+                        return dialogWidget ?? const InfoUnoDialog();
+                      },
+                    );
+                  },
+                  child: SvgPicture.asset(
+                    CustomIcons.info,
+                    color: theme.textColor,
+                    width: 20,
+                  ),
+                ),
+                const SizedBox(width: 20),
                 GestureDetector(
                   onTap: onRightArrowTap,
                   child: SvgPicture.asset(
@@ -67,8 +87,9 @@ class BottomGameBar extends StatelessWidget {
           GestureDetector(
             onTap: onRightBtnTap,
             child: TextScramble(
-                text: rightButtonText,
-                style: theme.display2.copyWith(color: theme.textColor)),
+              text: rightButtonText,
+              style: theme.display2.copyWith(color: theme.textColor),
+            ),
           ),
         ],
       ),
