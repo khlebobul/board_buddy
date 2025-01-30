@@ -8,14 +8,16 @@ class InfoRowWidget extends StatelessWidget {
   final String title;
   final String points;
   final String description;
+  final bool isScrabble;
 
   const InfoRowWidget({
     super.key,
     this.cardName = '',
     this.iconPath = '',
-    required this.title,
-    required this.points,
+    this.title = '',
+    this.points = '',
     required this.description,
+    this.isScrabble = false,
   });
 
   @override
@@ -35,7 +37,11 @@ class InfoRowWidget extends StatelessWidget {
                   // ignore: deprecated_member_use
                   color: theme.textColor,
                 )
-              : Text(cardName, style: theme.display2),
+              : Text(
+                  cardName,
+                  style: isScrabble ? theme.display7 : theme.display2,
+                  textAlign: TextAlign.center,
+                ),
           if (iconPath.isEmpty && cardName.isEmpty) const SizedBox(width: 24),
           const SizedBox(width: 15),
           Expanded(
@@ -43,10 +49,12 @@ class InfoRowWidget extends StatelessWidget {
               text: TextSpan(
                 style: theme.display2,
                 children: [
-                  TextSpan(
-                    text: '$title ($points)\n',
-                    style: theme.display2.copyWith(color: theme.redColor),
-                  ),
+                  title.isNotEmpty && points.isNotEmpty
+                      ? TextSpan(
+                          text: '$title ($points)\n',
+                          style: theme.display2.copyWith(color: theme.redColor),
+                        )
+                      : const TextSpan(text: ''),
                   TextSpan(text: description),
                 ],
               ),
