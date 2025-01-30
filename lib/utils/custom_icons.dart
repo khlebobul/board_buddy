@@ -19,11 +19,13 @@ class CustomIcons {
       'assets/icons/games_icons/uno_like/wild_4.svg';
   static const String wildDrawTwoDos =
       'assets/icons/games_icons/uno_like/wild_2.svg';
-  static const String flip = 'assets/icons/game_cards/games_icons/flip.svg';
+  static const String flip = 'assets/icons/games_icons/uno_like/flip.svg';
   static const String skipEveryone =
       'assets/icons/games_icons/uno_like/skip_everyone.svg';
   static const String wildDrawColor =
       'assets/icons/games_icons/uno_like/wild_draw_color.svg';
+  static const String wildDrawTwoUnoflip =
+      'assets/icons/games_icons/uno_like/wild_2_unoflip.svg';
 
   // munchkin
   static const String rip = 'assets/icons/games_icons/munchkin/rip.svg';
