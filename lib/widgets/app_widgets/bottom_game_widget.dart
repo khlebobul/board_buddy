@@ -36,7 +36,7 @@ class BottomGameBar extends StatelessWidget {
       padding: const EdgeInsets.symmetric(horizontal: 16) +
           const EdgeInsets.only(bottom: 30),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           GestureDetector(
             onTap: onLeftBtnTap,
@@ -45,9 +45,11 @@ class BottomGameBar extends StatelessWidget {
               style: theme.display2.copyWith(color: theme.textColor),
             ),
           ),
+          const Spacer(),
           if (isArrow)
             Row(
               mainAxisSize: MainAxisSize.min,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
                   onTap: onLeftArrowTap,
@@ -84,6 +86,7 @@ class BottomGameBar extends StatelessWidget {
                 ),
               ],
             ),
+          const Spacer(),
           GestureDetector(
             onTap: onRightBtnTap,
             child: TextScramble(

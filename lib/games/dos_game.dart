@@ -1,6 +1,8 @@
 import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/widgets/app_widgets/bottom_game_widget.dart';
 import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:board_buddy/widgets/game_widgets/custom_results_table_widget.dart';
+import 'package:board_buddy/widgets/info_dialog_widgets/info_dos_dialog_widget.dart';
 import 'package:flutter/material.dart';
 
 class DosGame extends StatelessWidget {
@@ -59,6 +61,12 @@ class DosGame extends StatelessWidget {
       ),
       body: ResultsTableWidget(
         playersData: playersData,
+      ),
+      bottomNavigationBar: BottomGameBar(
+        dialogWidget: const InfoDosDialog(),
+        leftButtonText: S.of(context).rules,
+        isArrow: true,
+        rightButtonText: S.of(context).finish,
       ),
     );
   }

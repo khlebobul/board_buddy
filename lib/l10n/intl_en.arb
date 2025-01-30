@@ -246,5 +246,6 @@
   "bigBoots": "big boots",
   "enterAWord": "enter a word",
   "blankTile": "blank\ntile",
-  "nWord": "\nword"
+  "nWord": "\nword",
+  "finish": "finish"
 }

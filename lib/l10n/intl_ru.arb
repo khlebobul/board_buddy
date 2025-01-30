@@ -246,5 +246,6 @@
   "bigBoots": "большие ботинки",
   "enterAWord": "введите слово",
   "blankTile": "пустая\nклетка",
-  "nWord": "\nслово"
+  "nWord": "\nслово",
+  "finish": "finish"
 }

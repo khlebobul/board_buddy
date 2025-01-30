@@ -99,6 +99,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterAWord": MessageLookupByLibrary.simpleMessage("введите слово"),
         "featureRequest":
             MessageLookupByLibrary.simpleMessage("новый функционал"),
+        "finish": MessageLookupByLibrary.simpleMessage("finish"),
         "firstBonus": MessageLookupByLibrary.simpleMessage("первый бонус"),
         "followMeOnXTwitter":
             MessageLookupByLibrary.simpleMessage("мой x (twitter)"),

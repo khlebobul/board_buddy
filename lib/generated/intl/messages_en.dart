@@ -100,6 +100,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterAWord": MessageLookupByLibrary.simpleMessage("enter a word"),
         "featureRequest":
             MessageLookupByLibrary.simpleMessage("feature request"),
+        "finish": MessageLookupByLibrary.simpleMessage("finish"),
         "firstBonus": MessageLookupByLibrary.simpleMessage("first bonus"),
         "followMeOnXTwitter":
             MessageLookupByLibrary.simpleMessage("follow me on x (twitter)"),
