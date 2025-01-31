@@ -23,7 +23,7 @@ class UnoGame extends StatelessWidget {
         onLeftButtonPressed: () => Navigator.pop(context),
         isRules: true,
         rightButtonText: S.of(context).rules,
-        onRightButtonPressed: () {},
+        onRightButtonPressed: () => Navigator.pushNamed(context, '/unoRules'),
       ),
       body: Padding(
         padding: const EdgeInsets.all(8.0),

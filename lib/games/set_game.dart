@@ -17,7 +17,7 @@ class SetGame extends StatelessWidget {
         onLeftButtonPressed: () => Navigator.pop(context),
         isRules: true,
         rightButtonText: S.of(context).rules,
-        onRightButtonPressed: () {},
+        onRightButtonPressed: () => Navigator.pushNamed(context, '/setRules'),
       ),
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,

@@ -58,7 +58,7 @@ class DosGame extends StatelessWidget {
         onLeftButtonPressed: () => Navigator.pop(context),
         isRules: true,
         rightButtonText: S.of(context).rules,
-        onRightButtonPressed: () {},
+        onRightButtonPressed: () => Navigator.pushNamed(context, '/dosRules'),
       ),
       body: ResultsTableWidget(
         playersData: playersData,

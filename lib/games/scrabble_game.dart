@@ -16,7 +16,7 @@ class ScrabbleGame extends StatelessWidget {
         onLeftButtonPressed: () => Navigator.pop(context),
         isRules: true,
         rightButtonText: S.of(context).rules,
-        onRightButtonPressed: () {},
+        onRightButtonPressed: () => Navigator.pushNamed(context, '/scrabbleRules'),
       ),
       body: const Padding(
         padding: EdgeInsets.all(12.0),

@@ -25,7 +25,7 @@ class MunchkinGame extends StatelessWidget {
         onLeftButtonPressed: () => Navigator.pop(context),
         isRules: true,
         rightButtonText: S.of(context).rules,
-        onRightButtonPressed: () {},
+        onRightButtonPressed: () => Navigator.pushNamed(context, '/munchkinRules'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
