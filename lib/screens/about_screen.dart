@@ -40,7 +40,7 @@ class AboutScreen extends StatelessWidget {
                   TextSpan(
                     children: [
                       TextSpan(
-                        text: appName,
+                        text: GeneralConst.appName,
                         style: theme.display2.copyWith(
                           color: theme.redColor,
                         ),
@@ -61,15 +61,17 @@ class AboutScreen extends StatelessWidget {
                 const SizedBox(height: 10),
                 LinkBtnWidget(
                   text: S.of(context).rateTheApp,
-                  url: Platform.isIOS ? rateAppStore : rateGooglePlay,
+                  url: Platform.isIOS
+                      ? AppLnksConst.rateAppStore
+                      : AppLnksConst.rateGooglePlay,
                 ),
                 LinkBtnWidget(
                   text: S.of(context).projectWebsite,
-                  url: webSitelink,
+                  url: AppLnksConst.webSitelink,
                 ),
                 LinkBtnWidget(
                   text: S.of(context).telegram,
-                  url: telegramLink,
+                  url: AppLnksConst.telegramLink,
                 ),
                 const SizedBox(height: 10),
                 Text(
@@ -79,18 +81,18 @@ class AboutScreen extends StatelessWidget {
                 ),
                 LinkBtnWidget(
                   text: S.of(context).githubRepository,
-                  url: githubLink,
+                  url: AppLnksConst.githubLink,
                 ),
                 const SizedBox(height: 10),
                 const AddFavouriteGame(),
                 const SizedBox(height: 10),
                 LinkBtnWidget(
                   text: S.of(context).followMeOnXTwitter,
-                  url: xLink,
+                  url: AppLnksConst.xLink,
                 ),
                 LinkBtnWidget(
                   text: S.of(context).checkMyWebsite,
-                  url: myWebSitelink,
+                  url: AppLnksConst.myWebSitelink,
                 ),
               ],
             ),

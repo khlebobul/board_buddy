@@ -1,5 +1,6 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/app_constants.dart';
 import 'package:board_buddy/utils/custom_icons.dart';
 import 'package:board_buddy/widgets/info_dialog_widgets/info_row_widget.dart';
 import 'package:flutter/material.dart';
@@ -37,75 +38,85 @@ class InfoUnoFlipDialog extends StatelessWidget {
                 children: [
                   InfoRowWidget(
                     context: context,
-                    cardName: '+1',
-                    title: 'draw one',
-                    points: '10 points',
-                    description: 'next player draws 1 card and skips turn.',
+                    cardName: GameConst.plusOne,
+                    title: S.of(context).drawOneUnoFlipInfo,
+                    points: GameConst.ten,
+                    description: S
+                        .of(context)
+                        .nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.reverse,
-                    title: 'reverse',
-                    points: '20 points',
-                    description: 'reverses the direction of play.',
+                    title: S.of(context).reverseCardUnoInfo,
+                    points: GameConst.twenty,
+                    description: S.of(context).changesTheDirectionOfPlayUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.skip,
-                    title: 'skip',
-                    points: '20 points',
-                    description: 'next player skips their turn.',
+                    title: S.of(context).skipCardUnoInfo,
+                    points: GameConst.twenty,
+                    description: S.of(context).skipsTheNextPlayersTurnUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.wild,
-                    title: 'wild card',
-                    points: '40 points',
-                    description: 'player chooses the next color.',
+                    title: S.of(context).wildCardUnoInfo,
+                    points: GameConst.forty,
+                    description:
+                        S.of(context).allowsThePlayerToChooseTheColorUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.wildDrawTwoUnoflip,
-                    title: 'wild draw two',
-                    points: '50 points',
-                    description: 'next player draws 2 cards and skips turn.',
+                    title: S.of(context).drawTwoCardUnoInfo,
+                    points: GameConst.fifty,
+                    description: S
+                        .of(context)
+                        .nextPlayerDrawsTwoCardsAndLosesTheirTurnUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.flip,
-                    title: 'flip card',
-                    points: '20 points',
-                    description: 'flips all cards to the opposite side.',
+                    title: S.of(context).flipCardUnoFlipInfo,
+                    points: GameConst.twenty,
+                    description:
+                        S.of(context).flipsAllCardsToTheOppositeSideUnoFlipInfo,
                   ),
                   InfoRowWidget(
                     context: context,
-                    cardName: '+5',
-                    title: 'draw five',
-                    points: '40 points',
-                    description: 'next player draws 5 cards and skips turn.',
+                    cardName: GameConst.plusFive,
+                    title: S.of(context).drawFiveUnoFlipInfo,
+                    points: GameConst.forty,
+                    description: S
+                        .of(context)
+                        .nextPlayerDraws5CardsAndSkipsTurnUnoFlipInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.skipEveryone,
-                    title: 'skip everyone card',
-                    points: '30 points',
-                    description:
-                        'skips all players and returns turn to the original player.',
+                    title: S.of(context).skipEveryoneCardUnoFlipInfo,
+                    points: GameConst.thirty,
+                    description: S
+                        .of(context)
+                        .skipsAllPlayersAndReturnsTurnToTheOriginalPlayerUnoFlipInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.wildDrawColor,
-                    title: 'wild draw color',
-                    points: '60 points',
-                    description:
-                        'next player draws until they get the chosen color.',
+                    title: S.of(context).wildDrawColorUnoFlipInfo,
+                    points: GameConst.sixty,
+                    description: S
+                        .of(context)
+                        .nextPlayerDrawsUntilTheyGetTheChosenColorUnoFlipInfo,
                   ),
                   InfoRowWidget(
                     context: context,
-                    title: 'number cards (1-9)',
-                    points: '1-9 points',
+                    title: S.of(context).numberCards,
+                    points: GameConst.zeroToNine,
                     description:
-                        'each card has a number, determining its value.',
+                        S.of(context).eachCardHasANumberFrom0To9WhichUnoInfo,
                   ),
                 ],
               ),

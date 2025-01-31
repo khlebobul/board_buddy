@@ -28,12 +28,12 @@ class UnoRulesScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  unoAge,
+                  RulesConst.unoAge,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 Text(
-                  unoPlayers,
+                  RulesConst.unoPlayers,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
@@ -63,13 +63,13 @@ class UnoRulesScreen extends StatelessWidget {
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 BulletPointText(
-                    pointSimbol: bulletOne,
+                    pointSimbol: BulletPointsConst.bulletOne,
                     contentText: S.of(context).unoTurnRuleMatchCard),
                 BulletPointText(
-                    pointSimbol: bulletTwo,
+                    pointSimbol: BulletPointsConst.bulletTwo,
                     contentText: S.of(context).unoTurnRuleDrawCard),
                 BulletPointText(
-                    pointSimbol: bulletThree,
+                    pointSimbol: BulletPointsConst.bulletThree,
                     contentText: S.of(context).unoTurnRuleOptionalDraw),
                 const SizedBox(height: 15),
                 Text(

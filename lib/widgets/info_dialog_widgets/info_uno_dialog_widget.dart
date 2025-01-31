@@ -1,5 +1,6 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/app_constants.dart';
 import 'package:board_buddy/utils/custom_icons.dart';
 import 'package:board_buddy/widgets/info_dialog_widgets/info_row_widget.dart';
 import 'package:flutter/material.dart';
@@ -29,7 +30,7 @@ class InfoUnoDialog extends StatelessWidget {
               ),
             ),
           ),
-           Expanded(
+          Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -38,54 +39,58 @@ class InfoUnoDialog extends StatelessWidget {
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.reverse,
-                    title: 'reverse card',
-                    points: '20 points',
-                    description: 'changes the direction of play.',
+                    title: S.of(context).reverseCardUnoInfo,
+                    points: GameConst.twenty,
+                    description: S.of(context).changesTheDirectionOfPlayUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.skip,
-                    title: 'skip card',
-                    points: '20 points',
-                    description: 'skips the next player\'s turn.',
+                    title: S.of(context).skipCardUnoInfo,
+                    points: GameConst.twenty,
+                    description: S.of(context).skipsTheNextPlayersTurnUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
-                    cardName: '+2',
-                    title: 'draw two card',
-                    points: '20 points',
-                    description:
-                        'next player draws two cards and loses their turn.',
+                    cardName: GameConst.plusTwo,
+                    title: S.of(context).drawTwoCardUnoInfo,
+                    points: GameConst.twenty,
+                    description: S
+                        .of(context)
+                        .nextPlayerDrawsTwoCardsAndLosesTheirTurnUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.wild,
-                    title: 'wild card',
-                    points: '50 points',
-                    description: 'allows the player to choose the color.',
+                    title: S.of(context).wildCardUnoInfo,
+                    points: GameConst.fifty,
+                    description:
+                        S.of(context).allowsThePlayerToChooseTheColorUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.wildDrawFour,
-                    title: 'wild draw four card',
-                    points: '50 points',
-                    description:
-                        'changes the color and forces the next player to draw four cards.',
+                    title: S.of(context).wildDrawFourCardUnoInfo,
+                    points: GameConst.fifty,
+                    description: S
+                        .of(context)
+                        .changesTheColorAndForcesTheNextPlayerToDrawUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.swap,
-                    title: 'wild shuffle hands card',
-                    points: '50 points',
-                    description:
-                        'swap hands with any player and choose the color.',
+                    title: S.of(context).wildShuffleHandsCardUnoInfo,
+                    points: GameConst.fifty,
+                    description: S
+                        .of(context)
+                        .swapHandsWithAnyPlayerAndChooseTheColorUnoInfo,
                   ),
                   InfoRowWidget(
                     context: context,
-                    title: 'number cards',
-                    points: '0-9 points',
+                    title: S.of(context).numberCards,
+                    points: GameConst.zeroToNine,
                     description:
-                        'each card has a number from 0 to 9, which determines its value.',
+                        S.of(context).eachCardHasANumberFrom0To9WhichUnoInfo,
                   ),
                 ],
               ),

@@ -30,7 +30,7 @@ class InfoscrabbleDialog extends StatelessWidget {
               ),
             ),
           ),
-           Expanded(
+          Expanded(
             child: SingleChildScrollView(
               padding: const EdgeInsets.all(8.0),
               child: Column(
@@ -38,31 +38,35 @@ class InfoscrabbleDialog extends StatelessWidget {
                 children: [
                   InfoRowWidget(
                     context: context,
-                    cardName: scrabblex2,
-                    title: '',
-                    description: 'doubles the value of a letter',
+                    cardName: GameConst.scrabblex2,
+                    description:
+                        S.of(context).doublesTheValueOfALetterScrabbleInfo,
                   ),
                   InfoRowWidget(
                     context: context,
-                    cardName: scrabblex3,
-                    description: 'triple the value of a letter',
+                    cardName: GameConst.scrabblex3,
+                    description:
+                        S.of(context).tripleTheValueOfALetterScrabbleInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     iconPath: CustomIcons.star,
-                    description: 'bonus tile or special marker',
+                    description:
+                        S.of(context).bonusTileOrSpecialMarkerScrabbleInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     isScrabble: true,
-                    cardName: '$scrabblex2\nword',
-                    description: 'doubles the value of an entire word',
+                    cardName: '${GameConst.scrabblex2}${S.of(context).nWord}',
+                    description:
+                        S.of(context).doublesTheValueOfAnEntireWordScrabbleInfo,
                   ),
                   InfoRowWidget(
                     context: context,
                     isScrabble: true,
-                    cardName: '$scrabblex3\nword',
-                    description: 'triple the value of an entire word',
+                    cardName: '${GameConst.scrabblex3}${S.of(context).nWord}',
+                    description:
+                        S.of(context).tripleTheValueOfAnEntireWordScrabbleInfo,
                   ),
                 ],
               ),

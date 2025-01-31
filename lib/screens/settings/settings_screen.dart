@@ -81,17 +81,17 @@ class SettingsScreenView extends StatelessWidget {
                   _buildMailOption(
                     context,
                     S.of(context).reportABug,
-                    bug,
+                    MailSubjectConst.bug,
                   ),
                   _buildMailOption(
                     context,
                     S.of(context).shareFeedback,
-                    feedback,
+                    MailSubjectConst.feedback,
                   ),
                   _buildMailOption(
                     context,
                     S.of(context).featureRequest,
-                    feature,
+                    MailSubjectConst.feature,
                   ),
                   const Spacer(),
                   const AddFavouriteGame(),
@@ -166,7 +166,7 @@ class SettingsScreenView extends StatelessWidget {
   Widget _buildMailOption(BuildContext context, String label, String subject) {
     final theme = UIThemes.of(context);
     return GestureDetector(
-      onTap: () => sendEmail(context, email, subject),
+      onTap: () => sendEmail(context, GeneralConst.email, subject),
       child: Padding(
         padding: const EdgeInsets.only(left: 14),
         child: TextScramble(

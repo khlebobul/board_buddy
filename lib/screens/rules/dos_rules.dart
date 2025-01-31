@@ -28,12 +28,12 @@ class DosRulesScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  dosAge,
+                  RulesConst.dosAge,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 Text(
-                  dosPlayers,
+                  RulesConst.dosPlayers,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
@@ -63,17 +63,17 @@ class DosRulesScreen extends StatelessWidget {
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 BulletPointText(
-                    pointSimbol: bulletOne,
+                    pointSimbol: BulletPointsConst.bulletOne,
                     contentText: S.of(context).dosTurnRulePickCards),
                 BulletPointText(
                     contentText: S.of(context).dosTurnRuleSingleMatch),
                 BulletPointText(
                     contentText: S.of(context).dosTurnRuleDoubleMatch),
                 BulletPointText(
-                    pointSimbol: bulletTwo,
+                    pointSimbol: BulletPointsConst.bulletTwo,
                     contentText: S.of(context).dosTurnRuleDrawCard),
                 BulletPointText(
-                    pointSimbol: bulletThree,
+                    pointSimbol: BulletPointsConst.bulletThree,
                     contentText: S.of(context).dosTurnRuleEndTurn),
                 const SizedBox(height: 15),
                 Text(

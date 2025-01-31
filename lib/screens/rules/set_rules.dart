@@ -28,12 +28,12 @@ class SetRulesScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  setAge,
+                  RulesConst.setAge,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 Text(
-                  setPlayers,
+                  RulesConst.setPlayers,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
@@ -56,16 +56,16 @@ class SetRulesScreen extends StatelessWidget {
                   style: theme.display2,
                 ),
                 BulletPointText(
-                    pointSimbol: bulletOne,
+                    pointSimbol: BulletPointsConst.bulletOne,
                     contentText: S.of(context).setCardAttributeNumberOfSymbols),
                 BulletPointText(
-                    pointSimbol: bulletTwo,
+                    pointSimbol: BulletPointsConst.bulletTwo,
                     contentText: S.of(context).setCardAttributeSymbolType),
                 BulletPointText(
-                    pointSimbol: bulletThree,
+                    pointSimbol: BulletPointsConst.bulletThree,
                     contentText: S.of(context).setCardAttributeSymbolColor),
                 BulletPointText(
-                    pointSimbol: bulletFour,
+                    pointSimbol: BulletPointsConst.bulletFour,
                     contentText: S.of(context).setCardAttributeFillType),
                 const SizedBox(height: 15),
                 Text(
@@ -73,16 +73,16 @@ class SetRulesScreen extends StatelessWidget {
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 BulletPointText(
-                    pointSimbol: bulletOne,
+                    pointSimbol: BulletPointsConst.bulletOne,
                     contentText: S.of(context).setGameTurnStepDealerSetup),
                 BulletPointText(
-                    pointSimbol: bulletTwo,
+                    pointSimbol: BulletPointsConst.bulletTwo,
                     contentText: S.of(context).setGameTurnStepFindingSet),
                 BulletPointText(
-                    pointSimbol: bulletThree,
+                    pointSimbol: BulletPointsConst.bulletThree,
                     contentText: S.of(context).setGameTurnStepValidation),
                 BulletPointText(
-                    pointSimbol: bulletFour,
+                    pointSimbol: BulletPointsConst.bulletFour,
                     contentText: S.of(context).setGameTurnStepFour),
                 const SizedBox(height: 15),
                 Text(

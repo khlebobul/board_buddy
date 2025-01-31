@@ -28,12 +28,12 @@ class UnoFlipRulesScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  unoFlipAge,
+                  RulesConst.unoFlipAge,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 Text(
-                  unoFlipPlayers,
+                  RulesConst.unoFlipPlayers,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
@@ -119,10 +119,10 @@ class UnoFlipRulesScreen extends StatelessWidget {
                 Text(S.of(context).unoFlipScoringRoundWinnerPoints,
                     style: theme.display2),
                 BulletPointText(
-                    pointSimbol: bulletOne,
+                    pointSimbol: BulletPointsConst.bulletOne,
                     contentText: S.of(context).unoFlipScoringNumberCards),
                 BulletPointText(
-                    pointSimbol: bulletTwo,
+                    pointSimbol: BulletPointsConst.bulletTwo,
                     contentText: S.of(context).unoFlipScoringActiveCards),
                 const SizedBox(height: 15),
                 Text(

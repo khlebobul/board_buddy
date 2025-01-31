@@ -2549,6 +2549,346 @@ class S {
       args: [],
     );
   }
+
+  /// `points`
+  String get points {
+    return Intl.message(
+      'points',
+      name: 'points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `wild draw two card`
+  String get wildDrawTwoCardDosInfo {
+    return Intl.message(
+      'wild draw two card',
+      name: 'wildDrawTwoCardDosInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `can be any color chosen by the current player. if drawn, the player decides the color.`
+  String get canBeAnyColorChosenByTheCurrentPlayerIfDosInfo {
+    return Intl.message(
+      'can be any color chosen by the current player. if drawn, the player decides the color.',
+      name: 'canBeAnyColorChosenByTheCurrentPlayerIfDosInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `can represent any number for its own particular color.`
+  String get canRepresentAnyNumberForItsOwnParticularColorDosInfo {
+    return Intl.message(
+      'can represent any number for its own particular color.',
+      name: 'canRepresentAnyNumberForItsOwnParticularColorDosInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `wild # card`
+  String get wildCardOneDosInfo {
+    return Intl.message(
+      'wild # card',
+      name: 'wildCardOneDosInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `number cards`
+  String get numberCards {
+    return Intl.message(
+      'number cards',
+      name: 'numberCards',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `reverse card`
+  String get reverseCardUnoInfo {
+    return Intl.message(
+      'reverse card',
+      name: 'reverseCardUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `changes the direction of play.`
+  String get changesTheDirectionOfPlayUnoInfo {
+    return Intl.message(
+      'changes the direction of play.',
+      name: 'changesTheDirectionOfPlayUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `skip card`
+  String get skipCardUnoInfo {
+    return Intl.message(
+      'skip card',
+      name: 'skipCardUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `draw two card`
+  String get drawTwoCardUnoInfo {
+    return Intl.message(
+      'draw two card',
+      name: 'drawTwoCardUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `wild card`
+  String get wildCardUnoInfo {
+    return Intl.message(
+      'wild card',
+      name: 'wildCardUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `wild shuffle hands card`
+  String get wildShuffleHandsCardUnoInfo {
+    return Intl.message(
+      'wild shuffle hands card',
+      name: 'wildShuffleHandsCardUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `wild draw four card`
+  String get wildDrawFourCardUnoInfo {
+    return Intl.message(
+      'wild draw four card',
+      name: 'wildDrawFourCardUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `skips the next player's turn.`
+  String get skipsTheNextPlayersTurnUnoInfo {
+    return Intl.message(
+      'skips the next player\'s turn.',
+      name: 'skipsTheNextPlayersTurnUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `next player draws two cards and loses their turn.`
+  String get nextPlayerDrawsTwoCardsAndLosesTheirTurnUnoInfo {
+    return Intl.message(
+      'next player draws two cards and loses their turn.',
+      name: 'nextPlayerDrawsTwoCardsAndLosesTheirTurnUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `allows the player to choose the color.`
+  String get allowsThePlayerToChooseTheColorUnoInfo {
+    return Intl.message(
+      'allows the player to choose the color.',
+      name: 'allowsThePlayerToChooseTheColorUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `changes the color and forces the next player to draw four cards.`
+  String get changesTheColorAndForcesTheNextPlayerToDrawUnoInfo {
+    return Intl.message(
+      'changes the color and forces the next player to draw four cards.',
+      name: 'changesTheColorAndForcesTheNextPlayerToDrawUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `swap hands with any player and choose the color.`
+  String get swapHandsWithAnyPlayerAndChooseTheColorUnoInfo {
+    return Intl.message(
+      'swap hands with any player and choose the color.',
+      name: 'swapHandsWithAnyPlayerAndChooseTheColorUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `each card has a number from 0 to 9, which determines its value.`
+  String get eachCardHasANumberFrom0To9WhichUnoInfo {
+    return Intl.message(
+      'each card has a number from 0 to 9, which determines its value.',
+      name: 'eachCardHasANumberFrom0To9WhichUnoInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `doubles the value of a letter`
+  String get doublesTheValueOfALetterScrabbleInfo {
+    return Intl.message(
+      'doubles the value of a letter',
+      name: 'doublesTheValueOfALetterScrabbleInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `triple the value of a letter`
+  String get tripleTheValueOfALetterScrabbleInfo {
+    return Intl.message(
+      'triple the value of a letter',
+      name: 'tripleTheValueOfALetterScrabbleInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `bonus tile or special marker`
+  String get bonusTileOrSpecialMarkerScrabbleInfo {
+    return Intl.message(
+      'bonus tile or special marker',
+      name: 'bonusTileOrSpecialMarkerScrabbleInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `doubles the value of an entire word`
+  String get doublesTheValueOfAnEntireWordScrabbleInfo {
+    return Intl.message(
+      'doubles the value of an entire word',
+      name: 'doublesTheValueOfAnEntireWordScrabbleInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `triple the value of an entire word`
+  String get tripleTheValueOfAnEntireWordScrabbleInfo {
+    return Intl.message(
+      'triple the value of an entire word',
+      name: 'tripleTheValueOfAnEntireWordScrabbleInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `next player draws 1 card and skips turn.`
+  String get nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo {
+    return Intl.message(
+      'next player draws 1 card and skips turn.',
+      name: 'nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `draw one`
+  String get drawOneUnoFlipInfo {
+    return Intl.message(
+      'draw one',
+      name: 'drawOneUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `flip card`
+  String get flipCardUnoFlipInfo {
+    return Intl.message(
+      'flip card',
+      name: 'flipCardUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `flips all cards to the opposite side.`
+  String get flipsAllCardsToTheOppositeSideUnoFlipInfo {
+    return Intl.message(
+      'flips all cards to the opposite side.',
+      name: 'flipsAllCardsToTheOppositeSideUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `draw five`
+  String get drawFiveUnoFlipInfo {
+    return Intl.message(
+      'draw five',
+      name: 'drawFiveUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `next player draws 5 cards and skips turn.`
+  String get nextPlayerDraws5CardsAndSkipsTurnUnoFlipInfo {
+    return Intl.message(
+      'next player draws 5 cards and skips turn.',
+      name: 'nextPlayerDraws5CardsAndSkipsTurnUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `skip everyone card`
+  String get skipEveryoneCardUnoFlipInfo {
+    return Intl.message(
+      'skip everyone card',
+      name: 'skipEveryoneCardUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `skips all players and returns turn to the original player.`
+  String get skipsAllPlayersAndReturnsTurnToTheOriginalPlayerUnoFlipInfo {
+    return Intl.message(
+      'skips all players and returns turn to the original player.',
+      name: 'skipsAllPlayersAndReturnsTurnToTheOriginalPlayerUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `wild draw color`
+  String get wildDrawColorUnoFlipInfo {
+    return Intl.message(
+      'wild draw color',
+      name: 'wildDrawColorUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `next player draws until they get the chosen color.`
+  String get nextPlayerDrawsUntilTheyGetTheChosenColorUnoFlipInfo {
+    return Intl.message(
+      'next player draws until they get the chosen color.',
+      name: 'nextPlayerDrawsUntilTheyGetTheChosenColorUnoFlipInfo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

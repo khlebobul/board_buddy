@@ -24,6 +24,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("about"),
         "addPlayer": MessageLookupByLibrary.simpleMessage("add player"),
+        "allowsThePlayerToChooseTheColorUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "allows the player to choose the color."),
         "armour": MessageLookupByLibrary.simpleMessage("armour"),
         "back": MessageLookupByLibrary.simpleMessage("back"),
         "bigArmour": MessageLookupByLibrary.simpleMessage("big armour"),
@@ -33,9 +36,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "bigSword": MessageLookupByLibrary.simpleMessage("big sword"),
         "blankTile": MessageLookupByLibrary.simpleMessage("blank\ntile"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
+        "bonusTileOrSpecialMarkerScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "bonus tile or special marker"),
         "boots": MessageLookupByLibrary.simpleMessage("boots"),
+        "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "can be any color chosen by the current player. if drawn, the player decides the color."),
+        "canRepresentAnyNumberForItsOwnParticularColorDosInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "can represent any number for its own particular color."),
         "cardTypesTitle":
             MessageLookupByLibrary.simpleMessage("types of cards:"),
+        "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "changes the color and forces the next player to draw four cards."),
+        "changesTheDirectionOfPlayUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "changes the direction of play."),
         "checkMyWebsite":
             MessageLookupByLibrary.simpleMessage("check my website"),
         "class1": MessageLookupByLibrary.simpleMessage("class 1"),
@@ -92,10 +110,24 @@ class MessageLookup extends MessageLookupByLibrary {
             "single match: a card matches by number."),
         "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
             "the first player to reach 200 points wins."),
+        "doublesTheValueOfALetterScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "doubles the value of a letter"),
+        "doublesTheValueOfAnEntireWordScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "doubles the value of an entire word"),
+        "drawFiveUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("draw five"),
+        "drawOneUnoFlipInfo": MessageLookupByLibrary.simpleMessage("draw one"),
+        "drawTwoCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("draw two card"),
         "dwarf": MessageLookupByLibrary.simpleMessage("dwarf"),
         "eachCardHasANumberDeterminingItsValue":
             MessageLookupByLibrary.simpleMessage(
                 "each card has a number, determining its value."),
+        "eachCardHasANumberFrom0To9WhichUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "each card has a number from 0 to 9, which determines its value."),
         "elf": MessageLookupByLibrary.simpleMessage("elf"),
         "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
         "endGameTitle": MessageLookupByLibrary.simpleMessage("end of game:"),
@@ -105,6 +137,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("feature request"),
         "finish": MessageLookupByLibrary.simpleMessage("finish"),
         "firstBonus": MessageLookupByLibrary.simpleMessage("first bonus"),
+        "flipCardUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("flip card"),
+        "flipsAllCardsToTheOppositeSideUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "flips all cards to the opposite side."),
         "followMeOnXTwitter":
             MessageLookupByLibrary.simpleMessage("follow me on x (twitter)"),
         "gameGoal": MessageLookupByLibrary.simpleMessage("game goal:"),
@@ -185,10 +222,24 @@ class MessageLookup extends MessageLookupByLibrary {
             "the first player to reach level 10 wins!"),
         "nWord": MessageLookupByLibrary.simpleMessage("\nword"),
         "name": MessageLookupByLibrary.simpleMessage("name"),
+        "nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "next player draws 1 card and skips turn."),
+        "nextPlayerDraws5CardsAndSkipsTurnUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "next player draws 5 cards and skips turn."),
+        "nextPlayerDrawsTwoCardsAndLosesTheirTurnUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "next player draws two cards and loses their turn."),
+        "nextPlayerDrawsUntilTheyGetTheChosenColorUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "next player draws until they get the chosen color."),
         "noClass": MessageLookupByLibrary.simpleMessage("no class"),
         "noItem": MessageLookupByLibrary.simpleMessage("no item"),
+        "numberCards": MessageLookupByLibrary.simpleMessage("number cards"),
         "others": MessageLookupByLibrary.simpleMessage("others"),
         "players": MessageLookupByLibrary.simpleMessage("players"),
+        "points": MessageLookupByLibrary.simpleMessage("points"),
         "preparation": MessageLookupByLibrary.simpleMessage("preparation:"),
         "projectWebsite":
             MessageLookupByLibrary.simpleMessage("project website"),
@@ -196,6 +247,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
         "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
         "results": MessageLookupByLibrary.simpleMessage("results"),
+        "reverseCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("reverse card"),
         "rightHand": MessageLookupByLibrary.simpleMessage("right hand"),
         "round": MessageLookupByLibrary.simpleMessage("round"),
         "rules": MessageLookupByLibrary.simpleMessage("rules"),
@@ -321,11 +374,22 @@ class MessageLookup extends MessageLookupByLibrary {
         "sinceThisIsAnOpenSourceProjectYouCanLeave":
             MessageLookupByLibrary.simpleMessage(
                 "since this is an open-source project, feel free to contribute to it"),
+        "skipCardUnoInfo": MessageLookupByLibrary.simpleMessage("skip card"),
+        "skipEveryoneCardUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("skip everyone card"),
+        "skipsAllPlayersAndReturnsTurnToTheOriginalPlayerUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "skips all players and returns turn to the original player."),
+        "skipsTheNextPlayersTurnUnoInfo": MessageLookupByLibrary.simpleMessage(
+            "skips the next player\'s turn."),
         "specialCardsTitle":
             MessageLookupByLibrary.simpleMessage("special cards:"),
         "specialRulesTitle":
             MessageLookupByLibrary.simpleMessage("special rules:"),
         "superMunch": MessageLookupByLibrary.simpleMessage("super munch."),
+        "swapHandsWithAnyPlayerAndChooseTheColorUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "swap hands with any player and choose the color."),
         "sword": MessageLookupByLibrary.simpleMessage("sword"),
         "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
         "theme": MessageLookupByLibrary.simpleMessage("theme"),
@@ -333,6 +397,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("total"),
         "totalStrength":
             MessageLookupByLibrary.simpleMessage("total strength: "),
+        "tripleTheValueOfALetterScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "triple the value of a letter"),
+        "tripleTheValueOfAnEntireWordScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "triple the value of an entire word"),
         "twoHanded": MessageLookupByLibrary.simpleMessage("two handed"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
@@ -447,6 +517,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "alternative: the player with the lowest score wins after the game ends."),
         "victoryTitle": MessageLookupByLibrary.simpleMessage("victory:"),
         "warrior": MessageLookupByLibrary.simpleMessage("warrior"),
+        "wildCardOneDosInfo":
+            MessageLookupByLibrary.simpleMessage("wild # card"),
+        "wildCardUnoInfo": MessageLookupByLibrary.simpleMessage("wild card"),
+        "wildDrawColorUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("wild draw color"),
+        "wildDrawFourCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("wild draw four card"),
+        "wildDrawTwoCardDosInfo":
+            MessageLookupByLibrary.simpleMessage("wild draw two card"),
+        "wildShuffleHandsCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("wild shuffle hands card"),
         "wizard": MessageLookupByLibrary.simpleMessage("wizard")
       };
 }

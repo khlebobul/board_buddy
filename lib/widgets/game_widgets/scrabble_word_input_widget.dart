@@ -97,11 +97,11 @@ class _ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
                           _buildModifierButton(
-                            Text(scrabblex2, style: theme.display2),
+                            Text(GameConst.scrabblex2, style: theme.display2),
                             () => _applyModifier(letter, 'x2'),
                           ),
                           _buildModifierButton(
-                            Text(scrabblex3, style: theme.display2),
+                            Text(GameConst.scrabblex3, style: theme.display2),
                             () => _applyModifier(letter, 'x3'),
                           ),
                           _buildModifierButton(
@@ -114,13 +114,15 @@ class _ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                             () => _applyModifier(letter, 'x2'),
                           ),
                           _buildModifierButton(
-                            Text('$scrabblex2${S.of(context).nWord}',
+                            Text(
+                                '${GameConst.scrabblex2}${S.of(context).nWord}',
                                 style: theme.display7,
                                 textAlign: TextAlign.center),
                             () => _applyModifier(letter, 'x2'),
                           ),
                           _buildModifierButton(
-                            Text('$scrabblex3${S.of(context).nWord}',
+                            Text(
+                                '${GameConst.scrabblex3}${S.of(context).nWord}',
                                 style: theme.display7,
                                 textAlign: TextAlign.center),
                             () => _applyModifier(letter, 'x3'),

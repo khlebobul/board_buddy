@@ -24,6 +24,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("о проекте"),
         "addPlayer": MessageLookupByLibrary.simpleMessage("добавить игрока"),
+        "allowsThePlayerToChooseTheColorUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "allows the player to choose the color."),
         "armour": MessageLookupByLibrary.simpleMessage("броня"),
         "back": MessageLookupByLibrary.simpleMessage("назад"),
         "bigArmour": MessageLookupByLibrary.simpleMessage("большая броня"),
@@ -33,8 +36,23 @@ class MessageLookup extends MessageLookupByLibrary {
         "bigSword": MessageLookupByLibrary.simpleMessage("большой меч"),
         "blankTile": MessageLookupByLibrary.simpleMessage("пустая\nклетка"),
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
+        "bonusTileOrSpecialMarkerScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "bonus tile or special marker"),
         "boots": MessageLookupByLibrary.simpleMessage("ботинки"),
+        "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "can be any color chosen by the current player. if drawn, the player decides the color."),
+        "canRepresentAnyNumberForItsOwnParticularColorDosInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "can represent any number for its own particular color."),
         "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
+        "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "changes the color and forces the next player to draw four cards."),
+        "changesTheDirectionOfPlayUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "changes the direction of play."),
         "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
         "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
         "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
@@ -90,10 +108,24 @@ class MessageLookup extends MessageLookupByLibrary {
             "одиночное совпадение: карта совпадает по числу."),
         "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
             "игрок выигрывает, набрав 200 очков."),
+        "doublesTheValueOfALetterScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "doubles the value of a letter"),
+        "doublesTheValueOfAnEntireWordScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "doubles the value of an entire word"),
+        "drawFiveUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("draw five"),
+        "drawOneUnoFlipInfo": MessageLookupByLibrary.simpleMessage("draw one"),
+        "drawTwoCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("draw two card"),
         "dwarf": MessageLookupByLibrary.simpleMessage("гном"),
         "eachCardHasANumberDeterminingItsValue":
             MessageLookupByLibrary.simpleMessage(
                 "each card has a number, determining its value."),
+        "eachCardHasANumberFrom0To9WhichUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "each card has a number from 0 to 9, which determines its value."),
         "elf": MessageLookupByLibrary.simpleMessage("эльф"),
         "emailCopied": MessageLookupByLibrary.simpleMessage(
             "электронная почта скопирована"),
@@ -104,6 +136,11 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("новый функционал"),
         "finish": MessageLookupByLibrary.simpleMessage("finish"),
         "firstBonus": MessageLookupByLibrary.simpleMessage("первый бонус"),
+        "flipCardUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("flip card"),
+        "flipsAllCardsToTheOppositeSideUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "flips all cards to the opposite side."),
         "followMeOnXTwitter":
             MessageLookupByLibrary.simpleMessage("мой x (twitter)"),
         "gameGoal": MessageLookupByLibrary.simpleMessage("цель игры:"),
@@ -184,10 +221,23 @@ class MessageLookup extends MessageLookupByLibrary {
             "игрок, первым достигший 10 уровня, побеждает!"),
         "nWord": MessageLookupByLibrary.simpleMessage("\nслово"),
         "name": MessageLookupByLibrary.simpleMessage("имя"),
+        "nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "next player draws 1 card and skips turn."),
+        "nextPlayerDraws5CardsAndSkipsTurnUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "next player draws 5 cards and skips turn."),
+        "nextPlayerDrawsTwoCardsAndLosesTheirTurnUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "next player draws two cards and loses their turn."),
+        "nextPlayerDrawsUntilTheyGetTheChosenColorUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "next player draws until they get the chosen color."),
         "noClass": MessageLookupByLibrary.simpleMessage("без класса"),
         "noItem": MessageLookupByLibrary.simpleMessage("без предмета"),
         "others": MessageLookupByLibrary.simpleMessage("другое"),
         "players": MessageLookupByLibrary.simpleMessage("игроки"),
+        "points": MessageLookupByLibrary.simpleMessage("points"),
         "preparation": MessageLookupByLibrary.simpleMessage("подготовка:"),
         "projectWebsite": MessageLookupByLibrary.simpleMessage("сайт проекта"),
         "race1": MessageLookupByLibrary.simpleMessage("раса 1"),
@@ -196,6 +246,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "reportABug":
             MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
         "results": MessageLookupByLibrary.simpleMessage("результаты"),
+        "reverseCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("reverse card"),
         "rightHand": MessageLookupByLibrary.simpleMessage("правая рука"),
         "round": MessageLookupByLibrary.simpleMessage("раунд"),
         "rules": MessageLookupByLibrary.simpleMessage("правила"),
@@ -322,17 +374,34 @@ class MessageLookup extends MessageLookupByLibrary {
         "sinceThisIsAnOpenSourceProjectYouCanLeave":
             MessageLookupByLibrary.simpleMessage(
                 "так как это проект с открытым исходным кодом, вы можете внести свой вклад"),
+        "skipCardUnoInfo": MessageLookupByLibrary.simpleMessage("skip card"),
+        "skipEveryoneCardUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("skip everyone card"),
+        "skipsAllPlayersAndReturnsTurnToTheOriginalPlayerUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "skips all players and returns turn to the original player."),
+        "skipsTheNextPlayersTurnUnoInfo": MessageLookupByLibrary.simpleMessage(
+            "skips the next player\'s turn."),
         "specialCardsTitle":
             MessageLookupByLibrary.simpleMessage("особые карты:"),
         "specialRulesTitle":
             MessageLookupByLibrary.simpleMessage("особые правила:"),
         "superMunch": MessageLookupByLibrary.simpleMessage("супер-жор"),
+        "swapHandsWithAnyPlayerAndChooseTheColorUnoInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "swap hands with any player and choose the color."),
         "sword": MessageLookupByLibrary.simpleMessage("меч"),
         "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
         "theme": MessageLookupByLibrary.simpleMessage("тема"),
         "thief": MessageLookupByLibrary.simpleMessage("вор"),
         "total": MessageLookupByLibrary.simpleMessage("всего"),
         "totalStrength": MessageLookupByLibrary.simpleMessage("общая сила: "),
+        "tripleTheValueOfALetterScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "triple the value of a letter"),
+        "tripleTheValueOfAnEntireWordScrabbleInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "triple the value of an entire word"),
         "twoHanded": MessageLookupByLibrary.simpleMessage("двуручный"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
@@ -449,6 +518,17 @@ class MessageLookup extends MessageLookupByLibrary {
             "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры."),
         "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:"),
         "warrior": MessageLookupByLibrary.simpleMessage("воин"),
+        "wildCardOneDosInfo":
+            MessageLookupByLibrary.simpleMessage("wild # card"),
+        "wildCardUnoInfo": MessageLookupByLibrary.simpleMessage("wild card"),
+        "wildDrawColorUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("wild draw color"),
+        "wildDrawFourCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("wild draw four card"),
+        "wildDrawTwoCardDosInfo":
+            MessageLookupByLibrary.simpleMessage("wild draw two card"),
+        "wildShuffleHandsCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("wild shuffle hands card"),
         "wizard": MessageLookupByLibrary.simpleMessage("маг")
       };
 }

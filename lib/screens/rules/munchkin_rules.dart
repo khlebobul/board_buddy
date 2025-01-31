@@ -28,12 +28,12 @@ class MunchkinRulesScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  munchkinAge,
+                  RulesConst.munchkinAge,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 Text(
-                  munchkinPlayers,
+                  RulesConst.munchkinPlayers,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),

@@ -1,59 +1,84 @@
-// links
-const link = 'https://khlebobul.github.io';
-const myWebSitelink = 'https://khlebobul.github.io';
-const telegramLink = 'https://t.me/khlebobul_dev';
-const xLink = 'https://twitter.com/khlebobul';
-const githubLink = 'https://github.com/khlebobul/board_buddy';
-const webSitelink = 'https://boardbuddyapp.vercel.app';
+class AppLnksConst {
+  static const link = 'https://khlebobul.github.io';
+  static const myWebSitelink = 'https://khlebobul.github.io';
+  static const telegramLink = 'https://t.me/khlebobul_dev';
+  static const xLink = 'https://twitter.com/khlebobul';
+  static const githubLink = 'https://github.com/khlebobul/board_buddy';
+  static const webSitelink = 'https://boardbuddyapp.vercel.app';
 
-const email = 'khlebobul@gmail.com';
-const appName = 'board buddy';
+  // TODO fix rate link
+  static const rateAppStore =
+      'https://itunes.apple.com/app/id6737812039?action=write-review';
+  static const rateGooglePlay =
+      'https://play.google.com/store/apps/details?hl=ru&gl=ru&id=com.khlebobul.knights_graph';
+}
 
-// TODO fix rate link
-const rateAppStore =
-    'https://itunes.apple.com/app/id6737812039?action=write-review';
-const rateGooglePlay =
-    'https://play.google.com/store/apps/details?hl=ru&gl=ru&id=com.khlebobul.knights_graph';
+class GeneralConst {
+  static const email = 'khlebobul@gmail.com';
+  static const appName = 'board buddy';
+}
 
-// splash screen
-const splashScreenOne = 'board buddy';
-const splashScreenTwo = 'made';
-const splashScreenThree = 'by @khlebobul';
+class SplashScreenConst {
+  static const splashScreenOne = 'board buddy';
+  static const splashScreenTwo = 'made';
+  static const splashScreenThree = 'by @khlebobul';
+}
 
-// mail subject
-const gameRequest = 'game request';
-const bug = 'bug';
-const feature = 'feature';
-const feedback = 'feedback';
+class MailSubjectConst {
+  static const gameRequest = 'game request';
+  static const bug = 'bug';
+  static const feature = 'feature';
+  static const feedback = 'feedback';
+}
 
-// bullet points
-const bulletOne = '1. ';
-const bulletTwo = '2. ';
-const bulletThree = '3. ';
-const bulletFour = '4. ';
-const pointOne = '• ';
+class BulletPointsConst {
+  static const bulletOne = '1. ';
+  static const bulletTwo = '2. ';
+  static const bulletThree = '3. ';
+  static const bulletFour = '4. ';
+  static const pointOne = '• ';
+}
 
-// rules
+class RulesConst {
 // uno
-const unoAge = '7+';
-const unoPlayers = '2-10';
+  static const unoAge = '7+';
+  static const unoPlayers = '2-10';
 // dos
-const dosAge = '7+';
-const dosPlayers = '2-4';
+  static const dosAge = '7+';
+  static const dosPlayers = '2-4';
 // scrabble
-const scrabbleAge = '10+';
-const scrabblePlayers = '2-4';
+  static const scrabbleAge = '10+';
+  static const scrabblePlayers = '2-4';
 // set
-const setAge = '8+';
-const setPlayers = '2-10';
+  static const setAge = '8+';
+  static const setPlayers = '2-10';
 // uno flip
-const unoFlipAge = '7+';
-const unoFlipPlayers = '2-10';
+  static const unoFlipAge = '7+';
+  static const unoFlipPlayers = '2-10';
 // munchkin
-const munchkinAge = '12+';
-const munchkinPlayers = '3-6';
+  static const munchkinAge = '12+';
+  static const munchkinPlayers = '3-6';
+}
 
-// game
-// scrabble game
-const scrabblex2 = '×2';
-const scrabblex3 = '×3';
+class GameConst {
+  // scrabble game
+  static const scrabblex2 = '×2';
+  static const scrabblex3 = '×3';
+  // uno, dos, uno flip
+  static const ten = '10';
+  static const twenty = '20';
+  static const thirty = '30';
+  static const forty = '40';
+  static const fifty = '50';
+  static const sixty = '60';
+  static const wildCardDos = ' #';
+  static const oneToTen = '1-10';
+  static const zeroToNine = '0-9';
+  static const plusTwo = '+2';
+  static const plusOne = '+1';
+  static const plusFive = '+5';
+}
+
+class PaddingsConst {
+  // TODO
+}

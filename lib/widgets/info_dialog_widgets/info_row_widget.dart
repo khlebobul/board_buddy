@@ -1,3 +1,4 @@
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:board_buddy/theme/app_theme.dart';
@@ -53,7 +54,7 @@ class InfoRowWidget extends StatelessWidget {
                 children: [
                   title.isNotEmpty && points.isNotEmpty
                       ? TextSpan(
-                          text: '$title ($points)\n',
+                          text: '$title\n($points ${S.of(context).points})\n',
                           style: theme.display2.copyWith(color: theme.redColor),
                         )
                       : const TextSpan(text: ''),

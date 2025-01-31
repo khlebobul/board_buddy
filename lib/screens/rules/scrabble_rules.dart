@@ -28,12 +28,12 @@ class ScrabbleRulesScreen extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  scrabbleAge,
+                  RulesConst.scrabbleAge,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 Text(
-                  scrabblePlayers,
+                  RulesConst.scrabblePlayers,
                   style:
                       theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
@@ -75,13 +75,13 @@ class ScrabbleRulesScreen extends StatelessWidget {
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 BulletPointText(
-                    pointSimbol: bulletOne,
+                    pointSimbol: BulletPointsConst.bulletOne,
                     contentText: S.of(context).scrabbleTurnRuleFirstWord),
                 BulletPointText(
-                    pointSimbol: bulletTwo,
+                    pointSimbol: BulletPointsConst.bulletTwo,
                     contentText: S.of(context).scrabbleTurnRuleWordDirection),
                 BulletPointText(
-                    pointSimbol: bulletThree,
+                    pointSimbol: BulletPointsConst.bulletThree,
                     contentText: S.of(context).scrabbleTurnRuleLetterPlacement),
                 const SizedBox(height: 15),
                 Text(
@@ -111,13 +111,13 @@ class ScrabbleRulesScreen extends StatelessWidget {
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
                 BulletPointText(
-                    pointSimbol: bulletOne,
+                    pointSimbol: BulletPointsConst.bulletOne,
                     contentText: S.of(context).scrabbleEndGameNoTiles),
                 BulletPointText(
-                    pointSimbol: bulletTwo,
+                    pointSimbol: BulletPointsConst.bulletTwo,
                     contentText: S.of(context).scrabbleEndGameSkippedTurns),
                 BulletPointText(
-                    pointSimbol: bulletThree,
+                    pointSimbol: BulletPointsConst.bulletThree,
                     contentText:
                         S.of(context).scrabbleEndGameRemainingTilesPenalty),
                 const SizedBox(height: 15),
