@@ -52,21 +52,23 @@ class BottomGameBar extends StatelessWidget {
                   ),
                 ),
                 const SizedBox(width: 20),
-                GestureDetector(
-                  onTap: () {
-                    showDialog(
-                      context: context,
-                      builder: (BuildContext context) {
-                        return dialogWidget ?? const InfoUnoDialog();
-                      },
-                    );
-                  },
-                  child: SvgPicture.asset(
-                    CustomIcons.info,
-                    color: theme.textColor,
-                    width: 20,
-                  ),
-                ),
+                dialogWidget == null
+                    ? const SizedBox()
+                    : GestureDetector(
+                        onTap: () {
+                          showDialog(
+                            context: context,
+                            builder: (BuildContext context) {
+                              return dialogWidget ?? const InfoUnoDialog();
+                            },
+                          );
+                        },
+                        child: SvgPicture.asset(
+                          CustomIcons.info,
+                          color: theme.textColor,
+                          width: 20,
+                        ),
+                      ),
                 const SizedBox(width: 20),
                 GestureDetector(
                   onTap: onRightArrowTap,

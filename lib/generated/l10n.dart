@@ -2539,6 +2539,16 @@ class S {
       args: [],
     );
   }
+
+  /// `each card has a number, determining its value.`
+  String get eachCardHasANumberDeterminingItsValue {
+    return Intl.message(
+      'each card has a number, determining its value.',
+      name: 'eachCardHasANumberDeterminingItsValue',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

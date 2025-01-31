@@ -247,5 +247,6 @@
   "enterAWord": "введите слово",
   "blankTile": "пустая\nклетка",
   "nWord": "\nслово",
-  "finish": "finish"
+  "finish": "finish",
+  "eachCardHasANumberDeterminingItsValue": "each card has a number, determining its value."
 }

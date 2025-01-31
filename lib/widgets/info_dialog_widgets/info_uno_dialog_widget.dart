@@ -29,25 +29,28 @@ class InfoUnoDialog extends StatelessWidget {
               ),
             ),
           ),
-          const Expanded(
+           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.reverse,
                     title: 'reverse card',
                     points: '20 points',
                     description: 'changes the direction of play.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.skip,
                     title: 'skip card',
                     points: '20 points',
                     description: 'skips the next player\'s turn.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     cardName: '+2',
                     title: 'draw two card',
                     points: '20 points',
@@ -55,12 +58,14 @@ class InfoUnoDialog extends StatelessWidget {
                         'next player draws two cards and loses their turn.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.wild,
                     title: 'wild card',
                     points: '50 points',
                     description: 'allows the player to choose the color.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.wildDrawFour,
                     title: 'wild draw four card',
                     points: '50 points',
@@ -68,6 +73,7 @@ class InfoUnoDialog extends StatelessWidget {
                         'changes the color and forces the next player to draw four cards.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.swap,
                     title: 'wild shuffle hands card',
                     points: '50 points',
@@ -75,6 +81,7 @@ class InfoUnoDialog extends StatelessWidget {
                         'swap hands with any player and choose the color.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     title: 'number cards',
                     points: '0-9 points',
                     description:

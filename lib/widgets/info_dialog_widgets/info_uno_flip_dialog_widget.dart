@@ -29,55 +29,63 @@ class InfoUnoFlipDialog extends StatelessWidget {
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   InfoRowWidget(
+                    context: context,
                     cardName: '+1',
                     title: 'draw one',
                     points: '10 points',
                     description: 'next player draws 1 card and skips turn.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.reverse,
                     title: 'reverse',
                     points: '20 points',
                     description: 'reverses the direction of play.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.skip,
                     title: 'skip',
                     points: '20 points',
                     description: 'next player skips their turn.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.wild,
                     title: 'wild card',
                     points: '40 points',
                     description: 'player chooses the next color.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.wildDrawTwoUnoflip,
                     title: 'wild draw two',
                     points: '50 points',
                     description: 'next player draws 2 cards and skips turn.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.flip,
                     title: 'flip card',
                     points: '20 points',
                     description: 'flips all cards to the opposite side.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     cardName: '+5',
                     title: 'draw five',
                     points: '40 points',
                     description: 'next player draws 5 cards and skips turn.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.skipEveryone,
                     title: 'skip everyone card',
                     points: '30 points',
@@ -85,6 +93,7 @@ class InfoUnoFlipDialog extends StatelessWidget {
                         'skips all players and returns turn to the original player.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.wildDrawColor,
                     title: 'wild draw color',
                     points: '60 points',
@@ -92,6 +101,7 @@ class InfoUnoFlipDialog extends StatelessWidget {
                         'next player draws until they get the chosen color.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     title: 'number cards (1-9)',
                     points: '1-9 points',
                     description:

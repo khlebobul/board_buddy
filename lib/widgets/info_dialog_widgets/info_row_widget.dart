@@ -3,6 +3,7 @@ import 'package:flutter_svg/flutter_svg.dart';
 import 'package:board_buddy/theme/app_theme.dart';
 
 class InfoRowWidget extends StatelessWidget {
+  final BuildContext context;
   final String cardName;
   final String iconPath;
   final String title;
@@ -12,6 +13,7 @@ class InfoRowWidget extends StatelessWidget {
 
   const InfoRowWidget({
     super.key,
+    required this.context,
     this.cardName = '',
     this.iconPath = '',
     this.title = '',

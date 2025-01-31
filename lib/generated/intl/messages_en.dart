@@ -93,6 +93,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
             "the first player to reach 200 points wins."),
         "dwarf": MessageLookupByLibrary.simpleMessage("dwarf"),
+        "eachCardHasANumberDeterminingItsValue":
+            MessageLookupByLibrary.simpleMessage(
+                "each card has a number, determining its value."),
         "elf": MessageLookupByLibrary.simpleMessage("elf"),
         "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
         "endGameTitle": MessageLookupByLibrary.simpleMessage("end of game:"),

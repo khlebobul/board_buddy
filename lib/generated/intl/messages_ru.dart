@@ -91,6 +91,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
             "игрок выигрывает, набрав 200 очков."),
         "dwarf": MessageLookupByLibrary.simpleMessage("гном"),
+        "eachCardHasANumberDeterminingItsValue":
+            MessageLookupByLibrary.simpleMessage(
+                "each card has a number, determining its value."),
         "elf": MessageLookupByLibrary.simpleMessage("эльф"),
         "emailCopied": MessageLookupByLibrary.simpleMessage(
             "электронная почта скопирована"),

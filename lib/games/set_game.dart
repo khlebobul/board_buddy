@@ -1,5 +1,6 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/models/player_model.dart';
+import 'package:board_buddy/widgets/app_widgets/bottom_game_widget.dart';
 import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:board_buddy/widgets/game_widgets/players_score_widget.dart';
 import 'package:flutter/material.dart';
@@ -33,6 +34,11 @@ class SetGame extends StatelessWidget {
             },
           ),
         ],
+      ),
+      bottomNavigationBar: BottomGameBar(
+        leftButtonText: S.of(context).rules,
+        isArrow: true,
+        rightButtonText: S.of(context).finish,
       ),
     );
   }

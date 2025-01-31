@@ -30,31 +30,36 @@ class InfoscrabbleDialog extends StatelessWidget {
               ),
             ),
           ),
-          const Expanded(
+           Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   InfoRowWidget(
+                    context: context,
                     cardName: scrabblex2,
                     title: '',
                     description: 'doubles the value of a letter',
                   ),
                   InfoRowWidget(
+                    context: context,
                     cardName: scrabblex3,
                     description: 'triple the value of a letter',
                   ),
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.star,
                     description: 'bonus tile or special marker',
                   ),
                   InfoRowWidget(
+                    context: context,
                     isScrabble: true,
                     cardName: '$scrabblex2\nword',
                     description: 'doubles the value of an entire word',
                   ),
                   InfoRowWidget(
+                    context: context,
                     isScrabble: true,
                     cardName: '$scrabblex3\nword',
                     description: 'triple the value of an entire word',

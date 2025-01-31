@@ -29,13 +29,14 @@ class InfoDosDialog extends StatelessWidget {
               ),
             ),
           ),
-          const Expanded(
+          Expanded(
             child: SingleChildScrollView(
-              padding: EdgeInsets.all(8.0),
+              padding: const EdgeInsets.all(8.0),
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   InfoRowWidget(
+                    context: context,
                     iconPath: CustomIcons.wildDrawTwoDos,
                     title: 'wild draw two card',
                     points: '20 points',
@@ -43,6 +44,7 @@ class InfoDosDialog extends StatelessWidget {
                         'can be any color chosen by the current player. if drawn, the player decides the color.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     cardName: ' #',
                     title: 'wild # card',
                     points: '50 points',
@@ -50,10 +52,11 @@ class InfoDosDialog extends StatelessWidget {
                         'can represent any number for its own particular color.',
                   ),
                   InfoRowWidget(
+                    context: context,
                     title: 'number cards (1-10)',
                     points: '1-10 points',
                     description:
-                        'each card has a number, determining its value.',
+                        S.of(context).eachCardHasANumberDeterminingItsValue,
                   ),
                 ],
               ),
