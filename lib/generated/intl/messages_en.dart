@@ -40,6 +40,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage(
                 "bonus tile or special marker"),
         "boots": MessageLookupByLibrary.simpleMessage("boots"),
+        "buffsOrDebuffsAffectingCharactersitemsInfo":
+            MessageLookupByLibrary.simpleMessage(
+                "buffs or debuffs affecting characters/items"),
         "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
             MessageLookupByLibrary.simpleMessage(
                 "can be any color chosen by the current player. if drawn, the player decides the color."),
@@ -54,13 +57,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "changesTheDirectionOfPlayUnoInfo":
             MessageLookupByLibrary.simpleMessage(
                 "changes the direction of play."),
+        "charactersGenderFemaleInfo":
+            MessageLookupByLibrary.simpleMessage("character\'s gender: female"),
+        "charactersGenderMaleInfo":
+            MessageLookupByLibrary.simpleMessage("character\'s gender: male"),
         "checkMyWebsite":
             MessageLookupByLibrary.simpleMessage("check my website"),
         "class1": MessageLookupByLibrary.simpleMessage("class 1"),
         "class2": MessageLookupByLibrary.simpleMessage("class 2"),
+        "clearance": MessageLookupByLibrary.simpleMessage("clearance"),
         "cleric": MessageLookupByLibrary.simpleMessage("cleric"),
         "close": MessageLookupByLibrary.simpleMessage("close"),
         "common": MessageLookupByLibrary.simpleMessage("counter"),
+        "cursed": MessageLookupByLibrary.simpleMessage("cursed"),
         "dark": MessageLookupByLibrary.simpleMessage("dark"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
@@ -157,6 +166,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "heyMyNameIsGleb":
             MessageLookupByLibrary.simpleMessage("hey! my name is gleb"),
         "human": MessageLookupByLibrary.simpleMessage("human"),
+        "indicatesAnActiveCurse":
+            MessageLookupByLibrary.simpleMessage("indicates an active curse"),
         "languages": MessageLookupByLibrary.simpleMessage("languages"),
         "leftHand": MessageLookupByLibrary.simpleMessage("left hand"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
@@ -165,6 +176,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "level": MessageLookupByLibrary.simpleMessage("level"),
         "light": MessageLookupByLibrary.simpleMessage("light"),
         "magic": MessageLookupByLibrary.simpleMessage("magic"),
+        "marksADeadCharacterInfo":
+            MessageLookupByLibrary.simpleMessage("marks a dead character"),
         "modifiers": MessageLookupByLibrary.simpleMessage("modifiers"),
         "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
         "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
@@ -240,6 +253,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "others": MessageLookupByLibrary.simpleMessage("others"),
         "players": MessageLookupByLibrary.simpleMessage("players"),
         "points": MessageLookupByLibrary.simpleMessage("points"),
+        "possiblyTheRemovalOfCursesOrDebuffs":
+            MessageLookupByLibrary.simpleMessage(
+                "possibly the removal of curses or debuffs"),
         "preparation": MessageLookupByLibrary.simpleMessage("preparation:"),
         "projectWebsite":
             MessageLookupByLibrary.simpleMessage("project website"),

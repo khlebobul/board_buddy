@@ -52,12 +52,16 @@ class InfoRowWidget extends StatelessWidget {
               text: TextSpan(
                 style: theme.display2,
                 children: [
-                  title.isNotEmpty && points.isNotEmpty
-                      ? TextSpan(
-                          text: '$title\n($points ${S.of(context).points})\n',
-                          style: theme.display2.copyWith(color: theme.redColor),
-                        )
-                      : const TextSpan(text: ''),
+                  if (title.isNotEmpty && points.isNotEmpty)
+                    TextSpan(
+                      text: '$title\n($points ${S.of(context).points})\n',
+                      style: theme.display2.copyWith(color: theme.redColor),
+                    ),
+                  if (title.isNotEmpty && points.isEmpty)
+                    TextSpan(
+                      text: '$title\n',
+                      style: theme.display2.copyWith(color: theme.redColor),
+                    ),
                   TextSpan(text: description),
                 ],
               ),

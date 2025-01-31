@@ -40,8 +40,7 @@ class BottomGameBar extends StatelessWidget {
         children: [
           if (isArrow)
             Row(
-              mainAxisSize: MainAxisSize.min,
-              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 GestureDetector(
                   onTap: onLeftArrowTap,
@@ -80,16 +79,6 @@ class BottomGameBar extends StatelessWidget {
                 ),
               ],
             ),
-          Positioned(
-            left: 0,
-            child: GestureDetector(
-              onTap: onLeftBtnTap,
-              child: TextScramble(
-                text: leftButtonText,
-                style: theme.display2.copyWith(color: theme.textColor),
-              ),
-            ),
-          ),
           Positioned(
             right: 0,
             child: GestureDetector(

@@ -2889,6 +2889,86 @@ class S {
       args: [],
     );
   }
+
+  /// `marks a dead character`
+  String get marksADeadCharacterInfo {
+    return Intl.message(
+      'marks a dead character',
+      name: 'marksADeadCharacterInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `character's gender: male`
+  String get charactersGenderMaleInfo {
+    return Intl.message(
+      'character\'s gender: male',
+      name: 'charactersGenderMaleInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `character's gender: female`
+  String get charactersGenderFemaleInfo {
+    return Intl.message(
+      'character\'s gender: female',
+      name: 'charactersGenderFemaleInfo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cursed`
+  String get cursed {
+    return Intl.message(
+      'cursed',
+      name: 'cursed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `clearance`
+  String get clearance {
+    return Intl.message(
+      'clearance',
+      name: 'clearance',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `indicates an active curse`
+  String get indicatesAnActiveCurse {
+    return Intl.message(
+      'indicates an active curse',
+      name: 'indicatesAnActiveCurse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `possibly the removal of curses or debuffs`
+  String get possiblyTheRemovalOfCursesOrDebuffs {
+    return Intl.message(
+      'possibly the removal of curses or debuffs',
+      name: 'possiblyTheRemovalOfCursesOrDebuffs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `buffs or debuffs affecting characters/items`
+  String get buffsOrDebuffsAffectingCharactersitemsInfo {
+    return Intl.message(
+      'buffs or debuffs affecting characters/items',
+      name: 'buffsOrDebuffsAffectingCharactersitemsInfo',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

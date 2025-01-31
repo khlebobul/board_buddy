@@ -14,7 +14,8 @@ class ScrabbleGame extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: S.of(context).scrabble,
+        isRules: true,
+        rightButtonText: S.of(context).rules,
         onRightButtonPressed: () {},
       ),
       body: const Padding(

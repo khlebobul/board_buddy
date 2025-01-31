@@ -21,8 +21,8 @@ class UnoGame extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: S.of(context).uno,
-        // for testing
+        isRules: true,
+        rightButtonText: S.of(context).rules,
         onRightButtonPressed: () {},
       ),
       body: Padding(

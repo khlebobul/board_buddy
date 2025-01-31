@@ -24,7 +24,7 @@ class InfoscrabbleDialog extends StatelessWidget {
               child: GestureDetector(
                 onTap: () => Navigator.pop(context),
                 child: TextScramble(
-                  text: S.of(context).close.toLowerCase(),
+                  text: S.of(context).close,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
               ),

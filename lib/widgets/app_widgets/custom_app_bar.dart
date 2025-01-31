@@ -7,6 +7,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
   final VoidCallback onLeftButtonPressed;
   final String rightButtonText;
   final VoidCallback onRightButtonPressed;
+  final bool isRules;
 
   const CustomAppBar({
     super.key,
@@ -14,6 +15,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
     required this.onLeftButtonPressed,
     required this.rightButtonText,
     required this.onRightButtonPressed,
+    this.isRules = false,
   });
 
   @override
@@ -38,10 +40,16 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
             ),
             GestureDetector(
               onTap: onRightButtonPressed,
-              child: Text(
-                rightButtonText,
-                style: theme.display2.copyWith(color: theme.secondaryTextColor),
-              ),
+              child: isRules
+                  ? TextScramble(
+                      text: rightButtonText,
+                      style: theme.display2.copyWith(color: theme.redColor),
+                    )
+                  : Text(
+                      rightButtonText,
+                      style: theme.display2
+                          .copyWith(color: theme.secondaryTextColor),
+                    ),
             ),
           ],
         ),

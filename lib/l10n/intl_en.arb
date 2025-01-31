@@ -282,5 +282,13 @@
   "skipEveryoneCardUnoFlipInfo": "skip everyone card",
   "skipsAllPlayersAndReturnsTurnToTheOriginalPlayerUnoFlipInfo": "skips all players and returns turn to the original player.",
   "wildDrawColorUnoFlipInfo": "wild draw color",
-  "nextPlayerDrawsUntilTheyGetTheChosenColorUnoFlipInfo": "next player draws until they get the chosen color."
+  "nextPlayerDrawsUntilTheyGetTheChosenColorUnoFlipInfo": "next player draws until they get the chosen color.",
+  "marksADeadCharacterInfo": "marks a dead character",
+  "charactersGenderMaleInfo": "character's gender: male",
+  "charactersGenderFemaleInfo": "character's gender: female",
+  "cursed": "cursed",
+  "clearance": "clearance",
+  "indicatesAnActiveCurse": "indicates an active curse",
+  "possiblyTheRemovalOfCursesOrDebuffs": "possibly the removal of curses or debuffs",
+  "buffsOrDebuffsAffectingCharactersitemsInfo": "buffs or debuffs affecting characters/items"
 }

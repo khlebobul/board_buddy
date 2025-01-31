@@ -1,5 +1,6 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/app_constants.dart';
 import 'package:board_buddy/widgets/app_widgets/add_new_game.dart';
 import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -20,8 +21,9 @@ class GamesScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(horizontal: 12) +
-              const EdgeInsets.only(top: 12),
+          padding: const EdgeInsets.symmetric(
+                  horizontal: GeneralConst.paddingHorizontal) +
+              const EdgeInsets.only(top: GeneralConst.paddingVertical),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,

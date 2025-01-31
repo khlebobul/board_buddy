@@ -14,7 +14,8 @@ class UnoFlipGame extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: S.of(context).unoFlip,
+        isRules: true,
+        rightButtonText: S.of(context).rules,
         onRightButtonPressed: () {},
       ),
       bottomNavigationBar: BottomGameBar(

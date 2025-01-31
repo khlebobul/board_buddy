@@ -16,6 +16,8 @@ class AppLnksConst {
 class GeneralConst {
   static const email = 'khlebobul@gmail.com';
   static const appName = 'board buddy';
+  static const double paddingHorizontal = 12.0;
+  static const double paddingVertical = 12.0;
 }
 
 class SplashScreenConst {
@@ -77,8 +79,4 @@ class GameConst {
   static const plusTwo = '+2';
   static const plusOne = '+1';
   static const plusFive = '+5';
-}
-
-class PaddingsConst {
-  // TODO
 }

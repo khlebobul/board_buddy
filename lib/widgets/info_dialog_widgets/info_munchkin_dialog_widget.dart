@@ -1,13 +1,12 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
-import 'package:board_buddy/utils/app_constants.dart';
 import 'package:board_buddy/utils/custom_icons.dart';
 import 'package:board_buddy/widgets/info_dialog_widgets/info_row_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
-class InfoDosDialog extends StatelessWidget {
-  const InfoDosDialog({super.key});
+class InfoMunchkinDialogWidget extends StatelessWidget {
+  const InfoMunchkinDialogWidget({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -38,28 +37,36 @@ class InfoDosDialog extends StatelessWidget {
                 children: [
                   InfoRowWidget(
                     context: context,
-                    iconPath: CustomIcons.wildDrawTwoDos,
-                    title: S.of(context).wildDrawTwoCardDosInfo,
-                    points: GameConst.twenty,
-                    description: S
-                        .of(context)
-                        .canBeAnyColorChosenByTheCurrentPlayerIfDosInfo,
+                    iconPath: CustomIcons.rip,
+                    description: S.of(context).marksADeadCharacterInfo,
                   ),
                   InfoRowWidget(
                     context: context,
-                    cardName: GameConst.wildCardDos,
-                    title: S.of(context).wildCardOneDosInfo,
-                    points: GameConst.fifty,
-                    description: S
-                        .of(context)
-                        .canRepresentAnyNumberForItsOwnParticularColorDosInfo,
+                    iconPath: CustomIcons.male,
+                    description: S.of(context).charactersGenderMaleInfo,
                   ),
                   InfoRowWidget(
                     context: context,
-                    title: S.of(context).numberCards,
-                    points: GameConst.oneToTen,
+                    iconPath: CustomIcons.female,
+                    description: S.of(context).charactersGenderFemaleInfo,
+                  ),
+                  InfoRowWidget(
+                    context: context,
+                    title: S.of(context).cursed,
+                    description: S.of(context).indicatesAnActiveCurse,
+                  ),
+                  InfoRowWidget(
+                    context: context,
+                    title: S.of(context).clearance,
                     description:
-                        S.of(context).eachCardHasANumberDeterminingItsValue,
+                        S.of(context).possiblyTheRemovalOfCursesOrDebuffs,
+                  ),
+                  InfoRowWidget(
+                    context: context,
+                    title: S.of(context).modifiers,
+                    description: S
+                        .of(context)
+                        .buffsOrDebuffsAffectingCharactersitemsInfo,
                   ),
                 ],
               ),

@@ -1,9 +1,12 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/models/player_model.dart';
 import 'package:board_buddy/theme/app_theme.dart';
+import 'package:board_buddy/utils/app_constants.dart';
+import 'package:board_buddy/widgets/app_widgets/bottom_game_widget.dart';
 import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:board_buddy/widgets/bottom_sheets/munchkin_modifiers_bs.dart';
 import 'package:board_buddy/widgets/game_widgets/munchkin_score_widget.dart';
+import 'package:board_buddy/widgets/info_dialog_widgets/info_munchkin_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
@@ -20,11 +23,13 @@ class MunchkinGame extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: S.of(context).munchkin,
+        isRules: true,
+        rightButtonText: S.of(context).rules,
         onRightButtonPressed: () {},
       ),
       body: Padding(
-        padding: const EdgeInsets.symmetric(horizontal: 12),
+        padding: const EdgeInsets.symmetric(
+            horizontal: GeneralConst.paddingHorizontal),
         child: Column(
           children: [
             // SingleChildScrollView(
@@ -69,6 +74,12 @@ class MunchkinGame extends StatelessWidget {
             ),
           ],
         ),
+      ),
+      bottomNavigationBar: BottomGameBar(
+        dialogWidget: const InfoMunchkinDialogWidget(),
+        leftButtonText: S.of(context).rules,
+        isArrow: true,
+        rightButtonText: S.of(context).finish,
       ),
     );
   }
