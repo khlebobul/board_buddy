@@ -5,6 +5,7 @@ class AppLnksConst {
   static const xLink = 'https://twitter.com/khlebobul';
   static const githubLink = 'https://github.com/khlebobul/board_buddy';
   static const webSitelink = 'https://boardbuddyapp.vercel.app';
+  static const lucideIconsLink = 'https://lucide.dev';
 
   // TODO fix rate link
   static const rateAppStore =
@@ -16,6 +17,7 @@ class AppLnksConst {
 class GeneralConst {
   static const email = 'khlebobul@gmail.com';
   static const appName = 'board buddy';
+  static const lucideIcons = 'lucide icons';
   static const double paddingHorizontal = 12.0;
   static const double paddingVertical = 12.0;
 }

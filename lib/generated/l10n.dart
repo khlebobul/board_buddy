@@ -2969,6 +2969,26 @@ class S {
       args: [],
     );
   }
+
+  /// `to all who created the`
+  String get toAllWhoCreatedThe {
+    return Intl.message(
+      'to all who created the',
+      name: 'toAllWhoCreatedThe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `appreciation`
+  String get appreciation {
+    return Intl.message(
+      'appreciation',
+      name: 'appreciation',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

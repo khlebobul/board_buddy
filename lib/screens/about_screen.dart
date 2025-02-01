@@ -4,6 +4,7 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:board_buddy/utils/app_constants.dart';
 import 'package:board_buddy/widgets/app_widgets/add_new_game.dart';
+import 'package:board_buddy/widgets/app_widgets/bullet_poit_text.dart';
 import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:board_buddy/widgets/app_widgets/link_btn.dart';
 import 'package:flutter/material.dart';
@@ -31,12 +32,6 @@ class AboutScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
-                Text(
-                  S.of(context).heyMyNameIsGleb,
-                  style:
-                      theme.display2.copyWith(color: theme.secondaryTextColor),
-                ),
-                const SizedBox(height: 10),
                 Text.rich(
                   TextSpan(
                     children: [
@@ -95,6 +90,30 @@ class AboutScreen extends StatelessWidget {
                   text: S.of(context).checkMyWebsite,
                   url: AppLnksConst.myWebSitelink,
                 ),
+                const SizedBox(height: 10),
+                Divider(
+                  color: theme.borderColor,
+                  thickness: 1,
+                ),
+                const SizedBox(height: 10),
+                Text(S.of(context).appreciation, style: theme.display2),
+                const SizedBox(height: 10),
+                Text(
+                  S.of(context).toAllWhoCreatedThe,
+                  style:
+                      theme.display2.copyWith(color: theme.secondaryTextColor),
+                ),
+                const LinkBtnWidget(
+                  text: GeneralConst.lucideIcons,
+                  url: AppLnksConst.lucideIconsLink,
+                ),
+                const SizedBox(height: 15),
+                // TODO: add contributors
+                // Text(
+                //   'to board buddy\'s contributors',
+                //   style:
+                //       theme.display2.copyWith(color: theme.secondaryTextColor),
+                // ),
               ],
             ),
           ),

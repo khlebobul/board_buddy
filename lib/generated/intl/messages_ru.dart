@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "allowsThePlayerToChooseTheColorUnoInfo":
             MessageLookupByLibrary.simpleMessage(
                 "позволяет игроку выбрать цвет."),
+        "appreciation": MessageLookupByLibrary.simpleMessage("благодарность"),
         "armour": MessageLookupByLibrary.simpleMessage("броня"),
         "back": MessageLookupByLibrary.simpleMessage("назад"),
         "bigArmour": MessageLookupByLibrary.simpleMessage("большая броня"),
@@ -411,6 +412,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
         "theme": MessageLookupByLibrary.simpleMessage("тема"),
         "thief": MessageLookupByLibrary.simpleMessage("вор"),
+        "toAllWhoCreatedThe":
+            MessageLookupByLibrary.simpleMessage("всем, кто создал"),
         "total": MessageLookupByLibrary.simpleMessage("всего"),
         "totalStrength": MessageLookupByLibrary.simpleMessage("общая сила: "),
         "tripleTheValueOfALetterScrabbleInfo":

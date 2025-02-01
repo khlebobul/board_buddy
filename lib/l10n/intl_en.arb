@@ -290,5 +290,7 @@
   "clearance": "clearance",
   "indicatesAnActiveCurse": "indicates an active curse",
   "possiblyTheRemovalOfCursesOrDebuffs": "possibly the removal of curses or debuffs",
-  "buffsOrDebuffsAffectingCharactersitemsInfo": "buffs or debuffs affecting characters/items"
+  "buffsOrDebuffsAffectingCharactersitemsInfo": "buffs or debuffs affecting characters/items",
+  "toAllWhoCreatedThe": "to all who created the",
+  "appreciation": "appreciation"
 }

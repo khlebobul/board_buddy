@@ -27,6 +27,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "allowsThePlayerToChooseTheColorUnoInfo":
             MessageLookupByLibrary.simpleMessage(
                 "allows the player to choose the color."),
+        "appreciation": MessageLookupByLibrary.simpleMessage("appreciation"),
         "armour": MessageLookupByLibrary.simpleMessage("armour"),
         "back": MessageLookupByLibrary.simpleMessage("back"),
         "bigArmour": MessageLookupByLibrary.simpleMessage("big armour"),
@@ -410,6 +411,8 @@ class MessageLookup extends MessageLookupByLibrary {
         "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
         "theme": MessageLookupByLibrary.simpleMessage("theme"),
         "thief": MessageLookupByLibrary.simpleMessage("thief"),
+        "toAllWhoCreatedThe":
+            MessageLookupByLibrary.simpleMessage("to all who created the"),
         "total": MessageLookupByLibrary.simpleMessage("total"),
         "totalStrength":
             MessageLookupByLibrary.simpleMessage("total strength: "),

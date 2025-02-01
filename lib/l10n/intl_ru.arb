@@ -290,5 +290,7 @@
   "clearance": "очистка",
   "indicatesAnActiveCurse": "указывает на наложенное проклятие",
   "possiblyTheRemovalOfCursesOrDebuffs": "снятие проклятий или дебафов",
-  "buffsOrDebuffsAffectingCharactersitemsInfo": "усиления или ослабления персонажа/предметов"
+  "buffsOrDebuffsAffectingCharactersitemsInfo": "усиления или ослабления персонажа/предметов",
+  "toAllWhoCreatedThe": "всем, кто создал",
+  "appreciation": "благодарность"
 }
