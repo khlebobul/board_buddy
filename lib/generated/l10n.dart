@@ -18,17 +18,20 @@ class S {
   static S? _current;
 
   static S get current {
-    assert(_current != null,
-        'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.');
+    assert(
+      _current != null,
+      'No instance of S was loaded. Try to initialize the S delegate before accessing S.current.',
+    );
     return _current!;
   }
 
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -41,8 +44,10 @@ class S {
 
   static S of(BuildContext context) {
     final instance = S.maybeOf(context);
-    assert(instance != null,
-        'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?');
+    assert(
+      instance != null,
+      'No instance of S present in the widget tree. Did you add S.delegate in localizationsDelegates?',
+    );
     return instance!;
   }
 
@@ -52,62 +57,32 @@ class S {
 
   /// `board buddy`
   String get boardBuddy {
-    return Intl.message(
-      'board buddy',
-      name: 'boardBuddy',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('board buddy', name: 'boardBuddy', desc: '', args: []);
   }
 
   /// `about`
   String get about {
-    return Intl.message(
-      'about',
-      name: 'about',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('about', name: 'about', desc: '', args: []);
   }
 
   /// `games`
   String get games {
-    return Intl.message(
-      'games',
-      name: 'games',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('games', name: 'games', desc: '', args: []);
   }
 
   /// `rules`
   String get rules {
-    return Intl.message(
-      'rules',
-      name: 'rules',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('rules', name: 'rules', desc: '', args: []);
   }
 
   /// `settings`
   String get settings {
-    return Intl.message(
-      'settings',
-      name: 'settings',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('settings', name: 'settings', desc: '', args: []);
   }
 
   /// `back`
   String get back {
-    return Intl.message(
-      'back',
-      name: 'back',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('back', name: 'back', desc: '', args: []);
   }
 
   /// `check my website`
@@ -162,12 +137,7 @@ class S {
 
   /// `telegram`
   String get telegram {
-    return Intl.message(
-      'telegram',
-      name: 'telegram',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('telegram', name: 'telegram', desc: '', args: []);
   }
 
   /// `project website`
@@ -182,12 +152,7 @@ class S {
 
   /// `rate the app`
   String get rateTheApp {
-    return Intl.message(
-      'rate the app',
-      name: 'rateTheApp',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('rate the app', name: 'rateTheApp', desc: '', args: []);
   }
 
   /// `share with friends`
@@ -232,22 +197,12 @@ class S {
 
   /// `languages`
   String get languages {
-    return Intl.message(
-      'languages',
-      name: 'languages',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('languages', name: 'languages', desc: '', args: []);
   }
 
   /// `report a bug`
   String get reportABug {
-    return Intl.message(
-      'report a bug',
-      name: 'reportABug',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('report a bug', name: 'reportABug', desc: '', args: []);
   }
 
   /// `share feedback`
@@ -272,112 +227,57 @@ class S {
 
   /// `others`
   String get others {
-    return Intl.message(
-      'others',
-      name: 'others',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('others', name: 'others', desc: '', args: []);
   }
 
   /// `english`
   String get english {
-    return Intl.message(
-      'english',
-      name: 'english',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('english', name: 'english', desc: '', args: []);
   }
 
   /// `russian`
   String get russian {
-    return Intl.message(
-      'russian',
-      name: 'russian',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('russian', name: 'russian', desc: '', args: []);
   }
 
   /// `uno`
   String get uno {
-    return Intl.message(
-      'uno',
-      name: 'uno',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('uno', name: 'uno', desc: '', args: []);
   }
 
   /// `scrabble`
   String get scrabble {
-    return Intl.message(
-      'scrabble',
-      name: 'scrabble',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('scrabble', name: 'scrabble', desc: '', args: []);
   }
 
   /// `uno flip`
   String get unoFlip {
-    return Intl.message(
-      'uno flip',
-      name: 'unoFlip',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('uno flip', name: 'unoFlip', desc: '', args: []);
   }
 
   /// `dos`
   String get dos {
-    return Intl.message(
-      'dos',
-      name: 'dos',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('dos', name: 'dos', desc: '', args: []);
   }
 
   /// `set`
   String get set {
-    return Intl.message(
-      'set',
-      name: 'set',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('set', name: 'set', desc: '', args: []);
   }
 
   /// `munchkin`
   String get munchkin {
-    return Intl.message(
-      'munchkin',
-      name: 'munchkin',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('munchkin', name: 'munchkin', desc: '', args: []);
   }
 
   /// `counter`
   String get common {
-    return Intl.message(
-      'counter',
-      name: 'common',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('counter', name: 'common', desc: '', args: []);
   }
 
   /// `game goal:`
   String get gameGoal {
-    return Intl.message(
-      'game goal:',
-      name: 'gameGoal',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('game goal:', name: 'gameGoal', desc: '', args: []);
   }
 
   /// `preparation:`
@@ -662,12 +562,7 @@ class S {
 
   /// `victory:`
   String get victoryTitle {
-    return Intl.message(
-      'victory:',
-      name: 'victoryTitle',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('victory:', name: 'victoryTitle', desc: '', args: []);
   }
 
   /// `the first player to reach level 10 wins!`
@@ -1912,12 +1807,7 @@ class S {
 
   /// `bonuses:`
   String get dosBonus {
-    return Intl.message(
-      'bonuses:',
-      name: 'dosBonus',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('bonuses:', name: 'dosBonus', desc: '', args: []);
   }
 
   /// `double color match: all other players draw 1 card.`
@@ -1982,12 +1872,7 @@ class S {
 
   /// `scoring:`
   String get dosScoring {
-    return Intl.message(
-      'scoring:',
-      name: 'dosScoring',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('scoring:', name: 'dosScoring', desc: '', args: []);
   }
 
   /// `'wild dos': 20 points.`
@@ -2042,112 +1927,57 @@ class S {
 
   /// `theme`
   String get theme {
-    return Intl.message(
-      'theme',
-      name: 'theme',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('theme', name: 'theme', desc: '', args: []);
   }
 
   /// `light`
   String get light {
-    return Intl.message(
-      'light',
-      name: 'light',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('light', name: 'light', desc: '', args: []);
   }
 
   /// `dark`
   String get dark {
-    return Intl.message(
-      'dark',
-      name: 'dark',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('dark', name: 'dark', desc: '', args: []);
   }
 
   /// `results`
   String get results {
-    return Intl.message(
-      'results',
-      name: 'results',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('results', name: 'results', desc: '', args: []);
   }
 
   /// `close`
   String get close {
-    return Intl.message(
-      'close',
-      name: 'close',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('close', name: 'close', desc: '', args: []);
   }
 
   /// `players`
   String get players {
-    return Intl.message(
-      'players',
-      name: 'players',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('players', name: 'players', desc: '', args: []);
   }
 
   /// `total`
   String get total {
-    return Intl.message(
-      'total',
-      name: 'total',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('total', name: 'total', desc: '', args: []);
   }
 
   /// `name`
   String get name {
-    return Intl.message(
-      'name',
-      name: 'name',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('name', name: 'name', desc: '', args: []);
   }
 
   /// `round`
   String get round {
-    return Intl.message(
-      'round',
-      name: 'round',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('round', name: 'round', desc: '', args: []);
   }
 
   /// `gear`
   String get gear {
-    return Intl.message(
-      'gear',
-      name: 'gear',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('gear', name: 'gear', desc: '', args: []);
   }
 
   /// `level`
   String get level {
-    return Intl.message(
-      'level',
-      name: 'level',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('level', name: 'level', desc: '', args: []);
   }
 
   /// `total strength: `
@@ -2162,242 +1992,122 @@ class S {
 
   /// `modifiers`
   String get modifiers {
-    return Intl.message(
-      'modifiers',
-      name: 'modifiers',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('modifiers', name: 'modifiers', desc: '', args: []);
   }
 
   /// `add player`
   String get addPlayer {
-    return Intl.message(
-      'add player',
-      name: 'addPlayer',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('add player', name: 'addPlayer', desc: '', args: []);
   }
 
   /// `race 1`
   String get race1 {
-    return Intl.message(
-      'race 1',
-      name: 'race1',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('race 1', name: 'race1', desc: '', args: []);
   }
 
   /// `dwarf`
   String get dwarf {
-    return Intl.message(
-      'dwarf',
-      name: 'dwarf',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('dwarf', name: 'dwarf', desc: '', args: []);
   }
 
   /// `elf`
   String get elf {
-    return Intl.message(
-      'elf',
-      name: 'elf',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('elf', name: 'elf', desc: '', args: []);
   }
 
   /// `halfling`
   String get halfling {
-    return Intl.message(
-      'halfling',
-      name: 'halfling',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('halfling', name: 'halfling', desc: '', args: []);
   }
 
   /// `half breed`
   String get halfBreed {
-    return Intl.message(
-      'half breed',
-      name: 'halfBreed',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('half breed', name: 'halfBreed', desc: '', args: []);
   }
 
   /// `human`
   String get human {
-    return Intl.message(
-      'human',
-      name: 'human',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('human', name: 'human', desc: '', args: []);
   }
 
   /// `2nd race`
   String get secondRace {
-    return Intl.message(
-      '2nd race',
-      name: 'secondRace',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('2nd race', name: 'secondRace', desc: '', args: []);
   }
 
   /// `class 1`
   String get class1 {
-    return Intl.message(
-      'class 1',
-      name: 'class1',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('class 1', name: 'class1', desc: '', args: []);
   }
 
   /// `cleric`
   String get cleric {
-    return Intl.message(
-      'cleric',
-      name: 'cleric',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('cleric', name: 'cleric', desc: '', args: []);
   }
 
   /// `thief`
   String get thief {
-    return Intl.message(
-      'thief',
-      name: 'thief',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('thief', name: 'thief', desc: '', args: []);
   }
 
   /// `warrior`
   String get warrior {
-    return Intl.message(
-      'warrior',
-      name: 'warrior',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('warrior', name: 'warrior', desc: '', args: []);
   }
 
   /// `wizard`
   String get wizard {
-    return Intl.message(
-      'wizard',
-      name: 'wizard',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('wizard', name: 'wizard', desc: '', args: []);
   }
 
   /// `super munch.`
   String get superMunch {
-    return Intl.message(
-      'super munch.',
-      name: 'superMunch',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('super munch.', name: 'superMunch', desc: '', args: []);
   }
 
   /// `no class`
   String get noClass {
-    return Intl.message(
-      'no class',
-      name: 'noClass',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('no class', name: 'noClass', desc: '', args: []);
   }
 
   /// `class 2`
   String get class2 {
-    return Intl.message(
-      'class 2',
-      name: 'class2',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('class 2', name: 'class2', desc: '', args: []);
   }
 
   /// `left hand`
   String get leftHand {
-    return Intl.message(
-      'left hand',
-      name: 'leftHand',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('left hand', name: 'leftHand', desc: '', args: []);
   }
 
   /// `no item`
   String get noItem {
-    return Intl.message(
-      'no item',
-      name: 'noItem',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('no item', name: 'noItem', desc: '', args: []);
   }
 
   /// `sword`
   String get sword {
-    return Intl.message(
-      'sword',
-      name: 'sword',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('sword', name: 'sword', desc: '', args: []);
   }
 
   /// `big sword`
   String get bigSword {
-    return Intl.message(
-      'big sword',
-      name: 'bigSword',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('big sword', name: 'bigSword', desc: '', args: []);
   }
 
   /// `two handed`
   String get twoHanded {
-    return Intl.message(
-      'two handed',
-      name: 'twoHanded',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('two handed', name: 'twoHanded', desc: '', args: []);
   }
 
   /// `right hand`
   String get rightHand {
-    return Intl.message(
-      'right hand',
-      name: 'rightHand',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('right hand', name: 'rightHand', desc: '', args: []);
   }
 
   /// `first bonus`
   String get firstBonus {
-    return Intl.message(
-      'first bonus',
-      name: 'firstBonus',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('first bonus', name: 'firstBonus', desc: '', args: []);
   }
 
   /// `second bonus`
@@ -2412,132 +2122,67 @@ class S {
 
   /// `head gear`
   String get headGear {
-    return Intl.message(
-      'head gear',
-      name: 'headGear',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('head gear', name: 'headGear', desc: '', args: []);
   }
 
   /// `armour`
   String get armour {
-    return Intl.message(
-      'armour',
-      name: 'armour',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('armour', name: 'armour', desc: '', args: []);
   }
 
   /// `boots`
   String get boots {
-    return Intl.message(
-      'boots',
-      name: 'boots',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('boots', name: 'boots', desc: '', args: []);
   }
 
   /// `magic`
   String get magic {
-    return Intl.message(
-      'magic',
-      name: 'magic',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('magic', name: 'magic', desc: '', args: []);
   }
 
   /// `big magic`
   String get bigMagic {
-    return Intl.message(
-      'big magic',
-      name: 'bigMagic',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('big magic', name: 'bigMagic', desc: '', args: []);
   }
 
   /// `helmet`
   String get helmet {
-    return Intl.message(
-      'helmet',
-      name: 'helmet',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('helmet', name: 'helmet', desc: '', args: []);
   }
 
   /// `big helmet`
   String get bigHelmet {
-    return Intl.message(
-      'big helmet',
-      name: 'bigHelmet',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('big helmet', name: 'bigHelmet', desc: '', args: []);
   }
 
   /// `big armour`
   String get bigArmour {
-    return Intl.message(
-      'big armour',
-      name: 'bigArmour',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('big armour', name: 'bigArmour', desc: '', args: []);
   }
 
   /// `big boots`
   String get bigBoots {
-    return Intl.message(
-      'big boots',
-      name: 'bigBoots',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('big boots', name: 'bigBoots', desc: '', args: []);
   }
 
   /// `enter a word`
   String get enterAWord {
-    return Intl.message(
-      'enter a word',
-      name: 'enterAWord',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('enter a word', name: 'enterAWord', desc: '', args: []);
   }
 
   /// `blank\ntile`
   String get blankTile {
-    return Intl.message(
-      'blank\ntile',
-      name: 'blankTile',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('blank\ntile', name: 'blankTile', desc: '', args: []);
   }
 
   /// `\nword`
   String get nWord {
-    return Intl.message(
-      '\nword',
-      name: 'nWord',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('\nword', name: 'nWord', desc: '', args: []);
   }
 
   /// `finish`
   String get finish {
-    return Intl.message(
-      'finish',
-      name: 'finish',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('finish', name: 'finish', desc: '', args: []);
   }
 
   /// `each card has a number, determining its value.`
@@ -2552,12 +2197,7 @@ class S {
 
   /// `points`
   String get points {
-    return Intl.message(
-      'points',
-      name: 'points',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('points', name: 'points', desc: '', args: []);
   }
 
   /// `wild draw two card`
@@ -2922,22 +2562,12 @@ class S {
 
   /// `cursed`
   String get cursed {
-    return Intl.message(
-      'cursed',
-      name: 'cursed',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('cursed', name: 'cursed', desc: '', args: []);
   }
 
   /// `clearance`
   String get clearance {
-    return Intl.message(
-      'clearance',
-      name: 'clearance',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('clearance', name: 'clearance', desc: '', args: []);
   }
 
   /// `indicates an active curse`
@@ -2985,6 +2615,16 @@ class S {
     return Intl.message(
       'appreciation',
       name: 'appreciation',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `to board buddy\'s contributors`
+  String get toBoardBuddysContributors {
+    return Intl.message(
+      'to board buddy\\\'s contributors',
+      name: 'toBoardBuddysContributors',
       desc: '',
       args: [],
     );

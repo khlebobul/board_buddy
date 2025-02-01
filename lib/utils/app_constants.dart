@@ -1,3 +1,8 @@
+// add your github username here (without @, example: khlebobul)
+class ContributorsConst {
+  static const List<String> contributors = ['khlebobul'];
+}
+
 class AppLnksConst {
   static const link = 'https://khlebobul.github.io';
   static const myWebSitelink = 'https://khlebobul.github.io';
@@ -20,6 +25,8 @@ class GeneralConst {
   static const lucideIcons = 'lucide icons';
   static const double paddingHorizontal = 12.0;
   static const double paddingVertical = 12.0;
+  static const alias = '@';
+  static const slash = ' / ';
 }
 
 class SplashScreenConst {

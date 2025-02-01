@@ -4,6 +4,7 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:board_buddy/utils/app_constants.dart';
 import 'package:board_buddy/widgets/app_widgets/add_new_game.dart';
+import 'package:board_buddy/widgets/app_widgets/contributors_widget.dart';
 import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:board_buddy/widgets/app_widgets/link_btn.dart';
 import 'package:flutter/material.dart';
@@ -107,12 +108,15 @@ class AboutScreen extends StatelessWidget {
                   url: AppLnksConst.lucideIconsLink,
                 ),
                 const SizedBox(height: 15),
-                // TODO: add contributors
-                // Text(
-                //   'to board buddy\'s contributors',
-                //   style:
-                //       theme.display2.copyWith(color: theme.secondaryTextColor),
-                // ),
+                Text(
+                  S.of(context).toBoardBuddysContributors,
+                  style:
+                      theme.display2.copyWith(color: theme.secondaryTextColor),
+                ),
+                const ContributorsWidget(
+                  contributors: ContributorsConst.contributors,
+                ),
+                const SizedBox(height: 50),
               ],
             ),
           ),
