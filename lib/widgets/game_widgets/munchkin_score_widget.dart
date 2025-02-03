@@ -2,13 +2,27 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
+/// widget that represents a score widget for a Munchkin player.
 class MunchkinScoreWidget extends StatelessWidget {
+  /// The name of the player.
   final String playerName;
+
+  /// The total score of the player.
   final int totalScore;
+
+  /// The gear score of the player.
   final int gearScore;
+
+  /// The level of the player.
   final int level;
+
+  /// Callback function to increase the score.
   final void Function(int index) onIncrease;
+
+  /// Callback function to decrease the score.
   final void Function(int index) onDecrease;
+
+  /// Flag to determine if the widget is for a single player.
   final bool isSinglePlayer;
 
   const MunchkinScoreWidget({
@@ -80,10 +94,18 @@ class MunchkinScoreWidget extends StatelessWidget {
   }
 }
 
+/// widget that represents a row for a score component.
 class ScoreRowWidget extends StatelessWidget {
+  /// The title of the score component.
   final String title;
+
+  /// The score value.
   final int score;
+
+  /// Callback function to increase the score.
   final void Function() onIncrease;
+
+  /// Callback function to decrease the score.
   final void Function() onDecrease;
 
   const ScoreRowWidget({

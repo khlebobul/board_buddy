@@ -5,6 +5,8 @@ import 'package:board_buddy/widgets/game_widgets/custom_results_table_widget.dar
 import 'package:board_buddy/widgets/info_dialog_widgets/info_dos_dialog_widget.dart';
 import 'package:flutter/material.dart';
 
+
+/// dos game screen
 class DosGame extends StatelessWidget {
   const DosGame({super.key});
 

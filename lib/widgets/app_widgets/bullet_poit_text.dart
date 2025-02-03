@@ -2,8 +2,12 @@ import 'package:board_buddy/theme/app_theme.dart';
 import 'package:board_buddy/utils/app_constants.dart';
 import 'package:flutter/material.dart';
 
+/// widget that displays text with a bullet point.
 class BulletPointText extends StatelessWidget {
+  /// The main content text to display.
   final String contentText;
+
+  /// The symbol used as a bullet point.
   final String pointSimbol;
 
   const BulletPointText({

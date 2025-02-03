@@ -3,6 +3,7 @@ import 'package:board_buddy/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
+/// widget that represents a bottom sheet for Munchkin modifiers.
 class MunchkinModifiersBottomSheet extends StatelessWidget {
   const MunchkinModifiersBottomSheet({super.key});
 
@@ -57,8 +58,12 @@ class MunchkinModifiersBottomSheet extends StatelessWidget {
   }
 }
 
+/// widget that represents a group of modifiers.
 class ModifierGroup extends StatefulWidget {
+  /// Title of the modifier group.
   final String title;
+
+  /// List of options for the modifier group.
   final List<String> options;
 
   const ModifierGroup({

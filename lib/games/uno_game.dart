@@ -7,6 +7,7 @@ import 'package:board_buddy/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/widgets/info_dialog_widgets/info_uno_dialog_widget.dart';
 import 'package:flutter/material.dart';
 
+/// uno game screen
 class UnoGame extends StatelessWidget {
   const UnoGame({super.key});
 

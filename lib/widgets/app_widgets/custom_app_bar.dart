@@ -2,11 +2,21 @@ import 'package:board_buddy/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
+/// widget that represents a customizable app bar.
 class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
+  /// Text for the left button.
   final String leftButtonText;
+
+  /// Callback for left button press.
   final VoidCallback onLeftButtonPressed;
+
+  /// Text for the right button.
   final String rightButtonText;
+
+  /// Callback for right button press.
   final VoidCallback onRightButtonPressed;
+
+  /// Flag to determine if the right button is for rules.
   final bool isRules;
 
   const CustomAppBar({

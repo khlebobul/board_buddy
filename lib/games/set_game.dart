@@ -5,6 +5,7 @@ import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:board_buddy/widgets/game_widgets/players_score_widget.dart';
 import 'package:flutter/material.dart';
 
+/// set game screen
 class SetGame extends StatelessWidget {
   const SetGame({super.key});
 

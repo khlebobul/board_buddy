@@ -7,14 +7,30 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:use_scramble/use_scramble.dart';
 
+/// widget that represents a customizable bottom game bar.
 class BottomGameBar extends StatelessWidget {
+  /// Text for the left button.
   final String leftButtonText;
+
+  /// Text for the right button.
   final String rightButtonText;
+
+  /// Callback for left button tap.
   final VoidCallback? onLeftBtnTap;
+
+  /// Callback for right button tap.
   final VoidCallback? onRightBtnTap;
+
+  /// Flag to determine if arrows should be displayed.
   final bool isArrow;
+
+  /// Callback for left arrow tap.
   final VoidCallback? onLeftArrowTap;
+
+  /// Callback for right arrow tap.
   final VoidCallback? onRightArrowTap;
+
+  /// Widget to display in the dialog.
   final Widget? dialogWidget;
 
   const BottomGameBar({

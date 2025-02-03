@@ -10,6 +10,7 @@ import 'package:board_buddy/widgets/info_dialog_widgets/info_munchkin_dialog_wid
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
+/// munchkin game screen
 class MunchkinGame extends StatelessWidget {
   const MunchkinGame({super.key});
 

@@ -8,7 +8,9 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:use_scramble/use_scramble.dart';
 
+/// widget that represents a bottom sheet for adding players.
 class AddPlayersBottomSheet extends StatelessWidget {
+  /// Maximum number of players allowed.
   final int maxPlayers;
   const AddPlayersBottomSheet({
     this.maxPlayers = 4,

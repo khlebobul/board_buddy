@@ -4,7 +4,9 @@ import 'package:board_buddy/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 
+/// widget that represents a dice modal dialog.
 class DiceModal extends StatelessWidget {
+  /// The number on the dice to display.
   final int diceNumber;
 
   const DiceModal({required this.diceNumber, super.key});

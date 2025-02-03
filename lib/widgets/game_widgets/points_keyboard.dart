@@ -2,9 +2,15 @@ import 'package:board_buddy/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+/// widget that represents a custom keyboard.
 class CustomKeyboard extends StatelessWidget {
+  /// A list of button rows, each containing a list of [KeyboardButton]s.
   final List<List<KeyboardButton>> buttons;
+
+  /// Text to display on the button.
   final String buttonText;
+
+  /// Path to the icon to display on the button.
   final String buttonIconPath;
 
   const CustomKeyboard({
@@ -71,11 +77,21 @@ class CustomKeyboard extends StatelessWidget {
   }
 }
 
+/// class representing a button on the custom keyboard.
 class KeyboardButton {
+  /// Path to the icon to display on the button.
   final String buttonIcon;
+
+  /// Text to display on the button.
   final String buttonText;
+
+  /// Callback function to execute when the button is pressed.
   final VoidCallback? onPressed;
+
+  /// Background color of the button.
   final Color? backgroundColor;
+
+  /// Size of the icon on the button.
   final double iconSize;
 
   KeyboardButton({

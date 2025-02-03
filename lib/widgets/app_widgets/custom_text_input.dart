@@ -1,7 +1,9 @@
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
+/// widget that represents a custom text input field.
 class CustomTextInput extends StatefulWidget {
+  /// Hint text to display when the input is empty.
   final String hintText;
 
   const CustomTextInput({

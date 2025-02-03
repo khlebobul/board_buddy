@@ -9,6 +9,7 @@ import 'package:board_buddy/widgets/game_widgets/timer.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 
+/// common game screen (calculator)
 class CommonGame extends StatefulWidget {
   const CommonGame({super.key});
 

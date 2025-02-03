@@ -5,6 +5,7 @@ import 'package:board_buddy/widgets/game_widgets/scrabble_word_input_widget.dart
 import 'package:board_buddy/widgets/info_dialog_widgets/info_scrabble_dialog_widget.dart';
 import 'package:flutter/material.dart';
 
+/// scrabble game screen
 class ScrabbleGame extends StatelessWidget {
   const ScrabbleGame({super.key});
 

@@ -3,9 +3,15 @@ import 'package:board_buddy/theme/app_theme.dart';
 import 'package:board_buddy/utils/useful_methods.dart';
 import 'package:flutter/material.dart';
 
+/// widget that represents a score widget for multiple players.
 class PlayersScoreWidget extends StatelessWidget {
+  /// List of players whose scores are displayed.
   final List<Player> players;
+
+  /// Callback function to increase the score of a player.
   final void Function(int index) onIncrease;
+
+  /// Callback function to decrease the score of a player.
   final void Function(int index) onDecrease;
 
   const PlayersScoreWidget({

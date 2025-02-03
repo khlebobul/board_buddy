@@ -7,6 +7,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_popup/flutter_popup.dart';
 
+/// widget that represents a Scrabble word input interface.
 class ScrabbleWordInputWidget extends StatefulWidget {
   const ScrabbleWordInputWidget({super.key});
 

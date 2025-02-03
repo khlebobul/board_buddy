@@ -1,8 +1,12 @@
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
+/// widget that represents a player indicator with a letter.
 class PlayerIndicator extends StatelessWidget {
+  /// The letter to display as the player indicator.
   final String letter;
+
+  /// Flag to determine if the indicator is active.
   final bool isActive;
 
   const PlayerIndicator({

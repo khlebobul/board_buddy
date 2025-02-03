@@ -4,7 +4,9 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:use_scramble/use_scramble.dart';
 
+/// widget that displays a list of contributors with links to their GitHub profiles.
 class ContributorsWidget extends StatelessWidget {
+  /// List of contributor usernames.
   final List<String> contributors;
 
   const ContributorsWidget({

@@ -2,7 +2,9 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
+/// widget that represents a results table for players.
 class ResultsTableWidget extends StatelessWidget {
+  /// List of player data, including names and scores.
   final List<Map<String, dynamic>> playersData;
   const ResultsTableWidget({
     this.playersData = const [],

@@ -3,9 +3,12 @@ import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:use_scramble/use_scramble.dart';
 
-
+/// widget that represents a clickable link button.
 class LinkBtnWidget extends StatelessWidget {
+  /// The text to display on the button.
   final String text;
+
+  /// The URL to open when the button is clicked.
   final String url;
 
   const LinkBtnWidget({

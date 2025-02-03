@@ -2,7 +2,9 @@ import 'package:board_buddy/models/player_model.dart';
 import 'package:board_buddy/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
+/// widget that represents a card displaying player information.
 class PlayerCard extends StatelessWidget {
+  /// The player whose information is displayed on the card.
   final Player player;
   const PlayerCard({
     required this.player,

@@ -5,7 +5,7 @@ import 'package:board_buddy/utils/useful_methods.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
-
+/// widget that allows users to request their favorite game
 class AddFavouriteGame extends StatelessWidget {
   const AddFavouriteGame({
     super.key,

@@ -22,8 +22,8 @@ class DosRulesScreen extends StatelessWidget {
         child: SingleChildScrollView(
           child: Padding(
             padding: const EdgeInsets.symmetric(
-                  horizontal: GeneralConst.paddingHorizontal) +
-              const EdgeInsets.only(top: GeneralConst.paddingVertical),
+                    horizontal: GeneralConst.paddingHorizontal) +
+                const EdgeInsets.only(top: GeneralConst.paddingVertical),
             child: Column(
               mainAxisAlignment: MainAxisAlignment.start,
               crossAxisAlignment: CrossAxisAlignment.start,

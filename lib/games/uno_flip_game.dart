@@ -4,6 +4,7 @@ import 'package:board_buddy/widgets/app_widgets/custom_app_bar.dart';
 import 'package:board_buddy/widgets/info_dialog_widgets/info_uno_flip_dialog_widget.dart';
 import 'package:flutter/material.dart';
 
+/// uno flip game screen
 class UnoFlipGame extends StatelessWidget {
   const UnoFlipGame({super.key});
 
