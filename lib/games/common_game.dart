@@ -59,7 +59,6 @@ class CommonGameState extends State<CommonGame> {
         ),
       ),
       bottomNavigationBar: BottomGameBar(
-        leftButtonText: S.of(context).rules,
         isArrow: true,
         rightButtonText: S.of(context).finish,
       ),

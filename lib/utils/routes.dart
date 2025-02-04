@@ -16,6 +16,7 @@ import 'package:board_buddy/screens/rules/uno_rules.dart';
 import 'package:board_buddy/screens/rules_screen.dart';
 import 'package:board_buddy/screens/settings/settings_screen.dart';
 import 'package:board_buddy/screens/splash_screen.dart';
+import 'package:board_buddy/screens/start_game_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
@@ -25,6 +26,7 @@ class AppRoutes {
   static const String rules = '/rules';
   static const String settings = '/settings';
   static const String splash = '/';
+  static const String startGame = '/startGame';
 
   // rules
   static const String unoRules = '/unoRules';
@@ -48,6 +50,7 @@ class AppRoutes {
         games: (context) => const GamesScreen(),
         rules: (context) => const RulesScreen(),
         settings: (context) => const SettingsScreen(),
+        startGame: (context) => const StartGameScreen(),
 
         // rules
         unoRules: (context) => const UnoRulesScreen(),

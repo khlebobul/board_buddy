@@ -293,5 +293,13 @@
   "buffsOrDebuffsAffectingCharactersitemsInfo": "buffs or debuffs affecting characters/items",
   "toAllWhoCreatedThe": "to all who created the",
   "appreciation": "appreciation",
-  "toBoardBuddysContributors": "to board buddy\\'s contributors"
+  "toBoardBuddysContributors": "to board buddy\\'s contributors",
+  "play": "play",
+  "mode": "mode",
+  "edit": "edit",
+  "lowestScoreWins": "lowest score wins",
+  "highestScoreWins": "highest score wins",
+  "multiplayer": "multiplayer",
+  "singleplayer": "singleplayer",
+  "score": "score"
 }

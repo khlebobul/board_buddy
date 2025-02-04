@@ -64,7 +64,6 @@ class UnoGame extends StatelessWidget {
       ),
       bottomNavigationBar: BottomGameBar(
         dialogWidget: const InfoUnoDialog(),
-        leftButtonText: S.of(context).rules,
         isArrow: true,
         rightButtonText: S.of(context).finish,
       ),

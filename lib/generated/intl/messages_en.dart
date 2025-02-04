@@ -159,6 +159,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "each card has a number from 0 to 9, which determines its value.",
         ),
+    "edit": MessageLookupByLibrary.simpleMessage("edit"),
     "elf": MessageLookupByLibrary.simpleMessage("elf"),
     "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
     "endGameTitle": MessageLookupByLibrary.simpleMessage("end of game:"),
@@ -189,6 +190,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "heyMyNameIsGleb": MessageLookupByLibrary.simpleMessage(
       "hey! my name is gleb",
     ),
+    "highestScoreWins": MessageLookupByLibrary.simpleMessage(
+      "highest score wins",
+    ),
     "human": MessageLookupByLibrary.simpleMessage("human"),
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "indicates an active curse",
@@ -201,11 +205,16 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "level": MessageLookupByLibrary.simpleMessage("level"),
     "light": MessageLookupByLibrary.simpleMessage("light"),
+    "lowestScoreWins": MessageLookupByLibrary.simpleMessage(
+      "lowest score wins",
+    ),
     "magic": MessageLookupByLibrary.simpleMessage("magic"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "marks a dead character",
     ),
+    "mode": MessageLookupByLibrary.simpleMessage("mode"),
     "modifiers": MessageLookupByLibrary.simpleMessage("modifiers"),
+    "multiplayer": MessageLookupByLibrary.simpleMessage("multiplayer"),
     "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
     "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
       "compare your character\'s level (including bonuses) with the monster\'s level.",
@@ -307,6 +316,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noItem": MessageLookupByLibrary.simpleMessage("no item"),
     "numberCards": MessageLookupByLibrary.simpleMessage("number cards"),
     "others": MessageLookupByLibrary.simpleMessage("others"),
+    "play": MessageLookupByLibrary.simpleMessage("play"),
     "players": MessageLookupByLibrary.simpleMessage("players"),
     "points": MessageLookupByLibrary.simpleMessage("points"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
@@ -323,6 +333,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "round": MessageLookupByLibrary.simpleMessage("round"),
     "rules": MessageLookupByLibrary.simpleMessage("rules"),
     "russian": MessageLookupByLibrary.simpleMessage("russian"),
+    "score": MessageLookupByLibrary.simpleMessage("score"),
     "scrabble": MessageLookupByLibrary.simpleMessage("scrabble"),
     "scrabbleAdditionalDisputedWords": MessageLookupByLibrary.simpleMessage(
       "challenged words are checked in an agreed-upon dictionary.",
@@ -494,6 +505,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "since this is an open-source project, feel free to contribute to it",
         ),
+    "singleplayer": MessageLookupByLibrary.simpleMessage("singleplayer"),
     "skipCardUnoInfo": MessageLookupByLibrary.simpleMessage("skip card"),
     "skipEveryoneCardUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
       "skip everyone card",

@@ -33,6 +33,9 @@ class BottomGameBar extends StatelessWidget {
   /// Widget to display in the dialog.
   final Widget? dialogWidget;
 
+  /// Flag to determine if the right button should be red.
+  final bool isRightBtnRed;
+
   const BottomGameBar({
     super.key,
     this.leftButtonText = '',
@@ -43,6 +46,7 @@ class BottomGameBar extends StatelessWidget {
     this.onLeftArrowTap,
     this.onRightArrowTap,
     this.dialogWidget,
+    this.isRightBtnRed = false,
   });
 
   @override
@@ -54,7 +58,36 @@ class BottomGameBar extends StatelessWidget {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          if (isArrow)
+          if (rightButtonText.isNotEmpty) ...[
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Positioned(
+                  left: 0,
+                  child: GestureDetector(
+                    onTap: onLeftBtnTap,
+                    child: TextScramble(
+                      text: leftButtonText,
+                      style: theme.display2.copyWith(color: theme.textColor),
+                    ),
+                  ),
+                ),
+                Positioned(
+                  right: 0,
+                  child: GestureDetector(
+                    onTap: onRightBtnTap,
+                    child: TextScramble(
+                      text: rightButtonText,
+                      style: theme.display2.copyWith(
+                          color:
+                              isRightBtnRed ? theme.redColor : theme.textColor),
+                    ),
+                  ),
+                ),
+              ],
+            ),
+          ],
+          if (isArrow) ...[
             Row(
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
@@ -95,16 +128,7 @@ class BottomGameBar extends StatelessWidget {
                 ),
               ],
             ),
-          Positioned(
-            right: 0,
-            child: GestureDetector(
-              onTap: onRightBtnTap,
-              child: TextScramble(
-                text: rightButtonText,
-                style: theme.display2.copyWith(color: theme.textColor),
-              ),
-            ),
-          ),
+          ],
         ],
       ),
     );

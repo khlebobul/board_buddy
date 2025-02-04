@@ -25,7 +25,8 @@ class _HomeScreenState extends State<HomeScreen> {
       {'title': S.of(context).games, 'route': '/games'},
       {'title': S.of(context).rules, 'route': '/rules'},
       {'title': S.of(context).about, 'route': '/about'},
-      {'title': S.of(context).settings, 'route': '/settings'},
+      // {'title': S.of(context).settings, 'route': '/settings'},
+      {'title': S.of(context).settings, 'route': '/startGame'},
     ];
 
     return Scaffold(

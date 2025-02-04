@@ -17,11 +17,11 @@ class UnoFlipGame extends StatelessWidget {
         onLeftButtonPressed: () => Navigator.pop(context),
         isRules: true,
         rightButtonText: S.of(context).rules,
-        onRightButtonPressed: () => Navigator.pushNamed(context, '/unoFlipRules'),
+        onRightButtonPressed: () =>
+            Navigator.pushNamed(context, '/unoFlipRules'),
       ),
       bottomNavigationBar: BottomGameBar(
         dialogWidget: const InfoUnoFlipDialog(),
-        leftButtonText: S.of(context).rules,
         isArrow: true,
         rightButtonText: S.of(context).finish,
       ),

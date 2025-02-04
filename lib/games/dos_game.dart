@@ -67,7 +67,6 @@ class DosGame extends StatelessWidget {
       ),
       bottomNavigationBar: BottomGameBar(
         dialogWidget: const InfoDosDialog(),
-        leftButtonText: S.of(context).rules,
         isArrow: true,
         rightButtonText: S.of(context).finish,
       ),

@@ -38,7 +38,6 @@ class SetGame extends StatelessWidget {
         ],
       ),
       bottomNavigationBar: BottomGameBar(
-        leftButtonText: S.of(context).rules,
         isArrow: true,
         rightButtonText: S.of(context).finish,
       ),

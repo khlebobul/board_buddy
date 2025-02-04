@@ -78,7 +78,6 @@ class MunchkinGame extends StatelessWidget {
       ),
       bottomNavigationBar: BottomGameBar(
         dialogWidget: const InfoMunchkinDialogWidget(),
-        leftButtonText: S.of(context).rules,
         isArrow: true,
         rightButtonText: S.of(context).finish,
       ),

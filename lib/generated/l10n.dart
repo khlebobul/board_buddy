@@ -2629,6 +2629,61 @@ class S {
       args: [],
     );
   }
+
+  /// `play`
+  String get play {
+    return Intl.message('play', name: 'play', desc: '', args: []);
+  }
+
+  /// `mode`
+  String get mode {
+    return Intl.message('mode', name: 'mode', desc: '', args: []);
+  }
+
+  /// `edit`
+  String get edit {
+    return Intl.message('edit', name: 'edit', desc: '', args: []);
+  }
+
+  /// `lowest score wins`
+  String get lowestScoreWins {
+    return Intl.message(
+      'lowest score wins',
+      name: 'lowestScoreWins',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `highest score wins`
+  String get highestScoreWins {
+    return Intl.message(
+      'highest score wins',
+      name: 'highestScoreWins',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `multiplayer`
+  String get multiplayer {
+    return Intl.message('multiplayer', name: 'multiplayer', desc: '', args: []);
+  }
+
+  /// `singleplayer`
+  String get singleplayer {
+    return Intl.message(
+      'singleplayer',
+      name: 'singleplayer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `score`
+  String get score {
+    return Intl.message('score', name: 'score', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

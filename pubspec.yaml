@@ -17,7 +17,7 @@ dependencies:
   gen_art_bg: ^0.3.10
   use_scramble: ^0.0.6
   shared_preferences: ^2.5.1
-  intl: ^0.20.2
+  intl: ^0.19.0
   url_launcher: ^6.3.1
   url_launcher_ios: ^6.3.2
   flutter_svg: ^2.0.17

@@ -163,6 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "каждая карта имеет число от 0 до 9, которое определяет её значение.",
         ),
+    "edit": MessageLookupByLibrary.simpleMessage("edit"),
     "elf": MessageLookupByLibrary.simpleMessage("эльф"),
     "emailCopied": MessageLookupByLibrary.simpleMessage(
       "электронная почта скопирована",
@@ -197,6 +198,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "heyMyNameIsGleb": MessageLookupByLibrary.simpleMessage(
       "привет! меня зовут глеб",
     ),
+    "highestScoreWins": MessageLookupByLibrary.simpleMessage(
+      "highest score wins",
+    ),
     "human": MessageLookupByLibrary.simpleMessage("человек"),
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "указывает на наложенное проклятие",
@@ -209,11 +213,16 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "level": MessageLookupByLibrary.simpleMessage("уровень"),
     "light": MessageLookupByLibrary.simpleMessage("светлая"),
+    "lowestScoreWins": MessageLookupByLibrary.simpleMessage(
+      "lowest score wins",
+    ),
     "magic": MessageLookupByLibrary.simpleMessage("магия"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "отмечает мёртвого персонажа",
     ),
+    "mode": MessageLookupByLibrary.simpleMessage("mode"),
     "modifiers": MessageLookupByLibrary.simpleMessage("модификаторы"),
+    "multiplayer": MessageLookupByLibrary.simpleMessage("multiplayer"),
     "munchkin": MessageLookupByLibrary.simpleMessage("манчкин"),
     "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
       "сравните уровень вашего персонажа (с учетом бонусов) с уровнем монстра.",
@@ -315,6 +324,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noItem": MessageLookupByLibrary.simpleMessage("без предмета"),
     "numberCards": MessageLookupByLibrary.simpleMessage("номерные карты"),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
+    "play": MessageLookupByLibrary.simpleMessage("play"),
     "players": MessageLookupByLibrary.simpleMessage("игроки"),
     "points": MessageLookupByLibrary.simpleMessage("очков"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
@@ -333,6 +343,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "round": MessageLookupByLibrary.simpleMessage("раунд"),
     "rules": MessageLookupByLibrary.simpleMessage("правила"),
     "russian": MessageLookupByLibrary.simpleMessage("русский"),
+    "score": MessageLookupByLibrary.simpleMessage("score"),
     "scrabble": MessageLookupByLibrary.simpleMessage("скраббл"),
     "scrabbleAdditionalDisputedWords": MessageLookupByLibrary.simpleMessage(
       "спорные слова проверяются в согласованном словаре.",
@@ -510,6 +521,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "так как это проект с открытым исходным кодом, вы можете внести свой вклад",
         ),
+    "singleplayer": MessageLookupByLibrary.simpleMessage("singleplayer"),
     "skipCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "карта «пропусти ход»",
     ),

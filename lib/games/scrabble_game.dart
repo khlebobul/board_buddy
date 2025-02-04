@@ -25,7 +25,6 @@ class ScrabbleGame extends StatelessWidget {
       ),
       bottomNavigationBar: BottomGameBar(
         dialogWidget: const InfoscrabbleDialog(),
-        leftButtonText: S.of(context).rules,
         isArrow: true,
         rightButtonText: S.of(context).finish,
       ),
