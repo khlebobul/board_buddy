@@ -24,3 +24,23 @@ all:
 	@echo " - codegen: build_runner build & dart format"
 	@echo " - format: Formats the code."
 	@echo " - spider: Runs spider build, formats the code, runs golden tests."
+
+# for FVM
+clean:
+        fvm flutter clean
+
+get:
+        fvm flutter pub get
+
+prepare:
+        make clean
+        make get
+
+format:
+        fvm dart format -l 120 .
+
+build_runner:
+        fvm flutter pub run build_runner build --delete-conflicting-outputs
+
+run:
+        fvm flutter run
