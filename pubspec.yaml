@@ -21,16 +21,16 @@ dependencies:
   url_launcher: ^6.3.1
   url_launcher_ios: ^6.3.2
   flutter_svg: ^2.0.17
-  flutter_bloc: ^8.1.6
+  flutter_bloc: ^9.0.0
   flutter_popup: ^3.3.4
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
-  flutter_lints: ^4.0.0
-  flutter_launcher_icons: "^0.14.1"
+  flutter_lints: ^5.0.0
+  flutter_launcher_icons: ^0.14.1
   intl_translation: ^0.20.1
-  build_runner: ^2.4.13
+  build_runner: ^2.4.15
 
 flutter_launcher_icons:
   android: "launcher_icon"
@@ -43,12 +43,8 @@ flutter_launcher_icons:
 
 flutter:
 
-  # The following line ensures that the Material Icons font is
-  # included with your application, so that you can use the icons in
-  # the material Icons class.
   uses-material-design: true
 
-  # To add assets to your application, add an assets section, like this:
   assets:
     - assets/images/
     - assets/images/dice/
@@ -62,7 +58,6 @@ flutter:
     - family: RobotoMono
       fonts:
         - asset: assets/fonts/roboto_mono.ttf
-  # For details regarding fonts from package dependencies,
-  # see https://flutter.dev/to/font-from-package
+
 flutter_intl:
   enabled: true

@@ -57,6 +57,10 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 - [isar](https://pub.dev/packages/isar): a high-performance nosql database designed specifically for flutter.
 - [flutter_popup](https://pub.dev/packages/flutter_popup): a flutter tooltip with custom styling and positioning options.
 
+## conracts
+
+- todo
+
 ## license
 
 This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
