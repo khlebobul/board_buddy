@@ -20,7 +20,7 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 
 - please feel free to raise [issues]() for any suggestions for improvements, or bugs you encounter.
 - you're welcome to fork the repository and propose changes through a pull request
-- feel free to [email](mailto:khlebobul@gmail) or find my contact on [my website](https://khlebobul.github.io)
+- feel free to [email](mailto:khlebobul@gmail), [telegaram](https://t.me/khlebobul) or find my contact on [my website](https://khlebobul.github.io)
 
 - support 🤷‍♂️
 
@@ -29,10 +29,11 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 - [flutter](https://flutter.dev) + version
 - others
 
-### build steps
+### contributing
 
-- clone this project
-- others
+- check the [contributing guide](https://github.com/khlebobul/board_buddy/blob/main/CONTRIBUTING.md)
+- check the [code of conduct](https://github.com/khlebobul/board_buddy/blob/main/CODE_OF_CONDUCT.md)
+
 
 <!-- ## contributors -->
 <!-- ## star history -->
@@ -57,7 +58,7 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 - [isar](https://pub.dev/packages/isar): a high-performance nosql database designed specifically for flutter.
 - [flutter_popup](https://pub.dev/packages/flutter_popup): a flutter tooltip with custom styling and positioning options.
 
-## conracts
+## contacts
 
 - todo
 
