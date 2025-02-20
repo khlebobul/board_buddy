@@ -34,7 +34,6 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 - check the [contributing guide](https://github.com/khlebobul/board_buddy/blob/main/CONTRIBUTING.md)
 - check the [code of conduct](https://github.com/khlebobul/board_buddy/blob/main/CODE_OF_CONDUCT.md)
 
-
 <!-- ## contributors -->
 <!-- ## star history -->
 
