@@ -47,13 +47,13 @@ flutter pub get
 flutter run
 ```
 
-or use 'fvm' to run the project in a virtual machine:
+or use `fvm` to run the project in a virtual machine:
 ```sh
 fvm flutter pub get
 fvm flutter run
 ```
 
-you can use Makefile to run the project:
+you can use [Makefile](https://github.com/khlebobul/board_buddy/blob/main/Makefile) to run the project:
 ```sh
 make get
 make run

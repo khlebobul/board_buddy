@@ -1,9 +1,9 @@
 import 'package:board_buddy/generated/l10n.dart';
-import 'package:board_buddy/src/features/splash/view/splash_screen.dart';
-import 'package:board_buddy/src/shared/services/language_service.dart';
-import 'package:board_buddy/src/shared/services/theme_service.dart';
-import 'package:board_buddy/src/config/theme/app_theme.dart';
-import 'package:board_buddy/src/config/routes/routes.dart';
+import 'package:board_buddy/features/splash/view/splash_screen.dart';
+import 'package:board_buddy/shared/services/language_service.dart';
+import 'package:board_buddy/shared/services/theme_service.dart';
+import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/config/routes/routes.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
