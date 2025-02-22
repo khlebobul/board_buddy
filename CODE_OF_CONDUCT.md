@@ -16,7 +16,7 @@ Hey there! Welcome to **Board Buddy**. We want this space to be friendly and fun
 - Sharing private info without permission.
 
 ## What to Do if There's a Problem
-If someone’s behavior is making the space uncomfortable, reach out to us at [email](mailto:khlebobul@gmail) or [telegaram](https://t.me/khlebobul). We’ll look into it and handle it fairly.
+[![Email - khlebobul@gmail.com](https://img.shields.io/badge/Email-khlebobul%40gmail.com-414141?style=for-the-badge&logo=Email&logoColor=F1F1F1)](mailto:khlebobul@gmail.com) [![@khlebobul](https://img.shields.io/badge/%40khlebobul-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul) [![Personal - Website](https://img.shields.io/badge/Personal-Website-414141?style=for-the-badge&logo=Personal&logoColor=F1F1F1)](https://khlebobul.github.io/) [![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy)
 
 Thanks for being part of **Board Buddy** and keeping it awesome! 🎲✨
 

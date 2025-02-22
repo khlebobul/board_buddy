@@ -301,5 +301,6 @@
   "highestScoreWins": "побеждает высокий счет",
   "multiplayer": "мультиплеер",
   "singleplayer": "одиночная игра",
-  "score": "счет"
+  "score": "счет",
+  "telegramGroup": "телеграм группа"
 }

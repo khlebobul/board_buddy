@@ -163,7 +163,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "каждая карта имеет число от 0 до 9, которое определяет её значение.",
         ),
-    "edit": MessageLookupByLibrary.simpleMessage("edit"),
+    "edit": MessageLookupByLibrary.simpleMessage("изменить"),
     "elf": MessageLookupByLibrary.simpleMessage("эльф"),
     "emailCopied": MessageLookupByLibrary.simpleMessage(
       "электронная почта скопирована",
@@ -199,7 +199,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "привет! меня зовут глеб",
     ),
     "highestScoreWins": MessageLookupByLibrary.simpleMessage(
-      "highest score wins",
+      "побеждает высокий счет",
     ),
     "human": MessageLookupByLibrary.simpleMessage("человек"),
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
@@ -214,15 +214,15 @@ class MessageLookup extends MessageLookupByLibrary {
     "level": MessageLookupByLibrary.simpleMessage("уровень"),
     "light": MessageLookupByLibrary.simpleMessage("светлая"),
     "lowestScoreWins": MessageLookupByLibrary.simpleMessage(
-      "lowest score wins",
+      "побеждает низкий счет",
     ),
     "magic": MessageLookupByLibrary.simpleMessage("магия"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "отмечает мёртвого персонажа",
     ),
-    "mode": MessageLookupByLibrary.simpleMessage("mode"),
+    "mode": MessageLookupByLibrary.simpleMessage("режим"),
     "modifiers": MessageLookupByLibrary.simpleMessage("модификаторы"),
-    "multiplayer": MessageLookupByLibrary.simpleMessage("multiplayer"),
+    "multiplayer": MessageLookupByLibrary.simpleMessage("мультиплеер"),
     "munchkin": MessageLookupByLibrary.simpleMessage("манчкин"),
     "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
       "сравните уровень вашего персонажа (с учетом бонусов) с уровнем монстра.",
@@ -324,7 +324,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "noItem": MessageLookupByLibrary.simpleMessage("без предмета"),
     "numberCards": MessageLookupByLibrary.simpleMessage("номерные карты"),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
-    "play": MessageLookupByLibrary.simpleMessage("play"),
+    "play": MessageLookupByLibrary.simpleMessage("играть"),
     "players": MessageLookupByLibrary.simpleMessage("игроки"),
     "points": MessageLookupByLibrary.simpleMessage("очков"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
@@ -343,7 +343,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "round": MessageLookupByLibrary.simpleMessage("раунд"),
     "rules": MessageLookupByLibrary.simpleMessage("правила"),
     "russian": MessageLookupByLibrary.simpleMessage("русский"),
-    "score": MessageLookupByLibrary.simpleMessage("score"),
+    "score": MessageLookupByLibrary.simpleMessage("счет"),
     "scrabble": MessageLookupByLibrary.simpleMessage("скраббл"),
     "scrabbleAdditionalDisputedWords": MessageLookupByLibrary.simpleMessage(
       "спорные слова проверяются в согласованном словаре.",
@@ -521,7 +521,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "так как это проект с открытым исходным кодом, вы можете внести свой вклад",
         ),
-    "singleplayer": MessageLookupByLibrary.simpleMessage("singleplayer"),
+    "singleplayer": MessageLookupByLibrary.simpleMessage("одиночная игра"),
     "skipCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "карта «пропусти ход»",
     ),
@@ -546,13 +546,14 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "sword": MessageLookupByLibrary.simpleMessage("меч"),
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
+    "telegramGroup": MessageLookupByLibrary.simpleMessage("телеграм группа"),
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
       "всем, кто создал",
     ),
     "toBoardBuddysContributors": MessageLookupByLibrary.simpleMessage(
-      "to board buddy\\\'s contributors",
+      "всем, кто внес вклад в разработку board buddy",
     ),
     "total": MessageLookupByLibrary.simpleMessage("всего"),
     "totalStrength": MessageLookupByLibrary.simpleMessage("общая сила: "),

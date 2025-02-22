@@ -11,6 +11,7 @@ class AppLnksConst {
   static const githubLink = 'https://github.com/khlebobul/board_buddy';
   static const webSitelink = 'https://boardbuddyapp.vercel.app';
   static const lucideIconsLink = 'https://lucide.dev';
+  static const telegramGroup = 'https://t.me/board_buddy';
 
   // TODO fix rate link
   static const rateAppStore =

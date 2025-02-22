@@ -83,6 +83,10 @@ class AboutScreen extends StatelessWidget {
                 const AddFavouriteGame(),
                 const SizedBox(height: 10),
                 LinkBtnWidget(
+                  text: S.of(context).telegramGroup,
+                  url: AppLnksConst.telegramGroup,
+                ),
+                LinkBtnWidget(
                   text: S.of(context).followMeOnXTwitter,
                   url: AppLnksConst.xLink,
                 ),

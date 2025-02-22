@@ -301,5 +301,6 @@
   "highestScoreWins": "highest score wins",
   "multiplayer": "multiplayer",
   "singleplayer": "singleplayer",
-  "score": "score"
+  "score": "score",
+  "telegramGroup": "telegram group"
 }

@@ -526,6 +526,7 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "sword": MessageLookupByLibrary.simpleMessage("sword"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
+    "telegramGroup": MessageLookupByLibrary.simpleMessage("telegram group"),
     "theme": MessageLookupByLibrary.simpleMessage("theme"),
     "thief": MessageLookupByLibrary.simpleMessage("thief"),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(

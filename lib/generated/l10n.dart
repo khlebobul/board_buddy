@@ -2684,6 +2684,16 @@ class S {
   String get score {
     return Intl.message('score', name: 'score', desc: '', args: []);
   }
+
+  /// `telegram group`
+  String get telegramGroup {
+    return Intl.message(
+      'telegram group',
+      name: 'telegramGroup',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

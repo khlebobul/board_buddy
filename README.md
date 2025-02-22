@@ -1,7 +1,13 @@
-# board_buddy
+# board buddy
 
-- badges
-- demo image
+<div align="center">
+
+[![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![LICENCE - GPLv3](https://img.shields.io/badge/LICENCE-GPLv3-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
+demo image
+<!-- Change the link -->
+[![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy) [![Website](https://img.shields.io/badge/Website-414141?style=for-the-badge&logo=Website&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - Boosty](https://img.shields.io/badge/Support-Boosty-414141?style=for-the-badge&logo=Boosty&logoColor=F1F1F1)](https://t.me/khlebobul_dev) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev)
+
+</div>
 
 board buddy lets you track scores and key moments effortlessly, keeping your focus on the boardgames
 
@@ -10,7 +16,12 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 
 ## table of contents
 
-- todo
+- [why you’ll love board buddy](#why-you’ll-love-board-buddy)
+- [how to help](#how-to-help)
+- [requirements](#requirements)
+- [contribute](#contribute)
+- [contact](#contact)
+- [license](#license)
 
 ## why you’ll love board buddy
 
@@ -18,28 +29,19 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 
 ## how to help
 
-- please feel free to raise [issues]() for any suggestions for improvements, or bugs you encounter.
+- please feel free to raise [issues](https://github.com/khlebobul/board_buddy/issues) for any suggestions for improvements, or bugs you encounter.
 - you're welcome to fork the repository and propose changes through a pull request
-- feel free to [email](mailto:khlebobul@gmail), [telegaram](https://t.me/khlebobul) or find my contact on [my website](https://khlebobul.github.io)
 
-- support 🤷‍♂️
+[![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - Boosty](https://img.shields.io/badge/Support-Boosty-414141?style=for-the-badge&logo=Boosty&logoColor=F1F1F1)](https://t.me/khlebobul_dev) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev)
 
-### required
+## requirements
 
 - [flutter](https://flutter.dev) + version
 - others
 
-### contributing
+## contributing
 
-- check the [contributing guide](https://github.com/khlebobul/board_buddy/blob/main/CONTRIBUTING.md)
-- check the [code of conduct](https://github.com/khlebobul/board_buddy/blob/main/CODE_OF_CONDUCT.md)
-
-<!-- ## contributors -->
-<!-- ## star history -->
-
-<!-- ## repository activity
-- repobeats -->
-
+[![CONTRIBUTING.md](https://img.shields.io/badge/CONTRIBUTING.md-414141?style=for-the-badge&logo=md&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/CONTRIBUTING.md) [![CODE_OF_CONDUCT.md](https://img.shields.io/badge/CODE_OF_CONDUCT.md-414141?style=for-the-badge&logo=md&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/CODE_OF_CONDUCT.md)
 
 ## dependencies
 
@@ -59,8 +61,14 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 
 ## contacts
 
-- todo
+[![@khlebobul](https://img.shields.io/badge/@khlebobul-414141?style=for-the-badge&logo=X&logoColor=F1F1F1)](https://x.com/khlebobul) [![Email - khlebobul@gmail.com](https://img.shields.io/badge/Email-khlebobul%40gmail.com-414141?style=for-the-badge&logo=Email&logoColor=F1F1F1)](mailto:khlebobul@gmail.com) [![@khlebobul](https://img.shields.io/badge/%40khlebobul-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul) [![Personal - Website](https://img.shields.io/badge/Personal-Website-414141?style=for-the-badge&logo=Personal&logoColor=F1F1F1)](https://khlebobul.github.io/) [![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy)
+
+<!-- ## contributors -->
+<!-- ## star history -->
+
+<!-- ## repository activity
+- repobeats -->
 
 ## license
 
-This project is licensed under the GNU General Public License v3.0 - see the [LICENSE](LICENSE) file for details.
+[![LICENCE - GPLv3](https://img.shields.io/badge/LICENCE-GPLv3-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
