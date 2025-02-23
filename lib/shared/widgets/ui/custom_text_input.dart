@@ -6,9 +6,13 @@ class CustomTextInput extends StatefulWidget {
   /// Hint text to display when the input is empty.
   final String hintText;
 
+  /// Callback function to handle text changes.
+  final ValueChanged<String>? onChanged;
+
   const CustomTextInput({
     super.key,
     required this.hintText,
+    this.onChanged,
   });
 
   @override
@@ -26,6 +30,9 @@ class _CustomTextInputState extends State<CustomTextInput> {
       setState(() {
         _currentText = _controller.text;
       });
+      if (widget.onChanged != null) {
+        widget.onChanged!(_currentText);
+      }
     });
   }
 

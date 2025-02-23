@@ -3,6 +3,7 @@ import 'package:board_buddy/features/games/dos/view/dos_game.dart';
 import 'package:board_buddy/features/games/muncknin/view/munchkin_game.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_game.dart';
 import 'package:board_buddy/features/games/set/view/set_game.dart';
+import 'package:board_buddy/features/games/uno/view/uno_start_screen.dart';
 import 'package:board_buddy/features/games/uno_flip/view/uno_flip_game.dart';
 import 'package:board_buddy/features/games/uno/view/uno_game.dart';
 import 'package:board_buddy/features/about/view/about_screen.dart';
@@ -16,7 +17,6 @@ import 'package:board_buddy/features/games/uno/view/uno_rules.dart';
 import 'package:board_buddy/features/rules_games_list/view/rules_screen.dart';
 import 'package:board_buddy/features/settings/settings_screen.dart';
 import 'package:board_buddy/features/splash/view/splash_screen.dart';
-import 'package:board_buddy/features/start_game/view/start_game_screen.dart';
 import 'package:flutter/material.dart';
 
 class AppRoutes {
@@ -38,6 +38,7 @@ class AppRoutes {
 
   // games
   static const String unoGame = '/unoGame';
+  static const String unoStartGame = '/unoStartGame';
   static const String scrabbleGame = '/scrabbleGame';
   static const String unoFlipGame = '/unoFlipGame';
   static const String dosGame = '/dosGame';
@@ -51,7 +52,6 @@ class AppRoutes {
         games: (context) => const GamesScreen(),
         rules: (context) => const RulesScreen(),
         settings: (context) => const SettingsScreen(),
-        startGame: (context) => const StartGameScreen(),
 
         // rules
         unoRules: (context) => const UnoRulesScreen(),
@@ -63,6 +63,7 @@ class AppRoutes {
 
         // games
         unoGame: (context) => const UnoGame(),
+        unoStartGame: (context) => const UnoStartScreen(),
         scrabbleGame: (context) => const ScrabbleGame(),
         unoFlipGame: (context) => const UnoFlipGame(),
         dosGame: (context) => const DosGame(),

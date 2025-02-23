@@ -9,22 +9,26 @@ import 'package:board_buddy/shared/widgets/bottom_sheets/add_player_bs.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
-class StartGameScreen extends StatelessWidget {
-  const StartGameScreen({super.key});
+class UnoStartScreen extends StatefulWidget {
+  const UnoStartScreen({super.key});
+
+  @override
+  UnoStartScreenState createState() => UnoStartScreenState();
+}
+
+class UnoStartScreenState extends State<UnoStartScreen> {
+  final List<Player> players = [];
+  String selectedMode = '';
+  int scoreLimit = 500;
 
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-    // TODO fix
-    final List<Player> players = [
-      Player(name: 'player 1', id: 01),
-      Player(name: 'player 2', id: 02),
-    ];
+
     return Scaffold(
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        // TODO add game name
         rightButtonText: S.of(context).uno,
         onRightButtonPressed: () {},
       ),
@@ -42,16 +46,19 @@ class StartGameScreen extends StatelessWidget {
             ),
             _buildModeOption(context, S.of(context).highestScoreWins),
             _buildModeOption(context, S.of(context).lowestScoreWins),
-            // TODO add conditions
-            _buildModeOption(context, S.of(context).multiplayer),
-            _buildModeOption(context, S.of(context).singleplayer),
             const SizedBox(height: 12),
             Text(
               S.of(context).score,
               style: theme.display2.copyWith(color: theme.secondaryTextColor),
             ),
-            // TODO score for each game
-            const CustomTextInput(hintText: '500'),
+            CustomTextInput(
+              hintText: '500',
+              onChanged: (value) {
+                setState(() {
+                  scoreLimit = int.tryParse(value) ?? 500;
+                });
+              },
+            ),
             const SizedBox(height: 12),
             Text(
               S.of(context).players,
@@ -74,7 +81,13 @@ class StartGameScreen extends StatelessWidget {
               onTap: () {
                 showModalBottomSheet(
                   context: context,
-                  builder: (context) => const AddPlayersBottomSheet(),
+                  builder: (context) => AddPlayersBottomSheet(
+                    onPlayerAdded: (player) {
+                      setState(() {
+                        players.add(player);
+                      });
+                    },
+                  ),
                 );
               },
               child: TextScramble(
@@ -86,37 +99,36 @@ class StartGameScreen extends StatelessWidget {
         ),
       ),
       bottomNavigationBar: BottomGameBar(
-        // TODO add rules game
-        // dialogWidget: const InfoUnoDialog(),
         leftButtonText: S.of(context).rules,
         rightButtonText: S.of(context).play,
         isRightBtnRed: true,
-        // isArrow: true,
       ),
     );
   }
-}
 
-Widget _buildModeOption(
-  BuildContext context,
-  String modeName,
-) {
-  final theme = UIThemes.of(context);
-  return GestureDetector(
-    onTap: () {},
-    child: Row(
-      mainAxisAlignment: MainAxisAlignment.start,
-      children: [
-        CircleAvatar(
-          backgroundColor: theme.redColor,
-          radius: 3,
-        ),
-        const SizedBox(width: 8),
-        TextScramble(
-          text: modeName,
-          style: theme.display2,
-        ),
-      ],
-    ),
-  );
+  Widget _buildModeOption(BuildContext context, String modeName) {
+    final theme = UIThemes.of(context);
+    return GestureDetector(
+      onTap: () {
+        setState(() {
+          selectedMode = modeName;
+        });
+      },
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.start,
+        children: [
+          CircleAvatar(
+            backgroundColor:
+                selectedMode == modeName ? theme.redColor : Colors.transparent,
+            radius: 3,
+          ),
+          const SizedBox(width: 8),
+          TextScramble(
+            text: modeName,
+            style: theme.display2,
+          ),
+        ],
+      ),
+    );
+  }
 }
