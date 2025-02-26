@@ -54,7 +54,8 @@ class AddPlayersBottomSheetState extends State<AddPlayersBottomSheet> {
               children: [
                 Text(
                   S.of(context).players,
-                  style: theme.display2.copyWith(color: theme.secondaryTextColor),
+                  style:
+                      theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
                 GestureDetector(
                   onTap: () => Navigator.pop(context),
@@ -74,26 +75,18 @@ class AddPlayersBottomSheetState extends State<AddPlayersBottomSheet> {
                 children: [
                   Text(
                     '${formatPlayerNumber(index + 1)} -',
-                    style: theme.display2.copyWith(color: theme.secondaryTextColor),
+                    style: theme.display2
+                        .copyWith(color: theme.secondaryTextColor),
                   ),
                   const SizedBox(width: 10),
                   Expanded(
                     child: CustomTextInput(
-                      hintText: player.name.isEmpty ? 'name' : player.name.toLowerCase(),
+                      hintText: player.name.isEmpty
+                          ? 'name'
+                          : player.name.toLowerCase(),
                       key: Key('player_input_$index'),
                     ),
                   ),
-                  GestureDetector(
-                    onTap: () {
-                      // TODO : edit player's name
-                    },
-                    child: SvgPicture.asset(
-                      CustomIcons.edit,
-                      width: 18,
-                      color: theme.textColor,
-                    ),
-                  ),
-                  const SizedBox(width: 10),
                   GestureDetector(
                     onTap: () {
                       setState(() {
@@ -113,7 +106,8 @@ class AddPlayersBottomSheetState extends State<AddPlayersBottomSheet> {
             GestureDetector(
               onTap: () {
                 if (players.length < widget.maxPlayers) {
-                  final newPlayer = Player(name: 'new player', id: players.length + 1);
+                  final newPlayer =
+                      Player(name: 'new player', id: players.length + 1);
                   setState(() {
                     players.add(newPlayer);
                   });
@@ -121,7 +115,9 @@ class AddPlayersBottomSheetState extends State<AddPlayersBottomSheet> {
                 }
               },
               child: Text(
-                players.length >= widget.maxPlayers ? '' : S.of(context).addPlayer,
+                players.length >= widget.maxPlayers
+                    ? ''
+                    : S.of(context).addPlayer,
                 style: theme.display2.copyWith(
                   color: players.length >= widget.maxPlayers
                       ? theme.secondaryTextColor

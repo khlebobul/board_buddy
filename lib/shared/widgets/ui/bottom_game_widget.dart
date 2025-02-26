@@ -62,26 +62,20 @@ class BottomGameBar extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Positioned(
-                  left: 0,
-                  child: GestureDetector(
-                    onTap: onLeftBtnTap,
-                    child: TextScramble(
-                      text: leftButtonText,
-                      style: theme.display2.copyWith(color: theme.textColor),
-                    ),
+                GestureDetector(
+                  onTap: onLeftBtnTap,
+                  child: TextScramble(
+                    text: leftButtonText,
+                    style: theme.display2.copyWith(color: theme.textColor),
                   ),
                 ),
-                Positioned(
-                  right: 0,
-                  child: GestureDetector(
-                    onTap: onRightBtnTap,
-                    child: TextScramble(
-                      text: rightButtonText,
-                      style: theme.display2.copyWith(
-                          color:
-                              isRightBtnRed ? theme.redColor : theme.textColor),
-                    ),
+                GestureDetector(
+                  onTap: onRightBtnTap,
+                  child: TextScramble(
+                    text: rightButtonText,
+                    style: theme.display2.copyWith(
+                        color:
+                            isRightBtnRed ? theme.redColor : theme.textColor),
                   ),
                 ),
               ],
