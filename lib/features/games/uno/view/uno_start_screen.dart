@@ -5,9 +5,9 @@ import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
-import 'package:board_buddy/shared/widgets/ui/custom_text_input.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
+import 'package:wheel_chooser/wheel_chooser.dart';
 
 class UnoStartScreen extends StatefulWidget {
   const UnoStartScreen({super.key});
@@ -61,14 +61,20 @@ class UnoStartScreenState extends State<UnoStartScreen> {
               S.of(context).score,
               style: theme.display2.copyWith(color: theme.secondaryTextColor),
             ),
-            CustomTextInput(
-              keyboardType: TextInputType.number,
-              hintText: '500',
-              onChanged: (value) {
-                setState(() {
-                  scoreLimit = int.tryParse(value) ?? 500;
-                });
-              },
+            SizedBox(
+              height: 100,
+              child: WheelChooser.integer(
+                onValueChanged: (value) => setState(() => scoreLimit = value),
+                maxValue: 1000,
+                minValue: 100,
+                step: 50,
+                initValue: scoreLimit,
+                horizontal: true,
+                unSelectTextStyle:
+                    theme.display6.copyWith(color: theme.secondaryTextColor),
+                selectTextStyle: theme.display6,
+                itemSize: 70,
+              ),
             ),
             const SizedBox(height: 12),
             Text(

@@ -23,6 +23,7 @@ dependencies:
   flutter_svg: ^2.0.17
   flutter_bloc: ^9.0.0
   flutter_popup: ^3.3.4
+  wheel_chooser: ^1.1.2
 
 dev_dependencies:
   flutter_test:
