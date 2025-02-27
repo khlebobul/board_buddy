@@ -22,6 +22,16 @@ class UnoStartScreenState extends State<UnoStartScreen> {
   int scoreLimit = 500;
 
   @override
+  void initState() {
+    super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      setState(() {
+        selectedMode = S.current.highestScoreWins;
+      });
+    });
+  }
+
+  @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
 
