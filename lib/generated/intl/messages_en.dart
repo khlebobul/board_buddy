@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("about"),
+    "add": MessageLookupByLibrary.simpleMessage("add"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("add player"),
     "allowsThePlayerToChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -53,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "can represent any number for its own particular color.",
         ),
+    "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("types of cards:"),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -317,6 +319,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberCards": MessageLookupByLibrary.simpleMessage("number cards"),
     "others": MessageLookupByLibrary.simpleMessage("others"),
     "play": MessageLookupByLibrary.simpleMessage("play"),
+    "playerName": MessageLookupByLibrary.simpleMessage("player name"),
     "players": MessageLookupByLibrary.simpleMessage("players"),
     "points": MessageLookupByLibrary.simpleMessage("points"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
@@ -527,6 +530,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sword": MessageLookupByLibrary.simpleMessage("sword"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
     "telegramGroup": MessageLookupByLibrary.simpleMessage("telegram group"),
+    "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
+      "the number of players should be",
+    ),
     "theme": MessageLookupByLibrary.simpleMessage("theme"),
     "thief": MessageLookupByLibrary.simpleMessage("thief"),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(

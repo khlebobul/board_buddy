@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("о проекте"),
+    "add": MessageLookupByLibrary.simpleMessage("добавить"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("добавить игрока"),
     "allowsThePlayerToChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage("позволяет игроку выбрать цвет."),
@@ -53,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "может представлять любое число своего цвета.",
         ),
+    "cancel": MessageLookupByLibrary.simpleMessage("отмена"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -325,6 +327,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberCards": MessageLookupByLibrary.simpleMessage("номерные карты"),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
     "play": MessageLookupByLibrary.simpleMessage("играть"),
+    "playerName": MessageLookupByLibrary.simpleMessage("имя игрока"),
     "players": MessageLookupByLibrary.simpleMessage("игроки"),
     "points": MessageLookupByLibrary.simpleMessage("очков"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
@@ -547,6 +550,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sword": MessageLookupByLibrary.simpleMessage("меч"),
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
     "telegramGroup": MessageLookupByLibrary.simpleMessage("телеграм группа"),
+    "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
+      "the number of players should be",
+    ),
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(

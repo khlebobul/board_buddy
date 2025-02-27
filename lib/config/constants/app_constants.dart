@@ -90,3 +90,21 @@ class GameConst {
   static const plusOne = '+1';
   static const plusFive = '+5';
 }
+
+class GameMaxPlayers {
+  static const uno = 10;
+  static const dos = 4;
+  static const scrabble = 4;
+  static const set = 10;
+  static const unoFlip = 10;
+  static const munchkin = 6;
+}
+
+class GameMinPlayers {
+  static const uno = 2;
+  static const dos = 2;
+  static const scrabble = 2;
+  static const set = 2;
+  static const unoFlip = 2;
+  static const munchkin = 3;
+}

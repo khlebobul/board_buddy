@@ -9,10 +9,14 @@ class CustomTextInput extends StatefulWidget {
   /// Callback function to handle text changes.
   final ValueChanged<String>? onChanged;
 
+  /// Keyboard type for the input field.
+  final TextInputType keyboardType;
+
   const CustomTextInput({
     super.key,
     required this.hintText,
     this.onChanged,
+    this.keyboardType = TextInputType.text,
   });
 
   @override
@@ -46,6 +50,8 @@ class _CustomTextInputState extends State<CustomTextInput> {
         Stack(
           children: [
             TextField(
+              keyboardType: widget.keyboardType,
+              cursorColor: theme.secondaryTextColor,
               controller: _controller,
               style: theme.display2,
               decoration: InputDecoration(

@@ -302,5 +302,9 @@
   "multiplayer": "мультиплеер",
   "singleplayer": "одиночная игра",
   "score": "счет",
-  "telegramGroup": "телеграм группа"
+  "telegramGroup": "телеграм группа",
+  "cancel": "отмена",
+  "add": "добавить",
+  "playerName": "имя игрока",
+  "theNumberOfPlayersShouldBe": "the number of players should be"
 }

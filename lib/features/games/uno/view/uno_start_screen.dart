@@ -2,10 +2,10 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_text_input.dart';
-import 'package:board_buddy/shared/widgets/bottom_sheets/add_player_bs.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
@@ -52,6 +52,7 @@ class UnoStartScreenState extends State<UnoStartScreen> {
               style: theme.display2.copyWith(color: theme.secondaryTextColor),
             ),
             CustomTextInput(
+              keyboardType: TextInputType.number,
               hintText: '500',
               onChanged: (value) {
                 setState(() {
@@ -70,39 +71,62 @@ class UnoStartScreenState extends State<UnoStartScreen> {
                 int index = entry.key + 1;
                 Player player = entry.value;
                 String formattedIndex = index.toString().padLeft(2, '0');
-                return Text(
-                  '$formattedIndex - ${player.name}',
-                  style: theme.display2.copyWith(color: theme.textColor),
+                return Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '$formattedIndex - ${player.name}',
+                      style: theme.display2.copyWith(color: theme.textColor),
+                    ),
+                    IconButton(
+                      icon: Icon(Icons.close, color: theme.secondaryTextColor),
+                      onPressed: () {
+                        setState(() {
+                          players.removeAt(entry.key);
+                        });
+                      },
+                    ),
+                  ],
                 );
               }).toList(),
             ),
             const SizedBox(height: 12),
-            GestureDetector(
-              onTap: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (context) => AddPlayersBottomSheet(
-                    onPlayerAdded: (player) {
-                      setState(() {
-                        players.add(player);
-                      });
-                    },
-                  ),
-                );
-              },
-              child: TextScramble(
-                text: S.of(context).edit,
-                style: theme.display2.copyWith(color: theme.redColor),
+            if (players.length < GameMaxPlayers.uno)
+              GestureDetector(
+                onTap: () {
+                  showDialog(
+                    context: context,
+                    builder: (context) => AddPlayerDialog(
+                      onPlayerAdded: (player) {
+                        setState(() {
+                          players.add(player);
+                        });
+                      },
+                    ),
+                  );
+                },
+                child: TextScramble(
+                  text: S.of(context).add,
+                  style: theme.display2.copyWith(color: theme.redColor),
+                ),
               ),
-            ),
           ],
         ),
       ),
       bottomNavigationBar: BottomGameBar(
-        leftButtonText: S.of(context).rules,
-        rightButtonText: S.of(context).play,
-        isRightBtnRed: true,
-      ),
+          leftButtonText: S.of(context).rules,
+          rightButtonText: S.of(context).play,
+          isRightBtnRed: true,
+          onRightBtnTap: () {
+            players.length < GameMinPlayers.uno
+                ? ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      content: Text(
+                          '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.unoPlayers}'),
+                    ),
+                  )
+                : () {};
+          }),
     );
   }
 

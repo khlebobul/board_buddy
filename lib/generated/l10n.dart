@@ -2694,6 +2694,31 @@ class S {
       args: [],
     );
   }
+
+  /// `cancel`
+  String get cancel {
+    return Intl.message('cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `add`
+  String get add {
+    return Intl.message('add', name: 'add', desc: '', args: []);
+  }
+
+  /// `player name`
+  String get playerName {
+    return Intl.message('player name', name: 'playerName', desc: '', args: []);
+  }
+
+  /// `the number of players should be`
+  String get theNumberOfPlayersShouldBe {
+    return Intl.message(
+      'the number of players should be',
+      name: 'theNumberOfPlayersShouldBe',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
