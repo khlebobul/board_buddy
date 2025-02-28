@@ -26,7 +26,6 @@ class AppRoutes {
   static const String rules = '/rules';
   static const String settings = '/settings';
   static const String splash = '/';
-  static const String startGame = '/startGame';
 
   // rules
   static const String unoRules = '/unoRules';

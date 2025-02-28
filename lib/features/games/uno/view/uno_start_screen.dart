@@ -120,11 +120,12 @@ class UnoStartScreenView extends StatelessWidget {
                 if (unoState.players.length < GameMaxPlayers.uno)
                   GestureDetector(
                     onTap: () {
+                      final unoBloc = context.read<UnoBloc>();
                       showDialog(
                         context: context,
-                        builder: (context) => AddPlayerDialog(
+                        builder: (dialogContext) => AddPlayerDialog(
                           onPlayerAdded: (player) {
-                            context.read<UnoBloc>().add(AddPlayer(player));
+                            unoBloc.add(AddPlayer(player));
                           },
                         ),
                       );
@@ -141,6 +142,7 @@ class UnoStartScreenView extends StatelessWidget {
               leftButtonText: S.of(context).rules,
               rightButtonText: S.of(context).play,
               isRightBtnRed: true,
+              onLeftBtnTap: () => Navigator.pushNamed(context, '/unoRules'),
               onRightBtnTap: () {
                 unoState.players.length < GameMinPlayers.uno
                     ? ScaffoldMessenger.of(context).showSnackBar(
@@ -149,7 +151,7 @@ class UnoStartScreenView extends StatelessWidget {
                               '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.unoPlayers}'),
                         ),
                       )
-                    : () {};
+                    : Navigator.pushNamed(context, '/unoGame');
               }),
         );
       },
