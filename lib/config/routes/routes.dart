@@ -61,7 +61,6 @@ class AppRoutes {
         munchkinRules: (context) => const MunchkinRulesScreen(),
 
         // games
-        unoGame: (context) => const UnoGame(),
         unoStartGame: (context) => const UnoStartScreen(),
         scrabbleGame: (context) => const ScrabbleGame(),
         unoFlipGame: (context) => const UnoFlipGame(),
@@ -70,6 +69,26 @@ class AppRoutes {
         munchkinGame: (context) => const MunchkinGame(),
         commonGame: (context) => const CommonGame(),
       };
+
+  static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
+    if (settings.name == unoGame && settings.arguments != null) {
+      final args = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder: (context) => UnoGame(
+          players: args['players'],
+          scoreLimit: args['scoreLimit'],
+          gameMode: args['gameMode'],
+        ),
+      );
+    }
+
+    final builder = routes[settings.name];
+    if (builder != null) {
+      return MaterialPageRoute(builder: builder);
+    }
+
+    return null;
+  }
 
   static Widget get initialRoute => const SplashScreen();
 }

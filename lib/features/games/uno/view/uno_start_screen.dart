@@ -151,7 +151,15 @@ class UnoStartScreenView extends StatelessWidget {
                               '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.unoPlayers}'),
                         ),
                       )
-                    : Navigator.pushNamed(context, '/unoGame');
+                    : Navigator.pushNamed(
+                        context,
+                        '/unoGame',
+                        arguments: {
+                          'players': unoState.players,
+                          'scoreLimit': unoState.scoreLimit,
+                          'gameMode': unoState.selectedMode,
+                        },
+                      );
               }),
         );
       },

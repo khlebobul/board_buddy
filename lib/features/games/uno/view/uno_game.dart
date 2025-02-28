@@ -9,15 +9,19 @@ import 'package:flutter/material.dart';
 
 /// uno game screen
 class UnoGame extends StatelessWidget {
-  const UnoGame({super.key});
+  final List<Player> players;
+  final int scoreLimit;
+  final String gameMode;
+
+  const UnoGame({
+    super.key,
+    required this.players,
+    required this.scoreLimit,
+    required this.gameMode,
+  });
 
   @override
   Widget build(BuildContext context) {
-    final List<Player> players = [
-      Player(name: 'player 1', id: 1, score: 0),
-      Player(name: 'name', id: 2, score: 10),
-      Player(name: 'test', id: 3, score: 20),
-    ];
     return Scaffold(
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
@@ -30,6 +34,22 @@ class UnoGame extends StatelessWidget {
         padding: const EdgeInsets.all(8.0),
         child: Column(
           children: [
+            Padding(
+              padding: const EdgeInsets.symmetric(vertical: 8.0),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  Text(
+                    gameMode,
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                  Text(
+                    '${S.of(context).score}: $scoreLimit',
+                    style: Theme.of(context).textTheme.titleMedium,
+                  ),
+                ],
+              ),
+            ),
             SingleChildScrollView(
               scrollDirection: Axis.horizontal,
               child: Row(
