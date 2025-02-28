@@ -1,15 +1,19 @@
 # board buddy
 
 <div align="center">
+<!-- Change the link -->
 
 [![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![LICENCE - GPLv3](https://img.shields.io/badge/LICENCE-GPLv3-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
+
+
 demo image
-<!-- Change the link -->
+
+
 [![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy) [![Website](https://img.shields.io/badge/Website-414141?style=for-the-badge&logo=Website&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev)
 
 </div>
 
-board buddy lets you track scores and key moments effortlessly, keeping your focus on the boardgames
+your ultimate board game companion
 
 ## table of contents
 
@@ -22,7 +26,12 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 
 ## why you’ll love board buddy
 
-- todo
+board buddy lets you track scores and key moments effortlessly, keeping your focus on the boardgames
+
+- no more searching for rules on the internet
+- no more forgetting important moments
+- no more lost scores
+- no more missed turns
 
 ## how to help
 
@@ -50,10 +59,9 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
   - [url_launcher](https://pub.dev/packages/url_launcher): a plugin to launch url in the browser, phone dialer, or email client.
   - [flutter_svg](https://pub.dev/packages/flutter_svg): a flutter library for rendering svg files with high fidelity.
   - [flutter_bloc](https://pub.dev/packages/flutter_bloc): a predictable state management library based on the bloc pattern.
-  - [isar](https://pub.dev/packages/isar): a high-performance nosql database designed specifically for flutter.
   - [flutter_popup](https://pub.dev/packages/flutter_popup): a flutter tooltip with custom styling and positioning options.
   - [wheel_chooser](https://pub.dev/packages/wheel_chooser): a flutter widget that allows users to select an item from a circular list.
-  
+
 </details>
 
 
