@@ -293,7 +293,7 @@
   "buffsOrDebuffsAffectingCharactersitemsInfo": "buffs or debuffs affecting characters/items",
   "toAllWhoCreatedThe": "to all who created the",
   "appreciation": "appreciation",
-  "toBoardBuddysContributors": "to board buddy\\'s contributors",
+  "toBoardBuddysContributors": "to board buddy's contributors",
   "play": "play",
   "mode": "mode",
   "edit": "edit",
@@ -306,5 +306,6 @@
   "cancel": "cancel",
   "add": "add",
   "playerName": "player name",
-  "theNumberOfPlayersShouldBe": "the number of players should be"
+  "theNumberOfPlayersShouldBe": "the number of players should be",
+  "gameUpTo": "game up to: "
 }

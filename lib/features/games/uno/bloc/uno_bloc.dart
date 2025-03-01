@@ -52,7 +52,8 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
   ) {
     if (state is UnoStartScreenState) {
       final currentState = state as UnoStartScreenState;
-      final updatedPlayers = List<Player>.from(currentState.players)..add(event.player);
+      final updatedPlayers = List<Player>.from(currentState.players)
+        ..add(event.player);
       emit(currentState.copyWith(players: updatedPlayers));
     }
   }

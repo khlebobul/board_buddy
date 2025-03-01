@@ -180,6 +180,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "gameGoal": MessageLookupByLibrary.simpleMessage("game goal:"),
     "gameTurnTitle": MessageLookupByLibrary.simpleMessage("game turn:"),
+    "gameUpTo": MessageLookupByLibrary.simpleMessage("game up to: "),
     "games": MessageLookupByLibrary.simpleMessage("games"),
     "gear": MessageLookupByLibrary.simpleMessage("gear"),
     "githubRepository": MessageLookupByLibrary.simpleMessage(
@@ -539,7 +540,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "to all who created the",
     ),
     "toBoardBuddysContributors": MessageLookupByLibrary.simpleMessage(
-      "to board buddy\\\'s contributors",
+      "to board buddy\'s contributors",
     ),
     "total": MessageLookupByLibrary.simpleMessage("total"),
     "totalStrength": MessageLookupByLibrary.simpleMessage("total strength: "),

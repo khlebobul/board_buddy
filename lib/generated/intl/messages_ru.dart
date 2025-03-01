@@ -188,6 +188,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "gameGoal": MessageLookupByLibrary.simpleMessage("цель игры:"),
     "gameTurnTitle": MessageLookupByLibrary.simpleMessage("ход игры:"),
+    "gameUpTo": MessageLookupByLibrary.simpleMessage("игра до: "),
     "games": MessageLookupByLibrary.simpleMessage("игры"),
     "gear": MessageLookupByLibrary.simpleMessage("снаряжение"),
     "githubRepository": MessageLookupByLibrary.simpleMessage(
@@ -551,7 +552,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
     "telegramGroup": MessageLookupByLibrary.simpleMessage("телеграм группа"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
-      "the number of players should be",
+      "количество игроков должно быть",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),

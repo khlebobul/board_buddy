@@ -306,5 +306,6 @@
   "cancel": "отмена",
   "add": "добавить",
   "playerName": "имя игрока",
-  "theNumberOfPlayersShouldBe": "the number of players should be"
+  "theNumberOfPlayersShouldBe": "количество игроков должно быть",
+  "gameUpTo": "игра до: "
 }

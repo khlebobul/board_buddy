@@ -2620,10 +2620,10 @@ class S {
     );
   }
 
-  /// `to board buddy\'s contributors`
+  /// `to board buddy's contributors`
   String get toBoardBuddysContributors {
     return Intl.message(
-      'to board buddy\\\'s contributors',
+      'to board buddy\'s contributors',
       name: 'toBoardBuddysContributors',
       desc: '',
       args: [],
@@ -2718,6 +2718,11 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `game up to: `
+  String get gameUpTo {
+    return Intl.message('game up to: ', name: 'gameUpTo', desc: '', args: []);
   }
 }
 
