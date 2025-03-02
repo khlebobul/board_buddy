@@ -104,16 +104,9 @@ class _UnoGameState extends State<UnoGame> {
                           pageSnapping: true,
                           padEnds: false,
                           itemBuilder: (context, index) {
-                            final isFirst = index == 0;
-                            final isLast = index == widget.players.length - 1;
-
                             return Padding(
-                              padding: EdgeInsets.only(
-                                left:
-                                    isLast ? 0 : GeneralConst.paddingHorizontal,
-                                right: isFirst
-                                    ? GeneralConst.paddingHorizontal
-                                    : GeneralConst.paddingHorizontal,
+                              padding: EdgeInsets.symmetric(
+                                horizontal: GeneralConst.paddingHorizontal,
                               ),
                               child: PlayerCard(
                                 player: widget.players[index],

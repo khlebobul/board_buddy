@@ -98,10 +98,13 @@ class UnoStartScreenView extends StatelessWidget {
                     return Row(
                       mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Text(
-                          '$formattedIndex - ${player.name}',
-                          style:
-                              theme.display2.copyWith(color: theme.textColor),
+                        Expanded(
+                          child: Text(
+                            '$formattedIndex - ${player.name}',
+                            softWrap: true,
+                            style: theme.display2
+                                .copyWith(color: theme.textColor),
+                          ),
                         ),
                         IconButton(
                           icon: Icon(Icons.close,

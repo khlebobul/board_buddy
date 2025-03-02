@@ -17,6 +17,11 @@ class AddPlayerDialog extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
     final TextEditingController nameController = TextEditingController();
+    final FocusNode focusNode = FocusNode();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      focusNode.requestFocus();
+    });
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
@@ -48,6 +53,7 @@ class AddPlayerDialog extends StatelessWidget {
                 border: Border.all(color: theme.secondaryTextColor),
               ),
               child: TextField(
+                focusNode: focusNode,
                 cursorColor: theme.secondaryTextColor,
                 controller: nameController,
                 style: TextStyle(color: theme.textColor),

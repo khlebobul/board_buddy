@@ -23,17 +23,21 @@ class PlayerCard extends StatelessWidget {
         color: theme.fgColor,
       ),
       child: Column(
-        mainAxisSize: MainAxisSize.min,
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          Text(
-            player.name.toLowerCase(),
-            style: theme.display1.copyWith(
-              color: theme.secondaryTextColor,
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 3),
+            child: Text(
+              player.name.toLowerCase(),
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
+              style: theme.display2.copyWith(
+                color: theme.secondaryTextColor,
+              ),
             ),
           ),
-          SizedBox(height: 5),
+          const SizedBox(height: 5),
           Divider(
             color: theme.borderColor,
             height: 1,
