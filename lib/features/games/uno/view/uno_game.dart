@@ -1,3 +1,4 @@
+import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
@@ -6,6 +7,8 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
+import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
+import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:flutter/material.dart';
 
 /// uno game screen
@@ -70,58 +73,105 @@ class _UnoGameState extends State<UnoGame> {
         rightButtonText: S.of(context).rules,
         onRightButtonPressed: () => Navigator.pushNamed(context, '/unoRules'),
       ),
-      body: Padding(
-        padding: const EdgeInsets.all(8.0),
-        child: Column(
-          children: [
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 8.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    '${S.of(context).gameUpTo}${widget.scoreLimit}',
-                    style: theme.display2
-                        .copyWith(color: theme.secondaryTextColor),
-                  ),
-                ],
-              ),
-            ),
-            SizedBox(
-              height: 270,
-              child: PageView.builder(
-                controller: _pageController,
-                itemCount: widget.players.length,
-                pageSnapping: true,
-                padEnds: false,
-                itemBuilder: (context, index) => Padding(
-                  padding: const EdgeInsets.only(right: 16.0),
-                  child: PlayerCard(
-                    player: widget.players[index],
+      body: SafeArea(
+        child: LayoutBuilder(
+          builder: (context, constraints) {
+            return Column(
+              children: [
+                Padding(
+                  padding: EdgeInsets.symmetric(
+                      horizontal: GeneralConst.paddingHorizontal),
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        '${S.of(context).gameUpTo}${widget.scoreLimit}',
+                        style: theme.display2
+                            .copyWith(color: theme.secondaryTextColor),
+                      ),
+                    ],
                   ),
                 ),
-              ),
-            ),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: widget.players.asMap().entries.map((entry) {
-                final index = entry.key;
-                final player = entry.value;
-                final firstLetter = player.name.characters.first;
-                return GestureDetector(
-                  onTap: () => _goToPage(index),
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                    child: PlayerIndicator(
-                      letter: firstLetter,
-                      isActive: index == _currentPage,
-                    ),
+                const SizedBox(height: 12),
+                SizedBox(
+                  height: constraints.maxHeight * 0.4,
+                  child: Column(
+                    children: [
+                      Expanded(
+                        child: PageView.builder(
+                          controller: _pageController,
+                          itemCount: widget.players.length,
+                          pageSnapping: true,
+                          padEnds: false,
+                          itemBuilder: (context, index) => Padding(
+                            padding: const EdgeInsets.only(right: 16.0),
+                            child: PlayerCard(
+                              player: widget.players[index],
+                            ),
+                          ),
+                        ),
+                      ),
+                      const SizedBox(height: 10),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: widget.players.asMap().entries.map((entry) {
+                          final index = entry.key;
+                          final player = entry.value;
+                          final firstLetter = player.name.characters.first;
+                          return GestureDetector(
+                            onTap: () => _goToPage(index),
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 4.0),
+                              child: PlayerIndicator(
+                                letter: firstLetter,
+                                isActive: index == _currentPage,
+                              ),
+                            ),
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(height: 10),
+                    ],
                   ),
-                );
-              }).toList(),
-            ),
-          ],
+                ),
+                const Spacer(),
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                      horizontal: GeneralConst.paddingHorizontal),
+                  child: CustomKeyboard(
+                    buttons: [
+                      [
+                        KeyboardButton(buttonText: '1'),
+                        KeyboardButton(buttonText: '2'),
+                        KeyboardButton(buttonText: '3'),
+                        KeyboardButton(buttonText: '4'),
+                      ],
+                      [
+                        KeyboardButton(buttonText: '5'),
+                        KeyboardButton(buttonText: '6'),
+                        KeyboardButton(buttonText: '7'),
+                        KeyboardButton(buttonText: '8'),
+                      ],
+                      [
+                        KeyboardButton(buttonText: '9'),
+                        KeyboardButton(buttonText: '0'),
+                        KeyboardButton(buttonText: '+2'),
+                        KeyboardButton(buttonIcon: CustomIcons.reverse),
+                      ],
+                      [
+                        KeyboardButton(buttonIcon: CustomIcons.skip),
+                        KeyboardButton(buttonIcon: CustomIcons.wild),
+                        KeyboardButton(buttonIcon: CustomIcons.wildDrawFour),
+                        KeyboardButton(buttonIcon: CustomIcons.swap),
+                      ],
+                    ],
+                  ),
+                ),
+                const SizedBox(height: 12),
+              ],
+            );
+          },
         ),
       ),
       bottomNavigationBar: BottomGameBar(

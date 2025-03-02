@@ -58,18 +58,21 @@ class CustomKeyboard extends StatelessWidget {
         child: button.buttonIcon.isEmpty
             ? Text(
                 button.buttonText,
-                style: theme.display1.copyWith(
+                style: theme.display4.copyWith(
                   color: theme.textColor,
                 ),
               )
-            : SizedBox(
-                width: button.iconSize,
-                height: button.iconSize,
-                child: SvgPicture.asset(
-                  button.buttonIcon,
-                  fit: BoxFit.contain,
-                  // ignore: deprecated_member_use
-                  color: theme.textColor,
+            : Padding(
+                padding: const EdgeInsets.symmetric(vertical: 3.0),
+                child: SizedBox(
+                  width: button.iconSize,
+                  height: button.iconSize,
+                  child: SvgPicture.asset(
+                    button.buttonIcon,
+                    fit: BoxFit.fitHeight,
+                    // ignore: deprecated_member_use
+                    color: theme.textColor,
+                  ),
                 ),
               ),
       ),
@@ -99,6 +102,6 @@ class KeyboardButton {
     this.buttonText = '',
     this.onPressed,
     this.backgroundColor,
-    this.iconSize = 27.0,
+    this.iconSize = 30.0,
   });
 }
