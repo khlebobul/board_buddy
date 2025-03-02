@@ -109,7 +109,8 @@ class UnoStartScreenView extends StatelessWidget {
                           children: [
                             Expanded(
                               child: Text(
-                                '$formattedIndex - ${player.name}',
+                                '$formattedIndex - ${player.name}'
+                                    .toLowerCase(),
                                 softWrap: true,
                                 style: theme.display2
                                     .copyWith(color: theme.textColor),

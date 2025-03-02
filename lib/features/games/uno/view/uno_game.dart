@@ -74,6 +74,7 @@ class _UnoGameState extends State<UnoGame> {
         onRightButtonPressed: () => Navigator.pushNamed(context, '/unoRules'),
       ),
       body: SafeArea(
+        // players cards
         child: LayoutBuilder(
           builder: (context, constraints) {
             return Column(
@@ -102,11 +103,11 @@ class _UnoGameState extends State<UnoGame> {
                           controller: _pageController,
                           itemCount: widget.players.length,
                           pageSnapping: true,
-                          padEnds: false,
+                          padEnds: true,
                           itemBuilder: (context, index) {
                             return Padding(
                               padding: EdgeInsets.symmetric(
-                                horizontal: GeneralConst.paddingHorizontal,
+                                horizontal: GeneralConst.paddingHorizontal / 2,
                               ),
                               child: PlayerCard(
                                 player: widget.players[index],
@@ -140,6 +141,8 @@ class _UnoGameState extends State<UnoGame> {
                   ),
                 ),
                 const Spacer(),
+
+                // points keyboard
                 Padding(
                   padding: const EdgeInsets.symmetric(
                       horizontal: GeneralConst.paddingHorizontal),
