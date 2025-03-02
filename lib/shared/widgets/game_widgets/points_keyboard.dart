@@ -58,7 +58,7 @@ class CustomKeyboard extends StatelessWidget {
         child: button.buttonIcon.isEmpty
             ? Text(
                 button.buttonText,
-                style: theme.display4.copyWith(
+                style: theme.display8.copyWith(
                   color: theme.textColor,
                 ),
               )

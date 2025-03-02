@@ -58,9 +58,13 @@ flutter:
     - assets/icons/games_icons/scrabble/
 
   fonts:
-    - family: RobotoMono
-      fonts:
-        - asset: assets/fonts/roboto_mono.ttf
+  - family: RobotoMono
+    fonts:
+      - asset: assets/fonts/roboto_mono.ttf
+        weight: 400
+      - asset: assets/fonts/roboto_mono_thin.ttf
+        weight: 300
+
 
 flutter_intl:
   enabled: true
