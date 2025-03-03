@@ -28,11 +28,17 @@ class UnoGame extends StatefulWidget {
   State<UnoGame> createState() => _UnoGameState();
 }
 
-class _UnoGameState extends State<UnoGame> {
+class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
   late final PageController _pageController;
   int _currentPage = 0;
   final List<int> _scoreHistory = [];
   final List<int> _redoStack = [];
+
+  // Контроллер для анимации
+  AnimationController? _animationController;
+  Animation<double>? _animation;
+  int _lastScoreChange = 0;
+  bool _isScoreChanging = false;
 
   @override
   void initState() {
@@ -44,6 +50,7 @@ class _UnoGameState extends State<UnoGame> {
   @override
   void dispose() {
     _pageController.dispose();
+    _animationController?.dispose();
     super.dispose();
   }
 
@@ -69,8 +76,34 @@ class _UnoGameState extends State<UnoGame> {
       widget.players[_currentPage].score += scoreChange;
       _scoreHistory.add(scoreChange);
       _redoStack.clear(); // Clear redo stack on new action
-      // Display floating number animation here
+
+      _showScoreChangeAnimation(scoreChange);
     });
+  }
+
+  void _showScoreChangeAnimation(int scoreChange) {
+    _animationController?.dispose();
+
+    _lastScoreChange = scoreChange;
+    _isScoreChanging = true;
+
+    _animationController = AnimationController(
+      duration: const Duration(milliseconds: 1500),
+      vsync: this,
+    );
+
+    _animation = CurvedAnimation(
+      parent: _animationController!,
+      curve: Curves.easeOutQuad,
+    );
+
+    _animationController!.forward().then((_) {
+      setState(() {
+        _isScoreChanging = false;
+      });
+    });
+
+    setState(() {});
   }
 
   void _undo() {
@@ -79,6 +112,8 @@ class _UnoGameState extends State<UnoGame> {
         final lastScoreChange = _scoreHistory.removeLast();
         widget.players[_currentPage].score -= lastScoreChange;
         _redoStack.add(lastScoreChange);
+
+        _showScoreChangeAnimation(-lastScoreChange);
       });
     }
   }
@@ -89,6 +124,8 @@ class _UnoGameState extends State<UnoGame> {
         final lastUndoneScoreChange = _redoStack.removeLast();
         widget.players[_currentPage].score += lastUndoneScoreChange;
         _scoreHistory.add(lastUndoneScoreChange);
+
+        _showScoreChangeAnimation(lastUndoneScoreChange);
       });
     }
   }
@@ -130,21 +167,58 @@ class _UnoGameState extends State<UnoGame> {
                   child: Column(
                     children: [
                       Expanded(
-                        child: PageView.builder(
-                          controller: _pageController,
-                          itemCount: widget.players.length,
-                          pageSnapping: true,
-                          padEnds: true,
-                          itemBuilder: (context, index) {
-                            return Padding(
-                              padding: EdgeInsets.symmetric(
-                                horizontal: GeneralConst.paddingHorizontal / 2,
+                        child: Stack(
+                          children: [
+                            PageView.builder(
+                              controller: _pageController,
+                              itemCount: widget.players.length,
+                              pageSnapping: true,
+                              padEnds: true,
+                              itemBuilder: (context, index) {
+                                return Padding(
+                                  padding: EdgeInsets.symmetric(
+                                    horizontal:
+                                        GeneralConst.paddingHorizontal / 2,
+                                  ),
+                                  child: PlayerCard(
+                                    player: widget.players[index],
+                                  ),
+                                );
+                              },
+                            ),
+
+                            // animation for score
+                            if (_isScoreChanging && _animation != null)
+                              AnimatedBuilder(
+                                animation: _animation!,
+                                builder: (context, child) {
+                                  return Positioned(
+                                    top: 60 - (_animation!.value * 40),
+                                    left: 0,
+                                    right: 0,
+                                    child: Opacity(
+                                      opacity: 1.0 - _animation!.value,
+                                      child: Center(
+                                        child: Container(
+                                          padding: const EdgeInsets.symmetric(
+                                            horizontal: 12,
+                                            vertical: 6,
+                                          ),
+                                          child: Text(
+                                            _lastScoreChange > 0
+                                                ? '+$_lastScoreChange'
+                                                : '$_lastScoreChange',
+                                            style: theme.display2.copyWith(
+                                              color: theme.secondaryTextColor,
+                                            ),
+                                          ),
+                                        ),
+                                      ),
+                                    ),
+                                  );
+                                },
                               ),
-                              child: PlayerCard(
-                                player: widget.players[index],
-                              ),
-                            );
-                          },
+                          ],
                         ),
                       ),
                       const SizedBox(height: 10),
