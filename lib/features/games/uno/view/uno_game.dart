@@ -31,6 +31,8 @@ class UnoGame extends StatefulWidget {
 class _UnoGameState extends State<UnoGame> {
   late final PageController _pageController;
   int _currentPage = 0;
+  final List<int> _scoreHistory = [];
+  final List<int> _redoStack = [];
 
   @override
   void initState() {
@@ -60,6 +62,35 @@ class _UnoGameState extends State<UnoGame> {
       duration: const Duration(milliseconds: 300),
       curve: Curves.easeInOut,
     );
+  }
+
+  void _updateScore(int scoreChange) {
+    setState(() {
+      widget.players[_currentPage].score += scoreChange;
+      _scoreHistory.add(scoreChange);
+      _redoStack.clear(); // Clear redo stack on new action
+      // Display floating number animation here
+    });
+  }
+
+  void _undo() {
+    if (_scoreHistory.isNotEmpty) {
+      setState(() {
+        final lastScoreChange = _scoreHistory.removeLast();
+        widget.players[_currentPage].score -= lastScoreChange;
+        _redoStack.add(lastScoreChange);
+      });
+    }
+  }
+
+  void _redo() {
+    if (_redoStack.isNotEmpty) {
+      setState(() {
+        final lastUndoneScoreChange = _redoStack.removeLast();
+        widget.players[_currentPage].score += lastUndoneScoreChange;
+        _scoreHistory.add(lastUndoneScoreChange);
+      });
+    }
   }
 
   @override
@@ -149,28 +180,76 @@ class _UnoGameState extends State<UnoGame> {
                   child: CustomKeyboard(
                     buttons: [
                       [
-                        KeyboardButton(buttonText: '1'),
-                        KeyboardButton(buttonText: '2'),
-                        KeyboardButton(buttonText: '3'),
-                        KeyboardButton(buttonText: '4'),
+                        KeyboardButton(
+                          buttonText: '1',
+                          onPressed: () => _updateScore(1),
+                        ),
+                        KeyboardButton(
+                          buttonText: '2',
+                          onPressed: () => _updateScore(2),
+                        ),
+                        KeyboardButton(
+                          buttonText: '3',
+                          onPressed: () => _updateScore(3),
+                        ),
+                        KeyboardButton(
+                          buttonText: '4',
+                          onPressed: () => _updateScore(4),
+                        ),
                       ],
                       [
-                        KeyboardButton(buttonText: '5'),
-                        KeyboardButton(buttonText: '6'),
-                        KeyboardButton(buttonText: '7'),
-                        KeyboardButton(buttonText: '8'),
+                        KeyboardButton(
+                          buttonText: '5',
+                          onPressed: () => _updateScore(5),
+                        ),
+                        KeyboardButton(
+                          buttonText: '6',
+                          onPressed: () => _updateScore(6),
+                        ),
+                        KeyboardButton(
+                          buttonText: '7',
+                          onPressed: () => _updateScore(7),
+                        ),
+                        KeyboardButton(
+                          buttonText: '8',
+                          onPressed: () => _updateScore(8),
+                        ),
                       ],
                       [
-                        KeyboardButton(buttonText: '9'),
-                        KeyboardButton(buttonText: '0'),
-                        KeyboardButton(buttonText: '+2'),
-                        KeyboardButton(buttonIcon: CustomIcons.reverse),
+                        KeyboardButton(
+                          buttonText: '9',
+                          onPressed: () => _updateScore(9),
+                        ),
+                        KeyboardButton(
+                          buttonText: '0',
+                          onPressed: () => _updateScore(0),
+                        ),
+                        KeyboardButton(
+                          buttonText: '+2',
+                          onPressed: () => _updateScore(2),
+                        ),
+                        KeyboardButton(
+                          buttonIcon: CustomIcons.reverse,
+                          onPressed: () => _updateScore(20),
+                        ),
                       ],
                       [
-                        KeyboardButton(buttonIcon: CustomIcons.skip),
-                        KeyboardButton(buttonIcon: CustomIcons.wild),
-                        KeyboardButton(buttonIcon: CustomIcons.wildDrawFour),
-                        KeyboardButton(buttonIcon: CustomIcons.swap),
+                        KeyboardButton(
+                          buttonIcon: CustomIcons.skip,
+                          onPressed: () => _updateScore(20),
+                        ),
+                        KeyboardButton(
+                          buttonIcon: CustomIcons.wild,
+                          onPressed: () => _updateScore(40),
+                        ),
+                        KeyboardButton(
+                          buttonIcon: CustomIcons.wildDrawFour,
+                          onPressed: () => _updateScore(40),
+                        ),
+                        KeyboardButton(
+                          buttonIcon: CustomIcons.swap,
+                          onPressed: () => _updateScore(40),
+                        ),
                       ],
                     ],
                   ),
@@ -185,6 +264,8 @@ class _UnoGameState extends State<UnoGame> {
         dialogWidget: const InfoUnoDialog(),
         isArrow: true,
         rightButtonText: S.of(context).finish,
+        onLeftArrowTap: _undo,
+        onRightArrowTap: _redo,
       ),
     );
   }
