@@ -226,7 +226,7 @@ class _UnoGameState extends State<UnoGame> {
                         ),
                         KeyboardButton(
                           buttonText: '+2',
-                          onPressed: () => _updateScore(2),
+                          onPressed: () => _updateScore(20),
                         ),
                         KeyboardButton(
                           buttonIcon: CustomIcons.reverse,
@@ -240,15 +240,15 @@ class _UnoGameState extends State<UnoGame> {
                         ),
                         KeyboardButton(
                           buttonIcon: CustomIcons.wild,
-                          onPressed: () => _updateScore(40),
+                          onPressed: () => _updateScore(50),
                         ),
                         KeyboardButton(
                           buttonIcon: CustomIcons.wildDrawFour,
-                          onPressed: () => _updateScore(40),
+                          onPressed: () => _updateScore(50),
                         ),
                         KeyboardButton(
                           buttonIcon: CustomIcons.swap,
-                          onPressed: () => _updateScore(40),
+                          onPressed: () => _updateScore(50),
                         ),
                       ],
                     ],
