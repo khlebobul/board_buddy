@@ -7,6 +7,7 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
+import 'package:board_buddy/features/games/uno/widgets/game_end_modal_widget.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:flutter/material.dart';
@@ -78,7 +79,91 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
       _redoStack.clear(); // Clear redo stack on new action
 
       _showScoreChangeAnimation(scoreChange);
+
+      // Check if any player has reached the score limit
+      _checkGameEnd();
     });
+  }
+
+  void _checkGameEnd() {
+    // Check if any player has reached the score limit
+    bool gameEnded = false;
+
+    if (widget.gameMode == S.of(context).highestScoreWins) {
+      // In highest score wins mode, check if any player has reached or exceeded the score limit
+      for (final player in widget.players) {
+        if (player.score >= widget.scoreLimit) {
+          gameEnded = true;
+          break;
+        }
+      }
+    } else if (widget.gameMode == S.of(context).lowestScoreWins) {
+      // In lowest score wins mode, check if any player has reached or exceeded the score limit
+      for (final player in widget.players) {
+        if (player.score >= widget.scoreLimit) {
+          gameEnded = true;
+          break;
+        }
+      }
+    }
+
+    if (gameEnded) {
+      // Show game end modal
+      _showGameEndModal();
+    }
+  }
+
+  void _showGameEndModal() {
+    GameEndModalWidget.show(
+      context,
+      players: widget.players,
+      gameMode: widget.gameMode,
+      scoreLimit: widget.scoreLimit,
+      onNewGameWithSamePlayers: _startNewGameWithSamePlayers,
+      onNewGame: _startNewGame,
+      onReturnToMenu: _returnToMenu,
+    );
+  }
+
+  void _startNewGameWithSamePlayers() {
+    // Reset scores for all players
+    for (final player in widget.players) {
+      player.score = 0;
+    }
+
+    // Reset game state
+    setState(() {
+      _scoreHistory.clear();
+      _redoStack.clear();
+      _currentPage = 0;
+      _pageController.jumpToPage(0);
+    });
+
+    // Close the modal
+    Navigator.pop(context);
+  }
+
+  void _startNewGame() {
+    // Reset scores for all players before returning to the start screen
+    for (final player in widget.players) {
+      player.score = 0;
+    }
+
+    // Navigate back to the UNO start screen
+    Navigator.pop(context); // Close modal
+    Navigator.pop(context); // Return to start screen
+  }
+
+  void _returnToMenu() {
+    // Reset scores for all players before returning to the menu
+    for (final player in widget.players) {
+      player.score = 0;
+    }
+
+    // Navigate back to the main menu
+    Navigator.pop(context); // Close modal
+    Navigator.pop(context); // Return to start screen
+    Navigator.pop(context); // Return to main menu
   }
 
   void _showScoreChangeAnimation(int scoreChange) {
@@ -340,6 +425,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
         rightButtonText: S.of(context).finish,
         onLeftArrowTap: _undo,
         onRightArrowTap: _redo,
+        onRightBtnTap: _showGameEndModal,
       ),
     );
   }
