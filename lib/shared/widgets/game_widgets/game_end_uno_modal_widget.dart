@@ -118,13 +118,10 @@ class GameEndUnoModalWidget extends StatelessWidget {
                   onTap: onNewGameWithSamePlayers,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    // TODO: fix after adding alignment to the package
-                    child: Center(
-                      child: Text(
-                        S.of(context).newGameWithSamePlayers,
-                        style: theme.display2,
-                        // textAlign: TextAlign.center,
-                      ),
+                    child: TextScramble(
+                      text: S.of(context).newGameWithSamePlayers,
+                      style: theme.display2,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -132,11 +129,10 @@ class GameEndUnoModalWidget extends StatelessWidget {
                   onTap: onNewGame,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Center(
-                      child: TextScramble(
-                        text: S.of(context).newGame,
-                        style: theme.display2,
-                      ),
+                    child: TextScramble(
+                      text: S.of(context).newGame,
+                      style: theme.display2,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -144,11 +140,10 @@ class GameEndUnoModalWidget extends StatelessWidget {
                   onTap: onReturnToMenu,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: Center(
-                      child: TextScramble(
-                        text: S.of(context).returnToMenu,
-                        style: theme.display2,
-                      ),
+                    child: TextScramble(
+                      text: S.of(context).returnToMenu,
+                      style: theme.display2,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),

@@ -819,10 +819,10 @@ packages:
     dependency: "direct main"
     description:
       name: use_scramble
-      sha256: d075d19f1e7cf90bfa9a55dda74f4f222406bbdeaf6f4507444a26b37b8d1750
+      sha256: "96c52222797c90e9a9b9ebf9cec878ea9f022eeea5a019c7f2d1c10576a395aa"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   vector_graphics:
     dependency: transitive
     description:
