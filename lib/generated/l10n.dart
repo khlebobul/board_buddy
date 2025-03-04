@@ -2724,6 +2724,41 @@ class S {
   String get gameUpTo {
     return Intl.message('game up to: ', name: 'gameUpTo', desc: '', args: []);
   }
+
+  /// `game over`
+  String get gameOver {
+    return Intl.message('game over', name: 'gameOver', desc: '', args: []);
+  }
+
+  /// `new game with same players`
+  String get newGameWithSamePlayers {
+    return Intl.message(
+      'new game with same players',
+      name: 'newGameWithSamePlayers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `new game`
+  String get newGame {
+    return Intl.message('new game', name: 'newGame', desc: '', args: []);
+  }
+
+  /// `return to menu`
+  String get returnToMenu {
+    return Intl.message(
+      'return to menu',
+      name: 'returnToMenu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `winner:`
+  String get winner {
+    return Intl.message('winner:', name: 'winner', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

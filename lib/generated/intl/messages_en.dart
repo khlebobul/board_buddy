@@ -179,6 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "follow me on x (twitter)",
     ),
     "gameGoal": MessageLookupByLibrary.simpleMessage("game goal:"),
+    "gameOver": MessageLookupByLibrary.simpleMessage("game over"),
     "gameTurnTitle": MessageLookupByLibrary.simpleMessage("game turn:"),
     "gameUpTo": MessageLookupByLibrary.simpleMessage("game up to: "),
     "games": MessageLookupByLibrary.simpleMessage("games"),
@@ -299,6 +300,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "nWord": MessageLookupByLibrary.simpleMessage("\nword"),
     "name": MessageLookupByLibrary.simpleMessage("name"),
+    "newGame": MessageLookupByLibrary.simpleMessage("new game"),
+    "newGameWithSamePlayers": MessageLookupByLibrary.simpleMessage(
+      "new game with same players",
+    ),
     "nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "next player draws 1 card and skips turn.",
@@ -332,6 +337,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
     "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
     "results": MessageLookupByLibrary.simpleMessage("results"),
+    "returnToMenu": MessageLookupByLibrary.simpleMessage("return to menu"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage("reverse card"),
     "rightHand": MessageLookupByLibrary.simpleMessage("right hand"),
     "round": MessageLookupByLibrary.simpleMessage("round"),
@@ -729,6 +735,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "wildShuffleHandsCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "wild shuffle hands card",
     ),
+    "winner": MessageLookupByLibrary.simpleMessage("winner:"),
     "wizard": MessageLookupByLibrary.simpleMessage("wizard"),
   };
 }

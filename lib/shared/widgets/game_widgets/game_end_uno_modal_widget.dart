@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:use_scramble/use_scramble.dart';
 
-class GameEndModalWidget extends StatelessWidget {
+class GameEndUnoModalWidget extends StatelessWidget {
   final List<Player> players;
   final String gameMode;
   final int scoreLimit;
@@ -13,7 +13,7 @@ class GameEndModalWidget extends StatelessWidget {
   final VoidCallback onNewGame;
   final VoidCallback onReturnToMenu;
 
-  const GameEndModalWidget({
+  const GameEndUnoModalWidget({
     super.key,
     required this.players,
     required this.gameMode,
@@ -50,7 +50,7 @@ class GameEndModalWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.all(16.0),
             child: Text(
-              "Game Over",
+              S.of(context).gameOver,
               style: theme.display1.copyWith(
                 color: theme.redColor,
               ),
@@ -60,7 +60,7 @@ class GameEndModalWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Text(
-              "Winner: ${winner.name}",
+              S.of(context).winner + winner.name.toLowerCase(),
               style: theme.display2.copyWith(
                 color: theme.textColor,
               ),
@@ -83,24 +83,12 @@ class GameEndModalWidget extends StatelessWidget {
                       child: Row(
                         mainAxisAlignment: MainAxisAlignment.spaceBetween,
                         children: [
-                          Row(
-                            children: [
-                              if (isWinner)
-                                Icon(
-                                  Icons.emoji_events,
-                                  color: theme.redColor,
-                                  size: 20,
-                                ),
-                              const SizedBox(width: 8),
-                              Text(
-                                player.name,
-                                style: theme.display2.copyWith(
-                                  color: isWinner
-                                      ? theme.redColor
-                                      : theme.textColor,
-                                ),
-                              ),
-                            ],
+                          Text(
+                            player.name,
+                            style: theme.display2.copyWith(
+                              color:
+                                  isWinner ? theme.redColor : theme.textColor,
+                            ),
                           ),
                           Text(
                             player.score.toString(),
@@ -120,18 +108,21 @@ class GameEndModalWidget extends StatelessWidget {
 
           const SizedBox(height: 24),
 
-          // Action buttons
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 16.0),
             child: Column(
+              crossAxisAlignment: CrossAxisAlignment.stretch,
+              mainAxisAlignment: MainAxisAlignment.center,
               children: [
                 GestureDetector(
                   onTap: onNewGameWithSamePlayers,
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: TextScramble(
-                      text: "New game with same players",
-                      style: theme.display2.copyWith(color: theme.redColor),
+                    // TODO: fix after adding alignment to the package
+                    child: Text(
+                      S.of(context).newGameWithSamePlayers,
+                      style: theme.display2,
+                      textAlign: TextAlign.center,
                     ),
                   ),
                 ),
@@ -140,8 +131,8 @@ class GameEndModalWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: TextScramble(
-                      text: "New game",
-                      style: theme.display2.copyWith(color: theme.redColor),
+                      text: S.of(context).newGame,
+                      style: theme.display2,
                     ),
                   ),
                 ),
@@ -150,8 +141,8 @@ class GameEndModalWidget extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(vertical: 8.0),
                     child: TextScramble(
-                      text: "Return to menu",
-                      style: theme.display2.copyWith(color: theme.redColor),
+                      text: S.of(context).returnToMenu,
+                      style: theme.display2,
                     ),
                   ),
                 ),
@@ -179,7 +170,7 @@ class GameEndModalWidget extends StatelessWidget {
       context: context,
       barrierDismissible: false,
       builder: (BuildContext context) {
-        return GameEndModalWidget(
+        return GameEndUnoModalWidget(
           players: players,
           gameMode: gameMode,
           scoreLimit: scoreLimit,

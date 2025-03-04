@@ -7,7 +7,7 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
-import 'package:board_buddy/features/games/uno/widgets/game_end_modal_widget.dart';
+import 'package:board_buddy/shared/widgets/game_widgets/game_end_uno_modal_widget.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:flutter/material.dart';
@@ -115,7 +115,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
   }
 
   void _showGameEndModal() {
-    GameEndModalWidget.show(
+    GameEndUnoModalWidget.show(
       context,
       players: widget.players,
       gameMode: widget.gameMode,

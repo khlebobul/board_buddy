@@ -187,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "мой x (twitter)",
     ),
     "gameGoal": MessageLookupByLibrary.simpleMessage("цель игры:"),
+    "gameOver": MessageLookupByLibrary.simpleMessage("игра окончена"),
     "gameTurnTitle": MessageLookupByLibrary.simpleMessage("ход игры:"),
     "gameUpTo": MessageLookupByLibrary.simpleMessage("игра до: "),
     "games": MessageLookupByLibrary.simpleMessage("игры"),
@@ -307,6 +308,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "nWord": MessageLookupByLibrary.simpleMessage("\nслово"),
     "name": MessageLookupByLibrary.simpleMessage("имя"),
+    "newGame": MessageLookupByLibrary.simpleMessage("новая игра"),
+    "newGameWithSamePlayers": MessageLookupByLibrary.simpleMessage(
+      "новая игра с теми же игроками",
+    ),
     "nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "следующий игрок берет 1 карту и пропускает ход.",
@@ -340,6 +345,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "rateTheApp": MessageLookupByLibrary.simpleMessage("оцените приложение"),
     "reportABug": MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
     "results": MessageLookupByLibrary.simpleMessage("результаты"),
+    "returnToMenu": MessageLookupByLibrary.simpleMessage("вернуться в меню"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "карта «смена направления»",
     ),
@@ -753,6 +759,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "wildShuffleHandsCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "дикая карта «перетасовка рук»",
     ),
+    "winner": MessageLookupByLibrary.simpleMessage("победитель:"),
     "wizard": MessageLookupByLibrary.simpleMessage("маг"),
   };
 }

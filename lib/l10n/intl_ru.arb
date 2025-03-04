@@ -307,5 +307,10 @@
   "add": "добавить",
   "playerName": "имя игрока",
   "theNumberOfPlayersShouldBe": "количество игроков должно быть",
-  "gameUpTo": "игра до: "
+  "gameUpTo": "игра до: ",
+  "gameOver": "игра окончена",
+  "newGameWithSamePlayers": "новая игра с теми же игроками",
+  "newGame": "новая игра",
+  "returnToMenu": "вернуться в меню",
+  "winner": "победитель:"
 }
