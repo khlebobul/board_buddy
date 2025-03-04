@@ -99,6 +99,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
       }
     } else if (widget.gameMode == S.of(context).lowestScoreWins) {
       // In lowest score wins mode, check if any player has reached or exceeded the score limit
+      // The logic is the same as in highest score wins mode, as we're checking if the score limit is reached
       for (final player in widget.players) {
         if (player.score >= widget.scoreLimit) {
           gameEnded = true;

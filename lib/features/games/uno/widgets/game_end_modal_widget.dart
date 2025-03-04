@@ -1,4 +1,5 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -26,11 +27,17 @@ class GameEndModalWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
 
-    // Sort players by score (descending)
+    // Sort players by score based on game mode
     final sortedPlayers = List<Player>.from(players);
-    sortedPlayers.sort((a, b) => b.score.compareTo(a.score));
+    if (gameMode == S.of(context).highestScoreWins) {
+      // For highest score wins, sort in descending order (highest first)
+      sortedPlayers.sort((a, b) => b.score.compareTo(a.score));
+    } else {
+      // For lowest score wins, sort in ascending order (lowest first)
+      sortedPlayers.sort((a, b) => a.score.compareTo(b.score));
+    }
 
-    // Determine the winner
+    // Determine the winner (first player after sorting)
     final Player winner = sortedPlayers.first;
 
     return Dialog(
