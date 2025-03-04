@@ -14,6 +14,7 @@ import 'package:board_buddy/features/games/scrabble/view/scrabble_rules.dart';
 import 'package:board_buddy/features/games/set/view/set_rules.dart';
 import 'package:board_buddy/features/games/uno_flip/view/uno_flip_rules.dart';
 import 'package:board_buddy/features/games/uno/view/uno_rules.dart';
+import 'package:board_buddy/features/home/view/home_screen.dart';
 import 'package:board_buddy/features/rules_games_list/view/rules_screen.dart';
 import 'package:board_buddy/features/settings/settings_screen.dart';
 import 'package:board_buddy/features/splash/view/splash_screen.dart';
@@ -26,6 +27,7 @@ class AppRoutes {
   static const String rules = '/rules';
   static const String settings = '/settings';
   static const String splash = '/';
+  static const String home = '/home';
 
   // rules
   static const String unoRules = '/unoRules';
@@ -51,6 +53,7 @@ class AppRoutes {
         games: (context) => const GamesScreen(),
         rules: (context) => const RulesScreen(),
         settings: (context) => const SettingsScreen(),
+        home: (context) => const HomeScreen(),
 
         // rules
         unoRules: (context) => const UnoRulesScreen(),

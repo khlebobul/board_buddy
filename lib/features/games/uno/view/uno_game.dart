@@ -161,10 +161,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
       player.score = 0;
     }
 
-    // Navigate back to the main menu
-    Navigator.pop(context); // Close modal
-    Navigator.pop(context); // Return to start screen
-    Navigator.pop(context); // Return to main menu
+    Navigator.pushNamed(context, '/home');
   }
 
   void _showScoreChangeAnimation(int scoreChange) {
