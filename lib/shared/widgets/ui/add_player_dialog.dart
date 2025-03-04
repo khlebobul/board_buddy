@@ -7,7 +7,6 @@ import 'package:use_scramble/use_scramble.dart';
 
 class AddPlayerDialog extends StatelessWidget {
   final ValueChanged<Player> onPlayerAdded;
-
   const AddPlayerDialog({
     super.key,
     required this.onPlayerAdded,
@@ -22,6 +21,16 @@ class AddPlayerDialog extends StatelessWidget {
     WidgetsBinding.instance.addPostFrameCallback((_) {
       focusNode.requestFocus();
     });
+
+    void addPlayer() {
+      final playerName = nameController.text.trim();
+      if (playerName.isNotEmpty) {
+        final newPlayer =
+            Player(name: playerName, id: DateTime.now().millisecondsSinceEpoch);
+        onPlayerAdded(newPlayer);
+        Navigator.pop(context);
+      }
+    }
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
@@ -64,6 +73,8 @@ class AddPlayerDialog extends StatelessWidget {
                   contentPadding: const EdgeInsets.symmetric(
                       horizontal: 12.0, vertical: 8.0),
                 ),
+                textInputAction: TextInputAction.done, // keyboard press Enter
+                onSubmitted: (_) => addPlayer(), // keyboard press Enter
               ),
             ),
           ),
@@ -82,16 +93,7 @@ class AddPlayerDialog extends StatelessWidget {
                 ),
               ),
               GestureDetector(
-                onTap: () {
-                  final playerName = nameController.text.trim();
-                  if (playerName.isNotEmpty) {
-                    final newPlayer = Player(
-                        name: playerName,
-                        id: DateTime.now().millisecondsSinceEpoch);
-                    onPlayerAdded(newPlayer);
-                    Navigator.pop(context);
-                  }
-                },
+                onTap: addPlayer,
                 child: TextScramble(
                   text: S.of(context).add,
                   style: theme.display2.copyWith(color: theme.redColor),
@@ -108,7 +110,6 @@ class AddPlayerDialog extends StatelessWidget {
   static void show(BuildContext context,
       {required ValueChanged<Player> onPlayerAdded}) {
     HapticFeedback.selectionClick();
-
     showDialog(
       context: context,
       builder: (BuildContext context) {
