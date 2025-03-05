@@ -342,51 +342,51 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                         buttons: [
                           [
                             KeyboardButton(
-                              buttonText: '1',
+                              buttonText: UnoLikeGameCardsText.one,
                               onPressed: () => _updateScore(1),
                             ),
                             KeyboardButton(
-                              buttonText: '2',
+                              buttonText: UnoLikeGameCardsText.two,
                               onPressed: () => _updateScore(2),
                             ),
                             KeyboardButton(
-                              buttonText: '3',
+                              buttonText: UnoLikeGameCardsText.three,
                               onPressed: () => _updateScore(3),
                             ),
                             KeyboardButton(
-                              buttonText: '4',
+                              buttonText: UnoLikeGameCardsText.four,
                               onPressed: () => _updateScore(4),
                             ),
                           ],
                           [
                             KeyboardButton(
-                              buttonText: '5',
+                              buttonText: UnoLikeGameCardsText.five,
                               onPressed: () => _updateScore(5),
                             ),
                             KeyboardButton(
-                              buttonText: '6',
+                              buttonText: UnoLikeGameCardsText.six,
                               onPressed: () => _updateScore(6),
                             ),
                             KeyboardButton(
-                              buttonText: '7',
+                              buttonText: UnoLikeGameCardsText.seven,
                               onPressed: () => _updateScore(7),
                             ),
                             KeyboardButton(
-                              buttonText: '8',
+                              buttonText: UnoLikeGameCardsText.eight,
                               onPressed: () => _updateScore(8),
                             ),
                           ],
                           [
                             KeyboardButton(
-                              buttonText: '9',
+                              buttonText: UnoLikeGameCardsText.nine,
                               onPressed: () => _updateScore(9),
                             ),
                             KeyboardButton(
-                              buttonText: '0',
+                              buttonText: UnoLikeGameCardsText.zero,
                               onPressed: () => _updateScore(0),
                             ),
                             KeyboardButton(
-                              buttonText: '+2',
+                              buttonText: UnoLikeGameCardsText.plusTwo,
                               onPressed: () => _updateScore(20),
                             ),
                             KeyboardButton(
