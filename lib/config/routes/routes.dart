@@ -18,7 +18,9 @@ import 'package:board_buddy/features/home/view/home_screen.dart';
 import 'package:board_buddy/features/rules_games_list/view/rules_screen.dart';
 import 'package:board_buddy/features/settings/settings_screen.dart';
 import 'package:board_buddy/features/splash/view/splash_screen.dart';
+import 'package:board_buddy/features/games/uno/bloc/uno_bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
 
 class AppRoutes {
   // main routes
@@ -77,10 +79,13 @@ class AppRoutes {
     if (settings.name == unoGame && settings.arguments != null) {
       final args = settings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
-        builder: (context) => UnoGame(
-          players: args['players'],
-          scoreLimit: args['scoreLimit'],
-          gameMode: args['gameMode'],
+        builder: (context) => BlocProvider(
+          create: (context) => UnoBloc(),
+          child: UnoGame(
+            players: args['players'],
+            scoreLimit: args['scoreLimit'],
+            gameMode: args['gameMode'],
+          ),
         ),
       );
     }

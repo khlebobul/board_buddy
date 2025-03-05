@@ -310,9 +310,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "nWord": MessageLookupByLibrary.simpleMessage("\nслово"),
     "name": MessageLookupByLibrary.simpleMessage("имя"),
     "newGame": MessageLookupByLibrary.simpleMessage("новая игра"),
-    "newGameWithSamePlayers": MessageLookupByLibrary.simpleMessage(
-      "новая игра с теми же игроками",
-    ),
+    "newGameWithSamePlayers": MessageLookupByLibrary.simpleMessage("еще раунд"),
     "nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "следующий игрок берет 1 карту и пропускает ход.",

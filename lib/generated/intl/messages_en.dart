@@ -303,7 +303,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "name": MessageLookupByLibrary.simpleMessage("name"),
     "newGame": MessageLookupByLibrary.simpleMessage("new game"),
     "newGameWithSamePlayers": MessageLookupByLibrary.simpleMessage(
-      "new game with same players",
+      "another round",
     ),
     "nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(

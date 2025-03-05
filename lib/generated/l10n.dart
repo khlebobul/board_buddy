@@ -2730,10 +2730,10 @@ class S {
     return Intl.message('game over', name: 'gameOver', desc: '', args: []);
   }
 
-  /// `new game with same players`
+  /// `another round`
   String get newGameWithSamePlayers {
     return Intl.message(
-      'new game with same players',
+      'another round',
       name: 'newGameWithSamePlayers',
       desc: '',
       args: [],

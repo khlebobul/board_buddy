@@ -1,3 +1,4 @@
+import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
@@ -58,13 +59,18 @@ class GameEndUnoModalWidget extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            child: Text(
-              S.of(context).winner + winner.name.toLowerCase(),
-              style: theme.display2.copyWith(
-                color: theme.textColor,
+            padding: const EdgeInsets.symmetric(
+                horizontal: GeneralConst.paddingHorizontal),
+            child: Expanded(
+              child: Text(
+                S.of(context).winner + winner.name.toLowerCase(),
+                style: theme.display2.copyWith(
+                  color: theme.secondaryTextColor,
+                ),
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
-              textAlign: TextAlign.center,
             ),
           ),
           const SizedBox(height: 16),
@@ -74,32 +80,38 @@ class GameEndUnoModalWidget extends StatelessWidget {
             constraints: const BoxConstraints(maxHeight: 200),
             child: SingleChildScrollView(
               child: Padding(
-                padding: const EdgeInsets.symmetric(horizontal: 16.0),
+                padding: const EdgeInsets.symmetric(
+                    horizontal: GeneralConst.paddingHorizontal),
                 child: Column(
                   children: sortedPlayers.map((player) {
                     final isWinner = player.id == winner.id;
                     return Padding(
-                      padding: const EdgeInsets.symmetric(vertical: 8.0),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            player.name,
-                            style: theme.display2.copyWith(
-                              color:
-                                  isWinner ? theme.redColor : theme.textColor,
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Expanded(
+                              child: Text(
+                                player.name.toLowerCase(),
+                                style: theme.display2.copyWith(
+                                  color: isWinner
+                                      ? theme.redColor
+                                      : theme.textColor,
+                                ),
+                                overflow: TextOverflow.ellipsis,
+                                maxLines: 1,
+                              ),
                             ),
-                          ),
-                          Text(
-                            player.score.toString(),
-                            style: theme.display2.copyWith(
-                              color:
-                                  isWinner ? theme.redColor : theme.textColor,
+                            const SizedBox(width: 10),
+                            Text(
+                              player.score.toString(),
+                              style: theme.display2.copyWith(
+                                color:
+                                    isWinner ? theme.redColor : theme.textColor,
+                              ),
                             ),
-                          ),
-                        ],
-                      ),
-                    );
+                          ],
+                        ));
                   }).toList(),
                 ),
               ),
@@ -109,7 +121,8 @@ class GameEndUnoModalWidget extends StatelessWidget {
           const SizedBox(height: 24),
 
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            padding: const EdgeInsets.symmetric(
+                horizontal: GeneralConst.paddingHorizontal),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.stretch,
               mainAxisAlignment: MainAxisAlignment.center,
