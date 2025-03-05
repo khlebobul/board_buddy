@@ -37,6 +37,7 @@ class MyApp extends StatelessWidget {
             } else {
               return MaterialApp(
                 routes: AppRoutes.routes,
+                onGenerateRoute: AppRoutes.onGenerateRoute,
                 debugShowCheckedModeBanner: false,
                 theme: UIThemes.lightTheme(),
                 darkTheme: UIThemes.darkTheme(),

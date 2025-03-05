@@ -113,6 +113,14 @@ class UIThemes {
         color: textColor,
       );
 
+  // points keyboard
+  TextStyle get display8 => TextStyle(
+        fontSize: 25,
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w300,
+        color: textColor,
+      );
+
   // Colors
   // Background color
   Color get bgColor =>

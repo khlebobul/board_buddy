@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("about"),
+    "add": MessageLookupByLibrary.simpleMessage("add"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("add player"),
     "allowsThePlayerToChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -53,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "can represent any number for its own particular color.",
         ),
+    "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("types of cards:"),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -76,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "common": MessageLookupByLibrary.simpleMessage("counter"),
     "cursed": MessageLookupByLibrary.simpleMessage("cursed"),
     "dark": MessageLookupByLibrary.simpleMessage("dark"),
+    "doReturn": MessageLookupByLibrary.simpleMessage("return"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "don\'t have your favourite game? email me!",
     ),
@@ -177,7 +180,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "follow me on x (twitter)",
     ),
     "gameGoal": MessageLookupByLibrary.simpleMessage("game goal:"),
+    "gameOver": MessageLookupByLibrary.simpleMessage("game over"),
     "gameTurnTitle": MessageLookupByLibrary.simpleMessage("game turn:"),
+    "gameUpTo": MessageLookupByLibrary.simpleMessage("game up to: "),
     "games": MessageLookupByLibrary.simpleMessage("games"),
     "gear": MessageLookupByLibrary.simpleMessage("gear"),
     "githubRepository": MessageLookupByLibrary.simpleMessage(
@@ -296,6 +301,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "nWord": MessageLookupByLibrary.simpleMessage("\nword"),
     "name": MessageLookupByLibrary.simpleMessage("name"),
+    "newGame": MessageLookupByLibrary.simpleMessage("new game"),
+    "newGameWithSamePlayers": MessageLookupByLibrary.simpleMessage(
+      "another round",
+    ),
     "nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "next player draws 1 card and skips turn.",
@@ -317,6 +326,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberCards": MessageLookupByLibrary.simpleMessage("number cards"),
     "others": MessageLookupByLibrary.simpleMessage("others"),
     "play": MessageLookupByLibrary.simpleMessage("play"),
+    "playerName": MessageLookupByLibrary.simpleMessage("player name"),
     "players": MessageLookupByLibrary.simpleMessage("players"),
     "points": MessageLookupByLibrary.simpleMessage("points"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
@@ -328,6 +338,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
     "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
     "results": MessageLookupByLibrary.simpleMessage("results"),
+    "returnToMenu": MessageLookupByLibrary.simpleMessage("return to menu"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage("reverse card"),
     "rightHand": MessageLookupByLibrary.simpleMessage("right hand"),
     "round": MessageLookupByLibrary.simpleMessage("round"),
@@ -527,13 +538,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "sword": MessageLookupByLibrary.simpleMessage("sword"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
     "telegramGroup": MessageLookupByLibrary.simpleMessage("telegram group"),
+    "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
+      "the number of players should be",
+    ),
     "theme": MessageLookupByLibrary.simpleMessage("theme"),
     "thief": MessageLookupByLibrary.simpleMessage("thief"),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
       "to all who created the",
     ),
     "toBoardBuddysContributors": MessageLookupByLibrary.simpleMessage(
-      "to board buddy\\\'s contributors",
+      "to board buddy\'s contributors",
     ),
     "total": MessageLookupByLibrary.simpleMessage("total"),
     "totalStrength": MessageLookupByLibrary.simpleMessage("total strength: "),
@@ -722,6 +736,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "wildShuffleHandsCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "wild shuffle hands card",
     ),
+    "winner": MessageLookupByLibrary.simpleMessage("winner: "),
     "wizard": MessageLookupByLibrary.simpleMessage("wizard"),
+    "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
+      "you have an unfinished game",
+    ),
   };
 }

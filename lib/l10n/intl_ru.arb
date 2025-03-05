@@ -302,5 +302,17 @@
   "multiplayer": "мультиплеер",
   "singleplayer": "одиночная игра",
   "score": "счет",
-  "telegramGroup": "телеграм группа"
+  "telegramGroup": "телеграм группа",
+  "cancel": "отмена",
+  "add": "добавить",
+  "playerName": "имя игрока",
+  "theNumberOfPlayersShouldBe": "количество игроков должно быть",
+  "gameUpTo": "игра до: ",
+  "gameOver": "игра окончена",
+  "newGameWithSamePlayers": "еще раунд",
+  "newGame": "новая игра",
+  "returnToMenu": "вернуться в меню",
+  "winner": "победитель: ",
+  "youHaveAnUnfinishedGame": "игра не завершена",
+  "doReturn": "вернуться"
 }

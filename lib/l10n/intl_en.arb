@@ -293,7 +293,7 @@
   "buffsOrDebuffsAffectingCharactersitemsInfo": "buffs or debuffs affecting characters/items",
   "toAllWhoCreatedThe": "to all who created the",
   "appreciation": "appreciation",
-  "toBoardBuddysContributors": "to board buddy\\'s contributors",
+  "toBoardBuddysContributors": "to board buddy's contributors",
   "play": "play",
   "mode": "mode",
   "edit": "edit",
@@ -302,5 +302,17 @@
   "multiplayer": "multiplayer",
   "singleplayer": "singleplayer",
   "score": "score",
-  "telegramGroup": "telegram group"
+  "telegramGroup": "telegram group",
+  "cancel": "cancel",
+  "add": "add",
+  "playerName": "player name",
+  "theNumberOfPlayersShouldBe": "the number of players should be",
+  "gameUpTo": "game up to: ",
+  "gameOver": "game over",
+  "newGameWithSamePlayers": "another round",
+  "newGame": "new game",
+  "returnToMenu": "return to menu",
+  "winner": "winner: ",
+  "youHaveAnUnfinishedGame": "you have an unfinished game",
+  "doReturn": "return"
 }

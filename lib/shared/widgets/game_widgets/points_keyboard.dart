@@ -41,37 +41,91 @@ class CustomKeyboard extends StatelessWidget {
 
   TableRow _buildTableRow(List<KeyboardButton> row, theme) {
     return TableRow(
-      children: row.map((button) => _buildButtonCell(button, theme)).toList(),
+      children: row
+          .map((button) => _AnimatedButtonCell(button: button, theme: theme))
+          .toList(),
     );
   }
+}
 
-  Widget _buildButtonCell(KeyboardButton button, theme) {
+class _AnimatedButtonCell extends StatefulWidget {
+  final KeyboardButton button;
+  final dynamic theme;
+
+  const _AnimatedButtonCell({required this.button, required this.theme});
+
+  @override
+  __AnimatedButtonCellState createState() => __AnimatedButtonCellState();
+}
+
+class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<Color?> _colorAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 100),
+      vsync: this,
+    );
+    // animate color
+    _colorAnimation = ColorTween(
+      begin: widget.theme.textColor,
+      end: widget.theme.secondaryTextColor,
+    ).animate(_controller);
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onTap() {
+    if (widget.button.onPressed != null) {
+      widget.button.onPressed!();
+      _controller.forward().then((_) => _controller.reverse());
+    }
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
-      onTap: button.onPressed,
+      onTap: _onTap,
       child: Container(
         margin: const EdgeInsets.all(14.0),
         decoration: BoxDecoration(
-          color: button.backgroundColor,
+          color: widget.button.backgroundColor,
           borderRadius: BorderRadius.circular(8.0),
         ),
         alignment: Alignment.center,
-        child: button.buttonIcon.isEmpty
-            ? Text(
-                button.buttonText,
-                style: theme.display1.copyWith(
-                  color: theme.textColor,
-                ),
-              )
-            : SizedBox(
-                width: button.iconSize,
-                height: button.iconSize,
-                child: SvgPicture.asset(
-                  button.buttonIcon,
-                  fit: BoxFit.contain,
-                  // ignore: deprecated_member_use
-                  color: theme.textColor,
-                ),
-              ),
+        child: AnimatedBuilder(
+          animation: _colorAnimation,
+          builder: (context, child) {
+            return widget.button.buttonIcon.isEmpty
+                ? Text(
+                    widget.button.buttonText,
+                    style: widget.theme.display8.copyWith(
+                      color: _colorAnimation.value,
+                    ),
+                  )
+                : Padding(
+                    padding: const EdgeInsets.symmetric(vertical: 3.0),
+                    child: SizedBox(
+                      width: widget.button.iconSize,
+                      height: widget.button.iconSize,
+                      child: SvgPicture.asset(
+                        widget.button.buttonIcon,
+                        fit: BoxFit.fitHeight,
+                        // ignore: deprecated_member_use
+                        color: _colorAnimation.value,
+                      ),
+                    ),
+                  );
+          },
+        ),
       ),
     );
   }
@@ -99,6 +153,6 @@ class KeyboardButton {
     this.buttonText = '',
     this.onPressed,
     this.backgroundColor,
-    this.iconSize = 27.0,
+    this.iconSize = 30.0,
   });
 }

@@ -47,7 +47,7 @@ packages:
     source: hosted
     version: "2.11.0"
   bloc:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: bloc
       sha256: "52c10575f4445c61dd9e0cafcc6356fdd827c4c64dd7945ef3c4105f6b6ac189"
@@ -467,7 +467,7 @@ packages:
     source: hosted
     version: "0.11.1"
   meta:
-    dependency: transitive
+    dependency: "direct main"
     description:
       name: meta
       sha256: bdb68674043280c3428e9ec998512fb681678676b3c54e773629ffe74419f8c7
@@ -819,10 +819,10 @@ packages:
     dependency: "direct main"
     description:
       name: use_scramble
-      sha256: d075d19f1e7cf90bfa9a55dda74f4f222406bbdeaf6f4507444a26b37b8d1750
+      sha256: "96c52222797c90e9a9b9ebf9cec878ea9f022eeea5a019c7f2d1c10576a395aa"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.6"
+    version: "0.0.7"
   vector_graphics:
     dependency: transitive
     description:
@@ -895,6 +895,14 @@ packages:
       url: "https://pub.dev"
     source: hosted
     version: "3.0.1"
+  wheel_chooser:
+    dependency: "direct main"
+    description:
+      name: wheel_chooser
+      sha256: "3fee36f081f321c58a0b7b4afcdd92599f2ca520b3a1420084774e6b19cca1d8"
+      url: "https://pub.dev"
+    source: hosted
+    version: "1.1.2"
   xdg_directories:
     dependency: transitive
     description:

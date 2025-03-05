@@ -2620,10 +2620,10 @@ class S {
     );
   }
 
-  /// `to board buddy\'s contributors`
+  /// `to board buddy's contributors`
   String get toBoardBuddysContributors {
     return Intl.message(
-      'to board buddy\\\'s contributors',
+      'to board buddy\'s contributors',
       name: 'toBoardBuddysContributors',
       desc: '',
       args: [],
@@ -2693,6 +2693,86 @@ class S {
       desc: '',
       args: [],
     );
+  }
+
+  /// `cancel`
+  String get cancel {
+    return Intl.message('cancel', name: 'cancel', desc: '', args: []);
+  }
+
+  /// `add`
+  String get add {
+    return Intl.message('add', name: 'add', desc: '', args: []);
+  }
+
+  /// `player name`
+  String get playerName {
+    return Intl.message('player name', name: 'playerName', desc: '', args: []);
+  }
+
+  /// `the number of players should be`
+  String get theNumberOfPlayersShouldBe {
+    return Intl.message(
+      'the number of players should be',
+      name: 'theNumberOfPlayersShouldBe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `game up to: `
+  String get gameUpTo {
+    return Intl.message('game up to: ', name: 'gameUpTo', desc: '', args: []);
+  }
+
+  /// `game over`
+  String get gameOver {
+    return Intl.message('game over', name: 'gameOver', desc: '', args: []);
+  }
+
+  /// `another round`
+  String get newGameWithSamePlayers {
+    return Intl.message(
+      'another round',
+      name: 'newGameWithSamePlayers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `new game`
+  String get newGame {
+    return Intl.message('new game', name: 'newGame', desc: '', args: []);
+  }
+
+  /// `return to menu`
+  String get returnToMenu {
+    return Intl.message(
+      'return to menu',
+      name: 'returnToMenu',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `winner: `
+  String get winner {
+    return Intl.message('winner: ', name: 'winner', desc: '', args: []);
+  }
+
+  /// `you have an unfinished game`
+  String get youHaveAnUnfinishedGame {
+    return Intl.message(
+      'you have an unfinished game',
+      name: 'youHaveAnUnfinishedGame',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `return`
+  String get doReturn {
+    return Intl.message('return', name: 'doReturn', desc: '', args: []);
   }
 }
 

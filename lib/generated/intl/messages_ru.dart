@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("о проекте"),
+    "add": MessageLookupByLibrary.simpleMessage("добавить"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("добавить игрока"),
     "allowsThePlayerToChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage("позволяет игроку выбрать цвет."),
@@ -53,6 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "может представлять любое число своего цвета.",
         ),
+    "cancel": MessageLookupByLibrary.simpleMessage("отмена"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -76,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "common": MessageLookupByLibrary.simpleMessage("счетчик"),
     "cursed": MessageLookupByLibrary.simpleMessage("проклятие"),
     "dark": MessageLookupByLibrary.simpleMessage("темная"),
+    "doReturn": MessageLookupByLibrary.simpleMessage("вернуться"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "нет вашей любимой игры? напишите мне!",
     ),
@@ -185,7 +188,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "мой x (twitter)",
     ),
     "gameGoal": MessageLookupByLibrary.simpleMessage("цель игры:"),
+    "gameOver": MessageLookupByLibrary.simpleMessage("игра окончена"),
     "gameTurnTitle": MessageLookupByLibrary.simpleMessage("ход игры:"),
+    "gameUpTo": MessageLookupByLibrary.simpleMessage("игра до: "),
     "games": MessageLookupByLibrary.simpleMessage("игры"),
     "gear": MessageLookupByLibrary.simpleMessage("снаряжение"),
     "githubRepository": MessageLookupByLibrary.simpleMessage(
@@ -304,6 +309,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "nWord": MessageLookupByLibrary.simpleMessage("\nслово"),
     "name": MessageLookupByLibrary.simpleMessage("имя"),
+    "newGame": MessageLookupByLibrary.simpleMessage("новая игра"),
+    "newGameWithSamePlayers": MessageLookupByLibrary.simpleMessage("еще раунд"),
     "nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "следующий игрок берет 1 карту и пропускает ход.",
@@ -325,6 +332,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberCards": MessageLookupByLibrary.simpleMessage("номерные карты"),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
     "play": MessageLookupByLibrary.simpleMessage("играть"),
+    "playerName": MessageLookupByLibrary.simpleMessage("имя игрока"),
     "players": MessageLookupByLibrary.simpleMessage("игроки"),
     "points": MessageLookupByLibrary.simpleMessage("очков"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
@@ -336,6 +344,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "rateTheApp": MessageLookupByLibrary.simpleMessage("оцените приложение"),
     "reportABug": MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
     "results": MessageLookupByLibrary.simpleMessage("результаты"),
+    "returnToMenu": MessageLookupByLibrary.simpleMessage("вернуться в меню"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "карта «смена направления»",
     ),
@@ -547,6 +556,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "sword": MessageLookupByLibrary.simpleMessage("меч"),
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
     "telegramGroup": MessageLookupByLibrary.simpleMessage("телеграм группа"),
+    "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
+      "количество игроков должно быть",
+    ),
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
@@ -746,6 +758,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "wildShuffleHandsCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "дикая карта «перетасовка рук»",
     ),
+    "winner": MessageLookupByLibrary.simpleMessage("победитель: "),
     "wizard": MessageLookupByLibrary.simpleMessage("маг"),
+    "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
+      "игра не завершена",
+    ),
   };
 }
