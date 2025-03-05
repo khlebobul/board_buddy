@@ -736,7 +736,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "wildShuffleHandsCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "wild shuffle hands card",
     ),
-    "winner": MessageLookupByLibrary.simpleMessage("winner:"),
+    "winner": MessageLookupByLibrary.simpleMessage("winner: "),
     "wizard": MessageLookupByLibrary.simpleMessage("wizard"),
     "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
       "you have an unfinished game",

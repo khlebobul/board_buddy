@@ -61,16 +61,14 @@ class GameEndUnoModalWidget extends StatelessWidget {
           Padding(
             padding: const EdgeInsets.symmetric(
                 horizontal: GeneralConst.paddingHorizontal),
-            child: Expanded(
-              child: Text(
-                S.of(context).winner + winner.name.toLowerCase(),
-                style: theme.display2.copyWith(
-                  color: theme.secondaryTextColor,
-                ),
-                textAlign: TextAlign.center,
-                overflow: TextOverflow.ellipsis,
-                maxLines: 1,
+            child: Text(
+              S.of(context).winner + winner.name.toLowerCase(),
+              style: theme.display2.copyWith(
+                color: theme.secondaryTextColor,
               ),
+              textAlign: TextAlign.center,
+              overflow: TextOverflow.ellipsis,
+              maxLines: 1,
             ),
           ),
           const SizedBox(height: 16),

@@ -116,13 +116,13 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
         bloc.startNewGame();
         Navigator.pop(context); // Close modal
         Navigator.pop(context); // Return to start screen
-        // Сбрасываем флаг после закрытия модального окна
+        // Reset the flag after closing the modal window
         _isGameEndModalShown = false;
       },
       onReturnToMenu: () {
         bloc.returnToMenu();
         Navigator.pushNamed(context, '/home');
-        // Сбрасываем флаг после закрытия модального окна
+        // Reset the flag after closing the modal window
         _isGameEndModalShown = false;
       },
     );

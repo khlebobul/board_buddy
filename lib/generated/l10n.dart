@@ -2755,9 +2755,9 @@ class S {
     );
   }
 
-  /// `winner:`
+  /// `winner: `
   String get winner {
-    return Intl.message('winner:', name: 'winner', desc: '', args: []);
+    return Intl.message('winner: ', name: 'winner', desc: '', args: []);
   }
 
   /// `you have an unfinished game`

@@ -312,7 +312,7 @@
   "newGameWithSamePlayers": "another round",
   "newGame": "new game",
   "returnToMenu": "return to menu",
-  "winner": "winner:",
+  "winner": "winner: ",
   "youHaveAnUnfinishedGame": "you have an unfinished game",
   "doReturn": "return"
 }
