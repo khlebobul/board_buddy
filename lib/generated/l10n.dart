@@ -2759,6 +2759,21 @@ class S {
   String get winner {
     return Intl.message('winner:', name: 'winner', desc: '', args: []);
   }
+
+  /// `you have an unfinished game`
+  String get youHaveAnUnfinishedGame {
+    return Intl.message(
+      'you have an unfinished game',
+      name: 'youHaveAnUnfinishedGame',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `return`
+  String get doReturn {
+    return Intl.message('return', name: 'doReturn', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

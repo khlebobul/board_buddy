@@ -312,5 +312,7 @@
   "newGameWithSamePlayers": "новая игра с теми же игроками",
   "newGame": "новая игра",
   "returnToMenu": "вернуться в меню",
-  "winner": "победитель:"
+  "winner": "победитель:",
+  "youHaveAnUnfinishedGame": "игра не завершена",
+  "doReturn": "вернуться"
 }

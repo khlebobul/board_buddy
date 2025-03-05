@@ -78,6 +78,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "common": MessageLookupByLibrary.simpleMessage("счетчик"),
     "cursed": MessageLookupByLibrary.simpleMessage("проклятие"),
     "dark": MessageLookupByLibrary.simpleMessage("темная"),
+    "doReturn": MessageLookupByLibrary.simpleMessage("вернуться"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "нет вашей любимой игры? напишите мне!",
     ),
@@ -761,5 +762,8 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "winner": MessageLookupByLibrary.simpleMessage("победитель:"),
     "wizard": MessageLookupByLibrary.simpleMessage("маг"),
+    "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
+      "игра не завершена",
+    ),
   };
 }

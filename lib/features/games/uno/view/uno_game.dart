@@ -10,6 +10,7 @@ import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.da
 import 'package:board_buddy/shared/widgets/game_widgets/game_end_uno_modal_widget.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
+import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 
 /// uno game screen
@@ -114,6 +115,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
     }
   }
 
+  // End game modal (when a player reaches the score limit)
   void _showGameEndModal() {
     GameEndUnoModalWidget.show(
       context,
@@ -123,6 +125,18 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
       onNewGameWithSamePlayers: _startNewGameWithSamePlayers,
       onNewGame: _startNewGame,
       onReturnToMenu: _returnToMenu,
+    );
+  }
+
+  // End game modal (when a player finishes the game by themself)
+  void _showEndGameModalWithoutScoreLimit() {
+    ModalWindowWidget.show(
+      context,
+      mainText: S.of(context).youHaveAnUnfinishedGame,
+      button1Text: S.of(context).doReturn,
+      button2Text: S.of(context).finish,
+      button1Action: () => Navigator.pop(context),
+      button2Action: _returnToMenu,
     );
   }
 
@@ -423,7 +437,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
         rightButtonText: S.of(context).finish,
         onLeftArrowTap: _undo,
         onRightArrowTap: _redo,
-        onRightBtnTap: _showGameEndModal,
+        onRightBtnTap: _showEndGameModalWithoutScoreLimit,
       ),
     );
   }
