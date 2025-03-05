@@ -36,6 +36,12 @@ class BottomGameBar extends StatelessWidget {
   /// Flag to determine if the right button should be red.
   final bool isRightBtnRed;
 
+  /// Flag to determine if the left arrow is active.
+  final bool isLeftArrowActive;
+
+  /// Flag to determine if the right arrow is active.
+  final bool isRightArrowActive;
+
   const BottomGameBar({
     super.key,
     this.leftButtonText = '',
@@ -47,6 +53,8 @@ class BottomGameBar extends StatelessWidget {
     this.onRightArrowTap,
     this.dialogWidget,
     this.isRightBtnRed = false,
+    this.isLeftArrowActive = true,
+    this.isRightArrowActive = true,
   });
 
   @override
@@ -86,10 +94,12 @@ class BottomGameBar extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.start,
               children: [
                 GestureDetector(
-                  onTap: onLeftArrowTap,
+                  onTap: isLeftArrowActive ? onLeftArrowTap : null,
                   child: SvgPicture.asset(
                     CustomIcons.leftArrow,
-                    color: theme.textColor,
+                    color: isLeftArrowActive
+                        ? theme.textColor
+                        : theme.secondaryTextColor,
                     width: 20,
                   ),
                 ),
@@ -113,10 +123,12 @@ class BottomGameBar extends StatelessWidget {
                       ),
                 const SizedBox(width: 20),
                 GestureDetector(
-                  onTap: onRightArrowTap,
+                  onTap: isRightArrowActive ? onRightArrowTap : null,
                   child: SvgPicture.asset(
                     CustomIcons.rightArrow,
-                    color: theme.textColor,
+                    color: isRightArrowActive
+                        ? theme.textColor
+                        : theme.secondaryTextColor,
                     width: 20,
                   ),
                 ),

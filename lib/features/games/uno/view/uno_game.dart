@@ -33,8 +33,10 @@ class UnoGame extends StatefulWidget {
 class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
   late final PageController _pageController;
   int _currentPage = 0;
-  final List<int> _scoreHistory = [];
-  final List<int> _redoStack = [];
+
+  // Replace single score history with a map of player index to score history
+  final Map<int, List<int>> _playerScoreHistory = {};
+  final Map<int, List<int>> _playerRedoStack = {};
 
   // Контроллер для анимации
   AnimationController? _animationController;
@@ -47,6 +49,12 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
     super.initState();
     _pageController = PageController(viewportFraction: 0.85);
     _pageController.addListener(_onPageChanged);
+
+    // Initialize score history for each player
+    for (int i = 0; i < widget.players.length; i++) {
+      _playerScoreHistory[i] = [];
+      _playerRedoStack[i] = [];
+    }
   }
 
   @override
@@ -76,8 +84,10 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
   void _updateScore(int scoreChange) {
     setState(() {
       widget.players[_currentPage].score += scoreChange;
-      _scoreHistory.add(scoreChange);
-      _redoStack.clear(); // Clear redo stack on new action
+
+      // Add to current player's score history
+      _playerScoreHistory[_currentPage]?.add(scoreChange);
+      _playerRedoStack[_currentPage]?.clear(); // Clear redo stack on new action
 
       _showScoreChangeAnimation(scoreChange);
 
@@ -148,8 +158,11 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
 
     // Reset game state
     setState(() {
-      _scoreHistory.clear();
-      _redoStack.clear();
+      // Clear all player score histories and redo stacks
+      for (int i = 0; i < widget.players.length; i++) {
+        _playerScoreHistory[i]?.clear();
+        _playerRedoStack[i]?.clear();
+      }
       _currentPage = 0;
       _pageController.jumpToPage(0);
     });
@@ -204,11 +217,12 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
   }
 
   void _undo() {
-    if (_scoreHistory.isNotEmpty) {
+    final currentPlayerHistory = _playerScoreHistory[_currentPage];
+    if (currentPlayerHistory != null && currentPlayerHistory.isNotEmpty) {
       setState(() {
-        final lastScoreChange = _scoreHistory.removeLast();
+        final lastScoreChange = currentPlayerHistory.removeLast();
         widget.players[_currentPage].score -= lastScoreChange;
-        _redoStack.add(lastScoreChange);
+        _playerRedoStack[_currentPage]?.add(lastScoreChange);
 
         _showScoreChangeAnimation(-lastScoreChange);
       });
@@ -216,15 +230,27 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
   }
 
   void _redo() {
-    if (_redoStack.isNotEmpty) {
+    final currentPlayerRedoStack = _playerRedoStack[_currentPage];
+    if (currentPlayerRedoStack != null && currentPlayerRedoStack.isNotEmpty) {
       setState(() {
-        final lastUndoneScoreChange = _redoStack.removeLast();
+        final lastUndoneScoreChange = currentPlayerRedoStack.removeLast();
         widget.players[_currentPage].score += lastUndoneScoreChange;
-        _scoreHistory.add(lastUndoneScoreChange);
+        _playerScoreHistory[_currentPage]?.add(lastUndoneScoreChange);
 
         _showScoreChangeAnimation(lastUndoneScoreChange);
       });
     }
+  }
+
+  // Helper methods to check if undo/redo is available for current player
+  bool _canUndo() {
+    final currentPlayerHistory = _playerScoreHistory[_currentPage];
+    return currentPlayerHistory != null && currentPlayerHistory.isNotEmpty;
+  }
+
+  bool _canRedo() {
+    final currentPlayerRedoStack = _playerRedoStack[_currentPage];
+    return currentPlayerRedoStack != null && currentPlayerRedoStack.isNotEmpty;
   }
 
   @override
@@ -438,6 +464,8 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
         onLeftArrowTap: _undo,
         onRightArrowTap: _redo,
         onRightBtnTap: _showEndGameModalWithoutScoreLimit,
+        isLeftArrowActive: _canUndo(),
+        isRightArrowActive: _canRedo(),
       ),
     );
   }
