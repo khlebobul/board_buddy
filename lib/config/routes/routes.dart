@@ -5,9 +5,11 @@ import 'package:board_buddy/features/games/muncknin/view/munchkin_game.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_game.dart';
 import 'package:board_buddy/features/games/set/view/set_game.dart';
 import 'package:board_buddy/features/games/uno/view/uno_start_screen.dart';
+import 'package:board_buddy/features/games/uno_flip/bloc/uno_flip_bloc.dart';
 import 'package:board_buddy/features/games/uno_flip/view/uno_flip_game.dart';
 import 'package:board_buddy/features/games/uno/view/uno_game.dart';
 import 'package:board_buddy/features/about/view/about_screen.dart';
+import 'package:board_buddy/features/games/uno_flip/view/uno_flip_start_screen.dart';
 import 'package:board_buddy/features/games_list/view/games_screen.dart';
 import 'package:board_buddy/features/games/dos/view/dos_rules.dart';
 import 'package:board_buddy/features/games/muncknin/view/munchkin_rules.dart';
@@ -46,6 +48,7 @@ class AppRoutes {
   static const String unoStartGame = '/unoStartGame';
   static const String scrabbleGame = '/scrabbleGame';
   static const String unoFlipGame = '/unoFlipGame';
+  static const String unoFlipStartGame = '/unoFlipStartGame';
   static const String dosGame = '/dosGame';
   static const String dosStartGame = '/dosStartGame';
   static const String setGame = '/setGame';
@@ -72,7 +75,7 @@ class AppRoutes {
         unoStartGame: (context) => const UnoStartScreen(),
         dosStartGame: (context) => const DosStartScreen(),
         scrabbleGame: (context) => const ScrabbleGame(),
-        unoFlipGame: (context) => const UnoFlipGame(),
+        unoFlipStartGame: (context) => const UnoFlipStartScreen(),
         setGame: (context) => const SetGame(),
         munchkinGame: (context) => const MunchkinGame(),
         commonGame: (context) => const CommonGame(),
@@ -101,6 +104,21 @@ class AppRoutes {
         builder: (context) => BlocProvider(
           create: (context) => DosBloc(),
           child: DosGame(
+            players: args['players'],
+            scoreLimit: args['scoreLimit'],
+            gameMode: args['gameMode'],
+          ),
+        ),
+      );
+    }
+
+    // uno flip game
+    if (settings.name == unoFlipGame && settings.arguments != null) {
+      final args = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder: (context) => BlocProvider(
+          create: (context) => UnoFlipBloc(),
+          child: UnoFlipGame(
             players: args['players'],
             scoreLimit: args['scoreLimit'],
             gameMode: args['gameMode'],
