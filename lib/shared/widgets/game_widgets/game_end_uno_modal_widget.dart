@@ -45,124 +45,135 @@ class GameEndUnoModalWidget extends StatelessWidget {
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
       backgroundColor: theme.bgColor,
       insetPadding: const EdgeInsets.symmetric(horizontal: 12, vertical: 20),
-      child: Column(
-        mainAxisSize: MainAxisSize.min,
-        children: [
-          Padding(
-            padding: const EdgeInsets.all(16.0),
-            child: Text(
-              S.of(context).gameOver,
-              style: theme.display1.copyWith(
-                color: theme.redColor,
+      child: Container(
+        width: double.maxFinite,
+        constraints: BoxConstraints(
+          maxHeight: MediaQuery.of(context).size.height * 0.85,
+        ),
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          children: [
+            Padding(
+              padding: const EdgeInsets.all(16.0),
+              child: Text(
+                S.of(context).gameOver,
+                style: theme.display1.copyWith(
+                  color: theme.redColor,
+                ),
+                textAlign: TextAlign.center,
               ),
-              textAlign: TextAlign.center,
             ),
-          ),
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: GeneralConst.paddingHorizontal),
-            child: Text(
-              S.of(context).winner + winner.name.toLowerCase(),
-              style: theme.display2.copyWith(
-                color: theme.secondaryTextColor,
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: GeneralConst.paddingHorizontal),
+              child: Text(
+                S.of(context).winner + winner.name.toLowerCase(),
+                style: theme.display2.copyWith(
+                  color: theme.secondaryTextColor,
+                ),
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
-              textAlign: TextAlign.center,
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
             ),
-          ),
-          const SizedBox(height: 16),
+            const SizedBox(height: 16),
 
-          // Player scores list
-          Container(
-            constraints: const BoxConstraints(maxHeight: 200),
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: GeneralConst.paddingHorizontal),
-                child: Column(
-                  children: sortedPlayers.map((player) {
-                    final isWinner = player.id == winner.id;
-                    return Padding(
-                        padding: const EdgeInsets.symmetric(vertical: 8.0),
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                player.name.toLowerCase(),
+            // Player scores list - this part is scrollable
+            Flexible(
+              child: Container(
+                constraints: const BoxConstraints(maxHeight: 200),
+                child: SingleChildScrollView(
+                  child: Padding(
+                    padding: const EdgeInsets.symmetric(
+                        horizontal: GeneralConst.paddingHorizontal),
+                    child: Column(
+                      children: sortedPlayers.map((player) {
+                        final isWinner = player.id == winner.id;
+                        return Padding(
+                          padding: const EdgeInsets.symmetric(vertical: 8.0),
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  player.name.toLowerCase(),
+                                  style: theme.display2.copyWith(
+                                    color: isWinner
+                                        ? theme.redColor
+                                        : theme.textColor,
+                                  ),
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                ),
+                              ),
+                              const SizedBox(width: 10),
+                              Text(
+                                player.score.toString(),
                                 style: theme.display2.copyWith(
                                   color: isWinner
                                       ? theme.redColor
                                       : theme.textColor,
                                 ),
-                                overflow: TextOverflow.ellipsis,
-                                maxLines: 1,
                               ),
-                            ),
-                            const SizedBox(width: 10),
-                            Text(
-                              player.score.toString(),
-                              style: theme.display2.copyWith(
-                                color:
-                                    isWinner ? theme.redColor : theme.textColor,
-                              ),
-                            ),
-                          ],
-                        ));
-                  }).toList(),
+                            ],
+                          ),
+                        );
+                      }).toList(),
+                    ),
+                  ),
                 ),
               ),
             ),
-          ),
 
-          const SizedBox(height: 24),
+            const SizedBox(height: 24),
 
-          Padding(
-            padding: const EdgeInsets.symmetric(
-                horizontal: GeneralConst.paddingHorizontal),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                GestureDetector(
-                  onTap: onNewGameWithSamePlayers,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: TextScramble(
-                      text: S.of(context).newGameWithSamePlayers,
-                      style: theme.display2,
-                      textAlign: TextAlign.center,
+            // Button section
+            Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: GeneralConst.paddingHorizontal),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  GestureDetector(
+                    onTap: onNewGameWithSamePlayers,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: TextScramble(
+                        text: S.of(context).newGameWithSamePlayers,
+                        style: theme.display2,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
-                ),
-                GestureDetector(
-                  onTap: onNewGame,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: TextScramble(
-                      text: S.of(context).newGame,
-                      style: theme.display2,
-                      textAlign: TextAlign.center,
+                  GestureDetector(
+                    onTap: onNewGame,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: TextScramble(
+                        text: S.of(context).newGame,
+                        style: theme.display2,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
-                ),
-                GestureDetector(
-                  onTap: onReturnToMenu,
-                  child: Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 8.0),
-                    child: TextScramble(
-                      text: S.of(context).returnToMenu,
-                      style: theme.display2,
-                      textAlign: TextAlign.center,
+                  GestureDetector(
+                    onTap: onReturnToMenu,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: TextScramble(
+                        text: S.of(context).returnToMenu,
+                        style: theme.display2,
+                        textAlign: TextAlign.center,
+                      ),
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
-          ),
-          const SizedBox(height: 16),
-        ],
+            const SizedBox(height: 16),
+          ],
+        ),
       ),
     );
   }
