@@ -162,6 +162,9 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "each card has a number from 0 to 9, which determines its value.",
         ),
+    "eachCardHasANumberFrom1To9Which": MessageLookupByLibrary.simpleMessage(
+      "each card has a number from 1 to 9, which determines its value.",
+    ),
     "edit": MessageLookupByLibrary.simpleMessage("edit"),
     "elf": MessageLookupByLibrary.simpleMessage("elf"),
     "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
@@ -172,6 +175,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "finish": MessageLookupByLibrary.simpleMessage("finish"),
     "firstBonus": MessageLookupByLibrary.simpleMessage("first bonus"),
     "flipCardUnoFlipInfo": MessageLookupByLibrary.simpleMessage("flip card"),
+    "flipnside": MessageLookupByLibrary.simpleMessage("flip\\nside"),
     "flipsAllCardsToTheOppositeSideUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "flips all cards to the opposite side.",

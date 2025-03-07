@@ -86,6 +86,7 @@ class GameConst {
   static const wildCardDos = ' #';
   static const oneToTen = '1-10';
   static const zeroToNine = '0-9';
+  static const oneToNine = '2-9';
   static const plusTwo = '+2';
   static const plusOne = '+1';
   static const plusFive = '+5';

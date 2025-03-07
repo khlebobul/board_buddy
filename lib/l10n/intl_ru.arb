@@ -314,5 +314,7 @@
   "returnToMenu": "вернуться в меню",
   "winner": "победитель: ",
   "youHaveAnUnfinishedGame": "игра не завершена",
-  "doReturn": "вернуться"
+  "doReturn": "вернуться",
+  "eachCardHasANumberFrom1To9Which": "каждая карта имеет число от 1 до 9, которое определяет её значение.",
+  "flipnside": "др.\nсторона"
 }

@@ -2774,6 +2774,21 @@ class S {
   String get doReturn {
     return Intl.message('return', name: 'doReturn', desc: '', args: []);
   }
+
+  /// `each card has a number from 1 to 9, which determines its value.`
+  String get eachCardHasANumberFrom1To9Which {
+    return Intl.message(
+      'each card has a number from 1 to 9, which determines its value.',
+      name: 'eachCardHasANumberFrom1To9Which',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `flip\nside`
+  String get flipnside {
+    return Intl.message('flip\\nside', name: 'flipnside', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

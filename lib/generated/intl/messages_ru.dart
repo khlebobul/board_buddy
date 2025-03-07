@@ -166,6 +166,9 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "каждая карта имеет число от 0 до 9, которое определяет её значение.",
         ),
+    "eachCardHasANumberFrom1To9Which": MessageLookupByLibrary.simpleMessage(
+      "каждая карта имеет число от 1 до 9, которое определяет её значение.",
+    ),
     "edit": MessageLookupByLibrary.simpleMessage("изменить"),
     "elf": MessageLookupByLibrary.simpleMessage("эльф"),
     "emailCopied": MessageLookupByLibrary.simpleMessage(
@@ -180,6 +183,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "flipCardUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
       "карта «переверните»",
     ),
+    "flipnside": MessageLookupByLibrary.simpleMessage("др.\nсторона"),
     "flipsAllCardsToTheOppositeSideUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "переворачивает все карты на противоположную сторону.",

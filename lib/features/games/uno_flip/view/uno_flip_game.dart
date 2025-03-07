@@ -37,6 +37,8 @@ class _UnoFlipGameState extends State<UnoFlipGame>
   late final PageController _pageController;
   late final AnimationController _animationController;
   late final Animation<double> _animation;
+  late UnoFlipBloc bloc;
+  bool _isDarkSide = false;
 
   // Local state to track current page
   int _currentPageIndex = 0;
@@ -67,11 +69,12 @@ class _UnoFlipGameState extends State<UnoFlipGame>
     // Initialize the game in the BLoC
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!_isInitialized) {
-        context.read<UnoFlipBloc>().add(InitializeUnoFlipGame(
-              players: widget.players,
-              scoreLimit: widget.scoreLimit,
-              gameMode: widget.gameMode,
-            ));
+        bloc = context.read<UnoFlipBloc>();
+        bloc.add(InitializeUnoFlipGame(
+          players: widget.players,
+          scoreLimit: widget.scoreLimit,
+          gameMode: widget.gameMode,
+        ));
         _isInitialized = true;
       }
     });
@@ -85,7 +88,6 @@ class _UnoFlipGameState extends State<UnoFlipGame>
   }
 
   void _updateScore(int scoreChange) {
-    final bloc = context.read<UnoFlipBloc>();
     bloc.updateScore(scoreChange);
     _animationController.reset();
     _animationController.forward().then((_) {
@@ -101,7 +103,6 @@ class _UnoFlipGameState extends State<UnoFlipGame>
     // Set flag that modal is shown
     _isGameEndModalShown = true;
 
-    final bloc = context.read<UnoFlipBloc>();
     GameEndUnoModalWidget.show(
       context,
       players: players,
@@ -130,7 +131,6 @@ class _UnoFlipGameState extends State<UnoFlipGame>
   }
 
   void _showEndGameModalWithoutScoreLimit() {
-    final bloc = context.read<UnoFlipBloc>();
     ModalWindowWidget.show(
       context,
       mainText: S.of(context).youHaveAnUnfinishedGame,
@@ -145,7 +145,6 @@ class _UnoFlipGameState extends State<UnoFlipGame>
   }
 
   void _undo() {
-    final bloc = context.read<UnoFlipBloc>();
     bloc.undo();
     _animationController.reset();
     _animationController.forward().then((_) {
@@ -154,7 +153,6 @@ class _UnoFlipGameState extends State<UnoFlipGame>
   }
 
   void _redo() {
-    final bloc = context.read<UnoFlipBloc>();
     bloc.redo();
     _animationController.reset();
     _animationController.forward().then((_) {
@@ -162,10 +160,15 @@ class _UnoFlipGameState extends State<UnoFlipGame>
     });
   }
 
+  void _toggleSide() {
+    setState(() {
+      _isDarkSide = !_isDarkSide;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-    final bloc = context.read<UnoFlipBloc>();
 
     return BlocConsumer<UnoFlipBloc, UnoFlipState>(
       listenWhen: (previous, current) {
@@ -339,7 +342,6 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                     Padding(
                       padding: const EdgeInsets.symmetric(
                           horizontal: GeneralConst.paddingHorizontal),
-                      // TODO: dark side
                       child: CustomKeyboard(
                         buttons: [
                           [
@@ -359,12 +361,12 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                               buttonText: UnoLikeGameCardsText.four,
                               onPressed: () => _updateScore(4),
                             ),
+                          ],
+                          [
                             KeyboardButton(
                               buttonText: UnoLikeGameCardsText.five,
                               onPressed: () => _updateScore(5),
                             ),
-                          ],
-                          [
                             KeyboardButton(
                               buttonText: UnoLikeGameCardsText.six,
                               onPressed: () => _updateScore(6),
@@ -377,57 +379,56 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                               buttonText: UnoLikeGameCardsText.eight,
                               onPressed: () => _updateScore(8),
                             ),
+                          ],
+                          [
                             KeyboardButton(
                               buttonText: UnoLikeGameCardsText.nine,
                               onPressed: () => _updateScore(9),
                             ),
                             KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.zero,
-                              onPressed: () => _updateScore(0),
-                            ),
-                          ],
-                          [
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.plusOne,
-                              onPressed: () => _updateScore(10),
-                            ),
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.plusTwo,
-                              onPressed: () => _updateScore(20),
+                              buttonText: _isDarkSide
+                                  ? UnoLikeGameCardsText.plusFive
+                                  : UnoLikeGameCardsText.plusOne,
+                              onPressed: () =>
+                                  _updateScore(_isDarkSide ? 20 : 10),
                             ),
                             KeyboardButton(
                               buttonIcon: CustomIcons.reverse,
                               onPressed: () => _updateScore(20),
                             ),
+                            _isDarkSide
+                                ? KeyboardButton(
+                                    buttonIcon: CustomIcons.skipEveryone,
+                                    onPressed: () => _updateScore(30),
+                                  )
+                                : KeyboardButton(
+                                    buttonIcon: CustomIcons.skip,
+                                    onPressed: () => _updateScore(20),
+                                  ),
+                          ],
+                          [
                             KeyboardButton(
-                              buttonIcon: CustomIcons.skip,
+                              buttonIcon: CustomIcons.flip,
                               onPressed: () => _updateScore(20),
                             ),
                             KeyboardButton(
                               buttonIcon: CustomIcons.wild,
                               onPressed: () => _updateScore(40),
                             ),
-                          ],
-                          [
+                            _isDarkSide
+                                ? KeyboardButton(
+                                    buttonIcon: CustomIcons.wildDrawColor,
+                                    onPressed: () => _updateScore(60),
+                                  )
+                                : KeyboardButton(
+                                    buttonIcon: CustomIcons.wildDrawTwoUnoflip,
+                                    onPressed: () => _updateScore(50),
+                                  ),
                             KeyboardButton(
-                              buttonIcon: CustomIcons.wildDrawFour,
-                              onPressed: () => _updateScore(50),
-                            ),
-                            KeyboardButton(
-                              buttonIcon: CustomIcons.flip,
-                              onPressed: () => _updateScore(20),
-                            ),
-                            KeyboardButton(
-                              buttonIcon: CustomIcons.skipEveryone,
-                              onPressed: () => _updateScore(30),
-                            ),
-                            KeyboardButton(
-                              buttonIcon: CustomIcons.wildDrawColor,
-                              onPressed: () => _updateScore(60),
-                            ),
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.plusFive,
-                              onPressed: () => _updateScore(40),
+                              flipText: true,
+                              buttonText: S.of(context).flipnside,
+                              onPressed:
+                                  _toggleSide,
                             ),
                           ],
                         ],

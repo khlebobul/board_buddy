@@ -409,7 +409,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                             ),
                             KeyboardButton(
                               buttonIcon: CustomIcons.swap,
-                              onPressed: () => _updateScore(50),
+                              onPressed: () => _updateScore(40),
                             ),
                           ],
                         ],

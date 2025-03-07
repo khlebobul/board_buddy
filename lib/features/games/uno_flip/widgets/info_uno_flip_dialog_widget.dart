@@ -114,9 +114,9 @@ class InfoUnoFlipDialog extends StatelessWidget {
                   InfoRowWidget(
                     context: context,
                     title: S.of(context).numberCards,
-                    points: GameConst.zeroToNine,
+                    points: GameConst.oneToNine,
                     description:
-                        S.of(context).eachCardHasANumberFrom0To9WhichUnoInfo,
+                        S.of(context).eachCardHasANumberFrom1To9Which,
                   ),
                 ],
               ),

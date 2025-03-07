@@ -314,5 +314,7 @@
   "returnToMenu": "return to menu",
   "winner": "winner: ",
   "youHaveAnUnfinishedGame": "you have an unfinished game",
-  "doReturn": "return"
+  "doReturn": "return",
+  "eachCardHasANumberFrom1To9Which": "each card has a number from 1 to 9, which determines its value.",
+  "flipnside": "flip\\nside"
 }
