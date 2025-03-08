@@ -38,6 +38,7 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 - please feel free to raise [issues](https://github.com/khlebobul/board_buddy/issues) for any suggestions for improvements, or bugs you encounter.
 - you're welcome to fork the repository and propose changes through a pull request
 - leave a message in the [telegram group](https://t.me/board_buddy)
+- check [descussions](https://github.com/khlebobul/board_buddy/discussions)
 
 [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev)
 

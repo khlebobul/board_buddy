@@ -78,6 +78,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "common": MessageLookupByLibrary.simpleMessage("counter"),
     "cursed": MessageLookupByLibrary.simpleMessage("cursed"),
     "dark": MessageLookupByLibrary.simpleMessage("dark"),
+    "darkSideCardsAreReplacedWithLightOnesAndVice":
+        MessageLookupByLibrary.simpleMessage(
+          "dark side cards are replaced with light ones and vice versa.",
+        ),
     "doReturn": MessageLookupByLibrary.simpleMessage("return"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "don\'t have your favourite game? email me!",
@@ -162,6 +166,9 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "each card has a number from 0 to 9, which determines its value.",
         ),
+    "eachCardHasANumberFrom1To9Which": MessageLookupByLibrary.simpleMessage(
+      "each card has a number from 1 to 9, which determines its value.",
+    ),
     "edit": MessageLookupByLibrary.simpleMessage("edit"),
     "elf": MessageLookupByLibrary.simpleMessage("elf"),
     "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
@@ -172,6 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "finish": MessageLookupByLibrary.simpleMessage("finish"),
     "firstBonus": MessageLookupByLibrary.simpleMessage("first bonus"),
     "flipCardUnoFlipInfo": MessageLookupByLibrary.simpleMessage("flip card"),
+    "flipSide": MessageLookupByLibrary.simpleMessage("flip side"),
     "flipsAllCardsToTheOppositeSideUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "flips all cards to the opposite side.",

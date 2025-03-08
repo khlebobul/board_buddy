@@ -394,7 +394,7 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
                             ),
                             KeyboardButton(
                               buttonIcon: CustomIcons.wildDrawTwoDos,
-                              onPressed: () => _updateScore(50),
+                              onPressed: () => _updateScore(40),
                             ),
                           ],
                         ],

@@ -107,9 +107,8 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
             return widget.button.buttonIcon.isEmpty
                 ? Text(
                     widget.button.buttonText,
-                    style: widget.theme.display8.copyWith(
-                      color: _colorAnimation.value,
-                    ),
+                    style: widget.theme.display8
+                        .copyWith(color: _colorAnimation.value),
                   )
                 : Padding(
                     padding: const EdgeInsets.symmetric(vertical: 3.0),
@@ -148,11 +147,10 @@ class KeyboardButton {
   /// Size of the icon on the button.
   final double iconSize;
 
-  KeyboardButton({
-    this.buttonIcon = '',
-    this.buttonText = '',
-    this.onPressed,
-    this.backgroundColor,
-    this.iconSize = 30.0,
-  });
+  KeyboardButton(
+      {this.buttonIcon = '',
+      this.buttonText = '',
+      this.onPressed,
+      this.backgroundColor,
+      this.iconSize = 30.0});
 }

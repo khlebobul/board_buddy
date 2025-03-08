@@ -2774,6 +2774,31 @@ class S {
   String get doReturn {
     return Intl.message('return', name: 'doReturn', desc: '', args: []);
   }
+
+  /// `each card has a number from 1 to 9, which determines its value.`
+  String get eachCardHasANumberFrom1To9Which {
+    return Intl.message(
+      'each card has a number from 1 to 9, which determines its value.',
+      name: 'eachCardHasANumberFrom1To9Which',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `flip side`
+  String get flipSide {
+    return Intl.message('flip side', name: 'flipSide', desc: '', args: []);
+  }
+
+  /// `dark side cards are replaced with light ones and vice versa.`
+  String get darkSideCardsAreReplacedWithLightOnesAndVice {
+    return Intl.message(
+      'dark side cards are replaced with light ones and vice versa.',
+      name: 'darkSideCardsAreReplacedWithLightOnesAndVice',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

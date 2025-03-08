@@ -49,7 +49,7 @@ class InfoDosDialog extends StatelessWidget {
                     context: context,
                     cardName: GameConst.wildCardDos,
                     title: S.of(context).wildCardOneDosInfo,
-                    points: GameConst.fifty,
+                    points: GameConst.forty,
                     description: S
                         .of(context)
                         .canRepresentAnyNumberForItsOwnParticularColorDosInfo,

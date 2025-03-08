@@ -78,6 +78,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "common": MessageLookupByLibrary.simpleMessage("счетчик"),
     "cursed": MessageLookupByLibrary.simpleMessage("проклятие"),
     "dark": MessageLookupByLibrary.simpleMessage("темная"),
+    "darkSideCardsAreReplacedWithLightOnesAndVice":
+        MessageLookupByLibrary.simpleMessage(
+          "карточки темной стороны заменяться на светлые и наоборот.",
+        ),
     "doReturn": MessageLookupByLibrary.simpleMessage("вернуться"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "нет вашей любимой игры? напишите мне!",
@@ -166,6 +170,9 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "каждая карта имеет число от 0 до 9, которое определяет её значение.",
         ),
+    "eachCardHasANumberFrom1To9Which": MessageLookupByLibrary.simpleMessage(
+      "каждая карта имеет число от 1 до 9, которое определяет её значение.",
+    ),
     "edit": MessageLookupByLibrary.simpleMessage("изменить"),
     "elf": MessageLookupByLibrary.simpleMessage("эльф"),
     "emailCopied": MessageLookupByLibrary.simpleMessage(
@@ -180,6 +187,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "flipCardUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
       "карта «переверните»",
     ),
+    "flipSide": MessageLookupByLibrary.simpleMessage("переворот стороны"),
     "flipsAllCardsToTheOppositeSideUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "переворачивает все карты на противоположную сторону.",
