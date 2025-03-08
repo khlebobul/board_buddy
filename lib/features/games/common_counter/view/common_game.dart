@@ -71,12 +71,6 @@ class CommonGameView extends StatelessWidget {
                     children: [
                       const TimerWidget(),
                       const Spacer(),
-                      IconButton(
-                        icon: Icon(Icons.refresh, color: theme.textColor),
-                        onPressed: () {
-                          context.read<CommonCounterBloc>().add(ResetScores());
-                        },
-                      ),
                       GestureDetector(
                         onTap: () => DiceModal.show(context),
                         child: SvgPicture.asset(
@@ -90,18 +84,24 @@ class CommonGameView extends StatelessWidget {
                     ],
                   ),
                   const SizedBox(height: 20),
-                  PlayersScoreWidget(
-                    players: gameState.players,
-                    onIncrease: (index) {
-                      context
-                          .read<CommonCounterBloc>()
-                          .add(IncreaseScore(index));
-                    },
-                    onDecrease: (index) {
-                      context
-                          .read<CommonCounterBloc>()
-                          .add(DecreaseScore(index));
-                    },
+                  Expanded(
+                    child: Center(
+                      child: SingleChildScrollView(
+                        child: PlayersScoreWidget(
+                          players: gameState.players,
+                          onIncrease: (index) {
+                            context
+                                .read<CommonCounterBloc>()
+                                .add(IncreaseScore(index));
+                          },
+                          onDecrease: (index) {
+                            context
+                                .read<CommonCounterBloc>()
+                                .add(DecreaseScore(index));
+                          },
+                        ),
+                      ),
+                    ),
                   ),
                 ],
               ),
