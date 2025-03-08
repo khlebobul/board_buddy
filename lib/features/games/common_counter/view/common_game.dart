@@ -114,6 +114,18 @@ class CommonGameView extends StatelessWidget {
             onRightBtnTap: () {
               _showGameEndModal(context, gameState);
             },
+            isLeftArrowActive: gameState.history.isNotEmpty,
+            isRightArrowActive: gameState.redoHistory.isNotEmpty,
+            onLeftArrowTap: gameState.history.isNotEmpty
+                ? () {
+                    context.read<CommonCounterBloc>().add(UndoAction());
+                  }
+                : null,
+            onRightArrowTap: gameState.redoHistory.isNotEmpty
+                ? () {
+                    context.read<CommonCounterBloc>().add(RedoAction());
+                  }
+                : null,
           ),
         );
       },

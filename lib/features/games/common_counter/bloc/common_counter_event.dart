@@ -44,3 +44,8 @@ class DecreaseScore extends CommonCounterEvent {
 }
 
 class ResetScores extends CommonCounterEvent {}
+
+// Undo/Redo events
+class UndoAction extends CommonCounterEvent {}
+
+class RedoAction extends CommonCounterEvent {}
