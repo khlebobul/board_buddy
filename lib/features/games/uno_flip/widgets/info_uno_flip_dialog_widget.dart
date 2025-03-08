@@ -115,8 +115,13 @@ class InfoUnoFlipDialog extends StatelessWidget {
                     context: context,
                     title: S.of(context).numberCards,
                     points: GameConst.oneToNine,
-                    description:
-                        S.of(context).eachCardHasANumberFrom1To9Which,
+                    description: S.of(context).eachCardHasANumberFrom1To9Which,
+                  ),
+                  InfoRowWidget(
+                    context: context,
+                    title: S.of(context).flipSide,
+                    iconPath: CustomIcons.sun,
+                    description: S.of(context).darkSideCardsAreReplacedWithLightOnesAndVice,
                   ),
                 ],
               ),

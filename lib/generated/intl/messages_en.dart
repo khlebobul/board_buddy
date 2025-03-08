@@ -78,6 +78,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "common": MessageLookupByLibrary.simpleMessage("counter"),
     "cursed": MessageLookupByLibrary.simpleMessage("cursed"),
     "dark": MessageLookupByLibrary.simpleMessage("dark"),
+    "darkSideCardsAreReplacedWithLightOnesAndVice":
+        MessageLookupByLibrary.simpleMessage(
+          "dark side cards are replaced with light ones and vice versa.",
+        ),
     "doReturn": MessageLookupByLibrary.simpleMessage("return"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "don\'t have your favourite game? email me!",
@@ -175,7 +179,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "finish": MessageLookupByLibrary.simpleMessage("finish"),
     "firstBonus": MessageLookupByLibrary.simpleMessage("first bonus"),
     "flipCardUnoFlipInfo": MessageLookupByLibrary.simpleMessage("flip card"),
-    "flipnside": MessageLookupByLibrary.simpleMessage("flip\\nside"),
+    "flipSide": MessageLookupByLibrary.simpleMessage("flip side"),
     "flipsAllCardsToTheOppositeSideUnoFlipInfo":
         MessageLookupByLibrary.simpleMessage(
           "flips all cards to the opposite side.",

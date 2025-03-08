@@ -425,10 +425,10 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                     onPressed: () => _updateScore(50),
                                   ),
                             KeyboardButton(
-                              flipText: true,
-                              buttonText: S.of(context).flipnside,
-                              onPressed:
-                                  _toggleSide,
+                              buttonIcon: _isDarkSide
+                                  ? CustomIcons.sun
+                                  : CustomIcons.sunDark,
+                              onPressed: _toggleSide,
                             ),
                           ],
                         ],

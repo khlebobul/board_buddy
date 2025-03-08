@@ -8,6 +8,8 @@ class CustomIcons {
   static const String leftArrow = 'assets/icons/left-arrow.svg';
   static const String rightArrow = 'assets/icons/right-arrow.svg';
   static const String info = 'assets/icons/info.svg';
+  static const String sun = 'assets/icons/sun.svg';
+  static const String sunDark = 'assets/icons/sun-dark.svg';
 
   // games icons
   // uno, dos, uno flip

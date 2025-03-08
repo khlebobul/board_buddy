@@ -2785,9 +2785,19 @@ class S {
     );
   }
 
-  /// `flip\nside`
-  String get flipnside {
-    return Intl.message('flip\\nside', name: 'flipnside', desc: '', args: []);
+  /// `flip side`
+  String get flipSide {
+    return Intl.message('flip side', name: 'flipSide', desc: '', args: []);
+  }
+
+  /// `dark side cards are replaced with light ones and vice versa.`
+  String get darkSideCardsAreReplacedWithLightOnesAndVice {
+    return Intl.message(
+      'dark side cards are replaced with light ones and vice versa.',
+      name: 'darkSideCardsAreReplacedWithLightOnesAndVice',
+      desc: '',
+      args: [],
+    );
   }
 }
 

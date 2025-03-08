@@ -316,5 +316,6 @@
   "youHaveAnUnfinishedGame": "you have an unfinished game",
   "doReturn": "return",
   "eachCardHasANumberFrom1To9Which": "each card has a number from 1 to 9, which determines its value.",
-  "flipnside": "flip\\nside"
+  "flipSide": "flip side",
+  "darkSideCardsAreReplacedWithLightOnesAndVice": "dark side cards are replaced with light ones and vice versa."
 }
