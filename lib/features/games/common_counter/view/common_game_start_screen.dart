@@ -13,7 +13,7 @@ import 'package:use_scramble/use_scramble.dart';
 // Constants for the common counter game
 class CommonCounterConst {
   static const int minPlayers = 2;
-  static const int maxPlayers = 8;
+  static const int maxPlayers = 100;
   static const String rulesText = "Simple counter rules";
 }
 
@@ -148,11 +148,8 @@ class CommonGameStartScreenView extends StatelessWidget {
             ),
           ),
           bottomNavigationBar: BottomGameBar(
-              leftButtonText: S.of(context).rules,
               rightButtonText: S.of(context).play,
               isRightBtnRed: true,
-              onLeftBtnTap: () =>
-                  Navigator.pushNamed(context, '/commonCounterRules'),
               onRightBtnTap: () {
                 if (!counterState.isSinglePlayer &&
                     counterState.players.length <

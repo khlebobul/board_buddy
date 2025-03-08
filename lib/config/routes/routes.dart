@@ -129,6 +129,17 @@ class AppRoutes {
       );
     }
 
+    // common counter game
+    if (settings.name == commonGame && settings.arguments != null) {
+      final args = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder: (context) => CommonGame(
+          players: args['players'],
+          isSinglePlayer: args['isSinglePlayer'],
+        ),
+      );
+    }
+
     final builder = routes[settings.name];
     if (builder != null) {
       return MaterialPageRoute(builder: builder);

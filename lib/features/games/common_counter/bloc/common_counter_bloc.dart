@@ -30,9 +30,13 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
   ) {
     if (state is CommonCounterStartScreenState) {
       final currentState = state as CommonCounterStartScreenState;
+      final lowerCaseMode = event.mode.toLowerCase();
+      final isSinglePlayer =
+          lowerCaseMode.contains("single") || lowerCaseMode == "singleplayer";
+
       emit(currentState.copyWith(
         selectedMode: event.mode,
-        isSinglePlayer: event.mode == "Single Player",
+        isSinglePlayer: isSinglePlayer,
       ));
     }
   }
