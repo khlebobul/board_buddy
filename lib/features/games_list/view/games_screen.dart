@@ -29,7 +29,7 @@ class GamesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/commonGame'),
+                onTap: () => Navigator.pushNamed(context, '/commonStartGame'),
                 child: TextScramble(
                   text: '00 - ${S.of(context).common}',
                   style: theme.display3,
@@ -37,7 +37,6 @@ class GamesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
-                // onTap: () => Navigator.pushNamed(context, '/unoGame'),
                 onTap: () => Navigator.pushNamed(context, '/unoStartGame'),
                 child: TextScramble(
                   text: '01 - ${S.of(context).uno}',
