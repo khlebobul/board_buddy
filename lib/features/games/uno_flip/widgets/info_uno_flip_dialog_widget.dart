@@ -88,7 +88,7 @@ class InfoUnoFlipDialog extends StatelessWidget {
                     context: context,
                     cardName: GameConst.plusFive,
                     title: S.of(context).drawFiveUnoFlipInfo,
-                    points: GameConst.forty,
+                    points: GameConst.twenty,
                     description: S
                         .of(context)
                         .nextPlayerDraws5CardsAndSkipsTurnUnoFlipInfo,
@@ -121,7 +121,9 @@ class InfoUnoFlipDialog extends StatelessWidget {
                     context: context,
                     title: S.of(context).flipSide,
                     iconPath: CustomIcons.sun,
-                    description: S.of(context).darkSideCardsAreReplacedWithLightOnesAndVice,
+                    description: S
+                        .of(context)
+                        .darkSideCardsAreReplacedWithLightOnesAndVice,
                   ),
                 ],
               ),

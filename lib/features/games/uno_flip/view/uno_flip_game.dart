@@ -313,7 +313,6 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                               final firstLetter = player.name.characters.first;
                               return GestureDetector(
                                 onTap: () {
-                                  // Navigate to the needed page
                                   _pageController.animateToPage(
                                     index,
                                     duration: const Duration(milliseconds: 300),
