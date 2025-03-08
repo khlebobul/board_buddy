@@ -121,6 +121,14 @@ class UIThemes {
         color: textColor,
       );
 
+  // for plus and minus buttons
+  TextStyle get display9 => TextStyle(
+        fontSize: 30,
+        fontFamily: 'RobotoMono',
+        fontWeight: FontWeight.w300,
+        color: textColor,
+      );
+
   // Colors
   // Background color
   Color get bgColor =>

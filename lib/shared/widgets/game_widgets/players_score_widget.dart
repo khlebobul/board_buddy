@@ -42,7 +42,7 @@ class PlayersScoreWidget extends StatelessWidget {
                 onTap: () => onDecrease(0),
                 child: Text(
                   '-',
-                  style: theme.display1.copyWith(color: theme.redColor),
+                  style: theme.display9.copyWith(color: theme.redColor),
                 ),
               ),
               Text(
@@ -55,7 +55,7 @@ class PlayersScoreWidget extends StatelessWidget {
                 onTap: () => onIncrease(0),
                 child: Text(
                   '+',
-                  style: theme.display1.copyWith(color: theme.redColor),
+                  style: theme.display9.copyWith(color: theme.redColor),
                 ),
               ),
             ],
@@ -84,7 +84,7 @@ class PlayersScoreWidget extends StatelessWidget {
                     onTap: () => onDecrease(index),
                     child: Text(
                       '-',
-                      style: theme.display1.copyWith(color: theme.redColor),
+                      style: theme.display9.copyWith(color: theme.redColor),
                     ),
                   ),
                   Column(
@@ -92,7 +92,7 @@ class PlayersScoreWidget extends StatelessWidget {
                       Text(
                         '${formatPlayerNumber(index + 1)} - ${players[index].name.toLowerCase()}',
                         style: theme.display2.copyWith(
-                          color: theme.textColor,
+                          color: theme.secondaryTextColor,
                         ),
                       ),
                       const SizedBox(height: 5),
@@ -108,7 +108,7 @@ class PlayersScoreWidget extends StatelessWidget {
                     onTap: () => onIncrease(index),
                     child: Text(
                       '+',
-                      style: theme.display1.copyWith(color: theme.redColor),
+                      style: theme.display9.copyWith(color: theme.redColor),
                     ),
                   ),
                 ],

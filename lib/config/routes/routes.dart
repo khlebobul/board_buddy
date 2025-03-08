@@ -1,4 +1,5 @@
 import 'package:board_buddy/features/games/common_counter/view/common_game.dart';
+import 'package:board_buddy/features/games/common_counter/view/common_game_start_screen.dart';
 import 'package:board_buddy/features/games/dos/view/dos_game.dart';
 import 'package:board_buddy/features/games/dos/view/dos_start_screen.dart';
 import 'package:board_buddy/features/games/muncknin/view/munchkin_game.dart';
@@ -54,6 +55,7 @@ class AppRoutes {
   static const String setGame = '/setGame';
   static const String munchkinGame = '/munchkinGame';
   static const String commonGame = '/commonGame';
+  static const String commonGameStartScreen = '/commonStartGame';
 
   static Map<String, WidgetBuilder> get routes => {
         // main
@@ -78,7 +80,7 @@ class AppRoutes {
         unoFlipStartGame: (context) => const UnoFlipStartScreen(),
         setGame: (context) => const SetGame(),
         munchkinGame: (context) => const MunchkinGame(),
-        commonGame: (context) => const CommonGame(),
+        commonGameStartScreen: (context) => const CommonGameStartScreen(),
       };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -123,6 +125,17 @@ class AppRoutes {
             scoreLimit: args['scoreLimit'],
             gameMode: args['gameMode'],
           ),
+        ),
+      );
+    }
+
+    // common counter game
+    if (settings.name == commonGame && settings.arguments != null) {
+      final args = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder: (context) => CommonGame(
+          players: args['players'],
+          isSinglePlayer: args['isSinglePlayer'],
         ),
       );
     }

@@ -2799,6 +2799,11 @@ class S {
       args: [],
     );
   }
+
+  /// `continue`
+  String get continueTitle {
+    return Intl.message('continue', name: 'continueTitle', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
