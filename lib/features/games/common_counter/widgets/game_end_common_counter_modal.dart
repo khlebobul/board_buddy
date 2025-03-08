@@ -36,7 +36,8 @@ class GameEndCommonCounterModal extends StatelessWidget {
     final Player leader = sortedPlayers.isNotEmpty
         ? sortedPlayers.first
         : Player(name: '', id: 0);
-    final bool hasLeader = sortedPlayers.isNotEmpty && leader.score > 0;
+    final bool hasLeader =
+        !isSinglePlayer && sortedPlayers.isNotEmpty && leader.score > 0;
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
@@ -84,40 +85,53 @@ class GameEndCommonCounterModal extends StatelessWidget {
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
                         horizontal: GeneralConst.paddingHorizontal),
-                    child: Column(
-                      children: sortedPlayers.map((player) {
-                        final isLeader = hasLeader && player.id == leader.id;
-                        return Padding(
-                          padding: const EdgeInsets.symmetric(vertical: 8.0),
-                          child: Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  player.name.toLowerCase(),
-                                  style: theme.display2.copyWith(
-                                    color: isLeader
-                                        ? theme.redColor
-                                        : theme.textColor,
-                                  ),
-                                  overflow: TextOverflow.ellipsis,
-                                  maxLines: 1,
+                    child: isSinglePlayer
+                        ? Center(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(vertical: 20.0),
+                              child: Text(
+                                sortedPlayers.first.score.toString(),
+                                style: theme.display1.copyWith(
+                                  color: theme.redColor,
                                 ),
                               ),
-                              const SizedBox(width: 10),
-                              Text(
-                                player.score.toString(),
-                                style: theme.display2.copyWith(
-                                  color: isLeader
-                                      ? theme.redColor
-                                      : theme.textColor,
+                            ),
+                          )
+                        : Column(
+                            children: sortedPlayers.map((player) {
+                              final isLeader =
+                                  hasLeader && player.id == leader.id;
+                              return Padding(
+                                padding:
+                                    const EdgeInsets.symmetric(vertical: 8.0),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Expanded(
+                                      child: Text(
+                                        player.name.toLowerCase(),
+                                        style: theme.display2.copyWith(
+                                          color: isLeader
+                                              ? theme.redColor
+                                              : theme.textColor,
+                                        ),
+                                        overflow: TextOverflow.ellipsis,
+                                        maxLines: 1,
+                                      ),
+                                    ),
+                                    const SizedBox(width: 10),
+                                    Text(
+                                      player.score.toString(),
+                                      style: theme.display2
+                                          .copyWith(color: theme.redColor),
+                                    ),
+                                  ],
                                 ),
-                              ),
-                            ],
+                              );
+                            }).toList(),
                           ),
-                        );
-                      }).toList(),
-                    ),
                   ),
                 ),
               ),

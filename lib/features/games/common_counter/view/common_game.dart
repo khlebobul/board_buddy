@@ -72,12 +72,6 @@ class CommonGameView extends StatelessWidget {
                     children: [
                       const TimerWidget(),
                       const Spacer(),
-                      IconButton(
-                        icon: Icon(Icons.refresh, color: theme.textColor),
-                        onPressed: () {
-                          context.read<CommonCounterBloc>().add(ResetScores());
-                        },
-                      ),
                       GestureDetector(
                         onTap: () => DiceModal.show(context),
                         child: SvgPicture.asset(
