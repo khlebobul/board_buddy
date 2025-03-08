@@ -76,6 +76,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "cleric": MessageLookupByLibrary.simpleMessage("cleric"),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "common": MessageLookupByLibrary.simpleMessage("counter"),
+    "continueTitle": MessageLookupByLibrary.simpleMessage("continue"),
     "cursed": MessageLookupByLibrary.simpleMessage("cursed"),
     "dark": MessageLookupByLibrary.simpleMessage("dark"),
     "darkSideCardsAreReplacedWithLightOnesAndVice":

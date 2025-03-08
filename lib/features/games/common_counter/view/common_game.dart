@@ -4,6 +4,7 @@ import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common_counter/bloc/common_counter_bloc.dart';
+import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
@@ -71,6 +72,12 @@ class CommonGameView extends StatelessWidget {
                     children: [
                       const TimerWidget(),
                       const Spacer(),
+                      IconButton(
+                        icon: Icon(Icons.refresh, color: theme.textColor),
+                        onPressed: () {
+                          context.read<CommonCounterBloc>().add(ResetScores());
+                        },
+                      ),
                       GestureDetector(
                         onTap: () => DiceModal.show(context),
                         child: SvgPicture.asset(
@@ -110,9 +117,35 @@ class CommonGameView extends StatelessWidget {
           bottomNavigationBar: BottomGameBar(
             isArrow: true,
             rightButtonText: S.of(context).finish,
-            onRightBtnTap: () => Navigator.pop(context),
+            onRightBtnTap: () {
+              _showGameEndModal(context, gameState);
+            },
           ),
         );
+      },
+    );
+  }
+
+  void _showGameEndModal(
+      BuildContext context, CommonCounterGameState gameState) {
+    GameEndCommonCounterModal.show(
+      context,
+      players: gameState.players,
+      isSinglePlayer: gameState.isSinglePlayer,
+      onContinue: () {
+        Navigator.of(context).pop(); // Close the modal
+      },
+      onNewRound: () {
+        Navigator.of(context).pop(); // Close the modal
+        context.read<CommonCounterBloc>().add(ResetScores());
+      },
+      onNewGame: () {
+        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop(); // Return to start screen
+        Navigator.pushNamed(context, '/commonStartGame');
+      },
+      onReturnToMenu: () {
+        Navigator.pushNamed(context, '/home');
       },
     );
   }
