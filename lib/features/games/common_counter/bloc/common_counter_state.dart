@@ -28,3 +28,23 @@ class CommonCounterStartScreenState extends CommonCounterState {
     );
   }
 }
+
+class CommonCounterGameState extends CommonCounterState {
+  final List<Player> players;
+  final bool isSinglePlayer;
+
+  CommonCounterGameState({
+    required this.players,
+    required this.isSinglePlayer,
+  });
+
+  CommonCounterGameState copyWith({
+    List<Player>? players,
+    bool? isSinglePlayer,
+  }) {
+    return CommonCounterGameState(
+      players: players ?? this.players,
+      isSinglePlayer: isSinglePlayer ?? this.isSinglePlayer,
+    );
+  }
+}

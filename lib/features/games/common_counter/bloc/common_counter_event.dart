@@ -19,3 +19,28 @@ class RemovePlayer extends CommonCounterEvent {
   final int index;
   RemovePlayer(this.index);
 }
+
+// Game screen events
+class InitializeGameScreen extends CommonCounterEvent {
+  final List<Player> players;
+  final bool isSinglePlayer;
+
+  InitializeGameScreen({
+    required this.players,
+    required this.isSinglePlayer,
+  });
+}
+
+class IncreaseScore extends CommonCounterEvent {
+  final int playerIndex;
+
+  IncreaseScore(this.playerIndex);
+}
+
+class DecreaseScore extends CommonCounterEvent {
+  final int playerIndex;
+
+  DecreaseScore(this.playerIndex);
+}
+
+class ResetScores extends CommonCounterEvent {}
