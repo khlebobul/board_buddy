@@ -20,21 +20,14 @@ class RemovePlayer extends SetEvent {
   RemovePlayer(this.index);
 }
 
-class UpdateScoreLimit extends SetEvent {
-  final int scoreLimit;
-  UpdateScoreLimit(this.scoreLimit);
-}
-
 // Game screen events
 class InitializeGameScreen extends SetEvent {
   final List<Player> players;
   final bool isSinglePlayer;
-  final int scoreLimit;
 
   InitializeGameScreen({
     required this.players,
     required this.isSinglePlayer,
-    required this.scoreLimit,
   });
 }
 

@@ -9,7 +9,6 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:use_scramble/use_scramble.dart';
-import 'package:wheel_chooser/wheel_chooser.dart';
 
 class SetGameStartScreen extends StatelessWidget {
   const SetGameStartScreen({super.key});
@@ -64,31 +63,6 @@ class SetGameStartScreenView extends StatelessWidget {
                         context, S.of(context).singleplayer, setState),
                     _buildModeOption(
                         context, S.of(context).multiplayer, setState),
-                    const SizedBox(height: 24),
-
-                    // score limit (WheelChooser)
-                    Text(
-                      S.of(context).score,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    SizedBox(
-                      height: 100,
-                      child: WheelChooser.integer(
-                        onValueChanged: (value) => context
-                            .read<SetBloc>()
-                            .add(UpdateScoreLimit(value)),
-                        maxValue: 300,
-                        minValue: 10,
-                        step: 10,
-                        initValue: setState.scoreLimit,
-                        horizontal: true,
-                        unSelectTextStyle: theme.display6
-                            .copyWith(color: theme.secondaryTextColor),
-                        selectTextStyle: theme.display6,
-                        itemSize: 70,
-                      ),
-                    ),
                     const SizedBox(height: 24),
 
                     // players list - only show in multiplayer mode
@@ -185,7 +159,6 @@ class SetGameStartScreenView extends StatelessWidget {
                           ? [Player(name: 'Player', score: 0, id: 1)]
                           : setState.players,
                       'isSinglePlayer': setState.isSinglePlayer,
-                      'scoreLimit': setState.scoreLimit,
                     },
                   );
                 }
