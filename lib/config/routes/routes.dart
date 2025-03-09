@@ -149,6 +149,7 @@ class AppRoutes {
         builder: (context) => SetGame(
           players: args['players'],
           isSinglePlayer: args['isSinglePlayer'],
+          scoreLimit: args['scoreLimit'],
         ),
       );
     }

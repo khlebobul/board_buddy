@@ -14,10 +14,12 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 class SetGame extends StatelessWidget {
   final List<Player> players;
   final bool isSinglePlayer;
+  final int scoreLimit;
 
   const SetGame({
     required this.players,
     required this.isSinglePlayer,
+    required this.scoreLimit,
     super.key,
   });
 
@@ -28,6 +30,7 @@ class SetGame extends StatelessWidget {
         ..add(InitializeGameScreen(
           players: players,
           isSinglePlayer: isSinglePlayer,
+          scoreLimit: scoreLimit,
         )),
       child: const SetGameView(),
     );

@@ -11,6 +11,7 @@ class SetBloc extends Bloc<SetEvent, SetState> {
     on<SelectGameMode>(_onSelectGameMode);
     on<AddPlayer>(_onAddPlayer);
     on<RemovePlayer>(_onRemovePlayer);
+    on<UpdateScoreLimit>(_onUpdateScoreLimit);
 
     // Game screen event handlers
     on<InitializeGameScreen>(_onInitializeGameScreen);
@@ -29,6 +30,7 @@ class SetBloc extends Bloc<SetEvent, SetState> {
       players: [],
       selectedMode: "multiplayer",
       isSinglePlayer: false,
+      scoreLimit: 30,
     ));
   }
 
@@ -83,6 +85,7 @@ class SetBloc extends Bloc<SetEvent, SetState> {
     emit(SetGameState(
       players: List.from(event.players),
       isSinglePlayer: event.isSinglePlayer,
+      scoreLimit: event.scoreLimit,
       history: [],
       redoHistory: [],
     ));
@@ -225,6 +228,16 @@ class SetBloc extends Bloc<SetEvent, SetState> {
         history: [], // Clear history on reset
         redoHistory: [], // Clear redo history on reset
       ));
+    }
+  }
+
+  void _onUpdateScoreLimit(
+    UpdateScoreLimit event,
+    Emitter<SetState> emit,
+  ) {
+    if (state is SetStartScreenState) {
+      final currentState = state as SetStartScreenState;
+      emit(currentState.copyWith(scoreLimit: event.scoreLimit));
     }
   }
 }
