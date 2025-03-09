@@ -10,12 +10,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:use_scramble/use_scramble.dart';
 
-// Constants for the set game
-class SetConst {
-  static const int minPlayers = 2;
-  static const int maxPlayers = 100;
-}
-
 class SetGameStartScreen extends StatelessWidget {
   const SetGameStartScreen({super.key});
 
@@ -111,7 +105,7 @@ class SetGameStartScreenView extends StatelessWidget {
                         }).toList(),
                       ),
                       const SizedBox(height: 12),
-                      if (setState.players.length < SetConst.maxPlayers)
+                      if (setState.players.length < GameMaxPlayers.set)
                         GestureDetector(
                           onTap: () {
                             final setBloc = context.read<SetBloc>();
@@ -149,11 +143,11 @@ class SetGameStartScreenView extends StatelessWidget {
               onLeftBtnTap: () => Navigator.pushNamed(context, '/setRules'),
               onRightBtnTap: () {
                 if (!setState.isSinglePlayer &&
-                    setState.players.length < SetConst.minPlayers) {
+                    setState.players.length < GameMinPlayers.set) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                          '${S.of(context).theNumberOfPlayersShouldBe} ${SetConst.minPlayers}'),
+                          '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.setPlayers}'),
                     ),
                   );
                 } else {
