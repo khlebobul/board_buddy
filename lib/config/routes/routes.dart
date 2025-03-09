@@ -5,6 +5,7 @@ import 'package:board_buddy/features/games/dos/view/dos_start_screen.dart';
 import 'package:board_buddy/features/games/muncknin/view/munchkin_game.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_game.dart';
 import 'package:board_buddy/features/games/set/view/set_game.dart';
+import 'package:board_buddy/features/games/set/view/set_start_screen.dart';
 import 'package:board_buddy/features/games/uno/view/uno_start_screen.dart';
 import 'package:board_buddy/features/games/uno_flip/bloc/uno_flip_bloc.dart';
 import 'package:board_buddy/features/games/uno_flip/view/uno_flip_game.dart';
@@ -53,6 +54,7 @@ class AppRoutes {
   static const String dosGame = '/dosGame';
   static const String dosStartGame = '/dosStartGame';
   static const String setGame = '/setGame';
+  static const String setStartGame = '/setStartGame';
   static const String munchkinGame = '/munchkinGame';
   static const String commonGame = '/commonGame';
   static const String commonGameStartScreen = '/commonStartGame';
@@ -78,7 +80,7 @@ class AppRoutes {
         dosStartGame: (context) => const DosStartScreen(),
         scrabbleGame: (context) => const ScrabbleGame(),
         unoFlipStartGame: (context) => const UnoFlipStartScreen(),
-        setGame: (context) => const SetGame(),
+        setStartGame: (context) => const SetGameStartScreen(),
         munchkinGame: (context) => const MunchkinGame(),
         commonGameStartScreen: (context) => const CommonGameStartScreen(),
       };
@@ -134,6 +136,17 @@ class AppRoutes {
       final args = settings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
         builder: (context) => CommonGame(
+          players: args['players'],
+          isSinglePlayer: args['isSinglePlayer'],
+        ),
+      );
+    }
+
+    // set counter bloc
+    if (settings.name == setGame && settings.arguments != null) {
+      final args = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder: (context) => SetGame(
           players: args['players'],
           isSinglePlayer: args['isSinglePlayer'],
         ),

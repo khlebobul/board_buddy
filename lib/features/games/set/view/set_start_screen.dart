@@ -1,8 +1,8 @@
+import 'package:board_buddy/features/games/set/bloc/set_bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/features/games/common_counter/bloc/common_counter_bloc.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
@@ -10,44 +10,43 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:use_scramble/use_scramble.dart';
 
-// Constants for the common counter game
-class CommonCounterConst {
+// Constants for the set game
+class SetConst {
   static const int minPlayers = 2;
   static const int maxPlayers = 100;
 }
 
-class CommonGameStartScreen extends StatelessWidget {
-  const CommonGameStartScreen({super.key});
+class SetGameStartScreen extends StatelessWidget {
+  const SetGameStartScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) =>
-          CommonCounterBloc()..add(InitializeCommonCounterStartScreen()),
-      child: const CommonGameStartScreenView(),
+      create: (context) => SetBloc()..add(InitializeSetStartScreen()),
+      child: const SetGameStartScreenView(),
     );
   }
 }
 
-class CommonGameStartScreenView extends StatelessWidget {
-  const CommonGameStartScreenView({super.key});
+class SetGameStartScreenView extends StatelessWidget {
+  const SetGameStartScreenView({super.key});
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CommonCounterBloc, CommonCounterState>(
+    return BlocBuilder<SetBloc, SetState>(
       builder: (context, state) {
-        if (state is! CommonCounterStartScreenState) {
+        if (state is! SetStartScreenState) {
           return const Center(child: CircularProgressIndicator());
         }
 
-        final counterState = state;
+        final setState = state;
         final theme = UIThemes.of(context);
 
         return Scaffold(
           appBar: CustomAppBar(
             leftButtonText: S.of(context).back,
             onLeftButtonPressed: () => Navigator.pop(context),
-            rightButtonText: S.of(context).common,
+            rightButtonText: S.of(context).set,
             onRightButtonPressed: () {},
           ),
           body: SafeArea(
@@ -67,13 +66,13 @@ class CommonGameStartScreenView extends StatelessWidget {
                           .copyWith(color: theme.secondaryTextColor),
                     ),
                     _buildModeOption(
-                        context, S.of(context).singleplayer, counterState),
+                        context, S.of(context).singleplayer, setState),
                     _buildModeOption(
-                        context, S.of(context).multiplayer, counterState),
+                        context, S.of(context).multiplayer, setState),
                     const SizedBox(height: 24),
 
                     // players list - only show in multiplayer mode
-                    if (!counterState.isSinglePlayer) ...[
+                    if (!setState.isSinglePlayer) ...[
                       Text(
                         S.of(context).players,
                         style: theme.display2
@@ -81,8 +80,7 @@ class CommonGameStartScreenView extends StatelessWidget {
                       ),
                       Column(
                         crossAxisAlignment: CrossAxisAlignment.start,
-                        children:
-                            counterState.players.asMap().entries.map((entry) {
+                        children: setState.players.asMap().entries.map((entry) {
                           int index = entry.key + 1;
                           Player player = entry.value;
                           String formattedIndex =
@@ -104,7 +102,7 @@ class CommonGameStartScreenView extends StatelessWidget {
                                     color: theme.secondaryTextColor),
                                 onPressed: () {
                                   context
-                                      .read<CommonCounterBloc>()
+                                      .read<SetBloc>()
                                       .add(RemovePlayer(entry.key));
                                 },
                               ),
@@ -113,17 +111,15 @@ class CommonGameStartScreenView extends StatelessWidget {
                         }).toList(),
                       ),
                       const SizedBox(height: 12),
-                      if (counterState.players.length <
-                          CommonCounterConst.maxPlayers)
+                      if (setState.players.length < SetConst.maxPlayers)
                         GestureDetector(
                           onTap: () {
-                            final counterBloc =
-                                context.read<CommonCounterBloc>();
+                            final setBloc = context.read<SetBloc>();
                             showDialog(
                               context: context,
                               builder: (dialogContext) => AddPlayerDialog(
                                 onPlayerAdded: (player) {
-                                  counterBloc.add(AddPlayer(player));
+                                  setBloc.add(AddPlayer(player));
                                 },
                               ),
                             );
@@ -149,25 +145,26 @@ class CommonGameStartScreenView extends StatelessWidget {
           bottomNavigationBar: BottomGameBar(
               rightButtonText: S.of(context).play,
               isRightBtnRed: true,
+              leftButtonText: S.of(context).rules,
+              onLeftBtnTap: () => Navigator.pushNamed(context, '/setRules'),
               onRightBtnTap: () {
-                if (!counterState.isSinglePlayer &&
-                    counterState.players.length <
-                        CommonCounterConst.minPlayers) {
+                if (!setState.isSinglePlayer &&
+                    setState.players.length < SetConst.minPlayers) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       content: Text(
-                          '${S.of(context).theNumberOfPlayersShouldBe} ${CommonCounterConst.minPlayers}'),
+                          '${S.of(context).theNumberOfPlayersShouldBe} ${SetConst.minPlayers}'),
                     ),
                   );
                 } else {
                   Navigator.pushNamed(
                     context,
-                    '/commonGame',
+                    '/setGame',
                     arguments: {
-                      'players': counterState.isSinglePlayer
+                      'players': setState.isSinglePlayer
                           ? [Player(name: 'Player', score: 0, id: 1)]
-                          : counterState.players,
-                      'isSinglePlayer': counterState.isSinglePlayer,
+                          : setState.players,
+                      'isSinglePlayer': setState.isSinglePlayer,
                     },
                   );
                 }
@@ -178,13 +175,13 @@ class CommonGameStartScreenView extends StatelessWidget {
     );
   }
 
-  Widget _buildModeOption(BuildContext context, String modeName,
-      CommonCounterStartScreenState state) {
+  Widget _buildModeOption(
+      BuildContext context, String modeName, SetStartScreenState state) {
     final theme = UIThemes.of(context);
 
     return GestureDetector(
       onTap: () {
-        context.read<CommonCounterBloc>().add(SelectGameMode(modeName));
+        context.read<SetBloc>().add(SelectGameMode(modeName));
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
