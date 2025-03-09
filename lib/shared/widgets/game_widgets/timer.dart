@@ -51,9 +51,11 @@ class TimerWidgetState extends State<TimerWidget> {
 
   void _resetTimer() {
     setState(() {
-      _isRunning = false;
       _seconds = 0;
-      _timer.cancel();
+      if (_isRunning) {
+        _timer.cancel();
+        _isRunning = false;
+      }
     });
   }
 
@@ -87,12 +89,12 @@ class TimerWidgetState extends State<TimerWidget> {
         ),
         const SizedBox(width: 15),
         GestureDetector(
-          onTap: _isRunning ? _resetTimer : null,
+          onTap: _resetTimer,
           child: SvgPicture.asset(
             CustomIcons.refresh,
             width: 27,
             height: 27,
-            color: _isRunning ? theme.textColor : theme.secondaryTextColor,
+            color: theme.textColor,
           ),
         ),
       ],
