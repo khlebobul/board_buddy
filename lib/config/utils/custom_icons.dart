@@ -10,6 +10,7 @@ class CustomIcons {
   static const String info = 'assets/icons/info.svg';
   static const String sun = 'assets/icons/sun.svg';
   static const String sunDark = 'assets/icons/sun-dark.svg';
+  static const String keyboard = 'assets/icons/keyboard.svg';
 
   // games icons
   // uno, dos, uno flip

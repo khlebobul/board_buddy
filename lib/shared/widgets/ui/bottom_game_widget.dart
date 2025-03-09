@@ -42,6 +42,12 @@ class BottomGameBar extends StatelessWidget {
   /// Flag to determine if the right arrow is active.
   final bool isRightArrowActive;
 
+  /// Callback for keyboard button tap
+  final VoidCallback? onKeyboardBtnTap;
+
+  /// Flag to determine if the keyboard is active
+  final bool isKeyboardActive;
+
   const BottomGameBar({
     super.key,
     this.leftButtonText = '',
@@ -55,6 +61,8 @@ class BottomGameBar extends StatelessWidget {
     this.isRightBtnRed = false,
     this.isLeftArrowActive = true,
     this.isRightArrowActive = true,
+    this.onKeyboardBtnTap,
+    this.isKeyboardActive = false,
   });
 
   @override
@@ -117,6 +125,16 @@ class BottomGameBar extends StatelessWidget {
                         },
                         child: SvgPicture.asset(
                           CustomIcons.info,
+                          color: theme.textColor,
+                          width: 20,
+                        ),
+                      ),
+                isKeyboardActive == false
+                    ? const SizedBox()
+                    : GestureDetector(
+                        onTap: onKeyboardBtnTap,
+                        child: SvgPicture.asset(
+                          CustomIcons.keyboard,
                           color: theme.textColor,
                           width: 20,
                         ),

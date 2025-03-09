@@ -16,9 +16,12 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
     on<InitializeGameScreen>(_onInitializeGameScreen);
     on<IncreaseScore>(_onIncreaseScore);
     on<DecreaseScore>(_onDecreaseScore);
+    on<IncreaseScoreBy>(_onIncreaseScoreBy);
+    on<DecreaseScoreBy>(_onDecreaseScoreBy);
     on<ResetScores>(_onResetScores);
     on<UndoAction>(_onUndoAction);
     on<RedoAction>(_onRedoAction);
+    on<ResetScoreAnimation>(_onResetScoreAnimation);
   }
 
   void _onInitializeStartScreen(
@@ -153,6 +156,97 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
     }
   }
 
+  void _onIncreaseScoreBy(
+    IncreaseScoreBy event,
+    Emitter<CommonCounterState> emit,
+  ) {
+    if (state is CommonCounterGameState) {
+      final currentState = state as CommonCounterGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        // Save current state to history before making changes
+        final historyItem = ScoreHistoryItem(
+          playerIndex: event.playerIndex,
+          oldScore: updatedPlayers[event.playerIndex].score,
+          newScore: updatedPlayers[event.playerIndex].score + event.amount,
+          isIncrease: true,
+        );
+
+        updatedPlayers[event.playerIndex].score += event.amount;
+
+        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
+          ..add(historyItem);
+
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+          history: updatedHistory,
+          redoHistory: [], // Clear redo history on new action
+          isScoreChanging: true,
+          lastScoreChange: event.amount,
+        ));
+      }
+    }
+  }
+
+  void _onDecreaseScoreBy(
+    DecreaseScoreBy event,
+    Emitter<CommonCounterState> emit,
+  ) {
+    if (state is CommonCounterGameState) {
+      final currentState = state as CommonCounterGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        final newScore = updatedPlayers[event.playerIndex].score - event.amount;
+        final actualScore = newScore < 0 ? 0 : newScore;
+        final actualDecrease =
+            updatedPlayers[event.playerIndex].score - actualScore;
+
+        // Save current state to history before making changes
+        final historyItem = ScoreHistoryItem(
+          playerIndex: event.playerIndex,
+          oldScore: updatedPlayers[event.playerIndex].score,
+          newScore: actualScore,
+          isIncrease: false,
+        );
+
+        updatedPlayers[event.playerIndex].score = actualScore;
+
+        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
+          ..add(historyItem);
+
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+          history: updatedHistory,
+          redoHistory: [], // Clear redo history on new action
+          isScoreChanging: true,
+          lastScoreChange: -actualDecrease,
+        ));
+      }
+    }
+  }
+
+  void _onResetScores(
+    ResetScores event,
+    Emitter<CommonCounterState> emit,
+  ) {
+    if (state is CommonCounterGameState) {
+      final currentState = state as CommonCounterGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      for (var i = 0; i < updatedPlayers.length; i++) {
+        updatedPlayers[i].score = 0;
+      }
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+        history: [], // Clear history on reset
+        redoHistory: [], // Clear redo history on reset
+      ));
+    }
+  }
+
   void _onUndoAction(
     UndoAction event,
     Emitter<CommonCounterState> emit,
@@ -208,22 +302,14 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
     }
   }
 
-  void _onResetScores(
-    ResetScores event,
+  void _onResetScoreAnimation(
+    ResetScoreAnimation event,
     Emitter<CommonCounterState> emit,
   ) {
     if (state is CommonCounterGameState) {
       final currentState = state as CommonCounterGameState;
-      final updatedPlayers = List<Player>.from(currentState.players);
-
-      for (var i = 0; i < updatedPlayers.length; i++) {
-        updatedPlayers[i].score = 0;
-      }
-
       emit(currentState.copyWith(
-        players: updatedPlayers,
-        history: [], // Clear history on reset
-        redoHistory: [], // Clear redo history on reset
+        isScoreChanging: false,
       ));
     }
   }

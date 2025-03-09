@@ -43,9 +43,25 @@ class DecreaseScore extends CommonCounterEvent {
   DecreaseScore(this.playerIndex);
 }
 
+class IncreaseScoreBy extends CommonCounterEvent {
+  final int playerIndex;
+  final int amount;
+
+  IncreaseScoreBy(this.playerIndex, this.amount);
+}
+
+class DecreaseScoreBy extends CommonCounterEvent {
+  final int playerIndex;
+  final int amount;
+
+  DecreaseScoreBy(this.playerIndex, this.amount);
+}
+
 class ResetScores extends CommonCounterEvent {}
 
 // Undo/Redo events
 class UndoAction extends CommonCounterEvent {}
 
 class RedoAction extends CommonCounterEvent {}
+
+class ResetScoreAnimation extends CommonCounterEvent {}

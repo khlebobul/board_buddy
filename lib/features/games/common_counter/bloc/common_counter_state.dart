@@ -48,12 +48,16 @@ class CommonCounterGameState extends CommonCounterState {
   final bool isSinglePlayer;
   final List<ScoreHistoryItem> history;
   final List<ScoreHistoryItem> redoHistory;
+  final bool isScoreChanging;
+  final int lastScoreChange;
 
   CommonCounterGameState({
     required this.players,
     required this.isSinglePlayer,
     this.history = const [],
     this.redoHistory = const [],
+    this.isScoreChanging = false,
+    this.lastScoreChange = 0,
   });
 
   CommonCounterGameState copyWith({
@@ -61,12 +65,16 @@ class CommonCounterGameState extends CommonCounterState {
     bool? isSinglePlayer,
     List<ScoreHistoryItem>? history,
     List<ScoreHistoryItem>? redoHistory,
+    bool? isScoreChanging,
+    int? lastScoreChange,
   }) {
     return CommonCounterGameState(
       players: players ?? this.players,
       isSinglePlayer: isSinglePlayer ?? this.isSinglePlayer,
       history: history ?? this.history,
       redoHistory: redoHistory ?? this.redoHistory,
+      isScoreChanging: isScoreChanging ?? this.isScoreChanging,
+      lastScoreChange: lastScoreChange ?? this.lastScoreChange,
     );
   }
 }
