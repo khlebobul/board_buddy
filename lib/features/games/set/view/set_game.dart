@@ -1,18 +1,14 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
 import 'package:board_buddy/features/games/set/bloc/set_bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
-import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/timer.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_score_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 
 /// set game screen
 class SetGame extends StatelessWidget {
@@ -50,7 +46,6 @@ class SetGameView extends StatelessWidget {
         }
 
         final gameState = state;
-        final theme = UIThemes.of(context);
 
         return Scaffold(
           appBar: CustomAppBar(
@@ -66,13 +61,9 @@ class SetGameView extends StatelessWidget {
                   const EdgeInsets.only(top: GeneralConst.paddingVertical),
               child: Column(
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const TimerWidget(),
-                    ],
-                  ),
+                  gameState.isSinglePlayer
+                      ? const TimerWidget()
+                      : const SizedBox.shrink(),
                   const SizedBox(height: 20),
                   Expanded(
                     child: Center(
