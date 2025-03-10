@@ -12,55 +12,63 @@ import 'package:use_scramble/use_scramble.dart';
 
 /// munchkin game screen
 class MunchkinGame extends StatelessWidget {
-  const MunchkinGame({super.key});
+  final List<Player> players;
+  final bool isSinglePlayer;
+
+  const MunchkinGame({
+    super.key,
+    required this.players,
+    required this.isSinglePlayer,
+  });
 
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-    final players = [
-      Player(name: 'Player 1', score: 0, id: 1),
-    ];
+
     return Scaffold(
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
         isRules: true,
         rightButtonText: S.of(context).rules,
-        onRightButtonPressed: () => Navigator.pushNamed(context, '/munchkinRules'),
+        onRightButtonPressed: () =>
+            Navigator.pushNamed(context, '/munchkinRules'),
       ),
       body: Padding(
         padding: const EdgeInsets.symmetric(
             horizontal: GeneralConst.paddingHorizontal),
         child: Column(
           children: [
-            // SingleChildScrollView(
-            //   scrollDirection: Axis.horizontal,
-            //   child: Row(
-            //     children: players
-            //         .map((player) => Padding(
-            //               padding: const EdgeInsets.only(right: 20.0),
-            //               child: MunchkinScoreWidget(
-            //                 playerName: player.name,
-            //                 totalScore: player.score,
-            //                 gearScore: 0,
-            //                 level: 0,
-            //                 onDecrease: print,
-            //                 onIncrease: print,
-            //                 isSinglePlayer: true,
-            //               ),
-            //             ))
-            //         .toList(),
-            //   ),
-            // ),
-            MunchkinScoreWidget(
-              playerName: players.first.name,
-              totalScore: players.first.score,
-              gearScore: 0,
-              level: 0,
-              onDecrease: print,
-              onIncrease: print,
-              isSinglePlayer: true,
-            ),
+            if (players.length > 1)
+              SingleChildScrollView(
+                scrollDirection: Axis.horizontal,
+                child: Row(
+                  children: players
+                      .map((player) => Padding(
+                            padding: const EdgeInsets.only(right: 20.0),
+                            child: MunchkinScoreWidget(
+                              playerName: player.name,
+                              totalScore: player.score,
+                              gearScore: 0,
+                              level: 0,
+                              onDecrease: print,
+                              onIncrease: print,
+                              isSinglePlayer: false,
+                            ),
+                          ))
+                      .toList(),
+                ),
+              )
+            else
+              MunchkinScoreWidget(
+                playerName: players.first.name,
+                totalScore: players.first.score,
+                gearScore: 0,
+                level: 0,
+                onDecrease: print,
+                onIncrease: print,
+                isSinglePlayer: true,
+              ),
             const SizedBox(height: 50),
             GestureDetector(
               onTap: () => showModalBottomSheet(
@@ -81,6 +89,26 @@ class MunchkinGame extends StatelessWidget {
         isArrow: true,
         rightButtonText: S.of(context).finish,
       ),
+    );
+  }
+}
+
+/// Wrapper for the MunchkinGame that extracts arguments from the route
+class MunchkinGameWrapper extends StatelessWidget {
+  const MunchkinGameWrapper({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    final args =
+        ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
+
+    final List<Player> players =
+        args?['players'] ?? [Player(name: 'Player', score: 0, id: 1)];
+    final bool isSinglePlayer = args?['isSinglePlayer'] ?? true;
+
+    return MunchkinGame(
+      players: players,
+      isSinglePlayer: isSinglePlayer,
     );
   }
 }

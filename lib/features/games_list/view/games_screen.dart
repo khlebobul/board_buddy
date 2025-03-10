@@ -77,7 +77,7 @@ class GamesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/munchkinGame'),
+                onTap: () => Navigator.pushNamed(context, '/munchkinStartGame'),
                 child: TextScramble(
                   text: '06 - ${S.of(context).munchkin}',
                   style: theme.display3,
