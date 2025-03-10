@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "about": MessageLookupByLibrary.simpleMessage("about"),
     "add": MessageLookupByLibrary.simpleMessage("add"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("add player"),
+    "adding": MessageLookupByLibrary.simpleMessage("adding"),
     "allowsThePlayerToChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage(
           "allows the player to choose the color.",
@@ -539,6 +540,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage("special cards:"),
     "specialRulesTitle": MessageLookupByLibrary.simpleMessage("special rules:"),
+    "subtracting": MessageLookupByLibrary.simpleMessage("subtracting"),
     "superMunch": MessageLookupByLibrary.simpleMessage("super munch."),
     "swapHandsWithAnyPlayerAndChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage(

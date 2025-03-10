@@ -2804,6 +2804,16 @@ class S {
   String get continueTitle {
     return Intl.message('continue', name: 'continueTitle', desc: '', args: []);
   }
+
+  /// `adding`
+  String get adding {
+    return Intl.message('adding', name: 'adding', desc: '', args: []);
+  }
+
+  /// `subtracting`
+  String get subtracting {
+    return Intl.message('subtracting', name: 'subtracting', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
