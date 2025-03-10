@@ -6,6 +6,7 @@ import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common_counter/bloc/common_counter_bloc.dart';
 import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
 import 'package:board_buddy/features/games/common_counter/widgets/custom_score_keyboard.dart';
+import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
@@ -55,6 +56,7 @@ class _CommonGameViewState extends State<CommonGameView>
   late final Animation<double> _animation;
 
   int _currentPageIndex = 0;
+  bool _isNumericKeyboard = false;
 
   @override
   void initState() {
@@ -170,7 +172,11 @@ class _CommonGameViewState extends State<CommonGameView>
                     context.read<CommonCounterBloc>().add(RedoAction());
                   }
                 : null,
-            onKeyboardBtnTap: () {},
+            onKeyboardBtnTap: () {
+              setState(() {
+                _isNumericKeyboard = !_isNumericKeyboard;
+              });
+            },
             isKeyboardActive: gameState.isSinglePlayer ? false : true,
           ),
         );
@@ -291,11 +297,88 @@ class _CommonGameViewState extends State<CommonGameView>
           ),
         ),
         const Spacer(),
-        CustomScoreKeyboard(
-          onValueSelected: (value) {
-            _updateScore(context, _currentPageIndex, value);
-          },
-        ),
+        _isNumericKeyboard
+            ? Padding(
+                padding: const EdgeInsets.symmetric(
+                    horizontal: GeneralConst.paddingHorizontal),
+                child: CustomKeyboard(
+                  buttons: [
+                    [
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.one,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 1),
+                      ),
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.two,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 2),
+                      ),
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.three,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 3),
+                      ),
+                    ],
+                    [
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.four,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 4),
+                      ),
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.five,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 5),
+                      ),
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.six,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 6),
+                      ),
+                    ],
+                    [
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.seven,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 7),
+                      ),
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.eight,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 8),
+                      ),
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.nine,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 9),
+                      ),
+                    ],
+                    [
+                      KeyboardButton(
+                        buttonText: '-',
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, -1),
+                      ),
+                      KeyboardButton(
+                        buttonText: UnoLikeGameCardsText.zero,
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 0),
+                      ),
+                      KeyboardButton(
+                        buttonText: '+',
+                        onPressed: () =>
+                            _updateScore(context, _currentPageIndex, 1),
+                      ),
+                    ],
+                  ],
+                ),
+              )
+            : CustomScoreKeyboard(
+                onValueSelected: (value) {
+                  _updateScore(context, _currentPageIndex, value);
+                },
+              ),
         const SizedBox(height: 12),
       ],
     );
