@@ -318,5 +318,7 @@
   "eachCardHasANumberFrom1To9Which": "каждая карта имеет число от 1 до 9, которое определяет её значение.",
   "flipSide": "переворот стороны",
   "darkSideCardsAreReplacedWithLightOnesAndVice": "карточки темной стороны заменяться на светлые и наоборот.",
-  "continueTitle": "продолжить"
+  "continueTitle": "продолжить",
+  "adding": "прибавление",
+  "subtracting": "вычитание"
 }

@@ -25,6 +25,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "about": MessageLookupByLibrary.simpleMessage("о проекте"),
     "add": MessageLookupByLibrary.simpleMessage("добавить"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("добавить игрока"),
+    "adding": MessageLookupByLibrary.simpleMessage("прибавление"),
     "allowsThePlayerToChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage("позволяет игроку выбрать цвет."),
     "appreciation": MessageLookupByLibrary.simpleMessage("благодарность"),
@@ -557,6 +558,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "specialRulesTitle": MessageLookupByLibrary.simpleMessage(
       "особые правила:",
     ),
+    "subtracting": MessageLookupByLibrary.simpleMessage("вычитание"),
     "superMunch": MessageLookupByLibrary.simpleMessage("супер-жор"),
     "swapHandsWithAnyPlayerAndChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage(
