@@ -4,6 +4,7 @@ import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
+import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:board_buddy/shared/widgets/bottom_sheets/munchkin_modifiers_bs.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/munchkin_score_widget.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/info_munchkin_dialog_widget.dart';
@@ -100,12 +101,46 @@ class MunchkinGame extends StatelessWidget {
                     : null,
                 isArrow: true,
                 rightButtonText: S.of(context).finish,
+                onRightBtnTap: () => _showEndGameModal(context, state),
               ),
             );
           }
           return const Center(child: CircularProgressIndicator());
         },
       ),
+    );
+  }
+
+  void _showEndGameModal(BuildContext context, MunchkinGameState state) {
+    // Create a formatted string with player stats
+    String playerStats = '';
+    if (state.isSinglePlayer) {
+      // In single player mode, don't show player name
+      final player = state.players.first;
+      playerStats +=
+          '${S.of(context).level} ${player.level}, ${S.of(context).gear} ${player.gear}';
+    } else {
+      // In multiplayer mode, show player names
+      for (int i = 0; i < state.players.length; i++) {
+        final player = state.players[i];
+        playerStats +=
+            '${player.name}: ${S.of(context).level} ${player.level}, ${S.of(context).gear} ${player.gear}\n';
+      }
+    }
+
+    ModalWindowWidget.show(
+      context,
+      mainText: playerStats,
+      button1Text: S.of(context).doReturn,
+      button2Text: S.of(context).finish,
+      button1Action: () => Navigator.pop(context),
+      button2Action: () {
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          '/home',
+          (route) => false,
+        );
+      },
     );
   }
 
