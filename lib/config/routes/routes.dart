@@ -160,7 +160,10 @@ class AppRoutes {
     if (settings.name == munchkinGame && settings.arguments != null) {
       final args = settings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
-        builder: (context) => MunchkinGameWrapper(),
+        builder: (context) => MunchkinGameWrapper(
+          players: args['players'],
+          isSinglePlayer: args['isSinglePlayer'],
+        ),
       );
     }
 

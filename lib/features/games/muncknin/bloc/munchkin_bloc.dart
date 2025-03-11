@@ -16,6 +16,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     on<InitializeGameScreen>(_onInitializeGameScreen);
     on<IncreaseScore>(_onIncreaseScore);
     on<DecreaseScore>(_onDecreaseScore);
+    on<IncreaseGear>(_onIncreaseGear);
+    on<DecreaseGear>(_onDecreaseGear);
+    on<IncreaseLevel>(_onIncreaseLevel);
+    on<DecreaseLevel>(_onDecreaseLevel);
     on<ResetScores>(_onResetScores);
     on<UndoAction>(_onUndoAction);
     on<RedoAction>(_onRedoAction);
@@ -153,6 +157,173 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     }
   }
 
+  void _onIncreaseGear(
+    IncreaseGear event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        // Save current state to history before making changes
+        final historyItem = ScoreHistoryItem(
+          playerIndex: event.playerIndex,
+          oldScore: updatedPlayers[event.playerIndex].score,
+          newScore: updatedPlayers[event.playerIndex].score + 1,
+          isIncrease: true,
+        );
+
+        updatedPlayers[event.playerIndex].gear += 1;
+        // Update total score based on gear + level
+        updatedPlayers[event.playerIndex].score =
+            updatedPlayers[event.playerIndex].gear +
+                updatedPlayers[event.playerIndex].level;
+
+        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
+          ..add(historyItem);
+
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+          history: updatedHistory,
+          redoHistory: [], // Clear redo history on new action
+        ));
+      }
+    }
+  }
+
+  void _onDecreaseGear(
+    DecreaseGear event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        if (updatedPlayers[event.playerIndex].gear > 0) {
+          // Save current state to history before making changes
+          final historyItem = ScoreHistoryItem(
+            playerIndex: event.playerIndex,
+            oldScore: updatedPlayers[event.playerIndex].score,
+            newScore: updatedPlayers[event.playerIndex].score - 1,
+            isIncrease: false,
+          );
+
+          updatedPlayers[event.playerIndex].gear -= 1;
+          // Update total score based on gear + level
+          updatedPlayers[event.playerIndex].score =
+              updatedPlayers[event.playerIndex].gear +
+                  updatedPlayers[event.playerIndex].level;
+
+          final updatedHistory =
+              List<ScoreHistoryItem>.from(currentState.history)
+                ..add(historyItem);
+
+          emit(currentState.copyWith(
+            players: updatedPlayers,
+            history: updatedHistory,
+            redoHistory: [], // Clear redo history on new action
+          ));
+        }
+      }
+    }
+  }
+
+  void _onIncreaseLevel(
+    IncreaseLevel event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        // Save current state to history before making changes
+        final historyItem = ScoreHistoryItem(
+          playerIndex: event.playerIndex,
+          oldScore: updatedPlayers[event.playerIndex].score,
+          newScore: updatedPlayers[event.playerIndex].score + 1,
+          isIncrease: true,
+        );
+
+        updatedPlayers[event.playerIndex].level += 1;
+        // Update total score based on gear + level
+        updatedPlayers[event.playerIndex].score =
+            updatedPlayers[event.playerIndex].gear +
+                updatedPlayers[event.playerIndex].level;
+
+        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
+          ..add(historyItem);
+
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+          history: updatedHistory,
+          redoHistory: [], // Clear redo history on new action
+        ));
+      }
+    }
+  }
+
+  void _onDecreaseLevel(
+    DecreaseLevel event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        if (updatedPlayers[event.playerIndex].level > 1) {
+          // Level should not go below 1
+          // Save current state to history before making changes
+          final historyItem = ScoreHistoryItem(
+            playerIndex: event.playerIndex,
+            oldScore: updatedPlayers[event.playerIndex].score,
+            newScore: updatedPlayers[event.playerIndex].score - 1,
+            isIncrease: false,
+          );
+
+          updatedPlayers[event.playerIndex].level -= 1;
+          // Update total score based on gear + level
+          updatedPlayers[event.playerIndex].score =
+              updatedPlayers[event.playerIndex].gear +
+                  updatedPlayers[event.playerIndex].level;
+
+          final updatedHistory =
+              List<ScoreHistoryItem>.from(currentState.history)
+                ..add(historyItem);
+
+          emit(currentState.copyWith(
+            players: updatedPlayers,
+            history: updatedHistory,
+            redoHistory: [], // Clear redo history on new action
+          ));
+        }
+      }
+    }
+  }
+
+  void _onResetScores(
+    ResetScores event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      for (var i = 0; i < updatedPlayers.length; i++) {
+        updatedPlayers[i].score = 0;
+      }
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+        history: [], // Clear history on reset
+        redoHistory: [], // Clear redo history on reset
+      ));
+    }
+  }
+
   void _onUndoAction(
     UndoAction event,
     Emitter<MunchkinState> emit,
@@ -205,26 +376,6 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           redoHistory: updatedRedoHistory,
         ));
       }
-    }
-  }
-
-  void _onResetScores(
-    ResetScores event,
-    Emitter<MunchkinState> emit,
-  ) {
-    if (state is MunchkinGameState) {
-      final currentState = state as MunchkinGameState;
-      final updatedPlayers = List<Player>.from(currentState.players);
-
-      for (var i = 0; i < updatedPlayers.length; i++) {
-        updatedPlayers[i].score = 0;
-      }
-
-      emit(currentState.copyWith(
-        players: updatedPlayers,
-        history: [], // Clear history on reset
-        redoHistory: [], // Clear redo history on reset
-      ));
     }
   }
 }

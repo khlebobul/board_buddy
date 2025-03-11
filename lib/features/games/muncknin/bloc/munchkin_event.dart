@@ -43,6 +43,30 @@ class DecreaseScore extends MunchkinEvent {
   DecreaseScore(this.playerIndex);
 }
 
+class IncreaseGear extends MunchkinEvent {
+  final int playerIndex;
+
+  IncreaseGear(this.playerIndex);
+}
+
+class DecreaseGear extends MunchkinEvent {
+  final int playerIndex;
+
+  DecreaseGear(this.playerIndex);
+}
+
+class IncreaseLevel extends MunchkinEvent {
+  final int playerIndex;
+
+  IncreaseLevel(this.playerIndex);
+}
+
+class DecreaseLevel extends MunchkinEvent {
+  final int playerIndex;
+
+  DecreaseLevel(this.playerIndex);
+}
+
 class ResetScores extends MunchkinEvent {}
 
 // Undo/Redo events
