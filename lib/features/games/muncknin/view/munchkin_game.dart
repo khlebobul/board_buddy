@@ -102,6 +102,18 @@ class MunchkinGame extends StatelessWidget {
                 isArrow: true,
                 rightButtonText: S.of(context).finish,
                 onRightBtnTap: () => _showEndGameModal(context, state),
+                isLeftArrowActive: state.history.isNotEmpty,
+                isRightArrowActive: state.redoHistory.isNotEmpty,
+                onLeftArrowTap: state.history.isNotEmpty
+                    ? () {
+                        context.read<MunchkinBloc>().add(UndoAction());
+                      }
+                    : null,
+                onRightArrowTap: state.redoHistory.isNotEmpty
+                    ? () {
+                        context.read<MunchkinBloc>().add(RedoAction());
+                      }
+                    : null,
               ),
             );
           }
