@@ -35,6 +35,8 @@ class MunchkinGame extends StatefulWidget {
 class _MunchkinGameState extends State<MunchkinGame> {
   late final PageController _pageController;
   int _currentPlayerIndex = 0;
+  bool _isMale = true; // Track gender state
+  bool _isCursed = true; // Track curse state
 
   @override
   void initState() {
@@ -97,26 +99,69 @@ class _MunchkinGameState extends State<MunchkinGame> {
                     ),
                   ),
                   const SizedBox(height: 20),
-                  if (state.players.length > 1)
-                    _buildMultiPlayerView(context, state)
-                  else
-                    _buildSinglePlayerView(context, state),
-                  const SizedBox(height: 50),
-                  state.players.length > 1
-                      ? GestureDetector(
-                          onTap: () => showModalBottomSheet(
-                            isScrollControlled: true,
-                            context: context,
-                            builder: (context) =>
-                                const MunchkinModifiersBottomSheet(),
+                  if (state.players.length > 1) ...[
+                    _buildMultiPlayerView(context, state),
+                    const SizedBox(height: 50),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _isMale = !_isMale;
+                            });
+                          },
+                          child: SvgPicture.asset(
+                            _isMale ? CustomIcons.male : CustomIcons.female,
                           ),
-                          child: TextScramble(
-                            text: S.of(context).modifiers,
+                        ),
+                        const SizedBox(width: 40),
+                        GestureDetector(
+                          onTap: () {
+                            setState(() {
+                              _isCursed = !_isCursed;
+                            });
+                          },
+                          child: Text(
+                            _isCursed
+                                ? S.of(context).cursed
+                                : S.of(context).clearance,
                             style:
                                 theme.display2.copyWith(color: theme.redColor),
                           ),
-                        )
-                      : const SizedBox.shrink(),
+                        ),
+                        const SizedBox(width: 40),
+                        GestureDetector(
+                          onTap: () {
+                            // Reset player modifiers according to Munchkin rules
+                            final currentPlayer = _currentPlayerIndex;
+                            if (currentPlayer >= 0 &&
+                                currentPlayer < state.players.length) {
+                              context
+                                  .read<MunchkinBloc>()
+                                  .add(ResetPlayerModifiers(currentPlayer));
+                            }
+                          },
+                          child: SvgPicture.asset(CustomIcons.bone),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(height: 20),
+                    GestureDetector(
+                      onTap: () => showModalBottomSheet(
+                        isScrollControlled: true,
+                        context: context,
+                        builder: (context) =>
+                            const MunchkinModifiersBottomSheet(),
+                      ),
+                      child: TextScramble(
+                        text: S.of(context).modifiers,
+                        style: theme.display2.copyWith(color: theme.redColor),
+                      ),
+                    ),
+                  ] else
+                    _buildSinglePlayerView(context, state),
                 ],
               ),
               bottomNavigationBar: BottomGameBar(
@@ -257,34 +302,91 @@ class _MunchkinGameState extends State<MunchkinGame> {
   }
 
   Widget _buildSinglePlayerView(BuildContext context, MunchkinGameState state) {
-    return Expanded(
-      child: Center(
-        child: Padding(
-          padding: const EdgeInsets.symmetric(
-              horizontal: GeneralConst.paddingHorizontal),
-          child: MunchkinScoreWidget(
-            playerName: state.players.first.name,
-            totalScore: state.players.first.score,
-            gearScore: state.players.first.gear,
-            level: state.players.first.level,
-            onIncrease: (scoreType) {
-              if (scoreType == 0) {
-                context.read<MunchkinBloc>().add(IncreaseGear(0));
-              } else {
-                context.read<MunchkinBloc>().add(IncreaseLevel(0));
-              }
-            },
-            onDecrease: (scoreType) {
-              if (scoreType == 0) {
-                context.read<MunchkinBloc>().add(DecreaseGear(0));
-              } else {
-                context.read<MunchkinBloc>().add(DecreaseLevel(0));
-              }
-            },
-            isSinglePlayer: true,
+    final theme = UIThemes.of(context);
+
+    return Column(
+      children: [
+        Expanded(
+          child: Center(
+            child: Padding(
+              padding: const EdgeInsets.symmetric(
+                  horizontal: GeneralConst.paddingHorizontal),
+              child: MunchkinScoreWidget(
+                playerName: state.players.first.name,
+                totalScore: state.players.first.score,
+                gearScore: state.players.first.gear,
+                level: state.players.first.level,
+                onIncrease: (scoreType) {
+                  if (scoreType == 0) {
+                    context.read<MunchkinBloc>().add(IncreaseGear(0));
+                  } else {
+                    context.read<MunchkinBloc>().add(IncreaseLevel(0));
+                  }
+                },
+                onDecrease: (scoreType) {
+                  if (scoreType == 0) {
+                    context.read<MunchkinBloc>().add(DecreaseGear(0));
+                  } else {
+                    context.read<MunchkinBloc>().add(DecreaseLevel(0));
+                  }
+                },
+                isSinglePlayer: true,
+              ),
+            ),
           ),
         ),
-      ),
+        const SizedBox(height: 50),
+        Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          crossAxisAlignment: CrossAxisAlignment.center,
+          children: [
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  _isMale = !_isMale;
+                });
+              },
+              child: SvgPicture.asset(
+                _isMale ? CustomIcons.male : CustomIcons.female,
+              ),
+            ),
+            const SizedBox(width: 40),
+            GestureDetector(
+              onTap: () {
+                setState(() {
+                  _isCursed = !_isCursed;
+                });
+              },
+              child: TextScramble(
+                text: _isCursed
+                    ? S.of(context).cursed
+                    : 'clearance', // Using 'clearance' directly as it might not be in S
+                style: theme.display2.copyWith(color: theme.redColor),
+              ),
+            ),
+            const SizedBox(width: 40),
+            GestureDetector(
+              onTap: () {
+                // Reset player modifiers according to Munchkin rules
+                context.read<MunchkinBloc>().add(ResetPlayerModifiers(0));
+              },
+              child: SvgPicture.asset(CustomIcons.bone),
+            ),
+          ],
+        ),
+        const SizedBox(height: 20),
+        GestureDetector(
+          onTap: () => showModalBottomSheet(
+            isScrollControlled: true,
+            context: context,
+            builder: (context) => const MunchkinModifiersBottomSheet(),
+          ),
+          child: TextScramble(
+            text: S.of(context).modifiers,
+            style: theme.display2.copyWith(color: theme.redColor),
+          ),
+        ),
+      ],
     );
   }
 }

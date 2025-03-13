@@ -93,7 +93,7 @@ class MunchkinScoreWidget extends StatelessWidget {
             height: 1,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [

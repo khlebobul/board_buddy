@@ -69,6 +69,12 @@ class DecreaseLevel extends MunchkinEvent {
 
 class ResetScores extends MunchkinEvent {}
 
+class ResetPlayerModifiers extends MunchkinEvent {
+  final int playerIndex;
+
+  ResetPlayerModifiers(this.playerIndex);
+}
+
 // Undo/Redo events
 class UndoAction extends MunchkinEvent {}
 
