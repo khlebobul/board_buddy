@@ -257,7 +257,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
       for (int i = 0; i < state.players.length; i++) {
         final player = state.players[i];
         playerStats +=
-            '${player.name}: ${S.of(context).level} ${player.level}, ${S.of(context).gear} ${player.gear}\n';
+            '${player.name.toLowerCase()}: ${S.of(context).level} ${player.level}, ${S.of(context).gear} ${player.gear}\n';
       }
     }
 
