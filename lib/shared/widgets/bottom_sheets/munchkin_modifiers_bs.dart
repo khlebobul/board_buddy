@@ -70,7 +70,7 @@ class _MunchkinModifiersBottomSheetState
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               Text(
-                '${S.of(context).modifiers}: ${widget.player.name}',
+                S.of(context).modifiers,
                 style: theme.display2.copyWith(color: theme.secondaryTextColor),
               ),
               GestureDetector(

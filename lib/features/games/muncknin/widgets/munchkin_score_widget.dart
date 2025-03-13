@@ -59,6 +59,7 @@ class MunchkinScoreWidget extends StatelessWidget {
                 style: theme.display2.copyWith(
                   color: theme.textColor,
                 ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             Divider(
