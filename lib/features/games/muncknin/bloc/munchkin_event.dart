@@ -100,6 +100,14 @@ class TogglePlayerCursed extends MunchkinEvent {
 }
 
 // Undo/Redo events
-class UndoAction extends MunchkinEvent {}
+class UndoAction extends MunchkinEvent {
+  final int playerIndex;
 
-class RedoAction extends MunchkinEvent {}
+  UndoAction(this.playerIndex);
+}
+
+class RedoAction extends MunchkinEvent {
+  final int playerIndex;
+
+  RedoAction(this.playerIndex);
+}

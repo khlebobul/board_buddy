@@ -197,16 +197,42 @@ class _MunchkinGameState extends State<MunchkinGame> {
                 isArrow: true,
                 rightButtonText: S.of(context).finish,
                 onRightBtnTap: () => _showEndGameModal(context, state),
-                isLeftArrowActive: state.history.isNotEmpty,
-                isRightArrowActive: state.redoHistory.isNotEmpty,
-                onLeftArrowTap: state.history.isNotEmpty
+                isLeftArrowActive: state.history
+                    .where((item) =>
+                        item.playerIndex ==
+                        (state.players.length > 1 ? _currentPlayerIndex : 0))
+                    .isNotEmpty,
+                isRightArrowActive: state.redoHistory
+                    .where((item) =>
+                        item.playerIndex ==
+                        (state.players.length > 1 ? _currentPlayerIndex : 0))
+                    .isNotEmpty,
+                onLeftArrowTap: state.history
+                        .where((item) =>
+                            item.playerIndex ==
+                            (state.players.length > 1
+                                ? _currentPlayerIndex
+                                : 0))
+                        .isNotEmpty
                     ? () {
-                        context.read<MunchkinBloc>().add(UndoAction());
+                        context.read<MunchkinBloc>().add(UndoAction(
+                            state.players.length > 1
+                                ? _currentPlayerIndex
+                                : 0));
                       }
                     : null,
-                onRightArrowTap: state.redoHistory.isNotEmpty
+                onRightArrowTap: state.redoHistory
+                        .where((item) =>
+                            item.playerIndex ==
+                            (state.players.length > 1
+                                ? _currentPlayerIndex
+                                : 0))
+                        .isNotEmpty
                     ? () {
-                        context.read<MunchkinBloc>().add(RedoAction());
+                        context.read<MunchkinBloc>().add(RedoAction(
+                            state.players.length > 1
+                                ? _currentPlayerIndex
+                                : 0));
                       }
                     : null,
               ),

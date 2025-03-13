@@ -111,6 +111,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           oldScore: updatedPlayers[event.playerIndex].score,
           newScore: updatedPlayers[event.playerIndex].score + 1,
           isIncrease: true,
+          oldGear: updatedPlayers[event.playerIndex].gear,
+          newGear: updatedPlayers[event.playerIndex].gear,
+          oldLevel: updatedPlayers[event.playerIndex].level,
+          newLevel: updatedPlayers[event.playerIndex].level,
         );
 
         updatedPlayers[event.playerIndex].score += 1;
@@ -143,6 +147,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             oldScore: updatedPlayers[event.playerIndex].score,
             newScore: updatedPlayers[event.playerIndex].score - 1,
             isIncrease: false,
+            oldGear: updatedPlayers[event.playerIndex].gear,
+            newGear: updatedPlayers[event.playerIndex].gear,
+            oldLevel: updatedPlayers[event.playerIndex].level,
+            newLevel: updatedPlayers[event.playerIndex].level,
           );
 
           updatedPlayers[event.playerIndex].score -= 1;
@@ -176,6 +184,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           oldScore: updatedPlayers[event.playerIndex].score,
           newScore: updatedPlayers[event.playerIndex].score + 1,
           isIncrease: true,
+          oldGear: updatedPlayers[event.playerIndex].gear,
+          newGear: updatedPlayers[event.playerIndex].gear + 1,
+          oldLevel: updatedPlayers[event.playerIndex].level,
+          newLevel: updatedPlayers[event.playerIndex].level,
         );
 
         updatedPlayers[event.playerIndex].gear += 1;
@@ -212,6 +224,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             oldScore: updatedPlayers[event.playerIndex].score,
             newScore: updatedPlayers[event.playerIndex].score - 1,
             isIncrease: false,
+            oldGear: updatedPlayers[event.playerIndex].gear,
+            newGear: updatedPlayers[event.playerIndex].gear - 1,
+            oldLevel: updatedPlayers[event.playerIndex].level,
+            newLevel: updatedPlayers[event.playerIndex].level,
           );
 
           updatedPlayers[event.playerIndex].gear -= 1;
@@ -249,6 +265,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           oldScore: updatedPlayers[event.playerIndex].score,
           newScore: updatedPlayers[event.playerIndex].score + 1,
           isIncrease: true,
+          oldGear: updatedPlayers[event.playerIndex].gear,
+          newGear: updatedPlayers[event.playerIndex].gear,
+          oldLevel: updatedPlayers[event.playerIndex].level,
+          newLevel: updatedPlayers[event.playerIndex].level + 1,
         );
 
         updatedPlayers[event.playerIndex].level += 1;
@@ -286,6 +306,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             oldScore: updatedPlayers[event.playerIndex].score,
             newScore: updatedPlayers[event.playerIndex].score - 1,
             isIncrease: false,
+            oldGear: updatedPlayers[event.playerIndex].gear,
+            newGear: updatedPlayers[event.playerIndex].gear,
+            oldLevel: updatedPlayers[event.playerIndex].level,
+            newLevel: updatedPlayers[event.playerIndex].level - 1,
           );
 
           updatedPlayers[event.playerIndex].level -= 1;
@@ -344,6 +368,11 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           newScore: updatedPlayers[event.playerIndex]
               .level, // New score will be just the level
           isIncrease: false,
+          oldGear: updatedPlayers[event.playerIndex].gear,
+          newGear: 0, // Gear will be reset to 0
+          oldLevel: updatedPlayers[event.playerIndex].level,
+          newLevel:
+              updatedPlayers[event.playerIndex].level, // Level stays the same
         );
 
         // Reset gear to 0 according to Munchkin rules
@@ -472,24 +501,53 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
   ) {
     if (state is MunchkinGameState) {
       final currentState = state as MunchkinGameState;
+      final currentPlayerIndex = event.playerIndex;
 
-      if (currentState.history.isNotEmpty) {
+      // Фильтруем историю, чтобы найти последнее действие для текущего игрока
+      final playerHistory = currentState.history
+          .where((item) => item.playerIndex == currentPlayerIndex)
+          .toList();
+
+      if (playerHistory.isNotEmpty) {
         final updatedPlayers = List<Player>.from(currentState.players);
-        final historyItem = currentState.history.last;
-        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
-          ..removeLast();
-        final updatedRedoHistory =
-            List<ScoreHistoryItem>.from(currentState.redoHistory)
-              ..add(historyItem);
+        // Берем последнее действие для текущего игрока
+        final historyItem = playerHistory.last;
 
-        // Revert the score change
-        updatedPlayers[historyItem.playerIndex].score = historyItem.oldScore;
+        // Находим индекс этого действия в общей истории
+        final historyIndex = currentState.history
+            .lastIndexWhere((item) => item.playerIndex == currentPlayerIndex);
 
-        emit(currentState.copyWith(
-          players: updatedPlayers,
-          history: updatedHistory,
-          redoHistory: updatedRedoHistory,
-        ));
+        if (historyIndex != -1) {
+          // Удаляем это действие из истории
+          final updatedHistory =
+              List<ScoreHistoryItem>.from(currentState.history);
+          final removedItem = updatedHistory.removeAt(historyIndex);
+
+          // Добавляем его в историю redo для этого игрока
+          final updatedRedoHistory =
+              List<ScoreHistoryItem>.from(currentState.redoHistory)
+                ..add(removedItem);
+
+          final player = updatedPlayers[currentPlayerIndex];
+
+          // Revert the score change
+          player.score = historyItem.oldScore;
+
+          // Revert gear and level if available
+          if (historyItem.oldGear != null) {
+            player.gear = historyItem.oldGear!;
+          }
+
+          if (historyItem.oldLevel != null) {
+            player.level = historyItem.oldLevel!;
+          }
+
+          emit(currentState.copyWith(
+            players: updatedPlayers,
+            history: updatedHistory,
+            redoHistory: updatedRedoHistory,
+          ));
+        }
       }
     }
   }
@@ -500,23 +558,53 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
   ) {
     if (state is MunchkinGameState) {
       final currentState = state as MunchkinGameState;
+      final currentPlayerIndex = event.playerIndex;
 
-      if (currentState.redoHistory.isNotEmpty) {
+      // Фильтруем историю redo, чтобы найти действия для текущего игрока
+      final playerRedoHistory = currentState.redoHistory
+          .where((item) => item.playerIndex == currentPlayerIndex)
+          .toList();
+
+      if (playerRedoHistory.isNotEmpty) {
         final updatedPlayers = List<Player>.from(currentState.players);
-        final redoItem = currentState.redoHistory.last;
-        final updatedRedoHistory =
-            List<ScoreHistoryItem>.from(currentState.redoHistory)..removeLast();
-        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
-          ..add(redoItem);
+        // Берем последнее действие redo для текущего игрока
+        final redoItem = playerRedoHistory.last;
 
-        // Apply the score change
-        updatedPlayers[redoItem.playerIndex].score = redoItem.newScore;
+        // Находим индекс этого действия в общей истории redo
+        final redoIndex = currentState.redoHistory
+            .lastIndexWhere((item) => item.playerIndex == currentPlayerIndex);
 
-        emit(currentState.copyWith(
-          players: updatedPlayers,
-          history: updatedHistory,
-          redoHistory: updatedRedoHistory,
-        ));
+        if (redoIndex != -1) {
+          // Удаляем это действие из истории redo
+          final updatedRedoHistory =
+              List<ScoreHistoryItem>.from(currentState.redoHistory);
+          final removedRedoItem = updatedRedoHistory.removeAt(redoIndex);
+
+          // Добавляем его обратно в основную историю
+          final updatedHistory =
+              List<ScoreHistoryItem>.from(currentState.history)
+                ..add(removedRedoItem);
+
+          final player = updatedPlayers[currentPlayerIndex];
+
+          // Apply the score change
+          player.score = redoItem.newScore;
+
+          // Apply gear and level changes if available
+          if (redoItem.newGear != null) {
+            player.gear = redoItem.newGear!;
+          }
+
+          if (redoItem.newLevel != null) {
+            player.level = redoItem.newLevel!;
+          }
+
+          emit(currentState.copyWith(
+            players: updatedPlayers,
+            history: updatedHistory,
+            redoHistory: updatedRedoHistory,
+          ));
+        }
       }
     }
   }

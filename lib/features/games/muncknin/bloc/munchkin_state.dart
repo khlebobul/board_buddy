@@ -34,12 +34,20 @@ class ScoreHistoryItem {
   final int oldScore;
   final int newScore;
   final bool isIncrease;
+  final int? oldGear;
+  final int? newGear;
+  final int? oldLevel;
+  final int? newLevel;
 
   ScoreHistoryItem({
     required this.playerIndex,
     required this.oldScore,
     required this.newScore,
     required this.isIncrease,
+    this.oldGear,
+    this.newGear,
+    this.oldLevel,
+    this.newLevel,
   });
 }
 
