@@ -37,7 +37,7 @@ class InfoMunchkinDialogWidget extends StatelessWidget {
                 children: [
                   InfoRowWidget(
                     context: context,
-                    iconPath: CustomIcons.rip,
+                    iconPath: CustomIcons.bone,
                     description: S.of(context).marksADeadCharacterInfo,
                   ),
                   InfoRowWidget(
