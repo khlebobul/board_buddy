@@ -149,12 +149,30 @@ class _MunchkinGameState extends State<MunchkinGame> {
                     ),
                     const SizedBox(height: 20),
                     GestureDetector(
-                      onTap: () => showModalBottomSheet(
-                        isScrollControlled: true,
-                        context: context,
-                        builder: (context) =>
-                            const MunchkinModifiersBottomSheet(),
-                      ),
+                      onTap: () {
+                        // Сохраняем экземпляр блока в переменной
+                        final bloc = context.read<MunchkinBloc>();
+
+                        showModalBottomSheet(
+                          isScrollControlled: true,
+                          context: context,
+                          builder: (context) => MunchkinModifiersBottomSheet(
+                            playerIndex: _currentPlayerIndex,
+                            player: state.players[_currentPlayerIndex],
+                            onModifierUpdated:
+                                (playerIndex, modifierType, value) {
+                              // Используем сохраненный экземпляр блока
+                              bloc.add(
+                                UpdatePlayerModifier(
+                                  playerIndex: playerIndex,
+                                  modifierType: modifierType,
+                                  value: value,
+                                ),
+                              );
+                            },
+                          ),
+                        );
+                      },
                       child: TextScramble(
                         text: S.of(context).modifiers,
                         style: theme.display2.copyWith(color: theme.redColor),
@@ -376,11 +394,29 @@ class _MunchkinGameState extends State<MunchkinGame> {
         ),
         const SizedBox(height: 20),
         GestureDetector(
-          onTap: () => showModalBottomSheet(
-            isScrollControlled: true,
-            context: context,
-            builder: (context) => const MunchkinModifiersBottomSheet(),
-          ),
+          onTap: () {
+            // Сохраняем экземпляр блока в переменной
+            final bloc = context.read<MunchkinBloc>();
+
+            showModalBottomSheet(
+              isScrollControlled: true,
+              context: context,
+              builder: (context) => MunchkinModifiersBottomSheet(
+                playerIndex: 0,
+                player: state.players.first,
+                onModifierUpdated: (playerIndex, modifierType, value) {
+                  // Используем сохраненный экземпляр блока
+                  bloc.add(
+                    UpdatePlayerModifier(
+                      playerIndex: playerIndex,
+                      modifierType: modifierType,
+                      value: value,
+                    ),
+                  );
+                },
+              ),
+            );
+          },
           child: TextScramble(
             text: S.of(context).modifiers,
             style: theme.display2.copyWith(color: theme.redColor),

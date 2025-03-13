@@ -75,6 +75,18 @@ class ResetPlayerModifiers extends MunchkinEvent {
   ResetPlayerModifiers(this.playerIndex);
 }
 
+class UpdatePlayerModifier extends MunchkinEvent {
+  final int playerIndex;
+  final String modifierType;
+  final String? value;
+
+  UpdatePlayerModifier({
+    required this.playerIndex,
+    required this.modifierType,
+    required this.value,
+  });
+}
+
 // Undo/Redo events
 class UndoAction extends MunchkinEvent {}
 

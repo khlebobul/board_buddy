@@ -22,6 +22,7 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     on<DecreaseLevel>(_onDecreaseLevel);
     on<ResetScores>(_onResetScores);
     on<ResetPlayerModifiers>(_onResetPlayerModifiers);
+    on<UpdatePlayerModifier>(_onUpdatePlayerModifier);
     on<UndoAction>(_onUndoAction);
     on<RedoAction>(_onRedoAction);
   }
@@ -356,6 +357,68 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           players: updatedPlayers,
           history: updatedHistory,
           redoHistory: [], // Clear redo history on new action
+        ));
+      }
+    }
+  }
+
+  void _onUpdatePlayerModifier(
+    UpdatePlayerModifier event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        final player = updatedPlayers[event.playerIndex];
+
+        // Обновляем соответствующий модификатор
+        switch (event.modifierType) {
+          case 'race1':
+            player.modifiers = player.modifiers.copyWith(race1: event.value);
+            break;
+          case 'race 2':
+            player.modifiers = player.modifiers.copyWith(race2: event.value);
+            break;
+          case 'class1':
+            player.modifiers = player.modifiers.copyWith(class1: event.value);
+            break;
+          case 'class2':
+            player.modifiers = player.modifiers.copyWith(class2: event.value);
+            break;
+          case 'leftHand':
+            player.modifiers = player.modifiers.copyWith(leftHand: event.value);
+            break;
+          case 'twoHanded':
+            player.modifiers =
+                player.modifiers.copyWith(twoHanded: event.value);
+            break;
+          case 'rightHand':
+            player.modifiers =
+                player.modifiers.copyWith(rightHand: event.value);
+            break;
+          case 'firstBonus':
+            player.modifiers =
+                player.modifiers.copyWith(firstBonus: event.value);
+            break;
+          case 'secondBonus':
+            player.modifiers =
+                player.modifiers.copyWith(secondBonus: event.value);
+            break;
+          case 'headGear':
+            player.modifiers = player.modifiers.copyWith(headGear: event.value);
+            break;
+          case 'armour':
+            player.modifiers = player.modifiers.copyWith(armour: event.value);
+            break;
+          case 'boots':
+            player.modifiers = player.modifiers.copyWith(boots: event.value);
+            break;
+        }
+
+        emit(currentState.copyWith(
+          players: updatedPlayers,
         ));
       }
     }
