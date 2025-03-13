@@ -23,6 +23,8 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     on<ResetScores>(_onResetScores);
     on<ResetPlayerModifiers>(_onResetPlayerModifiers);
     on<UpdatePlayerModifier>(_onUpdatePlayerModifier);
+    on<TogglePlayerGender>(_onTogglePlayerGender);
+    on<TogglePlayerCursed>(_onTogglePlayerCursed);
     on<UndoAction>(_onUndoAction);
     on<RedoAction>(_onRedoAction);
   }
@@ -416,6 +418,46 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             player.modifiers = player.modifiers.copyWith(boots: event.value);
             break;
         }
+
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+        ));
+      }
+    }
+  }
+
+  void _onTogglePlayerGender(
+    TogglePlayerGender event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        // Инвертируем значение isMale для указанного игрока
+        updatedPlayers[event.playerIndex].isMale =
+            !updatedPlayers[event.playerIndex].isMale;
+
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+        ));
+      }
+    }
+  }
+
+  void _onTogglePlayerCursed(
+    TogglePlayerCursed event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        // Инвертируем значение isCursed для указанного игрока
+        updatedPlayers[event.playerIndex].isCursed =
+            !updatedPlayers[event.playerIndex].isCursed;
 
         emit(currentState.copyWith(
           players: updatedPlayers,

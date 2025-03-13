@@ -65,6 +65,8 @@ class Player {
   int gear;
   int level;
   PlayerModifiers modifiers;
+  bool isMale;
+  bool isCursed;
 
   Player({
     required this.name,
@@ -73,6 +75,8 @@ class Player {
     this.gear = 0,
     this.level = 1,
     PlayerModifiers? modifiers,
+    this.isMale = true,
+    this.isCursed = true,
   }) : modifiers = modifiers ?? PlayerModifiers();
 
   @override

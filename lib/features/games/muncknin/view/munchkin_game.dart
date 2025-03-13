@@ -35,8 +35,6 @@ class MunchkinGame extends StatefulWidget {
 class _MunchkinGameState extends State<MunchkinGame> {
   late final PageController _pageController;
   int _currentPlayerIndex = 0;
-  bool _isMale = true; // Track gender state
-  bool _isCursed = true; // Track curse state
 
   @override
   void initState() {
@@ -108,23 +106,33 @@ class _MunchkinGameState extends State<MunchkinGame> {
                       children: [
                         GestureDetector(
                           onTap: () {
-                            setState(() {
-                              _isMale = !_isMale;
-                            });
+                            final currentPlayer = _currentPlayerIndex;
+                            if (currentPlayer >= 0 &&
+                                currentPlayer < state.players.length) {
+                              context
+                                  .read<MunchkinBloc>()
+                                  .add(TogglePlayerGender(currentPlayer));
+                            }
                           },
                           child: SvgPicture.asset(
-                            _isMale ? CustomIcons.male : CustomIcons.female,
+                            state.players[_currentPlayerIndex].isMale
+                                ? CustomIcons.male
+                                : CustomIcons.female,
                           ),
                         ),
                         const SizedBox(width: 40),
                         GestureDetector(
                           onTap: () {
-                            setState(() {
-                              _isCursed = !_isCursed;
-                            });
+                            final currentPlayer = _currentPlayerIndex;
+                            if (currentPlayer >= 0 &&
+                                currentPlayer < state.players.length) {
+                              context
+                                  .read<MunchkinBloc>()
+                                  .add(TogglePlayerCursed(currentPlayer));
+                            }
                           },
                           child: Text(
-                            _isCursed
+                            state.players[_currentPlayerIndex].isCursed
                                 ? S.of(context).cursed
                                 : S.of(context).clearance,
                             style:
@@ -360,25 +368,23 @@ class _MunchkinGameState extends State<MunchkinGame> {
           children: [
             GestureDetector(
               onTap: () {
-                setState(() {
-                  _isMale = !_isMale;
-                });
+                context.read<MunchkinBloc>().add(TogglePlayerGender(0));
               },
               child: SvgPicture.asset(
-                _isMale ? CustomIcons.male : CustomIcons.female,
+                state.players.first.isMale
+                    ? CustomIcons.male
+                    : CustomIcons.female,
               ),
             ),
             const SizedBox(width: 40),
             GestureDetector(
               onTap: () {
-                setState(() {
-                  _isCursed = !_isCursed;
-                });
+                context.read<MunchkinBloc>().add(TogglePlayerCursed(0));
               },
               child: TextScramble(
-                text: _isCursed
+                text: state.players.first.isCursed
                     ? S.of(context).cursed
-                    : 'clearance', // Using 'clearance' directly as it might not be in S
+                    : S.of(context).clearance,
                 style: theme.display2.copyWith(color: theme.redColor),
               ),
             ),

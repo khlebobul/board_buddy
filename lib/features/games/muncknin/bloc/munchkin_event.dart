@@ -87,6 +87,18 @@ class UpdatePlayerModifier extends MunchkinEvent {
   });
 }
 
+class TogglePlayerGender extends MunchkinEvent {
+  final int playerIndex;
+
+  TogglePlayerGender(this.playerIndex);
+}
+
+class TogglePlayerCursed extends MunchkinEvent {
+  final int playerIndex;
+
+  TogglePlayerCursed(this.playerIndex);
+}
+
 // Undo/Redo events
 class UndoAction extends MunchkinEvent {}
 
