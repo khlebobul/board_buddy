@@ -1,17 +1,59 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
 /// widget that represents a bottom sheet for Munchkin modifiers.
-class MunchkinModifiersBottomSheet extends StatelessWidget {
-  const MunchkinModifiersBottomSheet({super.key});
+class MunchkinModifiersBottomSheet extends StatefulWidget {
+  final int playerIndex;
+  final Player player;
+  final Function(int playerIndex, String modifierType, String? value)
+      onModifierUpdated;
+
+  const MunchkinModifiersBottomSheet({
+    super.key,
+    required this.playerIndex,
+    required this.player,
+    required this.onModifierUpdated,
+  });
+
+  @override
+  State<MunchkinModifiersBottomSheet> createState() =>
+      _MunchkinModifiersBottomSheetState();
+}
+
+class _MunchkinModifiersBottomSheetState
+    extends State<MunchkinModifiersBottomSheet> {
+  // Локальная копия модификаторов игрока для отображения изменений
+  late PlayerModifiers _localModifiers;
+
+  @override
+  void initState() {
+    super.initState();
+    // Инициализируем локальные модификаторы копией модификаторов игрока
+    _localModifiers = PlayerModifiers(
+      race1: widget.player.modifiers.race1,
+      race2: widget.player.modifiers.race2,
+      class1: widget.player.modifiers.class1,
+      class2: widget.player.modifiers.class2,
+      leftHand: widget.player.modifiers.leftHand,
+      twoHanded: widget.player.modifiers.twoHanded,
+      rightHand: widget.player.modifiers.rightHand,
+      firstBonus: widget.player.modifiers.firstBonus,
+      secondBonus: widget.player.modifiers.secondBonus,
+      headGear: widget.player.modifiers.headGear,
+      armour: widget.player.modifiers.armour,
+      boots: widget.player.modifiers.boots,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
     final height = MediaQuery.of(context).size.height;
     final categories = getCategories(context);
+
     return Container(
       height: height * 0.8,
       padding: const EdgeInsets.all(20),
@@ -45,9 +87,112 @@ class MunchkinModifiersBottomSheet extends StatelessWidget {
             child: ListView.builder(
               itemCount: categories.length,
               itemBuilder: (context, index) {
+                final category = categories[index];
+                String? selectedOption;
+
+                // Определяем выбранный вариант на основе локальных модификаторов
+                switch (category.title) {
+                  case 'race1':
+                    selectedOption = _localModifiers.race1;
+                    break;
+                  case 'race 2':
+                    selectedOption = _localModifiers.race2;
+                    break;
+                  case 'class1':
+                    selectedOption = _localModifiers.class1;
+                    break;
+                  case 'class2':
+                    selectedOption = _localModifiers.class2;
+                    break;
+                  case 'leftHand':
+                    selectedOption = _localModifiers.leftHand;
+                    break;
+                  case 'twoHanded':
+                    selectedOption = _localModifiers.twoHanded;
+                    break;
+                  case 'rightHand':
+                    selectedOption = _localModifiers.rightHand;
+                    break;
+                  case 'firstBonus':
+                    selectedOption = _localModifiers.firstBonus;
+                    break;
+                  case 'secondBonus':
+                    selectedOption = _localModifiers.secondBonus;
+                    break;
+                  case 'headGear':
+                    selectedOption = _localModifiers.headGear;
+                    break;
+                  case 'armour':
+                    selectedOption = _localModifiers.armour;
+                    break;
+                  case 'boots':
+                    selectedOption = _localModifiers.boots;
+                    break;
+                }
+
                 return ModifierGroup(
-                  title: categories[index].title,
-                  options: categories[index].options,
+                  title: category.title,
+                  options: category.options,
+                  selectedOption: selectedOption,
+                  onOptionSelected: (option) {
+                    // Обновляем локальные модификаторы
+                    setState(() {
+                      switch (category.title) {
+                        case 'race1':
+                          _localModifiers =
+                              _localModifiers.copyWith(race1: option);
+                          break;
+                        case 'race 2':
+                          _localModifiers =
+                              _localModifiers.copyWith(race2: option);
+                          break;
+                        case 'class1':
+                          _localModifiers =
+                              _localModifiers.copyWith(class1: option);
+                          break;
+                        case 'class2':
+                          _localModifiers =
+                              _localModifiers.copyWith(class2: option);
+                          break;
+                        case 'leftHand':
+                          _localModifiers =
+                              _localModifiers.copyWith(leftHand: option);
+                          break;
+                        case 'twoHanded':
+                          _localModifiers =
+                              _localModifiers.copyWith(twoHanded: option);
+                          break;
+                        case 'rightHand':
+                          _localModifiers =
+                              _localModifiers.copyWith(rightHand: option);
+                          break;
+                        case 'firstBonus':
+                          _localModifiers =
+                              _localModifiers.copyWith(firstBonus: option);
+                          break;
+                        case 'secondBonus':
+                          _localModifiers =
+                              _localModifiers.copyWith(secondBonus: option);
+                          break;
+                        case 'headGear':
+                          _localModifiers =
+                              _localModifiers.copyWith(headGear: option);
+                          break;
+                        case 'armour':
+                          _localModifiers =
+                              _localModifiers.copyWith(armour: option);
+                          break;
+                        case 'boots':
+                          _localModifiers =
+                              _localModifiers.copyWith(boots: option);
+                          break;
+                      }
+                    });
+
+                    // Вызываем функцию обратного вызова для обновления модификаторов в блоке
+                    widget.onModifierUpdated(
+                        widget.playerIndex, category.title, option);
+                  },
                 );
               },
             ),
@@ -59,25 +204,26 @@ class MunchkinModifiersBottomSheet extends StatelessWidget {
 }
 
 /// widget that represents a group of modifiers.
-class ModifierGroup extends StatefulWidget {
+class ModifierGroup extends StatelessWidget {
   /// Title of the modifier group.
   final String title;
 
   /// List of options for the modifier group.
   final List<String> options;
 
+  /// Currently selected option
+  final String? selectedOption;
+
+  /// Callback when an option is selected
+  final Function(String?) onOptionSelected;
+
   const ModifierGroup({
     super.key,
     required this.title,
     required this.options,
+    this.selectedOption,
+    required this.onOptionSelected,
   });
-
-  @override
-  State<ModifierGroup> createState() => _ModifierGroupState();
-}
-
-class _ModifierGroupState extends State<ModifierGroup> {
-  String? _selectedOption;
 
   @override
   Widget build(BuildContext context) {
@@ -88,7 +234,7 @@ class _ModifierGroupState extends State<ModifierGroup> {
         crossAxisAlignment: CrossAxisAlignment.start,
         children: [
           Text(
-            widget.title,
+            title,
             style: theme.display2.copyWith(
               color: theme.secondaryTextColor,
             ),
@@ -96,15 +242,13 @@ class _ModifierGroupState extends State<ModifierGroup> {
           const SizedBox(height: 8),
           Wrap(
             spacing: 8,
-            children: widget.options.map((option) {
-              final isSelected = _selectedOption == option;
+            children: options.map((option) {
+              final isSelected = selectedOption == option;
               return RawChip(
                 label: Text(option),
                 selected: isSelected,
                 onSelected: (selected) {
-                  setState(() {
-                    _selectedOption = selected ? option : null;
-                  });
+                  onOptionSelected(selected ? option : null);
                 },
                 selectedColor: theme.bgColor,
                 visualDensity: VisualDensity.comfortable,
@@ -141,7 +285,7 @@ class ModifiersCategory {
 List<ModifiersCategory> getCategories(BuildContext context) {
   return [
     ModifiersCategory(
-      title: S.of(context).race1,
+      title: 'race1',
       options: [
         S.of(context).dwarf,
         S.of(context).elf,
@@ -163,7 +307,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).class1,
+      title: 'class1',
       options: [
         S.of(context).cleric,
         S.of(context).thief,
@@ -174,7 +318,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).class2,
+      title: 'class2',
       options: [
         S.of(context).cleric,
         S.of(context).thief,
@@ -185,7 +329,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).leftHand,
+      title: 'leftHand',
       options: [
         S.of(context).noItem,
         S.of(context).sword,
@@ -193,7 +337,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).twoHanded,
+      title: 'twoHanded',
       options: [
         S.of(context).noItem,
         S.of(context).sword,
@@ -201,7 +345,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).rightHand,
+      title: 'rightHand',
       options: [
         S.of(context).noItem,
         S.of(context).sword,
@@ -209,7 +353,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).firstBonus,
+      title: 'firstBonus',
       options: [
         S.of(context).noItem,
         S.of(context).magic,
@@ -217,7 +361,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).secondBonus,
+      title: 'secondBonus',
       options: [
         S.of(context).noItem,
         S.of(context).magic,
@@ -225,7 +369,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).headGear,
+      title: 'headGear',
       options: [
         S.of(context).noItem,
         S.of(context).helmet,
@@ -233,7 +377,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).armour,
+      title: 'armour',
       options: [
         S.of(context).noItem,
         S.of(context).armour,
@@ -241,7 +385,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: S.of(context).boots,
+      title: 'boots',
       options: [
         S.of(context).noItem,
         S.of(context).boots,

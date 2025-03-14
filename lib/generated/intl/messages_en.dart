@@ -30,7 +30,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "allows the player to choose the color.",
         ),
-    "appreciation": MessageLookupByLibrary.simpleMessage("appreciation"),
+    "appreciation": MessageLookupByLibrary.simpleMessage("credits"),
     "armour": MessageLookupByLibrary.simpleMessage("armour"),
     "back": MessageLookupByLibrary.simpleMessage("back"),
     "bigArmour": MessageLookupByLibrary.simpleMessage("big armour"),

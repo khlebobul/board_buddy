@@ -3,6 +3,7 @@ import 'package:board_buddy/features/games/common_counter/view/common_game_start
 import 'package:board_buddy/features/games/dos/view/dos_game.dart';
 import 'package:board_buddy/features/games/dos/view/dos_start_screen.dart';
 import 'package:board_buddy/features/games/muncknin/view/munchkin_game.dart';
+import 'package:board_buddy/features/games/muncknin/view/munchkin_start_screen.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_game.dart';
 import 'package:board_buddy/features/games/set/view/set_game.dart';
 import 'package:board_buddy/features/games/set/view/set_start_screen.dart';
@@ -56,6 +57,7 @@ class AppRoutes {
   static const String setGame = '/setGame';
   static const String setStartGame = '/setStartGame';
   static const String munchkinGame = '/munchkinGame';
+  static const String munchkinStartGame = '/munchkinStartGame';
   static const String commonGame = '/commonGame';
   static const String commonGameStartScreen = '/commonStartGame';
 
@@ -81,7 +83,8 @@ class AppRoutes {
         scrabbleGame: (context) => const ScrabbleGame(),
         unoFlipStartGame: (context) => const UnoFlipStartScreen(),
         setStartGame: (context) => const SetGameStartScreen(),
-        munchkinGame: (context) => const MunchkinGame(),
+        munchkinStartGame: (context) => const MunchkinStartScreen(),
+        munchkinGame: (context) => const MunchkinGameWrapper(),
         commonGameStartScreen: (context) => const CommonGameStartScreen(),
       };
 
@@ -147,6 +150,17 @@ class AppRoutes {
       final args = settings.arguments as Map<String, dynamic>;
       return MaterialPageRoute(
         builder: (context) => SetGame(
+          players: args['players'],
+          isSinglePlayer: args['isSinglePlayer'],
+        ),
+      );
+    }
+
+    // munchkin game
+    if (settings.name == munchkinGame && settings.arguments != null) {
+      final args = settings.arguments as Map<String, dynamic>;
+      return MaterialPageRoute(
+        builder: (context) => MunchkinGameWrapper(
           players: args['players'],
           isSinglePlayer: args['isSinglePlayer'],
         ),

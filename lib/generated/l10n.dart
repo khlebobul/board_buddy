@@ -2610,14 +2610,9 @@ class S {
     );
   }
 
-  /// `appreciation`
+  /// `credits`
   String get appreciation {
-    return Intl.message(
-      'appreciation',
-      name: 'appreciation',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('credits', name: 'appreciation', desc: '', args: []);
   }
 
   /// `to board buddy's contributors`

@@ -59,6 +59,7 @@ class MunchkinScoreWidget extends StatelessWidget {
                 style: theme.display2.copyWith(
                   color: theme.textColor,
                 ),
+                overflow: TextOverflow.ellipsis,
               ),
             ),
             Divider(
@@ -86,6 +87,30 @@ class MunchkinScoreWidget extends StatelessWidget {
               score: level,
               onIncrease: () => onIncrease(1),
               onDecrease: () => onDecrease(1),
+            ),
+          ),
+          Divider(
+            color: theme.borderColor,
+            height: 1,
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              children: [
+                Text(
+                  S.of(context).totalStrength,
+                  style: theme.display2.copyWith(
+                    color: theme.textColor,
+                  ),
+                ),
+                Text(
+                  totalScore.toString(),
+                  style: theme.display2.copyWith(
+                    color: theme.redColor,
+                  ),
+                ),
+              ],
             ),
           ),
         ],
@@ -126,7 +151,7 @@ class ScoreRowWidget extends StatelessWidget {
           onTap: onDecrease,
           child: Text(
             '-',
-            style: theme.display1.copyWith(color: theme.redColor),
+            style: theme.display9.copyWith(color: theme.redColor),
           ),
         ),
         Column(
@@ -150,7 +175,7 @@ class ScoreRowWidget extends StatelessWidget {
           onTap: onIncrease,
           child: Text(
             '+',
-            style: theme.display1.copyWith(color: theme.redColor),
+            style: theme.display9.copyWith(color: theme.redColor),
           ),
         ),
       ],

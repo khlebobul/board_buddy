@@ -31,7 +31,7 @@ class CustomIcons {
       'assets/icons/games_icons/uno_like/wild_2_unoflip.svg';
 
   // munchkin
-  static const String rip = 'assets/icons/games_icons/munchkin/rip.svg';
+  static const String bone = 'assets/icons/games_icons/munchkin/bone.svg';
   static const String male = 'assets/icons/games_icons/munchkin/male.svg';
   static const String female = 'assets/icons/games_icons/munchkin/female.svg';
 
