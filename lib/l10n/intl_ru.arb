@@ -320,5 +320,10 @@
   "darkSideCardsAreReplacedWithLightOnesAndVice": "карточки темной стороны заменяться на светлые и наоборот.",
   "continueTitle": "продолжить",
   "adding": "прибавление",
-  "subtracting": "вычитание"
+  "subtracting": "вычитание",
+  "moveHistory": "история ходов",
+  "wordModifier": "модификатор: ",
+  "skip": "пропуск",
+  "x2Word": "x2 слово",
+  "x3Word": "x3 слово"
 }

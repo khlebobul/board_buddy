@@ -28,6 +28,7 @@ import 'package:board_buddy/features/games/uno/bloc/uno_bloc.dart';
 import 'package:board_buddy/features/games/dos/bloc/dos_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:board_buddy/features/games/scrabble/view/scrabble_start_screen.dart';
 
 class AppRoutes {
   // main routes
@@ -60,6 +61,7 @@ class AppRoutes {
   static const String munchkinStartGame = '/munchkinStartGame';
   static const String commonGame = '/commonGame';
   static const String commonGameStartScreen = '/commonStartGame';
+  static const String scrabbleStartGame = '/scrabbleStartGame';
 
   static Map<String, WidgetBuilder> get routes => {
         // main
@@ -81,6 +83,7 @@ class AppRoutes {
         unoStartGame: (context) => const UnoStartScreen(),
         dosStartGame: (context) => const DosStartScreen(),
         scrabbleGame: (context) => const ScrabbleGame(),
+        scrabbleStartGame: (context) => const ScrabbleStartScreen(),
         unoFlipStartGame: (context) => const UnoFlipStartScreen(),
         setStartGame: (context) => const SetGameStartScreen(),
         munchkinStartGame: (context) => const MunchkinStartScreen(),

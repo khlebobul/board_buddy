@@ -28,10 +28,9 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name =
-        (locale.countryCode?.isEmpty ?? false)
-            ? locale.languageCode
-            : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -2808,6 +2807,41 @@ class S {
   /// `subtracting`
   String get subtracting {
     return Intl.message('subtracting', name: 'subtracting', desc: '', args: []);
+  }
+
+  /// `move history`
+  String get moveHistory {
+    return Intl.message(
+      'move history',
+      name: 'moveHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `word modifier: `
+  String get wordModifier {
+    return Intl.message(
+      'word modifier: ',
+      name: 'wordModifier',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `skip`
+  String get skip {
+    return Intl.message('skip', name: 'skip', desc: '', args: []);
+  }
+
+  /// `x2 word`
+  String get x2Word {
+    return Intl.message('x2 word', name: 'x2Word', desc: '', args: []);
+  }
+
+  /// `x3 word`
+  String get x3Word {
+    return Intl.message('x3 word', name: 'x3Word', desc: '', args: []);
   }
 }
 
