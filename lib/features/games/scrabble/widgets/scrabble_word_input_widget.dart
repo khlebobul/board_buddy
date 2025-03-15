@@ -34,6 +34,9 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
   // Word modifier for the current word
   String? _wordModifier;
 
+  // Scroll controller for the main column
+  final ScrollController _scrollController = ScrollController();
+
   @override
   void initState() {
     super.initState();
@@ -46,6 +49,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
   @override
   void dispose() {
     _controller.dispose();
+    _scrollController.dispose();
     super.dispose();
   }
 
@@ -210,267 +214,287 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
 
     final currentPlayer = widget.players![_currentPlayerIndex];
 
-    return Column(
-      children: [
-        // Move history
-        if (_moveHistory.isNotEmpty) ...[
-          Container(
-            padding: const EdgeInsets.all(8),
-            decoration: BoxDecoration(
-              border: Border.all(color: theme.borderColor),
-              borderRadius: BorderRadius.circular(8),
-            ),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.start,
-              children: [
-                Text(
-                  'move history',
-                  style:
-                      theme.display2.copyWith(color: theme.secondaryTextColor),
+    return SingleChildScrollView(
+      controller: _scrollController,
+      child: Column(
+        children: [
+          // Current player and skip button
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Flexible(
+                child: Text(
+                  currentPlayer.name,
+                  style: theme.display2.copyWith(color: theme.textColor),
+                  overflow: TextOverflow.ellipsis,
                 ),
-                const SizedBox(height: 8),
-                ..._moveHistory.reversed.take(5).map((move) {
-                  final player = move['player'] as Player;
-                  final word = move['word'] as String;
-                  final score = move['score'] as int;
+              ),
+              GestureDetector(
+                onTap: _skipTurn,
+                child: TextScramble(
+                  text: 'skip',
+                  style: theme.display2.copyWith(color: theme.redColor),
+                ),
+              ),
+            ],
+          ),
+          const SizedBox(height: 8),
 
-                  // Get first letter of player name
-                  final firstLetter = player.name.isNotEmpty
-                      ? player.name[0].toLowerCase()
-                      : '';
+          // Word input
+          TextField(
+            controller: _controller,
+            textCapitalization: TextCapitalization.none,
+            keyboardType: TextInputType.text,
+            cursorColor: theme.secondaryTextColor,
+            style: theme.display2.copyWith(color: theme.textColor),
+            decoration: InputDecoration(
+              hintText: S.of(context).enterAWord,
+              hintStyle:
+                  theme.display2.copyWith(color: theme.secondaryTextColor),
+              border: OutlineInputBorder(
+                borderSide: BorderSide(color: theme.borderColor, width: 1),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(10.0),
+                ),
+              ),
+              enabledBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: theme.borderColor, width: 1),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(10.0),
+                ),
+              ),
+              focusedBorder: OutlineInputBorder(
+                borderSide: BorderSide(color: theme.textColor, width: 1),
+                borderRadius: const BorderRadius.all(
+                  Radius.circular(10.0),
+                ),
+              ),
+            ),
+            textAlign: TextAlign.center,
+            onChanged: _updateLetters,
+            onSubmitted: (_) => submitWord(),
+          ),
+          const SizedBox(height: 15),
 
-                  return Padding(
-                    padding: const EdgeInsets.only(bottom: 4),
-                    child: Row(
-                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          // Word modifier indicator
+          if (_wordModifier != null) ...[
+            Container(
+              padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
+              decoration: BoxDecoration(
+                color: theme.fgColor,
+                borderRadius: BorderRadius.circular(4),
+                border: Border.all(color: theme.borderColor),
+              ),
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                children: [
+                  Text(
+                    'word modifier: $_wordModifier',
+                    style: theme.display6.copyWith(color: theme.redColor),
+                  ),
+                  const SizedBox(width: 8),
+                  GestureDetector(
+                    onTap: () {
+                      setState(() {
+                        _wordModifier = null;
+                      });
+                    },
+                    child: Icon(
+                      Icons.close,
+                      size: 16,
+                      color: theme.secondaryTextColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+            const SizedBox(height: 8),
+          ],
+
+          // Letter tiles - using Wrap instead of horizontal scroll
+          Container(
+            width: double.infinity,
+            child: Wrap(
+              spacing: 8,
+              runSpacing: 8,
+              alignment: WrapAlignment.center,
+              children: letters.asMap().entries.map((entry) {
+                final int index = entry.key;
+                final String letter = entry.value;
+
+                // Check if this letter has a modifier
+                final bool hasModifier = _letterModifiers.containsKey(index);
+                final String? modifier = _letterModifiers[index];
+
+                return CustomPopup(
+                  showArrow: true,
+                  arrowColor: theme.fgColor,
+                  backgroundColor: theme.fgColor,
+                  content: Container(
+                    width: 300,
+                    padding:
+                        const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
+                    child: Column(
+                      mainAxisSize: MainAxisSize.min,
                       children: [
-                        Text(
-                          firstLetter,
-                          style:
-                              theme.display6.copyWith(color: theme.textColor),
-                        ),
-                        Text(
-                          word,
-                          style:
-                              theme.display6.copyWith(color: theme.textColor),
-                        ),
-                        Text(
-                          '+$score',
-                          style: theme.display6.copyWith(color: theme.redColor),
+                        Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            _buildModifierButton(
+                              Text(GameConst.scrabblex2, style: theme.display2),
+                              () => _applyModifier(letter, index, 'x2'),
+                            ),
+                            _buildModifierButton(
+                              Text(GameConst.scrabblex3, style: theme.display2),
+                              () => _applyModifier(letter, index, 'x3'),
+                            ),
+                            _buildModifierButton(
+                              SvgPicture.asset(
+                                CustomIcons.star,
+                                width: 24,
+                                // ignore: deprecated_member_use
+                                color: theme.textColor,
+                              ),
+                              () => _applyModifier(letter, index, 'star'),
+                            ),
+                            _buildModifierButton(
+                              Text(
+                                  '${GameConst.scrabblex2}${S.of(context).nWord}',
+                                  style: theme.display7,
+                                  textAlign: TextAlign.center),
+                              () => _applyModifier(letter, index, 'x2 word'),
+                            ),
+                            _buildModifierButton(
+                              Text(
+                                  '${GameConst.scrabblex3}${S.of(context).nWord}',
+                                  style: theme.display7,
+                                  textAlign: TextAlign.center),
+                              () => _applyModifier(letter, index, 'x3 word'),
+                            ),
+                            _buildModifierButton(
+                              Text(S.of(context).blankTile,
+                                  style: theme.display7,
+                                  textAlign: TextAlign.center),
+                              () => _applyModifier(letter, index, 'blank tile'),
+                            ),
+                          ],
                         ),
                       ],
                     ),
-                  );
-                }),
-              ],
-            ),
-          ),
-          const SizedBox(height: 15),
-        ],
-
-        // Current player and skip button
-        Row(
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Text(
-              currentPlayer.name,
-              style: theme.display2.copyWith(color: theme.textColor),
-            ),
-            GestureDetector(
-              onTap: _skipTurn,
-              child: TextScramble(
-                text: 'skip',
-                style: theme.display2.copyWith(color: theme.redColor),
-              ),
-            ),
-          ],
-        ),
-        const SizedBox(height: 8),
-
-        // Word input
-        TextField(
-          controller: _controller,
-          textCapitalization: TextCapitalization.none,
-          keyboardType: TextInputType.text,
-          cursorColor: theme.secondaryTextColor,
-          style: theme.display2.copyWith(color: theme.textColor),
-          decoration: InputDecoration(
-            hintText: S.of(context).enterAWord,
-            hintStyle: theme.display2.copyWith(color: theme.secondaryTextColor),
-            border: OutlineInputBorder(
-              borderSide: BorderSide(color: theme.borderColor, width: 1),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(10.0),
-              ),
-            ),
-            enabledBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: theme.borderColor, width: 1),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(10.0),
-              ),
-            ),
-            focusedBorder: OutlineInputBorder(
-              borderSide: BorderSide(color: theme.textColor, width: 1),
-              borderRadius: const BorderRadius.all(
-                Radius.circular(10.0),
-              ),
-            ),
-          ),
-          textAlign: TextAlign.center,
-          onChanged: _updateLetters,
-          onSubmitted: (_) => submitWord(),
-        ),
-        const SizedBox(height: 15),
-
-        // Word modifier indicator
-        if (_wordModifier != null) ...[
-          Container(
-            padding: const EdgeInsets.symmetric(vertical: 4, horizontal: 8),
-            decoration: BoxDecoration(
-              color: theme.fgColor,
-              borderRadius: BorderRadius.circular(4),
-              border: Border.all(color: theme.borderColor),
-            ),
-            child: Row(
-              mainAxisSize: MainAxisSize.min,
-              children: [
-                Text(
-                  'word modifier: $_wordModifier',
-                  style: theme.display6.copyWith(color: theme.redColor),
-                ),
-                const SizedBox(width: 8),
-                GestureDetector(
-                  onTap: () {
-                    setState(() {
-                      _wordModifier = null;
-                    });
-                  },
-                  child: Icon(
-                    Icons.close,
-                    size: 16,
-                    color: theme.secondaryTextColor,
                   ),
-                ),
-              ],
-            ),
-          ),
-          const SizedBox(height: 8),
-        ],
-
-        // Letter tiles
-        SingleChildScrollView(
-          child: Wrap(
-            spacing: 8,
-            runSpacing: 8,
-            children: letters.asMap().entries.map((entry) {
-              final int index = entry.key;
-              final String letter = entry.value;
-
-              // Check if this letter has a modifier
-              final bool hasModifier = _letterModifiers.containsKey(index);
-              final String? modifier = _letterModifiers[index];
-
-              return CustomPopup(
-                showArrow: true,
-                arrowColor: theme.fgColor,
-                backgroundColor: theme.fgColor,
-                content: Container(
-                  width: 300,
-                  padding:
-                      const EdgeInsets.symmetric(vertical: 8, horizontal: 4),
-                  child: Column(
-                    mainAxisSize: MainAxisSize.min,
-                    children: [
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          _buildModifierButton(
-                            Text(GameConst.scrabblex2, style: theme.display2),
-                            () => _applyModifier(letter, index, 'x2'),
-                          ),
-                          _buildModifierButton(
-                            Text(GameConst.scrabblex3, style: theme.display2),
-                            () => _applyModifier(letter, index, 'x3'),
-                          ),
-                          _buildModifierButton(
-                            SvgPicture.asset(
-                              CustomIcons.star,
-                              width: 24,
-                              // ignore: deprecated_member_use
+                  child: Container(
+                    width: 48, // Increased from 40 to 48
+                    height: 48, // Increased from 40 to 48
+                    decoration: BoxDecoration(
+                      border: Border.all(
+                        color: hasModifier ? theme.redColor : theme.borderColor,
+                        width: hasModifier ? 2 : 1,
+                      ),
+                      borderRadius: BorderRadius.circular(8),
+                      color: theme.fgColor,
+                    ),
+                    child: Stack(
+                      children: [
+                        Center(
+                          child: Text(
+                            letter,
+                            style: theme.display2.copyWith(
                               color: theme.textColor,
                             ),
-                            () => _applyModifier(letter, index, 'star'),
                           ),
-                          _buildModifierButton(
-                            Text(
-                                '${GameConst.scrabblex2}${S.of(context).nWord}',
-                                style: theme.display7,
-                                textAlign: TextAlign.center),
-                            () => _applyModifier(letter, index, 'x2 word'),
+                        ),
+                        Positioned(
+                          right: 2,
+                          bottom: 2,
+                          child: Text(
+                            ScrabbleLetterValues.getLetterValue(letter)
+                                .toString(),
+                            style:
+                                theme.display7.copyWith(color: theme.redColor),
                           ),
-                          _buildModifierButton(
-                            Text(
-                                '${GameConst.scrabblex3}${S.of(context).nWord}',
-                                style: theme.display7,
-                                textAlign: TextAlign.center),
-                            () => _applyModifier(letter, index, 'x3 word'),
+                        ),
+                        if (hasModifier) ...[
+                          Positioned(
+                            left: 2,
+                            top: 2,
+                            child: _renderModifierIndicator(modifier!, theme),
                           ),
-                          _buildModifierButton(
-                            Text(S.of(context).blankTile,
-                                style: theme.display7,
-                                textAlign: TextAlign.center),
-                            () => _applyModifier(letter, index, 'blank tile'),
+                        ],
+                      ],
+                    ),
+                  ),
+                );
+              }).toList(),
+            ),
+          ),
+
+          const SizedBox(height: 15),
+
+          // Move history - show all moves
+          if (_moveHistory.isNotEmpty) ...[
+            Container(
+              padding: const EdgeInsets.all(8),
+              decoration: BoxDecoration(
+                border: Border.all(color: theme.borderColor),
+                borderRadius: BorderRadius.circular(8),
+              ),
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.start,
+                children: [
+                  Text(
+                    'move history',
+                    style: theme.display2
+                        .copyWith(color: theme.secondaryTextColor),
+                  ),
+                  const SizedBox(height: 8),
+                  ..._moveHistory.reversed.map((move) {
+                    final player = move['player'] as Player;
+                    final word = move['word'] as String;
+                    final score = move['score'] as int;
+
+                    // Get first letter of player name
+                    final firstLetter = player.name.isNotEmpty
+                        ? player.name[0].toLowerCase()
+                        : '';
+
+                    return Padding(
+                      padding: const EdgeInsets.only(bottom: 4),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Text(
+                            firstLetter,
+                            style:
+                                theme.display6.copyWith(color: theme.textColor),
+                          ),
+                          Expanded(
+                            child: Padding(
+                              padding:
+                                  const EdgeInsets.symmetric(horizontal: 8.0),
+                              child: Text(
+                                word,
+                                style: theme.display6
+                                    .copyWith(color: theme.textColor),
+                                overflow: TextOverflow.ellipsis,
+                                textAlign: TextAlign.center,
+                              ),
+                            ),
+                          ),
+                          Text(
+                            '+$score',
+                            style:
+                                theme.display6.copyWith(color: theme.redColor),
                           ),
                         ],
                       ),
-                    ],
-                  ),
-                ),
-                child: Container(
-                  width: 48, // Increased from 40 to 48
-                  height: 48, // Increased from 40 to 48
-                  decoration: BoxDecoration(
-                    border: Border.all(
-                      color: hasModifier ? theme.redColor : theme.borderColor,
-                      width: hasModifier ? 2 : 1,
-                    ),
-                    borderRadius: BorderRadius.circular(8),
-                    color: theme.fgColor,
-                  ),
-                  child: Stack(
-                    children: [
-                      Center(
-                        child: Text(
-                          letter,
-                          style: theme.display2.copyWith(
-                            color: theme.textColor,
-                          ),
-                        ),
-                      ),
-                      Positioned(
-                        right: 2,
-                        bottom: 2,
-                        child: Text(
-                          ScrabbleLetterValues.getLetterValue(letter)
-                              .toString(),
-                          style: theme.display7.copyWith(color: theme.redColor),
-                        ),
-                      ),
-                      if (hasModifier) ...[
-                        Positioned(
-                          left: 2,
-                          top: 2,
-                          child: _renderModifierIndicator(modifier!, theme),
-                        ),
-                      ],
-                    ],
-                  ),
-                ),
-              );
-            }).toList(),
-          ),
-        ),
-      ],
+                    );
+                  }).toList(),
+                ],
+              ),
+            ),
+          ],
+        ],
+      ),
     );
   }
 }
