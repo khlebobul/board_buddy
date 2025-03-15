@@ -5,8 +5,10 @@ import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/config/utils/scrabble_letter_values.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_popup/flutter_popup.dart';
+import 'package:use_scramble/use_scramble.dart';
 
 /// widget that represents a Scrabble word input interface.
 class ScrabbleWordInputWidget extends StatefulWidget {
@@ -18,13 +20,14 @@ class ScrabbleWordInputWidget extends StatefulWidget {
   });
 
   @override
-  State<ScrabbleWordInputWidget> createState() =>
-      _ScrabbleWordInputWidgetState();
+  ScrabbleWordInputWidgetState createState() => ScrabbleWordInputWidgetState();
 }
 
-class _ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
+class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
   List<String> letters = [];
   final TextEditingController _controller = TextEditingController();
+  int _currentPlayerIndex = 0;
+  final List<Map<String, dynamic>> _moveHistory = [];
 
   @override
   void initState() {
@@ -56,33 +59,145 @@ class _ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     debugPrint('Applied $modifier to letter $letter');
   }
 
+  void _nextPlayer() {
+    if (widget.players == null || widget.players!.isEmpty) return;
+
+    setState(() {
+      _currentPlayerIndex = (_currentPlayerIndex + 1) % widget.players!.length;
+      letters = [];
+      _controller.clear();
+    });
+  }
+
+  void _skipTurn() {
+    HapticFeedback.mediumImpact();
+    if (widget.players == null || widget.players!.isEmpty) return;
+
+    final currentPlayer = widget.players![_currentPlayerIndex];
+
+    setState(() {
+      _moveHistory.add({
+        'player': currentPlayer,
+        'word': 'skipped',
+        'score': 0,
+      });
+      _nextPlayer();
+    });
+  }
+
+  // Make this method public so it can be called from outside
+  void submitWord() {
+    if (widget.players == null || widget.players!.isEmpty) return;
+    if (_controller.text.trim().isEmpty) return;
+
+    final currentPlayer = widget.players![_currentPlayerIndex];
+    final word = _controller.text.trim();
+
+    // Calculate score (simple implementation - just sum of letter values)
+    int score = 0;
+    for (var letter in word.split('')) {
+      score += ScrabbleLetterValues.getLetterValue(letter);
+    }
+
+    setState(() {
+      _moveHistory.add({
+        'player': currentPlayer,
+        'word': word,
+        'score': score,
+      });
+      _nextPlayer();
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
+
+    // If no players, show a message
+    if (widget.players == null || widget.players!.isEmpty) {
+      return Center(
+        child: Text(
+          'no players added',
+          style: theme.display2.copyWith(color: theme.secondaryTextColor),
+        ),
+      );
+    }
+
+    final currentPlayer = widget.players![_currentPlayerIndex];
+
     return Column(
       children: [
-        // Display players if available
-        if (widget.players != null && widget.players!.isNotEmpty) ...[
-          Text(
-            S.of(context).players,
-            style: theme.display2.copyWith(color: theme.secondaryTextColor),
-          ),
-          const SizedBox(height: 8),
-          Wrap(
-            spacing: 8,
-            children: widget.players!.map((player) {
-              return Chip(
-                label: Text(
-                  player.name,
-                  style: theme.display6.copyWith(color: theme.textColor),
+        // Move history
+        if (_moveHistory.isNotEmpty) ...[
+          Container(
+            padding: const EdgeInsets.all(8),
+            decoration: BoxDecoration(
+              border: Border.all(color: theme.borderColor),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Column(
+              crossAxisAlignment: CrossAxisAlignment.start,
+              children: [
+                Text(
+                  'move history',
+                  style:
+                      theme.display2.copyWith(color: theme.secondaryTextColor),
                 ),
-                backgroundColor: theme.fgColor,
-              );
-            }).toList(),
+                const SizedBox(height: 8),
+                ..._moveHistory.reversed.take(5).map((move) {
+                  final player = move['player'] as Player;
+                  final word = move['word'] as String;
+                  final score = move['score'] as int;
+
+                  return Padding(
+                    padding: const EdgeInsets.only(bottom: 4),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          player.name,
+                          style:
+                              theme.display6.copyWith(color: theme.textColor),
+                        ),
+                        Text(
+                          word,
+                          style:
+                              theme.display6.copyWith(color: theme.textColor),
+                        ),
+                        Text(
+                          '+$score',
+                          style: theme.display6.copyWith(color: theme.redColor),
+                        ),
+                      ],
+                    ),
+                  );
+                }),
+              ],
+            ),
           ),
           const SizedBox(height: 15),
         ],
 
+        // Current player and skip button
+        Row(
+          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+          children: [
+            Text(
+              currentPlayer.name,
+              style: theme.display2.copyWith(color: theme.textColor),
+            ),
+            GestureDetector(
+              onTap: _skipTurn,
+              child: TextScramble(
+                text: 'skip',
+                style: theme.display2.copyWith(color: theme.redColor),
+              ),
+            ),
+          ],
+        ),
+        const SizedBox(height: 8),
+
+        // Word input
         TextField(
           controller: _controller,
           textCapitalization: TextCapitalization.none,
@@ -113,8 +228,11 @@ class _ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
           ),
           textAlign: TextAlign.center,
           onChanged: _updateLetters,
+          onSubmitted: (_) => submitWord(),
         ),
         const SizedBox(height: 15),
+
+        // Letter tiles
         SingleChildScrollView(
           child: Wrap(
             spacing: 8,

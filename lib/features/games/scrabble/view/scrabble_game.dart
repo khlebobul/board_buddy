@@ -7,7 +7,7 @@ import 'package:board_buddy/features/games/scrabble/widgets/info_scrabble_dialog
 import 'package:flutter/material.dart';
 
 /// scrabble game screen
-class ScrabbleGame extends StatelessWidget {
+class ScrabbleGame extends StatefulWidget {
   final List<Player>? players;
 
   const ScrabbleGame({
@@ -16,11 +16,20 @@ class ScrabbleGame extends StatelessWidget {
   });
 
   @override
+  State<ScrabbleGame> createState() => _ScrabbleGameState();
+}
+
+class _ScrabbleGameState extends State<ScrabbleGame> {
+  // Create a key to access the ScrabbleWordInputWidget
+  final GlobalKey<ScrabbleWordInputWidgetState> wordInputKey =
+      GlobalKey<ScrabbleWordInputWidgetState>();
+
+  @override
   Widget build(BuildContext context) {
     // Get players from arguments if not provided directly
     final args =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
-    final gamePlayers = players ?? args?['players'] as List<Player>?;
+    final gamePlayers = widget.players ?? args?['players'] as List<Player>?;
 
     return Scaffold(
       appBar: CustomAppBar(
@@ -33,12 +42,19 @@ class ScrabbleGame extends StatelessWidget {
       ),
       body: Padding(
         padding: const EdgeInsets.all(12.0),
-        child: ScrabbleWordInputWidget(players: gamePlayers),
+        child: ScrabbleWordInputWidget(
+          key: wordInputKey,
+          players: gamePlayers,
+        ),
       ),
       bottomNavigationBar: BottomGameBar(
         dialogWidget: const InfoscrabbleDialog(),
         isArrow: true,
         rightButtonText: S.of(context).finish,
+        onRightBtnTap: () {
+          // Call the submit word method in the ScrabbleWordInputWidget
+          wordInputKey.currentState?.submitWord();
+        },
       ),
     );
   }
