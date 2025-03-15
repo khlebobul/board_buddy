@@ -171,6 +171,29 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     });
   }
 
+  // Helper method to render modifier indicator
+  Widget _renderModifierIndicator(String modifier, UIThemes theme) {
+    if (modifier == 'star') {
+      return SvgPicture.asset(
+        CustomIcons.star,
+        width: 12,
+        height: 12,
+        // ignore: deprecated_member_use
+        color: theme.redColor,
+      );
+    } else if (modifier == 'blank tile') {
+      return Text(
+        'b',
+        style: theme.display7.copyWith(color: theme.redColor),
+      );
+    } else {
+      return Text(
+        modifier,
+        style: theme.display7.copyWith(color: theme.redColor),
+      );
+    }
+  }
+
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
@@ -312,7 +335,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
               mainAxisSize: MainAxisSize.min,
               children: [
                 Text(
-                  'Word modifier: $_wordModifier',
+                  'word modifier: $_wordModifier',
                   style: theme.display6.copyWith(color: theme.redColor),
                 ),
                 const SizedBox(width: 8),
@@ -404,8 +427,8 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                   ),
                 ),
                 child: Container(
-                  width: 40,
-                  height: 40,
+                  width: 48, // Increased from 40 to 48
+                  height: 48, // Increased from 40 to 48
                   decoration: BoxDecoration(
                     border: Border.all(
                       color: hasModifier ? theme.redColor : theme.borderColor,
@@ -437,11 +460,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                         Positioned(
                           left: 2,
                           top: 2,
-                          child: Text(
-                            modifier == 'blank tile' ? 'B' : modifier!,
-                            style:
-                                theme.display7.copyWith(color: theme.redColor),
-                          ),
+                          child: _renderModifierIndicator(modifier!, theme),
                         ),
                       ],
                     ],
