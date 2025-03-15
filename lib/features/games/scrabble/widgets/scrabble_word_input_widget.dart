@@ -37,6 +37,9 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
   // Scroll controller for the main column
   final ScrollController _scrollController = ScrollController();
 
+  // Getter for move history
+  List<Map<String, dynamic>> get moveHistory => _moveHistory;
+
   @override
   void initState() {
     super.initState();
@@ -51,6 +54,18 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     _controller.dispose();
     _scrollController.dispose();
     super.dispose();
+  }
+
+  // Reset the game state
+  void resetGame() {
+    setState(() {
+      letters = [];
+      _controller.clear();
+      _currentPlayerIndex = 0;
+      _moveHistory.clear();
+      _letterModifiers.clear();
+      _wordModifier = null;
+    });
   }
 
   void _updateLetters(String word) {

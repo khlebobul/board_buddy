@@ -4,6 +4,7 @@ import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/features/games/scrabble/widgets/scrabble_word_input_widget.dart';
 import 'package:board_buddy/features/games/scrabble/widgets/info_scrabble_dialog_widget.dart';
+import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
 import 'package:flutter/material.dart';
 
 /// scrabble game screen
@@ -52,10 +53,68 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
         isArrow: true,
         rightButtonText: S.of(context).finish,
         onRightBtnTap: () {
-          // Call the submit word method in the ScrabbleWordInputWidget
-          wordInputKey.currentState?.submitWord();
+          // Show game completion dialog
+          _showGameEndModal(context, gamePlayers);
         },
       ),
+    );
+  }
+
+  void _showGameEndModal(BuildContext context, List<Player>? players) {
+    if (players == null || players.isEmpty) return;
+
+    // Get the move history from the ScrabbleWordInputWidget
+    final moveHistory = wordInputKey.currentState?.moveHistory;
+
+    // Calculate scores for each player based on move history
+    if (moveHistory != null && moveHistory.isNotEmpty) {
+      // Reset all player scores first
+      for (var player in players) {
+        player.score = 0;
+      }
+
+      // Calculate total score for each player
+      for (var move in moveHistory) {
+        final player = move['player'] as Player;
+        final score = move['score'] as int;
+
+        // Find the player in the players list and update their score
+        final playerIndex = players.indexWhere((p) => p.id == player.id);
+        if (playerIndex != -1) {
+          players[playerIndex].score += score;
+        }
+      }
+    }
+
+    // Determine if it's a single player game
+    final bool isSinglePlayer = players.length == 1;
+
+    GameEndCommonCounterModal.show(
+      context,
+      players: players,
+      isSinglePlayer: isSinglePlayer,
+      onContinue: () {
+        Navigator.of(context).pop(); // Close the modal
+      },
+      onNewRound: () {
+        Navigator.of(context).pop(); // Close the modal
+        // Reset scores but keep the same players
+        setState(() {
+          for (var player in players) {
+            player.score = 0;
+          }
+        });
+        // Reset the word input widget
+        wordInputKey.currentState?.resetGame();
+      },
+      onNewGame: () {
+        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop(); // Return to start screen
+        Navigator.pushNamed(context, '/ScrabbleStartGame');
+      },
+      onReturnToMenu: () {
+        Navigator.pushNamed(context, '/home');
+      },
     );
   }
 }
