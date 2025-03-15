@@ -320,5 +320,10 @@
   "darkSideCardsAreReplacedWithLightOnesAndVice": "dark side cards are replaced with light ones and vice versa.",
   "continueTitle": "continue",
   "adding": "adding",
-  "subtracting": "subtracting"
+  "subtracting": "subtracting",
+  "moveHistory": "move history",
+  "wordModifier": "word modifier: ",
+  "skip": "skip",
+  "x2Word": "x2 word",
+  "x3Word": "x3 word"
 }

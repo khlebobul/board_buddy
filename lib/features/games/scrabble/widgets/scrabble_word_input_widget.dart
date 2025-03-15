@@ -43,10 +43,6 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
   @override
   void initState() {
     super.initState();
-    if (widget.players != null) {
-      debugPrint(
-          'Scrabble game started with ${widget.players!.length} players');
-    }
   }
 
   @override
@@ -89,12 +85,10 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
       // Handle word modifiers
       if (modifier.contains('word')) {
         _wordModifier = modifier;
-        debugPrint('Applied word modifier: $modifier');
       }
       // Handle letter modifiers
       else {
         _letterModifiers[letterIndex] = modifier;
-        debugPrint('Applied $modifier to letter $letter at index $letterIndex');
       }
     });
   }
@@ -134,9 +128,9 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
 
     // Apply word modifier if exists
     if (_wordModifier != null) {
-      if (_wordModifier!.contains('x2')) {
+      if (_wordModifier!.contains(GameConst.scrabblex2)) {
         wordMultiplier = 2;
-      } else if (_wordModifier!.contains('x3')) {
+      } else if (_wordModifier!.contains(GameConst.scrabblex3)) {
         wordMultiplier = 3;
       }
     }
@@ -149,11 +143,11 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
       // Apply letter modifier if exists
       if (_letterModifiers.containsKey(i)) {
         String modifier = _letterModifiers[i]!;
-        if (modifier == 'x2') {
+        if (modifier == GameConst.scrabblex2) {
           letterValue *= 2;
-        } else if (modifier == 'x3') {
+        } else if (modifier == GameConst.scrabblex3) {
           letterValue *= 3;
-        } else if (modifier == 'blank tile') {
+        } else if (modifier == S.of(context).blankTile) {
           letterValue = 0;
         }
       }
@@ -200,7 +194,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
         // ignore: deprecated_member_use
         color: theme.redColor,
       );
-    } else if (modifier == 'blank tile') {
+    } else if (modifier == S.of(context).blankTile) {
       return Text(
         'b',
         style: theme.display7.copyWith(color: theme.redColor),
@@ -218,14 +212,14 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     final theme = UIThemes.of(context);
 
     // If no players, show a message
-    if (widget.players == null || widget.players!.isEmpty) {
-      return Center(
-        child: Text(
-          'no players added',
-          style: theme.display2.copyWith(color: theme.secondaryTextColor),
-        ),
-      );
-    }
+    // if (widget.players == null || widget.players!.isEmpty) {
+    //   return Center(
+    //     child: Text(
+    //       'no players added',
+    //       style: theme.display2.copyWith(color: theme.secondaryTextColor),
+    //     ),
+    //   );
+    // }
 
     final currentPlayer = widget.players![_currentPlayerIndex];
 
@@ -247,7 +241,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
               GestureDetector(
                 onTap: _skipTurn,
                 child: TextScramble(
-                  text: 'skip',
+                  text: S.of(context).skip,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
               ),
@@ -304,7 +298,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    'word modifier: $_wordModifier',
+                    '${S.of(context).wordModifier}$_wordModifier',
                     style: theme.display6.copyWith(color: theme.redColor),
                   ),
                   const SizedBox(width: 8),
@@ -327,7 +321,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
           ],
 
           // Letter tiles - using Wrap instead of horizontal scroll
-          Container(
+          SizedBox(
             width: double.infinity,
             child: Wrap(
               spacing: 8,
@@ -357,11 +351,11 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                           children: [
                             _buildModifierButton(
                               Text(GameConst.scrabblex2, style: theme.display2),
-                              () => _applyModifier(letter, index, 'x2'),
+                              () => _applyModifier(letter, index, GameConst.scrabblex2),
                             ),
                             _buildModifierButton(
                               Text(GameConst.scrabblex3, style: theme.display2),
-                              () => _applyModifier(letter, index, 'x3'),
+                              () => _applyModifier(letter, index, GameConst.scrabblex3),
                             ),
                             _buildModifierButton(
                               SvgPicture.asset(
@@ -377,20 +371,20 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                                   '${GameConst.scrabblex2}${S.of(context).nWord}',
                                   style: theme.display7,
                                   textAlign: TextAlign.center),
-                              () => _applyModifier(letter, index, 'x2 word'),
+                              () => _applyModifier(letter, index, S.of(context).x2Word),
                             ),
                             _buildModifierButton(
                               Text(
                                   '${GameConst.scrabblex3}${S.of(context).nWord}',
                                   style: theme.display7,
                                   textAlign: TextAlign.center),
-                              () => _applyModifier(letter, index, 'x3 word'),
+                              () => _applyModifier(letter, index, S.of(context).x3Word),
                             ),
                             _buildModifierButton(
                               Text(S.of(context).blankTile,
                                   style: theme.display7,
                                   textAlign: TextAlign.center),
-                              () => _applyModifier(letter, index, 'blank tile'),
+                              () => _applyModifier(letter, index, S.of(context).blankTile),
                             ),
                           ],
                         ),
@@ -457,7 +451,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
                   Text(
-                    'move history',
+                    S.of(context).moveHistory,
                     style: theme.display2
                         .copyWith(color: theme.secondaryTextColor),
                   ),
@@ -503,7 +497,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                         ],
                       ),
                     );
-                  }).toList(),
+                  }),
                 ],
               ),
             ),
