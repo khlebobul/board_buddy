@@ -3,13 +3,19 @@ import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/config/utils/scrabble_letter_values.dart';
+import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_popup/flutter_popup.dart';
 
 /// widget that represents a Scrabble word input interface.
 class ScrabbleWordInputWidget extends StatefulWidget {
-  const ScrabbleWordInputWidget({super.key});
+  final List<Player>? players;
+
+  const ScrabbleWordInputWidget({
+    super.key,
+    this.players,
+  });
 
   @override
   State<ScrabbleWordInputWidget> createState() =>
@@ -19,6 +25,15 @@ class ScrabbleWordInputWidget extends StatefulWidget {
 class _ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
   List<String> letters = [];
   final TextEditingController _controller = TextEditingController();
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.players != null) {
+      debugPrint(
+          'Scrabble game started with ${widget.players!.length} players');
+    }
+  }
 
   @override
   void dispose() {
@@ -46,6 +61,28 @@ class _ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     final theme = UIThemes.of(context);
     return Column(
       children: [
+        // Display players if available
+        if (widget.players != null && widget.players!.isNotEmpty) ...[
+          Text(
+            S.of(context).players,
+            style: theme.display2.copyWith(color: theme.secondaryTextColor),
+          ),
+          const SizedBox(height: 8),
+          Wrap(
+            spacing: 8,
+            children: widget.players!.map((player) {
+              return Chip(
+                label: Text(
+                  player.name,
+                  style: theme.display6.copyWith(color: theme.textColor),
+                ),
+                backgroundColor: theme.fgColor,
+              );
+            }).toList(),
+          ),
+          const SizedBox(height: 15),
+        ],
+
         TextField(
           controller: _controller,
           textCapitalization: TextCapitalization.none,
