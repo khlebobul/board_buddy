@@ -92,7 +92,7 @@ class _MunchkinModifiersBottomSheetState
                   case 'race1':
                     selectedOption = _localModifiers.race1;
                     break;
-                  case 'race 2':
+                  case 'race2':
                     selectedOption = _localModifiers.race2;
                     break;
                   case 'class1':
@@ -128,7 +128,7 @@ class _MunchkinModifiersBottomSheetState
                 }
 
                 return ModifierGroup(
-                  title: category.title,
+                  title: category.titleText,
                   options: category.options,
                   selectedOption: selectedOption,
                   onOptionSelected: (option) {
@@ -138,7 +138,7 @@ class _MunchkinModifiersBottomSheetState
                           _localModifiers =
                               _localModifiers.copyWith(race1: option);
                           break;
-                        case 'race 2':
+                        case 'race2':
                           _localModifiers =
                               _localModifiers.copyWith(race2: option);
                           break;
@@ -269,10 +269,12 @@ class ModifierGroup extends StatelessWidget {
 
 class ModifiersCategory {
   final String title;
+  final String titleText;
   final List<String> options;
 
   const ModifiersCategory({
     required this.title,
+    required this.titleText,
     required this.options,
   });
 }
@@ -281,6 +283,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
   return [
     ModifiersCategory(
       title: 'race1',
+      titleText: S.of(context).race1,
       options: [
         S.of(context).dwarf,
         S.of(context).elf,
@@ -291,7 +294,8 @@ List<ModifiersCategory> getCategories(BuildContext context) {
       ],
     ),
     ModifiersCategory(
-      title: 'race 2',
+      title: 'race2',
+      titleText: S.of(context).secondRace,
       options: [
         S.of(context).dwarf,
         S.of(context).elf,
@@ -303,6 +307,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'class1',
+      titleText: S.of(context).class1,
       options: [
         S.of(context).cleric,
         S.of(context).thief,
@@ -314,6 +319,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'class2',
+      titleText: S.of(context).class2,
       options: [
         S.of(context).cleric,
         S.of(context).thief,
@@ -325,6 +331,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'leftHand',
+      titleText: S.of(context).leftHand,
       options: [
         S.of(context).noItem,
         S.of(context).sword,
@@ -333,6 +340,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'twoHanded',
+      titleText: S.of(context).twoHanded,
       options: [
         S.of(context).noItem,
         S.of(context).sword,
@@ -341,6 +349,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'rightHand',
+      titleText: S.of(context).rightHand,
       options: [
         S.of(context).noItem,
         S.of(context).sword,
@@ -349,6 +358,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'firstBonus',
+      titleText: S.of(context).firstBonus,
       options: [
         S.of(context).noItem,
         S.of(context).magic,
@@ -357,6 +367,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'secondBonus',
+      titleText: S.of(context).secondBonus,
       options: [
         S.of(context).noItem,
         S.of(context).magic,
@@ -365,6 +376,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'headGear',
+      titleText: S.of(context).headGear,
       options: [
         S.of(context).noItem,
         S.of(context).helmet,
@@ -373,6 +385,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'armour',
+      titleText: S.of(context).armour,
       options: [
         S.of(context).noItem,
         S.of(context).armour,
@@ -381,6 +394,7 @@ List<ModifiersCategory> getCategories(BuildContext context) {
     ),
     ModifiersCategory(
       title: 'boots',
+      titleText: S.of(context).boots,
       options: [
         S.of(context).noItem,
         S.of(context).boots,

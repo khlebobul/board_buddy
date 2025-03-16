@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:meta/meta.dart';
 
@@ -35,7 +36,7 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
   ) {
     emit(MunchkinStartScreenState(
       players: [],
-      selectedMode: "multiplayer",
+      selectedMode: S.current.multiplayer,
       isSinglePlayer: false,
     ));
   }
@@ -47,8 +48,8 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     if (state is MunchkinStartScreenState) {
       final currentState = state as MunchkinStartScreenState;
       final lowerCaseMode = event.mode.toLowerCase();
-      final isSinglePlayer =
-          lowerCaseMode.contains("single") || lowerCaseMode == "singleplayer";
+      final isSinglePlayer = lowerCaseMode.contains(S.current.singleplayer) ||
+          lowerCaseMode == S.current.singleplayer;
 
       emit(currentState.copyWith(
         selectedMode: event.mode,
@@ -405,11 +406,13 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
         final player = updatedPlayers[event.playerIndex];
 
         // Update the modifier based on the modifierType
+        // Note: We use string constants here instead of S.current because case patterns must be constant expressions
+        // These strings should match the keys in the localization files
         switch (event.modifierType) {
           case 'race1':
             player.modifiers = player.modifiers.copyWith(race1: event.value);
             break;
-          case 'race 2':
+          case 'race2':
             player.modifiers = player.modifiers.copyWith(race2: event.value);
             break;
           case 'class1':

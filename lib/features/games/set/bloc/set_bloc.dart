@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:meta/meta.dart';
 
@@ -27,7 +28,7 @@ class SetBloc extends Bloc<SetEvent, SetState> {
   ) {
     emit(SetStartScreenState(
       players: [],
-      selectedMode: "multiplayer",
+      selectedMode: S.current.multiplayer,
       isSinglePlayer: false,
     ));
   }
@@ -40,7 +41,7 @@ class SetBloc extends Bloc<SetEvent, SetState> {
       final currentState = state as SetStartScreenState;
       final lowerCaseMode = event.mode.toLowerCase();
       final isSinglePlayer =
-          lowerCaseMode.contains("single") || lowerCaseMode == "singleplayer";
+          lowerCaseMode.contains(S.current.singleplayer) || lowerCaseMode == S.current.singleplayer;
 
       emit(currentState.copyWith(
         selectedMode: event.mode,
