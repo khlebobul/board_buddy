@@ -5,7 +5,7 @@ import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
-import 'package:board_buddy/shared/widgets/bottom_sheets/munchkin_modifiers_bs.dart';
+import 'package:board_buddy/features/games/muncknin/widgets/munchkin_modifiers_bs.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/munchkin_score_widget.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/info_munchkin_dialog_widget.dart';
 import 'package:board_buddy/features/games/muncknin/bloc/munchkin_bloc.dart';

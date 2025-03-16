@@ -25,13 +25,11 @@ class MunchkinModifiersBottomSheet extends StatefulWidget {
 
 class _MunchkinModifiersBottomSheetState
     extends State<MunchkinModifiersBottomSheet> {
-  // Локальная копия модификаторов игрока для отображения изменений
   late PlayerModifiers _localModifiers;
 
   @override
   void initState() {
     super.initState();
-    // Инициализируем локальные модификаторы копией модификаторов игрока
     _localModifiers = PlayerModifiers(
       race1: widget.player.modifiers.race1,
       race2: widget.player.modifiers.race2,
@@ -90,7 +88,6 @@ class _MunchkinModifiersBottomSheetState
                 final category = categories[index];
                 String? selectedOption;
 
-                // Определяем выбранный вариант на основе локальных модификаторов
                 switch (category.title) {
                   case 'race1':
                     selectedOption = _localModifiers.race1;
@@ -135,7 +132,6 @@ class _MunchkinModifiersBottomSheetState
                   options: category.options,
                   selectedOption: selectedOption,
                   onOptionSelected: (option) {
-                    // Обновляем локальные модификаторы
                     setState(() {
                       switch (category.title) {
                         case 'race1':
@@ -189,7 +185,6 @@ class _MunchkinModifiersBottomSheetState
                       }
                     });
 
-                    // Вызываем функцию обратного вызова для обновления модификаторов в блоке
                     widget.onModifierUpdated(
                         widget.playerIndex, category.title, option);
                   },

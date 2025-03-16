@@ -94,10 +94,10 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
       players: players,
       isSinglePlayer: isSinglePlayer,
       onContinue: () {
-        Navigator.of(context).pop();
+        Navigator.of(context).pop(); // Close the modal
       },
       onNewRound: () {
-        Navigator.of(context).pop();
+        Navigator.of(context).pop(); // Close the modal
         // Reset scores but keep the same players
         setState(() {
           for (var player in players) {
@@ -108,8 +108,8 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
         wordInputKey.currentState?.resetGame();
       },
       onNewGame: () {
-        Navigator.of(context).pop();
-        Navigator.of(context).pop();
+        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop(); // Return to start screen
         Navigator.pushNamed(context, '/ScrabbleStartGame');
       },
       onReturnToMenu: () {
