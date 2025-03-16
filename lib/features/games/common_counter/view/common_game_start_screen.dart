@@ -165,7 +165,7 @@ class CommonGameStartScreenView extends StatelessWidget {
                     '/commonGame',
                     arguments: {
                       'players': counterState.isSinglePlayer
-                          ? [Player(name: 'Player', score: 0, id: 1)]
+                          ? [Player(name: 'player', score: 0, id: 1)]
                           : counterState.players,
                       'isSinglePlayer': counterState.isSinglePlayer,
                     },

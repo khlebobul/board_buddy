@@ -326,7 +326,6 @@ class DosBloc extends Bloc<DosEvent, DosState> {
         player.score = 0;
       }
 
-      // Return to start screen
       emit(DosStartScreenState(
         players: updatedPlayers,
         selectedMode: currentState.gameMode,

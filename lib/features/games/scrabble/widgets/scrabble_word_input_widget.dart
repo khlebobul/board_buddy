@@ -233,7 +233,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
             children: [
               Flexible(
                 child: Text(
-                  currentPlayer.name,
+                  currentPlayer.name.toLowerCase(),
                   style: theme.display2.copyWith(color: theme.textColor),
                   overflow: TextOverflow.ellipsis,
                 ),
@@ -351,11 +351,13 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                           children: [
                             _buildModifierButton(
                               Text(GameConst.scrabblex2, style: theme.display2),
-                              () => _applyModifier(letter, index, GameConst.scrabblex2),
+                              () => _applyModifier(
+                                  letter, index, GameConst.scrabblex2),
                             ),
                             _buildModifierButton(
                               Text(GameConst.scrabblex3, style: theme.display2),
-                              () => _applyModifier(letter, index, GameConst.scrabblex3),
+                              () => _applyModifier(
+                                  letter, index, GameConst.scrabblex3),
                             ),
                             _buildModifierButton(
                               SvgPicture.asset(
@@ -371,20 +373,23 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                                   '${GameConst.scrabblex2}${S.of(context).nWord}',
                                   style: theme.display7,
                                   textAlign: TextAlign.center),
-                              () => _applyModifier(letter, index, S.of(context).x2Word),
+                              () => _applyModifier(
+                                  letter, index, S.of(context).x2Word),
                             ),
                             _buildModifierButton(
                               Text(
                                   '${GameConst.scrabblex3}${S.of(context).nWord}',
                                   style: theme.display7,
                                   textAlign: TextAlign.center),
-                              () => _applyModifier(letter, index, S.of(context).x3Word),
+                              () => _applyModifier(
+                                  letter, index, S.of(context).x3Word),
                             ),
                             _buildModifierButton(
                               Text(S.of(context).blankTile,
                                   style: theme.display7,
                                   textAlign: TextAlign.center),
-                              () => _applyModifier(letter, index, S.of(context).blankTile),
+                              () => _applyModifier(
+                                  letter, index, S.of(context).blankTile),
                             ),
                           ],
                         ),

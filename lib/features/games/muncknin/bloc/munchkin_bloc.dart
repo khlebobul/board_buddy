@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:meta/meta.dart';
 
@@ -35,7 +36,7 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
   ) {
     emit(MunchkinStartScreenState(
       players: [],
-      selectedMode: "multiplayer",
+      selectedMode: S.current.multiplayer,
       isSinglePlayer: false,
     ));
   }
@@ -47,8 +48,8 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     if (state is MunchkinStartScreenState) {
       final currentState = state as MunchkinStartScreenState;
       final lowerCaseMode = event.mode.toLowerCase();
-      final isSinglePlayer =
-          lowerCaseMode.contains("single") || lowerCaseMode == "singleplayer";
+      final isSinglePlayer = lowerCaseMode.contains(S.current.singleplayer) ||
+          lowerCaseMode == S.current.singleplayer;
 
       emit(currentState.copyWith(
         selectedMode: event.mode,
@@ -404,12 +405,14 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
         final player = updatedPlayers[event.playerIndex];
 
-        // Обновляем соответствующий модификатор
+        // Update the modifier based on the modifierType
+        // Note: We use string constants here instead of S.current because case patterns must be constant expressions
+        // These strings should match the keys in the localization files
         switch (event.modifierType) {
           case 'race1':
             player.modifiers = player.modifiers.copyWith(race1: event.value);
             break;
-          case 'race 2':
+          case 'race2':
             player.modifiers = player.modifiers.copyWith(race2: event.value);
             break;
           case 'class1':
@@ -464,7 +467,6 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       final updatedPlayers = List<Player>.from(currentState.players);
 
       if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
-        // Инвертируем значение isMale для указанного игрока
         updatedPlayers[event.playerIndex].isMale =
             !updatedPlayers[event.playerIndex].isMale;
 
@@ -484,7 +486,6 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       final updatedPlayers = List<Player>.from(currentState.players);
 
       if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
-        // Инвертируем значение isCursed для указанного игрока
         updatedPlayers[event.playerIndex].isCursed =
             !updatedPlayers[event.playerIndex].isCursed;
 
@@ -503,34 +504,34 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       final currentState = state as MunchkinGameState;
       final currentPlayerIndex = event.playerIndex;
 
-      // Фильтруем историю, чтобы найти последнее действие для текущего игрока
+      // Find all history items for the current player
       final playerHistory = currentState.history
           .where((item) => item.playerIndex == currentPlayerIndex)
           .toList();
 
       if (playerHistory.isNotEmpty) {
         final updatedPlayers = List<Player>.from(currentState.players);
-        // Берем последнее действие для текущего игрока
+        // Get the last history item
         final historyItem = playerHistory.last;
 
-        // Находим индекс этого действия в общей истории
+        // Find the index of this item in the history
         final historyIndex = currentState.history
             .lastIndexWhere((item) => item.playerIndex == currentPlayerIndex);
 
         if (historyIndex != -1) {
-          // Удаляем это действие из истории
+          // Remove the last history item
           final updatedHistory =
               List<ScoreHistoryItem>.from(currentState.history);
           final removedItem = updatedHistory.removeAt(historyIndex);
 
-          // Добавляем его в историю redo для этого игрока
+          // Add the removed history item to the redo history
           final updatedRedoHistory =
               List<ScoreHistoryItem>.from(currentState.redoHistory)
                 ..add(removedItem);
 
           final player = updatedPlayers[currentPlayerIndex];
 
-          // Revert the score change
+          // Revert the score
           player.score = historyItem.oldScore;
 
           // Revert gear and level if available
@@ -560,27 +561,27 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       final currentState = state as MunchkinGameState;
       final currentPlayerIndex = event.playerIndex;
 
-      // Фильтруем историю redo, чтобы найти действия для текущего игрока
+      // Find all redo history items for the current player
       final playerRedoHistory = currentState.redoHistory
           .where((item) => item.playerIndex == currentPlayerIndex)
           .toList();
 
       if (playerRedoHistory.isNotEmpty) {
         final updatedPlayers = List<Player>.from(currentState.players);
-        // Берем последнее действие redo для текущего игрока
+        // Get the last redo history item
         final redoItem = playerRedoHistory.last;
 
-        // Находим индекс этого действия в общей истории redo
+        // Find the index of this item in the redo history
         final redoIndex = currentState.redoHistory
             .lastIndexWhere((item) => item.playerIndex == currentPlayerIndex);
 
         if (redoIndex != -1) {
-          // Удаляем это действие из истории redo
+          // Remove the last redo history item
           final updatedRedoHistory =
               List<ScoreHistoryItem>.from(currentState.redoHistory);
           final removedRedoItem = updatedRedoHistory.removeAt(redoIndex);
 
-          // Добавляем его обратно в основную историю
+          // Add the removed redo history item to the history
           final updatedHistory =
               List<ScoreHistoryItem>.from(currentState.history)
                 ..add(removedRedoItem);

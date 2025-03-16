@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:meta/meta.dart';
 
@@ -30,7 +31,7 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
   ) {
     emit(CommonCounterStartScreenState(
       players: [],
-      selectedMode: "multiplayer",
+      selectedMode: S.current.multiplayer,
       isSinglePlayer: false,
     ));
   }
@@ -43,7 +44,7 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
       final currentState = state as CommonCounterStartScreenState;
       final lowerCaseMode = event.mode.toLowerCase();
       final isSinglePlayer =
-          lowerCaseMode.contains("single") || lowerCaseMode == "singleplayer";
+          lowerCaseMode.contains(S.current.singleplayer) || lowerCaseMode == S.current.singleplayer;
 
       emit(currentState.copyWith(
         selectedMode: event.mode,
