@@ -15,16 +15,16 @@ dependencies:
 
   cupertino_icons: ^1.0.8
   gen_art_bg: ^0.3.10
-  use_scramble: ^0.0.7
-  shared_preferences: ^2.5.1
+  use_scramble: ^0.0.8
+  shared_preferences: ^2.5.2
   intl: ^0.19.0
   url_launcher: ^6.3.1
   url_launcher_ios: ^6.3.2
   flutter_svg: ^2.0.17
-  flutter_bloc: ^9.0.0
+  flutter_bloc: ^9.1.0
   flutter_popup: ^3.3.4
   wheel_chooser: ^1.1.2
-  meta: ^1.15.0
+  meta: ^1.16.0
   bloc: ^9.0.0
 
 dev_dependencies:

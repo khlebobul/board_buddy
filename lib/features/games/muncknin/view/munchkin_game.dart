@@ -4,7 +4,6 @@ import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
-import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/munchkin_modifiers_bs.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/munchkin_score_widget.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/info_munchkin_dialog_widget.dart';
@@ -12,6 +11,7 @@ import 'package:board_buddy/features/games/muncknin/bloc/munchkin_bloc.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
+import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -243,29 +243,37 @@ class _MunchkinGameState extends State<MunchkinGame> {
   }
 
   void _showEndGameModal(BuildContext context, MunchkinGameState state) {
-    // Create a formatted string with player stats
-    String playerStats = '';
-    if (state.isSinglePlayer) {
-      // In single player mode, don't show player name
-      final player = state.players.first;
-      playerStats +=
-          '${S.of(context).level} ${player.level}, ${S.of(context).gear} ${player.gear}';
-    } else {
-      // In multiplayer mode, show player names
-      for (int i = 0; i < state.players.length; i++) {
-        final player = state.players[i];
-        playerStats +=
-            '${player.name.toLowerCase()}: ${S.of(context).level} ${player.level}, ${S.of(context).gear} ${player.gear}\n';
-      }
+    // Calculate total score for each player (level + gear)
+    for (var player in state.players) {
+      player.score = player.level + player.gear;
     }
 
-    ModalWindowWidget.show(
+    // Determine if it's a single player game
+    final bool isSinglePlayer = state.isSinglePlayer;
+
+    GameEndCommonCounterModal.show(
       context,
-      mainText: playerStats,
-      button1Text: S.of(context).doReturn,
-      button2Text: S.of(context).finish,
-      button1Action: () => Navigator.pop(context),
-      button2Action: () {
+      players: state.players,
+      isSinglePlayer: isSinglePlayer,
+      onContinue: () {
+        Navigator.of(context).pop(); // Close the modal
+      },
+      onNewRound: () {
+        Navigator.of(context).pop(); // Close the modal
+        // Reset scores but keep the same players
+        context.read<MunchkinBloc>().add(
+              InitializeGameScreen(
+                players: state.players,
+                isSinglePlayer: state.isSinglePlayer,
+              ),
+            );
+      },
+      onNewGame: () {
+        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop(); // Return to start screen
+        Navigator.pushNamed(context, '/munchkinStartGame');
+      },
+      onReturnToMenu: () {
         Navigator.pushNamedAndRemoveUntil(
           context,
           '/home',
