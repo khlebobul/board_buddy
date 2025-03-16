@@ -55,7 +55,7 @@ class MunchkinScoreWidget extends StatelessWidget {
             Padding(
               padding: const EdgeInsets.all(12.0),
               child: Text(
-                playerName,
+                playerName.toLowerCase(),
                 style: theme.display2.copyWith(
                   color: theme.textColor,
                 ),
