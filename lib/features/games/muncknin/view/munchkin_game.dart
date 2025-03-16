@@ -361,10 +361,12 @@ class _MunchkinGameState extends State<MunchkinGame> {
 
   Widget _buildSinglePlayerView(BuildContext context, MunchkinGameState state) {
     final theme = UIThemes.of(context);
+    final screenHeight = MediaQuery.of(context).size.height;
 
     return Column(
       children: [
-        Expanded(
+        SizedBox(
+          height: screenHeight * 0.4,
           child: Center(
             child: Padding(
               padding: const EdgeInsets.symmetric(
