@@ -1,4 +1,4 @@
-// TODO: ❗ add your github username here (without @, example: khlebobul)
+// TODO: add your github username here (without @, example: khlebobul)
 class ContributorsConst {
   static const List<String> contributors = ['khlebobul'];
 }
@@ -13,7 +13,7 @@ class AppLnksConst {
   static const lucideIconsLink = 'https://lucide.dev';
   static const telegramGroup = 'https://t.me/board_buddy';
 
-  // TODO fix rate link
+  // TODO: fix rate link
   static const rateAppStore =
       'https://itunes.apple.com/app/id6737812039?action=write-review';
   static const rateGooglePlay =
