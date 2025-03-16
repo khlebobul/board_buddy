@@ -17,14 +17,14 @@ your ultimate board game companion
 
 ## table of contents
 
-- [why you’ll love board buddy](#why-you’ll-love-board-buddy)
+- [why you’ll love board buddy](#why-you-will-love-board-buddy)
 - [how to help](#how-to-help)
-- [contribute](#contribute)
-- [gratitude](#gratitude)
-- [contact](#contact)
+- [contributing](#contributing)
+- [credits](#credits)
+- [contacts](#contacts)
 - [license](#license)
 
-## why you’ll love board buddy
+## why you will love board buddy
 
 board buddy lets you track scores and key moments effortlessly, keeping your focus on the boardgames
 
@@ -40,13 +40,22 @@ board buddy lets you track scores and key moments effortlessly, keeping your foc
 - leave a message in the [telegram group](https://t.me/board_buddy)
 - check [descussions](https://github.com/khlebobul/board_buddy/discussions)
 
+<div align="center">
+  
 [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev)
 
-## contributing
+</div>
 
+## contributing
+<div align="center">
+  
 [![CONTRIBUTING.md](https://img.shields.io/badge/CONTRIBUTING.md-414141?style=for-the-badge&logo=md&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/CONTRIBUTING.md) [![CODE_OF_CONDUCT.md](https://img.shields.io/badge/CODE_OF_CONDUCT.md-414141?style=for-the-badge&logo=md&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/CODE_OF_CONDUCT.md)
 
-## gratitude
+<img width="500" alt="931_1x_shots_so" src="https://github.com/user-attachments/assets/d9e1e312-216c-4b7f-b767-021cce638d85" />
+
+</div>
+
+## credits
 
 - [lucide icons](https://lucide.dev)
 
