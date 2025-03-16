@@ -366,9 +366,6 @@ class _CommonGameViewState extends State<CommonGameView>
                       [
                         KeyboardButton(
                           buttonText: '-',
-                          // backgroundColor: !_isAddOperation
-                          //     ? Colors.red.withOpacity(0.2)
-                          //     : null,
                           onPressed: () {
                             setState(() {
                               _isAddOperation = false;
@@ -382,9 +379,6 @@ class _CommonGameViewState extends State<CommonGameView>
                         ),
                         KeyboardButton(
                           buttonText: '+',
-                          // backgroundColor: _isAddOperation
-                          //     ? Colors.green.withOpacity(0.2)
-                          //     : null,
                           onPressed: () {
                             setState(() {
                               _isAddOperation = true;
@@ -413,15 +407,15 @@ class _CommonGameViewState extends State<CommonGameView>
       players: gameState.players,
       isSinglePlayer: gameState.isSinglePlayer,
       onContinue: () {
-        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop();
       },
       onNewRound: () {
-        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop();
         context.read<CommonCounterBloc>().add(ResetScores());
       },
       onNewGame: () {
-        Navigator.of(context).pop(); // Close the modal
-        Navigator.of(context).pop(); // Return to start screen
+        Navigator.of(context).pop();
+        Navigator.of(context).pop();
         Navigator.pushNamed(context, '/commonStartGame');
       },
       onReturnToMenu: () {

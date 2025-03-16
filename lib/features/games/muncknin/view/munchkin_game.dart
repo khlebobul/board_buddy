@@ -158,7 +158,6 @@ class _MunchkinGameState extends State<MunchkinGame> {
                     const SizedBox(height: 20),
                     GestureDetector(
                       onTap: () {
-                        // Сохраняем экземпляр блока в переменной
                         final bloc = context.read<MunchkinBloc>();
 
                         showModalBottomSheet(
@@ -169,7 +168,6 @@ class _MunchkinGameState extends State<MunchkinGame> {
                             player: state.players[_currentPlayerIndex],
                             onModifierUpdated:
                                 (playerIndex, modifierType, value) {
-                              // Используем сохраненный экземпляр блока
                               bloc.add(
                                 UpdatePlayerModifier(
                                   playerIndex: playerIndex,
@@ -427,7 +425,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
         const SizedBox(height: 20),
         GestureDetector(
           onTap: () {
-            // Сохраняем экземпляр блока в переменной
+            // Save player modifiers
             final bloc = context.read<MunchkinBloc>();
 
             showModalBottomSheet(
@@ -437,7 +435,6 @@ class _MunchkinGameState extends State<MunchkinGame> {
                 playerIndex: 0,
                 player: state.players.first,
                 onModifierUpdated: (playerIndex, modifierType, value) {
-                  // Используем сохраненный экземпляр блока
                   bloc.add(
                     UpdatePlayerModifier(
                       playerIndex: playerIndex,

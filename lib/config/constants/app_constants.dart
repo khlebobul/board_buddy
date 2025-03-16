@@ -1,4 +1,4 @@
-// add your github username here (without @, example: khlebobul)
+// TODO: ❗ add your github username here (without @, example: khlebobul)
 class ContributorsConst {
   static const List<String> contributors = ['khlebobul'];
 }

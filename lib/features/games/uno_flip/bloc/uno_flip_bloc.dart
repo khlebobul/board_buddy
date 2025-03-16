@@ -326,7 +326,6 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
         player.score = 0;
       }
 
-      // Return to start screen
       emit(UnoFlipStartScreenState(
         players: updatedPlayers,
         selectedMode: currentState.gameMode,

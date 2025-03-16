@@ -326,7 +326,6 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
         player.score = 0;
       }
 
-      // Return to start screen
       emit(UnoStartScreenState(
         players: updatedPlayers,
         selectedMode: currentState.gameMode,

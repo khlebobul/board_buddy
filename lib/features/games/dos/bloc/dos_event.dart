@@ -29,7 +29,6 @@ class RemovePlayer extends DosEvent {
   RemovePlayer(this.index);
 }
 
-// Game-related events
 class InitializeDosGame extends DosEvent {
   final List<Player> players;
   final int scoreLimit;

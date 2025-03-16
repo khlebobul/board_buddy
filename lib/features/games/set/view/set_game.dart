@@ -116,15 +116,15 @@ class SetGameView extends StatelessWidget {
       players: gameState.players,
       isSinglePlayer: gameState.isSinglePlayer,
       onContinue: () {
-        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop();
       },
       onNewRound: () {
-        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop();
         context.read<SetBloc>().add(ResetScores());
       },
       onNewGame: () {
-        Navigator.of(context).pop(); // Close the modal
-        Navigator.of(context).pop(); // Return to start screen
+        Navigator.of(context).pop();
+        Navigator.of(context).pop();
         Navigator.pushNamed(context, '/SetStartGame');
       },
       onReturnToMenu: () {
