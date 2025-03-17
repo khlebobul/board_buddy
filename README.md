@@ -10,14 +10,14 @@ demo image
 
 [![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy) [![Website](https://img.shields.io/badge/Website-414141?style=for-the-badge&logo=Website&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev)
 
-</div>
+free cross platform mobile app for tracking scores and rules in board games. simplifies gameplay, helps track points and key moments, allowing you to focus on the game itself and socializing with friends
 
-a mobile app for tracking scores and rules in board games. simplifies gameplay, helps track points and key moments, allowing you to focus on the game itself and socializing with friends
+</div>
 
 ## table of contents
 
 - [features](#features)
-- [supported games / counters](#supported-gamescounters)
+- [supported games](#supported-games)
 - [how to help](#how-to-help)
 - [contributing](#contributing)
 - [credits](#credits)
@@ -33,7 +33,7 @@ your ultimate board game companion
 - no more lost scores
 - no more missed turns
 
-## supported games / counters
+## supported games
 
 - uno / uno flip / dos
 - scrabble
@@ -48,6 +48,9 @@ your ultimate board game companion
 - fork the repository and propose improvements via pull request
 - join the [discussions](https://github.com/khlebobul/board_buddy/discussions)
 - check the [contributing](#contributing) section
+
+> [!NOTE]  
+> If scoring for the game you want to add can be done with a universal counter, you can add only the rules
 
 ### for users
 - leave feedback in the [telegram group](https://t.me/board_buddy)
