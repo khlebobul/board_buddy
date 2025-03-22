@@ -35,6 +35,8 @@ Thank you for considering contributing to **Board Buddy**! We welcome all kinds 
    - Click "New Pull Request".
    - Choose your fork and branch, then describe your changes.
 
+>[!NOTE][pull request template](https://github.com/khlebobul/board_buddy/blob/main/.github/pull_request_template.md)
+
 ### 📜 Code Guidelines
 - Ensure code follows best practices and is well-documented.
 - Format your code using [Dart's formatting guidelines](https://dart.dev/guides/language/effective-dart/style).
