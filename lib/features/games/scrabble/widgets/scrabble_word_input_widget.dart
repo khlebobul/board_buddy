@@ -114,7 +114,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     setState(() {
       _moveHistory.add({
         'player': currentPlayer,
-        'word': 'skipped',
+        'word': S.current.skip,
         'score': 0,
       });
       _nextPlayer();
