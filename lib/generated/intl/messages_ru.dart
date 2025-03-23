@@ -575,7 +575,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
-      "всем, кто создал",
+      "спасибо всем, кто создал",
     ),
     "toBoardBuddysContributors": MessageLookupByLibrary.simpleMessage(
       "всем, кто внес вклад в разработку board buddy",

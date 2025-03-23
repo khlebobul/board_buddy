@@ -2600,10 +2600,10 @@ class S {
     );
   }
 
-  /// `to all who created the`
+  /// `thanks to everyone who created`
   String get toAllWhoCreatedThe {
     return Intl.message(
-      'to all who created the',
+      'thanks to everyone who created',
       name: 'toAllWhoCreatedThe',
       desc: '',
       args: [],
