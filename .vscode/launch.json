@@ -1,0 +1,32 @@
+{
+    "configurations": [
+        {
+            "name": "board_buddy_debug",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart"
+        },
+        {
+            "name": "board_buddy_debug_fvm",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "toolArgs": ["fvm"]
+        },
+        {
+            "name": "board_buddy_release",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "args": ["--release"]
+        },
+        {
+            "name": "board_buddy_release_fvm",
+            "type": "dart",
+            "request": "launch",
+            "program": "lib/main.dart",
+            "toolArgs": ["fvm"],
+            "args": ["--release"]
+        }
+    ]
+}
