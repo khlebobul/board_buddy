@@ -66,7 +66,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
                 padding: const EdgeInsets.symmetric(
                     horizontal: GeneralConst.paddingHorizontal),
                 child: Text(
-                  "${S.of(context).winner}${leader.name.toLowerCase()}",
+                  '${S.of(context).winner}${leader.name.toLowerCase()}',
                   style: theme.display2.copyWith(
                     color: theme.secondaryTextColor,
                   ),

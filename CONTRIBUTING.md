@@ -4,11 +4,13 @@ Thank you for considering contributing to **Board Buddy**! We welcome all kinds 
 
 ## How to Contribute
 
-### 📌 Reporting Issues
+### Reporting Issues
+
 - Check the [existing issues](https://github.com/khlebobul/board_buddy/issues) to see if your issue has already been reported.
 - If not, [open a new issue](https://github.com/khlebobul/board_buddy/issues/new) with a clear description, steps to reproduce, and any relevant screenshots.
 
-### 🚀 Submitting Code Changes
+### Submitting Code Changes
+
 1. **Fork the Repository**: Click the "Fork" button at the top of the repository.
 2. **Clone Your Fork**:
    ```sh
@@ -35,42 +37,88 @@ Thank you for considering contributing to **Board Buddy**! We welcome all kinds 
    - Click "New Pull Request".
    - Choose your fork and branch, then describe your changes.
 
-### 📜 Code Guidelines
+> [!NOTE][pull request template](https://github.com/khlebobul/board_buddy/blob/main/.github/pull_request_template.md)
+
+### Code Guidelines
+
 - Ensure code follows best practices and is well-documented.
 - Format your code using [Dart's formatting guidelines](https://dart.dev/guides/language/effective-dart/style).
 - Run tests before submitting a PR.
 
-### 🔧 Building & Running the Project
-To set up the project locally, ensure you have [Flutter](https://flutter.dev) installed. Then run:
+### Building & Running the Project
+
+- To set up the project locally, ensure you have [Flutter](https://flutter.dev) installed. Then run:
+
 ```sh
 flutter pub get
 flutter run
 ```
 
-or use `fvm` to run the project in a virtual machine:
+- or use `fvm` to run the project in a virtual machine:
+
 ```sh
 fvm flutter pub get
 fvm flutter run
 ```
 
-you can use [Makefile](https://github.com/khlebobul/board_buddy/blob/main/Makefile) to run the project:
+- you can use [Makefile](https://github.com/khlebobul/board_buddy/blob/main/Makefile) to run the project:
+
 ```sh
 make get
 make run
 ```
 
-### 📦 Dependency Management
+- for VS Code users `launch.json` (`.vscode/launch.json`):
+
+```json
+{
+  "configurations": [
+    {
+      "name": "board_buddy_debug",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart"
+    },
+    {
+      "name": "board_buddy_debug_fvm",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "toolArgs": ["fvm"]
+    },
+    {
+      "name": "board_buddy_release",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "args": ["--release"]
+    },
+    {
+      "name": "board_buddy_release_fvm",
+      "type": "dart",
+      "request": "launch",
+      "program": "lib/main.dart",
+      "toolArgs": ["fvm"],
+      "args": ["--release"]
+    }
+  ]
+}
+```
+
+### Dependency Management
+
 - Run `flutter pub upgrade` to check for package updates.
 - Ensure all dependencies are up-to-date and compatible.
 
-### 🌐 Localisation
+### Localisation
+
 - Add new translations in the `lib/l10n/` directory.
 - Use the `intl` package to translate strings.
 
-## ❤️ How to Get in Touch
+## How to Get in Touch
+
 - Open an issue for discussion.
 
 [![Email - khlebobul@gmail.com](https://img.shields.io/badge/Email-khlebobul%40gmail.com-414141?style=for-the-badge&logo=Email&logoColor=F1F1F1)](mailto:khlebobul@gmail.com) [![@khlebobul](https://img.shields.io/badge/%40khlebobul-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul) [![Personal - Website](https://img.shields.io/badge/Personal-Website-414141?style=for-the-badge&logo=Personal&logoColor=F1F1F1)](https://khlebobul.github.io/) [![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy)
 
-We appreciate your contribution and look forward to working together! 🚀
-
+We appreciate your contribution and look forward to working together!
