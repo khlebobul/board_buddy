@@ -91,4 +91,3 @@ final class DosGameState extends DosState {
     return currentPlayerRedoStack != null && currentPlayerRedoStack.isNotEmpty;
   }
 }
-

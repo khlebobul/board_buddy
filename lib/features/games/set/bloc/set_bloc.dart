@@ -40,8 +40,8 @@ class SetBloc extends Bloc<SetEvent, SetState> {
     if (state is SetStartScreenState) {
       final currentState = state as SetStartScreenState;
       final lowerCaseMode = event.mode.toLowerCase();
-      final isSinglePlayer =
-          lowerCaseMode.contains(S.current.singleplayer) || lowerCaseMode == S.current.singleplayer;
+      final isSinglePlayer = lowerCaseMode.contains(S.current.singleplayer) ||
+          lowerCaseMode == S.current.singleplayer;
 
       emit(currentState.copyWith(
         selectedMode: event.mode,

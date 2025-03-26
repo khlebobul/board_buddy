@@ -91,4 +91,3 @@ final class UnoFlipGameState extends UnoFlipState {
     return currentPlayerRedoStack != null && currentPlayerRedoStack.isNotEmpty;
   }
 }
-

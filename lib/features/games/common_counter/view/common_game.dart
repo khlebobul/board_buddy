@@ -115,8 +115,8 @@ class _CommonGameViewState extends State<CommonGameView>
 
         return Scaffold(
           appBar: CustomAppBar(
-            leftButtonText: S.of(context).back,
-            onLeftButtonPressed: () => Navigator.pop(context),
+            leftButtonText: S.of(context).menu,
+            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
             rightButtonText: S.of(context).common,
             onRightButtonPressed: () {},
           ),

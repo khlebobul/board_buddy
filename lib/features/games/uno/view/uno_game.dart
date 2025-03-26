@@ -213,8 +213,8 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
 
         return Scaffold(
           appBar: CustomAppBar(
-            leftButtonText: S.of(context).back,
-            onLeftButtonPressed: () => Navigator.pop(context),
+            leftButtonText: S.of(context).menu,
+            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
             isRules: true,
             rightButtonText: S.of(context).rules,
             onRightButtonPressed: () =>

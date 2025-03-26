@@ -70,4 +70,3 @@ class SetGameState extends SetState {
     );
   }
 }
-

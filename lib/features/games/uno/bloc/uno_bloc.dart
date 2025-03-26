@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/services/database_service.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/material.dart';
 
 part 'uno_event.dart';
 part 'uno_state.dart';
@@ -374,7 +374,7 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
         );
       } catch (e) {
         // Handle database errors (in a real app, you might want to log this)
-        print('Error saving game session: $e');
+        debugPrint('Error saving game session: $e');
       }
     }
   }

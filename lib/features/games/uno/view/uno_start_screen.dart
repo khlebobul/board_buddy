@@ -208,7 +208,7 @@ class UnoStartScreenView extends StatelessWidget {
       },
       button2Action: () {
         // Load the saved game
-        bloc.loadSavedGame();        
+        bloc.loadSavedGame();
         Navigator.pop(context);
         Navigator.pushNamed(context, '/unoGame');
       },
