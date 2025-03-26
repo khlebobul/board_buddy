@@ -92,6 +92,7 @@ your ultimate board game companion
 - [flutter_bloc](https://pub.dev/packages/flutter_bloc): a predictable state management library based on the bloc pattern.
 - [flutter_popup](https://pub.dev/packages/flutter_popup): a flutter tooltip with custom styling and positioning options.
 - [wheel_chooser](https://pub.dev/packages/wheel_chooser): a flutter widget that allows users to select an item from a circular list.
+- [sqflite](https://pub.dev/packages/sqflite): a flutter plugin for SQLite databases.
 
 ## contacts
 
