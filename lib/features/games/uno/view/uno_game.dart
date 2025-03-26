@@ -66,11 +66,19 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
     // Initialize the game in the BLoC
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!_isInitialized) {
-        context.read<UnoBloc>().add(InitializeUnoGame(
-              players: widget.players,
-              scoreLimit: widget.scoreLimit,
-              gameMode: widget.gameMode,
-            ));
+        final bloc = context.read<UnoBloc>();
+
+        // Check if this is a new game
+        if (widget.players.isEmpty) {
+          bloc.add(LoadSavedGame());
+        } else {
+          bloc.add(InitializeUnoGame(
+            players: widget.players,
+            scoreLimit: widget.scoreLimit,
+            gameMode: widget.gameMode,
+          ));
+        }
+
         _isInitialized = true;
       }
     });

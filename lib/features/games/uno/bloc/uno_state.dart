@@ -10,12 +10,14 @@ final class UnoStartScreenState extends UnoState {
   final String selectedMode;
   final int scoreLimit;
   final bool isLoading;
+  final bool hasSavedGame;
 
   UnoStartScreenState({
     required this.players,
     required this.selectedMode,
     required this.scoreLimit,
     this.isLoading = false,
+    this.hasSavedGame = false,
   });
 
   UnoStartScreenState copyWith({
@@ -23,12 +25,14 @@ final class UnoStartScreenState extends UnoState {
     String? selectedMode,
     int? scoreLimit,
     bool? isLoading,
+    bool? hasSavedGame,
   }) {
     return UnoStartScreenState(
       players: players ?? this.players,
       selectedMode: selectedMode ?? this.selectedMode,
       scoreLimit: scoreLimit ?? this.scoreLimit,
       isLoading: isLoading ?? this.isLoading,
+      hasSavedGame: hasSavedGame ?? this.hasSavedGame,
     );
   }
 }

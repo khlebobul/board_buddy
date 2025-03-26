@@ -93,18 +93,31 @@ class AppRoutes {
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     // uno game
-    if (settings.name == unoGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => UnoBloc(),
-          child: UnoGame(
-            players: args['players'],
-            scoreLimit: args['scoreLimit'],
-            gameMode: args['gameMode'],
+    if (settings.name == unoGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => UnoBloc(),
+            child: UnoGame(
+              players: args['players'],
+              scoreLimit: args['scoreLimit'],
+              gameMode: args['gameMode'],
+            ),
           ),
-        ),
-      );
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => UnoBloc(),
+            child: UnoGame(
+              players: const [],
+              scoreLimit: 500,
+              gameMode: '',
+            ),
+          ),
+        );
+      }
     }
 
     // dos game
