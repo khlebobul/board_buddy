@@ -1,3 +1,5 @@
+import 'dart:convert';
+import 'package:flutter/widgets.dart';
 import 'package:sqflite/sqflite.dart';
 import 'package:path/path.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
@@ -17,7 +19,7 @@ class DatabaseService {
 
     return await openDatabase(
       dbPath,
-      version: 1,
+      version: 2,
       onCreate: (db, version) async {
         // Game sessions table
         await db.execute('''
@@ -26,7 +28,8 @@ class DatabaseService {
             game_type TEXT NOT NULL,
             score_limit INTEGER NOT NULL,
             game_mode TEXT NOT NULL,
-            created_at INTEGER NOT NULL
+            created_at INTEGER NOT NULL,
+            custom_data TEXT
           )
         ''');
 
@@ -54,6 +57,13 @@ class DatabaseService {
           )
         ''');
       },
+      onUpgrade: (db, oldVersion, newVersion) async {
+        if (oldVersion < 2) {
+          // Add custom_data column for version 2
+          await db
+              .execute('ALTER TABLE game_sessions ADD COLUMN custom_data TEXT');
+        }
+      },
     );
   }
 
@@ -64,18 +74,26 @@ class DatabaseService {
     required String gameMode,
     required List<Player> players,
     required Map<int, List<int>> playerScoreHistory,
+    Map<String, dynamic>? customData,
   }) async {
     final db = await database;
 
     // Begin transaction
     return await db.transaction((txn) async {
       // Save game session
-      final sessionId = await txn.insert('game_sessions', {
+      final Map<String, dynamic> sessionData = {
         'game_type': gameType,
         'score_limit': scoreLimit,
         'game_mode': gameMode,
         'created_at': DateTime.now().millisecondsSinceEpoch,
-      });
+      };
+
+      // Add custom data if provided
+      if (customData != null) {
+        sessionData['custom_data'] = jsonEncode(customData);
+      }
+
+      final sessionId = await txn.insert('game_sessions', sessionData);
 
       // Save players
       for (int i = 0; i < players.length; i++) {
@@ -135,7 +153,19 @@ class DatabaseService {
     if (sessions.isEmpty) return null;
 
     final sessionId = sessions.first['id'] as int;
-    final session = sessions.first;
+    final session = Map<String, dynamic>.from(sessions.first);
+
+    // Parse custom data if available
+    if (session.containsKey('custom_data') && session['custom_data'] != null) {
+      try {
+        final customDataString = session['custom_data'] as String;
+        final customData = jsonDecode(customDataString) as Map<String, dynamic>;
+        // Merge custom data into session
+        session.addAll(customData);
+      } catch (e) {
+        debugPrint('Error parsing custom data: $e');
+      }
+    }
 
     // Get players
     final playersData = await db.query(
@@ -198,5 +228,60 @@ class DatabaseService {
         whereArgs: [sessionId],
       );
     }
+  }
+
+  // Save a game session with custom data
+  static Future<int> saveGameSessionWithCustomData({
+    required String gameType,
+    required int scoreLimit,
+    required String gameMode,
+    required List<Player> players,
+    required Map<String, dynamic> customData,
+  }) async {
+    final db = await database;
+
+    // Begin transaction
+    return await db.transaction((txn) async {
+      // Save game session
+      final sessionId = await txn.insert('game_sessions', {
+        'game_type': gameType,
+        'score_limit': scoreLimit,
+        'game_mode': gameMode,
+        'created_at': DateTime.now().millisecondsSinceEpoch,
+      });
+
+      // Save players
+      for (int i = 0; i < players.length; i++) {
+        final player = players[i];
+        await txn.insert('players', {
+          'session_id': sessionId,
+          'name': player.name,
+          'score': player.score,
+          'player_index': i,
+        });
+      }
+
+      // Get session to update
+      final session = await txn.query(
+        'game_sessions',
+        where: 'id = ?',
+        whereArgs: [sessionId],
+      );
+
+      if (session.isNotEmpty) {
+        // Combine the session with custom data
+        final Map<String, dynamic> updatedSession = Map.from(session.first);
+
+        // Add custom data to session
+        for (final entry in customData.entries) {
+          updatedSession[entry.key] = entry.value;
+        }
+
+        // Return the combined data
+        return sessionId;
+      }
+
+      return sessionId;
+    });
   }
 }

@@ -229,6 +229,22 @@ class AppRoutes {
       );
     }
 
+    // scrabble game
+    if (settings.name == '/scrabbleGame') {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => ScrabbleGame(
+            players: args['players'],
+          ),
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => const ScrabbleGame(),
+        );
+      }
+    }
+
     final builder = routes[settings.name];
     if (builder != null) {
       return MaterialPageRoute(builder: builder);

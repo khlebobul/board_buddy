@@ -6,6 +6,7 @@ import 'package:board_buddy/features/games/scrabble/bloc/scrabble_bloc.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
+import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:use_scramble/use_scramble.dart';
@@ -27,7 +28,12 @@ class ScrabbleStartScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<ScrabbleBloc, ScrabbleState>(
+    return BlocConsumer<ScrabbleBloc, ScrabbleState>(
+      listener: (context, state) {
+        if (state is ScrabbleStartScreenState && state.hasSavedGame) {
+          _showContinueGameDialog(context);
+        }
+      },
       builder: (context, state) {
         if (state is! ScrabbleStartScreenState) {
           return const Center(child: CircularProgressIndicator());
@@ -146,6 +152,25 @@ class ScrabbleStartScreenView extends StatelessWidget {
               }),
           resizeToAvoidBottomInset: true,
         );
+      },
+    );
+  }
+
+  void _showContinueGameDialog(BuildContext context) {
+    final bloc = context.read<ScrabbleBloc>();
+
+    ModalWindowWidget.show(
+      context,
+      mainText: S.of(context).youHaveAnUnfinishedGame,
+      button1Text: S.of(context).newGame,
+      button2Text: S.of(context).continueTitle,
+      button1Action: () {
+        bloc.add(DeleteSavedGame());
+        Navigator.pop(context);
+      },
+      button2Action: () {
+        Navigator.pop(context);
+        Navigator.pushNamed(context, '/scrabbleGame');
       },
     );
   }
