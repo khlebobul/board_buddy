@@ -5,6 +5,7 @@ import 'package:board_buddy/features/games/dos/view/dos_start_screen.dart';
 import 'package:board_buddy/features/games/muncknin/view/munchkin_game.dart';
 import 'package:board_buddy/features/games/muncknin/view/munchkin_start_screen.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_game.dart';
+import 'package:board_buddy/features/games/set/bloc/set_bloc.dart';
 import 'package:board_buddy/features/games/set/view/set_game.dart';
 import 'package:board_buddy/features/games/set/view/set_start_screen.dart';
 import 'package:board_buddy/features/games/uno/view/uno_start_screen.dart';
@@ -188,14 +189,26 @@ class AppRoutes {
     }
 
     // set counter bloc
-    if (settings.name == setGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => SetGame(
-          players: args['players'],
-          isSinglePlayer: args['isSinglePlayer'],
-        ),
-      );
+    if (settings.name == setGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => SetBloc(),
+            child: SetGame(
+              players: args['players'],
+              isSinglePlayer: args['isSinglePlayer'],
+            ),
+          ),
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => SetBloc(),
+            child: const SetGame(),
+          ),
+        );
+      }
     }
 
     // munchkin game

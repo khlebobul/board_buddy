@@ -20,6 +20,15 @@ class RemovePlayer extends SetEvent {
   RemovePlayer(this.index);
 }
 
+// Database-related events
+class CheckSavedGame extends SetEvent {}
+
+class LoadSavedGame extends SetEvent {}
+
+class DeleteSavedGame extends SetEvent {}
+
+class SaveGameSession extends SetEvent {}
+
 // Game screen events
 class InitializeGameScreen extends SetEvent {
   final List<Player> players;
