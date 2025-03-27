@@ -93,6 +93,7 @@ your ultimate board game companion
 - [flutter_popup](https://pub.dev/packages/flutter_popup): a flutter tooltip with custom styling and positioning options.
 - [wheel_chooser](https://pub.dev/packages/wheel_chooser): a flutter widget that allows users to select an item from a circular list.
 - [sqflite](https://pub.dev/packages/sqflite): a flutter plugin for SQLite databases.
+- [path](https://pub.dev/packages/path): a dart library for working with file paths.
 
 ## contacts
 

@@ -66,11 +66,18 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
     // Initialize the game in the BLoC
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!_isInitialized) {
-        context.read<DosBloc>().add(InitializeDosGame(
-              players: widget.players,
-              scoreLimit: widget.scoreLimit,
-              gameMode: widget.gameMode,
-            ));
+        final bloc = context.read<DosBloc>();
+
+        if (widget.players.isEmpty) {
+          bloc.add(LoadSavedGame());
+        } else {
+          bloc.add(InitializeDosGame(
+            players: widget.players,
+            scoreLimit: widget.scoreLimit,
+            gameMode: widget.gameMode,
+          ));
+        }
+
         _isInitialized = true;
       }
     });

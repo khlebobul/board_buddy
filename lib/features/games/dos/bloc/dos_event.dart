@@ -29,6 +29,15 @@ class RemovePlayer extends DosEvent {
   RemovePlayer(this.index);
 }
 
+// Database-related events
+class CheckSavedGame extends DosEvent {}
+
+class LoadSavedGame extends DosEvent {}
+
+class DeleteSavedGame extends DosEvent {}
+
+class SaveGameSession extends DosEvent {}
+
 class InitializeDosGame extends DosEvent {
   final List<Player> players;
   final int scoreLimit;

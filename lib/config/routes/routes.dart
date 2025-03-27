@@ -121,18 +121,31 @@ class AppRoutes {
     }
 
     // dos game
-    if (settings.name == dosGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => DosBloc(),
-          child: DosGame(
-            players: args['players'],
-            scoreLimit: args['scoreLimit'],
-            gameMode: args['gameMode'],
+    if (settings.name == dosGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => DosBloc(),
+            child: DosGame(
+              players: args['players'],
+              scoreLimit: args['scoreLimit'],
+              gameMode: args['gameMode'],
+            ),
           ),
-        ),
-      );
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => DosBloc(),
+            child: DosGame(
+              players: const [],
+              scoreLimit: 200,
+              gameMode: '',
+            ),
+          ),
+        );
+      }
     }
 
     // uno flip game

@@ -1,6 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
+import 'package:board_buddy/shared/services/database_service.dart';
+import 'package:flutter/material.dart';
 import 'package:meta/meta.dart';
 
 part 'dos_event.dart';
@@ -14,6 +16,9 @@ class DosBloc extends Bloc<DosEvent, DosState> {
     on<UpdateScoreLimit>(_onUpdateScoreLimit);
     on<AddPlayer>(_onAddPlayer);
     on<RemovePlayer>(_onRemovePlayer);
+    on<CheckSavedGame>(_onCheckSavedGame);
+    on<LoadSavedGame>(_onLoadSavedGame);
+    on<DeleteSavedGame>(_onDeleteSavedGame);
 
     // Game events
     on<InitializeDosGame>(_onInitializeDosGame);
@@ -26,6 +31,7 @@ class DosBloc extends Bloc<DosEvent, DosState> {
     on<StartNewGame>(_onStartNewGame);
     on<ReturnToMenu>(_onReturnToMenu);
     on<CheckGameEnd>(_onCheckGameEnd);
+    on<SaveGameSession>(_onSaveGameSession);
   }
 
   // Start screen event handlers
@@ -36,8 +42,11 @@ class DosBloc extends Bloc<DosEvent, DosState> {
     emit(DosStartScreenState(
       players: [],
       selectedMode: S.current.highestScoreWins,
-      scoreLimit: 500,
+      scoreLimit: 200, // DOS обычно играется до 200 очков
     ));
+
+    // Проверяем, есть ли сохраненная игра
+    add(CheckSavedGame());
   }
 
   void _onSelectGameMode(
@@ -86,6 +95,56 @@ class DosBloc extends Bloc<DosEvent, DosState> {
     }
   }
 
+  void _onCheckSavedGame(
+    CheckSavedGame event,
+    Emitter<DosState> emit,
+  ) async {
+    if (state is DosStartScreenState) {
+      final currentState = state as DosStartScreenState;
+      final hasSavedGame = await DatabaseService.hasGameSession('dos');
+      emit(currentState.copyWith(hasSavedGame: hasSavedGame));
+    }
+  }
+
+  void _onLoadSavedGame(
+    LoadSavedGame event,
+    Emitter<DosState> emit,
+  ) async {
+    final gameData = await DatabaseService.getLatestGameSession('dos');
+
+    if (gameData != null) {
+      final session = gameData['session'] as Map<String, dynamic>;
+      final players = gameData['players'] as List<Player>;
+      final playerScoreHistory =
+          gameData['playerScoreHistory'] as Map<int, List<int>>;
+
+      final Map<int, List<int>> playerRedoStack = {};
+      for (int i = 0; i < players.length; i++) {
+        playerRedoStack[i] = [];
+      }
+
+      emit(DosGameState(
+        players: players,
+        scoreLimit: session['score_limit'] as int,
+        gameMode: session['game_mode'] as String,
+        playerScoreHistory: playerScoreHistory,
+        playerRedoStack: playerRedoStack,
+      ));
+    }
+  }
+
+  void _onDeleteSavedGame(
+    DeleteSavedGame event,
+    Emitter<DosState> emit,
+  ) async {
+    await DatabaseService.deleteGameSession('dos');
+
+    if (state is DosStartScreenState) {
+      final currentState = state as DosStartScreenState;
+      emit(currentState.copyWith(hasSavedGame: false));
+    }
+  }
+
   // Game event handlers
   void _onInitializeDosGame(
     InitializeDosGame event,
@@ -116,6 +175,8 @@ class DosBloc extends Bloc<DosEvent, DosState> {
     if (state is DosGameState) {
       final currentState = state as DosGameState;
       emit(currentState.copyWith(currentPlayerIndex: event.playerIndex));
+
+      add(SaveGameSession());
     }
   }
 
@@ -151,6 +212,8 @@ class DosBloc extends Bloc<DosEvent, DosState> {
         lastScoreChange: event.scoreChange,
         isScoreChanging: true,
       ));
+
+      add(SaveGameSession());
 
       // Check if game has ended
       add(CheckGameEnd());
@@ -195,6 +258,8 @@ class DosBloc extends Bloc<DosEvent, DosState> {
           lastScoreChange: -lastScoreChange,
           isScoreChanging: true,
         ));
+
+        add(SaveGameSession());
       }
     }
   }
@@ -238,6 +303,8 @@ class DosBloc extends Bloc<DosEvent, DosState> {
           isScoreChanging: true,
         ));
 
+        add(SaveGameSession());
+
         // Check if game has ended
         add(CheckGameEnd());
       }
@@ -275,6 +342,31 @@ class DosBloc extends Bloc<DosEvent, DosState> {
 
       if (gameEnded) {
         emit(currentState.copyWith(gameEnded: true));
+
+        add(DeleteSavedGame());
+      }
+    }
+  }
+
+  void _onSaveGameSession(
+    SaveGameSession event,
+    Emitter<DosState> emit,
+  ) async {
+    if (state is DosGameState) {
+      final gameState = state as DosGameState;
+
+      try {
+        await DatabaseService.deleteGameSession('dos');
+
+        await DatabaseService.saveGameSession(
+          gameType: 'dos',
+          scoreLimit: gameState.scoreLimit,
+          gameMode: gameState.gameMode,
+          players: gameState.players,
+          playerScoreHistory: gameState.playerScoreHistory,
+        );
+      } catch (e) {
+        debugPrint('Error saving game session: $e');
       }
     }
   }
@@ -310,6 +402,8 @@ class DosBloc extends Bloc<DosEvent, DosState> {
         currentPlayerIndex: 0,
         gameEnded: false,
       ));
+
+      add(DeleteSavedGame());
     }
   }
 
@@ -331,6 +425,8 @@ class DosBloc extends Bloc<DosEvent, DosState> {
         selectedMode: currentState.gameMode,
         scoreLimit: currentState.scoreLimit,
       ));
+
+      add(DeleteSavedGame());
     }
   }
 
@@ -338,6 +434,8 @@ class DosBloc extends Bloc<DosEvent, DosState> {
     ReturnToMenu event,
     Emitter<DosState> emit,
   ) {
+    add(DeleteSavedGame());
+
     // Just emit initial state, navigation will be handled in the UI
     emit(DosInitial());
   }
@@ -395,5 +493,13 @@ class DosBloc extends Bloc<DosEvent, DosState> {
   // Returns to the main menu
   void returnToMenu() {
     add(ReturnToMenu());
+  }
+
+  void loadSavedGame() {
+    add(LoadSavedGame());
+  }
+
+  void deleteSavedGame() {
+    add(DeleteSavedGame());
   }
 }
