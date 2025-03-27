@@ -178,14 +178,21 @@ class AppRoutes {
     }
 
     // common counter game
-    if (settings.name == commonGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => CommonGame(
-          players: args['players'],
-          isSinglePlayer: args['isSinglePlayer'],
-        ),
-      );
+    if (settings.name == commonGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => CommonGame(
+            players: args['players'],
+            isSinglePlayer: args['isSinglePlayer'],
+          ),
+        );
+      } else {
+        // Handle case when navigating from saved game - no arguments passed
+        return MaterialPageRoute(
+          builder: (context) => const CommonGame(),
+        );
+      }
     }
 
     // set counter bloc

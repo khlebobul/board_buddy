@@ -20,23 +20,34 @@ import 'package:flutter_svg/svg.dart';
 
 /// common game screen (calculator)
 class CommonGame extends StatelessWidget {
-  final List<Player> players;
-  final bool isSinglePlayer;
+  final List<Player>? players;
+  final bool? isSinglePlayer;
 
   const CommonGame({
-    required this.players,
-    required this.isSinglePlayer,
+    this.players,
+    this.isSinglePlayer,
     super.key,
   });
 
   @override
   Widget build(BuildContext context) {
     return BlocProvider(
-      create: (context) => CommonCounterBloc()
-        ..add(InitializeGameScreen(
-          players: players,
-          isSinglePlayer: isSinglePlayer,
-        )),
+      create: (context) {
+        final bloc = CommonCounterBloc();
+
+        if (players != null && isSinglePlayer != null) {
+          // Initialize with provided parameters
+          bloc.add(InitializeGameScreen(
+            players: players!,
+            isSinglePlayer: isSinglePlayer!,
+          ));
+        } else {
+          // Load from saved game
+          bloc.add(LoadSavedGame());
+        }
+
+        return bloc;
+      },
       child: const CommonGameView(),
     );
   }

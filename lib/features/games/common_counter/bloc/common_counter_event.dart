@@ -20,6 +20,15 @@ class RemovePlayer extends CommonCounterEvent {
   RemovePlayer(this.index);
 }
 
+// Database-related events
+class CheckSavedGame extends CommonCounterEvent {}
+
+class LoadSavedGame extends CommonCounterEvent {}
+
+class DeleteSavedGame extends CommonCounterEvent {}
+
+class SaveGameSession extends CommonCounterEvent {}
+
 // Game screen events
 class InitializeGameScreen extends CommonCounterEvent {
   final List<Player> players;
