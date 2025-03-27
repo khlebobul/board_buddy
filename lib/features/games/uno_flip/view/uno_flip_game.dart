@@ -70,11 +70,17 @@ class _UnoFlipGameState extends State<UnoFlipGame>
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!_isInitialized) {
         bloc = context.read<UnoFlipBloc>();
-        bloc.add(InitializeUnoFlipGame(
-          players: widget.players,
-          scoreLimit: widget.scoreLimit,
-          gameMode: widget.gameMode,
-        ));
+
+        if (widget.players.isEmpty) {
+          bloc.add(LoadSavedGame());
+        } else {
+          bloc.add(InitializeUnoFlipGame(
+            players: widget.players,
+            scoreLimit: widget.scoreLimit,
+            gameMode: widget.gameMode,
+          ));
+        }
+
         _isInitialized = true;
       }
     });

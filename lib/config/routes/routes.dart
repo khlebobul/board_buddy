@@ -149,18 +149,31 @@ class AppRoutes {
     }
 
     // uno flip game
-    if (settings.name == unoFlipGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => UnoFlipBloc(),
-          child: UnoFlipGame(
-            players: args['players'],
-            scoreLimit: args['scoreLimit'],
-            gameMode: args['gameMode'],
+    if (settings.name == unoFlipGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => UnoFlipBloc(),
+            child: UnoFlipGame(
+              players: args['players'],
+              scoreLimit: args['scoreLimit'],
+              gameMode: args['gameMode'],
+            ),
           ),
-        ),
-      );
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => UnoFlipBloc(),
+            child: UnoFlipGame(
+              players: const [],
+              scoreLimit: 500,
+              gameMode: '',
+            ),
+          ),
+        );
+      }
     }
 
     // common counter game
