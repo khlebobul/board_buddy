@@ -301,7 +301,6 @@ class ScrabbleBloc extends Bloc<ScrabbleEvent, ScrabbleState> {
           customData: customData,
         );
       } catch (e) {
-        // Handle database errors
         debugPrint('Error saving scrabble game session: $e');
       }
     }

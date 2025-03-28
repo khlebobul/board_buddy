@@ -188,7 +188,6 @@ class AppRoutes {
           ),
         );
       } else {
-        // Handle case when navigating from saved game - no arguments passed
         return MaterialPageRoute(
           builder: (context) => const CommonGame(),
         );

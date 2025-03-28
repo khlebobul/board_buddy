@@ -502,8 +502,7 @@ class MunchkinGameWrapper extends StatelessWidget {
     debugPrint('Provided players: ${players?.length}');
     debugPrint('Provided single player: $isSinglePlayer');
 
-    final List<Player> finalPlayers =
-        players ?? args?['players'] ?? [];
+    final List<Player> finalPlayers = players ?? args?['players'] ?? [];
     final bool finalIsSinglePlayer =
         isSinglePlayer ?? args?['isSinglePlayer'] ?? false;
 

@@ -200,7 +200,6 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
           playerScoreHistory: playerScoreHistory,
         );
       } catch (e) {
-        // Handle database errors
         debugPrint('Error saving game session: $e');
       }
     }
