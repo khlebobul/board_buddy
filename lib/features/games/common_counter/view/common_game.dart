@@ -68,7 +68,7 @@ class _CommonGameViewState extends State<CommonGameView>
 
   int _currentPageIndex = 0;
   bool _isNumericKeyboard = false;
-  bool _isAddOperation = true; // true for addition, false for subtraction
+  bool _isAddOperation = true;
 
   @override
   void initState() {

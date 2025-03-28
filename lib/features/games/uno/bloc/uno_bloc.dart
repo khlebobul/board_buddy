@@ -373,7 +373,6 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
           playerScoreHistory: gameState.playerScoreHistory,
         );
       } catch (e) {
-        // Handle database errors (in a real app, you might want to log this)
         debugPrint('Error saving game session: $e');
       }
     }

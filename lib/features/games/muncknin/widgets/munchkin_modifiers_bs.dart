@@ -2,7 +2,6 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:flutter/material.dart';
-import 'package:use_scramble/use_scramble.dart';
 
 /// widget that represents a bottom sheet for Munchkin modifiers.
 class MunchkinModifiersBottomSheet extends StatefulWidget {
@@ -73,10 +72,7 @@ class _MunchkinModifiersBottomSheetState
               ),
               GestureDetector(
                 onTap: () => Navigator.pop(context),
-                child: TextScramble(
-                  text: S.of(context).close,
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
+                child: Icon(Icons.close, color: theme.secondaryTextColor),
               ),
             ],
           ),

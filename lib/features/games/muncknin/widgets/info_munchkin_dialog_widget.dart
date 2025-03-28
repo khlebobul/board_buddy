@@ -3,7 +3,6 @@ import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/shared/widgets/ui/info_row_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:use_scramble/use_scramble.dart';
 
 class InfoMunchkinDialogWidget extends StatelessWidget {
   const InfoMunchkinDialogWidget({super.key});
@@ -22,10 +21,7 @@ class InfoMunchkinDialogWidget extends StatelessWidget {
               alignment: Alignment.topRight,
               child: GestureDetector(
                 onTap: () => Navigator.pop(context),
-                child: TextScramble(
-                  text: S.of(context).close,
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
+                child: Icon(Icons.close, color: theme.secondaryTextColor),
               ),
             ),
           ),

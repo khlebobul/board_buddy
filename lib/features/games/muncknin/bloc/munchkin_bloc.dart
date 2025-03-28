@@ -520,7 +520,6 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       for (int i = 0; i < currentState.players.length; i++) {
         final originalPlayer = currentState.players[i];
         if (i == event.playerIndex) {
-
           final updatedPlayer = Player(
             name: originalPlayer.name,
             id: originalPlayer.id,
@@ -532,7 +531,6 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             isCursed: originalPlayer.isCursed,
           );
 
-
           debugPrint(
               'Explicitly toggling gender for player ${event.playerIndex}');
           debugPrint(
@@ -542,7 +540,6 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
 
           updatedPlayers.add(updatedPlayer);
         } else {
-
           updatedPlayers.add(originalPlayer);
         }
       }
@@ -563,13 +560,11 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     if (state is MunchkinGameState) {
       final currentState = state as MunchkinGameState;
 
-
       final updatedPlayers = <Player>[];
 
       for (int i = 0; i < currentState.players.length; i++) {
         final originalPlayer = currentState.players[i];
         if (i == event.playerIndex) {
-
           final updatedPlayer = Player(
             name: originalPlayer.name,
             id: originalPlayer.id,
