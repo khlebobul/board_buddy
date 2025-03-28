@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
-import 'package:meta/meta.dart';
+import 'package:board_buddy/shared/services/database_service.dart';
+import 'package:flutter/material.dart';
 
 part 'set_event.dart';
 part 'set_state.dart';
@@ -12,6 +13,12 @@ class SetBloc extends Bloc<SetEvent, SetState> {
     on<SelectGameMode>(_onSelectGameMode);
     on<AddPlayer>(_onAddPlayer);
     on<RemovePlayer>(_onRemovePlayer);
+
+    // Database-related events
+    on<CheckSavedGame>(_onCheckSavedGame);
+    on<LoadSavedGame>(_onLoadSavedGame);
+    on<DeleteSavedGame>(_onDeleteSavedGame);
+    on<SaveGameSession>(_onSaveGameSession);
 
     // Game screen event handlers
     on<InitializeGameScreen>(_onInitializeGameScreen);
@@ -31,6 +38,8 @@ class SetBloc extends Bloc<SetEvent, SetState> {
       selectedMode: S.current.multiplayer,
       isSinglePlayer: false,
     ));
+
+    add(CheckSavedGame());
   }
 
   void _onSelectGameMode(
@@ -40,8 +49,8 @@ class SetBloc extends Bloc<SetEvent, SetState> {
     if (state is SetStartScreenState) {
       final currentState = state as SetStartScreenState;
       final lowerCaseMode = event.mode.toLowerCase();
-      final isSinglePlayer =
-          lowerCaseMode.contains(S.current.singleplayer) || lowerCaseMode == S.current.singleplayer;
+      final isSinglePlayer = lowerCaseMode.contains(S.current.singleplayer) ||
+          lowerCaseMode == S.current.singleplayer;
 
       emit(currentState.copyWith(
         selectedMode: event.mode,
@@ -73,6 +82,108 @@ class SetBloc extends Bloc<SetEvent, SetState> {
         updatedPlayers.removeAt(event.index);
       }
       emit(currentState.copyWith(players: updatedPlayers));
+    }
+  }
+
+  // Database event handlers
+  void _onCheckSavedGame(
+    CheckSavedGame event,
+    Emitter<SetState> emit,
+  ) async {
+    if (state is SetStartScreenState) {
+      final currentState = state as SetStartScreenState;
+      final hasSavedGame = await DatabaseService.hasGameSession('set');
+      emit(currentState.copyWith(hasSavedGame: hasSavedGame));
+    }
+  }
+
+  void _onLoadSavedGame(
+    LoadSavedGame event,
+    Emitter<SetState> emit,
+  ) async {
+    final gameData = await DatabaseService.getLatestGameSession('set');
+
+    if (gameData != null) {
+      final session = gameData['session'] as Map<String, dynamic>;
+      final players = gameData['players'] as List<Player>;
+
+      // Convert database score history format to our model format
+      final dbScoreHistory =
+          gameData['playerScoreHistory'] as Map<int, List<int>>;
+      final List<ScoreHistoryItem> history = [];
+
+      // Reconstruct score history from database data
+      for (var playerIndex in dbScoreHistory.keys) {
+        int currentScore = 0;
+        for (var scoreChange in dbScoreHistory[playerIndex]!) {
+          int oldScore = currentScore;
+          currentScore += scoreChange;
+          history.add(ScoreHistoryItem(
+            playerIndex: playerIndex,
+            oldScore: oldScore,
+            newScore: currentScore,
+            isIncrease: scoreChange > 0,
+          ));
+        }
+      }
+
+      // Set up game state with loaded data
+      emit(SetGameState(
+        players: players,
+        isSinglePlayer: session['game_mode'] == S.current.singleplayer,
+        history: history,
+        redoHistory: [],
+      ));
+    }
+  }
+
+  void _onDeleteSavedGame(
+    DeleteSavedGame event,
+    Emitter<SetState> emit,
+  ) async {
+    await DatabaseService.deleteGameSession('set');
+
+    if (state is SetStartScreenState) {
+      final currentState = state as SetStartScreenState;
+      emit(currentState.copyWith(hasSavedGame: false));
+    }
+  }
+
+  void _onSaveGameSession(
+    SaveGameSession event,
+    Emitter<SetState> emit,
+  ) async {
+    if (state is SetGameState) {
+      final gameState = state as SetGameState;
+
+      // Convert our score history format to database format
+      final Map<int, List<int>> playerScoreHistory = {};
+
+      // Group history items by player
+      for (var item in gameState.history) {
+        if (!playerScoreHistory.containsKey(item.playerIndex)) {
+          playerScoreHistory[item.playerIndex] = [];
+        }
+        // Calculate score change from old to new
+        final scoreChange = item.newScore - item.oldScore;
+        playerScoreHistory[item.playerIndex]!.add(scoreChange);
+      }
+
+      try {
+        await DatabaseService.deleteGameSession('set');
+
+        await DatabaseService.saveGameSession(
+          gameType: 'set',
+          scoreLimit: 0, // Set doesn't use a score limit
+          gameMode: gameState.isSinglePlayer
+              ? S.current.singleplayer
+              : S.current.multiplayer,
+          players: gameState.players,
+          playerScoreHistory: playerScoreHistory,
+        );
+      } catch (e) {
+        debugPrint('Error saving Set game session: $e');
+      }
     }
   }
 
@@ -116,6 +227,8 @@ class SetBloc extends Bloc<SetEvent, SetState> {
           history: updatedHistory,
           redoHistory: [], // Clear redo history on new action
         ));
+
+        add(SaveGameSession());
       }
     }
   }
@@ -149,6 +262,8 @@ class SetBloc extends Bloc<SetEvent, SetState> {
             history: updatedHistory,
             redoHistory: [], // Clear redo history on new action
           ));
+
+          add(SaveGameSession());
         }
       }
     }
@@ -178,6 +293,8 @@ class SetBloc extends Bloc<SetEvent, SetState> {
           history: updatedHistory,
           redoHistory: updatedRedoHistory,
         ));
+
+        add(SaveGameSession());
       }
     }
   }
@@ -205,6 +322,8 @@ class SetBloc extends Bloc<SetEvent, SetState> {
           history: updatedHistory,
           redoHistory: updatedRedoHistory,
         ));
+
+        add(SaveGameSession());
       }
     }
   }
@@ -226,6 +345,17 @@ class SetBloc extends Bloc<SetEvent, SetState> {
         history: [], // Clear history on reset
         redoHistory: [], // Clear redo history on reset
       ));
+
+      add(DeleteSavedGame());
     }
+  }
+
+  // Helper methods
+  void loadSavedGame() {
+    add(LoadSavedGame());
+  }
+
+  void deleteSavedGame() {
+    add(DeleteSavedGame());
   }
 }

@@ -11,31 +11,45 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
 /// set game screen
-class SetGame extends StatelessWidget {
+class SetGame extends StatefulWidget {
   final List<Player> players;
   final bool isSinglePlayer;
 
   const SetGame({
-    required this.players,
-    required this.isSinglePlayer,
+    this.players = const [],
+    this.isSinglePlayer = false,
     super.key,
   });
 
   @override
-  Widget build(BuildContext context) {
-    return BlocProvider(
-      create: (context) => SetBloc()
-        ..add(InitializeGameScreen(
-          players: players,
-          isSinglePlayer: isSinglePlayer,
-        )),
-      child: const SetGameView(),
-    );
-  }
+  State<SetGame> createState() => _SetGameState();
 }
 
-class SetGameView extends StatelessWidget {
-  const SetGameView({super.key});
+class _SetGameState extends State<SetGame> {
+  late SetBloc bloc;
+  bool _isInitialized = false;
+
+  @override
+  void initState() {
+    super.initState();
+
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      if (!_isInitialized) {
+        bloc = context.read<SetBloc>();
+
+        if (widget.players.isEmpty) {
+          bloc.add(LoadSavedGame());
+        } else {
+          bloc.add(InitializeGameScreen(
+            players: widget.players,
+            isSinglePlayer: widget.isSinglePlayer,
+          ));
+        }
+
+        _isInitialized = true;
+      }
+    });
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -49,8 +63,8 @@ class SetGameView extends StatelessWidget {
 
         return Scaffold(
           appBar: CustomAppBar(
-            leftButtonText: S.of(context).back,
-            onLeftButtonPressed: () => Navigator.pop(context),
+            leftButtonText: S.of(context).menu,
+            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
             isRules: true,
             rightButtonText: S.of(context).rules,
             onRightButtonPressed: () =>
@@ -111,6 +125,8 @@ class SetGameView extends StatelessWidget {
   }
 
   void _showGameEndModal(BuildContext context, SetGameState gameState) {
+    context.read<SetBloc>().add(DeleteSavedGame());
+
     GameEndCommonCounterModal.show(
       context,
       players: gameState.players,
@@ -125,7 +141,7 @@ class SetGameView extends StatelessWidget {
       onNewGame: () {
         Navigator.of(context).pop();
         Navigator.of(context).pop();
-        Navigator.pushNamed(context, '/SetStartGame');
+        Navigator.pushNamed(context, '/setStartGame');
       },
       onReturnToMenu: () {
         Navigator.pushNamed(context, '/home');

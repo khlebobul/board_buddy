@@ -10,12 +10,14 @@ final class UnoFlipStartScreenState extends UnoFlipState {
   final String selectedMode;
   final int scoreLimit;
   final bool isLoading;
+  final bool hasSavedGame;
 
   UnoFlipStartScreenState({
     required this.players,
     required this.selectedMode,
     required this.scoreLimit,
     this.isLoading = false,
+    this.hasSavedGame = false,
   });
 
   UnoFlipStartScreenState copyWith({
@@ -23,12 +25,14 @@ final class UnoFlipStartScreenState extends UnoFlipState {
     String? selectedMode,
     int? scoreLimit,
     bool? isLoading,
+    bool? hasSavedGame,
   }) {
     return UnoFlipStartScreenState(
       players: players ?? this.players,
       selectedMode: selectedMode ?? this.selectedMode,
       scoreLimit: scoreLimit ?? this.scoreLimit,
       isLoading: isLoading ?? this.isLoading,
+      hasSavedGame: hasSavedGame ?? this.hasSavedGame,
     );
   }
 }
@@ -91,4 +95,3 @@ final class UnoFlipGameState extends UnoFlipState {
     return currentPlayerRedoStack != null && currentPlayerRedoStack.isNotEmpty;
   }
 }
-

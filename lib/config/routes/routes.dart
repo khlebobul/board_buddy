@@ -5,6 +5,7 @@ import 'package:board_buddy/features/games/dos/view/dos_start_screen.dart';
 import 'package:board_buddy/features/games/muncknin/view/munchkin_game.dart';
 import 'package:board_buddy/features/games/muncknin/view/munchkin_start_screen.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_game.dart';
+import 'package:board_buddy/features/games/set/bloc/set_bloc.dart';
 import 'package:board_buddy/features/games/set/view/set_game.dart';
 import 'package:board_buddy/features/games/set/view/set_start_screen.dart';
 import 'package:board_buddy/features/games/uno/view/uno_start_screen.dart';
@@ -93,70 +94,128 @@ class AppRoutes {
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     // uno game
-    if (settings.name == unoGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => UnoBloc(),
-          child: UnoGame(
-            players: args['players'],
-            scoreLimit: args['scoreLimit'],
-            gameMode: args['gameMode'],
+    if (settings.name == unoGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => UnoBloc(),
+            child: UnoGame(
+              players: args['players'],
+              scoreLimit: args['scoreLimit'],
+              gameMode: args['gameMode'],
+            ),
           ),
-        ),
-      );
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => UnoBloc(),
+            child: UnoGame(
+              players: const [],
+              scoreLimit: 500,
+              gameMode: '',
+            ),
+          ),
+        );
+      }
     }
 
     // dos game
-    if (settings.name == dosGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => DosBloc(),
-          child: DosGame(
-            players: args['players'],
-            scoreLimit: args['scoreLimit'],
-            gameMode: args['gameMode'],
+    if (settings.name == dosGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => DosBloc(),
+            child: DosGame(
+              players: args['players'],
+              scoreLimit: args['scoreLimit'],
+              gameMode: args['gameMode'],
+            ),
           ),
-        ),
-      );
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => DosBloc(),
+            child: DosGame(
+              players: const [],
+              scoreLimit: 200,
+              gameMode: '',
+            ),
+          ),
+        );
+      }
     }
 
     // uno flip game
-    if (settings.name == unoFlipGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => BlocProvider(
-          create: (context) => UnoFlipBloc(),
-          child: UnoFlipGame(
-            players: args['players'],
-            scoreLimit: args['scoreLimit'],
-            gameMode: args['gameMode'],
+    if (settings.name == unoFlipGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => UnoFlipBloc(),
+            child: UnoFlipGame(
+              players: args['players'],
+              scoreLimit: args['scoreLimit'],
+              gameMode: args['gameMode'],
+            ),
           ),
-        ),
-      );
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => UnoFlipBloc(),
+            child: UnoFlipGame(
+              players: const [],
+              scoreLimit: 500,
+              gameMode: '',
+            ),
+          ),
+        );
+      }
     }
 
     // common counter game
-    if (settings.name == commonGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => CommonGame(
-          players: args['players'],
-          isSinglePlayer: args['isSinglePlayer'],
-        ),
-      );
+    if (settings.name == commonGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => CommonGame(
+            players: args['players'],
+            isSinglePlayer: args['isSinglePlayer'],
+          ),
+        );
+      } else {
+        // Handle case when navigating from saved game - no arguments passed
+        return MaterialPageRoute(
+          builder: (context) => const CommonGame(),
+        );
+      }
     }
 
     // set counter bloc
-    if (settings.name == setGame && settings.arguments != null) {
-      final args = settings.arguments as Map<String, dynamic>;
-      return MaterialPageRoute(
-        builder: (context) => SetGame(
-          players: args['players'],
-          isSinglePlayer: args['isSinglePlayer'],
-        ),
-      );
+    if (settings.name == setGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => SetBloc(),
+            child: SetGame(
+              players: args['players'],
+              isSinglePlayer: args['isSinglePlayer'],
+            ),
+          ),
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => SetBloc(),
+            child: const SetGame(),
+          ),
+        );
+      }
     }
 
     // munchkin game
@@ -168,6 +227,22 @@ class AppRoutes {
           isSinglePlayer: args['isSinglePlayer'],
         ),
       );
+    }
+
+    // scrabble game
+    if (settings.name == '/scrabbleGame') {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => ScrabbleGame(
+            players: args['players'],
+          ),
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => const ScrabbleGame(),
+        );
+      }
     }
 
     final builder = routes[settings.name];

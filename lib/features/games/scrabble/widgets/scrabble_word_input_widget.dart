@@ -13,10 +13,18 @@ import 'package:use_scramble/use_scramble.dart';
 /// widget that represents a Scrabble word input interface.
 class ScrabbleWordInputWidget extends StatefulWidget {
   final List<Player>? players;
+  final int? currentPlayerIndex;
+  final List<Map<String, dynamic>>? moveHistory;
+  final Function(Player, String, int, Map<String, dynamic>?)? onSubmitWord;
+  final Function(Player)? onSkipTurn;
 
   const ScrabbleWordInputWidget({
     super.key,
     this.players,
+    this.currentPlayerIndex,
+    this.moveHistory,
+    this.onSubmitWord,
+    this.onSkipTurn,
   });
 
   @override
@@ -40,9 +48,34 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
   // Getter for move history
   List<Map<String, dynamic>> get moveHistory => _moveHistory;
 
+  // Method to update widget from bloc state
+  void updateFromState(
+      int currentPlayerIndex, List<Map<String, dynamic>> moveHistory) {
+    setState(() {
+      _currentPlayerIndex = currentPlayerIndex;
+
+      // Clear and repopulate move history
+      if (moveHistory.isNotEmpty) {
+        _moveHistory.clear();
+        _moveHistory.addAll(moveHistory);
+      }
+    });
+  }
+
   @override
   void initState() {
     super.initState();
+
+    // Initialize with data from bloc if provided
+    if (widget.moveHistory != null && widget.moveHistory!.isNotEmpty) {
+      // Clear and add all items from widget.moveHistory
+      _moveHistory.clear();
+      _moveHistory.addAll(widget.moveHistory!);
+    }
+
+    if (widget.currentPlayerIndex != null) {
+      _currentPlayerIndex = widget.currentPlayerIndex!;
+    }
   }
 
   @override
@@ -111,14 +144,29 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
 
     final currentPlayer = widget.players![_currentPlayerIndex];
 
-    setState(() {
-      _moveHistory.add({
-        'player': currentPlayer,
-        'word': S.current.skip,
-        'score': 0,
+    // Call the skip turn callback if provided
+    if (widget.onSkipTurn != null) {
+      widget.onSkipTurn!(currentPlayer);
+
+      // Add skip to local move history immediately for display
+      setState(() {
+        _moveHistory.add({
+          'player': currentPlayer,
+          'word': S.current.skip,
+          'score': 0,
+        });
       });
-      _nextPlayer();
-    });
+    } else {
+      // Default behavior if no callback
+      setState(() {
+        _moveHistory.add({
+          'player': currentPlayer,
+          'word': S.current.skip,
+          'score': 0,
+        });
+        _nextPlayer();
+      });
+    }
   }
 
   // Calculate score with modifiers
@@ -147,7 +195,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
           letterValue *= 2;
         } else if (modifier == GameConst.scrabblex3) {
           letterValue *= 3;
-        } else if (modifier == S.of(context).blankTile) {
+        } else if (modifier == S.current.blankTile) {
           letterValue = 0;
         }
       }
@@ -170,18 +218,45 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     // Calculate score with modifiers
     final score = _calculateScore(word);
 
-    setState(() {
-      _moveHistory.add({
-        'player': currentPlayer,
-        'word': word,
-        'score': score,
-        'modifiers': {
-          'letter': Map<int, String>.from(_letterModifiers),
-          'word': _wordModifier,
-        },
+    // Create modifiers data
+    final Map<String, dynamic> modifiersData = {
+      'letter': Map<int, String>.from(_letterModifiers),
+      'word': _wordModifier,
+    };
+
+    // Call the submit word callback if provided
+    if (widget.onSubmitWord != null) {
+      widget.onSubmitWord!(currentPlayer, word, score, modifiersData);
+
+      // Add to local move history immediately for display purposes
+      setState(() {
+        _moveHistory.add({
+          'player': currentPlayer,
+          'word': word,
+          'score': score,
+          'modifiers': modifiersData,
+        });
       });
-      _nextPlayer();
-    });
+
+      // Reset the input fields
+      setState(() {
+        letters = [];
+        _controller.clear();
+        _letterModifiers.clear();
+        _wordModifier = null;
+      });
+    } else {
+      // Default behavior if no callback
+      setState(() {
+        _moveHistory.add({
+          'player': currentPlayer,
+          'word': word,
+          'score': score,
+          'modifiers': modifiersData,
+        });
+        _nextPlayer();
+      });
+    }
   }
 
   // Helper method to render modifier indicator
@@ -194,7 +269,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
         // ignore: deprecated_member_use
         color: theme.redColor,
       );
-    } else if (modifier == S.of(context).blankTile) {
+    } else if (modifier == S.current.blankTile) {
       return Text(
         'b',
         style: theme.display7.copyWith(color: theme.redColor),
@@ -241,7 +316,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
               GestureDetector(
                 onTap: _skipTurn,
                 child: TextScramble(
-                  text: S.of(context).skip,
+                  text: S.current.skip,
                   style: theme.display2.copyWith(color: theme.redColor),
                 ),
               ),
@@ -257,7 +332,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
             cursorColor: theme.secondaryTextColor,
             style: theme.display2.copyWith(color: theme.textColor),
             decoration: InputDecoration(
-              hintText: S.of(context).enterAWord,
+              hintText: S.current.enterAWord,
               hintStyle:
                   theme.display2.copyWith(color: theme.secondaryTextColor),
               border: OutlineInputBorder(
@@ -298,7 +373,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                 mainAxisSize: MainAxisSize.min,
                 children: [
                   Text(
-                    '${S.of(context).wordModifier}$_wordModifier',
+                    '${S.current.wordModifier}$_wordModifier',
                     style: theme.display6.copyWith(color: theme.redColor),
                   ),
                   const SizedBox(width: 8),
@@ -369,12 +444,11 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                               () => _applyModifier(letter, index, 'star'),
                             ),
                             _buildModifierButton(
-                              Text(
-                                  '${GameConst.scrabblex2}${S.of(context).nWord}',
+                              Text('${GameConst.scrabblex2}${S.current.nWord}',
                                   style: theme.display7,
                                   textAlign: TextAlign.center),
                               () => _applyModifier(
-                                  letter, index, S.of(context).x2Word),
+                                  letter, index, S.current.x2Word),
                             ),
                             _buildModifierButton(
                               Text(

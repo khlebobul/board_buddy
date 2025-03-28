@@ -66,11 +66,19 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
     // Initialize the game in the BLoC
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!_isInitialized) {
-        context.read<UnoBloc>().add(InitializeUnoGame(
-              players: widget.players,
-              scoreLimit: widget.scoreLimit,
-              gameMode: widget.gameMode,
-            ));
+        final bloc = context.read<UnoBloc>();
+
+        // Check if this is a new game
+        if (widget.players.isEmpty) {
+          bloc.add(LoadSavedGame());
+        } else {
+          bloc.add(InitializeUnoGame(
+            players: widget.players,
+            scoreLimit: widget.scoreLimit,
+            gameMode: widget.gameMode,
+          ));
+        }
+
         _isInitialized = true;
       }
     });
@@ -205,8 +213,8 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
 
         return Scaffold(
           appBar: CustomAppBar(
-            leftButtonText: S.of(context).back,
-            onLeftButtonPressed: () => Navigator.pop(context),
+            leftButtonText: S.of(context).menu,
+            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
             isRules: true,
             rightButtonText: S.of(context).rules,
             onRightButtonPressed: () =>

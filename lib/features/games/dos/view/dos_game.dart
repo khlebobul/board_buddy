@@ -66,11 +66,18 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
     // Initialize the game in the BLoC
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!_isInitialized) {
-        context.read<DosBloc>().add(InitializeDosGame(
-              players: widget.players,
-              scoreLimit: widget.scoreLimit,
-              gameMode: widget.gameMode,
-            ));
+        final bloc = context.read<DosBloc>();
+
+        if (widget.players.isEmpty) {
+          bloc.add(LoadSavedGame());
+        } else {
+          bloc.add(InitializeDosGame(
+            players: widget.players,
+            scoreLimit: widget.scoreLimit,
+            gameMode: widget.gameMode,
+          ));
+        }
+
         _isInitialized = true;
       }
     });
@@ -206,8 +213,8 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
 
         return Scaffold(
           appBar: CustomAppBar(
-            leftButtonText: S.of(context).back,
-            onLeftButtonPressed: () => Navigator.pop(context),
+            leftButtonText: S.of(context).menu,
+            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
             isRules: true,
             rightButtonText: S.of(context).rules,
             onRightButtonPressed: () =>

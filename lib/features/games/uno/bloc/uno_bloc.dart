@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
-import 'package:meta/meta.dart';
+import 'package:board_buddy/shared/services/database_service.dart';
+import 'package:flutter/material.dart';
 
 part 'uno_event.dart';
 part 'uno_state.dart';
@@ -14,6 +15,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
     on<UpdateScoreLimit>(_onUpdateScoreLimit);
     on<AddPlayer>(_onAddPlayer);
     on<RemovePlayer>(_onRemovePlayer);
+    on<CheckSavedGame>(_onCheckSavedGame);
+    on<LoadSavedGame>(_onLoadSavedGame);
+    on<DeleteSavedGame>(_onDeleteSavedGame);
 
     // Game events
     on<InitializeUnoGame>(_onInitializeUnoGame);
@@ -26,6 +30,7 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
     on<StartNewGame>(_onStartNewGame);
     on<ReturnToMenu>(_onReturnToMenu);
     on<CheckGameEnd>(_onCheckGameEnd);
+    on<SaveGameSession>(_onSaveGameSession);
   }
 
   // Start screen event handlers
@@ -38,6 +43,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
       selectedMode: S.current.highestScoreWins,
       scoreLimit: 500,
     ));
+
+    // Check if there's a saved game
+    add(CheckSavedGame());
   }
 
   void _onSelectGameMode(
@@ -86,6 +94,57 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
     }
   }
 
+  void _onCheckSavedGame(
+    CheckSavedGame event,
+    Emitter<UnoState> emit,
+  ) async {
+    if (state is UnoStartScreenState) {
+      final currentState = state as UnoStartScreenState;
+      final hasSavedGame = await DatabaseService.hasGameSession('uno');
+      emit(currentState.copyWith(hasSavedGame: hasSavedGame));
+    }
+  }
+
+  void _onLoadSavedGame(
+    LoadSavedGame event,
+    Emitter<UnoState> emit,
+  ) async {
+    final gameData = await DatabaseService.getLatestGameSession('uno');
+
+    if (gameData != null) {
+      final session = gameData['session'] as Map<String, dynamic>;
+      final players = gameData['players'] as List<Player>;
+      final playerScoreHistory =
+          gameData['playerScoreHistory'] as Map<int, List<int>>;
+
+      // Create empty redo stacks
+      final Map<int, List<int>> playerRedoStack = {};
+      for (int i = 0; i < players.length; i++) {
+        playerRedoStack[i] = [];
+      }
+
+      emit(UnoGameState(
+        players: players,
+        scoreLimit: session['score_limit'] as int,
+        gameMode: session['game_mode'] as String,
+        playerScoreHistory: playerScoreHistory,
+        playerRedoStack: playerRedoStack,
+      ));
+    }
+  }
+
+  void _onDeleteSavedGame(
+    DeleteSavedGame event,
+    Emitter<UnoState> emit,
+  ) async {
+    await DatabaseService.deleteGameSession('uno');
+
+    if (state is UnoStartScreenState) {
+      final currentState = state as UnoStartScreenState;
+      emit(currentState.copyWith(hasSavedGame: false));
+    }
+  }
+
   // Game event handlers
   void _onInitializeUnoGame(
     InitializeUnoGame event,
@@ -116,6 +175,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
     if (state is UnoGameState) {
       final currentState = state as UnoGameState;
       emit(currentState.copyWith(currentPlayerIndex: event.playerIndex));
+
+      // Save game state after changing player
+      add(SaveGameSession());
     }
   }
 
@@ -151,6 +213,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
         lastScoreChange: event.scoreChange,
         isScoreChanging: true,
       ));
+
+      // Save game session after score update
+      add(SaveGameSession());
 
       // Check if game has ended
       add(CheckGameEnd());
@@ -195,6 +260,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
           lastScoreChange: -lastScoreChange,
           isScoreChanging: true,
         ));
+
+        // Save game session after undo
+        add(SaveGameSession());
       }
     }
   }
@@ -238,6 +306,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
           isScoreChanging: true,
         ));
 
+        // Save game session after redo
+        add(SaveGameSession());
+
         // Check if game has ended
         add(CheckGameEnd());
       }
@@ -275,6 +346,35 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
 
       if (gameEnded) {
         emit(currentState.copyWith(gameEnded: true));
+
+        // Delete saved game when a game ends
+        add(DeleteSavedGame());
+      }
+    }
+  }
+
+  void _onSaveGameSession(
+    SaveGameSession event,
+    Emitter<UnoState> emit,
+  ) async {
+    if (state is UnoGameState) {
+      final gameState = state as UnoGameState;
+
+      try {
+        // Delete any existing UNO game sessions first
+        await DatabaseService.deleteGameSession('uno');
+
+        // Save the current game session
+        await DatabaseService.saveGameSession(
+          gameType: 'uno',
+          scoreLimit: gameState.scoreLimit,
+          gameMode: gameState.gameMode,
+          players: gameState.players,
+          playerScoreHistory: gameState.playerScoreHistory,
+        );
+      } catch (e) {
+        // Handle database errors (in a real app, you might want to log this)
+        debugPrint('Error saving game session: $e');
       }
     }
   }
@@ -310,6 +410,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
         currentPlayerIndex: 0,
         gameEnded: false,
       ));
+
+      // Delete the saved game session when starting a new game
+      add(DeleteSavedGame());
     }
   }
 
@@ -331,6 +434,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
         selectedMode: currentState.gameMode,
         scoreLimit: currentState.scoreLimit,
       ));
+
+      // Delete the saved game session when returning to start screen
+      add(DeleteSavedGame());
     }
   }
 
@@ -338,6 +444,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
     ReturnToMenu event,
     Emitter<UnoState> emit,
   ) {
+    // Delete the saved game session when returning to menu
+    add(DeleteSavedGame());
+
     // Just emit initial state, navigation will be handled in the UI
     emit(UnoInitial());
   }
@@ -395,5 +504,15 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
   // Returns to the main menu
   void returnToMenu() {
     add(ReturnToMenu());
+  }
+
+  // Load a saved game
+  void loadSavedGame() {
+    add(LoadSavedGame());
+  }
+
+  // Delete the saved game
+  void deleteSavedGame() {
+    add(DeleteSavedGame());
   }
 }

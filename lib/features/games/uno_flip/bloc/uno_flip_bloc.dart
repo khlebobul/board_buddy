@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
-import 'package:meta/meta.dart';
+import 'package:board_buddy/shared/services/database_service.dart';
+import 'package:flutter/material.dart';
 
 part 'uno_flip_event.dart';
 part 'uno_flip_state.dart';
@@ -14,6 +15,9 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
     on<UpdateScoreLimit>(_onUpdateScoreLimit);
     on<AddPlayer>(_onAddPlayer);
     on<RemovePlayer>(_onRemovePlayer);
+    on<CheckSavedGame>(_onCheckSavedGame);
+    on<LoadSavedGame>(_onLoadSavedGame);
+    on<DeleteSavedGame>(_onDeleteSavedGame);
 
     // Game events
     on<InitializeUnoFlipGame>(_onInitializeUnoFlipGame);
@@ -26,6 +30,7 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
     on<StartNewGame>(_onStartNewGame);
     on<ReturnToMenu>(_onReturnToMenu);
     on<CheckGameEnd>(_onCheckGameEnd);
+    on<SaveGameSession>(_onSaveGameSession);
   }
 
   // Start screen event handlers
@@ -38,6 +43,8 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
       selectedMode: S.current.highestScoreWins,
       scoreLimit: 500,
     ));
+
+    add(CheckSavedGame());
   }
 
   void _onSelectGameMode(
@@ -86,6 +93,56 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
     }
   }
 
+  void _onCheckSavedGame(
+    CheckSavedGame event,
+    Emitter<UnoFlipState> emit,
+  ) async {
+    if (state is UnoFlipStartScreenState) {
+      final currentState = state as UnoFlipStartScreenState;
+      final hasSavedGame = await DatabaseService.hasGameSession('uno_flip');
+      emit(currentState.copyWith(hasSavedGame: hasSavedGame));
+    }
+  }
+
+  void _onLoadSavedGame(
+    LoadSavedGame event,
+    Emitter<UnoFlipState> emit,
+  ) async {
+    final gameData = await DatabaseService.getLatestGameSession('uno_flip');
+
+    if (gameData != null) {
+      final session = gameData['session'] as Map<String, dynamic>;
+      final players = gameData['players'] as List<Player>;
+      final playerScoreHistory =
+          gameData['playerScoreHistory'] as Map<int, List<int>>;
+
+      final Map<int, List<int>> playerRedoStack = {};
+      for (int i = 0; i < players.length; i++) {
+        playerRedoStack[i] = [];
+      }
+
+      emit(UnoFlipGameState(
+        players: players,
+        scoreLimit: session['score_limit'] as int,
+        gameMode: session['game_mode'] as String,
+        playerScoreHistory: playerScoreHistory,
+        playerRedoStack: playerRedoStack,
+      ));
+    }
+  }
+
+  void _onDeleteSavedGame(
+    DeleteSavedGame event,
+    Emitter<UnoFlipState> emit,
+  ) async {
+    await DatabaseService.deleteGameSession('uno_flip');
+
+    if (state is UnoFlipStartScreenState) {
+      final currentState = state as UnoFlipStartScreenState;
+      emit(currentState.copyWith(hasSavedGame: false));
+    }
+  }
+
   // Game event handlers
   void _onInitializeUnoFlipGame(
     InitializeUnoFlipGame event,
@@ -116,6 +173,8 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
     if (state is UnoFlipGameState) {
       final currentState = state as UnoFlipGameState;
       emit(currentState.copyWith(currentPlayerIndex: event.playerIndex));
+
+      add(SaveGameSession());
     }
   }
 
@@ -151,6 +210,8 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
         lastScoreChange: event.scoreChange,
         isScoreChanging: true,
       ));
+
+      add(SaveGameSession());
 
       // Check if game has ended
       add(CheckGameEnd());
@@ -195,6 +256,8 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
           lastScoreChange: -lastScoreChange,
           isScoreChanging: true,
         ));
+
+        add(SaveGameSession());
       }
     }
   }
@@ -238,6 +301,8 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
           isScoreChanging: true,
         ));
 
+        add(SaveGameSession());
+
         // Check if game has ended
         add(CheckGameEnd());
       }
@@ -275,6 +340,31 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
 
       if (gameEnded) {
         emit(currentState.copyWith(gameEnded: true));
+
+        add(DeleteSavedGame());
+      }
+    }
+  }
+
+  void _onSaveGameSession(
+    SaveGameSession event,
+    Emitter<UnoFlipState> emit,
+  ) async {
+    if (state is UnoFlipGameState) {
+      final gameState = state as UnoFlipGameState;
+
+      try {
+        await DatabaseService.deleteGameSession('uno_flip');
+
+        await DatabaseService.saveGameSession(
+          gameType: 'uno_flip',
+          scoreLimit: gameState.scoreLimit,
+          gameMode: gameState.gameMode,
+          players: gameState.players,
+          playerScoreHistory: gameState.playerScoreHistory,
+        );
+      } catch (e) {
+        debugPrint('Error saving game session: $e');
       }
     }
   }
@@ -310,6 +400,8 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
         currentPlayerIndex: 0,
         gameEnded: false,
       ));
+
+      add(DeleteSavedGame());
     }
   }
 
@@ -331,6 +423,8 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
         selectedMode: currentState.gameMode,
         scoreLimit: currentState.scoreLimit,
       ));
+
+      add(DeleteSavedGame());
     }
   }
 
@@ -338,6 +432,8 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
     ReturnToMenu event,
     Emitter<UnoFlipState> emit,
   ) {
+    add(DeleteSavedGame());
+
     // Just emit initial state, navigation will be handled in the UI
     emit(UnoFlipInitial());
   }
@@ -395,5 +491,13 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
   // Returns to the main menu
   void returnToMenu() {
     add(ReturnToMenu());
+  }
+
+  void loadSavedGame() {
+    add(LoadSavedGame());
+  }
+
+  void deleteSavedGame() {
+    add(DeleteSavedGame());
   }
 }

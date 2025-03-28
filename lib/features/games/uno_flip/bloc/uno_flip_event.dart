@@ -29,6 +29,15 @@ class RemovePlayer extends UnoFlipEvent {
   RemovePlayer(this.index);
 }
 
+// Database-related events
+class CheckSavedGame extends UnoFlipEvent {}
+
+class LoadSavedGame extends UnoFlipEvent {}
+
+class DeleteSavedGame extends UnoFlipEvent {}
+
+class SaveGameSession extends UnoFlipEvent {}
+
 // Game-related events
 class InitializeUnoFlipGame extends UnoFlipEvent {
   final List<Player> players;

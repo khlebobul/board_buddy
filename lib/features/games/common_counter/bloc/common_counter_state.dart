@@ -9,22 +9,26 @@ class CommonCounterStartScreenState extends CommonCounterState {
   final List<Player> players;
   final String selectedMode;
   final bool isSinglePlayer;
+  final bool hasSavedGame;
 
   CommonCounterStartScreenState({
     required this.players,
     required this.selectedMode,
     required this.isSinglePlayer,
+    this.hasSavedGame = false,
   });
 
   CommonCounterStartScreenState copyWith({
     List<Player>? players,
     String? selectedMode,
     bool? isSinglePlayer,
+    bool? hasSavedGame,
   }) {
     return CommonCounterStartScreenState(
       players: players ?? this.players,
       selectedMode: selectedMode ?? this.selectedMode,
       isSinglePlayer: isSinglePlayer ?? this.isSinglePlayer,
+      hasSavedGame: hasSavedGame ?? this.hasSavedGame,
     );
   }
 }

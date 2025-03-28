@@ -99,6 +99,25 @@ class TogglePlayerCursed extends MunchkinEvent {
   TogglePlayerCursed(this.playerIndex);
 }
 
+// Database-related events
+class CheckSavedGame extends MunchkinEvent {}
+
+class LoadSavedGame extends MunchkinEvent {}
+
+class GameLoaded extends MunchkinEvent {
+  final List<Player> players;
+  final bool isSinglePlayer;
+
+  GameLoaded({
+    required this.players,
+    required this.isSinglePlayer,
+  });
+}
+
+class DeleteSavedGame extends MunchkinEvent {}
+
+class SaveGameSession extends MunchkinEvent {}
+
 // Undo/Redo events
 class UndoAction extends MunchkinEvent {
   final int playerIndex;

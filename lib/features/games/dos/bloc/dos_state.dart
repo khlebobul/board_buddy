@@ -10,12 +10,14 @@ final class DosStartScreenState extends DosState {
   final String selectedMode;
   final int scoreLimit;
   final bool isLoading;
+  final bool hasSavedGame;
 
   DosStartScreenState({
     required this.players,
     required this.selectedMode,
     required this.scoreLimit,
     this.isLoading = false,
+    this.hasSavedGame = false,
   });
 
   DosStartScreenState copyWith({
@@ -23,12 +25,14 @@ final class DosStartScreenState extends DosState {
     String? selectedMode,
     int? scoreLimit,
     bool? isLoading,
+    bool? hasSavedGame,
   }) {
     return DosStartScreenState(
       players: players ?? this.players,
       selectedMode: selectedMode ?? this.selectedMode,
       scoreLimit: scoreLimit ?? this.scoreLimit,
       isLoading: isLoading ?? this.isLoading,
+      hasSavedGame: hasSavedGame ?? this.hasSavedGame,
     );
   }
 }
@@ -91,4 +95,3 @@ final class DosGameState extends DosState {
     return currentPlayerRedoStack != null && currentPlayerRedoStack.isNotEmpty;
   }
 }
-

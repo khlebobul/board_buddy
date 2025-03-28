@@ -1,7 +1,8 @@
 import 'package:bloc/bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
-import 'package:meta/meta.dart';
+import 'package:board_buddy/shared/services/database_service.dart';
+import 'package:flutter/material.dart';
 
 part 'common_counter_event.dart';
 part 'common_counter_state.dart';
@@ -12,6 +13,9 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
     on<SelectGameMode>(_onSelectGameMode);
     on<AddPlayer>(_onAddPlayer);
     on<RemovePlayer>(_onRemovePlayer);
+    on<CheckSavedGame>(_onCheckSavedGame);
+    on<LoadSavedGame>(_onLoadSavedGame);
+    on<DeleteSavedGame>(_onDeleteSavedGame);
 
     // Game screen event handlers
     on<InitializeGameScreen>(_onInitializeGameScreen);
@@ -23,6 +27,7 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
     on<UndoAction>(_onUndoAction);
     on<RedoAction>(_onRedoAction);
     on<ResetScoreAnimation>(_onResetScoreAnimation);
+    on<SaveGameSession>(_onSaveGameSession);
   }
 
   void _onInitializeStartScreen(
@@ -33,7 +38,11 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
       players: [],
       selectedMode: S.current.multiplayer,
       isSinglePlayer: false,
+      hasSavedGame: false,
     ));
+
+    // Check if there's a saved game
+    add(CheckSavedGame());
   }
 
   void _onSelectGameMode(
@@ -43,8 +52,8 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
     if (state is CommonCounterStartScreenState) {
       final currentState = state as CommonCounterStartScreenState;
       final lowerCaseMode = event.mode.toLowerCase();
-      final isSinglePlayer =
-          lowerCaseMode.contains(S.current.singleplayer) || lowerCaseMode == S.current.singleplayer;
+      final isSinglePlayer = lowerCaseMode.contains(S.current.singleplayer) ||
+          lowerCaseMode == S.current.singleplayer;
 
       emit(currentState.copyWith(
         selectedMode: event.mode,
@@ -92,6 +101,111 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
     ));
   }
 
+  void _onCheckSavedGame(
+    CheckSavedGame event,
+    Emitter<CommonCounterState> emit,
+  ) async {
+    if (state is CommonCounterStartScreenState) {
+      final currentState = state as CommonCounterStartScreenState;
+      final hasSavedGame =
+          await DatabaseService.hasGameSession('common_counter');
+      emit(currentState.copyWith(hasSavedGame: hasSavedGame));
+    }
+  }
+
+  void _onLoadSavedGame(
+    LoadSavedGame event,
+    Emitter<CommonCounterState> emit,
+  ) async {
+    final gameData =
+        await DatabaseService.getLatestGameSession('common_counter');
+
+    if (gameData != null) {
+      final session = gameData['session'] as Map<String, dynamic>;
+      final players = gameData['players'] as List<Player>;
+
+      // Convert to history format
+      final playerScoreHistory =
+          gameData['playerScoreHistory'] as Map<int, List<int>>;
+      final history = <ScoreHistoryItem>[];
+
+      for (final playerIndex in playerScoreHistory.keys) {
+        int currentScore = 0;
+        for (final scoreChange in playerScoreHistory[playerIndex]!) {
+          final oldScore = currentScore;
+          currentScore += scoreChange;
+          history.add(ScoreHistoryItem(
+            playerIndex: playerIndex,
+            oldScore: oldScore,
+            newScore: currentScore,
+            isIncrease: scoreChange > 0,
+          ));
+        }
+      }
+
+      emit(CommonCounterGameState(
+        players: players,
+        isSinglePlayer: session['game_mode'] == S.current.singleplayer,
+        history: history,
+        redoHistory: [],
+      ));
+    }
+  }
+
+  void _onDeleteSavedGame(
+    DeleteSavedGame event,
+    Emitter<CommonCounterState> emit,
+  ) async {
+    await DatabaseService.deleteGameSession('common_counter');
+
+    if (state is CommonCounterStartScreenState) {
+      final currentState = state as CommonCounterStartScreenState;
+      emit(currentState.copyWith(hasSavedGame: false));
+    }
+  }
+
+  void _onSaveGameSession(
+    SaveGameSession event,
+    Emitter<CommonCounterState> emit,
+  ) async {
+    if (state is CommonCounterGameState) {
+      final gameState = state as CommonCounterGameState;
+
+      try {
+        // Delete any existing common counter game sessions first
+        await DatabaseService.deleteGameSession('common_counter');
+
+        // Convert history to playerScoreHistory format
+        final Map<int, List<int>> playerScoreHistory = {};
+
+        for (final historyItem in gameState.history) {
+          final playerIndex = historyItem.playerIndex;
+          final scoreChange = historyItem.newScore - historyItem.oldScore;
+
+          if (!playerScoreHistory.containsKey(playerIndex)) {
+            playerScoreHistory[playerIndex] = [];
+          }
+
+          playerScoreHistory[playerIndex]!.add(scoreChange);
+        }
+
+        // Save the current game session
+        await DatabaseService.saveGameSession(
+          gameType: 'common_counter',
+          scoreLimit: 0, // Common counter doesn't have a score limit
+          gameMode: gameState.isSinglePlayer
+              ? S.current.singleplayer
+              : S.current.multiplayer,
+          players: gameState.players,
+          playerScoreHistory: playerScoreHistory,
+        );
+      } catch (e) {
+        // Handle database errors
+        debugPrint('Error saving game session: $e');
+      }
+    }
+  }
+
   void _onIncreaseScore(
     IncreaseScore event,
     Emitter<CommonCounterState> emit,
@@ -119,6 +233,9 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
           history: updatedHistory,
           redoHistory: [], // Clear redo history on new action
         ));
+
+        // Save game session after score update
+        add(SaveGameSession());
       }
     }
   }
@@ -152,6 +269,9 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
             history: updatedHistory,
             redoHistory: [], // Clear redo history on new action
           ));
+
+          // Save game session after score update
+          add(SaveGameSession());
         }
       }
     }
@@ -186,6 +306,9 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
           isScoreChanging: true,
           lastScoreChange: event.amount,
         ));
+
+        // Save game session after score update
+        add(SaveGameSession());
       }
     }
   }
@@ -224,6 +347,9 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
           isScoreChanging: true,
           lastScoreChange: -actualDecrease,
         ));
+
+        // Save game session after score update
+        add(SaveGameSession());
       }
     }
   }
@@ -245,6 +371,9 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
         history: [], // Clear history on reset
         redoHistory: [], // Clear redo history on reset
       ));
+
+      // Delete saved game when resetting
+      add(DeleteSavedGame());
     }
   }
 
@@ -256,22 +385,29 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
       final currentState = state as CommonCounterGameState;
 
       if (currentState.history.isNotEmpty) {
+        // Get the last history item
+        final lastHistoryItem = currentState.history.last;
+        final playerIndex = lastHistoryItem.playerIndex;
+
+        // Update player score to the old value
         final updatedPlayers = List<Player>.from(currentState.players);
-        final historyItem = currentState.history.last;
+        updatedPlayers[playerIndex].score = lastHistoryItem.oldScore;
+
+        // Update history
         final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
           ..removeLast();
         final updatedRedoHistory =
             List<ScoreHistoryItem>.from(currentState.redoHistory)
-              ..add(historyItem);
-
-        // Revert the score change
-        updatedPlayers[historyItem.playerIndex].score = historyItem.oldScore;
+              ..add(lastHistoryItem);
 
         emit(currentState.copyWith(
           players: updatedPlayers,
           history: updatedHistory,
           redoHistory: updatedRedoHistory,
         ));
+
+        // Save game session after undo
+        add(SaveGameSession());
       }
     }
   }
@@ -284,21 +420,28 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
       final currentState = state as CommonCounterGameState;
 
       if (currentState.redoHistory.isNotEmpty) {
+        // Get the last undone action
+        final lastUndoneAction = currentState.redoHistory.last;
+        final playerIndex = lastUndoneAction.playerIndex;
+
+        // Update player score
         final updatedPlayers = List<Player>.from(currentState.players);
-        final redoItem = currentState.redoHistory.last;
+        updatedPlayers[playerIndex].score = lastUndoneAction.newScore;
+
+        // Update history
+        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
+          ..add(lastUndoneAction);
         final updatedRedoHistory =
             List<ScoreHistoryItem>.from(currentState.redoHistory)..removeLast();
-        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
-          ..add(redoItem);
-
-        // Apply the score change
-        updatedPlayers[redoItem.playerIndex].score = redoItem.newScore;
 
         emit(currentState.copyWith(
           players: updatedPlayers,
           history: updatedHistory,
           redoHistory: updatedRedoHistory,
         ));
+
+        // Save game session after redo
+        add(SaveGameSession());
       }
     }
   }
@@ -313,5 +456,15 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
         isScoreChanging: false,
       ));
     }
+  }
+
+  // Convenience method to load saved game
+  void loadSavedGame() {
+    add(LoadSavedGame());
+  }
+
+  // Convenience method to delete saved game
+  void deleteSavedGame() {
+    add(DeleteSavedGame());
   }
 }

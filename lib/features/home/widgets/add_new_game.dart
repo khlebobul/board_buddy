@@ -23,7 +23,8 @@ class AddFavouriteGame extends StatelessWidget {
           style: theme.display2.copyWith(color: theme.secondaryTextColor),
         ),
         GestureDetector(
-          onTap: () => sendEmail(context, GeneralConst.email, MailSubjectConst.gameRequest),
+          onTap: () => sendEmail(
+              context, GeneralConst.email, MailSubjectConst.gameRequest),
           child: TextScramble(
             text: GeneralConst.email,
             style: theme.display2.copyWith(

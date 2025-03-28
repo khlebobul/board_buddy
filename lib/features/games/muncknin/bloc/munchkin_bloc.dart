@@ -1,7 +1,9 @@
+import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
-import 'package:meta/meta.dart';
+import 'package:board_buddy/shared/services/database_service.dart';
+import 'package:flutter/material.dart';
 
 part 'munchkin_event.dart';
 part 'munchkin_state.dart';
@@ -28,6 +30,13 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     on<TogglePlayerCursed>(_onTogglePlayerCursed);
     on<UndoAction>(_onUndoAction);
     on<RedoAction>(_onRedoAction);
+
+    // Database-related event handlers
+    on<CheckSavedGame>(_onCheckSavedGame);
+    on<LoadSavedGame>(_onLoadSavedGame);
+    on<GameLoaded>(_onGameLoaded);
+    on<DeleteSavedGame>(_onDeleteSavedGame);
+    on<SaveGameSession>(_onSaveGameSession);
   }
 
   void _onInitializeStartScreen(
@@ -39,6 +48,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       selectedMode: S.current.multiplayer,
       isSinglePlayer: false,
     ));
+
+    // Check if there's a saved game
+    add(CheckSavedGame());
   }
 
   void _onSelectGameMode(
@@ -94,6 +106,7 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       isSinglePlayer: event.isSinglePlayer,
       history: [],
       redoHistory: [],
+      isRestoredGame: false,
     ));
   }
 
@@ -128,6 +141,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           history: updatedHistory,
           redoHistory: [], // Clear redo history on new action
         ));
+
+        // Save game after score change
+        add(SaveGameSession());
       }
     }
   }
@@ -165,6 +181,8 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             history: updatedHistory,
             redoHistory: [], // Clear redo history on new action
           ));
+
+          add(SaveGameSession());
         }
       }
     }
@@ -205,6 +223,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           history: updatedHistory,
           redoHistory: [], // Clear redo history on new action
         ));
+
+        // Save game after gear change
+        add(SaveGameSession());
       }
     }
   }
@@ -246,6 +267,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             history: updatedHistory,
             redoHistory: [], // Clear redo history on new action
           ));
+
+          // Save game after gear change
+          add(SaveGameSession());
         }
       }
     }
@@ -286,6 +310,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           history: updatedHistory,
           redoHistory: [], // Clear redo history on new action
         ));
+
+        // Save game after level change
+        add(SaveGameSession());
       }
     }
   }
@@ -328,6 +355,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             history: updatedHistory,
             redoHistory: [], // Clear redo history on new action
           ));
+
+          // Save game after level change
+          add(SaveGameSession());
         }
       }
     }
@@ -343,6 +373,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
 
       for (var i = 0; i < updatedPlayers.length; i++) {
         updatedPlayers[i].score = 0;
+        updatedPlayers[i].level = 1;
+        updatedPlayers[i].gear = 0;
+        updatedPlayers[i].modifiers = PlayerModifiers();
+        updatedPlayers[i].isCursed = false;
       }
 
       emit(currentState.copyWith(
@@ -350,6 +384,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
         history: [], // Clear history on reset
         redoHistory: [], // Clear redo history on reset
       ));
+
+      // Delete saved game when resetting
+      add(DeleteSavedGame());
     }
   }
 
@@ -390,6 +427,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           history: updatedHistory,
           redoHistory: [], // Clear redo history on new action
         ));
+
+        // Save game after resetting player modifiers
+        add(SaveGameSession());
       }
     }
   }
@@ -404,6 +444,11 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
 
       if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
         final player = updatedPlayers[event.playerIndex];
+
+        // Добавляем отладочную информацию
+        debugPrint('Updating modifier for player ${event.playerIndex}');
+        debugPrint('  Modifier type: ${event.modifierType}');
+        debugPrint('  New value: ${event.value}');
 
         // Update the modifier based on the modifierType
         // Note: We use string constants here instead of S.current because case patterns must be constant expressions
@@ -451,9 +496,14 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             break;
         }
 
+        final newPlayers = updatedPlayers.map((player) => player).toList();
+
         emit(currentState.copyWith(
-          players: updatedPlayers,
+          players: newPlayers,
         ));
+
+        // Save game after modifiers change
+        add(SaveGameSession());
       }
     }
   }
@@ -464,16 +514,45 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
   ) {
     if (state is MunchkinGameState) {
       final currentState = state as MunchkinGameState;
-      final updatedPlayers = List<Player>.from(currentState.players);
 
-      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
-        updatedPlayers[event.playerIndex].isMale =
-            !updatedPlayers[event.playerIndex].isMale;
+      final updatedPlayers = <Player>[];
 
-        emit(currentState.copyWith(
-          players: updatedPlayers,
-        ));
+      for (int i = 0; i < currentState.players.length; i++) {
+        final originalPlayer = currentState.players[i];
+        if (i == event.playerIndex) {
+
+          final updatedPlayer = Player(
+            name: originalPlayer.name,
+            id: originalPlayer.id,
+            score: originalPlayer.score,
+            gear: originalPlayer.gear,
+            level: originalPlayer.level,
+            modifiers: originalPlayer.modifiers,
+            isMale: !originalPlayer.isMale, // Инвертируем значение
+            isCursed: originalPlayer.isCursed,
+          );
+
+
+          debugPrint(
+              'Explicitly toggling gender for player ${event.playerIndex}');
+          debugPrint(
+              '  Original player gender: ${originalPlayer.isMale ? "Male" : "Female"}');
+          debugPrint(
+              '  Updated player gender: ${updatedPlayer.isMale ? "Male" : "Female"}');
+
+          updatedPlayers.add(updatedPlayer);
+        } else {
+
+          updatedPlayers.add(originalPlayer);
+        }
       }
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+      ));
+
+      // Save game after gender change
+      add(SaveGameSession());
     }
   }
 
@@ -483,16 +562,41 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
   ) {
     if (state is MunchkinGameState) {
       final currentState = state as MunchkinGameState;
-      final updatedPlayers = List<Player>.from(currentState.players);
 
-      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
-        updatedPlayers[event.playerIndex].isCursed =
-            !updatedPlayers[event.playerIndex].isCursed;
 
-        emit(currentState.copyWith(
-          players: updatedPlayers,
-        ));
+      final updatedPlayers = <Player>[];
+
+      for (int i = 0; i < currentState.players.length; i++) {
+        final originalPlayer = currentState.players[i];
+        if (i == event.playerIndex) {
+
+          final updatedPlayer = Player(
+            name: originalPlayer.name,
+            id: originalPlayer.id,
+            score: originalPlayer.score,
+            gear: originalPlayer.gear,
+            level: originalPlayer.level,
+            modifiers: originalPlayer.modifiers,
+            isMale: originalPlayer.isMale,
+            isCursed: !originalPlayer.isCursed,
+          );
+
+          debugPrint(
+              'Explicitly toggling curse status for player ${event.playerIndex}');
+          debugPrint('  Original player isCursed: ${originalPlayer.isCursed}');
+          debugPrint('  Updated player isCursed: ${updatedPlayer.isCursed}');
+
+          updatedPlayers.add(updatedPlayer);
+        } else {
+          updatedPlayers.add(originalPlayer);
+        }
       }
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+      ));
+
+      add(SaveGameSession());
     }
   }
 
@@ -548,6 +652,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             history: updatedHistory,
             redoHistory: updatedRedoHistory,
           ));
+
+          // Save game after undo
+          add(SaveGameSession());
         }
       }
     }
@@ -605,7 +712,204 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             history: updatedHistory,
             redoHistory: updatedRedoHistory,
           ));
+
+          // Save game after redo
+          add(SaveGameSession());
         }
+      }
+    }
+  }
+
+  // Database-related event handlers
+  void _onCheckSavedGame(
+    CheckSavedGame event,
+    Emitter<MunchkinState> emit,
+  ) async {
+    if (state is MunchkinStartScreenState) {
+      final currentState = state as MunchkinStartScreenState;
+      final hasSavedGame = await DatabaseService.hasGameSession('munchkin');
+      emit(currentState.copyWith(hasSavedGame: hasSavedGame));
+    }
+  }
+
+  void _onLoadSavedGame(
+    LoadSavedGame event,
+    Emitter<MunchkinState> emit,
+  ) async {
+    final gameData = await DatabaseService.getLatestGameSession('munchkin');
+
+    if (gameData != null) {
+      final session = gameData['session'] as Map<String, dynamic>;
+      final players = gameData['players'] as List<Player>;
+
+      debugPrint('Loading Munchkin saved game:');
+      debugPrint('Game mode: ${session['game_mode']}');
+      debugPrint('Players count: ${players.length}');
+
+      // Extract custom data from the session
+      Map<String, dynamic> customData = {};
+      if (session.containsKey('custom_data') &&
+          session['custom_data'] != null) {
+        try {
+          // The custom_data is stored as a JSON string, so we need to decode it
+          final customDataString = session['custom_data'] as String;
+          customData = jsonDecode(customDataString) as Map<String, dynamic>;
+          debugPrint('Custom data loaded successfully');
+          debugPrint('Is single player: ${customData['is_single_player']}');
+        } catch (e) {
+          debugPrint('Error parsing custom data: $e');
+        }
+      }
+
+      // Restore player-specific fields from custom data
+      for (int i = 0; i < players.length; i++) {
+        if (customData.containsKey('player_$i')) {
+          final playerData = customData['player_$i'] as Map<String, dynamic>;
+
+          // Restore player properties
+          players[i].level = playerData['level'] as int? ?? 1;
+          players[i].gear = playerData['gear'] as int? ?? 0;
+          players[i].isMale = playerData['is_male'] as bool? ?? true;
+          players[i].isCursed = playerData['is_cursed'] as bool? ?? false;
+
+          debugPrint('Restored player $i: ${players[i].name}');
+          debugPrint('  Level: ${players[i].level}, Gear: ${players[i].gear}');
+          debugPrint(
+              '  Gender: ${players[i].isMale ? "Male" : "Female"}, Cursed: ${players[i].isCursed}');
+
+          // Restore player modifiers
+          if (playerData.containsKey('modifiers')) {
+            final modifiersData =
+                playerData['modifiers'] as Map<String, dynamic>;
+            players[i].modifiers = PlayerModifiers(
+              race1: modifiersData['race1'] as String?,
+              race2: modifiersData['race2'] as String?,
+              class1: modifiersData['class1'] as String?,
+              class2: modifiersData['class2'] as String?,
+              leftHand: modifiersData['leftHand'] as String?,
+              twoHanded: modifiersData['twoHanded'] as String?,
+              rightHand: modifiersData['rightHand'] as String?,
+              firstBonus: modifiersData['firstBonus'] as String?,
+              secondBonus: modifiersData['secondBonus'] as String?,
+              headGear: modifiersData['headGear'] as String?,
+              armour: modifiersData['armour'] as String?,
+              boots: modifiersData['boots'] as String?,
+            );
+
+            debugPrint('  Modifiers restored');
+          }
+        }
+      }
+
+      final isSinglePlayer = customData['is_single_player'] as bool? ?? false;
+
+      // Emit game state
+      emit(MunchkinGameState(
+        players: players,
+        isSinglePlayer: isSinglePlayer,
+        history: [], // Start with empty history for the loaded game
+        redoHistory: [], // Start with empty redo history for the loaded game
+        isRestoredGame: true,
+      ));
+
+      // Notify that the game has been loaded with these specific details
+      add(GameLoaded(
+        players: players,
+        isSinglePlayer: isSinglePlayer,
+      ));
+    }
+  }
+
+  void _onGameLoaded(
+    GameLoaded event,
+    Emitter<MunchkinState> emit,
+  ) {
+    // This handler allows listeners to react to the successful loading of a game
+    // The state has already been updated in _onLoadSavedGame, so no need to emit here
+  }
+
+  void _onDeleteSavedGame(
+    DeleteSavedGame event,
+    Emitter<MunchkinState> emit,
+  ) async {
+    await DatabaseService.deleteGameSession('munchkin');
+
+    if (state is MunchkinStartScreenState) {
+      final currentState = state as MunchkinStartScreenState;
+      emit(currentState.copyWith(hasSavedGame: false));
+    }
+  }
+
+  void _onSaveGameSession(
+    SaveGameSession event,
+    Emitter<MunchkinState> emit,
+  ) async {
+    if (state is MunchkinGameState) {
+      final gameState = state as MunchkinGameState;
+
+      try {
+        // Delete any existing Munchkin game sessions first
+        await DatabaseService.deleteGameSession('munchkin');
+
+        // Create custom data for saving player-specific fields
+        final Map<String, dynamic> customData = {
+          'is_single_player': gameState.isSinglePlayer,
+        };
+
+        debugPrint('Saving Munchkin game:');
+        debugPrint('Player count: ${gameState.players.length}');
+        debugPrint('Is single player: ${gameState.isSinglePlayer}');
+
+        // Save player-specific fields
+        for (int i = 0; i < gameState.players.length; i++) {
+          final player = gameState.players[i];
+
+          // Create a map for modifiers
+          final Map<String, dynamic> modifiersMap = {
+            'race1': player.modifiers.race1,
+            'race2': player.modifiers.race2,
+            'class1': player.modifiers.class1,
+            'class2': player.modifiers.class2,
+            'leftHand': player.modifiers.leftHand,
+            'twoHanded': player.modifiers.twoHanded,
+            'rightHand': player.modifiers.rightHand,
+            'firstBonus': player.modifiers.firstBonus,
+            'secondBonus': player.modifiers.secondBonus,
+            'headGear': player.modifiers.headGear,
+            'armour': player.modifiers.armour,
+            'boots': player.modifiers.boots,
+          };
+
+          // Store player data in the custom data
+          customData['player_$i'] = {
+            'level': player.level,
+            'gear': player.gear,
+            'is_male': player.isMale,
+            'is_cursed': player.isCursed,
+            'modifiers': modifiersMap,
+          };
+
+          debugPrint(
+              'Saving player $i: ${player.name} (level: ${player.level}, gear: ${player.gear})');
+        }
+
+        // Create player score history map
+        Map<int, List<int>> playerScoreHistory = {};
+        for (int i = 0; i < gameState.players.length; i++) {
+          playerScoreHistory[i] = [];
+        }
+
+        // Save the current game session
+        await DatabaseService.saveGameSession(
+          gameType: 'munchkin',
+          scoreLimit: 10, // Default for Munchkin
+          gameMode: gameState.isSinglePlayer ? 'singleplayer' : 'multiplayer',
+          players: gameState.players,
+          playerScoreHistory: playerScoreHistory,
+          customData: customData,
+        );
+      } catch (e) {
+        debugPrint('Error saving Munchkin game session: $e');
       }
     }
   }

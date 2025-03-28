@@ -9,22 +9,26 @@ class SetStartScreenState extends SetState {
   final List<Player> players;
   final String selectedMode;
   final bool isSinglePlayer;
+  final bool hasSavedGame;
 
   SetStartScreenState({
     required this.players,
     required this.selectedMode,
     required this.isSinglePlayer,
+    this.hasSavedGame = false,
   });
 
   SetStartScreenState copyWith({
     List<Player>? players,
     String? selectedMode,
     bool? isSinglePlayer,
+    bool? hasSavedGame,
   }) {
     return SetStartScreenState(
       players: players ?? this.players,
       selectedMode: selectedMode ?? this.selectedMode,
       isSinglePlayer: isSinglePlayer ?? this.isSinglePlayer,
+      hasSavedGame: hasSavedGame ?? this.hasSavedGame,
     );
   }
 }
@@ -70,4 +74,3 @@ class SetGameState extends SetState {
     );
   }
 }
-
