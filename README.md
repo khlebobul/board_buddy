@@ -50,7 +50,7 @@ your ultimate board game companion
 - check the [contributing](#contributing) section
 
 > [!NOTE]  
-> If scoring for the game you want to add can be done with a universal counter, you can add only the rules
+> if scoring for the game you want to add can be done with a universal counter, you can add only the rules
 
 ### for users
 
@@ -72,7 +72,8 @@ your ultimate board game companion
 
 </div>
 
-> [!NOTE] > **this app was created with two main goals in mind:**
+> [!NOTE]
+> **this app was created with two main goals in mind:**
 >
 > - **learning and growth** – as a beginner developer, i wanted to explore new practices and improve my skills through this project. if you're an experienced developer and would like to contribute, your insights and feedback would be greatly appreciated.
 > - **enhancing board game experiences** – board buddy is designed to make playing board games smoother and more enjoyable by eliminating common distractions like lost scores, forgotten rules, and missed turns.
