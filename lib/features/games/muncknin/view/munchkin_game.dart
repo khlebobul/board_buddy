@@ -127,6 +127,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
                             final currentPlayer = _currentPlayerIndex;
                             if (currentPlayer >= 0 &&
                                 currentPlayer < state.players.length) {
+                              debugPrint(
+                                  'Toggling curse button tapped for player $currentPlayer');
+                              debugPrint(
+                                  'Current curse status: ${state.players[currentPlayer].isCursed}');
                               context
                                   .read<MunchkinBloc>()
                                   .add(TogglePlayerCursed(currentPlayer));
@@ -138,6 +142,8 @@ class _MunchkinGameState extends State<MunchkinGame> {
                                 : S.of(context).clearance,
                             style:
                                 theme.display2.copyWith(color: theme.redColor),
+                            key: ValueKey(
+                                'curse_status_${_currentPlayerIndex}_${state.players[_currentPlayerIndex].isCursed}'),
                           ),
                         ),
                         const SizedBox(width: 40),
@@ -147,6 +153,9 @@ class _MunchkinGameState extends State<MunchkinGame> {
                             final currentPlayer = _currentPlayerIndex;
                             if (currentPlayer >= 0 &&
                                 currentPlayer < state.players.length) {
+                              // Print current curse status before change
+                              debugPrint(
+                                  'Before reset - Player $currentPlayer curse status: ${state.players[currentPlayer].isCursed}');
                               context
                                   .read<MunchkinBloc>()
                                   .add(ResetPlayerModifiers(currentPlayer));
@@ -414,6 +423,9 @@ class _MunchkinGameState extends State<MunchkinGame> {
             const SizedBox(width: 40),
             GestureDetector(
               onTap: () {
+                debugPrint('Toggling curse button tapped for single player');
+                debugPrint(
+                    'Current curse status: ${state.players.first.isCursed}');
                 context.read<MunchkinBloc>().add(TogglePlayerCursed(0));
               },
               child: TextScramble(
@@ -421,6 +433,8 @@ class _MunchkinGameState extends State<MunchkinGame> {
                     ? S.of(context).cursed
                     : S.of(context).clearance,
                 style: theme.display2.copyWith(color: theme.redColor),
+                key: ValueKey(
+                    'curse_status_single_${state.players.first.isCursed}'),
               ),
             ),
             const SizedBox(width: 40),
@@ -483,11 +497,24 @@ class MunchkinGameWrapper extends StatelessWidget {
     final args =
         ModalRoute.of(context)?.settings.arguments as Map<String, dynamic>?;
 
-    final List<Player> finalPlayers = players ??
-        args?['players'] ??
-        [Player(name: 'Player', score: 0, id: 1)];
+    debugPrint('MunchkinGameWrapper build');
+    debugPrint('Args: $args');
+    debugPrint('Provided players: ${players?.length}');
+    debugPrint('Provided single player: $isSinglePlayer');
+
+    final List<Player> finalPlayers =
+        players ?? args?['players'] ?? [];
     final bool finalIsSinglePlayer =
-        isSinglePlayer ?? args?['isSinglePlayer'] ?? true;
+        isSinglePlayer ?? args?['isSinglePlayer'] ?? false;
+
+    debugPrint('Final players count: ${finalPlayers.length}');
+    debugPrint('Final isSinglePlayer: $finalIsSinglePlayer');
+
+    // Only add a default player if no players provided and it's a single player game
+    if (finalPlayers.isEmpty && finalIsSinglePlayer) {
+      finalPlayers.add(Player(name: 'Player', id: 0));
+      debugPrint('Added default player');
+    }
 
     return MunchkinGame(
       players: finalPlayers,

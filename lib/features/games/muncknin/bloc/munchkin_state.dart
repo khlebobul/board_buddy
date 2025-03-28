@@ -9,22 +9,26 @@ class MunchkinStartScreenState extends MunchkinState {
   final List<Player> players;
   final String selectedMode;
   final bool isSinglePlayer;
+  final bool hasSavedGame;
 
   MunchkinStartScreenState({
     required this.players,
     required this.selectedMode,
     required this.isSinglePlayer,
+    this.hasSavedGame = false,
   });
 
   MunchkinStartScreenState copyWith({
     List<Player>? players,
     String? selectedMode,
     bool? isSinglePlayer,
+    bool? hasSavedGame,
   }) {
     return MunchkinStartScreenState(
       players: players ?? this.players,
       selectedMode: selectedMode ?? this.selectedMode,
       isSinglePlayer: isSinglePlayer ?? this.isSinglePlayer,
+      hasSavedGame: hasSavedGame ?? this.hasSavedGame,
     );
   }
 }
@@ -56,12 +60,14 @@ class MunchkinGameState extends MunchkinState {
   final bool isSinglePlayer;
   final List<ScoreHistoryItem> history;
   final List<ScoreHistoryItem> redoHistory;
+  final bool isRestoredGame;
 
   MunchkinGameState({
     required this.players,
     required this.isSinglePlayer,
     this.history = const [],
     this.redoHistory = const [],
+    this.isRestoredGame = false,
   });
 
   MunchkinGameState copyWith({
@@ -69,12 +75,14 @@ class MunchkinGameState extends MunchkinState {
     bool? isSinglePlayer,
     List<ScoreHistoryItem>? history,
     List<ScoreHistoryItem>? redoHistory,
+    bool? isRestoredGame,
   }) {
     return MunchkinGameState(
       players: players ?? this.players,
       isSinglePlayer: isSinglePlayer ?? this.isSinglePlayer,
       history: history ?? this.history,
       redoHistory: redoHistory ?? this.redoHistory,
+      isRestoredGame: isRestoredGame ?? this.isRestoredGame,
     );
   }
 }
