@@ -42,134 +42,138 @@ class SetGameStartScreenView extends StatelessWidget {
         final setState = state;
         final theme = UIThemes.of(context);
 
-        return Scaffold(
-          appBar: CustomAppBar(
-            leftButtonText: S.of(context).back,
-            onLeftButtonPressed: () => Navigator.pop(context),
-            rightButtonText: S.of(context).set,
-            onRightButtonPressed: () {},
-          ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                      horizontal: GeneralConst.paddingHorizontal) +
-                  const EdgeInsets.only(top: GeneralConst.paddingVertical),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // game mode
-                    Text(
-                      S.of(context).mode,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    _buildModeOption(
-                        context, S.of(context).singleplayer, setState),
-                    _buildModeOption(
-                        context, S.of(context).multiplayer, setState),
-                    const SizedBox(height: 24),
-
-                    // players list - only show in multiplayer mode
-                    if (!setState.isSinglePlayer) ...[
+        return PopScope(
+          canPop: false,
+          child: Scaffold(
+            appBar: CustomAppBar(
+              leftButtonText: S.of(context).back,
+              onLeftButtonPressed: () => Navigator.pop(context),
+              rightButtonText: S.of(context).set,
+              onRightButtonPressed: () {},
+            ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                        horizontal: GeneralConst.paddingHorizontal) +
+                    const EdgeInsets.only(top: GeneralConst.paddingVertical),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // game mode
                       Text(
-                        S.of(context).players,
+                        S.of(context).mode,
                         style: theme.display2
                             .copyWith(color: theme.secondaryTextColor),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children: setState.players.asMap().entries.map((entry) {
-                          int index = entry.key + 1;
-                          Player player = entry.value;
-                          String formattedIndex =
-                              index.toString().padLeft(2, '0');
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  '$formattedIndex - ${player.name}'
-                                      .toLowerCase(),
-                                  softWrap: true,
-                                  style: theme.display2
-                                      .copyWith(color: theme.textColor),
-                                ),
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.close,
-                                    color: theme.secondaryTextColor),
-                                onPressed: () {
-                                  context
-                                      .read<SetBloc>()
-                                      .add(RemovePlayer(entry.key));
-                                },
-                              ),
-                            ],
-                          );
-                        }).toList(),
-                      ),
-                      const SizedBox(height: 12),
-                      if (setState.players.length < GameMaxPlayers.set)
-                        GestureDetector(
-                          onTap: () {
-                            final setBloc = context.read<SetBloc>();
-                            showDialog(
-                              context: context,
-                              builder: (dialogContext) => AddPlayerDialog(
-                                onPlayerAdded: (player) {
-                                  setBloc.add(AddPlayer(player));
-                                },
-                              ),
-                            );
-                          },
-                          child: TextScramble(
-                            text: S.of(context).add,
-                            style:
-                                theme.display2.copyWith(color: theme.redColor),
-                          ),
-                        ),
-                    ],
+                      _buildModeOption(
+                          context, S.of(context).singleplayer, setState),
+                      _buildModeOption(
+                          context, S.of(context).multiplayer, setState),
+                      const SizedBox(height: 24),
 
-                    // bottom padding for keyboard
-                    SizedBox(
-                        height: MediaQuery.of(context).viewInsets.bottom > 0
-                            ? 300
-                            : 0),
-                  ],
+                      // players list - only show in multiplayer mode
+                      if (!setState.isSinglePlayer) ...[
+                        Text(
+                          S.of(context).players,
+                          style: theme.display2
+                              .copyWith(color: theme.secondaryTextColor),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children:
+                              setState.players.asMap().entries.map((entry) {
+                            int index = entry.key + 1;
+                            Player player = entry.value;
+                            String formattedIndex =
+                                index.toString().padLeft(2, '0');
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    '$formattedIndex - ${player.name}'
+                                        .toLowerCase(),
+                                    softWrap: true,
+                                    style: theme.display2
+                                        .copyWith(color: theme.textColor),
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(Icons.close,
+                                      color: theme.secondaryTextColor),
+                                  onPressed: () {
+                                    context
+                                        .read<SetBloc>()
+                                        .add(RemovePlayer(entry.key));
+                                  },
+                                ),
+                              ],
+                            );
+                          }).toList(),
+                        ),
+                        const SizedBox(height: 12),
+                        if (setState.players.length < GameMaxPlayers.set)
+                          GestureDetector(
+                            onTap: () {
+                              final setBloc = context.read<SetBloc>();
+                              showDialog(
+                                context: context,
+                                builder: (dialogContext) => AddPlayerDialog(
+                                  onPlayerAdded: (player) {
+                                    setBloc.add(AddPlayer(player));
+                                  },
+                                ),
+                              );
+                            },
+                            child: TextScramble(
+                              text: S.of(context).add,
+                              style: theme.display2
+                                  .copyWith(color: theme.redColor),
+                            ),
+                          ),
+                      ],
+
+                      // bottom padding for keyboard
+                      SizedBox(
+                          height: MediaQuery.of(context).viewInsets.bottom > 0
+                              ? 300
+                              : 0),
+                    ],
+                  ),
                 ),
               ),
             ),
+            bottomNavigationBar: BottomGameBar(
+                rightButtonText: S.of(context).play,
+                isRightBtnRed: true,
+                leftButtonText: S.of(context).rules,
+                onLeftBtnTap: () => Navigator.pushNamed(context, '/setRules'),
+                onRightBtnTap: () {
+                  if (!setState.isSinglePlayer &&
+                      setState.players.length < GameMinPlayers.set) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                            '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.setPlayers}'),
+                      ),
+                    );
+                  } else {
+                    Navigator.pushNamed(
+                      context,
+                      '/setGame',
+                      arguments: {
+                        'players': setState.isSinglePlayer
+                            ? [Player(name: 'Player', score: 0, id: 1)]
+                            : setState.players,
+                        'isSinglePlayer': setState.isSinglePlayer,
+                      },
+                    );
+                  }
+                }),
+            resizeToAvoidBottomInset: true,
           ),
-          bottomNavigationBar: BottomGameBar(
-              rightButtonText: S.of(context).play,
-              isRightBtnRed: true,
-              leftButtonText: S.of(context).rules,
-              onLeftBtnTap: () => Navigator.pushNamed(context, '/setRules'),
-              onRightBtnTap: () {
-                if (!setState.isSinglePlayer &&
-                    setState.players.length < GameMinPlayers.set) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                          '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.setPlayers}'),
-                    ),
-                  );
-                } else {
-                  Navigator.pushNamed(
-                    context,
-                    '/setGame',
-                    arguments: {
-                      'players': setState.isSinglePlayer
-                          ? [Player(name: 'Player', score: 0, id: 1)]
-                          : setState.players,
-                      'isSinglePlayer': setState.isSinglePlayer,
-                    },
-                  );
-                }
-              }),
-          resizeToAvoidBottomInset: true,
         );
       },
     );

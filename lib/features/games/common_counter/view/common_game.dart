@@ -124,72 +124,76 @@ class _CommonGameViewState extends State<CommonGameView>
         final gameState = state;
         final theme = UIThemes.of(context);
 
-        return Scaffold(
-          appBar: CustomAppBar(
-            leftButtonText: S.of(context).menu,
-            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
-            rightButtonText: S.of(context).common,
-            onRightButtonPressed: () {},
-          ),
-          body: SafeArea(
-            child: Column(
-              children: [
-                Padding(
-                  padding: const EdgeInsets.symmetric(
-                          horizontal: GeneralConst.paddingHorizontal) +
-                      const EdgeInsets.only(top: GeneralConst.paddingVertical),
-                  child: Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const TimerWidget(),
-                      const Spacer(),
-                      GestureDetector(
-                        onTap: () => DiceModal.show(context),
-                        child: SvgPicture.asset(
-                          CustomIcons.dice,
-                          width: 27,
-                          height: 27,
-                          // ignore: deprecated_member_use
-                          color: theme.textColor,
-                        ),
-                      ),
-                    ],
-                  ),
-                ),
-                const SizedBox(height: 20),
-                Expanded(
-                  child: gameState.isSinglePlayer
-                      ? _buildSinglePlayerView(context, gameState)
-                      : _buildMultiPlayerView(context, gameState, theme),
-                ),
-              ],
+        return PopScope(
+          canPop: false,
+          child: Scaffold(
+            appBar: CustomAppBar(
+              leftButtonText: S.of(context).menu,
+              onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
+              rightButtonText: S.of(context).common,
+              onRightButtonPressed: () {},
             ),
-          ),
-          bottomNavigationBar: BottomGameBar(
-            isArrow: true,
-            rightButtonText: S.of(context).finish,
-            onRightBtnTap: () {
-              _showGameEndModal(context, gameState);
-            },
-            isLeftArrowActive: gameState.history.isNotEmpty,
-            isRightArrowActive: gameState.redoHistory.isNotEmpty,
-            onLeftArrowTap: gameState.history.isNotEmpty
-                ? () {
-                    context.read<CommonCounterBloc>().add(UndoAction());
-                  }
-                : null,
-            onRightArrowTap: gameState.redoHistory.isNotEmpty
-                ? () {
-                    context.read<CommonCounterBloc>().add(RedoAction());
-                  }
-                : null,
-            onKeyboardBtnTap: () {
-              setState(() {
-                _isNumericKeyboard = !_isNumericKeyboard;
-              });
-            },
-            isKeyboardActive: gameState.isSinglePlayer ? false : true,
+            body: SafeArea(
+              child: Column(
+                children: [
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                            horizontal: GeneralConst.paddingHorizontal) +
+                        const EdgeInsets.only(
+                            top: GeneralConst.paddingVertical),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const TimerWidget(),
+                        const Spacer(),
+                        GestureDetector(
+                          onTap: () => DiceModal.show(context),
+                          child: SvgPicture.asset(
+                            CustomIcons.dice,
+                            width: 27,
+                            height: 27,
+                            // ignore: deprecated_member_use
+                            color: theme.textColor,
+                          ),
+                        ),
+                      ],
+                    ),
+                  ),
+                  const SizedBox(height: 20),
+                  Expanded(
+                    child: gameState.isSinglePlayer
+                        ? _buildSinglePlayerView(context, gameState)
+                        : _buildMultiPlayerView(context, gameState, theme),
+                  ),
+                ],
+              ),
+            ),
+            bottomNavigationBar: BottomGameBar(
+              isArrow: true,
+              rightButtonText: S.of(context).finish,
+              onRightBtnTap: () {
+                _showGameEndModal(context, gameState);
+              },
+              isLeftArrowActive: gameState.history.isNotEmpty,
+              isRightArrowActive: gameState.redoHistory.isNotEmpty,
+              onLeftArrowTap: gameState.history.isNotEmpty
+                  ? () {
+                      context.read<CommonCounterBloc>().add(UndoAction());
+                    }
+                  : null,
+              onRightArrowTap: gameState.redoHistory.isNotEmpty
+                  ? () {
+                      context.read<CommonCounterBloc>().add(RedoAction());
+                    }
+                  : null,
+              onKeyboardBtnTap: () {
+                setState(() {
+                  _isNumericKeyboard = !_isNumericKeyboard;
+                });
+              },
+              isKeyboardActive: gameState.isSinglePlayer ? false : true,
+            ),
           ),
         );
       },

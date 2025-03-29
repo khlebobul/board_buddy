@@ -43,153 +43,158 @@ class UnoFlipStartScreenView extends StatelessWidget {
         final unoFlipState = state;
         final theme = UIThemes.of(context);
 
-        return Scaffold(
-          appBar: CustomAppBar(
-            leftButtonText: S.of(context).back,
-            onLeftButtonPressed: () => Navigator.pop(context),
-            rightButtonText: S.of(context).unoFlip,
-            onRightButtonPressed: () {},
-          ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                      horizontal: GeneralConst.paddingHorizontal) +
-                  const EdgeInsets.only(top: GeneralConst.paddingVertical),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // game mode
-                    Text(
-                      S.of(context).mode,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    _buildModeOption(
-                        context, S.of(context).highestScoreWins, unoFlipState),
-                    _buildModeOption(
-                        context, S.of(context).lowestScoreWins, unoFlipState),
-                    const SizedBox(height: 12),
-
-                    // score limit (WheelChooser)
-                    Text(
-                      S.of(context).score,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    SizedBox(
-                      height: 100,
-                      child: WheelChooser.integer(
-                        onValueChanged: (value) => context
-                            .read<UnoFlipBloc>()
-                            .add(UpdateScoreLimit(value)),
-                        maxValue: 1000,
-                        minValue: 100,
-                        step: 50,
-                        initValue: unoFlipState.scoreLimit,
-                        horizontal: true,
-                        unSelectTextStyle: theme.display6
+        return PopScope(
+          canPop: false,
+          child: Scaffold(
+            appBar: CustomAppBar(
+              leftButtonText: S.of(context).back,
+              onLeftButtonPressed: () => Navigator.pop(context),
+              rightButtonText: S.of(context).unoFlip,
+              onRightButtonPressed: () {},
+            ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                        horizontal: GeneralConst.paddingHorizontal) +
+                    const EdgeInsets.only(top: GeneralConst.paddingVertical),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // game mode
+                      Text(
+                        S.of(context).mode,
+                        style: theme.display2
                             .copyWith(color: theme.secondaryTextColor),
-                        selectTextStyle: theme.display6,
-                        itemSize: 70,
                       ),
-                    ),
-                    const SizedBox(height: 12),
+                      _buildModeOption(context, S.of(context).highestScoreWins,
+                          unoFlipState),
+                      _buildModeOption(
+                          context, S.of(context).lowestScoreWins, unoFlipState),
+                      const SizedBox(height: 12),
 
-                    // players list
-                    Text(
-                      S.of(context).players,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children:
-                          unoFlipState.players.asMap().entries.map((entry) {
-                        int index = entry.key + 1;
-                        Player player = entry.value;
-                        String formattedIndex =
-                            index.toString().padLeft(2, '0');
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                '$formattedIndex - ${player.name}'
-                                    .toLowerCase(),
-                                softWrap: true,
-                                style: theme.display2
-                                    .copyWith(color: theme.textColor),
-                              ),
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.close,
-                                  color: theme.secondaryTextColor),
-                              onPressed: () {
-                                context
-                                    .read<UnoFlipBloc>()
-                                    .add(RemovePlayer(entry.key));
-                              },
-                            ),
-                          ],
-                        );
-                      }).toList(),
-                    ),
-                    const SizedBox(height: 12),
-                    if (unoFlipState.players.length < GameMaxPlayers.unoFlip)
-                      GestureDetector(
-                        onTap: () {
-                          final unoFlipBloc = context.read<UnoFlipBloc>();
-                          showDialog(
-                            context: context,
-                            builder: (dialogContext) => AddPlayerDialog(
-                              onPlayerAdded: (player) {
-                                unoFlipBloc.add(AddPlayer(player));
-                              },
-                            ),
-                          );
-                        },
-                        child: TextScramble(
-                          text: S.of(context).add,
-                          style: theme.display2.copyWith(color: theme.redColor),
+                      // score limit (WheelChooser)
+                      Text(
+                        S.of(context).score,
+                        style: theme.display2
+                            .copyWith(color: theme.secondaryTextColor),
+                      ),
+                      SizedBox(
+                        height: 100,
+                        child: WheelChooser.integer(
+                          onValueChanged: (value) => context
+                              .read<UnoFlipBloc>()
+                              .add(UpdateScoreLimit(value)),
+                          maxValue: 1000,
+                          minValue: 100,
+                          step: 50,
+                          initValue: unoFlipState.scoreLimit,
+                          horizontal: true,
+                          unSelectTextStyle: theme.display6
+                              .copyWith(color: theme.secondaryTextColor),
+                          selectTextStyle: theme.display6,
+                          itemSize: 70,
                         ),
                       ),
+                      const SizedBox(height: 12),
 
-                    // bottom padding for keyboard
-                    SizedBox(
-                        height: MediaQuery.of(context).viewInsets.bottom > 0
-                            ? 300
-                            : 0),
-                  ],
+                      // players list
+                      Text(
+                        S.of(context).players,
+                        style: theme.display2
+                            .copyWith(color: theme.secondaryTextColor),
+                      ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children:
+                            unoFlipState.players.asMap().entries.map((entry) {
+                          int index = entry.key + 1;
+                          Player player = entry.value;
+                          String formattedIndex =
+                              index.toString().padLeft(2, '0');
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  '$formattedIndex - ${player.name}'
+                                      .toLowerCase(),
+                                  softWrap: true,
+                                  style: theme.display2
+                                      .copyWith(color: theme.textColor),
+                                ),
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.close,
+                                    color: theme.secondaryTextColor),
+                                onPressed: () {
+                                  context
+                                      .read<UnoFlipBloc>()
+                                      .add(RemovePlayer(entry.key));
+                                },
+                              ),
+                            ],
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(height: 12),
+                      if (unoFlipState.players.length < GameMaxPlayers.unoFlip)
+                        GestureDetector(
+                          onTap: () {
+                            final unoFlipBloc = context.read<UnoFlipBloc>();
+                            showDialog(
+                              context: context,
+                              builder: (dialogContext) => AddPlayerDialog(
+                                onPlayerAdded: (player) {
+                                  unoFlipBloc.add(AddPlayer(player));
+                                },
+                              ),
+                            );
+                          },
+                          child: TextScramble(
+                            text: S.of(context).add,
+                            style:
+                                theme.display2.copyWith(color: theme.redColor),
+                          ),
+                        ),
+
+                      // bottom padding for keyboard
+                      SizedBox(
+                          height: MediaQuery.of(context).viewInsets.bottom > 0
+                              ? 300
+                              : 0),
+                    ],
+                  ),
                 ),
               ),
             ),
+            bottomNavigationBar: BottomGameBar(
+                leftButtonText: S.of(context).rules,
+                rightButtonText: S.of(context).play,
+                isRightBtnRed: true,
+                onLeftBtnTap: () =>
+                    Navigator.pushNamed(context, '/unoFlipRules'),
+                onRightBtnTap: () {
+                  unoFlipState.players.length < GameMinPlayers.unoFlip
+                      ? ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.unoFlipPlayers}'),
+                          ),
+                        )
+                      : Navigator.pushNamed(
+                          context,
+                          '/unoFlipGame',
+                          arguments: {
+                            'players': unoFlipState.players,
+                            'scoreLimit': unoFlipState.scoreLimit,
+                            'gameMode': unoFlipState.selectedMode,
+                          },
+                        );
+                }),
+            resizeToAvoidBottomInset: true,
           ),
-          bottomNavigationBar: BottomGameBar(
-              leftButtonText: S.of(context).rules,
-              rightButtonText: S.of(context).play,
-              isRightBtnRed: true,
-              onLeftBtnTap: () => Navigator.pushNamed(context, '/unoFlipRules'),
-              onRightBtnTap: () {
-                unoFlipState.players.length < GameMinPlayers.unoFlip
-                    ? ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                              '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.unoFlipPlayers}'),
-                        ),
-                      )
-                    : Navigator.pushNamed(
-                        context,
-                        '/unoFlipGame',
-                        arguments: {
-                          'players': unoFlipState.players,
-                          'scoreLimit': unoFlipState.scoreLimit,
-                          'gameMode': unoFlipState.selectedMode,
-                        },
-                      );
-              }),
-          resizeToAvoidBottomInset: true,
         );
       },
     );

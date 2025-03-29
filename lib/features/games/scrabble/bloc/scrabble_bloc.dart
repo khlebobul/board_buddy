@@ -241,7 +241,6 @@ class ScrabbleBloc extends Bloc<ScrabbleEvent, ScrabbleState> {
           moveHistory: [],
         ));
       } else {
-        // Return to start screen
         emit(ScrabbleStartScreenState(players: currentState.players));
       }
 

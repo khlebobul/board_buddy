@@ -213,247 +213,257 @@ class _UnoFlipGameState extends State<UnoFlipGame>
 
         final gameState = state;
 
-        return Scaffold(
-          appBar: CustomAppBar(
-            leftButtonText: S.of(context).menu,
-            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
-            isRules: true,
-            rightButtonText: S.of(context).rules,
-            onRightButtonPressed: () =>
-                Navigator.pushNamed(context, '/unoFlipRules'),
-          ),
-          body: SafeArea(
-            child: LayoutBuilder(
-              builder: (context, constraints) {
-                return Column(
-                  children: [
-                    Padding(
-                      padding: EdgeInsets.symmetric(
-                          horizontal: GeneralConst.paddingHorizontal),
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Text(
-                            '${S.of(context).gameUpTo}${gameState.scoreLimit}',
-                            style: theme.display2
-                                .copyWith(color: theme.secondaryTextColor),
-                          ),
-                        ],
+        return PopScope(
+          canPop: false,
+          child: Scaffold(
+            appBar: CustomAppBar(
+              leftButtonText: S.of(context).menu,
+              onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
+              isRules: true,
+              rightButtonText: S.of(context).rules,
+              onRightButtonPressed: () =>
+                  Navigator.pushNamed(context, '/unoFlipRules'),
+            ),
+            body: SafeArea(
+              child: LayoutBuilder(
+                builder: (context, constraints) {
+                  return Column(
+                    children: [
+                      Padding(
+                        padding: EdgeInsets.symmetric(
+                            horizontal: GeneralConst.paddingHorizontal),
+                        child: Row(
+                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                          children: [
+                            Text(
+                              '${S.of(context).gameUpTo}${gameState.scoreLimit}',
+                              style: theme.display2
+                                  .copyWith(color: theme.secondaryTextColor),
+                            ),
+                          ],
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                    SizedBox(
-                      height: constraints.maxHeight * 0.4,
-                      child: Column(
-                        children: [
-                          Expanded(
-                            child: Stack(
-                              children: [
-                                PageView.builder(
-                                  controller: _pageController,
-                                  itemCount: gameState.players.length,
-                                  pageSnapping: true,
-                                  padEnds: true,
-                                  onPageChanged: (index) {
-                                    // Update local state
-                                    _currentPageIndex = index;
-                                    // Update state in BLoC
-                                    bloc.add(ChangeCurrentPlayer(index));
-                                  },
-                                  itemBuilder: (context, index) {
-                                    return Padding(
-                                      padding: EdgeInsets.symmetric(
-                                        horizontal:
-                                            GeneralConst.paddingHorizontal / 2,
-                                      ),
-                                      child: PlayerCard(
-                                        player: gameState.players[index],
-                                      ),
-                                    );
-                                  },
-                                ),
-
-                                // animation for score
-                                if (gameState.isScoreChanging)
-                                  AnimatedBuilder(
-                                    animation: _animation,
-                                    builder: (context, child) {
-                                      return Positioned(
-                                        top: 60 - (_animation.value * 40),
-                                        left: 0,
-                                        right: 0,
-                                        child: Opacity(
-                                          opacity: 1.0 - _animation.value,
-                                          child: Center(
-                                            child: Container(
-                                              padding:
-                                                  const EdgeInsets.symmetric(
-                                                horizontal: 12,
-                                                vertical: 6,
-                                              ),
-                                              child: Text(
-                                                gameState.lastScoreChange > 0
-                                                    ? '+${gameState.lastScoreChange}'
-                                                    : '${gameState.lastScoreChange}',
-                                                style: theme.display2.copyWith(
-                                                  color:
-                                                      theme.secondaryTextColor,
-                                                ),
-                                              ),
-                                            ),
-                                          ),
+                      const SizedBox(height: 12),
+                      SizedBox(
+                        height: constraints.maxHeight * 0.4,
+                        child: Column(
+                          children: [
+                            Expanded(
+                              child: Stack(
+                                children: [
+                                  PageView.builder(
+                                    controller: _pageController,
+                                    itemCount: gameState.players.length,
+                                    pageSnapping: true,
+                                    padEnds: true,
+                                    onPageChanged: (index) {
+                                      // Update local state
+                                      _currentPageIndex = index;
+                                      // Update state in BLoC
+                                      bloc.add(ChangeCurrentPlayer(index));
+                                    },
+                                    itemBuilder: (context, index) {
+                                      return Padding(
+                                        padding: EdgeInsets.symmetric(
+                                          horizontal:
+                                              GeneralConst.paddingHorizontal /
+                                                  2,
+                                        ),
+                                        child: PlayerCard(
+                                          player: gameState.players[index],
                                         ),
                                       );
                                     },
                                   ),
-                              ],
-                            ),
-                          ),
-                          const SizedBox(height: 10),
-                          Row(
-                            mainAxisAlignment: MainAxisAlignment.center,
-                            children:
-                                gameState.players.asMap().entries.map((entry) {
-                              final index = entry.key;
-                              final player = entry.value;
-                              final firstLetter = player.name.characters.first;
-                              return GestureDetector(
-                                onTap: () {
-                                  _pageController.animateToPage(
-                                    index,
-                                    duration: const Duration(milliseconds: 300),
-                                    curve: Curves.easeInOut,
-                                  );
-                                },
-                                child: Padding(
-                                  padding: const EdgeInsets.symmetric(
-                                      horizontal: 4.0),
-                                  child: PlayerIndicator(
-                                    letter: firstLetter,
-                                    isActive:
-                                        index == gameState.currentPlayerIndex,
-                                  ),
-                                ),
-                              );
-                            }).toList(),
-                          ),
-                          const SizedBox(height: 10),
-                        ],
-                      ),
-                    ),
-                    const Spacer(),
 
-                    // points keyboard
-                    Padding(
-                      padding: const EdgeInsets.symmetric(
-                          horizontal: GeneralConst.paddingHorizontal),
-                      child: CustomKeyboard(
-                        buttons: [
-                          [
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.one,
-                              onPressed: () => _updateScore(1),
+                                  // animation for score
+                                  if (gameState.isScoreChanging)
+                                    AnimatedBuilder(
+                                      animation: _animation,
+                                      builder: (context, child) {
+                                        return Positioned(
+                                          top: 60 - (_animation.value * 40),
+                                          left: 0,
+                                          right: 0,
+                                          child: Opacity(
+                                            opacity: 1.0 - _animation.value,
+                                            child: Center(
+                                              child: Container(
+                                                padding:
+                                                    const EdgeInsets.symmetric(
+                                                  horizontal: 12,
+                                                  vertical: 6,
+                                                ),
+                                                child: Text(
+                                                  gameState.lastScoreChange > 0
+                                                      ? '+${gameState.lastScoreChange}'
+                                                      : '${gameState.lastScoreChange}',
+                                                  style:
+                                                      theme.display2.copyWith(
+                                                    color: theme
+                                                        .secondaryTextColor,
+                                                  ),
+                                                ),
+                                              ),
+                                            ),
+                                          ),
+                                        );
+                                      },
+                                    ),
+                                ],
+                              ),
                             ),
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.two,
-                              onPressed: () => _updateScore(2),
-                            ),
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.three,
-                              onPressed: () => _updateScore(3),
-                            ),
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.four,
-                              onPressed: () => _updateScore(4),
-                            ),
-                          ],
-                          [
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.five,
-                              onPressed: () => _updateScore(5),
-                            ),
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.six,
-                              onPressed: () => _updateScore(6),
-                            ),
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.seven,
-                              onPressed: () => _updateScore(7),
-                            ),
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.eight,
-                              onPressed: () => _updateScore(8),
-                            ),
-                          ],
-                          [
-                            KeyboardButton(
-                              buttonText: UnoLikeGameCardsText.nine,
-                              onPressed: () => _updateScore(9),
-                            ),
-                            KeyboardButton(
-                              buttonText: _isDarkSide
-                                  ? UnoLikeGameCardsText.plusFive
-                                  : UnoLikeGameCardsText.plusOne,
-                              onPressed: () =>
-                                  _updateScore(_isDarkSide ? 20 : 10),
-                            ),
-                            KeyboardButton(
-                              buttonIcon: CustomIcons.reverse,
-                              onPressed: () => _updateScore(20),
-                            ),
-                            _isDarkSide
-                                ? KeyboardButton(
-                                    buttonIcon: CustomIcons.skipEveryone,
-                                    onPressed: () => _updateScore(30),
-                                  )
-                                : KeyboardButton(
-                                    buttonIcon: CustomIcons.skip,
-                                    onPressed: () => _updateScore(20),
+                            const SizedBox(height: 10),
+                            Row(
+                              mainAxisAlignment: MainAxisAlignment.center,
+                              children: gameState.players
+                                  .asMap()
+                                  .entries
+                                  .map((entry) {
+                                final index = entry.key;
+                                final player = entry.value;
+                                final firstLetter =
+                                    player.name.characters.first;
+                                return GestureDetector(
+                                  onTap: () {
+                                    _pageController.animateToPage(
+                                      index,
+                                      duration:
+                                          const Duration(milliseconds: 300),
+                                      curve: Curves.easeInOut,
+                                    );
+                                  },
+                                  child: Padding(
+                                    padding: const EdgeInsets.symmetric(
+                                        horizontal: 4.0),
+                                    child: PlayerIndicator(
+                                      letter: firstLetter,
+                                      isActive:
+                                          index == gameState.currentPlayerIndex,
+                                    ),
                                   ),
+                                );
+                              }).toList(),
+                            ),
+                            const SizedBox(height: 10),
                           ],
-                          [
-                            KeyboardButton(
-                              buttonIcon: CustomIcons.flip,
-                              onPressed: () => _updateScore(20),
-                            ),
-                            KeyboardButton(
-                              buttonIcon: CustomIcons.wild,
-                              onPressed: () => _updateScore(40),
-                            ),
-                            _isDarkSide
-                                ? KeyboardButton(
-                                    buttonIcon: CustomIcons.wildDrawColor,
-                                    onPressed: () => _updateScore(60),
-                                  )
-                                : KeyboardButton(
-                                    buttonIcon: CustomIcons.wildDrawTwoUnoflip,
-                                    onPressed: () => _updateScore(50),
-                                  ),
-                            KeyboardButton(
-                              buttonIcon: _isDarkSide
-                                  ? CustomIcons.sun
-                                  : CustomIcons.sunDark,
-                              onPressed: _toggleSide,
-                            ),
-                          ],
-                        ],
+                        ),
                       ),
-                    ),
-                    const SizedBox(height: 12),
-                  ],
-                );
-              },
+                      const Spacer(),
+
+                      // points keyboard
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: GeneralConst.paddingHorizontal),
+                        child: CustomKeyboard(
+                          buttons: [
+                            [
+                              KeyboardButton(
+                                buttonText: UnoLikeGameCardsText.one,
+                                onPressed: () => _updateScore(1),
+                              ),
+                              KeyboardButton(
+                                buttonText: UnoLikeGameCardsText.two,
+                                onPressed: () => _updateScore(2),
+                              ),
+                              KeyboardButton(
+                                buttonText: UnoLikeGameCardsText.three,
+                                onPressed: () => _updateScore(3),
+                              ),
+                              KeyboardButton(
+                                buttonText: UnoLikeGameCardsText.four,
+                                onPressed: () => _updateScore(4),
+                              ),
+                            ],
+                            [
+                              KeyboardButton(
+                                buttonText: UnoLikeGameCardsText.five,
+                                onPressed: () => _updateScore(5),
+                              ),
+                              KeyboardButton(
+                                buttonText: UnoLikeGameCardsText.six,
+                                onPressed: () => _updateScore(6),
+                              ),
+                              KeyboardButton(
+                                buttonText: UnoLikeGameCardsText.seven,
+                                onPressed: () => _updateScore(7),
+                              ),
+                              KeyboardButton(
+                                buttonText: UnoLikeGameCardsText.eight,
+                                onPressed: () => _updateScore(8),
+                              ),
+                            ],
+                            [
+                              KeyboardButton(
+                                buttonText: UnoLikeGameCardsText.nine,
+                                onPressed: () => _updateScore(9),
+                              ),
+                              KeyboardButton(
+                                buttonText: _isDarkSide
+                                    ? UnoLikeGameCardsText.plusFive
+                                    : UnoLikeGameCardsText.plusOne,
+                                onPressed: () =>
+                                    _updateScore(_isDarkSide ? 20 : 10),
+                              ),
+                              KeyboardButton(
+                                buttonIcon: CustomIcons.reverse,
+                                onPressed: () => _updateScore(20),
+                              ),
+                              _isDarkSide
+                                  ? KeyboardButton(
+                                      buttonIcon: CustomIcons.skipEveryone,
+                                      onPressed: () => _updateScore(30),
+                                    )
+                                  : KeyboardButton(
+                                      buttonIcon: CustomIcons.skip,
+                                      onPressed: () => _updateScore(20),
+                                    ),
+                            ],
+                            [
+                              KeyboardButton(
+                                buttonIcon: CustomIcons.flip,
+                                onPressed: () => _updateScore(20),
+                              ),
+                              KeyboardButton(
+                                buttonIcon: CustomIcons.wild,
+                                onPressed: () => _updateScore(40),
+                              ),
+                              _isDarkSide
+                                  ? KeyboardButton(
+                                      buttonIcon: CustomIcons.wildDrawColor,
+                                      onPressed: () => _updateScore(60),
+                                    )
+                                  : KeyboardButton(
+                                      buttonIcon:
+                                          CustomIcons.wildDrawTwoUnoflip,
+                                      onPressed: () => _updateScore(50),
+                                    ),
+                              KeyboardButton(
+                                buttonIcon: _isDarkSide
+                                    ? CustomIcons.sun
+                                    : CustomIcons.sunDark,
+                                onPressed: _toggleSide,
+                              ),
+                            ],
+                          ],
+                        ),
+                      ),
+                      const SizedBox(height: 12),
+                    ],
+                  );
+                },
+              ),
             ),
-          ),
-          bottomNavigationBar: BottomGameBar(
-            dialogWidget: const InfoUnoFlipDialog(),
-            isArrow: true,
-            rightButtonText: S.of(context).finish,
-            onLeftArrowTap: _undo,
-            onRightArrowTap: _redo,
-            onRightBtnTap: _showEndGameModalWithoutScoreLimit,
-            isLeftArrowActive: bloc.canUndo(),
-            isRightArrowActive: bloc.canRedo(),
+            bottomNavigationBar: BottomGameBar(
+              dialogWidget: const InfoUnoFlipDialog(),
+              isArrow: true,
+              rightButtonText: S.of(context).finish,
+              onLeftArrowTap: _undo,
+              onRightArrowTap: _redo,
+              onRightBtnTap: _showEndGameModalWithoutScoreLimit,
+              isLeftArrowActive: bloc.canUndo(),
+              isRightArrowActive: bloc.canRedo(),
+            ),
           ),
         );
       },

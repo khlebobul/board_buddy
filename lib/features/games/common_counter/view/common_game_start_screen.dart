@@ -49,136 +49,139 @@ class CommonGameStartScreenView extends StatelessWidget {
         final counterState = state;
         final theme = UIThemes.of(context);
 
-        return Scaffold(
-          appBar: CustomAppBar(
-            leftButtonText: S.of(context).back,
-            onLeftButtonPressed: () => Navigator.pop(context),
-            rightButtonText: S.of(context).common,
-            onRightButtonPressed: () {},
-          ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                      horizontal: GeneralConst.paddingHorizontal) +
-                  const EdgeInsets.only(top: GeneralConst.paddingVertical),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // game mode
-                    Text(
-                      S.of(context).mode,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    _buildModeOption(
-                        context, S.of(context).singleplayer, counterState),
-                    _buildModeOption(
-                        context, S.of(context).multiplayer, counterState),
-                    const SizedBox(height: 24),
-
-                    // players list - only show in multiplayer mode
-                    if (!counterState.isSinglePlayer) ...[
+        return PopScope(
+          canPop: false,
+          child: Scaffold(
+            appBar: CustomAppBar(
+              leftButtonText: S.of(context).back,
+              onLeftButtonPressed: () => Navigator.pop(context),
+              rightButtonText: S.of(context).common,
+              onRightButtonPressed: () {},
+            ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                        horizontal: GeneralConst.paddingHorizontal) +
+                    const EdgeInsets.only(top: GeneralConst.paddingVertical),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // game mode
                       Text(
-                        S.of(context).players,
+                        S.of(context).mode,
                         style: theme.display2
                             .copyWith(color: theme.secondaryTextColor),
                       ),
-                      Column(
-                        crossAxisAlignment: CrossAxisAlignment.start,
-                        children:
-                            counterState.players.asMap().entries.map((entry) {
-                          int index = entry.key + 1;
-                          Player player = entry.value;
-                          String formattedIndex =
-                              index.toString().padLeft(2, '0');
-                          return Row(
-                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                            children: [
-                              Expanded(
-                                child: Text(
-                                  '$formattedIndex - ${player.name}'
-                                      .toLowerCase(),
-                                  softWrap: true,
-                                  style: theme.display2
-                                      .copyWith(color: theme.textColor),
-                                ),
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.close,
-                                    color: theme.secondaryTextColor),
-                                onPressed: () {
-                                  context
-                                      .read<CommonCounterBloc>()
-                                      .add(RemovePlayer(entry.key));
-                                },
-                              ),
-                            ],
-                          );
-                        }).toList(),
-                      ),
-                      const SizedBox(height: 12),
-                      if (counterState.players.length <
-                          CommonCounterConst.maxPlayers)
-                        GestureDetector(
-                          onTap: () {
-                            final counterBloc =
-                                context.read<CommonCounterBloc>();
-                            showDialog(
-                              context: context,
-                              builder: (dialogContext) => AddPlayerDialog(
-                                onPlayerAdded: (player) {
-                                  counterBloc.add(AddPlayer(player));
-                                },
-                              ),
-                            );
-                          },
-                          child: TextScramble(
-                            text: S.of(context).add,
-                            style:
-                                theme.display2.copyWith(color: theme.redColor),
-                          ),
-                        ),
-                    ],
+                      _buildModeOption(
+                          context, S.of(context).singleplayer, counterState),
+                      _buildModeOption(
+                          context, S.of(context).multiplayer, counterState),
+                      const SizedBox(height: 24),
 
-                    // bottom padding for keyboard
-                    SizedBox(
-                        height: MediaQuery.of(context).viewInsets.bottom > 0
-                            ? 300
-                            : 0),
-                  ],
+                      // players list - only show in multiplayer mode
+                      if (!counterState.isSinglePlayer) ...[
+                        Text(
+                          S.of(context).players,
+                          style: theme.display2
+                              .copyWith(color: theme.secondaryTextColor),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children:
+                              counterState.players.asMap().entries.map((entry) {
+                            int index = entry.key + 1;
+                            Player player = entry.value;
+                            String formattedIndex =
+                                index.toString().padLeft(2, '0');
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    '$formattedIndex - ${player.name}'
+                                        .toLowerCase(),
+                                    softWrap: true,
+                                    style: theme.display2
+                                        .copyWith(color: theme.textColor),
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(Icons.close,
+                                      color: theme.secondaryTextColor),
+                                  onPressed: () {
+                                    context
+                                        .read<CommonCounterBloc>()
+                                        .add(RemovePlayer(entry.key));
+                                  },
+                                ),
+                              ],
+                            );
+                          }).toList(),
+                        ),
+                        const SizedBox(height: 12),
+                        if (counterState.players.length <
+                            CommonCounterConst.maxPlayers)
+                          GestureDetector(
+                            onTap: () {
+                              final counterBloc =
+                                  context.read<CommonCounterBloc>();
+                              showDialog(
+                                context: context,
+                                builder: (dialogContext) => AddPlayerDialog(
+                                  onPlayerAdded: (player) {
+                                    counterBloc.add(AddPlayer(player));
+                                  },
+                                ),
+                              );
+                            },
+                            child: TextScramble(
+                              text: S.of(context).add,
+                              style: theme.display2
+                                  .copyWith(color: theme.redColor),
+                            ),
+                          ),
+                      ],
+
+                      // bottom padding for keyboard
+                      SizedBox(
+                          height: MediaQuery.of(context).viewInsets.bottom > 0
+                              ? 300
+                              : 0),
+                    ],
+                  ),
                 ),
               ),
             ),
+            bottomNavigationBar: BottomGameBar(
+                rightButtonText: S.of(context).play,
+                isRightBtnRed: true,
+                onRightBtnTap: () {
+                  if (!counterState.isSinglePlayer &&
+                      counterState.players.length <
+                          CommonCounterConst.minPlayers) {
+                    ScaffoldMessenger.of(context).showSnackBar(
+                      SnackBar(
+                        content: Text(
+                            '${S.of(context).theNumberOfPlayersShouldBe} ${CommonCounterConst.minPlayers}'),
+                      ),
+                    );
+                  } else {
+                    Navigator.pushNamed(
+                      context,
+                      '/commonGame',
+                      arguments: {
+                        'players': counterState.isSinglePlayer
+                            ? [Player(name: 'player', score: 0, id: 1)]
+                            : counterState.players,
+                        'isSinglePlayer': counterState.isSinglePlayer,
+                      },
+                    );
+                  }
+                }),
+            resizeToAvoidBottomInset: true,
           ),
-          bottomNavigationBar: BottomGameBar(
-              rightButtonText: S.of(context).play,
-              isRightBtnRed: true,
-              onRightBtnTap: () {
-                if (!counterState.isSinglePlayer &&
-                    counterState.players.length <
-                        CommonCounterConst.minPlayers) {
-                  ScaffoldMessenger.of(context).showSnackBar(
-                    SnackBar(
-                      content: Text(
-                          '${S.of(context).theNumberOfPlayersShouldBe} ${CommonCounterConst.minPlayers}'),
-                    ),
-                  );
-                } else {
-                  Navigator.pushNamed(
-                    context,
-                    '/commonGame',
-                    arguments: {
-                      'players': counterState.isSinglePlayer
-                          ? [Player(name: 'player', score: 0, id: 1)]
-                          : counterState.players,
-                      'isSinglePlayer': counterState.isSinglePlayer,
-                    },
-                  );
-                }
-              }),
-          resizeToAvoidBottomInset: true,
         );
       },
     );
