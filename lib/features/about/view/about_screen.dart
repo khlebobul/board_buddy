@@ -55,12 +55,13 @@ class AboutScreen extends StatelessWidget {
                   overflow: TextOverflow.clip,
                 ),
                 const SizedBox(height: 10),
-                LinkBtnWidget(
-                  text: S.of(context).rateTheApp,
-                  url: Platform.isIOS
-                      ? AppLnksConst.rateAppStore
-                      : AppLnksConst.rateGooglePlay,
-                ),
+                // TODO: Add rating
+                // LinkBtnWidget(
+                //   text: S.of(context).rateTheApp,
+                //   url: Platform.isIOS
+                //       ? AppLnksConst.rateAppStore
+                //       : AppLnksConst.rateGooglePlay,
+                // ),
                 LinkBtnWidget(
                   text: S.of(context).projectWebsite,
                   url: AppLnksConst.webSitelink,
