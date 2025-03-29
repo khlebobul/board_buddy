@@ -3,13 +3,13 @@
 <div align="center">
 <!-- Change the link -->
 
-[![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![LICENCE - GPLv3](https://img.shields.io/badge/LICENCE-GPLv3-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
+[![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app)
 
-demo image
+<img width="1000" alt="Frame 2" src="https://github.com/user-attachments/assets/2db1490f-4568-4bf1-9f2d-274dfd62bd0b" />
 
-[![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy) [![Website](https://img.shields.io/badge/Website-414141?style=for-the-badge&logo=Website&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev)
+a free cross-platform mobile app for tracking scores and rules in board games. board buddy simplifies gameplay by helping you keep track of scores and key points, so you can focus on the game itself and socializing with friends
 
-free cross platform mobile app for tracking scores and rules in board games. simplifies gameplay, helps track points and key moments, allowing you to focus on the game itself and socializing with friends
+[![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy) [![Website](https://img.shields.io/badge/Website-414141?style=for-the-badge&logo=Website&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev) [![LICENCE - GPLv3](https://img.shields.io/badge/LICENCE-GPLv3-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
 
 </div>
 
@@ -27,10 +27,11 @@ free cross platform mobile app for tracking scores and rules in board games. sim
 
 your ultimate board game companion
 
-- no more searching for rules on the internet
-- no more forgetting important moments
-- no more lost scores
-- no more missed turns
+- keep scores and rules in one place
+- stay on top of points and key moments
+- no more missed turns or lost points
+- focus on fun, board buddy takes care of the details
+- less distractions, more fun with friends
 
 ## supported games
 
@@ -38,7 +39,7 @@ your ultimate board game companion
 - scrabble
 - set
 - munchkin
-- \+ universal counter
+- universal counter
 
 ## how to help
 
@@ -64,13 +65,9 @@ your ultimate board game companion
 
 ## contributing
 
-<div align="center">
-
 [![CONTRIBUTING.md](https://img.shields.io/badge/CONTRIBUTING.md-414141?style=for-the-badge&logo=md&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/CONTRIBUTING.md) [![CODE_OF_CONDUCT.md](https://img.shields.io/badge/CODE_OF_CONDUCT.md-414141?style=for-the-badge&logo=md&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/CODE_OF_CONDUCT.md)
 
 <img width="500" alt="931_1x_shots_so" src="https://github.com/user-attachments/assets/d9e1e312-216c-4b7f-b767-021cce638d85" />
-
-</div>
 
 > [!NOTE]
 > **this app was created with two main goals in mind:**
