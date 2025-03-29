@@ -124,37 +124,41 @@ class _CommonGameViewState extends State<CommonGameView>
         final gameState = state;
         final theme = UIThemes.of(context);
 
-        return Scaffold(
-          appBar: CustomAppBar(
-            leftButtonText: S.of(context).menu,
-            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
-            rightButtonText: S.of(context).common,
-            onRightButtonPressed: () {},
-          ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                      horizontal: GeneralConst.paddingHorizontal) +
-                  const EdgeInsets.only(top: GeneralConst.paddingVertical),
+        return PopScope(
+          canPop: false,
+          child: Scaffold(
+            appBar: CustomAppBar(
+              leftButtonText: S.of(context).menu,
+              onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
+              rightButtonText: S.of(context).common,
+              onRightButtonPressed: () {},
+            ),
+            body: SafeArea(
               child: Column(
                 children: [
-                  Row(
-                    crossAxisAlignment: CrossAxisAlignment.center,
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      const TimerWidget(),
-                      const Spacer(),
-                      GestureDetector(
-                        onTap: () => DiceModal.show(context),
-                        child: SvgPicture.asset(
-                          CustomIcons.dice,
-                          width: 27,
-                          height: 27,
-                          // ignore: deprecated_member_use
-                          color: theme.textColor,
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                            horizontal: GeneralConst.paddingHorizontal) +
+                        const EdgeInsets.only(
+                            top: GeneralConst.paddingVertical),
+                    child: Row(
+                      crossAxisAlignment: CrossAxisAlignment.center,
+                      mainAxisAlignment: MainAxisAlignment.center,
+                      children: [
+                        const TimerWidget(),
+                        const Spacer(),
+                        GestureDetector(
+                          onTap: () => DiceModal.show(context),
+                          child: SvgPicture.asset(
+                            CustomIcons.dice,
+                            width: 27,
+                            height: 27,
+                            // ignore: deprecated_member_use
+                            color: theme.textColor,
+                          ),
                         ),
-                      ),
-                    ],
+                      ],
+                    ),
                   ),
                   const SizedBox(height: 20),
                   Expanded(
@@ -165,31 +169,31 @@ class _CommonGameViewState extends State<CommonGameView>
                 ],
               ),
             ),
-          ),
-          bottomNavigationBar: BottomGameBar(
-            isArrow: true,
-            rightButtonText: S.of(context).finish,
-            onRightBtnTap: () {
-              _showGameEndModal(context, gameState);
-            },
-            isLeftArrowActive: gameState.history.isNotEmpty,
-            isRightArrowActive: gameState.redoHistory.isNotEmpty,
-            onLeftArrowTap: gameState.history.isNotEmpty
-                ? () {
-                    context.read<CommonCounterBloc>().add(UndoAction());
-                  }
-                : null,
-            onRightArrowTap: gameState.redoHistory.isNotEmpty
-                ? () {
-                    context.read<CommonCounterBloc>().add(RedoAction());
-                  }
-                : null,
-            onKeyboardBtnTap: () {
-              setState(() {
-                _isNumericKeyboard = !_isNumericKeyboard;
-              });
-            },
-            isKeyboardActive: gameState.isSinglePlayer ? false : true,
+            bottomNavigationBar: BottomGameBar(
+              isArrow: true,
+              rightButtonText: S.of(context).finish,
+              onRightBtnTap: () {
+                _showGameEndModal(context, gameState);
+              },
+              isLeftArrowActive: gameState.history.isNotEmpty,
+              isRightArrowActive: gameState.redoHistory.isNotEmpty,
+              onLeftArrowTap: gameState.history.isNotEmpty
+                  ? () {
+                      context.read<CommonCounterBloc>().add(UndoAction());
+                    }
+                  : null,
+              onRightArrowTap: gameState.redoHistory.isNotEmpty
+                  ? () {
+                      context.read<CommonCounterBloc>().add(RedoAction());
+                    }
+                  : null,
+              onKeyboardBtnTap: () {
+                setState(() {
+                  _isNumericKeyboard = !_isNumericKeyboard;
+                });
+              },
+              isKeyboardActive: gameState.isSinglePlayer ? false : true,
+            ),
           ),
         );
       },
@@ -309,103 +313,107 @@ class _CommonGameViewState extends State<CommonGameView>
           ),
         ),
         const Spacer(),
-        _isNumericKeyboard
-            ? Column(
-                children: [
-                  Container(
-                    padding: const EdgeInsets.symmetric(vertical: 8),
-                    child: Text(
-                      _isAddOperation
-                          ? S.of(context).adding
-                          : S.of(context).subtracting,
-                      style: theme.display6,
+        Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: GeneralConst.paddingHorizontal),
+          child: _isNumericKeyboard
+              ? Column(
+                  children: [
+                    Container(
+                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      child: Text(
+                        _isAddOperation
+                            ? S.of(context).adding
+                            : S.of(context).subtracting,
+                        style: theme.display6,
+                      ),
                     ),
-                  ),
-                  CustomKeyboard(
-                    buttons: [
-                      [
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.one,
-                          onPressed: () => _updateScore(context,
-                              _currentPageIndex, _isAddOperation ? 1 : -1),
-                        ),
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.two,
-                          onPressed: () => _updateScore(context,
-                              _currentPageIndex, _isAddOperation ? 2 : -2),
-                        ),
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.three,
-                          onPressed: () => _updateScore(context,
-                              _currentPageIndex, _isAddOperation ? 3 : -3),
-                        ),
+                    CustomKeyboard(
+                      buttons: [
+                        [
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.one,
+                            onPressed: () => _updateScore(context,
+                                _currentPageIndex, _isAddOperation ? 1 : -1),
+                          ),
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.two,
+                            onPressed: () => _updateScore(context,
+                                _currentPageIndex, _isAddOperation ? 2 : -2),
+                          ),
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.three,
+                            onPressed: () => _updateScore(context,
+                                _currentPageIndex, _isAddOperation ? 3 : -3),
+                          ),
+                        ],
+                        [
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.four,
+                            onPressed: () => _updateScore(context,
+                                _currentPageIndex, _isAddOperation ? 4 : -4),
+                          ),
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.five,
+                            onPressed: () => _updateScore(context,
+                                _currentPageIndex, _isAddOperation ? 5 : -5),
+                          ),
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.six,
+                            onPressed: () => _updateScore(context,
+                                _currentPageIndex, _isAddOperation ? 6 : -6),
+                          ),
+                        ],
+                        [
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.seven,
+                            onPressed: () => _updateScore(context,
+                                _currentPageIndex, _isAddOperation ? 7 : -7),
+                          ),
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.eight,
+                            onPressed: () => _updateScore(context,
+                                _currentPageIndex, _isAddOperation ? 8 : -8),
+                          ),
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.nine,
+                            onPressed: () => _updateScore(context,
+                                _currentPageIndex, _isAddOperation ? 9 : -9),
+                          ),
+                        ],
+                        [
+                          KeyboardButton(
+                            buttonText: '-',
+                            onPressed: () {
+                              setState(() {
+                                _isAddOperation = false;
+                              });
+                            },
+                          ),
+                          KeyboardButton(
+                            buttonText: UnoLikeGameCardsText.zero,
+                            onPressed: () =>
+                                _updateScore(context, _currentPageIndex, 0),
+                          ),
+                          KeyboardButton(
+                            buttonText: '+',
+                            onPressed: () {
+                              setState(() {
+                                _isAddOperation = true;
+                              });
+                            },
+                          ),
+                        ],
                       ],
-                      [
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.four,
-                          onPressed: () => _updateScore(context,
-                              _currentPageIndex, _isAddOperation ? 4 : -4),
-                        ),
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.five,
-                          onPressed: () => _updateScore(context,
-                              _currentPageIndex, _isAddOperation ? 5 : -5),
-                        ),
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.six,
-                          onPressed: () => _updateScore(context,
-                              _currentPageIndex, _isAddOperation ? 6 : -6),
-                        ),
-                      ],
-                      [
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.seven,
-                          onPressed: () => _updateScore(context,
-                              _currentPageIndex, _isAddOperation ? 7 : -7),
-                        ),
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.eight,
-                          onPressed: () => _updateScore(context,
-                              _currentPageIndex, _isAddOperation ? 8 : -8),
-                        ),
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.nine,
-                          onPressed: () => _updateScore(context,
-                              _currentPageIndex, _isAddOperation ? 9 : -9),
-                        ),
-                      ],
-                      [
-                        KeyboardButton(
-                          buttonText: '-',
-                          onPressed: () {
-                            setState(() {
-                              _isAddOperation = false;
-                            });
-                          },
-                        ),
-                        KeyboardButton(
-                          buttonText: UnoLikeGameCardsText.zero,
-                          onPressed: () =>
-                              _updateScore(context, _currentPageIndex, 0),
-                        ),
-                        KeyboardButton(
-                          buttonText: '+',
-                          onPressed: () {
-                            setState(() {
-                              _isAddOperation = true;
-                            });
-                          },
-                        ),
-                      ],
-                    ],
-                  ),
-                ],
-              )
-            : CustomScoreKeyboard(
-                onValueSelected: (value) {
-                  _updateScore(context, _currentPageIndex, value);
-                },
-              ),
+                    ),
+                  ],
+                )
+              : CustomScoreKeyboard(
+                  onValueSelected: (value) {
+                    _updateScore(context, _currentPageIndex, value);
+                  },
+                ),
+        ),
         const SizedBox(height: 12),
       ],
     );

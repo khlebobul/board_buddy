@@ -66,43 +66,47 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
 
           final gameState = state;
 
-          return Scaffold(
-            appBar: CustomAppBar(
-              leftButtonText: S.of(context).menu,
-              onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
-              isRules: true,
-              rightButtonText: S.of(context).rules,
-              onRightButtonPressed: () =>
-                  Navigator.pushNamed(context, '/scrabbleRules'),
-            ),
-            body: Padding(
-              padding: const EdgeInsets.all(12.0),
-              child: ScrabbleWordInputWidget(
-                key: wordInputKey,
-                players: gameState.players,
-                currentPlayerIndex: gameState.currentPlayerIndex,
-                moveHistory: gameState.moveHistory,
-                onSubmitWord: (player, word, score, modifiers) {
-                  context.read<ScrabbleBloc>().add(SubmitWord(
-                        player: player,
-                        word: word,
-                        score: score,
-                        modifiers: modifiers,
-                      ));
-                },
-                onSkipTurn: (player) {
-                  context.read<ScrabbleBloc>().add(SkipTurn(player: player));
+          return PopScope(
+            canPop: false,
+            child: Scaffold(
+              appBar: CustomAppBar(
+                leftButtonText: S.of(context).menu,
+                onLeftButtonPressed: () =>
+                    Navigator.pushNamed(context, '/home'),
+                isRules: true,
+                rightButtonText: S.of(context).rules,
+                onRightButtonPressed: () =>
+                    Navigator.pushNamed(context, '/scrabbleRules'),
+              ),
+              body: Padding(
+                padding: const EdgeInsets.all(12.0),
+                child: ScrabbleWordInputWidget(
+                  key: wordInputKey,
+                  players: gameState.players,
+                  currentPlayerIndex: gameState.currentPlayerIndex,
+                  moveHistory: gameState.moveHistory,
+                  onSubmitWord: (player, word, score, modifiers) {
+                    context.read<ScrabbleBloc>().add(SubmitWord(
+                          player: player,
+                          word: word,
+                          score: score,
+                          modifiers: modifiers,
+                        ));
+                  },
+                  onSkipTurn: (player) {
+                    context.read<ScrabbleBloc>().add(SkipTurn(player: player));
+                  },
+                ),
+              ),
+              bottomNavigationBar: BottomGameBar(
+                dialogWidget: const InfoscrabbleDialog(),
+                isArrow: true,
+                rightButtonText: S.of(context).finish,
+                onRightBtnTap: () {
+                  // Show game completion dialog
+                  _showGameEndModal(context, gameState.players);
                 },
               ),
-            ),
-            bottomNavigationBar: BottomGameBar(
-              dialogWidget: const InfoscrabbleDialog(),
-              isArrow: true,
-              rightButtonText: S.of(context).finish,
-              onRightBtnTap: () {
-                // Show game completion dialog
-                _showGameEndModal(context, gameState.players);
-              },
             ),
           );
         },
@@ -142,26 +146,26 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
       players: players,
       isSinglePlayer: isSinglePlayer,
       onContinue: () {
-        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop();
       },
       onNewRound: () {
-        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop();
         // Reset the game with the same players
         context.read<ScrabbleBloc>().add(ResetGame(keepPlayers: true));
         // Reset the word input widget
         wordInputKey.currentState?.resetGame();
       },
       onNewGame: () {
-        Navigator.of(context).pop(); // Close the modal
-        // Return to start screen
+        Navigator.of(context).pop();
+
         context.read<ScrabbleBloc>().add(ResetGame(keepPlayers: false));
-        Navigator.of(context).pop(); // Return to start screen
+        Navigator.of(context).pop();
         Navigator.pushNamed(context, '/scrabbleStartGame');
       },
       onReturnToMenu: () {
         // Delete the saved game
         context.read<ScrabbleBloc>().add(DeleteSavedGame());
-        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop();
         Navigator.pushNamed(context, '/home');
       },
     );

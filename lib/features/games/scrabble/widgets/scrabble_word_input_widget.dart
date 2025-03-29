@@ -9,6 +9,8 @@ import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_popup/flutter_popup.dart';
 import 'package:use_scramble/use_scramble.dart';
+import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:board_buddy/features/games/scrabble/bloc/scrabble_bloc.dart';
 
 /// widget that represents a Scrabble word input interface.
 class ScrabbleWordInputWidget extends StatefulWidget {
@@ -237,6 +239,9 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
           'modifiers': modifiersData,
         });
       });
+
+      // Save game session after submitting a word
+      context.read<ScrabbleBloc>().add(SaveGameSession());
 
       // Reset the input fields
       setState(() {

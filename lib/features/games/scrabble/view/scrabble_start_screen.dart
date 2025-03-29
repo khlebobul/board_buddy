@@ -42,115 +42,120 @@ class ScrabbleStartScreenView extends StatelessWidget {
         final scrabbleState = state;
         final theme = UIThemes.of(context);
 
-        return Scaffold(
-          appBar: CustomAppBar(
-            leftButtonText: S.of(context).back,
-            onLeftButtonPressed: () => Navigator.pop(context),
-            rightButtonText: S.of(context).scrabble,
-            onRightButtonPressed: () {},
-          ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                      horizontal: GeneralConst.paddingHorizontal) +
-                  const EdgeInsets.only(top: GeneralConst.paddingVertical),
-              child: SingleChildScrollView(
-                child: Column(
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  children: [
-                    // players list
-                    Text(
-                      S.of(context).players,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.start,
-                      children:
-                          scrabbleState.players.asMap().entries.map((entry) {
-                        int index = entry.key + 1;
-                        Player player = entry.value;
-                        String formattedIndex =
-                            index.toString().padLeft(2, '0');
-                        return Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                '$formattedIndex - ${player.name}'
-                                    .toLowerCase(),
-                                softWrap: true,
-                                style: theme.display2
-                                    .copyWith(color: theme.textColor),
-                              ),
-                            ),
-                            IconButton(
-                              icon: Icon(Icons.close,
-                                  color: theme.secondaryTextColor),
-                              onPressed: () {
-                                context
-                                    .read<ScrabbleBloc>()
-                                    .add(RemovePlayer(entry.key));
-                              },
-                            ),
-                          ],
-                        );
-                      }).toList(),
-                    ),
-                    const SizedBox(height: 12),
-                    if (scrabbleState.players.length < GameMaxPlayers.scrabble)
-                      GestureDetector(
-                        onTap: () {
-                          final scrabbleBloc = context.read<ScrabbleBloc>();
-                          showDialog(
-                            context: context,
-                            builder: (dialogContext) => AddPlayerDialog(
-                              onPlayerAdded: (player) {
-                                scrabbleBloc.add(AddPlayer(player));
-                              },
-                            ),
-                          );
-                        },
-                        child: TextScramble(
-                          text: S.of(context).add,
-                          style: theme.display2.copyWith(color: theme.redColor),
-                        ),
+        return PopScope(
+          canPop: false,
+          child: Scaffold(
+            appBar: CustomAppBar(
+              leftButtonText: S.of(context).back,
+              onLeftButtonPressed: () => Navigator.pop(context),
+              rightButtonText: S.of(context).scrabble,
+              onRightButtonPressed: () {},
+            ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                        horizontal: GeneralConst.paddingHorizontal) +
+                    const EdgeInsets.only(top: GeneralConst.paddingVertical),
+                child: SingleChildScrollView(
+                  child: Column(
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      // players list
+                      Text(
+                        S.of(context).players,
+                        style: theme.display2
+                            .copyWith(color: theme.secondaryTextColor),
                       ),
+                      Column(
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        children:
+                            scrabbleState.players.asMap().entries.map((entry) {
+                          int index = entry.key + 1;
+                          Player player = entry.value;
+                          String formattedIndex =
+                              index.toString().padLeft(2, '0');
+                          return Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  '$formattedIndex - ${player.name}'
+                                      .toLowerCase(),
+                                  softWrap: true,
+                                  style: theme.display2
+                                      .copyWith(color: theme.textColor),
+                                ),
+                              ),
+                              IconButton(
+                                icon: Icon(Icons.close,
+                                    color: theme.secondaryTextColor),
+                                onPressed: () {
+                                  context
+                                      .read<ScrabbleBloc>()
+                                      .add(RemovePlayer(entry.key));
+                                },
+                              ),
+                            ],
+                          );
+                        }).toList(),
+                      ),
+                      const SizedBox(height: 12),
+                      if (scrabbleState.players.length <
+                          GameMaxPlayers.scrabble)
+                        GestureDetector(
+                          onTap: () {
+                            final scrabbleBloc = context.read<ScrabbleBloc>();
+                            showDialog(
+                              context: context,
+                              builder: (dialogContext) => AddPlayerDialog(
+                                onPlayerAdded: (player) {
+                                  scrabbleBloc.add(AddPlayer(player));
+                                },
+                              ),
+                            );
+                          },
+                          child: TextScramble(
+                            text: S.of(context).add,
+                            style:
+                                theme.display2.copyWith(color: theme.redColor),
+                          ),
+                        ),
 
-                    // bottom padding for keyboard
-                    SizedBox(
-                        height: MediaQuery.of(context).viewInsets.bottom > 0
-                            ? 300
-                            : 0),
-                  ],
+                      // bottom padding for keyboard
+                      SizedBox(
+                          height: MediaQuery.of(context).viewInsets.bottom > 0
+                              ? 300
+                              : 0),
+                    ],
+                  ),
                 ),
               ),
             ),
+            bottomNavigationBar: BottomGameBar(
+                leftButtonText: S.of(context).rules,
+                rightButtonText: S.of(context).play,
+                isRightBtnRed: true,
+                onLeftBtnTap: () =>
+                    Navigator.pushNamed(context, '/scrabbleRules'),
+                onRightBtnTap: () {
+                  scrabbleState.players.length < GameMinPlayers.scrabble
+                      ? ScaffoldMessenger.of(context).showSnackBar(
+                          SnackBar(
+                            content: Text(
+                                '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.scrabblePlayers}'),
+                          ),
+                        )
+                      : Navigator.pushNamed(
+                          context,
+                          '/scrabbleGame',
+                          arguments: {
+                            'players': scrabbleState.players,
+                          },
+                        );
+                }),
+            resizeToAvoidBottomInset: true,
           ),
-          bottomNavigationBar: BottomGameBar(
-              leftButtonText: S.of(context).rules,
-              rightButtonText: S.of(context).play,
-              isRightBtnRed: true,
-              onLeftBtnTap: () =>
-                  Navigator.pushNamed(context, '/scrabbleRules'),
-              onRightBtnTap: () {
-                scrabbleState.players.length < GameMinPlayers.scrabble
-                    ? ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          content: Text(
-                              '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.scrabblePlayers}'),
-                        ),
-                      )
-                    : Navigator.pushNamed(
-                        context,
-                        '/scrabbleGame',
-                        arguments: {
-                          'players': scrabbleState.players,
-                        },
-                      );
-              }),
-          resizeToAvoidBottomInset: true,
         );
       },
     );

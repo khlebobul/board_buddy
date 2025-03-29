@@ -64,185 +64,188 @@ class _MunchkinGameState extends State<MunchkinGame> {
       child: BlocBuilder<MunchkinBloc, MunchkinState>(
         builder: (context, state) {
           if (state is MunchkinGameState) {
-            return Scaffold(
-              appBar: CustomAppBar(
-                leftButtonText: S.of(context).menu,
-                onLeftButtonPressed: () =>
-                    Navigator.pushNamed(context, '/home'),
-                isRules: true,
-                rightButtonText: S.of(context).rules,
-                onRightButtonPressed: () =>
-                    Navigator.pushNamed(context, '/munchkinRules'),
-              ),
-              body: Column(
-                children: [
-                  Padding(
-                    padding: const EdgeInsets.symmetric(
-                        horizontal: GeneralConst.paddingHorizontal),
-                    child: Row(
-                      crossAxisAlignment: CrossAxisAlignment.end,
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      children: [
-                        const Spacer(),
-                        GestureDetector(
-                          onTap: () => DiceModal.show(context),
-                          child: SvgPicture.asset(
-                            CustomIcons.dice,
-                            width: 27,
-                            height: 27,
-                            // ignore: deprecated_member_use
-                            color: theme.textColor,
+            return PopScope(
+              canPop: false,
+              child: Scaffold(
+                appBar: CustomAppBar(
+                  leftButtonText: S.of(context).menu,
+                  onLeftButtonPressed: () =>
+                      Navigator.pushNamed(context, '/home'),
+                  isRules: true,
+                  rightButtonText: S.of(context).rules,
+                  onRightButtonPressed: () =>
+                      Navigator.pushNamed(context, '/munchkinRules'),
+                ),
+                body: Column(
+                  children: [
+                    Padding(
+                      padding: const EdgeInsets.symmetric(
+                          horizontal: GeneralConst.paddingHorizontal),
+                      child: Row(
+                        crossAxisAlignment: CrossAxisAlignment.end,
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        children: [
+                          const Spacer(),
+                          GestureDetector(
+                            onTap: () => DiceModal.show(context),
+                            child: SvgPicture.asset(
+                              CustomIcons.dice,
+                              width: 27,
+                              height: 27,
+                              // ignore: deprecated_member_use
+                              color: theme.textColor,
+                            ),
                           ),
-                        ),
-                      ],
-                    ),
-                  ),
-                  const SizedBox(height: 20),
-                  if (state.players.length > 1) ...[
-                    _buildMultiPlayerView(context, state),
-                    const SizedBox(height: 50),
-                    Row(
-                      mainAxisAlignment: MainAxisAlignment.center,
-                      crossAxisAlignment: CrossAxisAlignment.center,
-                      children: [
-                        GestureDetector(
-                          onTap: () {
-                            final currentPlayer = _currentPlayerIndex;
-                            if (currentPlayer >= 0 &&
-                                currentPlayer < state.players.length) {
-                              context
-                                  .read<MunchkinBloc>()
-                                  .add(TogglePlayerGender(currentPlayer));
-                            }
-                          },
-                          child: SvgPicture.asset(
-                            state.players[_currentPlayerIndex].isMale
-                                ? CustomIcons.male
-                                : CustomIcons.female,
-                          ),
-                        ),
-                        const SizedBox(width: 40),
-                        GestureDetector(
-                          onTap: () {
-                            final currentPlayer = _currentPlayerIndex;
-                            if (currentPlayer >= 0 &&
-                                currentPlayer < state.players.length) {
-                              debugPrint(
-                                  'Toggling curse button tapped for player $currentPlayer');
-                              debugPrint(
-                                  'Current curse status: ${state.players[currentPlayer].isCursed}');
-                              context
-                                  .read<MunchkinBloc>()
-                                  .add(TogglePlayerCursed(currentPlayer));
-                            }
-                          },
-                          child: Text(
-                            state.players[_currentPlayerIndex].isCursed
-                                ? S.of(context).cursed
-                                : S.of(context).clearance,
-                            style:
-                                theme.display2.copyWith(color: theme.redColor),
-                            key: ValueKey(
-                                'curse_status_${_currentPlayerIndex}_${state.players[_currentPlayerIndex].isCursed}'),
-                          ),
-                        ),
-                        const SizedBox(width: 40),
-                        GestureDetector(
-                          onTap: () {
-                            // Reset player modifiers according to Munchkin rules
-                            final currentPlayer = _currentPlayerIndex;
-                            if (currentPlayer >= 0 &&
-                                currentPlayer < state.players.length) {
-                              // Print current curse status before change
-                              debugPrint(
-                                  'Before reset - Player $currentPlayer curse status: ${state.players[currentPlayer].isCursed}');
-                              context
-                                  .read<MunchkinBloc>()
-                                  .add(ResetPlayerModifiers(currentPlayer));
-                            }
-                          },
-                          child: SvgPicture.asset(CustomIcons.bone),
-                        ),
-                      ],
-                    ),
-                    const SizedBox(height: 20),
-                    GestureDetector(
-                      onTap: () {
-                        final bloc = context.read<MunchkinBloc>();
-
-                        showModalBottomSheet(
-                          isScrollControlled: true,
-                          context: context,
-                          builder: (context) => MunchkinModifiersBottomSheet(
-                            playerIndex: _currentPlayerIndex,
-                            player: state.players[_currentPlayerIndex],
-                            onModifierUpdated:
-                                (playerIndex, modifierType, value) {
-                              bloc.add(
-                                UpdatePlayerModifier(
-                                  playerIndex: playerIndex,
-                                  modifierType: modifierType,
-                                  value: value,
-                                ),
-                              );
-                            },
-                          ),
-                        );
-                      },
-                      child: TextScramble(
-                        text: S.of(context).modifiers,
-                        style: theme.display2.copyWith(color: theme.redColor),
+                        ],
                       ),
                     ),
-                  ] else
-                    _buildSinglePlayerView(context, state),
-                ],
-              ),
-              bottomNavigationBar: BottomGameBar(
-                dialogWidget: state.players.length > 1
-                    ? const InfoMunchkinDialogWidget()
-                    : null,
-                isArrow: true,
-                rightButtonText: S.of(context).finish,
-                onRightBtnTap: () => _showEndGameModal(context, state),
-                isLeftArrowActive: state.history
-                    .where((item) =>
-                        item.playerIndex ==
-                        (state.players.length > 1 ? _currentPlayerIndex : 0))
-                    .isNotEmpty,
-                isRightArrowActive: state.redoHistory
-                    .where((item) =>
-                        item.playerIndex ==
-                        (state.players.length > 1 ? _currentPlayerIndex : 0))
-                    .isNotEmpty,
-                onLeftArrowTap: state.history
-                        .where((item) =>
-                            item.playerIndex ==
-                            (state.players.length > 1
-                                ? _currentPlayerIndex
-                                : 0))
-                        .isNotEmpty
-                    ? () {
-                        context.read<MunchkinBloc>().add(UndoAction(
-                            state.players.length > 1
-                                ? _currentPlayerIndex
-                                : 0));
-                      }
-                    : null,
-                onRightArrowTap: state.redoHistory
-                        .where((item) =>
-                            item.playerIndex ==
-                            (state.players.length > 1
-                                ? _currentPlayerIndex
-                                : 0))
-                        .isNotEmpty
-                    ? () {
-                        context.read<MunchkinBloc>().add(RedoAction(
-                            state.players.length > 1
-                                ? _currentPlayerIndex
-                                : 0));
-                      }
-                    : null,
+                    const SizedBox(height: 20),
+                    if (state.players.length > 1) ...[
+                      _buildMultiPlayerView(context, state),
+                      const SizedBox(height: 50),
+                      Row(
+                        mainAxisAlignment: MainAxisAlignment.center,
+                        crossAxisAlignment: CrossAxisAlignment.center,
+                        children: [
+                          GestureDetector(
+                            onTap: () {
+                              final currentPlayer = _currentPlayerIndex;
+                              if (currentPlayer >= 0 &&
+                                  currentPlayer < state.players.length) {
+                                context
+                                    .read<MunchkinBloc>()
+                                    .add(TogglePlayerGender(currentPlayer));
+                              }
+                            },
+                            child: SvgPicture.asset(
+                              state.players[_currentPlayerIndex].isMale
+                                  ? CustomIcons.male
+                                  : CustomIcons.female,
+                            ),
+                          ),
+                          const SizedBox(width: 40),
+                          GestureDetector(
+                            onTap: () {
+                              final currentPlayer = _currentPlayerIndex;
+                              if (currentPlayer >= 0 &&
+                                  currentPlayer < state.players.length) {
+                                debugPrint(
+                                    'Toggling curse button tapped for player $currentPlayer');
+                                debugPrint(
+                                    'Current curse status: ${state.players[currentPlayer].isCursed}');
+                                context
+                                    .read<MunchkinBloc>()
+                                    .add(TogglePlayerCursed(currentPlayer));
+                              }
+                            },
+                            child: Text(
+                              state.players[_currentPlayerIndex].isCursed
+                                  ? S.of(context).cursed
+                                  : S.of(context).clearance,
+                              style: theme.display2
+                                  .copyWith(color: theme.redColor),
+                              key: ValueKey(
+                                  'curse_status_${_currentPlayerIndex}_${state.players[_currentPlayerIndex].isCursed}'),
+                            ),
+                          ),
+                          const SizedBox(width: 40),
+                          GestureDetector(
+                            onTap: () {
+                              // Reset player modifiers according to Munchkin rules
+                              final currentPlayer = _currentPlayerIndex;
+                              if (currentPlayer >= 0 &&
+                                  currentPlayer < state.players.length) {
+                                // Print current curse status before change
+                                debugPrint(
+                                    'Before reset - Player $currentPlayer curse status: ${state.players[currentPlayer].isCursed}');
+                                context
+                                    .read<MunchkinBloc>()
+                                    .add(ResetPlayerModifiers(currentPlayer));
+                              }
+                            },
+                            child: SvgPicture.asset(CustomIcons.bone),
+                          ),
+                        ],
+                      ),
+                      const SizedBox(height: 20),
+                      GestureDetector(
+                        onTap: () {
+                          final bloc = context.read<MunchkinBloc>();
+
+                          showModalBottomSheet(
+                            isScrollControlled: true,
+                            context: context,
+                            builder: (context) => MunchkinModifiersBottomSheet(
+                              playerIndex: _currentPlayerIndex,
+                              player: state.players[_currentPlayerIndex],
+                              onModifierUpdated:
+                                  (playerIndex, modifierType, value) {
+                                bloc.add(
+                                  UpdatePlayerModifier(
+                                    playerIndex: playerIndex,
+                                    modifierType: modifierType,
+                                    value: value,
+                                  ),
+                                );
+                              },
+                            ),
+                          );
+                        },
+                        child: TextScramble(
+                          text: S.of(context).modifiers,
+                          style: theme.display2.copyWith(color: theme.redColor),
+                        ),
+                      ),
+                    ] else
+                      _buildSinglePlayerView(context, state),
+                  ],
+                ),
+                bottomNavigationBar: BottomGameBar(
+                  dialogWidget: state.players.length > 1
+                      ? const InfoMunchkinDialogWidget()
+                      : null,
+                  isArrow: true,
+                  rightButtonText: S.of(context).finish,
+                  onRightBtnTap: () => _showEndGameModal(context, state),
+                  isLeftArrowActive: state.history
+                      .where((item) =>
+                          item.playerIndex ==
+                          (state.players.length > 1 ? _currentPlayerIndex : 0))
+                      .isNotEmpty,
+                  isRightArrowActive: state.redoHistory
+                      .where((item) =>
+                          item.playerIndex ==
+                          (state.players.length > 1 ? _currentPlayerIndex : 0))
+                      .isNotEmpty,
+                  onLeftArrowTap: state.history
+                          .where((item) =>
+                              item.playerIndex ==
+                              (state.players.length > 1
+                                  ? _currentPlayerIndex
+                                  : 0))
+                          .isNotEmpty
+                      ? () {
+                          context.read<MunchkinBloc>().add(UndoAction(
+                              state.players.length > 1
+                                  ? _currentPlayerIndex
+                                  : 0));
+                        }
+                      : null,
+                  onRightArrowTap: state.redoHistory
+                          .where((item) =>
+                              item.playerIndex ==
+                              (state.players.length > 1
+                                  ? _currentPlayerIndex
+                                  : 0))
+                          .isNotEmpty
+                      ? () {
+                          context.read<MunchkinBloc>().add(RedoAction(
+                              state.players.length > 1
+                                  ? _currentPlayerIndex
+                                  : 0));
+                        }
+                      : null,
+                ),
               ),
             );
           }
@@ -266,10 +269,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
       players: state.players,
       isSinglePlayer: isSinglePlayer,
       onContinue: () {
-        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop();
       },
       onNewRound: () {
-        Navigator.of(context).pop(); // Close the modal
+        Navigator.of(context).pop();
         // Reset scores but keep the same players
         context.read<MunchkinBloc>().add(
               InitializeGameScreen(
@@ -279,8 +282,8 @@ class _MunchkinGameState extends State<MunchkinGame> {
             );
       },
       onNewGame: () {
-        Navigator.of(context).pop(); // Close the modal
-        Navigator.of(context).pop(); // Return to start screen
+        Navigator.of(context).pop();
+        Navigator.of(context).pop();
         Navigator.pushNamed(context, '/munchkinStartGame');
       },
       onReturnToMenu: () {

@@ -61,63 +61,66 @@ class _SetGameState extends State<SetGame> {
 
         final gameState = state;
 
-        return Scaffold(
-          appBar: CustomAppBar(
-            leftButtonText: S.of(context).menu,
-            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
-            isRules: true,
-            rightButtonText: S.of(context).rules,
-            onRightButtonPressed: () =>
-                Navigator.pushNamed(context, '/setRules'),
-          ),
-          body: SafeArea(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                      horizontal: GeneralConst.paddingHorizontal) +
-                  const EdgeInsets.only(top: GeneralConst.paddingVertical),
-              child: Column(
-                children: [
-                  gameState.isSinglePlayer
-                      ? const TimerWidget()
-                      : const SizedBox.shrink(),
-                  const SizedBox(height: 20),
-                  Expanded(
-                    child: Center(
-                      child: SingleChildScrollView(
-                        child: PlayersScoreWidget(
-                          players: gameState.players,
-                          onIncrease: (index) {
-                            context.read<SetBloc>().add(IncreaseScore(index));
-                          },
-                          onDecrease: (index) {
-                            context.read<SetBloc>().add(DecreaseScore(index));
-                          },
+        return PopScope(
+          canPop: false,
+          child: Scaffold(
+            appBar: CustomAppBar(
+              leftButtonText: S.of(context).menu,
+              onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
+              isRules: true,
+              rightButtonText: S.of(context).rules,
+              onRightButtonPressed: () =>
+                  Navigator.pushNamed(context, '/setRules'),
+            ),
+            body: SafeArea(
+              child: Padding(
+                padding: const EdgeInsets.symmetric(
+                        horizontal: GeneralConst.paddingHorizontal) +
+                    const EdgeInsets.only(top: GeneralConst.paddingVertical),
+                child: Column(
+                  children: [
+                    gameState.isSinglePlayer
+                        ? const TimerWidget()
+                        : const SizedBox.shrink(),
+                    const SizedBox(height: 20),
+                    Expanded(
+                      child: Center(
+                        child: SingleChildScrollView(
+                          child: PlayersScoreWidget(
+                            players: gameState.players,
+                            onIncrease: (index) {
+                              context.read<SetBloc>().add(IncreaseScore(index));
+                            },
+                            onDecrease: (index) {
+                              context.read<SetBloc>().add(DecreaseScore(index));
+                            },
+                          ),
                         ),
                       ),
                     ),
-                  ),
-                ],
+                  ],
+                ),
               ),
             ),
-          ),
-          bottomNavigationBar: BottomGameBar(
-            isArrow: true,
-            rightButtonText: S.of(context).finish,
-            onRightBtnTap: () {
-              _showGameEndModal(context, gameState);
-            },
-            isLeftArrowActive: gameState.history.isNotEmpty,
-            isRightArrowActive: gameState.redoHistory.isNotEmpty,
-            onLeftArrowTap: gameState.history.isNotEmpty
-                ? () {
-                    context.read<SetBloc>().add(UndoAction());
-                  }
-                : null,
-            onRightArrowTap: gameState.redoHistory.isNotEmpty
-                ? () {
-                    context.read<SetBloc>().add(RedoAction());
-                  }
-                : null,
+            bottomNavigationBar: BottomGameBar(
+              isArrow: true,
+              rightButtonText: S.of(context).finish,
+              onRightBtnTap: () {
+                _showGameEndModal(context, gameState);
+              },
+              isLeftArrowActive: gameState.history.isNotEmpty,
+              isRightArrowActive: gameState.redoHistory.isNotEmpty,
+              onLeftArrowTap: gameState.history.isNotEmpty
+                  ? () {
+                      context.read<SetBloc>().add(UndoAction());
+                    }
+                  : null,
+              onRightArrowTap: gameState.redoHistory.isNotEmpty
+                  ? () {
+                      context.read<SetBloc>().add(RedoAction());
+                    }
+                  : null,
+            ),
           ),
         );
       },
