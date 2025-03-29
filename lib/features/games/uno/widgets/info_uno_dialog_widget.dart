@@ -17,7 +17,7 @@ class InfoUnoDialog extends StatelessWidget {
       child: Column(
         children: [
           Padding(
-            padding: const EdgeInsets.symmetric(vertical: 8.0, horizontal: 12),
+            padding: const EdgeInsets.symmetric(vertical: 12, horizontal: 16),
             child: Align(
               alignment: Alignment.topRight,
               child: GestureDetector(
