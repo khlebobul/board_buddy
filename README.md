@@ -84,17 +84,7 @@ your ultimate board game companion
 
 ### packages
 
-- [gen_art_bg](https://pub.dev/packages/gen_art_bg): a package for generating unique backgrounds for flutter apps.
-- [use_scramble](https://pub.dev/packages/use_scramble): a utility for creating dynamic text scrambling animations.
-- [shared_preferences](https://pub.dev/packages/shared_preferences): a plugin for storing simple data persistently across app sessions.
-- [intl](https://pub.dev/packages/intl): a library for internationalization and localization support in flutter.
-- [url_launcher](https://pub.dev/packages/url_launcher): a plugin to launch url in the browser, phone dialer, or email client.
-- [flutter_svg](https://pub.dev/packages/flutter_svg): a flutter library for rendering svg files with high fidelity.
-- [flutter_bloc](https://pub.dev/packages/flutter_bloc): a predictable state management library based on the bloc pattern.
-- [flutter_popup](https://pub.dev/packages/flutter_popup): a flutter tooltip with custom styling and positioning options.
-- [wheel_chooser](https://pub.dev/packages/wheel_chooser): a flutter widget that allows users to select an item from a circular list.
-- [sqflite](https://pub.dev/packages/sqflite): a flutter plugin for SQLite databases.
-- [path](https://pub.dev/packages/path): a dart library for working with file paths.
+[gen_art_bg](https://pub.dev/packages/gen_art_bg) / [use_scramble](https://pub.dev/packages/use_scramble) / [shared_preferences](https://pub.dev/packages/shared_preferences) / [intl](https://pub.dev/packages/intl) / [url_launcher](https://pub.dev/packages/url_launcher) / [flutter_svg](https://pub.dev/packages/flutter_svg) / [flutter_bloc](https://pub.dev/packages/flutter_bloc) / [flutter_popup](https://pub.dev/packages/flutter_popup) / [wheel_chooser](https://pub.dev/packages/wheel_chooser) / [sqflite](https://pub.dev/packages/sqflite) / [path](https://pub.dev/packages/path)
 
 ## contacts
 
