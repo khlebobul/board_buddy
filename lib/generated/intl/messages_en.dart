@@ -108,7 +108,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dosGameObjectiveTitle":
             MessageLookupByLibrary.simpleMessage("objective:"),
         "dosPreparationCentralRow": MessageLookupByLibrary.simpleMessage(
-          "place 2 cards in the \'center row.\'",
+          "place 2 cards in the \'center row\'",
         ),
         "dosPreparationDealCards": MessageLookupByLibrary.simpleMessage(
           "deal 7 cards to each player.",
@@ -318,7 +318,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "players place their starting equipment cards on the table, if they have any.",
         ),
         "munchkinTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "munchkin® is a registered trademark of Steve Jackson Games.",
+          "munchkin® is a registered trademark of steve jackson games.",
         ),
         "munchkinTurnDescription": MessageLookupByLibrary.simpleMessage(
           "the player draws the top card from the Door deck. possible outcomes:",
@@ -540,7 +540,7 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
         "setScoringTitle": MessageLookupByLibrary.simpleMessage("scoring:"),
         "setTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "set® is a registered trademark of Set Enterprises, Inc.",
+          "set® is a registered trademark of set enterprises, inc.",
         ),
         "settings": MessageLookupByLibrary.simpleMessage("settings"),
         "shareFeedback": MessageLookupByLibrary.simpleMessage("share feedback"),
@@ -624,20 +624,19 @@ class MessageLookup extends MessageLookupByLibrary {
           "dark side:",
         ),
         "unoFlipDarkSideDrawFive": MessageLookupByLibrary.simpleMessage(
-          "\'draw five.\'",
+          "\'draw five\'",
         ),
         "unoFlipDarkSideDrawUntilColor": MessageLookupByLibrary.simpleMessage(
-          "\'draw until matching color.\'",
+          "\'draw until matching color\'",
         ),
         "unoFlipDarkSideReverse": MessageLookupByLibrary.simpleMessage(
-          "\'reverse.\'",
+          "\'reverse\'",
         ),
         "unoFlipDarkSideSkipAll": MessageLookupByLibrary.simpleMessage(
-          "\'skip all.\'",
+          "\'skip all\'",
         ),
-        "unoFlipDarkSideWildCard": MessageLookupByLibrary.simpleMessage(
-          "\'wild.\'",
-        ),
+        "unoFlipDarkSideWildCard":
+            MessageLookupByLibrary.simpleMessage("\'wild\'"),
         "unoFlipGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
           "play all your cards and score points from your opponents\' remaining cards. the first player to reach 500 points wins.",
         ),
@@ -662,19 +661,19 @@ class MessageLookup extends MessageLookupByLibrary {
           "light side:",
         ),
         "unoFlipLightSideDrawOne": MessageLookupByLibrary.simpleMessage(
-          "\'draw one.\'",
+          "\'draw one\'",
         ),
         "unoFlipLightSideReverse": MessageLookupByLibrary.simpleMessage(
-          "\'reverse.\'",
+          "\'reverse\'",
         ),
         "unoFlipLightSideSkipTurn": MessageLookupByLibrary.simpleMessage(
-          "\'skip turn.\'",
+          "\'skip turn\'",
         ),
         "unoFlipLightSideWildCard": MessageLookupByLibrary.simpleMessage(
-          "\'wild.\'",
+          "\'wild\'",
         ),
         "unoFlipLightSideWildDrawTwo": MessageLookupByLibrary.simpleMessage(
-          "\'wild draw two.\'",
+          "\'wild draw two\'",
         ),
         "unoFlipScoringActiveCards": MessageLookupByLibrary.simpleMessage(
           "action cards: 20–60 points depending on type.",

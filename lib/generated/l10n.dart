@@ -574,10 +574,10 @@ class S {
     );
   }
 
-  /// `munchkin® is a registered trademark of Steve Jackson Games.`
+  /// `munchkin® is a registered trademark of steve jackson games.`
   String get munchkinTrademarkNotice {
     return Intl.message(
-      'munchkin® is a registered trademark of Steve Jackson Games.',
+      'munchkin® is a registered trademark of steve jackson games.',
       name: 'munchkinTrademarkNotice',
       desc: '',
       args: [],
@@ -834,10 +834,10 @@ class S {
     );
   }
 
-  /// `set® is a registered trademark of Set Enterprises, Inc.`
+  /// `set® is a registered trademark of set enterprises, inc.`
   String get setTrademarkNotice {
     return Intl.message(
-      'set® is a registered trademark of Set Enterprises, Inc.',
+      'set® is a registered trademark of set enterprises, inc.',
       name: 'setTrademarkNotice',
       desc: '',
       args: [],
@@ -1484,50 +1484,50 @@ class S {
     );
   }
 
-  /// `'draw one.'`
+  /// `'draw one'`
   String get unoFlipLightSideDrawOne {
     return Intl.message(
-      '\'draw one.\'',
+      '\'draw one\'',
       name: 'unoFlipLightSideDrawOne',
       desc: '',
       args: [],
     );
   }
 
-  /// `'reverse.'`
+  /// `'reverse'`
   String get unoFlipLightSideReverse {
     return Intl.message(
-      '\'reverse.\'',
+      '\'reverse\'',
       name: 'unoFlipLightSideReverse',
       desc: '',
       args: [],
     );
   }
 
-  /// `'skip turn.'`
+  /// `'skip turn'`
   String get unoFlipLightSideSkipTurn {
     return Intl.message(
-      '\'skip turn.\'',
+      '\'skip turn\'',
       name: 'unoFlipLightSideSkipTurn',
       desc: '',
       args: [],
     );
   }
 
-  /// `'wild.'`
+  /// `'wild'`
   String get unoFlipLightSideWildCard {
     return Intl.message(
-      '\'wild.\'',
+      '\'wild\'',
       name: 'unoFlipLightSideWildCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `'wild draw two.'`
+  /// `'wild draw two'`
   String get unoFlipLightSideWildDrawTwo {
     return Intl.message(
-      '\'wild draw two.\'',
+      '\'wild draw two\'',
       name: 'unoFlipLightSideWildDrawTwo',
       desc: '',
       args: [],
@@ -1544,50 +1544,50 @@ class S {
     );
   }
 
-  /// `'draw five.'`
+  /// `'draw five'`
   String get unoFlipDarkSideDrawFive {
     return Intl.message(
-      '\'draw five.\'',
+      '\'draw five\'',
       name: 'unoFlipDarkSideDrawFive',
       desc: '',
       args: [],
     );
   }
 
-  /// `'reverse.'`
+  /// `'reverse'`
   String get unoFlipDarkSideReverse {
     return Intl.message(
-      '\'reverse.\'',
+      '\'reverse\'',
       name: 'unoFlipDarkSideReverse',
       desc: '',
       args: [],
     );
   }
 
-  /// `'skip all.'`
+  /// `'skip all'`
   String get unoFlipDarkSideSkipAll {
     return Intl.message(
-      '\'skip all.\'',
+      '\'skip all\'',
       name: 'unoFlipDarkSideSkipAll',
       desc: '',
       args: [],
     );
   }
 
-  /// `'wild.'`
+  /// `'wild'`
   String get unoFlipDarkSideWildCard {
     return Intl.message(
-      '\'wild.\'',
+      '\'wild\'',
       name: 'unoFlipDarkSideWildCard',
       desc: '',
       args: [],
     );
   }
 
-  /// `'draw until matching color.'`
+  /// `'draw until matching color'`
   String get unoFlipDarkSideDrawUntilColor {
     return Intl.message(
-      '\'draw until matching color.\'',
+      '\'draw until matching color\'',
       name: 'unoFlipDarkSideDrawUntilColor',
       desc: '',
       args: [],
@@ -1724,10 +1724,10 @@ class S {
     );
   }
 
-  /// `place 2 cards in the 'center row.'`
+  /// `place 2 cards in the 'center row'`
   String get dosPreparationCentralRow {
     return Intl.message(
-      'place 2 cards in the \'center row.\'',
+      'place 2 cards in the \'center row\'',
       name: 'dosPreparationCentralRow',
       desc: '',
       args: [],

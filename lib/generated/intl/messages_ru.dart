@@ -636,19 +636,19 @@ class MessageLookup extends MessageLookupByLibrary {
           "тёмная сторона:",
         ),
         "unoFlipDarkSideDrawFive": MessageLookupByLibrary.simpleMessage(
-          "«возьми пять».",
+          "«возьми пять»",
         ),
         "unoFlipDarkSideDrawUntilColor": MessageLookupByLibrary.simpleMessage(
-          "«бери, пока не вытянешь нужный цвет».",
+          "«бери, пока не вытянешь нужный цвет»",
         ),
         "unoFlipDarkSideReverse": MessageLookupByLibrary.simpleMessage(
-          "«смени направление».",
+          "«смени направление»",
         ),
         "unoFlipDarkSideSkipAll": MessageLookupByLibrary.simpleMessage(
-          "«все пропускают ход».",
+          "«все пропускают ход»",
         ),
         "unoFlipDarkSideWildCard": MessageLookupByLibrary.simpleMessage(
-          "«дикая карта».",
+          "«дикая карта»",
         ),
         "unoFlipGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
           "избавьтесь от всех своих карт и наберите очки за карты соперников. побеждает игрок, набравший 500 очков.",
@@ -675,19 +675,19 @@ class MessageLookup extends MessageLookupByLibrary {
           "светлая сторона:",
         ),
         "unoFlipLightSideDrawOne": MessageLookupByLibrary.simpleMessage(
-          "«возьми одну».",
+          "«возьми одну»",
         ),
         "unoFlipLightSideReverse": MessageLookupByLibrary.simpleMessage(
-          "«смени направление».",
+          "«смени направление»",
         ),
         "unoFlipLightSideSkipTurn": MessageLookupByLibrary.simpleMessage(
-          "«пропусти ход».",
+          "«пропусти ход»",
         ),
         "unoFlipLightSideWildCard": MessageLookupByLibrary.simpleMessage(
-          "«дикая карта».",
+          "«дикая карта»",
         ),
         "unoFlipLightSideWildDrawTwo": MessageLookupByLibrary.simpleMessage(
-          "«дикая +2».",
+          "«дикая +2»",
         ),
         "unoFlipScoringActiveCards": MessageLookupByLibrary.simpleMessage(
           "активные карты: 20–60 очков в зависимости от типа.",

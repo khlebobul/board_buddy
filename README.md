@@ -35,11 +35,11 @@ your ultimate board game companion
 
 ## supported games
 
-- uno / uno flip / dos
-- scrabble
-- set
-- munchkin
-- universal counter
+- uno / uno flip / dos _(uno®, dos®, uno flip® are registered trademarks of mattel)_
+- scrabble _(scrabble® is a registered trademark of hasbro, inc.)_
+- set _(set® is a registered trademark of set enterprises, inc.)_
+- munchkin _(munchkin® is a registered trademark of steve jackson games)_
+- \+ universal counter
 
 ## how to help
 
@@ -50,7 +50,7 @@ your ultimate board game companion
 - join the [discussions](https://github.com/khlebobul/board_buddy/discussions)
 - check the [contributing](#contributing) section
 
-> [!NOTE]  
+> [!NOTE]
 > if scoring for the game you want to add can be done with a universal counter, you can add only the rules
 
 ### for users
