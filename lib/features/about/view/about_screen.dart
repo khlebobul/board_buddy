@@ -1,5 +1,3 @@
-import 'dart:io';
-
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
