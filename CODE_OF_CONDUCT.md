@@ -1,6 +1,6 @@
 # Code of Conduct
 
-## Be Cool 😎
+## Be Cool
 
 Hey there! Welcome to **Board Buddy**. We want this space to be friendly and fun for everyone, so let's keep it respectful and inclusive.
 
@@ -10,13 +10,12 @@ Hey there! Welcome to **Board Buddy**. We want this space to be friendly and fun
 - Give constructive feedback.
 - Keep things safe and fun.
 
-## Not Cool 🚫
+## Not Cool
 - Harassment, hate speech, or discrimination of any kind.
 - Trolling, bullying, or personal attacks.
 - Sharing private info without permission.
 
 ## What to Do if There's a Problem
-[![Email - khlebobul@gmail.com](https://img.shields.io/badge/Email-khlebobul%40gmail.com-414141?style=for-the-badge&logo=Email&logoColor=F1F1F1)](mailto:khlebobul@gmail.com) [![@khlebobul](https://img.shields.io/badge/%40khlebobul-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul) [![Personal - Website](https://img.shields.io/badge/Personal-Website-414141?style=for-the-badge&logo=Personal&logoColor=F1F1F1)](https://khlebobul.github.io/) [![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy)
+[![Email - khlebobul@gmail.com](https://img.shields.io/badge/Email-khlebobul%40gmail.com-414141?style=for-the-badge&logo=Email&logoColor=F1F1F1)](mailto:khlebobul@gmail.com) [![@khlebobul](https://img.shields.io/badge/%40khlebobul-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul) [![Personal - Website](https://img.shields.io/badge/Personal-Website-414141?style=for-the-badge&logo=Personal&logoColor=F1F1F1)](https://khlebobul.github.io/)
 
-Thanks for being part of **Board Buddy** and keeping it awesome! 🎲✨
-
+Thanks for being part of **Board Buddy** and keeping it awesome!

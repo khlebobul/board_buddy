@@ -28,9 +28,10 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -2614,10 +2615,10 @@ class S {
     return Intl.message('credits', name: 'appreciation', desc: '', args: []);
   }
 
-  /// `to board buddy's contributors`
+  /// `board buddy's contributors`
   String get toBoardBuddysContributors {
     return Intl.message(
-      'to board buddy\'s contributors',
+      'board buddy\'s contributors',
       name: 'toBoardBuddysContributors',
       desc: '',
       args: [],
@@ -2677,16 +2678,6 @@ class S {
   /// `score`
   String get score {
     return Intl.message('score', name: 'score', desc: '', args: []);
-  }
-
-  /// `telegram group`
-  String get telegramGroup {
-    return Intl.message(
-      'telegram group',
-      name: 'telegramGroup',
-      desc: '',
-      args: [],
-    );
   }
 
   /// `cancel`

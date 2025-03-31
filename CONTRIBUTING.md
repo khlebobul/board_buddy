@@ -37,13 +37,16 @@ Thank you for considering contributing to **Board Buddy**! We welcome all kinds 
    - Click "New Pull Request".
    - Choose your fork and branch, then describe your changes.
 
-> [!NOTE][pull request template](https://github.com/khlebobul/board_buddy/blob/main/.github/pull_request_template.md)
+> [!NOTE]
+> [pull request template](https://github.com/khlebobul/board_buddy/blob/main/.github/pull_request_template.md)
+
+> [!IMPORTANT]
+> - If scoring for the game you want to add can be done with a universal counter, you can add only the rules
 
 ### Code Guidelines
 
 - Ensure code follows best practices and is well-documented.
 - Format your code using [Dart's formatting guidelines](https://dart.dev/guides/language/effective-dart/style).
-- Run tests before submitting a PR.
 
 ### Building & Running the Project
 
@@ -119,6 +122,6 @@ make run
 
 - Open an issue for discussion.
 
-[![Email - khlebobul@gmail.com](https://img.shields.io/badge/Email-khlebobul%40gmail.com-414141?style=for-the-badge&logo=Email&logoColor=F1F1F1)](mailto:khlebobul@gmail.com) [![@khlebobul](https://img.shields.io/badge/%40khlebobul-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul) [![Personal - Website](https://img.shields.io/badge/Personal-Website-414141?style=for-the-badge&logo=Personal&logoColor=F1F1F1)](https://khlebobul.github.io/) [![Telegram - Group](https://img.shields.io/badge/Telegram-Group-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/board_buddy)
+[![Email - khlebobul@gmail.com](https://img.shields.io/badge/Email-khlebobul%40gmail.com-414141?style=for-the-badge&logo=Email&logoColor=F1F1F1)](mailto:khlebobul@gmail.com) [![@khlebobul](https://img.shields.io/badge/%40khlebobul-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul) [![Personal - Website](https://img.shields.io/badge/Personal-Website-414141?style=for-the-badge&logo=Personal&logoColor=F1F1F1)](https://khlebobul.github.io/)
 
 We appreciate your contribution and look forward to working together!

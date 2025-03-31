@@ -82,10 +82,6 @@ class AboutScreen extends StatelessWidget {
                 const AddFavouriteGame(),
                 const SizedBox(height: 10),
                 LinkBtnWidget(
-                  text: S.of(context).telegramGroup,
-                  url: AppLnksConst.telegramGroup,
-                ),
-                LinkBtnWidget(
                   text: S.of(context).followMeOnXTwitter,
                   url: AppLnksConst.xLink,
                 ),
@@ -94,6 +90,7 @@ class AboutScreen extends StatelessWidget {
                   url: AppLnksConst.myWebSitelink,
                 ),
                 const SizedBox(height: 10),
+                // TODO: add Knight's Graph link
                 Divider(
                   color: theme.borderColor,
                   thickness: 0.5,
