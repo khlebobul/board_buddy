@@ -359,28 +359,33 @@ class _CommonGameViewState extends State<CommonGameView>
               ? Column(
                   children: [
                     Container(
-                      padding: const EdgeInsets.symmetric(vertical: 8),
+                      padding: const EdgeInsets.symmetric(vertical: 4),
                       child: Text(
                         _isAddOperation
                             ? S.of(context).adding
                             : S.of(context).subtracting,
-                        style: theme.display6,
+                        style: theme.display7.copyWith(
+                          color: theme.secondaryTextColor,
+                        ),
                       ),
                     ),
                     CustomKeyboard(
                       buttons: [
                         [
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.one,
                             onPressed: () => _updateScore(context,
                                 _currentPageIndex, _isAddOperation ? 1 : -1),
                           ),
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.two,
                             onPressed: () => _updateScore(context,
                                 _currentPageIndex, _isAddOperation ? 2 : -2),
                           ),
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.three,
                             onPressed: () => _updateScore(context,
                                 _currentPageIndex, _isAddOperation ? 3 : -3),
@@ -388,16 +393,19 @@ class _CommonGameViewState extends State<CommonGameView>
                         ],
                         [
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.four,
                             onPressed: () => _updateScore(context,
                                 _currentPageIndex, _isAddOperation ? 4 : -4),
                           ),
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.five,
                             onPressed: () => _updateScore(context,
                                 _currentPageIndex, _isAddOperation ? 5 : -5),
                           ),
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.six,
                             onPressed: () => _updateScore(context,
                                 _currentPageIndex, _isAddOperation ? 6 : -6),
@@ -405,16 +413,19 @@ class _CommonGameViewState extends State<CommonGameView>
                         ],
                         [
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.seven,
                             onPressed: () => _updateScore(context,
                                 _currentPageIndex, _isAddOperation ? 7 : -7),
                           ),
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.eight,
                             onPressed: () => _updateScore(context,
                                 _currentPageIndex, _isAddOperation ? 8 : -8),
                           ),
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.nine,
                             onPressed: () => _updateScore(context,
                                 _currentPageIndex, _isAddOperation ? 9 : -9),
@@ -422,6 +433,7 @@ class _CommonGameViewState extends State<CommonGameView>
                         ],
                         [
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: '-',
                             onPressed: () {
                               setState(() {
@@ -430,11 +442,13 @@ class _CommonGameViewState extends State<CommonGameView>
                             },
                           ),
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.zero,
                             onPressed: () =>
                                 _updateScore(context, _currentPageIndex, 0),
                           ),
                           KeyboardButton(
+                            useCompactMargin: true,
                             buttonText: '+',
                             onPressed: () {
                               setState(() {

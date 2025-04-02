@@ -95,7 +95,9 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
     return GestureDetector(
       onTap: _onTap,
       child: Container(
-        margin: const EdgeInsets.all(14.0),
+        margin: widget.button.useCompactMargin
+            ? const EdgeInsets.all(7.0)
+            : const EdgeInsets.all(14.0),
         decoration: BoxDecoration(
           color: widget.button.backgroundColor,
           borderRadius: BorderRadius.circular(8.0),
@@ -147,10 +149,15 @@ class KeyboardButton {
   /// Size of the icon on the button.
   final double iconSize;
 
-  KeyboardButton(
-      {this.buttonIcon = '',
-      this.buttonText = '',
-      this.onPressed,
-      this.backgroundColor,
-      this.iconSize = 30.0});
+  /// Whether to use a compact margin
+  final bool useCompactMargin;
+
+  KeyboardButton({
+    this.buttonIcon = '',
+    this.buttonText = '',
+    this.onPressed,
+    this.backgroundColor,
+    this.iconSize = 30.0,
+    this.useCompactMargin = false,
+  });
 }
