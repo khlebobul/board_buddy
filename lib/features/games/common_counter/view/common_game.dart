@@ -65,6 +65,7 @@ class _CommonGameViewState extends State<CommonGameView>
   late final PageController _pageController;
   late final AnimationController _animationController;
   late final Animation<double> _animation;
+  late final ScrollController _indicatorScrollController;
 
   int _currentPageIndex = 0;
   bool _isNumericKeyboard = false;
@@ -77,6 +78,8 @@ class _CommonGameViewState extends State<CommonGameView>
       initialPage: 0,
       viewportFraction: 0.85,
     );
+
+    _indicatorScrollController = ScrollController();
 
     // Initialize animation controller
     _animationController = AnimationController(
@@ -94,7 +97,33 @@ class _CommonGameViewState extends State<CommonGameView>
   void dispose() {
     _pageController.dispose();
     _animationController.dispose();
+    _indicatorScrollController.dispose();
     super.dispose();
+  }
+
+  // Scroll to the active indicator
+  void _scrollToActiveIndicator() {
+    if (!_indicatorScrollController.hasClients) return;
+
+    final double indicatorWidth = 30.0;
+    final double targetPosition = _currentPageIndex * indicatorWidth;
+
+    final double currentPosition = _indicatorScrollController.offset;
+    final double viewportWidth =
+        _indicatorScrollController.position.viewportDimension;
+
+    if (targetPosition < currentPosition ||
+        targetPosition > currentPosition + viewportWidth - indicatorWidth) {
+      final double scrollTo =
+          targetPosition - (viewportWidth / 2) + (indicatorWidth / 2);
+
+      _indicatorScrollController.animateTo(
+        scrollTo.clamp(
+            0.0, _indicatorScrollController.position.maxScrollExtent),
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    }
   }
 
   void _updateScore(BuildContext context, int playerIndex, int value) {
@@ -237,6 +266,9 @@ class _CommonGameViewState extends State<CommonGameView>
                         setState(() {
                           _currentPageIndex = index;
                         });
+                        WidgetsBinding.instance.addPostFrameCallback((_) {
+                          _scrollToActiveIndicator();
+                        });
                       },
                       itemBuilder: (context, index) {
                         return Padding(
@@ -285,29 +317,36 @@ class _CommonGameViewState extends State<CommonGameView>
                 ),
               ),
               const SizedBox(height: 10),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: gameState.players.asMap().entries.map((entry) {
-                  final index = entry.key;
-                  final player = entry.value;
-                  final firstLetter = player.name.characters.first;
-                  return GestureDetector(
-                    onTap: () {
-                      _pageController.animateToPage(
-                        index,
-                        duration: const Duration(milliseconds: 300),
-                        curve: Curves.easeInOut,
+              SizedBox(
+                height: 40,
+                child: SingleChildScrollView(
+                  scrollDirection: Axis.horizontal,
+                  controller: _indicatorScrollController,
+                  child: Row(
+                    mainAxisAlignment: MainAxisAlignment.center,
+                    children: gameState.players.asMap().entries.map((entry) {
+                      final index = entry.key;
+                      final player = entry.value;
+                      final firstLetter = player.name.characters.first;
+                      return GestureDetector(
+                        onTap: () {
+                          _pageController.animateToPage(
+                            index,
+                            duration: const Duration(milliseconds: 300),
+                            curve: Curves.easeInOut,
+                          );
+                        },
+                        child: Padding(
+                          padding: const EdgeInsets.symmetric(horizontal: 4.0),
+                          child: PlayerIndicator(
+                            letter: firstLetter,
+                            isActive: index == _currentPageIndex,
+                          ),
+                        ),
                       );
-                    },
-                    child: Padding(
-                      padding: const EdgeInsets.symmetric(horizontal: 4.0),
-                      child: PlayerIndicator(
-                        letter: firstLetter,
-                        isActive: index == _currentPageIndex,
-                      ),
-                    ),
-                  );
-                }).toList(),
+                    }).toList(),
+                  ),
+                ),
               ),
             ],
           ),
