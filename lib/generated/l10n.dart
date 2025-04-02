@@ -28,9 +28,10 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -2694,10 +2695,10 @@ class S {
     return Intl.message('player name', name: 'playerName', desc: '', args: []);
   }
 
-  /// `the number of players should be`
+  /// `the number of players should be more than`
   String get theNumberOfPlayersShouldBe {
     return Intl.message(
-      'the number of players should be',
+      'the number of players should be more than',
       name: 'theNumberOfPlayersShouldBe',
       desc: '',
       args: [],

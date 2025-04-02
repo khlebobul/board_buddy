@@ -305,7 +305,7 @@
   "cancel": "cancel",
   "add": "add",
   "playerName": "player name",
-  "theNumberOfPlayersShouldBe": "the number of players should be",
+  "theNumberOfPlayersShouldBe": "the number of players should be more than",
   "gameUpTo": "game up to: ",
   "gameOver": "game over",
   "newGameWithSamePlayers": "another round",

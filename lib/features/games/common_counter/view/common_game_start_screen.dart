@@ -11,12 +11,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:use_scramble/use_scramble.dart';
 
-// Constants for the common counter game
-class CommonCounterConst {
-  static const int minPlayers = 2;
-  static const int maxPlayers = 100;
-}
-
 class CommonGameStartScreen extends StatelessWidget {
   const CommonGameStartScreen({super.key});
 
@@ -122,7 +116,7 @@ class CommonGameStartScreenView extends StatelessWidget {
                         ),
                         const SizedBox(height: 12),
                         if (counterState.players.length <
-                            CommonCounterConst.maxPlayers)
+                            GameMaxPlayers.commonCounter)
                           GestureDetector(
                             onTap: () {
                               final counterBloc =
@@ -160,11 +154,11 @@ class CommonGameStartScreenView extends StatelessWidget {
                 onRightBtnTap: () {
                   if (!counterState.isSinglePlayer &&
                       counterState.players.length <
-                          CommonCounterConst.minPlayers) {
+                          GameMaxPlayers.commonCounter) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
                         content: Text(
-                            '${S.of(context).theNumberOfPlayersShouldBe} ${CommonCounterConst.minPlayers}'),
+                            '${S.of(context).theNumberOfPlayersShouldBe} ${GameMaxPlayers.commonCounter}'),
                       ),
                     );
                   } else {

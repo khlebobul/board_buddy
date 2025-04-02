@@ -305,7 +305,7 @@
   "cancel": "отмена",
   "add": "добавить",
   "playerName": "имя игрока",
-  "theNumberOfPlayersShouldBe": "количество игроков должно быть",
+  "theNumberOfPlayersShouldBe": "количество игроков должно быть больше",
   "gameUpTo": "игра до: ",
   "gameOver": "игра окончена",
   "newGameWithSamePlayers": "еще раунд",
