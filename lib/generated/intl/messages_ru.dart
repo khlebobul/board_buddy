@@ -570,7 +570,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sword": MessageLookupByLibrary.simpleMessage("меч"),
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
-      "количество игроков должно быть",
+      "количество игроков должно быть больше",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),

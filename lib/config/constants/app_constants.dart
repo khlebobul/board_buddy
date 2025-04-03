@@ -69,6 +69,9 @@ class RulesConst {
 // munchkin
   static const munchkinAge = '12+';
   static const munchkinPlayers = '3-6';
+// common counter
+  static const commonCounterAge = '6+';
+  static const commonCounterPlayers = '2-10';
 }
 
 class GameConst {
@@ -98,6 +101,7 @@ class GameMaxPlayers {
   static const set = 10;
   static const unoFlip = 10;
   static const munchkin = 6;
+  static const commonCounter = 30;
 }
 
 class GameMinPlayers {
@@ -107,6 +111,7 @@ class GameMinPlayers {
   static const set = 2;
   static const unoFlip = 2;
   static const munchkin = 3;
+  static const commonCounter = 2;
 }
 
 class UnoLikeGameCardsText {

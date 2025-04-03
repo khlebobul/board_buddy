@@ -2695,10 +2695,10 @@ class S {
     return Intl.message('player name', name: 'playerName', desc: '', args: []);
   }
 
-  /// `the number of players should be`
+  /// `the number of players should be more than`
   String get theNumberOfPlayersShouldBe {
     return Intl.message(
-      'the number of players should be',
+      'the number of players should be more than',
       name: 'theNumberOfPlayersShouldBe',
       desc: '',
       args: [],

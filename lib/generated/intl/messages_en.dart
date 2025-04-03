@@ -552,7 +552,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "sword": MessageLookupByLibrary.simpleMessage("sword"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
-      "the number of players should be",
+      "the number of players should be more than",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("theme"),
     "thief": MessageLookupByLibrary.simpleMessage("thief"),
