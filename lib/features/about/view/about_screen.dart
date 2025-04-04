@@ -15,6 +15,7 @@ class AboutScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
+    final urlPreview = AppLnksConst.webSitelink;
     return Scaffold(
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
@@ -60,6 +61,13 @@ class AboutScreen extends StatelessWidget {
                   url: Platform.isIOS
                       ? AppLnksConst.rateAppStore
                       : AppLnksConst.rateGooglePlay,
+                ),
+                LinkBtnWidget(
+                  text: S.of(context).shareWithFriedns,
+                  shareText:
+                      '${S.of(context).boardBuddyIsYourUltimateBoardGameCompanion}\n\n$urlPreview',
+                  url: AppLnksConst.webSitelink,
+                  isShareButton: true,
                 ),
                 LinkBtnWidget(
                   text: S.of(context).projectWebsite,

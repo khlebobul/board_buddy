@@ -40,6 +40,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "bigSword": MessageLookupByLibrary.simpleMessage("big sword"),
     "blankTile": MessageLookupByLibrary.simpleMessage("blank\ntile"),
     "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
+    "boardBuddyIsYourUltimateBoardGameCompanion":
+        MessageLookupByLibrary.simpleMessage(
+          "board buddy is your ultimate board game companion",
+        ),
     "bonusTileOrSpecialMarkerScrabbleInfo":
         MessageLookupByLibrary.simpleMessage("bonus tile or special marker"),
     "boots": MessageLookupByLibrary.simpleMessage("boots"),
@@ -78,6 +82,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "common": MessageLookupByLibrary.simpleMessage("counter"),
     "continueTitle": MessageLookupByLibrary.simpleMessage("continue"),
+    "couldNotLaunch": MessageLookupByLibrary.simpleMessage("could not launch"),
     "cursed": MessageLookupByLibrary.simpleMessage("cursed"),
     "dark": MessageLookupByLibrary.simpleMessage("dark"),
     "darkSideCardsAreReplacedWithLightOnesAndVice":
@@ -521,6 +526,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings": MessageLookupByLibrary.simpleMessage("settings"),
     "shareFeedback": MessageLookupByLibrary.simpleMessage("share feedback"),
+    "shareWithFriedns": MessageLookupByLibrary.simpleMessage(
+      "share with friedns",
+    ),
     "shareWithFriends": MessageLookupByLibrary.simpleMessage(
       "share with friends",
     ),

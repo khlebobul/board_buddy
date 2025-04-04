@@ -2849,6 +2849,36 @@ class S {
       args: [],
     );
   }
+
+  /// `could not launch`
+  String get couldNotLaunch {
+    return Intl.message(
+      'could not launch',
+      name: 'couldNotLaunch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `share with friedns`
+  String get shareWithFriedns {
+    return Intl.message(
+      'share with friedns',
+      name: 'shareWithFriedns',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `board buddy is your ultimate board game companion`
+  String get boardBuddyIsYourUltimateBoardGameCompanion {
+    return Intl.message(
+      'board buddy is your ultimate board game companion',
+      name: 'boardBuddyIsYourUltimateBoardGameCompanion',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

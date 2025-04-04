@@ -73,7 +73,7 @@ your ultimate board game companion
 
 ### packages
 
-[gen_art_bg](https://pub.dev/packages/gen_art_bg) / [use_scramble](https://pub.dev/packages/use_scramble) / [shared_preferences](https://pub.dev/packages/shared_preferences) / [intl](https://pub.dev/packages/intl) / [url_launcher](https://pub.dev/packages/url_launcher) / [flutter_svg](https://pub.dev/packages/flutter_svg) / [flutter_bloc](https://pub.dev/packages/flutter_bloc) / [flutter_popup](https://pub.dev/packages/flutter_popup) / [wheel_chooser](https://pub.dev/packages/wheel_chooser) / [sqflite](https://pub.dev/packages/sqflite) / [path](https://pub.dev/packages/path)
+[gen_art_bg](https://pub.dev/packages/gen_art_bg) / [use_scramble](https://pub.dev/packages/use_scramble) / [shared_preferences](https://pub.dev/packages/shared_preferences) / [intl](https://pub.dev/packages/intl) / [url_launcher](https://pub.dev/packages/url_launcher) / [flutter_svg](https://pub.dev/packages/flutter_svg) / [flutter_bloc](https://pub.dev/packages/flutter_bloc) / [flutter_popup](https://pub.dev/packages/flutter_popup) / [wheel_chooser](https://pub.dev/packages/wheel_chooser) / [sqflite](https://pub.dev/packages/sqflite) / [path](https://pub.dev/packages/path) / [share_plus](https://pub.dev/packages/share_plus)
 
 ## contacts
 
