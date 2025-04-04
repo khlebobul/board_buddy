@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
@@ -53,13 +55,12 @@ class AboutScreen extends StatelessWidget {
                   overflow: TextOverflow.clip,
                 ),
                 const SizedBox(height: 10),
-                // TODO: Add rating
-                // LinkBtnWidget(
-                //   text: S.of(context).rateTheApp,
-                //   url: Platform.isIOS
-                //       ? AppLnksConst.rateAppStore
-                //       : AppLnksConst.rateGooglePlay,
-                // ),
+                LinkBtnWidget(
+                  text: S.of(context).rateTheApp,
+                  url: Platform.isIOS
+                      ? AppLnksConst.rateAppStore
+                      : AppLnksConst.rateGooglePlay,
+                ),
                 LinkBtnWidget(
                   text: S.of(context).projectWebsite,
                   url: AppLnksConst.webSitelink,
@@ -90,13 +91,26 @@ class AboutScreen extends StatelessWidget {
                   url: AppLnksConst.myWebSitelink,
                 ),
                 const SizedBox(height: 10),
-                // TODO: add Knight's Graph link
                 Divider(
                   color: theme.borderColor,
-                  thickness: 0.5,
+                  thickness: 0.7,
+                ),
+                LinkBtnWidget(
+                  text: S.of(context).takeALookAtMyKnightsGraphApp,
+                  url: Platform.isIOS
+                      ? AppLnksConst.kgAppStore
+                      : AppLnksConst.kgGooglePlay,
+                ),
+                Divider(
+                  color: theme.borderColor,
+                  thickness: 0.7,
                 ),
                 const SizedBox(height: 10),
-                Text(S.of(context).appreciation, style: theme.display2),
+                Text(
+                  S.of(context).appreciation,
+                  style:
+                      theme.display2.copyWith(color: theme.secondaryTextColor),
+                ),
                 const SizedBox(height: 10),
                 Text(
                   S.of(context).toAllWhoCreatedThe,

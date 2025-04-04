@@ -568,6 +568,9 @@ class MessageLookup extends MessageLookupByLibrary {
           "обменяйтесь картами с любым игроком и выберите цвет.",
         ),
     "sword": MessageLookupByLibrary.simpleMessage("меч"),
+    "takeALookAtMyKnightsGraphApp": MessageLookupByLibrary.simpleMessage(
+      "посмотрите на мое приложение knight\'s graph",
+    ),
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "количество игроков должно быть больше",

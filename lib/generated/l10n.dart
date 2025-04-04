@@ -2839,6 +2839,16 @@ class S {
   String get menu {
     return Intl.message('menu', name: 'menu', desc: '', args: []);
   }
+
+  /// `take a look at my knight's graph app`
+  String get takeALookAtMyKnightsGraphApp {
+    return Intl.message(
+      'take a look at my knight\'s graph app',
+      name: 'takeALookAtMyKnightsGraphApp',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

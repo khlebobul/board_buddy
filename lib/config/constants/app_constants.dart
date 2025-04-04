@@ -12,11 +12,17 @@ class AppLnksConst {
   static const webSitelink = 'https://boardbuddyapp.vercel.app';
   static const lucideIconsLink = 'https://lucide.dev';
 
-  // TODO: fix rate link
+  // TODO: update rate link
   static const rateAppStore =
       'https://itunes.apple.com/app/id6737812039?action=write-review';
   static const rateGooglePlay =
       'https://play.google.com/store/apps/details?hl=ru&gl=ru&id=com.khlebobul.knights_graph';
+
+  // knight's graph links
+  static const kgAppStore =
+      'https://apps.apple.com/us/app/knights-graph/id6737812039';
+  static const kgGooglePlay =
+      'https://play.google.com/store/apps/details?id=com.khlebobul.knights_graph';
 }
 
 class GeneralConst {
