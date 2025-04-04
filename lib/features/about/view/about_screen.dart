@@ -7,10 +7,27 @@ import 'package:board_buddy/features/home/widgets/add_new_game.dart';
 import 'package:board_buddy/features/about/widgets/contributors_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/features/about/widgets/link_btn.dart';
+import 'package:board_buddy/shared/services/review_service.dart';
 import 'package:flutter/material.dart';
 
-class AboutScreen extends StatelessWidget {
+class AboutScreen extends StatefulWidget {
   const AboutScreen({super.key});
+
+  @override
+  State<AboutScreen> createState() => _AboutScreenState();
+}
+
+class _AboutScreenState extends State<AboutScreen> {
+  @override
+  void initState() {
+    super.initState();
+    _requestReview();
+  }
+
+  Future<void> _requestReview() async {
+    await ReviewService.incrementTimesCount();
+    await ReviewService.requestReview();
+  }
 
   @override
   Widget build(BuildContext context) {
