@@ -272,13 +272,13 @@ class MessageLookup extends MessageLookupByLibrary {
       "be the first to reach level 10 by fighting monsters, using equipment, curses, and abilities cards.",
     ),
     "munchkinInitialCardsInstruction": MessageLookupByLibrary.simpleMessage(
-      "each player takes: 4 cards from the Door deck and 4 cards from the Treasure deck.",
+      "each player takes: 4 cards from the door deck and 4 cards from the treasure deck.",
     ),
     "munchkinLevel10Condition": MessageLookupByLibrary.simpleMessage(
       "level 10: the final level can only be achieved by defeating a monster.",
     ),
     "munchkinMonsterEncounter": MessageLookupByLibrary.simpleMessage(
-      "monster: fight it (see \'Combat\').",
+      "monster: fight it (see \'combat\').",
     ),
     "munchkinMonsterEnhancersCardType": MessageLookupByLibrary.simpleMessage(
       "monster enhancers — increase the monster\'s strength.",
@@ -290,7 +290,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "monsters — fight them to level up.",
     ),
     "munchkinNoMonsterActionsDescription": MessageLookupByLibrary.simpleMessage(
-      "play a monster from their hand to fight (optional) or go \'Looking for Trouble\' (draw a card from the Door deck into their hand).",
+      "play a monster from their hand to fight (optional) or go \'looking for trouble\' (draw a card from the door deck into their hand).",
     ),
     "munchkinNoMonsterActionsTitle": MessageLookupByLibrary.simpleMessage(
       "if there\'s no monster, the player can:",
@@ -302,7 +302,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "any other card: keep it in your hand.",
     ),
     "munchkinShuffleCardsInstruction": MessageLookupByLibrary.simpleMessage(
-      "shuffle the Door and Treasure cards and divide them into two separate decks.",
+      "shuffle the door and treasure cards and divide them into two separate decks.",
     ),
     "munchkinStartingGearInstruction": MessageLookupByLibrary.simpleMessage(
       "players place their starting equipment cards on the table, if they have any.",
@@ -311,7 +311,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "munchkin® is a registered trademark of steve jackson games.",
     ),
     "munchkinTurnDescription": MessageLookupByLibrary.simpleMessage(
-      "the player draws the top card from the Door deck. possible outcomes:",
+      "the player draws the top card from the door deck. possible outcomes:",
     ),
     "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
       "the first player to reach level 10 wins!",
@@ -488,7 +488,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "the dealer places 12 cards.",
     ),
     "setGameTurnStepFindingSet": MessageLookupByLibrary.simpleMessage(
-      "players simultaneously search for a set. the first to find one calls out: \'Set!\'",
+      "players simultaneously search for a set. the first to find one calls out: \'set!\'",
     ),
     "setGameTurnStepFour": MessageLookupByLibrary.simpleMessage(
       "the game continues.",
