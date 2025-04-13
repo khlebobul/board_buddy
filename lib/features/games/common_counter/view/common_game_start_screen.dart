@@ -157,6 +157,8 @@ class CommonGameStartScreenView extends StatelessWidget {
                           GameMaxPlayers.commonCounter) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
+                        behavior: SnackBarBehavior.floating,
+                        duration: const Duration(seconds: 5),
                         content: Text(
                             '${S.of(context).theNumberOfPlayersShouldBe} ${GameMaxPlayers.commonCounter}'),
                       ),

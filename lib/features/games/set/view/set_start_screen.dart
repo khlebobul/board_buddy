@@ -155,6 +155,8 @@ class SetGameStartScreenView extends StatelessWidget {
                       setState.players.length < GameMinPlayers.set) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
+                        behavior: SnackBarBehavior.floating,
+                        duration: const Duration(seconds: 5),
                         content: Text(
                             '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.setPlayers}'),
                       ),

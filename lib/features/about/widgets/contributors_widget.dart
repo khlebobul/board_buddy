@@ -32,7 +32,10 @@ class ContributorsWidget extends StatelessWidget {
               } else {
                 // ignore: use_build_context_synchronously
                 ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(content: Text('Could not launch $url')),
+                  SnackBar(
+                      behavior: SnackBarBehavior.floating,
+                      duration: const Duration(seconds: 5),
+                      content: Text('Could not launch $url')),
                 );
               }
             },
