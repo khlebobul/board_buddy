@@ -271,8 +271,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
         CustomIcons.star,
         width: 12,
         height: 12,
-        // ignore: deprecated_member_use
-        color: theme.redColor,
+        colorFilter: ColorFilter.mode(theme.redColor, BlendMode.srcIn),
       );
     } else if (modifier == S.current.blankTile) {
       return Text(
@@ -443,8 +442,8 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                               SvgPicture.asset(
                                 CustomIcons.star,
                                 width: 24,
-                                // ignore: deprecated_member_use
-                                color: theme.textColor,
+                                colorFilter: ColorFilter.mode(
+                                    theme.textColor, BlendMode.srcIn),
                               ),
                               () => _applyModifier(letter, index, 'star'),
                             ),

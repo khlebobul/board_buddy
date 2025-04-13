@@ -182,8 +182,8 @@ class _CommonGameViewState extends State<CommonGameView>
                             CustomIcons.dice,
                             width: 27,
                             height: 27,
-                            // ignore: deprecated_member_use
-                            color: theme.textColor,
+                            colorFilter: ColorFilter.mode(
+                                theme.textColor, BlendMode.srcIn),
                           ),
                         ),
                       ],

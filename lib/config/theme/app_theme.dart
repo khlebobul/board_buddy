@@ -129,6 +129,12 @@ class UIThemes {
         color: textColor,
       );
 
+  TextStyle get display10 => TextStyle(
+        fontSize: 8,
+        fontFamily: 'RobotoMono',
+        color: textColor,
+      );
+
   // Colors
   // Background color
   Color get bgColor =>

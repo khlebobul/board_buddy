@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
@@ -108,9 +106,11 @@ class BottomGameBar extends StatelessWidget {
                     onTap: isLeftArrowActive ? onLeftArrowTap : null,
                     child: SvgPicture.asset(
                       CustomIcons.leftArrow,
-                      color: isLeftArrowActive
-                          ? theme.textColor
-                          : theme.secondaryTextColor,
+                      colorFilter: ColorFilter.mode(
+                          isLeftArrowActive
+                              ? theme.textColor
+                              : theme.secondaryTextColor,
+                          BlendMode.srcIn),
                       width: 20,
                     ),
                   ),
@@ -128,7 +128,8 @@ class BottomGameBar extends StatelessWidget {
                           },
                           child: SvgPicture.asset(
                             CustomIcons.info,
-                            color: theme.textColor,
+                            colorFilter: ColorFilter.mode(
+                                theme.textColor, BlendMode.srcIn),
                             width: 20,
                           ),
                         ),
@@ -138,7 +139,8 @@ class BottomGameBar extends StatelessWidget {
                           onTap: onKeyboardBtnTap,
                           child: SvgPicture.asset(
                             CustomIcons.keyboard,
-                            color: theme.textColor,
+                            colorFilter: ColorFilter.mode(
+                                theme.textColor, BlendMode.srcIn),
                             width: 20,
                           ),
                         ),
@@ -147,9 +149,11 @@ class BottomGameBar extends StatelessWidget {
                     onTap: isRightArrowActive ? onRightArrowTap : null,
                     child: SvgPicture.asset(
                       CustomIcons.rightArrow,
-                      color: isRightArrowActive
-                          ? theme.textColor
-                          : theme.secondaryTextColor,
+                      colorFilter: ColorFilter.mode(
+                          isRightArrowActive
+                              ? theme.textColor
+                              : theme.secondaryTextColor,
+                          BlendMode.srcIn),
                       width: 20,
                     ),
                   ),
