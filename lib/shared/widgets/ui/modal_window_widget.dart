@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
@@ -29,20 +31,6 @@ class ModalWindowWidget extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
-          Align(
-            alignment: Alignment.topRight,
-            child: IconButton(
-              splashColor: Colors.transparent,
-              highlightColor: Colors.transparent,
-              onPressed: () {
-                Navigator.pop(context);
-              },
-              icon: Icon(
-                Icons.close,
-                color: theme.secondaryTextColor,
-              ),
-            ),
-          ),
           Padding(
             padding: const EdgeInsets.all(12.0),
             child: Text(
@@ -89,15 +77,36 @@ class ModalWindowWidget extends StatelessWidget {
   }) {
     HapticFeedback.selectionClick();
 
-    showDialog(
+    showGeneralDialog(
       context: context,
-      builder: (BuildContext context) {
-        return ModalWindowWidget(
-          mainText: mainText,
-          button1Text: button1Text,
-          button2Text: button2Text,
-          button1Action: button1Action,
-          button2Action: button2Action,
+      barrierDismissible: false,
+      barrierColor: Colors.black.withValues(alpha: 0.2),
+      transitionDuration: const Duration(milliseconds: 200),
+      pageBuilder: (context, anim1, anim2) {
+        return Stack(
+          children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
+              child: Container(
+                color: Colors.black.withValues(alpha: 0),
+              ),
+            ),
+            Center(
+              child: ModalWindowWidget(
+                mainText: mainText,
+                button1Text: button1Text,
+                button2Text: button2Text,
+                button1Action: button1Action,
+                button2Action: button2Action,
+              ),
+            ),
+          ],
+        );
+      },
+      transitionBuilder: (context, anim1, anim2, child) {
+        return FadeTransition(
+          opacity: anim1,
+          child: child,
         );
       },
     );
