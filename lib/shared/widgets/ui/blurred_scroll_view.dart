@@ -35,7 +35,7 @@ class BlurredScrollView extends StatelessWidget {
             maskColor.withValues(alpha: 1.0),
             maskColor.withValues(alpha: 0.0),
           ],
-          stops: const [0.0, 0.05, 0.95, 1.0],
+          stops: const [0.0, 0.03, 0.95, 1.0],
         ).createShader(bounds);
       },
       blendMode: BlendMode.dstIn,
