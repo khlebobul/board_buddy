@@ -84,6 +84,8 @@ your ultimate board game companion
 <!-- ## repository activity
 - repobeats -->
 
+
+
 ## license
 
 [![LICENCE - GPLv3](https://img.shields.io/badge/LICENCE-GPLv3-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
