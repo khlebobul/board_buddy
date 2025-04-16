@@ -121,6 +121,8 @@ class _MunchkinGameState extends State<MunchkinGame> {
                               state.players[_currentPlayerIndex].isMale
                                   ? CustomIcons.male
                                   : CustomIcons.female,
+                              colorFilter: ColorFilter.mode(
+                                  theme.textColor, BlendMode.srcIn),
                             ),
                           ),
                           const SizedBox(width: 40),
@@ -163,7 +165,11 @@ class _MunchkinGameState extends State<MunchkinGame> {
                                     .add(ResetPlayerModifiers(currentPlayer));
                               }
                             },
-                            child: SvgPicture.asset(CustomIcons.bone),
+                            child: SvgPicture.asset(
+                              CustomIcons.bone,
+                              colorFilter: ColorFilter.mode(
+                                  theme.textColor, BlendMode.srcIn),
+                            ),
                           ),
                         ],
                       ),
