@@ -300,20 +300,20 @@ class S {
     );
   }
 
-  /// `shuffle the Door and Treasure cards and divide them into two separate decks.`
+  /// `shuffle the door and treasure cards and divide them into two separate decks.`
   String get munchkinShuffleCardsInstruction {
     return Intl.message(
-      'shuffle the Door and Treasure cards and divide them into two separate decks.',
+      'shuffle the door and treasure cards and divide them into two separate decks.',
       name: 'munchkinShuffleCardsInstruction',
       desc: '',
       args: [],
     );
   }
 
-  /// `each player takes: 4 cards from the Door deck and 4 cards from the Treasure deck.`
+  /// `each player takes: 4 cards from the door deck and 4 cards from the treasure deck.`
   String get munchkinInitialCardsInstruction {
     return Intl.message(
-      'each player takes: 4 cards from the Door deck and 4 cards from the Treasure deck.',
+      'each player takes: 4 cards from the door deck and 4 cards from the treasure deck.',
       name: 'munchkinInitialCardsInstruction',
       desc: '',
       args: [],
@@ -340,20 +340,20 @@ class S {
     );
   }
 
-  /// `the player draws the top card from the Door deck. possible outcomes:`
+  /// `the player draws the top card from the door deck. possible outcomes:`
   String get munchkinTurnDescription {
     return Intl.message(
-      'the player draws the top card from the Door deck. possible outcomes:',
+      'the player draws the top card from the door deck. possible outcomes:',
       name: 'munchkinTurnDescription',
       desc: '',
       args: [],
     );
   }
 
-  /// `monster: fight it (see 'Combat').`
+  /// `monster: fight it (see 'combat').`
   String get munchkinMonsterEncounter {
     return Intl.message(
-      'monster: fight it (see \'Combat\').',
+      'monster: fight it (see \'combat\').',
       name: 'munchkinMonsterEncounter',
       desc: '',
       args: [],
@@ -390,10 +390,10 @@ class S {
     );
   }
 
-  /// `play a monster from their hand to fight (optional) or go 'Looking for Trouble' (draw a card from the Door deck into their hand).`
+  /// `play a monster from their hand to fight (optional) or go 'looking for trouble' (draw a card from the door deck into their hand).`
   String get munchkinNoMonsterActionsDescription {
     return Intl.message(
-      'play a monster from their hand to fight (optional) or go \'Looking for Trouble\' (draw a card from the Door deck into their hand).',
+      'play a monster from their hand to fight (optional) or go \'looking for trouble\' (draw a card from the door deck into their hand).',
       name: 'munchkinNoMonsterActionsDescription',
       desc: '',
       args: [],
@@ -665,10 +665,10 @@ class S {
     );
   }
 
-  /// `players simultaneously search for a set. the first to find one calls out: 'Set!'`
+  /// `players simultaneously search for a set. the first to find one calls out: 'set!'`
   String get setGameTurnStepFindingSet {
     return Intl.message(
-      'players simultaneously search for a set. the first to find one calls out: \'Set!\'',
+      'players simultaneously search for a set. the first to find one calls out: \'set!\'',
       name: 'setGameTurnStepFindingSet',
       desc: '',
       args: [],
@@ -2838,6 +2838,46 @@ class S {
   /// `menu`
   String get menu {
     return Intl.message('menu', name: 'menu', desc: '', args: []);
+  }
+
+  /// `take a look at my knight's graph app`
+  String get takeALookAtMyKnightsGraphApp {
+    return Intl.message(
+      'take a look at my knight\'s graph app',
+      name: 'takeALookAtMyKnightsGraphApp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `could not launch`
+  String get couldNotLaunch {
+    return Intl.message(
+      'could not launch',
+      name: 'couldNotLaunch',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `share with friedns`
+  String get shareWithFriedns {
+    return Intl.message(
+      'share with friedns',
+      name: 'shareWithFriedns',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `board buddy is your ultimate board game companion`
+  String get boardBuddyIsYourUltimateBoardGameCompanion {
+    return Intl.message(
+      'board buddy is your ultimate board game companion',
+      name: 'boardBuddyIsYourUltimateBoardGameCompanion',
+      desc: '',
+      args: [],
+    );
   }
 }
 

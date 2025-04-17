@@ -325,5 +325,9 @@
   "skip": "пропуск",
   "x2Word": "x2 слово",
   "x3Word": "x3 слово",
-  "menu": "меню"
+  "menu": "меню",
+  "takeALookAtMyKnightsGraphApp": "посмотрите на мое приложение knight's graph",
+  "couldNotLaunch": "не удалось запустить",
+  "shareWithFriedns": "поделиться с друзьями",
+  "boardBuddyIsYourUltimateBoardGameCompanion": "board buddy - ваш лучший помощник для настольных игр"
 }

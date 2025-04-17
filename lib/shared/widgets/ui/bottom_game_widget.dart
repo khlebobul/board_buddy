@@ -1,5 +1,6 @@
 // ignore_for_file: deprecated_member_use
 
+import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
@@ -68,92 +69,95 @@ class BottomGameBar extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-    return Padding(
-      padding: const EdgeInsets.symmetric(horizontal: 16) +
-          const EdgeInsets.only(bottom: 30),
-      child: Stack(
-        alignment: Alignment.center,
-        children: [
-          if (rightButtonText.isNotEmpty) ...[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceBetween,
-              children: [
-                GestureDetector(
-                  onTap: onLeftBtnTap,
-                  child: TextScramble(
-                    text: leftButtonText,
-                    style: theme.display2.copyWith(color: theme.textColor),
+    return SafeArea(
+      child: Padding(
+        padding: const EdgeInsets.symmetric(
+                horizontal: GeneralConst.paddingHorizontal) +
+            const EdgeInsets.only(bottom: 10),
+        child: Stack(
+          alignment: Alignment.center,
+          children: [
+            if (rightButtonText.isNotEmpty) ...[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                children: [
+                  GestureDetector(
+                    onTap: onLeftBtnTap,
+                    child: TextScramble(
+                      text: leftButtonText,
+                      style: theme.display2.copyWith(color: theme.textColor),
+                    ),
                   ),
-                ),
-                GestureDetector(
-                  onTap: onRightBtnTap,
-                  child: TextScramble(
-                    text: rightButtonText,
-                    style: theme.display2.copyWith(
-                        color:
-                            isRightBtnRed ? theme.redColor : theme.textColor),
+                  GestureDetector(
+                    onTap: onRightBtnTap,
+                    child: TextScramble(
+                      text: rightButtonText,
+                      style: theme.display2.copyWith(
+                          color:
+                              isRightBtnRed ? theme.redColor : theme.textColor),
+                    ),
                   ),
-                ),
-              ],
-            ),
-          ],
-          if (isArrow) ...[
-            Row(
-              mainAxisAlignment: MainAxisAlignment.start,
-              children: [
-                GestureDetector(
-                  onTap: isLeftArrowActive ? onLeftArrowTap : null,
-                  child: SvgPicture.asset(
-                    CustomIcons.leftArrow,
-                    color: isLeftArrowActive
-                        ? theme.textColor
-                        : theme.secondaryTextColor,
-                    width: 20,
+                ],
+              ),
+            ],
+            if (isArrow) ...[
+              Row(
+                mainAxisAlignment: MainAxisAlignment.start,
+                children: [
+                  GestureDetector(
+                    onTap: isLeftArrowActive ? onLeftArrowTap : null,
+                    child: SvgPicture.asset(
+                      CustomIcons.leftArrow,
+                      color: isLeftArrowActive
+                          ? theme.textColor
+                          : theme.secondaryTextColor,
+                      width: 20,
+                    ),
                   ),
-                ),
-                const SizedBox(width: 20),
-                dialogWidget == null
-                    ? const SizedBox()
-                    : GestureDetector(
-                        onTap: () {
-                          showDialog(
-                            context: context,
-                            builder: (BuildContext context) {
-                              return dialogWidget ?? const InfoUnoDialog();
-                            },
-                          );
-                        },
-                        child: SvgPicture.asset(
-                          CustomIcons.info,
-                          color: theme.textColor,
-                          width: 20,
+                  const SizedBox(width: 20),
+                  dialogWidget == null
+                      ? const SizedBox()
+                      : GestureDetector(
+                          onTap: () {
+                            showDialog(
+                              context: context,
+                              builder: (BuildContext context) {
+                                return dialogWidget ?? const InfoUnoDialog();
+                              },
+                            );
+                          },
+                          child: SvgPicture.asset(
+                            CustomIcons.info,
+                            color: theme.textColor,
+                            width: 20,
+                          ),
                         ),
-                      ),
-                isKeyboardActive == false
-                    ? const SizedBox()
-                    : GestureDetector(
-                        onTap: onKeyboardBtnTap,
-                        child: SvgPicture.asset(
-                          CustomIcons.keyboard,
-                          color: theme.textColor,
-                          width: 20,
+                  isKeyboardActive == false
+                      ? const SizedBox()
+                      : GestureDetector(
+                          onTap: onKeyboardBtnTap,
+                          child: SvgPicture.asset(
+                            CustomIcons.keyboard,
+                            color: theme.textColor,
+                            width: 20,
+                          ),
                         ),
-                      ),
-                const SizedBox(width: 20),
-                GestureDetector(
-                  onTap: isRightArrowActive ? onRightArrowTap : null,
-                  child: SvgPicture.asset(
-                    CustomIcons.rightArrow,
-                    color: isRightArrowActive
-                        ? theme.textColor
-                        : theme.secondaryTextColor,
-                    width: 20,
+                  const SizedBox(width: 20),
+                  GestureDetector(
+                    onTap: isRightArrowActive ? onRightArrowTap : null,
+                    child: SvgPicture.asset(
+                      CustomIcons.rightArrow,
+                      color: isRightArrowActive
+                          ? theme.textColor
+                          : theme.secondaryTextColor,
+                      width: 20,
+                    ),
                   ),
-                ),
-              ],
-            ),
+                ],
+              ),
+            ],
           ],
-        ],
+        ),
       ),
     );
   }

@@ -38,6 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "bigSword": MessageLookupByLibrary.simpleMessage("большой меч"),
     "blankTile": MessageLookupByLibrary.simpleMessage("пустая\nклетка"),
     "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
+    "boardBuddyIsYourUltimateBoardGameCompanion":
+        MessageLookupByLibrary.simpleMessage(
+          "board buddy - ваш лучший помощник для настольных игр",
+        ),
     "bonusTileOrSpecialMarkerScrabbleInfo":
         MessageLookupByLibrary.simpleMessage(
           "бонусная клетка или специальный маркер",
@@ -78,6 +82,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "close": MessageLookupByLibrary.simpleMessage("закрыть"),
     "common": MessageLookupByLibrary.simpleMessage("счетчик"),
     "continueTitle": MessageLookupByLibrary.simpleMessage("продолжить"),
+    "couldNotLaunch": MessageLookupByLibrary.simpleMessage(
+      "не удалось запустить",
+    ),
     "cursed": MessageLookupByLibrary.simpleMessage("проклятие"),
     "dark": MessageLookupByLibrary.simpleMessage("темная"),
     "darkSideCardsAreReplacedWithLightOnesAndVice":
@@ -535,6 +542,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "settings": MessageLookupByLibrary.simpleMessage("настройки"),
     "shareFeedback": MessageLookupByLibrary.simpleMessage("обратная связь"),
+    "shareWithFriedns": MessageLookupByLibrary.simpleMessage(
+      "поделиться с друзьями",
+    ),
     "shareWithFriends": MessageLookupByLibrary.simpleMessage(
       "поделитесь с друзьями",
     ),
@@ -568,6 +578,9 @@ class MessageLookup extends MessageLookupByLibrary {
           "обменяйтесь картами с любым игроком и выберите цвет.",
         ),
     "sword": MessageLookupByLibrary.simpleMessage("меч"),
+    "takeALookAtMyKnightsGraphApp": MessageLookupByLibrary.simpleMessage(
+      "посмотрите на мое приложение knight\'s graph",
+    ),
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "количество игроков должно быть больше",
