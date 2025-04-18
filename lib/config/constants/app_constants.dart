@@ -14,7 +14,7 @@ class AppLnksConst {
 
   // TODO: update rate link
   static const rateAppStore =
-      'https://itunes.apple.com/app/id6737812039?action=write-review';
+      'https://itunes.apple.com/app/id6743980638?action=write-review';
   static const rateGooglePlay =
       'https://play.google.com/store/apps/details?hl=ru&gl=ru&id=com.khlebobul.knights_graph';
 

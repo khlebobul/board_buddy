@@ -187,7 +187,6 @@ class CommonGameStartScreenView extends StatelessWidget {
     final bloc = context.read<CommonCounterBloc>();
 
     ModalWindowWidget.show(
-      
       context,
       mainText: S.of(context).youHaveAnUnfinishedGame,
       button1Text: S.of(context).newGame,
