@@ -28,9 +28,10 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name = (locale.countryCode?.isEmpty ?? false)
-        ? locale.languageCode
-        : locale.toString();
+    final name =
+        (locale.countryCode?.isEmpty ?? false)
+            ? locale.languageCode
+            : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -2874,6 +2875,21 @@ class S {
     return Intl.message(
       'board buddy is your ultimate board game companion',
       name: 'boardBuddyIsYourUltimateBoardGameCompanion',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `bingo`
+  String get bingo {
+    return Intl.message('bingo', name: 'bingo', desc: '', args: []);
+  }
+
+  /// `score 50 extra points for using all 7 tiles`
+  String get score50ExtraPointsForUsingAll7Tiles {
+    return Intl.message(
+      'score 50 extra points for using all 7 tiles',
+      name: 'score50ExtraPointsForUsingAll7Tiles',
       desc: '',
       args: [],
     );

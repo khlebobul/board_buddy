@@ -329,5 +329,7 @@
   "takeALookAtMyKnightsGraphApp": "посмотрите на мое приложение knight's graph",
   "couldNotLaunch": "не удалось запустить",
   "shareWithFriedns": "поделиться с друзьями",
-  "boardBuddyIsYourUltimateBoardGameCompanion": "board buddy - ваш лучший помощник для настольных игр"
+  "boardBuddyIsYourUltimateBoardGameCompanion": "board buddy - ваш лучший помощник для настольных игр",
+  "bingo": "бинго",
+  "score50ExtraPointsForUsingAll7Tiles": "50 дополнительных очков за использование всех 7 букв"
 }

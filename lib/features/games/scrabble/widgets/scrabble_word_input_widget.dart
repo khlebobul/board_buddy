@@ -264,6 +264,41 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     }
   }
 
+  // Add bingo bonus (50 points)
+  void _addBingo() {
+    HapticFeedback.mediumImpact();
+    if (widget.players == null || widget.players!.isEmpty) return;
+
+    final currentPlayer = widget.players![_currentPlayerIndex];
+
+    // Record the bingo in move history
+    // Call the submit word callback if provided
+    if (widget.onSubmitWord != null) {
+      widget.onSubmitWord!(currentPlayer, S.of(context).bingo, 50, null);
+
+      // Add to local move history immediately for display purposes
+      setState(() {
+        _moveHistory.add({
+          'player': currentPlayer,
+          'word': S.of(context).bingo,
+          'score': 50,
+        });
+      });
+
+      // Save game session after submitting
+      context.read<ScrabbleBloc>().add(SaveGameSession());
+    } else {
+      setState(() {
+        _moveHistory.add({
+          'player': currentPlayer,
+          'word': S.of(context).bingo,
+          'score': 50,
+        });
+        _nextPlayer();
+      });
+    }
+  }
+
   // Helper method to render modifier indicator
   Widget _renderModifierIndicator(String modifier, UIThemes theme) {
     if (modifier == 'star') {
@@ -362,7 +397,17 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
             onChanged: _updateLetters,
             onSubmitted: (_) => submitWord(),
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 12),
+
+          // Bingo button
+          GestureDetector(
+            onTap: _addBingo,
+            child: TextScramble(
+              text: S.of(context).bingo,
+              style: theme.display2.copyWith(color: theme.redColor),
+            ),
+          ),
+          const SizedBox(height: 8),
 
           // Word modifier indicator
           if (_wordModifier != null) ...[
