@@ -179,6 +179,8 @@ class _MunchkinStartScreenViewState extends State<MunchkinStartScreenView> {
                       munchkinState.players.length < GameMinPlayers.munchkin) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
+                        behavior: SnackBarBehavior.floating,
+                        duration: const Duration(seconds: 5),
                         content: Text(
                             '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.munchkinPlayers}'),
                       ),

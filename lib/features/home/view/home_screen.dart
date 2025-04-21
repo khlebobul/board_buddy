@@ -34,8 +34,7 @@ class _HomeScreenState extends State<HomeScreen> {
           Positioned.fill(
             child: BubbleField(
               backgroundColor: theme.bgColor,
-              // ignore: deprecated_member_use
-              circleColor: theme.secondaryTextColor.withOpacity(0.3),
+              circleColor: theme.secondaryTextColor.withValues(alpha: 0.3),
               padding: 3,
             ),
           ),

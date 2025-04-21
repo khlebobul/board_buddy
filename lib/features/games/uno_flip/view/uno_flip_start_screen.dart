@@ -179,6 +179,8 @@ class UnoFlipStartScreenView extends StatelessWidget {
                   unoFlipState.players.length < GameMinPlayers.unoFlip
                       ? ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
+                            behavior: SnackBarBehavior.floating,
+                            duration: const Duration(seconds: 5),
                             content: Text(
                                 '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.unoFlipPlayers}'),
                           ),
@@ -209,18 +211,14 @@ class UnoFlipStartScreenView extends StatelessWidget {
       button1Text: S.of(context).newGame,
       button2Text: S.of(context).continueTitle,
       button1Action: () {
-        // Удаляем сохраненную игру и продолжаем настройку новой игры
         bloc.deleteSavedGame();
         Navigator.pop(context);
       },
       button2Action: () {
-        // Загружаем сохраненную игру
         bloc.loadSavedGame();
 
-        // Сначала закрываем диалог
         Navigator.pop(context);
 
-        // Затем переходим на экран игры
         Navigator.pushNamed(context, '/unoFlipGame');
       },
     );

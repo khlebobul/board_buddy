@@ -26,26 +26,31 @@ class InfoRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
-        mainAxisAlignment: MainAxisAlignment.start,
         crossAxisAlignment: CrossAxisAlignment.center,
         children: [
-          iconPath.isNotEmpty
-              ? SvgPicture.asset(
-                  iconPath,
-                  width: 24,
-                  height: 24,
-                  // ignore: deprecated_member_use
-                  color: theme.textColor,
-                )
-              : Text(
-                  cardName,
-                  style: isScrabble ? theme.display7 : theme.display2,
-                  textAlign: TextAlign.center,
-                ),
-          if (iconPath.isEmpty && cardName.isEmpty) const SizedBox(width: 24),
+          SizedBox(
+            width: 30,
+            height: 30,
+            child: Center(
+              child: iconPath.isNotEmpty
+                  ? SvgPicture.asset(
+                      iconPath,
+                      width: 24,
+                      height: 24,
+                      colorFilter:
+                          ColorFilter.mode(theme.textColor, BlendMode.srcIn),
+                    )
+                  : Text(
+                      cardName,
+                      style: isScrabble ? theme.display7 : theme.display2,
+                      textAlign: TextAlign.center,
+                    ),
+            ),
+          ),
           const SizedBox(width: 15),
           Expanded(
             child: RichText(
@@ -55,14 +60,19 @@ class InfoRowWidget extends StatelessWidget {
                   if (title.isNotEmpty && points.isNotEmpty)
                     TextSpan(
                       text: '$title\n($points ${S.of(context).points})\n',
-                      style: theme.display2.copyWith(color: theme.redColor),
+                      style: theme.display2.copyWith(color: theme.textColor),
                     ),
                   if (title.isNotEmpty && points.isEmpty)
                     TextSpan(
                       text: '$title\n',
-                      style: theme.display2.copyWith(color: theme.redColor),
+                      style: theme.display2.copyWith(color: theme.textColor),
                     ),
-                  TextSpan(text: description),
+                  TextSpan(
+                    text: description,
+                    style: theme.display2.copyWith(
+                      color: theme.secondaryTextColor,
+                    ),
+                  ),
                 ],
               ),
             ),

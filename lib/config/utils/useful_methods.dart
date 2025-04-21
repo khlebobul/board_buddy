@@ -20,8 +20,11 @@ Future<void> sendEmail(
     await Clipboard.setData(ClipboardData(text: email));
     // ignore: use_build_context_synchronously
     ScaffoldMessenger.of(context).showSnackBar(
-      // ignore: use_build_context_synchronously
-      SnackBar(content: Text(S.of(context).emailCopied)),
+      SnackBar(
+          behavior: SnackBarBehavior.floating,
+          duration: const Duration(seconds: 5),
+          // ignore: use_build_context_synchronously
+          content: Text(S.of(context).emailCopied)),
     );
   }
 }

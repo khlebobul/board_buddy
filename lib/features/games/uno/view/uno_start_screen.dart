@@ -177,6 +177,8 @@ class UnoStartScreenView extends StatelessWidget {
                   unoState.players.length < GameMinPlayers.uno
                       ? ScaffoldMessenger.of(context).showSnackBar(
                           SnackBar(
+                            behavior: SnackBarBehavior.floating,
+                            duration: const Duration(seconds: 5),
                             content: Text(
                                 '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.unoPlayers}'),
                           ),

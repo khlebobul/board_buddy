@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/generated/l10n.dart';
@@ -189,17 +191,37 @@ class GameEndUnoModalWidget extends StatelessWidget {
   }) {
     HapticFeedback.selectionClick();
 
-    showDialog(
+    showGeneralDialog(
       context: context,
       barrierDismissible: false,
-      builder: (BuildContext context) {
-        return GameEndUnoModalWidget(
-          players: players,
-          gameMode: gameMode,
-          scoreLimit: scoreLimit,
-          onNewGameWithSamePlayers: onNewGameWithSamePlayers,
-          onNewGame: onNewGame,
-          onReturnToMenu: onReturnToMenu,
+      barrierColor: Colors.black.withValues(alpha: 0.2),
+      transitionDuration: const Duration(milliseconds: 200),
+      pageBuilder: (context, anim1, anim2) {
+        return Stack(
+          children: [
+            BackdropFilter(
+              filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
+              child: Container(
+                color: Colors.black.withValues(alpha: 0),
+              ),
+            ),
+            Center(
+              child: GameEndUnoModalWidget(
+                players: players,
+                gameMode: gameMode,
+                scoreLimit: scoreLimit,
+                onNewGameWithSamePlayers: onNewGameWithSamePlayers,
+                onNewGame: onNewGame,
+                onReturnToMenu: onReturnToMenu,
+              ),
+            ),
+          ],
+        );
+      },
+      transitionBuilder: (context, anim1, anim2, child) {
+        return FadeTransition(
+          opacity: anim1,
+          child: child,
         );
       },
     );

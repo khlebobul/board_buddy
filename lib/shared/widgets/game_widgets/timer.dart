@@ -1,5 +1,3 @@
-// ignore_for_file: deprecated_member_use
-
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:flutter/material.dart';
@@ -77,7 +75,7 @@ class TimerWidgetState extends State<TimerWidget> {
             _isRunning ? CustomIcons.pause : CustomIcons.play,
             width: 27,
             height: 27,
-            color: theme.textColor,
+            colorFilter: ColorFilter.mode(theme.textColor, BlendMode.srcIn),
           ),
         ),
         const SizedBox(width: 15),
@@ -94,7 +92,7 @@ class TimerWidgetState extends State<TimerWidget> {
             CustomIcons.refresh,
             width: 27,
             height: 27,
-            color: theme.textColor,
+            colorFilter: ColorFilter.mode(theme.textColor, BlendMode.srcIn),
           ),
         ),
       ],

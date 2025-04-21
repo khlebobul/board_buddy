@@ -78,114 +78,133 @@ class _MunchkinModifiersBottomSheetState
           ),
           const SizedBox(height: 10),
           Expanded(
-            child: ListView.builder(
-              itemCount: categories.length,
-              itemBuilder: (context, index) {
-                final category = categories[index];
-                String? selectedOption;
-
-                switch (category.title) {
-                  case 'race1':
-                    selectedOption = _localModifiers.race1;
-                    break;
-                  case 'race2':
-                    selectedOption = _localModifiers.race2;
-                    break;
-                  case 'class1':
-                    selectedOption = _localModifiers.class1;
-                    break;
-                  case 'class2':
-                    selectedOption = _localModifiers.class2;
-                    break;
-                  case 'leftHand':
-                    selectedOption = _localModifiers.leftHand;
-                    break;
-                  case 'twoHanded':
-                    selectedOption = _localModifiers.twoHanded;
-                    break;
-                  case 'rightHand':
-                    selectedOption = _localModifiers.rightHand;
-                    break;
-                  case 'firstBonus':
-                    selectedOption = _localModifiers.firstBonus;
-                    break;
-                  case 'secondBonus':
-                    selectedOption = _localModifiers.secondBonus;
-                    break;
-                  case 'headGear':
-                    selectedOption = _localModifiers.headGear;
-                    break;
-                  case 'armour':
-                    selectedOption = _localModifiers.armour;
-                    break;
-                  case 'boots':
-                    selectedOption = _localModifiers.boots;
-                    break;
-                }
-
-                return ModifierGroup(
-                  title: category.titleText,
-                  options: category.options,
-                  selectedOption: selectedOption,
-                  onOptionSelected: (option) {
-                    setState(() {
-                      switch (category.title) {
-                        case 'race1':
-                          _localModifiers =
-                              _localModifiers.copyWith(race1: option);
-                          break;
-                        case 'race2':
-                          _localModifiers =
-                              _localModifiers.copyWith(race2: option);
-                          break;
-                        case 'class1':
-                          _localModifiers =
-                              _localModifiers.copyWith(class1: option);
-                          break;
-                        case 'class2':
-                          _localModifiers =
-                              _localModifiers.copyWith(class2: option);
-                          break;
-                        case 'leftHand':
-                          _localModifiers =
-                              _localModifiers.copyWith(leftHand: option);
-                          break;
-                        case 'twoHanded':
-                          _localModifiers =
-                              _localModifiers.copyWith(twoHanded: option);
-                          break;
-                        case 'rightHand':
-                          _localModifiers =
-                              _localModifiers.copyWith(rightHand: option);
-                          break;
-                        case 'firstBonus':
-                          _localModifiers =
-                              _localModifiers.copyWith(firstBonus: option);
-                          break;
-                        case 'secondBonus':
-                          _localModifiers =
-                              _localModifiers.copyWith(secondBonus: option);
-                          break;
-                        case 'headGear':
-                          _localModifiers =
-                              _localModifiers.copyWith(headGear: option);
-                          break;
-                        case 'armour':
-                          _localModifiers =
-                              _localModifiers.copyWith(armour: option);
-                          break;
-                        case 'boots':
-                          _localModifiers =
-                              _localModifiers.copyWith(boots: option);
-                          break;
-                      }
-                    });
-
-                    widget.onModifierUpdated(
-                        widget.playerIndex, category.title, option);
-                  },
-                );
+            child: ShaderMask(
+              shaderCallback: (Rect bounds) {
+                return LinearGradient(
+                  begin: Alignment.topCenter,
+                  end: Alignment.bottomCenter,
+                  colors: [
+                    theme.bgColor.withValues(alpha: 0.0),
+                    theme.bgColor.withValues(alpha: 1.0),
+                    theme.bgColor.withValues(alpha: 1.0),
+                    theme.bgColor.withValues(alpha: 0.0),
+                  ],
+                  stops: const [0.0, 0.05, 0.95, 1.0],
+                ).createShader(bounds);
               },
+              blendMode: BlendMode.dstIn,
+              child: ListView.builder(
+                itemCount: categories.length,
+                clipBehavior: Clip.hardEdge,
+                physics: const BouncingScrollPhysics(),
+                padding: const EdgeInsets.symmetric(vertical: 20),
+                itemBuilder: (context, index) {
+                  final category = categories[index];
+                  String? selectedOption;
+
+                  switch (category.title) {
+                    case 'race1':
+                      selectedOption = _localModifiers.race1;
+                      break;
+                    case 'race2':
+                      selectedOption = _localModifiers.race2;
+                      break;
+                    case 'class1':
+                      selectedOption = _localModifiers.class1;
+                      break;
+                    case 'class2':
+                      selectedOption = _localModifiers.class2;
+                      break;
+                    case 'leftHand':
+                      selectedOption = _localModifiers.leftHand;
+                      break;
+                    case 'twoHanded':
+                      selectedOption = _localModifiers.twoHanded;
+                      break;
+                    case 'rightHand':
+                      selectedOption = _localModifiers.rightHand;
+                      break;
+                    case 'firstBonus':
+                      selectedOption = _localModifiers.firstBonus;
+                      break;
+                    case 'secondBonus':
+                      selectedOption = _localModifiers.secondBonus;
+                      break;
+                    case 'headGear':
+                      selectedOption = _localModifiers.headGear;
+                      break;
+                    case 'armour':
+                      selectedOption = _localModifiers.armour;
+                      break;
+                    case 'boots':
+                      selectedOption = _localModifiers.boots;
+                      break;
+                  }
+
+                  return ModifierGroup(
+                    title: category.titleText,
+                    options: category.options,
+                    selectedOption: selectedOption,
+                    onOptionSelected: (option) {
+                      setState(() {
+                        switch (category.title) {
+                          case 'race1':
+                            _localModifiers =
+                                _localModifiers.copyWith(race1: option);
+                            break;
+                          case 'race2':
+                            _localModifiers =
+                                _localModifiers.copyWith(race2: option);
+                            break;
+                          case 'class1':
+                            _localModifiers =
+                                _localModifiers.copyWith(class1: option);
+                            break;
+                          case 'class2':
+                            _localModifiers =
+                                _localModifiers.copyWith(class2: option);
+                            break;
+                          case 'leftHand':
+                            _localModifiers =
+                                _localModifiers.copyWith(leftHand: option);
+                            break;
+                          case 'twoHanded':
+                            _localModifiers =
+                                _localModifiers.copyWith(twoHanded: option);
+                            break;
+                          case 'rightHand':
+                            _localModifiers =
+                                _localModifiers.copyWith(rightHand: option);
+                            break;
+                          case 'firstBonus':
+                            _localModifiers =
+                                _localModifiers.copyWith(firstBonus: option);
+                            break;
+                          case 'secondBonus':
+                            _localModifiers =
+                                _localModifiers.copyWith(secondBonus: option);
+                            break;
+                          case 'headGear':
+                            _localModifiers =
+                                _localModifiers.copyWith(headGear: option);
+                            break;
+                          case 'armour':
+                            _localModifiers =
+                                _localModifiers.copyWith(armour: option);
+                            break;
+                          case 'boots':
+                            _localModifiers =
+                                _localModifiers.copyWith(boots: option);
+                            break;
+                        }
+                      });
+
+                      widget.onModifierUpdated(
+                          widget.playerIndex, category.title, option);
+                    },
+                  );
+                },
+              ),
             ),
           ),
         ],

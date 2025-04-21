@@ -1,15 +1,14 @@
 # board buddy
 
 <div align="center">
-<!-- TODO Change the link -->
 
-[![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app)
+[![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://apps.apple.com/ru/app/board-buddy-score-counter/id6743980638?) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app)
 
 <img width="1000" alt="Frame 2" src="https://github.com/user-attachments/assets/2db1490f-4568-4bf1-9f2d-274dfd62bd0b" />
 
 a free cross-platform mobile app for tracking scores and rules in board games. board buddy simplifies gameplay by helping you keep track of scores and key points, so you can focus on the game itself and socializing with friends
 
-[![Website](https://img.shields.io/badge/Website-414141?style=for-the-badge&logo=Website&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev) [![LICENCE - GPLv3](https://img.shields.io/badge/LICENCE-GPLv3-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
+[![Website](https://img.shields.io/badge/Website-414141?style=for-the-badge&logo=Website&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul_dev) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://yoomoney.ru/to/4100118234947004) [![LICENCE - GPLv3](https://img.shields.io/badge/LICENCE-GPLv3-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
 
 </div>
 
@@ -52,7 +51,7 @@ your ultimate board game companion
 
 ### project support
 
-[![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://t.me/khlebobul_dev)
+[![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul_dev) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://yoomoney.ru/to/4100118234947004)
 
 ## contributing
 
@@ -70,6 +69,7 @@ your ultimate board game companion
 ## credits
 
 - [lucide icons](https://lucide.dev)
+- [coderabbit](https://www.coderabbit.ai)
 
 ### packages
 

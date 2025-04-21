@@ -1,4 +1,4 @@
-import 'dart:ui' as ui;
+import 'dart:ui';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/features/splash/view/splash_screen.dart';
 import 'package:board_buddy/shared/services/preferences_service.dart';
@@ -17,8 +17,8 @@ class LanguageService {
       return savedLanguage;
     }
 
-    // ignore: deprecated_member_use
-    final String deviceLanguage = ui.window.locale.languageCode.toLowerCase();
+    final String deviceLanguage =
+        PlatformDispatcher.instance.locale.languageCode.toLowerCase();
 
     final String initialLanguage =
         supportedLanguageCodes.contains(deviceLanguage) ? deviceLanguage : 'en';

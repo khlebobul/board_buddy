@@ -57,7 +57,7 @@ class MunchkinScoreWidget extends StatelessWidget {
               child: Text(
                 playerName.toLowerCase(),
                 style: theme.display2.copyWith(
-                  color: theme.textColor,
+                  color: theme.secondaryTextColor,
                 ),
                 overflow: TextOverflow.ellipsis,
               ),

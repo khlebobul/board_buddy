@@ -120,8 +120,8 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
                       child: SvgPicture.asset(
                         widget.button.buttonIcon,
                         fit: BoxFit.fitHeight,
-                        // ignore: deprecated_member_use
-                        color: _colorAnimation.value,
+                        colorFilter: ColorFilter.mode(
+                            _colorAnimation.value!, BlendMode.srcIn),
                       ),
                     ),
                   );

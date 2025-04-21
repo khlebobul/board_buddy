@@ -154,11 +154,13 @@ class CommonGameStartScreenView extends StatelessWidget {
                 onRightBtnTap: () {
                   if (!counterState.isSinglePlayer &&
                       counterState.players.length <
-                          GameMaxPlayers.commonCounter) {
+                          GameMinPlayers.commonCounter) {
                     ScaffoldMessenger.of(context).showSnackBar(
                       SnackBar(
+                        behavior: SnackBarBehavior.floating,
+                        duration: const Duration(seconds: 5),
                         content: Text(
-                            '${S.of(context).theNumberOfPlayersShouldBe} ${GameMaxPlayers.commonCounter}'),
+                            '${S.of(context).theNumberOfPlayersShouldBe} ${GameMinPlayers.commonCounter}'),
                       ),
                     );
                   } else {
