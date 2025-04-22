@@ -214,8 +214,21 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     if (widget.players == null || widget.players!.isEmpty) return;
     if (_controller.text.trim().isEmpty) return;
 
-    final currentPlayer = widget.players![_currentPlayerIndex];
     final word = _controller.text.trim();
+
+    // Add validation for maximum word length (15 letters for standard Scrabble board)
+    if (word.length > 15) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text('Word is too long. Maximum 15 letters allowed'),
+          duration: const Duration(seconds: 3),
+        ),
+      );
+      return;
+    }
+
+    final currentPlayer = widget.players![_currentPlayerIndex];
 
     // Calculate score with modifiers
     final score = _calculateScore(word);
@@ -370,6 +383,10 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
             keyboardType: TextInputType.text,
             cursorColor: theme.secondaryTextColor,
             style: theme.display2.copyWith(color: theme.textColor),
+            maxLength: 15,
+            buildCounter: (context,
+                    {required currentLength, required isFocused, maxLength}) =>
+                null,
             decoration: InputDecoration(
               hintText: S.current.enterAWord,
               hintStyle:
