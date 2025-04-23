@@ -75,6 +75,16 @@ class SettingsScreenView extends StatelessWidget {
                   _buildThemeOption(context, S.of(context).dark, true, state),
                   const SizedBox(height: 12),
                   Text(
+                    S.of(context).keepAwakeMode,
+                    style: theme.display2
+                        .copyWith(color: theme.secondaryTextColor),
+                  ),
+                  _buildKeepScreenOnOption(
+                      context, S.of(context).on, true, state),
+                  _buildKeepScreenOnOption(
+                      context, S.of(context).off, false, state),
+                  const SizedBox(height: 12),
+                  Text(
                     S.of(context).others,
                     style: theme.display2
                         .copyWith(color: theme.secondaryTextColor),
@@ -157,6 +167,35 @@ class SettingsScreenView extends StatelessWidget {
           const SizedBox(width: 8),
           TextScramble(
             text: themeName,
+            style: theme.display2,
+          ),
+        ],
+      ),
+    );
+  }
+
+  Widget _buildKeepScreenOnOption(
+    BuildContext context,
+    String optionName,
+    bool keepScreenOn,
+    SettingsState state,
+  ) {
+    final theme = UIThemes.of(context);
+    return GestureDetector(
+      onTap: () {
+        context.read<SettingsBloc>().add(ToggleKeepScreenOn(keepScreenOn));
+      },
+      child: Row(
+        children: [
+          CircleAvatar(
+            backgroundColor: state.keepScreenOn == keepScreenOn
+                ? theme.redColor
+                : Colors.transparent,
+            radius: 3,
+          ),
+          const SizedBox(width: 8),
+          TextScramble(
+            text: optionName,
             style: theme.display2,
           ),
         ],

@@ -218,6 +218,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "indicates an active curse",
     ),
+    "keepAwakeMode": MessageLookupByLibrary.simpleMessage("keep awake mode"),
     "languages": MessageLookupByLibrary.simpleMessage("languages"),
     "leftHand": MessageLookupByLibrary.simpleMessage("left hand"),
     "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
@@ -342,6 +343,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "noClass": MessageLookupByLibrary.simpleMessage("no class"),
     "noItem": MessageLookupByLibrary.simpleMessage("no item"),
     "numberCards": MessageLookupByLibrary.simpleMessage("number cards"),
+    "off": MessageLookupByLibrary.simpleMessage("off"),
+    "on": MessageLookupByLibrary.simpleMessage("on"),
     "others": MessageLookupByLibrary.simpleMessage("others"),
     "play": MessageLookupByLibrary.simpleMessage("play"),
     "playerName": MessageLookupByLibrary.simpleMessage("player name"),

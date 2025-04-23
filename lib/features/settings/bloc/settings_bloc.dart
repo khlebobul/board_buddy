@@ -2,6 +2,7 @@ import 'package:board_buddy/shared/services/preferences_service.dart';
 import 'package:board_buddy/shared/services/theme_service.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:wakelock_plus/wakelock_plus.dart';
 
 part 'settings_event.dart';
 part 'settings_state.dart';
@@ -15,6 +16,7 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     on<LoadSettings>(_onLoadSettings);
     on<ChangeLanguage>(_onChangeLanguage);
     on<ChangeTheme>(_onChangeTheme);
+    on<ToggleKeepScreenOn>(_onToggleKeepScreenOn);
   }
 
   Future<void> _onLoadSettings(
@@ -25,10 +27,15 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
 
     final languageCode = await PreferencesService.getLanguageCode();
     final isDarkMode = await PreferencesService.getDarkModeEnabled();
+    final keepScreenOn = await PreferencesService.getKeepScreenOn();
+
+    // Apply wakelock state on app startup
+    await WakelockPlus.toggle(enable: keepScreenOn);
 
     emit(state.copyWith(
       selectedLanguage: languageCode,
       isDarkModeEnabled: isDarkMode,
+      keepScreenOn: keepScreenOn,
       isLoading: false,
     ));
   }
@@ -48,5 +55,14 @@ class SettingsBloc extends Bloc<SettingsEvent, SettingsState> {
     await PreferencesService.setDarkModeEnabled(event.isDarkMode);
     ThemeService.updateTheme(event.isDarkMode);
     emit(state.copyWith(isDarkModeEnabled: event.isDarkMode));
+  }
+
+  Future<void> _onToggleKeepScreenOn(
+    ToggleKeepScreenOn event,
+    Emitter<SettingsState> emit,
+  ) async {
+    await PreferencesService.setKeepScreenOn(event.keepScreenOn);
+    await WakelockPlus.toggle(enable: event.keepScreenOn);
+    emit(state.copyWith(keepScreenOn: event.keepScreenOn));
   }
 }

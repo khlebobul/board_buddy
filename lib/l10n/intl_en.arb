@@ -331,5 +331,8 @@
   "shareWithFriedns": "share with friedns",
   "boardBuddyIsYourUltimateBoardGameCompanion": "board buddy is your ultimate board game companion",
   "bingo": "bingo",
-  "score50ExtraPointsForUsingAll7Tiles": "score 50 extra points for using all 7 tiles"
+  "score50ExtraPointsForUsingAll7Tiles": "score 50 extra points for using all 7 tiles",
+  "keepAwakeMode": "keep awake mode",
+  "on": "on",
+  "off": "off"
 }

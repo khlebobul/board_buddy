@@ -228,6 +228,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "указывает на наложенное проклятие",
     ),
+    "keepAwakeMode": MessageLookupByLibrary.simpleMessage(
+      "режим \'бодрствования\' экрана",
+    ),
     "languages": MessageLookupByLibrary.simpleMessage("языки"),
     "leftHand": MessageLookupByLibrary.simpleMessage("левая рука"),
     "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
@@ -350,6 +353,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "noClass": MessageLookupByLibrary.simpleMessage("без класса"),
     "noItem": MessageLookupByLibrary.simpleMessage("без предмета"),
     "numberCards": MessageLookupByLibrary.simpleMessage("номерные карты"),
+    "off": MessageLookupByLibrary.simpleMessage("выкл."),
+    "on": MessageLookupByLibrary.simpleMessage("вкл."),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
     "play": MessageLookupByLibrary.simpleMessage("играть"),
     "playerName": MessageLookupByLibrary.simpleMessage("имя игрока"),

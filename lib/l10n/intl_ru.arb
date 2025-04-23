@@ -331,5 +331,8 @@
   "shareWithFriedns": "поделиться с друзьями",
   "boardBuddyIsYourUltimateBoardGameCompanion": "board buddy - ваш лучший помощник для настольных игр",
   "bingo": "бинго",
-  "score50ExtraPointsForUsingAll7Tiles": "50 дополнительных очков за использование всех 7 букв"
+  "score50ExtraPointsForUsingAll7Tiles": "50 дополнительных очков за использование всех 7 букв",
+  "keepAwakeMode": "режим 'бодрствования' экрана",
+  "on": "вкл.",
+  "off": "выкл."
 }
