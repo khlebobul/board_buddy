@@ -2,7 +2,15 @@
 
 ## [1.0.2]
 
+### New Features
+- Introduced a "Keep Awake Mode" setting to prevent the device screen from turning off during use.
+- Added a "Bingo" button and bonus scoring rule to Scrabble, with updated dialogs and input validation.
 
+### Improvements
+- Added extra spacing below trademark notices in game rules screens for better readability.
+
+### Chores
+Added the wakelock_plus package as a new dependency.
 
 ## [1.0.1]
 
