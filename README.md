@@ -32,6 +32,8 @@ your ultimate board game companion
 - focus on fun, board buddy takes care of the details
 - less distractions, more fun with friends
 
+- keep awake mode
+
 ## supported games
 
 - uno® / uno flip® / dos® _(registered trademarks of mattel)_

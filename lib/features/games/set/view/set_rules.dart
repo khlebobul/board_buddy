@@ -123,6 +123,7 @@ class SetRulesScreen extends StatelessWidget {
               S.of(context).setTrademarkNotice,
               style: theme.display2.copyWith(color: theme.secondaryTextColor),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

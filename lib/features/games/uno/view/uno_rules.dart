@@ -115,6 +115,7 @@ class UnoRulesScreen extends StatelessWidget {
               S.of(context).unoTrademarkNotice,
               style: theme.display2.copyWith(color: theme.secondaryTextColor),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),

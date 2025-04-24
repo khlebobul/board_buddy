@@ -116,6 +116,7 @@ class DosRulesScreen extends StatelessWidget {
               S.of(context).dosTrademarkNotice,
               style: theme.display2.copyWith(color: theme.secondaryTextColor),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
