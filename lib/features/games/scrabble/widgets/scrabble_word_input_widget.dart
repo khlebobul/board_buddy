@@ -214,8 +214,21 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     if (widget.players == null || widget.players!.isEmpty) return;
     if (_controller.text.trim().isEmpty) return;
 
-    final currentPlayer = widget.players![_currentPlayerIndex];
     final word = _controller.text.trim();
+
+    // Add validation for maximum word length (15 letters for standard Scrabble board)
+    if (word.length > 15) {
+      ScaffoldMessenger.of(context).showSnackBar(
+        SnackBar(
+          behavior: SnackBarBehavior.floating,
+          content: Text('Word is too long. Maximum 15 letters allowed'),
+          duration: const Duration(seconds: 3),
+        ),
+      );
+      return;
+    }
+
+    final currentPlayer = widget.players![_currentPlayerIndex];
 
     // Calculate score with modifiers
     final score = _calculateScore(word);
@@ -258,6 +271,41 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
           'word': word,
           'score': score,
           'modifiers': modifiersData,
+        });
+        _nextPlayer();
+      });
+    }
+  }
+
+  // Add bingo bonus (50 points)
+  void _addBingo() {
+    HapticFeedback.mediumImpact();
+    if (widget.players == null || widget.players!.isEmpty) return;
+
+    final currentPlayer = widget.players![_currentPlayerIndex];
+
+    // Record the bingo in move history
+    // Call the submit word callback if provided
+    if (widget.onSubmitWord != null) {
+      widget.onSubmitWord!(currentPlayer, S.of(context).bingo, 50, null);
+
+      // Add to local move history immediately for display purposes
+      setState(() {
+        _moveHistory.add({
+          'player': currentPlayer,
+          'word': S.of(context).bingo,
+          'score': 50,
+        });
+      });
+
+      // Save game session after submitting
+      context.read<ScrabbleBloc>().add(SaveGameSession());
+    } else {
+      setState(() {
+        _moveHistory.add({
+          'player': currentPlayer,
+          'word': S.of(context).bingo,
+          'score': 50,
         });
         _nextPlayer();
       });
@@ -335,6 +383,10 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
             keyboardType: TextInputType.text,
             cursorColor: theme.secondaryTextColor,
             style: theme.display2.copyWith(color: theme.textColor),
+            maxLength: 15,
+            buildCounter: (context,
+                    {required currentLength, required isFocused, maxLength}) =>
+                null,
             decoration: InputDecoration(
               hintText: S.current.enterAWord,
               hintStyle:
@@ -362,7 +414,17 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
             onChanged: _updateLetters,
             onSubmitted: (_) => submitWord(),
           ),
-          const SizedBox(height: 15),
+          const SizedBox(height: 12),
+
+          // Bingo button
+          GestureDetector(
+            onTap: _addBingo,
+            child: TextScramble(
+              text: S.of(context).bingo,
+              style: theme.display2.copyWith(color: theme.redColor),
+            ),
+          ),
+          const SizedBox(height: 8),
 
           // Word modifier indicator
           if (_wordModifier != null) ...[

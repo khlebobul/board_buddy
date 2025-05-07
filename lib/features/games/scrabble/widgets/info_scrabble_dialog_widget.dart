@@ -44,6 +44,12 @@ class InfoscrabbleDialog extends StatelessWidget {
           cardName: '${GameConst.scrabblex3}${S.of(context).nWord}',
           description: S.of(context).tripleTheValueOfAnEntireWordScrabbleInfo,
         ),
+        InfoRowWidget(
+          context: context,
+          cardName: '',
+          description:
+              '${S.of(context).bingo}: ${S.of(context).score50ExtraPointsForUsingAll7Tiles}',
+        ),
       ],
     );
   }

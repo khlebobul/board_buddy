@@ -326,8 +326,13 @@
   "x2Word": "x2 word",
   "x3Word": "x3 word",
   "menu": "menu",
-  "takeALookAtMyKnightsGraphApp": "take a look at my knight's graph app",
   "couldNotLaunch": "could not launch",
   "shareWithFriedns": "share with friedns",
-  "boardBuddyIsYourUltimateBoardGameCompanion": "board buddy is your ultimate board game companion"
+  "boardBuddyIsYourUltimateBoardGameCompanion": "board buddy is your ultimate board game companion",
+  "bingo": "bingo",
+  "score50ExtraPointsForUsingAll7Tiles": "score 50 extra points for using all 7 tiles",
+  "keepAwakeMode": "keep awake mode",
+  "on": "on",
+  "off": "off",
+  "myOtherApps": "my other apps"
 }

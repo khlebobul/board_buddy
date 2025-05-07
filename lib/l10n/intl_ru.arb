@@ -326,8 +326,13 @@
   "x2Word": "x2 слово",
   "x3Word": "x3 слово",
   "menu": "меню",
-  "takeALookAtMyKnightsGraphApp": "посмотрите на мое приложение knight's graph",
   "couldNotLaunch": "не удалось запустить",
   "shareWithFriedns": "поделиться с друзьями",
-  "boardBuddyIsYourUltimateBoardGameCompanion": "board buddy - ваш лучший помощник для настольных игр"
+  "boardBuddyIsYourUltimateBoardGameCompanion": "board buddy - ваш лучший помощник для настольных игр",
+  "bingo": "бинго",
+  "score50ExtraPointsForUsingAll7Tiles": "50 дополнительных очков за использование всех 7 букв",
+  "keepAwakeMode": "режим 'бодрствования' экрана",
+  "on": "вкл.",
+  "off": "выкл.",
+  "myOtherApps": "мои другие приложения"
 }

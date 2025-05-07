@@ -16,3 +16,9 @@ class ChangeTheme extends SettingsEvent {
 
   ChangeTheme(this.isDarkMode);
 }
+
+class ToggleKeepScreenOn extends SettingsEvent {
+  final bool keepScreenOn;
+
+  ToggleKeepScreenOn(this.keepScreenOn);
+}

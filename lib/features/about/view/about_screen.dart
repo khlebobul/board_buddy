@@ -118,10 +118,10 @@ class _AboutScreenState extends State<AboutScreen> {
               thickness: 0.7,
             ),
             LinkBtnWidget(
-              text: S.of(context).takeALookAtMyKnightsGraphApp,
+              text: S.of(context).myOtherApps,
               url: Platform.isIOS
-                  ? AppLnksConst.kgAppStore
-                  : AppLnksConst.kgGooglePlay,
+                  ? AppLnksConst.otherAppsAppStoreLink
+                  : AppLnksConst.otherAppsGooglePlayLink,
             ),
             Divider(
               color: theme.borderColor,

@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://apps.apple.com/ru/app/board-buddy-score-counter/id6743980638?) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app)
+[![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://apps.apple.com/ru/app/board-buddy-score-counter/id6743980638?) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://play.google.com/store/apps/details?id=com.khlebobul.board_buddy)
 
 <img width="1000" alt="Frame 2" src="https://github.com/user-attachments/assets/2db1490f-4568-4bf1-9f2d-274dfd62bd0b" />
 
@@ -31,6 +31,8 @@ your ultimate board game companion
 - no more missed turns or lost points
 - focus on fun, board buddy takes care of the details
 - less distractions, more fun with friends
+
+- keep awake mode
 
 ## supported games
 
@@ -73,7 +75,7 @@ your ultimate board game companion
 
 ### packages
 
-[gen_art_bg](https://pub.dev/packages/gen_art_bg) / [use_scramble](https://pub.dev/packages/use_scramble) / [shared_preferences](https://pub.dev/packages/shared_preferences) / [intl](https://pub.dev/packages/intl) / [url_launcher](https://pub.dev/packages/url_launcher) / [flutter_svg](https://pub.dev/packages/flutter_svg) / [flutter_bloc](https://pub.dev/packages/flutter_bloc) / [flutter_popup](https://pub.dev/packages/flutter_popup) / [wheel_chooser](https://pub.dev/packages/wheel_chooser) / [sqflite](https://pub.dev/packages/sqflite) / [path](https://pub.dev/packages/path) / [share_plus](https://pub.dev/packages/share_plus) / [in_app_review](https://pub.dev/packages/in_app_review)
+[gen_art_bg](https://pub.dev/packages/gen_art_bg) / [use_scramble](https://pub.dev/packages/use_scramble) / [shared_preferences](https://pub.dev/packages/shared_preferences) / [intl](https://pub.dev/packages/intl) / [url_launcher](https://pub.dev/packages/url_launcher) / [flutter_svg](https://pub.dev/packages/flutter_svg) / [flutter_bloc](https://pub.dev/packages/flutter_bloc) / [flutter_popup](https://pub.dev/packages/flutter_popup) / [wheel_chooser](https://pub.dev/packages/wheel_chooser) / [sqflite](https://pub.dev/packages/sqflite) / [path](https://pub.dev/packages/path) / [share_plus](https://pub.dev/packages/share_plus) / [in_app_review](https://pub.dev/packages/in_app_review) / [wakelock_plus](https://pub.dev/packages/wakelock_plus)
 
 ## contacts
 

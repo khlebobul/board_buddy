@@ -124,6 +124,7 @@ class UnoFlipRulesScreen extends StatelessWidget {
               S.of(context).unoFlipTrademarkNotice,
               style: theme.display2.copyWith(color: theme.secondaryTextColor),
             ),
+            const SizedBox(height: 20),
           ],
         ),
       ),
