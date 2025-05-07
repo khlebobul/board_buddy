@@ -318,6 +318,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
       "the first player to reach level 10 wins!",
     ),
+    "myOtherApps": MessageLookupByLibrary.simpleMessage("my other apps"),
     "nWord": MessageLookupByLibrary.simpleMessage("\nword"),
     "name": MessageLookupByLibrary.simpleMessage("name"),
     "newGame": MessageLookupByLibrary.simpleMessage("new game"),
@@ -565,9 +566,6 @@ class MessageLookup extends MessageLookupByLibrary {
           "swap hands with any player and choose the color.",
         ),
     "sword": MessageLookupByLibrary.simpleMessage("sword"),
-    "takeALookAtMyKnightsGraphApp": MessageLookupByLibrary.simpleMessage(
-      "take a look at my knight\'s graph app",
-    ),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "the number of players should be more than",
