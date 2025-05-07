@@ -330,6 +330,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
       "игрок, первым достигший 10 уровня, побеждает!",
     ),
+    "myOtherApps": MessageLookupByLibrary.simpleMessage(
+      "мои другие приложения",
+    ),
     "nWord": MessageLookupByLibrary.simpleMessage("\nслово"),
     "name": MessageLookupByLibrary.simpleMessage("имя"),
     "newGame": MessageLookupByLibrary.simpleMessage("новая игра"),
@@ -587,9 +590,6 @@ class MessageLookup extends MessageLookupByLibrary {
           "обменяйтесь картами с любым игроком и выберите цвет.",
         ),
     "sword": MessageLookupByLibrary.simpleMessage("меч"),
-    "takeALookAtMyKnightsGraphApp": MessageLookupByLibrary.simpleMessage(
-      "посмотрите на мое приложение knight\'s graph",
-    ),
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "количество игроков должно быть больше",

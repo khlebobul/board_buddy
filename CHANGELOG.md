@@ -10,7 +10,7 @@
 - Added extra spacing below trademark notices in game rules screens for better readability.
 
 ### Chores
-Added the wakelock_plus package as a new dependency.
+- Added the wakelock_plus package as a new dependency.
 
 ## [1.0.1]
 
@@ -19,7 +19,7 @@ Added the wakelock_plus package as a new dependency.
 - Added a new text style for consistent UI typography.
 - Implemented in-app review prompts triggered after specific usage conditions.
 - Added sharing functionality for users to recommend the app.
-- Linked the **Knight's Graph** app on the About screen.
+- Linked the my other app on the About screen.
 
 ### Improvements
 - Updated dialogs and modals to include blurred backgrounds and fade-in animations.

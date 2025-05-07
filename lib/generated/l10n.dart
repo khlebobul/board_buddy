@@ -2840,16 +2840,6 @@ class S {
     return Intl.message('menu', name: 'menu', desc: '', args: []);
   }
 
-  /// `take a look at my knight's graph app`
-  String get takeALookAtMyKnightsGraphApp {
-    return Intl.message(
-      'take a look at my knight\'s graph app',
-      name: 'takeALookAtMyKnightsGraphApp',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `could not launch`
   String get couldNotLaunch {
     return Intl.message(
@@ -2913,6 +2903,16 @@ class S {
   /// `off`
   String get off {
     return Intl.message('off', name: 'off', desc: '', args: []);
+  }
+
+  /// `my other apps`
+  String get myOtherApps {
+    return Intl.message(
+      'my other apps',
+      name: 'myOtherApps',
+      desc: '',
+      args: [],
+    );
   }
 }
 
