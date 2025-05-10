@@ -29,6 +29,12 @@ class DeleteSavedGame extends CommonCounterEvent {}
 
 class SaveGameSession extends CommonCounterEvent {}
 
+class SaveTimerValue extends CommonCounterEvent {
+  final int seconds;
+
+  SaveTimerValue(this.seconds);
+}
+
 // Game screen events
 class InitializeGameScreen extends CommonCounterEvent {
   final List<Player> players;
@@ -67,6 +73,12 @@ class DecreaseScoreBy extends CommonCounterEvent {
 }
 
 class ResetScores extends CommonCounterEvent {}
+
+class UpdateTimer extends CommonCounterEvent {
+  final int seconds;
+
+  UpdateTimer(this.seconds);
+}
 
 // Undo/Redo events
 class UndoAction extends CommonCounterEvent {}

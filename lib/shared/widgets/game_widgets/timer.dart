@@ -25,7 +25,7 @@ class TimerWidgetState extends State<TimerWidget> {
     super.initState();
     if (widget.initialSeconds != null) {
       _seconds = widget.initialSeconds!;
-      debugPrint('TimerWidget initialized with ${_seconds} seconds');
+      debugPrint('TimerWidget initialized with $_seconds seconds');
     } else {
       debugPrint('TimerWidget initialized with default 0 seconds');
     }

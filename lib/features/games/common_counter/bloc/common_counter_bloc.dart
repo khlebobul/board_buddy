@@ -1,3 +1,4 @@
+import 'dart:convert';
 import 'package:bloc/bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
@@ -28,6 +29,8 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
     on<RedoAction>(_onRedoAction);
     on<ResetScoreAnimation>(_onResetScoreAnimation);
     on<SaveGameSession>(_onSaveGameSession);
+    on<UpdateTimer>(_onUpdateTimer);
+    on<SaveTimerValue>(_onSaveTimerValue);
   }
 
   void _onInitializeStartScreen(
@@ -117,10 +120,12 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
     LoadSavedGame event,
     Emitter<CommonCounterState> emit,
   ) async {
+    debugPrint('Loading saved Common Counter game...');
     final gameData =
         await DatabaseService.getLatestGameSession('common_counter');
 
     if (gameData != null) {
+      debugPrint('Found saved game data');
       final session = gameData['session'] as Map<String, dynamic>;
       final players = gameData['players'] as List<Player>;
 
@@ -143,12 +148,56 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
         }
       }
 
+      int timerSinglePlayer = 0;
+      int timerMultiplayer = 0;
+      debugPrint('Session data: ${session.toString()}');
+
+      if (session.containsKey('timerSinglePlayer')) {
+        timerSinglePlayer = session['timerSinglePlayer'] as int;
+        debugPrint('Loaded timerSinglePlayer from session: $timerSinglePlayer');
+      }
+
+      if (session.containsKey('timerMultiplayer')) {
+        timerMultiplayer = session['timerMultiplayer'] as int;
+        debugPrint('Loaded timerMultiplayer from session: $timerMultiplayer');
+      }
+
+      if (session.containsKey('custom_data') &&
+          session['custom_data'] != null) {
+        try {
+          final customDataString = session['custom_data'] as String;
+          final customData =
+              jsonDecode(customDataString) as Map<String, dynamic>;
+
+          if (customData.containsKey('timerSinglePlayer')) {
+            timerSinglePlayer = customData['timerSinglePlayer'] as int;
+            debugPrint(
+                'Loaded timerSinglePlayer from custom_data: $timerSinglePlayer');
+          }
+
+          if (customData.containsKey('timerMultiplayer')) {
+            timerMultiplayer = customData['timerMultiplayer'] as int;
+            debugPrint(
+                'Loaded timerMultiplayer from custom_data: $timerMultiplayer');
+          }
+        } catch (e) {
+          debugPrint('Error parsing custom data: $e');
+        }
+      }
+
       emit(CommonCounterGameState(
         players: players,
         isSinglePlayer: session['game_mode'] == S.current.singleplayer,
         history: history,
         redoHistory: [],
+        timerSinglePlayer: timerSinglePlayer,
+        timerMultiplayer: timerMultiplayer,
       ));
+
+      debugPrint(
+          'Game loaded successfully. Timer values: single=$timerSinglePlayer, multi=$timerMultiplayer');
+    } else {
+      debugPrint('No saved game found');
     }
   }
 
@@ -189,6 +238,14 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
           playerScoreHistory[playerIndex]!.add(scoreChange);
         }
 
+        final Map<String, dynamic> customData = {
+          'timerSinglePlayer': gameState.timerSinglePlayer,
+          'timerMultiplayer': gameState.timerMultiplayer,
+        };
+
+        debugPrint(
+            'Saving Common Counter game session: Timer values: single=${gameState.timerSinglePlayer}, multi=${gameState.timerMultiplayer}');
+
         // Save the current game session
         await DatabaseService.saveGameSession(
           gameType: 'common_counter',
@@ -198,7 +255,10 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
               : S.current.multiplayer,
           players: gameState.players,
           playerScoreHistory: playerScoreHistory,
+          customData: customData,
         );
+
+        debugPrint('Game session saved successfully');
       } catch (e) {
         debugPrint('Error saving game session: $e');
       }
@@ -454,6 +514,97 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
       emit(currentState.copyWith(
         isScoreChanging: false,
       ));
+    }
+  }
+
+  void _onUpdateTimer(
+    UpdateTimer event,
+    Emitter<CommonCounterState> emit,
+  ) {
+    if (state is CommonCounterGameState) {
+      final currentState = state as CommonCounterGameState;
+
+      debugPrint(
+          'UpdateTimer: current=${currentState.currentTimerValue}, new=${event.seconds}');
+
+      if (currentState.isSinglePlayer) {
+        if (currentState.timerSinglePlayer != event.seconds) {
+          emit(currentState.copyWith(timerSinglePlayer: event.seconds));
+
+          if (event.seconds == 0 || event.seconds % 5 == 0) {
+            debugPrint(
+                'Saving single player timer value at ${event.seconds} seconds (periodic saving)');
+            add(SaveGameSession());
+          }
+        }
+      } else {
+        if (currentState.timerMultiplayer != event.seconds) {
+          emit(currentState.copyWith(timerMultiplayer: event.seconds));
+
+          if (event.seconds == 0 || event.seconds % 5 == 0) {
+            debugPrint(
+                'Saving multiplayer timer value at ${event.seconds} seconds (periodic saving)');
+            add(SaveGameSession());
+          }
+        }
+      }
+    }
+  }
+
+  void _onSaveTimerValue(
+    SaveTimerValue event,
+    Emitter<CommonCounterState> emit,
+  ) async {
+    debugPrint('Explicit SaveTimerValue event with seconds: ${event.seconds}');
+
+    if (state is CommonCounterGameState) {
+      final gameState = state as CommonCounterGameState;
+
+      if (gameState.isSinglePlayer) {
+        emit(gameState.copyWith(timerSinglePlayer: event.seconds));
+      } else {
+        emit(gameState.copyWith(timerMultiplayer: event.seconds));
+      }
+
+      try {
+        final Map<int, List<int>> playerScoreHistory = {};
+        for (var item in gameState.history) {
+          if (!playerScoreHistory.containsKey(item.playerIndex)) {
+            playerScoreHistory[item.playerIndex] = [];
+          }
+          final scoreChange = item.newScore - item.oldScore;
+          playerScoreHistory[item.playerIndex]!.add(scoreChange);
+        }
+
+        await DatabaseService.deleteGameSession('common_counter');
+
+        final Map<String, dynamic> customData = {
+          'timerSinglePlayer': gameState.isSinglePlayer
+              ? event.seconds
+              : gameState.timerSinglePlayer,
+          'timerMultiplayer': !gameState.isSinglePlayer
+              ? event.seconds
+              : gameState.timerMultiplayer,
+        };
+
+        debugPrint(
+            'Explicitly saving timer value: ${event.seconds} for ${gameState.isSinglePlayer ? "single player" : "multiplayer"}');
+
+        await DatabaseService.saveGameSession(
+          gameType: 'common_counter',
+          scoreLimit: 0,
+          gameMode: gameState.isSinglePlayer
+              ? S.current.singleplayer
+              : S.current.multiplayer,
+          players: gameState.players,
+          playerScoreHistory: playerScoreHistory,
+          customData: customData,
+        );
+
+        debugPrint('Timer value saved successfully');
+      } catch (e) {
+        debugPrint('Error saving timer value: $e');
+      }
     }
   }
 
