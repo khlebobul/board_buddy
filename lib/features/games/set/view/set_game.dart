@@ -25,13 +25,15 @@ class SetGame extends StatefulWidget {
   State<SetGame> createState() => _SetGameState();
 }
 
-class _SetGameState extends State<SetGame> {
+class _SetGameState extends State<SetGame> with WidgetsBindingObserver {
   late SetBloc bloc;
   bool _isInitialized = false;
+  final _timerKey = GlobalKey<TimerWidgetState>();
 
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
 
     WidgetsBinding.instance.addPostFrameCallback((_) {
       if (!_isInitialized) {
@@ -52,6 +54,38 @@ class _SetGameState extends State<SetGame> {
   }
 
   @override
+  void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _pauseTimer();
+    super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.detached) {
+      _pauseTimer();
+    }
+  }
+
+  void _pauseTimer() {
+    final timerState = _timerKey.currentState;
+    if (timerState != null) {
+      final seconds = timerState.getSeconds();
+
+      timerState.stopTimer();
+
+      if (seconds > 0) {
+        debugPrint('Pausing timer with value: $seconds seconds');
+        if (mounted) {
+          context.read<SetBloc>().add(SaveTimerValue(seconds));
+        }
+      }
+    }
+  }
+
+  @override
   Widget build(BuildContext context) {
     return BlocBuilder<SetBloc, SetState>(
       builder: (context, state) {
@@ -61,16 +95,35 @@ class _SetGameState extends State<SetGame> {
 
         final gameState = state;
 
+        if (gameState.isSinglePlayer) {
+          debugPrint(
+              'Building SetGame with timerSeconds: ${gameState.timerSeconds}');
+        }
+
         return PopScope(
           canPop: false,
+          onPopInvoked: (didPop) {
+            if (gameState.isSinglePlayer) {
+              _pauseTimer();
+            }
+          },
           child: Scaffold(
             appBar: CustomAppBar(
               leftButtonText: S.of(context).menu,
-              onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
+              onLeftButtonPressed: () {
+                if (gameState.isSinglePlayer) {
+                  _pauseTimer();
+                }
+                Navigator.pushNamed(context, '/home');
+              },
               isRules: true,
               rightButtonText: S.of(context).rules,
-              onRightButtonPressed: () =>
-                  Navigator.pushNamed(context, '/setRules'),
+              onRightButtonPressed: () {
+                if (gameState.isSinglePlayer) {
+                  _pauseTimer();
+                }
+                Navigator.pushNamed(context, '/setRules');
+              },
             ),
             body: SafeArea(
               child: Padding(
@@ -80,7 +133,14 @@ class _SetGameState extends State<SetGame> {
                 child: Column(
                   children: [
                     gameState.isSinglePlayer
-                        ? const TimerWidget()
+                        ? TimerWidget(
+                            key: _timerKey,
+                            initialSeconds: gameState.timerSeconds,
+                            onTimerChange: (seconds) {
+                              debugPrint('Timer changed to $seconds seconds');
+                              context.read<SetBloc>().add(UpdateTimer(seconds));
+                            },
+                          )
                         : const SizedBox.shrink(),
                     const SizedBox(height: 20),
                     Expanded(
@@ -106,6 +166,9 @@ class _SetGameState extends State<SetGame> {
               isArrow: true,
               rightButtonText: S.of(context).finish,
               onRightBtnTap: () {
+                if (gameState.isSinglePlayer) {
+                  _pauseTimer();
+                }
                 _showGameEndModal(context, gameState);
               },
               isLeftArrowActive: gameState.history.isNotEmpty,

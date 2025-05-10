@@ -3,6 +3,7 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/services/database_service.dart';
 import 'package:flutter/material.dart';
+import 'dart:convert';
 
 part 'set_event.dart';
 part 'set_state.dart';
@@ -19,12 +20,14 @@ class SetBloc extends Bloc<SetEvent, SetState> {
     on<LoadSavedGame>(_onLoadSavedGame);
     on<DeleteSavedGame>(_onDeleteSavedGame);
     on<SaveGameSession>(_onSaveGameSession);
+    on<SaveTimerValue>(_onSaveTimerValue);
 
     // Game screen event handlers
     on<InitializeGameScreen>(_onInitializeGameScreen);
     on<IncreaseScore>(_onIncreaseScore);
     on<DecreaseScore>(_onDecreaseScore);
     on<ResetScores>(_onResetScores);
+    on<UpdateTimer>(_onUpdateTimer);
     on<UndoAction>(_onUndoAction);
     on<RedoAction>(_onRedoAction);
   }
@@ -101,9 +104,11 @@ class SetBloc extends Bloc<SetEvent, SetState> {
     LoadSavedGame event,
     Emitter<SetState> emit,
   ) async {
+    debugPrint('Loading saved Set game...');
     final gameData = await DatabaseService.getLatestGameSession('set');
 
     if (gameData != null) {
+      debugPrint('Found saved game data');
       final session = gameData['session'] as Map<String, dynamic>;
       final players = gameData['players'] as List<Player>;
 
@@ -127,13 +132,42 @@ class SetBloc extends Bloc<SetEvent, SetState> {
         }
       }
 
+      int timerSeconds = 0;
+      debugPrint('Session data: ${session.toString()}');
+
+      if (session.containsKey('timerSeconds')) {
+        timerSeconds = session['timerSeconds'] as int;
+        debugPrint('Loaded timerSeconds from session: $timerSeconds');
+      } else if (session.containsKey('custom_data') &&
+          session['custom_data'] != null) {
+
+        try {
+          final customDataString = session['custom_data'] as String;
+          final customData =
+              jsonDecode(customDataString) as Map<String, dynamic>;
+          if (customData.containsKey('timerSeconds')) {
+            timerSeconds = customData['timerSeconds'] as int;
+            debugPrint('Loaded timerSeconds from custom_data: $timerSeconds');
+          }
+        } catch (e) {
+          debugPrint('Error parsing custom data: $e');
+        }
+      } else {
+        debugPrint('No timer data found in saved game');
+      }
+
       // Set up game state with loaded data
       emit(SetGameState(
         players: players,
         isSinglePlayer: session['game_mode'] == S.current.singleplayer,
         history: history,
         redoHistory: [],
+        timerSeconds: timerSeconds,
       ));
+
+      debugPrint('Game loaded successfully. Timer seconds: $timerSeconds');
+    } else {
+      debugPrint('No saved game found');
     }
   }
 
@@ -172,6 +206,13 @@ class SetBloc extends Bloc<SetEvent, SetState> {
       try {
         await DatabaseService.deleteGameSession('set');
 
+        final Map<String, dynamic> customData = {
+          'timerSeconds': gameState.timerSeconds,
+        };
+
+        debugPrint(
+            'Saving Set game session: Timer seconds = ${gameState.timerSeconds}');
+
         await DatabaseService.saveGameSession(
           gameType: 'set',
           scoreLimit: 0, // Set doesn't use a score limit
@@ -180,9 +221,59 @@ class SetBloc extends Bloc<SetEvent, SetState> {
               : S.current.multiplayer,
           players: gameState.players,
           playerScoreHistory: playerScoreHistory,
+          customData: customData,
         );
+
+        debugPrint('Game session saved successfully');
       } catch (e) {
         debugPrint('Error saving Set game session: $e');
+      }
+    }
+  }
+
+  void _onSaveTimerValue(
+    SaveTimerValue event,
+    Emitter<SetState> emit,
+  ) async {
+    debugPrint('Explicit SaveTimerValue event with seconds: ${event.seconds}');
+
+    if (state is SetGameState) {
+      final gameState = state as SetGameState;
+
+      emit(gameState.copyWith(timerSeconds: event.seconds));
+
+      try {
+        final Map<int, List<int>> playerScoreHistory = {};
+        for (var item in gameState.history) {
+          if (!playerScoreHistory.containsKey(item.playerIndex)) {
+            playerScoreHistory[item.playerIndex] = [];
+          }
+          final scoreChange = item.newScore - item.oldScore;
+          playerScoreHistory[item.playerIndex]!.add(scoreChange);
+        }
+
+        await DatabaseService.deleteGameSession('set');
+
+        final Map<String, dynamic> customData = {
+          'timerSeconds': event.seconds,
+        };
+
+        debugPrint('Explicitly saving timer value: ${event.seconds}');
+
+        await DatabaseService.saveGameSession(
+          gameType: 'set',
+          scoreLimit: 0,
+          gameMode: gameState.isSinglePlayer
+              ? S.current.singleplayer
+              : S.current.multiplayer,
+          players: gameState.players,
+          playerScoreHistory: playerScoreHistory,
+          customData: customData,
+        );
+
+        debugPrint('Timer value saved successfully');
+      } catch (e) {
+        debugPrint('Error saving timer value: $e');
       }
     }
   }
@@ -263,6 +354,28 @@ class SetBloc extends Bloc<SetEvent, SetState> {
             redoHistory: [], // Clear redo history on new action
           ));
 
+          add(SaveGameSession());
+        }
+      }
+    }
+  }
+
+  void _onUpdateTimer(
+    UpdateTimer event,
+    Emitter<SetState> emit,
+  ) {
+    if (state is SetGameState) {
+      final currentState = state as SetGameState;
+
+      debugPrint(
+          'UpdateTimer: current=${currentState.timerSeconds}, new=${event.seconds}');
+
+      if (currentState.timerSeconds != event.seconds) {
+        emit(currentState.copyWith(timerSeconds: event.seconds));
+
+        if (event.seconds == 0 || event.seconds % 5 == 0) {
+          debugPrint(
+              'Saving timer value at ${event.seconds} seconds (periodic saving)');
           add(SaveGameSession());
         }
       }

@@ -6,7 +6,10 @@ import 'dart:async';
 import 'package:flutter_svg/svg.dart';
 
 class TimerWidget extends StatefulWidget {
-  const TimerWidget({super.key});
+  final int? initialSeconds;
+  final Function(int seconds)? onTimerChange;
+
+  const TimerWidget({this.initialSeconds, this.onTimerChange, super.key});
 
   @override
   TimerWidgetState createState() => TimerWidgetState();
@@ -16,6 +19,17 @@ class TimerWidgetState extends State<TimerWidget> {
   late Timer _timer;
   int _seconds = 0;
   bool _isRunning = false;
+
+  @override
+  void initState() {
+    super.initState();
+    if (widget.initialSeconds != null) {
+      _seconds = widget.initialSeconds!;
+      debugPrint('TimerWidget initialized with ${_seconds} seconds');
+    } else {
+      debugPrint('TimerWidget initialized with default 0 seconds');
+    }
+  }
 
   @override
   void dispose() {
@@ -33,6 +47,9 @@ class TimerWidgetState extends State<TimerWidget> {
       _timer = Timer.periodic(const Duration(seconds: 1), (timer) {
         setState(() {
           _seconds++;
+          if (widget.onTimerChange != null) {
+            widget.onTimerChange!(_seconds);
+          }
         });
       });
     }
@@ -40,20 +57,56 @@ class TimerWidgetState extends State<TimerWidget> {
 
   void _stopTimer() {
     if (_isRunning) {
+      final currentSeconds = _seconds;
+
       setState(() {
         _isRunning = false;
       });
       _timer.cancel();
+
+      if (widget.onTimerChange != null) {
+        debugPrint(
+            'Timer stopped at $currentSeconds seconds, notifying parent');
+        widget.onTimerChange!(currentSeconds);
+      }
     }
   }
 
+  void stopTimer() {
+    _stopTimer();
+  }
+
+  void startTimer() {
+    _startTimer();
+  }
+
+  void resetTimer() {
+    _resetTimer();
+  }
+
   void _resetTimer() {
+    if (_isRunning) {
+      _timer.cancel();
+    }
+
     setState(() {
       _seconds = 0;
-      if (_isRunning) {
-        _timer.cancel();
-        _isRunning = false;
-      }
+      _isRunning = false;
+    });
+
+    if (widget.onTimerChange != null) {
+      debugPrint('Timer reset to 0 seconds, notifying parent');
+      widget.onTimerChange!(0);
+    }
+  }
+
+  int getSeconds() {
+    return _seconds;
+  }
+
+  void setSeconds(int seconds) {
+    setState(() {
+      _seconds = seconds;
     });
   }
 
