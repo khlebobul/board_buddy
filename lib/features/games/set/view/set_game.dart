@@ -102,7 +102,7 @@ class _SetGameState extends State<SetGame> with WidgetsBindingObserver {
 
         return PopScope(
           canPop: false,
-          onPopInvoked: (didPop) {
+          onPopInvokedWithResult: (didPop, result) {
             if (gameState.isSinglePlayer) {
               _pauseTimer();
             }

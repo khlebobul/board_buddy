@@ -192,7 +192,7 @@ class _CommonGameViewState extends State<CommonGameView>
 
         return PopScope(
           canPop: false,
-          onPopInvoked: (didPop) {
+          onPopInvokedWithResult: (didPop, result) {
             _pauseTimer();
           },
           child: Scaffold(
