@@ -1,7 +1,12 @@
 # Changelog
 
 ## [1.0.3]
-// TODO
+
+### New Features
+- Added timer tracking and persistence for both Common Counter and Set games, including saving/restoring timer state during app lifecycle events and navigation.
+
+### Improvements
+- Enhanced iOS app icons with dark mode variants.
 
 ## [1.0.2]
 
