@@ -2,7 +2,7 @@ name: board_buddy
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.2+9
+version: 1.0.3+10
 
 environment:
   sdk: ^3.5.3
@@ -14,8 +14,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
-  gen_art_bg: ^0.3.10
-  use_scramble: ^0.0.8
+  gen_art_bg: ^0.3.11
+  use_scramble: ^0.0.9
   shared_preferences: ^2.5.2
   intl: ^0.19.0
   url_launcher: ^6.3.1
@@ -42,6 +42,8 @@ dev_dependencies:
 
 flutter_launcher_icons:
   android: "launcher_icon"
+  image_path_ios: "assets/logo/logo.png"
+  image_path_ios_dark_transparent: "assets/logo/logo-dark.png"
   remove_alpha_ios: true
   ios: true
   image_path: "assets/logo/logo.png"

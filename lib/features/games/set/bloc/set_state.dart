@@ -52,12 +52,14 @@ class SetGameState extends SetState {
   final bool isSinglePlayer;
   final List<ScoreHistoryItem> history;
   final List<ScoreHistoryItem> redoHistory;
+  final int timerSeconds;
 
   SetGameState({
     required this.players,
     required this.isSinglePlayer,
     this.history = const [],
     this.redoHistory = const [],
+    this.timerSeconds = 0,
   });
 
   SetGameState copyWith({
@@ -65,12 +67,14 @@ class SetGameState extends SetState {
     bool? isSinglePlayer,
     List<ScoreHistoryItem>? history,
     List<ScoreHistoryItem>? redoHistory,
+    int? timerSeconds,
   }) {
     return SetGameState(
       players: players ?? this.players,
       isSinglePlayer: isSinglePlayer ?? this.isSinglePlayer,
       history: history ?? this.history,
       redoHistory: redoHistory ?? this.redoHistory,
+      timerSeconds: timerSeconds ?? this.timerSeconds,
     );
   }
 }

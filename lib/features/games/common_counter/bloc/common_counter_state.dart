@@ -54,6 +54,8 @@ class CommonCounterGameState extends CommonCounterState {
   final List<ScoreHistoryItem> redoHistory;
   final bool isScoreChanging;
   final int lastScoreChange;
+  final int timerSinglePlayer;
+  final int timerMultiplayer;
 
   CommonCounterGameState({
     required this.players,
@@ -62,6 +64,8 @@ class CommonCounterGameState extends CommonCounterState {
     this.redoHistory = const [],
     this.isScoreChanging = false,
     this.lastScoreChange = 0,
+    this.timerSinglePlayer = 0,
+    this.timerMultiplayer = 0,
   });
 
   CommonCounterGameState copyWith({
@@ -71,6 +75,8 @@ class CommonCounterGameState extends CommonCounterState {
     List<ScoreHistoryItem>? redoHistory,
     bool? isScoreChanging,
     int? lastScoreChange,
+    int? timerSinglePlayer,
+    int? timerMultiplayer,
   }) {
     return CommonCounterGameState(
       players: players ?? this.players,
@@ -79,6 +85,11 @@ class CommonCounterGameState extends CommonCounterState {
       redoHistory: redoHistory ?? this.redoHistory,
       isScoreChanging: isScoreChanging ?? this.isScoreChanging,
       lastScoreChange: lastScoreChange ?? this.lastScoreChange,
+      timerSinglePlayer: timerSinglePlayer ?? this.timerSinglePlayer,
+      timerMultiplayer: timerMultiplayer ?? this.timerMultiplayer,
     );
   }
+
+  int get currentTimerValue =>
+      isSinglePlayer ? timerSinglePlayer : timerMultiplayer;
 }

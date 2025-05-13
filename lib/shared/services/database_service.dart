@@ -142,6 +142,8 @@ class DatabaseService {
       String gameType) async {
     final db = await database;
 
+    debugPrint('Getting latest game session for $gameType');
+
     final sessions = await db.query(
       'game_sessions',
       where: 'game_type = ?',
@@ -150,21 +152,34 @@ class DatabaseService {
       limit: 1,
     );
 
-    if (sessions.isEmpty) return null;
+    if (sessions.isEmpty) {
+      debugPrint('No sessions found for $gameType');
+      return null;
+    }
 
     final sessionId = sessions.first['id'] as int;
     final session = Map<String, dynamic>.from(sessions.first);
+
+    debugPrint('Found session with ID: $sessionId');
+    debugPrint('Raw session data: ${session.toString()}');
 
     // Parse custom data if available
     if (session.containsKey('custom_data') && session['custom_data'] != null) {
       try {
         final customDataString = session['custom_data'] as String;
+        debugPrint('Custom data string: $customDataString');
+
         final customData = jsonDecode(customDataString) as Map<String, dynamic>;
+        debugPrint('Parsed custom data: ${customData.toString()}');
+
         // Merge custom data into session
         session.addAll(customData);
+        debugPrint('Session after adding custom data: ${session.toString()}');
       } catch (e) {
         debugPrint('Error parsing custom data: $e');
       }
+    } else {
+      debugPrint('No custom_data field in session or it is null');
     }
 
     // Get players
@@ -182,6 +197,8 @@ class DatabaseService {
         score: playerData['score'] as int,
       );
     }).toList();
+
+    debugPrint('Loaded ${players.length} players');
 
     // Get player score history
     final historyData = await db.query(
@@ -202,6 +219,8 @@ class DatabaseService {
 
       playerScoreHistory[playerIndex]!.add(scoreChange);
     }
+
+    debugPrint('Loaded score history for ${playerScoreHistory.length} players');
 
     return {
       'session': session,

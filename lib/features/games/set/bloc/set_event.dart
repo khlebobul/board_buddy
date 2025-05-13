@@ -29,6 +29,12 @@ class DeleteSavedGame extends SetEvent {}
 
 class SaveGameSession extends SetEvent {}
 
+class SaveTimerValue extends SetEvent {
+  final int seconds;
+
+  SaveTimerValue(this.seconds);
+}
+
 // Game screen events
 class InitializeGameScreen extends SetEvent {
   final List<Player> players;
@@ -53,6 +59,12 @@ class DecreaseScore extends SetEvent {
 }
 
 class ResetScores extends SetEvent {}
+
+class UpdateTimer extends SetEvent {
+  final int seconds;
+
+  UpdateTimer(this.seconds);
+}
 
 // Undo/Redo events
 class UndoAction extends SetEvent {}

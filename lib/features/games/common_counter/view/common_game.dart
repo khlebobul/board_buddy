@@ -61,11 +61,12 @@ class CommonGameView extends StatefulWidget {
 }
 
 class _CommonGameViewState extends State<CommonGameView>
-    with TickerProviderStateMixin {
+    with TickerProviderStateMixin, WidgetsBindingObserver {
   late final PageController _pageController;
   late final AnimationController _animationController;
   late final Animation<double> _animation;
   late final ScrollController _indicatorScrollController;
+  final _timerKey = GlobalKey<TimerWidgetState>();
 
   int _currentPageIndex = 0;
   bool _isNumericKeyboard = false;
@@ -74,6 +75,8 @@ class _CommonGameViewState extends State<CommonGameView>
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addObserver(this);
+
     _pageController = PageController(
       initialPage: 0,
       viewportFraction: 0.85,
@@ -95,10 +98,36 @@ class _CommonGameViewState extends State<CommonGameView>
 
   @override
   void dispose() {
+    WidgetsBinding.instance.removeObserver(this);
+    _pauseTimer();
     _pageController.dispose();
     _animationController.dispose();
     _indicatorScrollController.dispose();
     super.dispose();
+  }
+
+  @override
+  void didChangeAppLifecycleState(AppLifecycleState state) {
+    if (state == AppLifecycleState.paused ||
+        state == AppLifecycleState.inactive ||
+        state == AppLifecycleState.detached) {
+      _pauseTimer();
+    }
+  }
+
+  void _pauseTimer() {
+    final timerState = _timerKey.currentState;
+    if (timerState != null) {
+      final seconds = timerState.getSeconds();
+      timerState.stopTimer();
+
+      if (seconds > 0) {
+        debugPrint('Pausing timer with value: $seconds seconds');
+        if (mounted) {
+          context.read<CommonCounterBloc>().add(SaveTimerValue(seconds));
+        }
+      }
+    }
   }
 
   // Scroll to the active indicator
@@ -153,14 +182,30 @@ class _CommonGameViewState extends State<CommonGameView>
         final gameState = state;
         final theme = UIThemes.of(context);
 
+        if (gameState.isSinglePlayer) {
+          debugPrint(
+              'Building CommonGame with timerSinglePlayer: ${gameState.timerSinglePlayer}');
+        } else {
+          debugPrint(
+              'Building CommonGame with timerMultiplayer: ${gameState.timerMultiplayer}');
+        }
+
         return PopScope(
           canPop: false,
+          onPopInvokedWithResult: (didPop, result) {
+            _pauseTimer();
+          },
           child: Scaffold(
             appBar: CustomAppBar(
               leftButtonText: S.of(context).menu,
-              onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
+              onLeftButtonPressed: () {
+                _pauseTimer();
+                Navigator.pushNamed(context, '/home');
+              },
               rightButtonText: S.of(context).common,
-              onRightButtonPressed: () {},
+              onRightButtonPressed: () {
+                _pauseTimer();
+              },
             ),
             body: SafeArea(
               child: Column(
@@ -174,7 +219,16 @@ class _CommonGameViewState extends State<CommonGameView>
                       crossAxisAlignment: CrossAxisAlignment.center,
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
-                        const TimerWidget(),
+                        TimerWidget(
+                          key: _timerKey,
+                          initialSeconds: gameState.currentTimerValue,
+                          onTimerChange: (seconds) {
+                            debugPrint('Timer changed to $seconds seconds');
+                            context
+                                .read<CommonCounterBloc>()
+                                .add(UpdateTimer(seconds));
+                          },
+                        ),
                         const Spacer(),
                         GestureDetector(
                           onTap: () => DiceModal.show(context),
@@ -474,6 +528,9 @@ class _CommonGameViewState extends State<CommonGameView>
 
   void _showGameEndModal(
       BuildContext context, CommonCounterGameState gameState) {
+    _pauseTimer();
+    context.read<CommonCounterBloc>().add(DeleteSavedGame());
+
     GameEndCommonCounterModal.show(
       context,
       players: gameState.players,
@@ -488,10 +545,14 @@ class _CommonGameViewState extends State<CommonGameView>
       onNewGame: () {
         Navigator.of(context).pop();
         Navigator.of(context).pop();
-        Navigator.pushNamed(context, '/commonStartGame');
+        Navigator.pushNamed(context, '/commonCounterStartGame');
       },
       onReturnToMenu: () {
-        Navigator.pushNamed(context, '/home');
+        Navigator.pushNamedAndRemoveUntil(
+          context,
+          '/home',
+          (route) => false,
+        );
       },
     );
   }
