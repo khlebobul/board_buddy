@@ -40,6 +40,7 @@ your ultimate board game companion
 - scrabble® _(registered trademark of hasbro, inc.)_
 - set® _(registered trademark of set enterprises, inc.)_
 - munchkin® _(registered trademark of steve jackson games)_
+- carcassonne® _(registered trademark of hans im glück)_
 - universal counter
 
 ## how to help

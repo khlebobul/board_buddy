@@ -76,6 +76,14 @@ class RulesScreen extends StatelessWidget {
                   style: theme.display3,
                 ),
               ),
+              const SizedBox(height: 5),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/carcassonneRules'),
+                child: TextScramble(
+                  text: '07 - ${S.of(context).carcassonne}',
+                  style: theme.display3,
+                ),
+              ),
               const Spacer(),
               const AddFavouriteGame(),
             ],

@@ -2914,6 +2914,196 @@ class S {
       args: [],
     );
   }
+
+  /// `carcassonne`
+  String get carcassonne {
+    return Intl.message('carcassonne', name: 'carcassonne', desc: '', args: []);
+  }
+
+  /// `carcassonne® is aregistered trademark of hans im glück`
+  String get carcassonneIsAregisteredTrademarkOfHansImGlck {
+    return Intl.message(
+      'carcassonne® is aregistered trademark of hans im glück',
+      name: 'carcassonneIsAregisteredTrademarkOfHansImGlck',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `build roads, cities, monasteries, and fields, placing meeples to earn points.the player with the most points wins.`
+  String get buildRoadsCitiesMonasteriesAndFieldsPlacingMeeplesToEarn {
+    return Intl.message(
+      'build roads, cities, monasteries, and fields, placing meeples to earn points.the player with the most points wins.',
+      name: 'buildRoadsCitiesMonasteriesAndFieldsPlacingMeeplesToEarn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `shuffle all tiles and put in a facedown stack`
+  String get shuffleAllTilesAndPutInAFacedownStack {
+    return Intl.message(
+      'shuffle all tiles and put in a facedown stack',
+      name: 'shuffleAllTilesAndPutInAFacedownStack',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `place the starting tile in the center of the table`
+  String get placeTheStartingTileInTheCenterOfTheTable {
+    return Intl.message(
+      'place the starting tile in the center of the table',
+      name: 'placeTheStartingTileInTheCenterOfTheTable',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `each player takes 7 meeples of one color`
+  String get eachPlayerTakes7MeeplesOfOneColor {
+    return Intl.message(
+      'each player takes 7 meeples of one color',
+      name: 'eachPlayerTakes7MeeplesOfOneColor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `place one meeple on the score track (0)`
+  String get placeOneMeepleOnTheScoreTrack0 {
+    return Intl.message(
+      'place one meeple on the score track (0)',
+      name: 'placeOneMeepleOnTheScoreTrack0',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `draw 1 tile`
+  String get draw1Tile {
+    return Intl.message('draw 1 tile', name: 'draw1Tile', desc: '', args: []);
+  }
+
+  /// `place the tile so that edges match (road to road, city to city, etc.)`
+  String get placeTheTileSoThatEdgesMatchRoadToRoad {
+    return Intl.message(
+      'place the tile so that edges match (road to road, city to city, etc.)',
+      name: 'placeTheTileSoThatEdgesMatchRoadToRoad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `optionally, place a meeple on:`
+  String get optionallyPlaceAMeepleOn {
+    return Intl.message(
+      'optionally, place a meeple on:',
+      name: 'optionallyPlaceAMeepleOn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a city — knight`
+  String get aCityKnight {
+    return Intl.message(
+      'a city — knight',
+      name: 'aCityKnight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a road — highwayman`
+  String get aRoadHighwayman {
+    return Intl.message(
+      'a road — highwayman',
+      name: 'aRoadHighwayman',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a monastery — monk`
+  String get aMonasteryMonk {
+    return Intl.message(
+      'a monastery — monk',
+      name: 'aMonasteryMonk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a field — farmer (stays until the end of the game)`
+  String get aFieldFarmerStaysUntilTheEndOfTheGame {
+    return Intl.message(
+      'a field — farmer (stays until the end of the game)',
+      name: 'aFieldFarmerStaysUntilTheEndOfTheGame',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `if a feature is completed, score points and return meeples`
+  String get ifAFeatureIsCompletedScorePointsAndReturnMeeples {
+    return Intl.message(
+      'if a feature is completed, score points and return meeples',
+      name: 'ifAFeatureIsCompletedScorePointsAndReturnMeeples',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `completed features score`
+  String get completedFeaturesScore {
+    return Intl.message(
+      'completed features score',
+      name: 'completedFeaturesScore',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `road — 1 point per tile`
+  String get road1PointPerTile {
+    return Intl.message(
+      'road — 1 point per tile',
+      name: 'road1PointPerTile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `city — 2 points per tile + 2 points per pennant`
+  String get city2PointsPerTile2PointsPerPennant {
+    return Intl.message(
+      'city — 2 points per tile + 2 points per pennant',
+      name: 'city2PointsPerTile2PointsPerPennant',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `monastery — 9 points (if surrounded by 8 tiles)`
+  String get monastery9PointsIfSurroundedBy8Tiles {
+    return Intl.message(
+      'monastery — 9 points (if surrounded by 8 tiles)',
+      name: 'monastery9PointsIfSurroundedBy8Tiles',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `schemes for counting`
+  String get schemesForCounting {
+    return Intl.message(
+      'schemes for counting',
+      name: 'schemesForCounting',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

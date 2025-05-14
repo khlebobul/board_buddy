@@ -77,6 +77,9 @@ class RulesConst {
 // common counter
   static const commonCounterAge = '6+';
   static const commonCounterPlayers = '2-10';
+// carcassonne
+  static const carcassonneAge = '8+';
+  static const carcassonnePlayers = '2-5 (6)';
 }
 
 class GameConst {

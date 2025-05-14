@@ -22,6 +22,15 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
+    "aCityKnight": MessageLookupByLibrary.simpleMessage("город — рыцарь"),
+    "aFieldFarmerStaysUntilTheEndOfTheGame":
+        MessageLookupByLibrary.simpleMessage(
+          "поле — крестьянин (остаётся до конца игры)",
+        ),
+    "aMonasteryMonk": MessageLookupByLibrary.simpleMessage("монастырь — монах"),
+    "aRoadHighwayman": MessageLookupByLibrary.simpleMessage(
+      "дорогу — разбойник",
+    ),
     "about": MessageLookupByLibrary.simpleMessage("о проекте"),
     "add": MessageLookupByLibrary.simpleMessage("добавить"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("добавить игрока"),
@@ -52,6 +61,10 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "усиления или ослабления персонажа/предметов",
         ),
+    "buildRoadsCitiesMonasteriesAndFieldsPlacingMeeplesToEarn":
+        MessageLookupByLibrary.simpleMessage(
+          "строьте дороги, города, монастыри и поля, размещая миплов, чтобы зарабатывать очки. выигрывает игрок с наибольшим количеством очков.",
+        ),
     "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
         MessageLookupByLibrary.simpleMessage(
           "может быть любого цвета по выбору текущего игрока. если вытянута, игрок выбирает цвет.",
@@ -61,6 +74,11 @@ class MessageLookup extends MessageLookupByLibrary {
           "может представлять любое число своего цвета.",
         ),
     "cancel": MessageLookupByLibrary.simpleMessage("отмена"),
+    "carcassonne": MessageLookupByLibrary.simpleMessage("каркассон"),
+    "carcassonneIsAregisteredTrademarkOfHansImGlck":
+        MessageLookupByLibrary.simpleMessage(
+          "carcassonne® является зарегистрированной торговой маркой компании hans im glück",
+        ),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -76,12 +94,18 @@ class MessageLookup extends MessageLookupByLibrary {
       "пол персонажа: мужской",
     ),
     "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
+    "city2PointsPerTile2PointsPerPennant": MessageLookupByLibrary.simpleMessage(
+      "город — 2 очка за тайл + 2 очка за герб",
+    ),
     "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
     "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
     "clearance": MessageLookupByLibrary.simpleMessage("очистка"),
     "cleric": MessageLookupByLibrary.simpleMessage("клирик"),
     "close": MessageLookupByLibrary.simpleMessage("закрыть"),
     "common": MessageLookupByLibrary.simpleMessage("счетчик"),
+    "completedFeaturesScore": MessageLookupByLibrary.simpleMessage(
+      "очки за завершённые объекты",
+    ),
     "continueTitle": MessageLookupByLibrary.simpleMessage("продолжить"),
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage(
       "не удалось запустить",
@@ -162,6 +186,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage("удваивает значение буквы"),
     "doublesTheValueOfAnEntireWordScrabbleInfo":
         MessageLookupByLibrary.simpleMessage("удваивает значение всего слова"),
+    "draw1Tile": MessageLookupByLibrary.simpleMessage("вытяните 1 тайл"),
     "drawFiveUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
       "карта «возьми пять»",
     ),
@@ -182,6 +207,9 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "eachCardHasANumberFrom1To9Which": MessageLookupByLibrary.simpleMessage(
       "каждая карта имеет число от 1 до 9, которое определяет её значение.",
+    ),
+    "eachPlayerTakes7MeeplesOfOneColor": MessageLookupByLibrary.simpleMessage(
+      "каждый игрок берёт 7 миплов одного цвета",
     ),
     "edit": MessageLookupByLibrary.simpleMessage("изменить"),
     "elf": MessageLookupByLibrary.simpleMessage("эльф"),
@@ -225,6 +253,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "побеждает высокий счет",
     ),
     "human": MessageLookupByLibrary.simpleMessage("человек"),
+    "ifAFeatureIsCompletedScorePointsAndReturnMeeples":
+        MessageLookupByLibrary.simpleMessage(
+          "если объект завершён — получите очки и верните миплов",
+        ),
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "указывает на наложенное проклятие",
     ),
@@ -249,6 +281,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "menu": MessageLookupByLibrary.simpleMessage("меню"),
     "mode": MessageLookupByLibrary.simpleMessage("режим"),
     "modifiers": MessageLookupByLibrary.simpleMessage("модификаторы"),
+    "monastery9PointsIfSurroundedBy8Tiles":
+        MessageLookupByLibrary.simpleMessage(
+          "монастырь — 9 очков (если окружён 8 тайлами)",
+        ),
     "moveHistory": MessageLookupByLibrary.simpleMessage("история ходов"),
     "multiplayer": MessageLookupByLibrary.simpleMessage("мультиплеер"),
     "munchkin": MessageLookupByLibrary.simpleMessage("манчкин"),
@@ -358,7 +394,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberCards": MessageLookupByLibrary.simpleMessage("номерные карты"),
     "off": MessageLookupByLibrary.simpleMessage("выкл."),
     "on": MessageLookupByLibrary.simpleMessage("вкл."),
+    "optionallyPlaceAMeepleOn": MessageLookupByLibrary.simpleMessage(
+      "по желанию поставьте мипла на:",
+    ),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
+    "placeOneMeepleOnTheScoreTrack0": MessageLookupByLibrary.simpleMessage(
+      "один мипл ставится на трек очков (0)",
+    ),
+    "placeTheStartingTileInTheCenterOfTheTable":
+        MessageLookupByLibrary.simpleMessage(
+          "выложите стартовый тайл в центр стола",
+        ),
+    "placeTheTileSoThatEdgesMatchRoadToRoad": MessageLookupByLibrary.simpleMessage(
+      "выложите тайл так, чтобы края совпадали (дорога к дороге, город к городу и т. д.)",
+    ),
     "play": MessageLookupByLibrary.simpleMessage("играть"),
     "playerName": MessageLookupByLibrary.simpleMessage("имя игрока"),
     "players": MessageLookupByLibrary.simpleMessage("игроки"),
@@ -377,9 +426,15 @@ class MessageLookup extends MessageLookupByLibrary {
       "карта «смена направления»",
     ),
     "rightHand": MessageLookupByLibrary.simpleMessage("правая рука"),
+    "road1PointPerTile": MessageLookupByLibrary.simpleMessage(
+      "дорога — 1 очко за каждый тайл",
+    ),
     "round": MessageLookupByLibrary.simpleMessage("раунд"),
     "rules": MessageLookupByLibrary.simpleMessage("правила"),
     "russian": MessageLookupByLibrary.simpleMessage("русский"),
+    "schemesForCounting": MessageLookupByLibrary.simpleMessage(
+      "схемы подсчёта",
+    ),
     "score": MessageLookupByLibrary.simpleMessage("счет"),
     "score50ExtraPointsForUsingAll7Tiles": MessageLookupByLibrary.simpleMessage(
       "50 дополнительных очков за использование всех 7 букв",
@@ -560,6 +615,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "shareWithFriends": MessageLookupByLibrary.simpleMessage(
       "поделитесь с друзьями",
     ),
+    "shuffleAllTilesAndPutInAFacedownStack":
+        MessageLookupByLibrary.simpleMessage(
+          "перемешайте все тайлы и положите в стопку лицом вниз",
+        ),
     "sinceThisIsAnOpenSourceProjectYouCanLeave":
         MessageLookupByLibrary.simpleMessage(
           "так как это проект с открытым исходным кодом, вы можете внести свой вклад",

@@ -1,3 +1,4 @@
+import 'package:board_buddy/features/games/carcassonne/view/carcassonne_rules.dart';
 import 'package:board_buddy/features/games/common_counter/view/common_game.dart';
 import 'package:board_buddy/features/games/common_counter/view/common_game_start_screen.dart';
 import 'package:board_buddy/features/games/dos/view/dos_game.dart';
@@ -47,6 +48,7 @@ class AppRoutes {
   static const String dosRules = '/dosRules';
   static const String setRules = '/setRules';
   static const String munchkinRules = '/munchkinRules';
+  static const String carcassonneRules = '/carcassonneRules';
 
   // games
   static const String unoGame = '/unoGame';
@@ -79,6 +81,7 @@ class AppRoutes {
         dosRules: (context) => const DosRulesScreen(),
         setRules: (context) => const SetRulesScreen(),
         munchkinRules: (context) => const MunchkinRulesScreen(),
+        carcassonneRules: (context) => const CarcassonneRulesScreen(),
 
         // games
         unoStartGame: (context) => const UnoStartScreen(),
