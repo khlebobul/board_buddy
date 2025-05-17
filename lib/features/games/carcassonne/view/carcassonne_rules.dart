@@ -1,4 +1,3 @@
-import 'package:board_buddy/features/about/widgets/link_btn.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';

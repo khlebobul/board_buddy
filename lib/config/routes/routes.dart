@@ -1,4 +1,6 @@
 import 'package:board_buddy/features/games/carcassonne/view/carcassonne_rules.dart';
+import 'package:board_buddy/features/games/carcassonne/view/carcassonne_start_screen.dart';
+import 'package:board_buddy/features/games/carcassonne/view/carcassonne_game.dart';
 import 'package:board_buddy/features/games/common_counter/view/common_game.dart';
 import 'package:board_buddy/features/games/common_counter/view/common_game_start_screen.dart';
 import 'package:board_buddy/features/games/dos/view/dos_game.dart';
@@ -65,6 +67,8 @@ class AppRoutes {
   static const String commonGame = '/commonGame';
   static const String commonGameStartScreen = '/commonStartGame';
   static const String scrabbleStartGame = '/scrabbleStartGame';
+  static const String carcassonneGame = '/carcassonneGame';
+  static const String carcassonneStartGame = '/carcassonneStartGame';
 
   static Map<String, WidgetBuilder> get routes => {
         // main
@@ -93,6 +97,7 @@ class AppRoutes {
         munchkinStartGame: (context) => const MunchkinStartScreen(),
         munchkinGame: (context) => const MunchkinGameWrapper(),
         commonGameStartScreen: (context) => const CommonGameStartScreen(),
+        carcassonneStartGame: (context) => const CarcassonneStartScreen(),
       };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -243,6 +248,22 @@ class AppRoutes {
       } else {
         return MaterialPageRoute(
           builder: (context) => const ScrabbleGame(),
+        );
+      }
+    }
+
+    // carcassonne game
+    if (settings.name == carcassonneGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => CarcassonneGame(
+            isAutomatic: args['isAutomatic'],
+          ),
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => const CarcassonneGame(),
         );
       }
     }

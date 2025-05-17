@@ -3094,6 +3094,16 @@ class S {
       args: [],
     );
   }
+
+  /// `manual`
+  String get manual {
+    return Intl.message('manual', name: 'manual', desc: '', args: []);
+  }
+
+  /// `automatic`
+  String get automatic {
+    return Intl.message('automatic', name: 'automatic', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

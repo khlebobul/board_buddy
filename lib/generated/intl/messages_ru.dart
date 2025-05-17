@@ -39,6 +39,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage("позволяет игроку выбрать цвет."),
     "appreciation": MessageLookupByLibrary.simpleMessage("благодарность"),
     "armour": MessageLookupByLibrary.simpleMessage("броня"),
+    "automatic": MessageLookupByLibrary.simpleMessage("автоматический"),
     "back": MessageLookupByLibrary.simpleMessage("назад"),
     "bigArmour": MessageLookupByLibrary.simpleMessage("большая броня"),
     "bigBoots": MessageLookupByLibrary.simpleMessage("большие ботинки"),
@@ -275,6 +276,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "побеждает низкий счет",
     ),
     "magic": MessageLookupByLibrary.simpleMessage("магия"),
+    "manual": MessageLookupByLibrary.simpleMessage("ручной"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "отмечает мёртвого персонажа",
     ),

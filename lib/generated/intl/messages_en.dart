@@ -43,6 +43,7 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "appreciation": MessageLookupByLibrary.simpleMessage("credits"),
     "armour": MessageLookupByLibrary.simpleMessage("armour"),
+    "automatic": MessageLookupByLibrary.simpleMessage("automatic"),
     "back": MessageLookupByLibrary.simpleMessage("back"),
     "bigArmour": MessageLookupByLibrary.simpleMessage("big armour"),
     "bigBoots": MessageLookupByLibrary.simpleMessage("big boots"),
@@ -265,6 +266,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "lowest score wins",
     ),
     "magic": MessageLookupByLibrary.simpleMessage("magic"),
+    "manual": MessageLookupByLibrary.simpleMessage("manual"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "marks a dead character",
     ),
