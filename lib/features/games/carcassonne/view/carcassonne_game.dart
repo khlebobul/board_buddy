@@ -24,10 +24,12 @@ class CarcassonneGame extends StatelessWidget {
     return BlocProvider(
       create: (context) => CarcassonneBloc()
         ..add(
-          InitializeGameScreen(
-            players: players,
-            isAutomatic: isAutomatic,
-          ),
+          players.isEmpty
+              ? LoadSavedGame()
+              : InitializeGameScreen(
+                  players: players,
+                  isAutomatic: isAutomatic,
+                ),
         ),
       child: const CarcassonneGameView(),
     );

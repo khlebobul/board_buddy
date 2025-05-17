@@ -1,6 +1,7 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
+import 'package:board_buddy/shared/services/database_service.dart';
 
 part 'carcassonne_event.dart';
 part 'carcassonne_state.dart';
@@ -17,6 +18,12 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
     on<UndoAction>(_onUndo);
     on<RedoAction>(_onRedo);
     on<ResetScores>(_onResetScores);
+
+    // Database-related events
+    on<CheckSavedGame>(_onCheckSavedGame);
+    on<LoadSavedGame>(_onLoadSavedGame);
+    on<DeleteSavedGame>(_onDeleteSavedGame);
+    on<SaveGameSession>(_onSaveGameSession);
   }
 
   void _onInitializeStartScreen(
@@ -28,6 +35,116 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
       isAutomatic: false,
       players: [],
     ));
+
+    add(CheckSavedGame());
+  }
+
+  // Database event handlers
+  void _onCheckSavedGame(
+    CheckSavedGame event,
+    Emitter<CarcassonneState> emit,
+  ) async {
+    if (state is CarcassonneStartScreenState) {
+      final currentState = state as CarcassonneStartScreenState;
+      final hasSavedGame = await DatabaseService.hasGameSession('carcassonne');
+      emit(currentState.copyWith(hasSavedGame: hasSavedGame));
+    }
+  }
+
+  void _onLoadSavedGame(
+    LoadSavedGame event,
+    Emitter<CarcassonneState> emit,
+  ) async {
+    debugPrint('Loading saved Carcassonne game...');
+    final gameData = await DatabaseService.getLatestGameSession('carcassonne');
+
+    if (gameData != null) {
+      debugPrint('Found saved game data');
+      final session = gameData['session'] as Map<String, dynamic>;
+      final players = gameData['players'] as List<Player>;
+
+      // Convert database score history format to our model format
+      final dbScoreHistory =
+          gameData['playerScoreHistory'] as Map<int, List<int>>;
+      final List<ScoreHistoryItem> history = [];
+
+      // Reconstruct score history from database data
+      for (var playerIndex in dbScoreHistory.keys) {
+        int currentScore = 0;
+        for (var scoreChange in dbScoreHistory[playerIndex]!) {
+          int oldScore = currentScore;
+          currentScore += scoreChange;
+          history.add(ScoreHistoryItem(
+            playerIndex: playerIndex,
+            oldScore: oldScore,
+            newScore: currentScore,
+            isIncrease: scoreChange > 0,
+          ));
+        }
+      }
+
+      // Set up game state with loaded data
+      emit(CarcassonneGameState(
+        players: players,
+        isAutomatic: session['game_mode'] == 'automatic',
+        history: history,
+        redoHistory: [],
+      ));
+
+      debugPrint('Game loaded successfully');
+    } else {
+      debugPrint('No saved game found');
+    }
+  }
+
+  void _onDeleteSavedGame(
+    DeleteSavedGame event,
+    Emitter<CarcassonneState> emit,
+  ) async {
+    await DatabaseService.deleteGameSession('carcassonne');
+
+    if (state is CarcassonneStartScreenState) {
+      final currentState = state as CarcassonneStartScreenState;
+      emit(currentState.copyWith(hasSavedGame: false));
+    }
+  }
+
+  void _onSaveGameSession(
+    SaveGameSession event,
+    Emitter<CarcassonneState> emit,
+  ) async {
+    if (state is CarcassonneGameState) {
+      final gameState = state as CarcassonneGameState;
+
+      // Convert our score history format to database format
+      final Map<int, List<int>> playerScoreHistory = {};
+
+      // Group history items by player
+      for (var item in gameState.history) {
+        if (!playerScoreHistory.containsKey(item.playerIndex)) {
+          playerScoreHistory[item.playerIndex] = [];
+        }
+        // Calculate score change from old to new
+        final scoreChange = item.newScore - item.oldScore;
+        playerScoreHistory[item.playerIndex]!.add(scoreChange);
+      }
+
+      try {
+        await DatabaseService.deleteGameSession('carcassonne');
+
+        await DatabaseService.saveGameSession(
+          gameType: 'carcassonne',
+          scoreLimit: 0, // Carcassonne doesn't use a fixed score limit
+          gameMode: gameState.isAutomatic ? 'automatic' : 'manual',
+          players: gameState.players,
+          playerScoreHistory: playerScoreHistory,
+        );
+
+        debugPrint('Game session saved successfully');
+      } catch (e) {
+        debugPrint('Error saving Carcassonne game session: $e');
+      }
+    }
   }
 
   void _onSelectGameMode(
@@ -112,6 +229,8 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
           history: history,
           redoHistory: const [],
         ));
+
+        add(SaveGameSession());
       }
     }
   }
@@ -144,6 +263,8 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
           history: history,
           redoHistory: const [],
         ));
+
+        add(SaveGameSession());
       }
     }
   }
@@ -173,6 +294,8 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
           history: history,
           redoHistory: redoHistory,
         ));
+
+        add(SaveGameSession());
       }
     }
   }
@@ -202,6 +325,8 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
           history: history,
           redoHistory: redoHistory,
         ));
+
+        add(SaveGameSession());
       }
     }
   }
@@ -221,6 +346,17 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
         history: const [],
         redoHistory: const [],
       ));
+
+      add(DeleteSavedGame());
     }
+  }
+
+  // Helper methods
+  void loadSavedGame() {
+    add(LoadSavedGame());
+  }
+
+  void deleteSavedGame() {
+    add(DeleteSavedGame());
   }
 }

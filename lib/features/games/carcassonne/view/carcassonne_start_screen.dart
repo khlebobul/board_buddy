@@ -6,6 +6,7 @@ import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
+import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:use_scramble/use_scramble.dart';
@@ -32,7 +33,12 @@ class CarcassonneStartScreenView extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return BlocBuilder<CarcassonneBloc, CarcassonneState>(
+    return BlocConsumer<CarcassonneBloc, CarcassonneState>(
+      listener: (context, state) {
+        if (state is CarcassonneStartScreenState && state.hasSavedGame) {
+          _showContinueGameDialog(context);
+        }
+      },
       builder: (context, state) {
         if (state is! CarcassonneStartScreenState) {
           return const Center(child: CircularProgressIndicator());
@@ -124,13 +130,12 @@ class CarcassonneStartScreenView extends StatelessWidget {
                             GameMaxPlayers.carcassonne)
                           GestureDetector(
                             onTap: () {
-                              final carcassonneBloc =
-                                  context.read<CarcassonneBloc>();
+                              final bloc = context.read<CarcassonneBloc>();
                               showDialog(
                                 context: context,
                                 builder: (dialogContext) => AddPlayerDialog(
                                   onPlayerAdded: (player) {
-                                    carcassonneBloc.add(AddPlayer(player));
+                                    bloc.add(AddPlayer(player));
                                   },
                                 ),
                               );
@@ -178,7 +183,7 @@ class CarcassonneStartScreenView extends StatelessWidget {
                     arguments: {
                       'isAutomatic': carcassonneState.isAutomatic,
                       'players': carcassonneState.isAutomatic
-                          ? [Player(name: 'Player', score: 0, id: 1)]
+                          ? [Player(name: 'Player', score: 0, id: 0)]
                           : carcassonneState.players,
                     },
                   );
@@ -219,6 +224,26 @@ class CarcassonneStartScreenView extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+
+  void _showContinueGameDialog(BuildContext context) {
+    final bloc = context.read<CarcassonneBloc>();
+
+    ModalWindowWidget.show(
+      context,
+      mainText: S.of(context).youHaveAnUnfinishedGame,
+      button1Text: S.of(context).newGame,
+      button2Text: S.of(context).continueTitle,
+      button1Action: () {
+        bloc.deleteSavedGame();
+        Navigator.pop(context);
+      },
+      button2Action: () {
+        bloc.loadSavedGame();
+        Navigator.pop(context);
+        Navigator.pushNamed(context, '/carcassonneGame');
+      },
     );
   }
 }

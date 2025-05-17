@@ -9,22 +9,26 @@ class CarcassonneStartScreenState extends CarcassonneState {
   final String selectedMode;
   final bool isAutomatic;
   final List<Player> players;
+  final bool hasSavedGame;
 
   CarcassonneStartScreenState({
     required this.selectedMode,
     required this.isAutomatic,
     this.players = const [],
+    this.hasSavedGame = false,
   });
 
   CarcassonneStartScreenState copyWith({
     String? selectedMode,
     bool? isAutomatic,
     List<Player>? players,
+    bool? hasSavedGame,
   }) {
     return CarcassonneStartScreenState(
       selectedMode: selectedMode ?? this.selectedMode,
       isAutomatic: isAutomatic ?? this.isAutomatic,
       players: players ?? this.players,
+      hasSavedGame: hasSavedGame ?? this.hasSavedGame,
     );
   }
 }
