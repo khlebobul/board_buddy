@@ -110,6 +110,7 @@ class GameMaxPlayers {
   static const unoFlip = 10;
   static const munchkin = 6;
   static const commonCounter = 30;
+  static const carcassonne = 6;
 }
 
 class GameMinPlayers {
@@ -120,6 +121,7 @@ class GameMinPlayers {
   static const unoFlip = 2;
   static const munchkin = 3;
   static const commonCounter = 2;
+  static const carcassonne = 2;
 }
 
 class UnoLikeGameCardsText {

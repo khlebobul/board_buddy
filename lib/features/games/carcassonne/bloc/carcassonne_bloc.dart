@@ -1,5 +1,6 @@
 import 'package:bloc/bloc.dart';
 import 'package:flutter/material.dart';
+import 'package:board_buddy/shared/models/player_model.dart';
 
 part 'carcassonne_event.dart';
 part 'carcassonne_state.dart';
@@ -8,6 +9,8 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
   CarcassonneBloc() : super(CarcassonneInitial()) {
     on<InitializeCarcassonneStartScreen>(_onInitializeStartScreen);
     on<SelectGameMode>(_onSelectGameMode);
+    on<AddPlayer>(_onAddPlayer);
+    on<RemovePlayer>(_onRemovePlayer);
   }
 
   void _onInitializeStartScreen(
@@ -15,8 +18,9 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
     Emitter<CarcassonneState> emit,
   ) {
     emit(CarcassonneStartScreenState(
-      selectedMode: 'Manual',
+      selectedMode: 'manual',
       isAutomatic: false,
+      players: [],
     ));
   }
 
@@ -26,12 +30,41 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
   ) {
     if (state is CarcassonneStartScreenState) {
       final currentState = state as CarcassonneStartScreenState;
-      final isAutomatic = event.mode.toLowerCase() == 'automatic';
+      final isAutomatic = event.mode == 'automatic';
 
       emit(currentState.copyWith(
         selectedMode: event.mode,
         isAutomatic: isAutomatic,
+        players: isAutomatic ? [] : currentState.players,
       ));
+    }
+  }
+
+  void _onAddPlayer(
+    AddPlayer event,
+    Emitter<CarcassonneState> emit,
+  ) {
+    if (state is CarcassonneStartScreenState) {
+      final currentState = state as CarcassonneStartScreenState;
+      if (!currentState.isAutomatic) {
+        final players = List<Player>.from(currentState.players);
+        players.add(event.player);
+        emit(currentState.copyWith(players: players));
+      }
+    }
+  }
+
+  void _onRemovePlayer(
+    RemovePlayer event,
+    Emitter<CarcassonneState> emit,
+  ) {
+    if (state is CarcassonneStartScreenState) {
+      final currentState = state as CarcassonneStartScreenState;
+      if (!currentState.isAutomatic) {
+        final players = List<Player>.from(currentState.players);
+        players.removeAt(event.index);
+        emit(currentState.copyWith(players: players));
+      }
     }
   }
 }

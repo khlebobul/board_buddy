@@ -11,6 +11,18 @@ class SelectGameMode extends CarcassonneEvent {
   SelectGameMode(this.mode);
 }
 
+class AddPlayer extends CarcassonneEvent {
+  final Player player;
+
+  AddPlayer(this.player);
+}
+
+class RemovePlayer extends CarcassonneEvent {
+  final int index;
+
+  RemovePlayer(this.index);
+}
+
 class CheckSavedGame extends CarcassonneEvent {}
 
 class LoadSavedGame extends CarcassonneEvent {}

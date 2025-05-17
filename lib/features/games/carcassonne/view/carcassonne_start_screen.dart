@@ -2,6 +2,8 @@ import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/features/games/carcassonne/bloc/carcassonne_bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/shared/models/player_model.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -23,6 +25,10 @@ class CarcassonneStartScreen extends StatelessWidget {
 
 class CarcassonneStartScreenView extends StatelessWidget {
   const CarcassonneStartScreenView({super.key});
+
+  String _getModeString(BuildContext context, String mode) {
+    return mode == 'manual' ? S.of(context).manual : S.of(context).automatic;
+  }
 
   @override
   Widget build(BuildContext context) {
@@ -59,9 +65,89 @@ class CarcassonneStartScreenView extends StatelessWidget {
                         style: theme.display2
                             .copyWith(color: theme.secondaryTextColor),
                       ),
-                      _buildModeOption(context, S.of(context).manual, carcassonneState),
-                      _buildModeOption(context, S.of(context).automatic, carcassonneState),
+                      _buildModeOption(
+                        context,
+                        'manual',
+                        carcassonneState,
+                      ),
+                      _buildModeOption(
+                        context,
+                        'automatic',
+                        carcassonneState,
+                      ),
                       const SizedBox(height: 24),
+
+                      // Players list - only show in manual mode
+                      if (!carcassonneState.isAutomatic) ...[
+                        Text(
+                          S.of(context).players,
+                          style: theme.display2
+                              .copyWith(color: theme.secondaryTextColor),
+                        ),
+                        Column(
+                          crossAxisAlignment: CrossAxisAlignment.start,
+                          children: carcassonneState.players
+                              .asMap()
+                              .entries
+                              .map((entry) {
+                            int index = entry.key + 1;
+                            Player player = entry.value;
+                            String formattedIndex =
+                                index.toString().padLeft(2, '0');
+                            return Row(
+                              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                              children: [
+                                Expanded(
+                                  child: Text(
+                                    '$formattedIndex - ${player.name}'
+                                        .toLowerCase(),
+                                    softWrap: true,
+                                    style: theme.display2
+                                        .copyWith(color: theme.textColor),
+                                  ),
+                                ),
+                                IconButton(
+                                  icon: Icon(Icons.close,
+                                      color: theme.secondaryTextColor),
+                                  onPressed: () {
+                                    context
+                                        .read<CarcassonneBloc>()
+                                        .add(RemovePlayer(entry.key));
+                                  },
+                                ),
+                              ],
+                            );
+                          }).toList(),
+                        ),
+                        const SizedBox(height: 12),
+                        if (carcassonneState.players.length <
+                            GameMaxPlayers.carcassonne)
+                          GestureDetector(
+                            onTap: () {
+                              final carcassonneBloc =
+                                  context.read<CarcassonneBloc>();
+                              showDialog(
+                                context: context,
+                                builder: (dialogContext) => AddPlayerDialog(
+                                  onPlayerAdded: (player) {
+                                    carcassonneBloc.add(AddPlayer(player));
+                                  },
+                                ),
+                              );
+                            },
+                            child: TextScramble(
+                              text: S.of(context).add,
+                              style: theme.display2
+                                  .copyWith(color: theme.redColor),
+                            ),
+                          ),
+                      ],
+
+                      // bottom padding for keyboard
+                      SizedBox(
+                          height: MediaQuery.of(context).viewInsets.bottom > 0
+                              ? 300
+                              : 0),
                     ],
                   ),
                 ),
@@ -74,13 +160,29 @@ class CarcassonneStartScreenView extends StatelessWidget {
               onLeftBtnTap: () =>
                   Navigator.pushNamed(context, '/carcassonneRules'),
               onRightBtnTap: () {
-                Navigator.pushNamed(
-                  context,
-                  '/carcassonneGame',
-                  arguments: {
-                    'isAutomatic': carcassonneState.isAutomatic,
-                  },
-                );
+                if (!carcassonneState.isAutomatic &&
+                    carcassonneState.players.length <
+                        GameMinPlayers.carcassonne) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      behavior: SnackBarBehavior.floating,
+                      duration: const Duration(seconds: 5),
+                      content: Text(
+                          '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.carcassonnePlayers}'),
+                    ),
+                  );
+                } else {
+                  Navigator.pushNamed(
+                    context,
+                    '/carcassonneGame',
+                    arguments: {
+                      'isAutomatic': carcassonneState.isAutomatic,
+                      'players': carcassonneState.isAutomatic
+                          ? [Player(name: 'Player', score: 0, id: 1)]
+                          : carcassonneState.players,
+                    },
+                  );
+                }
               },
             ),
             resizeToAvoidBottomInset: true,
@@ -90,26 +192,29 @@ class CarcassonneStartScreenView extends StatelessWidget {
     );
   }
 
-  Widget _buildModeOption(BuildContext context, String modeName,
-      CarcassonneStartScreenState state) {
+  Widget _buildModeOption(
+    BuildContext context,
+    String mode,
+    CarcassonneStartScreenState state,
+  ) {
     final theme = UIThemes.of(context);
 
     return GestureDetector(
       onTap: () {
-        context.read<CarcassonneBloc>().add(SelectGameMode(modeName));
+        context.read<CarcassonneBloc>().add(SelectGameMode(mode));
       },
       child: Row(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
           CircleAvatar(
-            backgroundColor: state.selectedMode == modeName
+            backgroundColor: state.selectedMode == mode
                 ? theme.redColor
                 : Colors.transparent,
             radius: 3,
           ),
           const SizedBox(width: 8),
           TextScramble(
-            text: modeName,
+            text: _getModeString(context, mode),
             style: theme.display2,
           ),
         ],
