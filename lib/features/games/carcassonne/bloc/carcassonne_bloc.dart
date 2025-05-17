@@ -1,4 +1,5 @@
 import 'package:bloc/bloc.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 
@@ -18,7 +19,7 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
     Emitter<CarcassonneState> emit,
   ) {
     emit(CarcassonneStartScreenState(
-      selectedMode: 'manual',
+      selectedMode: S.current.manual,
       isAutomatic: false,
       players: [],
     ));
@@ -30,7 +31,7 @@ class CarcassonneBloc extends Bloc<CarcassonneEvent, CarcassonneState> {
   ) {
     if (state is CarcassonneStartScreenState) {
       final currentState = state as CarcassonneStartScreenState;
-      final isAutomatic = event.mode == 'automatic';
+      final isAutomatic = event.mode == S.current.automatic;
 
       emit(currentState.copyWith(
         selectedMode: event.mode,

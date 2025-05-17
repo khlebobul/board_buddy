@@ -41,10 +41,10 @@ class DosBloc extends Bloc<DosEvent, DosState> {
     emit(DosStartScreenState(
       players: [],
       selectedMode: S.current.highestScoreWins,
-      scoreLimit: 200, // DOS обычно играется до 200 очков
+      scoreLimit: 200,
     ));
 
-    // Проверяем, есть ли сохраненная игра
+    
     add(CheckSavedGame());
   }
 
