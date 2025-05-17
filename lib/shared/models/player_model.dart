@@ -83,4 +83,25 @@ class Player {
   String toString() {
     return 'Player(name: $name, id: $id, score: $score, gear: $gear, level: $level)';
   }
+
+  Player copyWith({
+    String? name,
+    int? score,
+    int? gear,
+    int? level,
+    PlayerModifiers? modifiers,
+    bool? isMale,
+    bool? isCursed,
+  }) {
+    return Player(
+      name: name ?? this.name,
+      id: id,
+      score: score ?? this.score,
+      gear: gear ?? this.gear,
+      level: level ?? this.level,
+      modifiers: modifiers ?? this.modifiers,
+      isMale: isMale ?? this.isMale,
+      isCursed: isCursed ?? this.isCursed,
+    );
+  }
 }

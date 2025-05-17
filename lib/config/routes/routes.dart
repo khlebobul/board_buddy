@@ -259,6 +259,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => CarcassonneGame(
             isAutomatic: args['isAutomatic'],
+            players: args['players'],
           ),
         );
       } else {

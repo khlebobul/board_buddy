@@ -29,26 +29,44 @@ class CarcassonneStartScreenState extends CarcassonneState {
   }
 }
 
+class ScoreHistoryItem {
+  final int playerIndex;
+  final int oldScore;
+  final int newScore;
+  final bool isIncrease;
+
+  ScoreHistoryItem({
+    required this.playerIndex,
+    required this.oldScore,
+    required this.newScore,
+    required this.isIncrease,
+  });
+}
+
 class CarcassonneGameState extends CarcassonneState {
   final bool isAutomatic;
   final List<Player> players;
-  final int score;
+  final List<ScoreHistoryItem> history;
+  final List<ScoreHistoryItem> redoHistory;
 
   CarcassonneGameState({
     required this.isAutomatic,
     this.players = const [],
-    this.score = 0,
+    this.history = const [],
+    this.redoHistory = const [],
   });
 
   CarcassonneGameState copyWith({
     bool? isAutomatic,
     List<Player>? players,
-    int? score,
+    List<ScoreHistoryItem>? history,
+    List<ScoreHistoryItem>? redoHistory,
   }) {
     return CarcassonneGameState(
       isAutomatic: isAutomatic ?? this.isAutomatic,
       players: players ?? this.players,
-      score: score ?? this.score,
+      history: history ?? this.history,
+      redoHistory: redoHistory ?? this.redoHistory,
     );
   }
 }
