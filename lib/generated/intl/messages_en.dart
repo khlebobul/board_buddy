@@ -421,9 +421,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "round": MessageLookupByLibrary.simpleMessage("round"),
     "rules": MessageLookupByLibrary.simpleMessage("rules"),
     "russian": MessageLookupByLibrary.simpleMessage("russian"),
-    "schemesForCounting": MessageLookupByLibrary.simpleMessage(
-      "schemes for counting",
-    ),
     "score": MessageLookupByLibrary.simpleMessage("score"),
     "score50ExtraPointsForUsingAll7Tiles": MessageLookupByLibrary.simpleMessage(
       "score 50 extra points for using all 7 tiles",

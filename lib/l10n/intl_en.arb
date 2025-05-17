@@ -353,6 +353,5 @@
   "completedFeaturesScore": "completed features score",
   "road1PointPerTile": "road — 1 point per tile",
   "city2PointsPerTile2PointsPerPennant": "city — 2 points per tile + 2 points per pennant",
-  "monastery9PointsIfSurroundedBy8Tiles": "monastery — 9 points (if surrounded by 8 tiles)",
-  "schemesForCounting": "schemes for counting"
+  "monastery9PointsIfSurroundedBy8Tiles": "monastery — 9 points (if surrounded by 8 tiles)"
 }

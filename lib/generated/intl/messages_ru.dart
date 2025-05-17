@@ -432,9 +432,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "round": MessageLookupByLibrary.simpleMessage("раунд"),
     "rules": MessageLookupByLibrary.simpleMessage("правила"),
     "russian": MessageLookupByLibrary.simpleMessage("русский"),
-    "schemesForCounting": MessageLookupByLibrary.simpleMessage(
-      "схемы подсчёта",
-    ),
     "score": MessageLookupByLibrary.simpleMessage("счет"),
     "score50ExtraPointsForUsingAll7Tiles": MessageLookupByLibrary.simpleMessage(
       "50 дополнительных очков за использование всех 7 букв",

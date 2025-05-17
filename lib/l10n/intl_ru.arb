@@ -353,6 +353,5 @@
   "completedFeaturesScore": "очки за завершённые объекты",
   "road1PointPerTile": "дорога — 1 очко за каждый тайл",
   "city2PointsPerTile2PointsPerPennant": "город — 2 очка за тайл + 2 очка за герб",
-  "monastery9PointsIfSurroundedBy8Tiles": "монастырь — 9 очков (если окружён 8 тайлами)",
-  "schemesForCounting": "схемы подсчёта"
+  "monastery9PointsIfSurroundedBy8Tiles": "монастырь — 9 очков (если окружён 8 тайлами)"
 }

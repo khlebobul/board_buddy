@@ -1,3 +1,4 @@
+import 'package:board_buddy/features/about/widgets/link_btn.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
@@ -40,7 +41,9 @@ class CarcassonneRulesScreen extends StatelessWidget {
               style: theme.display2.copyWith(color: theme.redColor),
             ),
             Text(
-              S.of(context).buildRoadsCitiesMonasteriesAndFieldsPlacingMeeplesToEarn,
+              S
+                  .of(context)
+                  .buildRoadsCitiesMonasteriesAndFieldsPlacingMeeplesToEarn,
               style: theme.display2.copyWith(color: theme.textColor),
             ),
             const SizedBox(height: 15),
@@ -49,7 +52,8 @@ class CarcassonneRulesScreen extends StatelessWidget {
               style: theme.display2.copyWith(color: theme.redColor),
             ),
             BulletPointText(
-                contentText: S.of(context).shuffleAllTilesAndPutInAFacedownStack),
+                contentText:
+                    S.of(context).shuffleAllTilesAndPutInAFacedownStack),
             BulletPointText(
                 contentText:
                     S.of(context).placeTheStartingTileInTheCenterOfTheTable),
@@ -80,8 +84,9 @@ class CarcassonneRulesScreen extends StatelessWidget {
                     S.of(context).aFieldFarmerStaysUntilTheEndOfTheGame),
             BulletPointText(
                 pointSimbol: BulletPointsConst.bulletFour,
-                contentText:
-                    S.of(context).ifAFeatureIsCompletedScorePointsAndReturnMeeples),
+                contentText: S
+                    .of(context)
+                    .ifAFeatureIsCompletedScorePointsAndReturnMeeples),
             const SizedBox(height: 15),
             Text(
               S.of(context).completedFeaturesScore,
@@ -91,14 +96,9 @@ class CarcassonneRulesScreen extends StatelessWidget {
             BulletPointText(
                 contentText: S.of(context).city2PointsPerTile2PointsPerPennant),
             BulletPointText(
-                contentText: S.of(context).monastery9PointsIfSurroundedBy8Tiles),
+                contentText:
+                    S.of(context).monastery9PointsIfSurroundedBy8Tiles),
             const SizedBox(height: 15),
-            Text(
-              S.of(context).schemesForCounting,
-              style: theme.display2.copyWith(color: theme.redColor),
-            ),
-            // TODO: Add schemes for counting
-            const SizedBox(height: 20),
             Text(
               S.of(context).carcassonneIsAregisteredTrademarkOfHansImGlck,
               style: theme.display2.copyWith(color: theme.secondaryTextColor),

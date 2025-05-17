@@ -3094,16 +3094,6 @@ class S {
       args: [],
     );
   }
-
-  /// `schemes for counting`
-  String get schemesForCounting {
-    return Intl.message(
-      'schemes for counting',
-      name: 'schemesForCounting',
-      desc: '',
-      args: [],
-    );
-  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
