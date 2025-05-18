@@ -1,6 +1,7 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/features/games/carcassonne/bloc/carcassonne_bloc.dart';
+import 'package:board_buddy/features/games/carcassonne/view/carcassonne_automatic_mode.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
@@ -165,9 +166,16 @@ class CarcassonneStartScreenView extends StatelessWidget {
               onLeftBtnTap: () =>
                   Navigator.pushNamed(context, '/carcassonneRules'),
               onRightBtnTap: () {
-                if (!carcassonneState.isAutomatic &&
-                    carcassonneState.players.length <
-                        GameMinPlayers.carcassonne) {
+                if (carcassonneState.isAutomatic) {
+                  // Navigate to automatic mode screen
+                  Navigator.push(
+                    context,
+                    MaterialPageRoute(
+                      builder: (context) => const CarcassonneAutomaticMode(),
+                    ),
+                  );
+                } else if (carcassonneState.players.length <
+                    GameMinPlayers.carcassonne) {
                   ScaffoldMessenger.of(context).showSnackBar(
                     SnackBar(
                       behavior: SnackBarBehavior.floating,
@@ -182,9 +190,7 @@ class CarcassonneStartScreenView extends StatelessWidget {
                     '/carcassonneGame',
                     arguments: {
                       'isAutomatic': carcassonneState.isAutomatic,
-                      'players': carcassonneState.isAutomatic
-                          ? [Player(name: 'Player', score: 0, id: 0)]
-                          : carcassonneState.players,
+                      'players': carcassonneState.players,
                     },
                   );
                 }
