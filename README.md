@@ -49,7 +49,7 @@ your ultimate board game companion
 - check the [contributing](#contributing) section
 
 > [!IMPORTANT]
-> if scoring for the game you want to add can be done with a universal counter, you can add only the rules
+> scoring in most games can be done with a common counter, so before creating a game it is better to write to me ([contacts](#contacts))
 
 ### project support
 

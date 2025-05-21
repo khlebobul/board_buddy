@@ -11,6 +11,9 @@ Thank you for considering contributing to **Board Buddy**! We welcome all kinds 
 
 ### Submitting Code Changes
 
+> [!IMPORTANT]
+> scoring in most games can be done with a common counter, so before creating a game it is better to write to me
+
 1. **Fork the Repository**: Click the "Fork" button at the top of the repository.
 2. **Clone Your Fork**:
    ```sh
