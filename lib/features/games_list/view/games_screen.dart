@@ -31,57 +31,85 @@ class GamesScreen extends StatelessWidget {
               GestureDetector(
                 onTap: () => Navigator.pushNamed(context, '/commonStartGame'),
                 child: TextScramble(
-                  text: '00 - ${S.of(context).common}',
-                  style: theme.display3,
-                ),
+                    text: '00 - ${S.of(context).common}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
               ),
               const SizedBox(height: 5),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(context, '/unoStartGame'),
                 child: TextScramble(
-                  text: '01 - ${S.of(context).uno}',
-                  style: theme.display3,
-                ),
+                    text: '01 - ${S.of(context).uno}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
               ),
               const SizedBox(height: 5),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(context, '/scrabbleStartGame'),
                 child: TextScramble(
-                  text: '02 - ${S.of(context).scrabble}',
-                  style: theme.display3,
-                ),
+                    text: '02 - ${S.of(context).scrabble}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
               ),
               const SizedBox(height: 5),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(context, '/unoFlipStartGame'),
                 child: TextScramble(
-                  text: '03 - ${S.of(context).unoFlip}',
-                  style: theme.display3,
-                ),
+                    text: '03 - ${S.of(context).unoFlip}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
               ),
               const SizedBox(height: 5),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(context, '/dosStartGame'),
                 child: TextScramble(
-                  text: '04 - ${S.of(context).dos}',
-                  style: theme.display3,
-                ),
+                    text: '04 - ${S.of(context).dos}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
               ),
               const SizedBox(height: 5),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(context, '/setStartGame'),
                 child: TextScramble(
-                  text: '05 - ${S.of(context).set}',
-                  style: theme.display3,
-                ),
+                    text: '05 - ${S.of(context).set}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
               ),
               const SizedBox(height: 5),
               GestureDetector(
                 onTap: () => Navigator.pushNamed(context, '/munchkinStartGame'),
                 child: TextScramble(
-                  text: '06 - ${S.of(context).munchkin}',
-                  style: theme.display3,
-                ),
+                    text: '06 - ${S.of(context).munchkin}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
               ),
               const Spacer(),
               const AddFavouriteGame(),

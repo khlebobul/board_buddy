@@ -137,9 +137,13 @@ class SettingsScreenView extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           TextScramble(
-            text: languageName,
-            style: theme.display2,
-          ),
+              text: languageName,
+              builder: (context, scrambledText) {
+                return Text(
+                  scrambledText,
+                  style: theme.display2,
+                );
+              }),
         ],
       ),
     );
@@ -166,9 +170,13 @@ class SettingsScreenView extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           TextScramble(
-            text: themeName,
-            style: theme.display2,
-          ),
+              text: themeName,
+              builder: (context, scrambledText) {
+                return Text(
+                  scrambledText,
+                  style: theme.display2,
+                );
+              }),
         ],
       ),
     );
@@ -195,9 +203,13 @@ class SettingsScreenView extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           TextScramble(
-            text: optionName,
-            style: theme.display2,
-          ),
+              text: optionName,
+              builder: (context, scrambledText) {
+                return Text(
+                  scrambledText,
+                  style: theme.display2,
+                );
+              }),
         ],
       ),
     );
@@ -210,9 +222,13 @@ class SettingsScreenView extends StatelessWidget {
       child: Padding(
         padding: const EdgeInsets.only(left: 14),
         child: TextScramble(
-          text: label,
-          style: theme.display2,
-        ),
+            text: label,
+            builder: (context, scrambledText) {
+              return Text(
+                scrambledText,
+                style: theme.display2,
+              );
+            }),
       ),
     );
   }

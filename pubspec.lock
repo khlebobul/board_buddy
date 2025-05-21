@@ -326,10 +326,10 @@ packages:
     dependency: "direct main"
     description:
       name: gen_art_bg
-      sha256: "026e0383fb6433ce30acb089a1dbd90df689c8311473c45db800eb7a87177380"
+      sha256: "5b65bbb1797ae4580f5a4a8443707a574f678d21d2cd3bed7fe726ca6b03bd3b"
       url: "https://pub.dev"
     source: hosted
-    version: "0.3.11"
+    version: "0.4.0"
   glob:
     dependency: transitive
     description:
@@ -963,10 +963,10 @@ packages:
     dependency: "direct main"
     description:
       name: use_scramble
-      sha256: b89332101ed0860080585df14ccec3ac5786ac719ea5af3eb55145fda1520938
+      sha256: "8de05c6303ca17a9826ef8b4a6c0f6a6b80cd9f9ab7b2d9b6c0429f0cab62175"
       url: "https://pub.dev"
     source: hosted
-    version: "0.0.9"
+    version: "0.0.12"
   uuid:
     dependency: transitive
     description:

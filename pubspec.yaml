@@ -14,8 +14,8 @@ dependencies:
     sdk: flutter
 
   cupertino_icons: ^1.0.8
-  gen_art_bg: ^0.3.11
-  use_scramble: ^0.0.9
+  gen_art_bg: ^0.4.0
+  use_scramble: ^0.0.12
   shared_preferences: ^2.5.2
   intl: ^0.19.0
   url_launcher: ^6.3.1

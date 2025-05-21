@@ -82,18 +82,28 @@ class BottomGameBar extends StatelessWidget {
                   GestureDetector(
                     onTap: onLeftBtnTap,
                     child: TextScramble(
-                      text: leftButtonText,
-                      style: theme.display2.copyWith(color: theme.textColor),
-                    ),
+                        text: leftButtonText,
+                        builder: (context, scrambledText) {
+                          return Text(
+                            scrambledText,
+                            style:
+                                theme.display2.copyWith(color: theme.textColor),
+                          );
+                        }),
                   ),
                   GestureDetector(
                     onTap: onRightBtnTap,
                     child: TextScramble(
-                      text: rightButtonText,
-                      style: theme.display2.copyWith(
-                          color:
-                              isRightBtnRed ? theme.redColor : theme.textColor),
-                    ),
+                        text: rightButtonText,
+                        builder: (context, scrambledText) {
+                          return Text(
+                            scrambledText,
+                            style: theme.display2.copyWith(
+                                color: isRightBtnRed
+                                    ? theme.redColor
+                                    : theme.textColor),
+                          );
+                        }),
                   ),
                 ],
               ),

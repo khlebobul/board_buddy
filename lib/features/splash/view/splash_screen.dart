@@ -47,17 +47,29 @@ class _SplashScreenState extends State<SplashScreen>
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             TextScramble(
-              text: SplashScreenConst.splashScreenOne,
-              style: theme.display1.copyWith(color: theme.redColor),
-            ),
+                text: SplashScreenConst.splashScreenOne,
+                builder: (context, scrambledText) {
+                  return Text(
+                    scrambledText,
+                    style: theme.display1.copyWith(color: theme.redColor),
+                  );
+                }),
             TextScramble(
-              text: SplashScreenConst.splashScreenTwo,
-              style: theme.display1,
-            ),
+                text: SplashScreenConst.splashScreenTwo,
+                builder: (context, scrambledText) {
+                  return Text(
+                    scrambledText,
+                    style: theme.display1,
+                  );
+                }),
             TextScramble(
-              text: SplashScreenConst.splashScreenThree,
-              style: theme.display1,
-            ),
+                text: SplashScreenConst.splashScreenThree,
+                builder: (context, scrambledText) {
+                  return Text(
+                    scrambledText,
+                    style: theme.display1,
+                  );
+                }),
           ],
         ),
       ),

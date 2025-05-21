@@ -368,9 +368,11 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
               GestureDetector(
                 onTap: _skipTurn,
                 child: TextScramble(
-                  text: S.current.skip,
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
+                    text: S.current.skip,
+                    builder: (context, scrambledText) => Text(
+                          scrambledText,
+                          style: theme.display2.copyWith(color: theme.redColor),
+                        )),
               ),
             ],
           ),
@@ -420,9 +422,11 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
           GestureDetector(
             onTap: _addBingo,
             child: TextScramble(
-              text: S.of(context).bingo,
-              style: theme.display2.copyWith(color: theme.redColor),
-            ),
+                text: S.of(context).bingo,
+                builder: (context, scrambledText) => Text(
+                      scrambledText,
+                      style: theme.display2.copyWith(color: theme.redColor),
+                    )),
           ),
           const SizedBox(height: 8),
 

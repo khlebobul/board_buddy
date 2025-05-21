@@ -26,11 +26,15 @@ class AddFavouriteGame extends StatelessWidget {
           onTap: () => sendEmail(
               context, GeneralConst.email, MailSubjectConst.gameRequest),
           child: TextScramble(
-            text: GeneralConst.email,
-            style: theme.display2.copyWith(
-              color: theme.redColor,
-            ),
-          ),
+              text: GeneralConst.email,
+              builder: (context, scrambledText) {
+                return Text(
+                  scrambledText,
+                  style: theme.display2.copyWith(
+                    color: theme.redColor,
+                  ),
+                );
+              }),
         ),
       ],
     );

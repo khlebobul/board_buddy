@@ -87,17 +87,25 @@ class AddPlayerDialog extends StatelessWidget {
                   Navigator.pop(context);
                 },
                 child: TextScramble(
-                  text: S.of(context).cancel,
-                  style:
-                      theme.display2.copyWith(color: theme.secondaryTextColor),
-                ),
+                    text: S.of(context).cancel,
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display2
+                            .copyWith(color: theme.secondaryTextColor),
+                      );
+                    }),
               ),
               GestureDetector(
                 onTap: addPlayer,
                 child: TextScramble(
-                  text: S.of(context).add,
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
+                    text: S.of(context).add,
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display2.copyWith(color: theme.redColor),
+                      );
+                    }),
               ),
             ],
           ),

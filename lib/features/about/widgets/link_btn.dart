@@ -51,7 +51,14 @@ class LinkBtnWidget extends StatelessWidget {
           }
         }
       },
-      child: TextScramble(text: text, style: theme.display2),
+      child: TextScramble(
+          text: text,
+          builder: (context, scrambledText) {
+            return Text(
+              scrambledText,
+              style: theme.display2,
+            );
+          }),
     );
   }
 }
