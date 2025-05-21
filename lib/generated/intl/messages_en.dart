@@ -22,17 +22,6 @@ class MessageLookup extends MessageLookupByLibrary {
 
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
-    "aCityKnight": MessageLookupByLibrary.simpleMessage("a city — knight"),
-    "aFieldFarmerStaysUntilTheEndOfTheGame":
-        MessageLookupByLibrary.simpleMessage(
-          "a field — farmer (stays until the end of the game)",
-        ),
-    "aMonasteryMonk": MessageLookupByLibrary.simpleMessage(
-      "a monastery — monk",
-    ),
-    "aRoadHighwayman": MessageLookupByLibrary.simpleMessage(
-      "a road — highwayman",
-    ),
     "about": MessageLookupByLibrary.simpleMessage("about"),
     "add": MessageLookupByLibrary.simpleMessage("add"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("add player"),
@@ -43,7 +32,6 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "appreciation": MessageLookupByLibrary.simpleMessage("credits"),
     "armour": MessageLookupByLibrary.simpleMessage("armour"),
-    "automatic": MessageLookupByLibrary.simpleMessage("automatic"),
     "back": MessageLookupByLibrary.simpleMessage("back"),
     "bigArmour": MessageLookupByLibrary.simpleMessage("big armour"),
     "bigBoots": MessageLookupByLibrary.simpleMessage("big boots"),
@@ -64,10 +52,6 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "buffs or debuffs affecting characters/items",
         ),
-    "buildRoadsCitiesMonasteriesAndFieldsPlacingMeeplesToEarn":
-        MessageLookupByLibrary.simpleMessage(
-          "build roads, cities, monasteries, and fields, placing meeples to earn points.the player with the most points wins.",
-        ),
     "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
         MessageLookupByLibrary.simpleMessage(
           "can be any color chosen by the current player. if drawn, the player decides the color.",
@@ -77,11 +61,6 @@ class MessageLookup extends MessageLookupByLibrary {
           "can represent any number for its own particular color.",
         ),
     "cancel": MessageLookupByLibrary.simpleMessage("cancel"),
-    "carcassonne": MessageLookupByLibrary.simpleMessage("carcassonne"),
-    "carcassonneIsAregisteredTrademarkOfHansImGlck":
-        MessageLookupByLibrary.simpleMessage(
-          "carcassonne® is aregistered trademark of hans im glück",
-        ),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("types of cards:"),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -97,18 +76,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "character\'s gender: male",
     ),
     "checkMyWebsite": MessageLookupByLibrary.simpleMessage("check my website"),
-    "city2PointsPerTile2PointsPerPennant": MessageLookupByLibrary.simpleMessage(
-      "city — 2 points per tile + 2 points per pennant",
-    ),
     "class1": MessageLookupByLibrary.simpleMessage("class 1"),
     "class2": MessageLookupByLibrary.simpleMessage("class 2"),
     "clearance": MessageLookupByLibrary.simpleMessage("clearance"),
     "cleric": MessageLookupByLibrary.simpleMessage("cleric"),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "common": MessageLookupByLibrary.simpleMessage("counter"),
-    "completedFeaturesScore": MessageLookupByLibrary.simpleMessage(
-      "completed features score",
-    ),
     "continueTitle": MessageLookupByLibrary.simpleMessage("continue"),
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage("could not launch"),
     "cursed": MessageLookupByLibrary.simpleMessage("cursed"),
@@ -189,7 +162,6 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "doubles the value of an entire word",
         ),
-    "draw1Tile": MessageLookupByLibrary.simpleMessage("draw 1 tile"),
     "drawFiveUnoFlipInfo": MessageLookupByLibrary.simpleMessage("draw five"),
     "drawOneUnoFlipInfo": MessageLookupByLibrary.simpleMessage("draw one"),
     "drawTwoCardUnoInfo": MessageLookupByLibrary.simpleMessage("draw two card"),
@@ -204,9 +176,6 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "eachCardHasANumberFrom1To9Which": MessageLookupByLibrary.simpleMessage(
       "each card has a number from 1 to 9, which determines its value.",
-    ),
-    "eachPlayerTakes7MeeplesOfOneColor": MessageLookupByLibrary.simpleMessage(
-      "each player takes 7 meeples of one color",
     ),
     "edit": MessageLookupByLibrary.simpleMessage("edit"),
     "elf": MessageLookupByLibrary.simpleMessage("elf"),
@@ -246,10 +215,6 @@ class MessageLookup extends MessageLookupByLibrary {
       "highest score wins",
     ),
     "human": MessageLookupByLibrary.simpleMessage("human"),
-    "ifAFeatureIsCompletedScorePointsAndReturnMeeples":
-        MessageLookupByLibrary.simpleMessage(
-          "if a feature is completed, score points and return meeples",
-        ),
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "indicates an active curse",
     ),
@@ -266,17 +231,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "lowest score wins",
     ),
     "magic": MessageLookupByLibrary.simpleMessage("magic"),
-    "manual": MessageLookupByLibrary.simpleMessage("manual"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "marks a dead character",
     ),
     "menu": MessageLookupByLibrary.simpleMessage("menu"),
     "mode": MessageLookupByLibrary.simpleMessage("mode"),
     "modifiers": MessageLookupByLibrary.simpleMessage("modifiers"),
-    "monastery9PointsIfSurroundedBy8Tiles":
-        MessageLookupByLibrary.simpleMessage(
-          "monastery — 9 points (if surrounded by 8 tiles)",
-        ),
     "moveHistory": MessageLookupByLibrary.simpleMessage("move history"),
     "multiplayer": MessageLookupByLibrary.simpleMessage("multiplayer"),
     "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
@@ -386,21 +346,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberCards": MessageLookupByLibrary.simpleMessage("number cards"),
     "off": MessageLookupByLibrary.simpleMessage("off"),
     "on": MessageLookupByLibrary.simpleMessage("on"),
-    "optionallyPlaceAMeepleOn": MessageLookupByLibrary.simpleMessage(
-      "optionally, place a meeple on:",
-    ),
     "others": MessageLookupByLibrary.simpleMessage("others"),
-    "placeOneMeepleOnTheScoreTrack0": MessageLookupByLibrary.simpleMessage(
-      "place one meeple on the score track (0)",
-    ),
-    "placeTheStartingTileInTheCenterOfTheTable":
-        MessageLookupByLibrary.simpleMessage(
-          "place the starting tile in the center of the table",
-        ),
-    "placeTheTileSoThatEdgesMatchRoadToRoad":
-        MessageLookupByLibrary.simpleMessage(
-          "place the tile so that edges match (road to road, city to city, etc.)",
-        ),
     "play": MessageLookupByLibrary.simpleMessage("play"),
     "playerName": MessageLookupByLibrary.simpleMessage("player name"),
     "players": MessageLookupByLibrary.simpleMessage("players"),
@@ -417,9 +363,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "returnToMenu": MessageLookupByLibrary.simpleMessage("return to menu"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage("reverse card"),
     "rightHand": MessageLookupByLibrary.simpleMessage("right hand"),
-    "road1PointPerTile": MessageLookupByLibrary.simpleMessage(
-      "road — 1 point per tile",
-    ),
     "round": MessageLookupByLibrary.simpleMessage("round"),
     "rules": MessageLookupByLibrary.simpleMessage("rules"),
     "russian": MessageLookupByLibrary.simpleMessage("russian"),
@@ -597,10 +540,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "shareWithFriends": MessageLookupByLibrary.simpleMessage(
       "share with friends",
     ),
-    "shuffleAllTilesAndPutInAFacedownStack":
-        MessageLookupByLibrary.simpleMessage(
-          "shuffle all tiles and put in a facedown stack",
-        ),
     "sinceThisIsAnOpenSourceProjectYouCanLeave":
         MessageLookupByLibrary.simpleMessage(
           "since this is an open-source project, feel free to contribute to it",

@@ -100,18 +100,6 @@ class RulesScreen extends StatelessWidget {
                       );
                     }),
               ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                onTap: () => Navigator.pushNamed(context, '/carcassonneRules'),
-                child: TextScramble(
-                    text: '07 - ${S.of(context).carcassonne}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
               const Spacer(),
               const AddFavouriteGame(),
             ],
