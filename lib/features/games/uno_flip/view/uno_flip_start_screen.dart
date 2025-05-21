@@ -153,10 +153,14 @@ class UnoFlipStartScreenView extends StatelessWidget {
                             );
                           },
                           child: TextScramble(
-                            text: S.of(context).add,
-                            style:
-                                theme.display2.copyWith(color: theme.redColor),
-                          ),
+                              text: S.of(context).add,
+                              builder: (context, scrambledText) {
+                                return Text(
+                                  scrambledText,
+                                  style: theme.display2
+                                      .copyWith(color: theme.redColor),
+                                );
+                              }),
                         ),
 
                       // bottom padding for keyboard
@@ -242,9 +246,13 @@ class UnoFlipStartScreenView extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           TextScramble(
-            text: modeName,
-            style: theme.display2,
-          ),
+              text: modeName,
+              builder: (context, scrambledText) {
+                return Text(
+                  scrambledText,
+                  style: theme.display2,
+                );
+              }),
         ],
       ),
     );

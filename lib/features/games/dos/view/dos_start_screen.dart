@@ -152,10 +152,12 @@ class DosStartScreenView extends StatelessWidget {
                             );
                           },
                           child: TextScramble(
-                            text: S.of(context).add,
-                            style:
-                                theme.display2.copyWith(color: theme.redColor),
-                          ),
+                              text: S.of(context).add,
+                              builder: (context, scrambledText) => Text(
+                                    scrambledText,
+                                    style: theme.display2
+                                        .copyWith(color: theme.redColor),
+                                  )),
                         ),
 
                       // bottom padding for keyboard
@@ -240,9 +242,11 @@ class DosStartScreenView extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           TextScramble(
-            text: modeName,
-            style: theme.display2,
-          ),
+              text: modeName,
+              builder: (context, scrambledText) => Text(
+                    scrambledText,
+                    style: theme.display2,
+                  )),
         ],
       ),
     );

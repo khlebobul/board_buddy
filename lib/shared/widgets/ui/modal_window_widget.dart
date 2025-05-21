@@ -48,16 +48,24 @@ class ModalWindowWidget extends StatelessWidget {
               GestureDetector(
                 onTap: button1Action,
                 child: TextScramble(
-                  text: button1Text,
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
+                    text: button1Text,
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display2.copyWith(color: theme.redColor),
+                      );
+                    }),
               ),
               GestureDetector(
                 onTap: button2Action,
                 child: TextScramble(
-                  text: button2Text,
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
+                    text: button2Text,
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display2.copyWith(color: theme.redColor),
+                      );
+                    }),
               ),
             ],
           ),

@@ -143,8 +143,13 @@ class CarcassonneStartScreenView extends StatelessWidget {
                             },
                             child: TextScramble(
                               text: S.of(context).add,
-                              style: theme.display2
-                                  .copyWith(color: theme.redColor),
+                              builder: (context, scrambledText) {
+                                return Text(
+                                  scrambledText,
+                                  style: theme.display2
+                                      .copyWith(color: theme.redColor),
+                                );
+                              },
                             ),
                           ),
                       ],
@@ -225,9 +230,13 @@ class CarcassonneStartScreenView extends StatelessWidget {
           ),
           const SizedBox(width: 8),
           TextScramble(
-            text: _getModeString(context, mode),
-            style: theme.display2,
-          ),
+              text: _getModeString(context, mode),
+              builder: (context, scrambledText) {
+                return Text(
+                  scrambledText,
+                  style: theme.display2,
+                );
+              }),
         ],
       ),
     );

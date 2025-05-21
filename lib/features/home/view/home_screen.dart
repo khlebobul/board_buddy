@@ -49,9 +49,14 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     const SizedBox(height: 12),
                     TextScramble(
-                      text: S.of(context).boardBuddy,
-                      style: theme.display1.copyWith(color: theme.redColor),
-                    ),
+                        text: S.of(context).boardBuddy,
+                        builder: (context, scrambledText) {
+                          return Text(
+                            scrambledText,
+                            style:
+                                theme.display1.copyWith(color: theme.redColor),
+                          );
+                        }),
                     const Spacer(),
                     ...menuItems.map(
                       (item) => Padding(
@@ -59,9 +64,13 @@ class _HomeScreenState extends State<HomeScreen> {
                         child: GestureDetector(
                           onTap: () => _navigateTo(context, item['route']!),
                           child: TextScramble(
-                            text: item['title']!,
-                            style: theme.display1,
-                          ),
+                              text: item['title']!,
+                              builder: (context, scrambledText) {
+                                return Text(
+                                  scrambledText,
+                                  style: theme.display1,
+                                );
+                              }),
                         ),
                       ),
                     ),

@@ -41,7 +41,12 @@ class ContributorsWidget extends StatelessWidget {
             },
             child: TextScramble(
               text: '${GeneralConst.alias}${contributors[i]}',
-              style: theme.display2,
+              builder: (context, scrambledText) {
+                return Text(
+                  scrambledText,
+                  style: theme.display2,
+                );
+              },
             ),
           ),
           if (i < contributors.length - 1)

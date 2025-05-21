@@ -26,11 +26,16 @@ class CarcassonneAutomaticMode extends StatelessWidget {
               const EdgeInsets.only(top: GeneralConst.paddingVertical),
           child: Center(
             child: TextScramble(
+              builder: (context, scrambledText) {
+                return Text(
+                  textAlign: TextAlign.center,
+                  scrambledText,
+                  style: theme.display1.copyWith(
+                    color: theme.redColor,
+                  ),
+                );
+              },
               text: 'in development',
-              style: theme.display1.copyWith(
-                color: theme.redColor,
-              ),
-              textAlign: TextAlign.center,
             ),
           ),
         ),

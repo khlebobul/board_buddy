@@ -154,10 +154,14 @@ class GameEndCommonCounterModal extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextScramble(
-                        text: S.of(context).continueTitle,
-                        style: theme.display2,
-                        textAlign: TextAlign.center,
-                      ),
+                          text: S.of(context).continueTitle,
+                          builder: (context, scrambledText) {
+                            return Text(
+                              scrambledText,
+                              style: theme.display2,
+                              textAlign: TextAlign.center,
+                            );
+                          }),
                     ),
                   ),
                   GestureDetector(
@@ -165,10 +169,14 @@ class GameEndCommonCounterModal extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextScramble(
-                        text: S.of(context).newGameWithSamePlayers,
-                        style: theme.display2,
-                        textAlign: TextAlign.center,
-                      ),
+                          text: S.of(context).newGameWithSamePlayers,
+                          builder: (context, scrambledText) {
+                            return Text(
+                              scrambledText,
+                              style: theme.display2,
+                              textAlign: TextAlign.center,
+                            );
+                          }),
                     ),
                   ),
                   GestureDetector(
@@ -176,10 +184,14 @@ class GameEndCommonCounterModal extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextScramble(
-                        text: S.of(context).newGame,
-                        style: theme.display2,
-                        textAlign: TextAlign.center,
-                      ),
+                          text: S.of(context).newGame,
+                          builder: (context, scrambledText) {
+                            return Text(
+                              scrambledText,
+                              style: theme.display2,
+                              textAlign: TextAlign.center,
+                            );
+                          }),
                     ),
                   ),
                   GestureDetector(
@@ -187,10 +199,14 @@ class GameEndCommonCounterModal extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextScramble(
-                        text: S.of(context).returnToMenu,
-                        style: theme.display2,
-                        textAlign: TextAlign.center,
-                      ),
+                          text: S.of(context).returnToMenu,
+                          builder: (context, scrambledText) {
+                            return Text(
+                              scrambledText,
+                              style: theme.display2,
+                              textAlign: TextAlign.center,
+                            );
+                          }),
                     ),
                   ),
                 ],

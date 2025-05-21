@@ -198,9 +198,14 @@ class _MunchkinGameState extends State<MunchkinGame> {
                           );
                         },
                         child: TextScramble(
-                          text: S.of(context).modifiers,
-                          style: theme.display2.copyWith(color: theme.redColor),
-                        ),
+                            text: S.of(context).modifiers,
+                            builder: (context, scrambledText) {
+                              return Text(
+                                scrambledText,
+                                style: theme.display2
+                                    .copyWith(color: theme.redColor),
+                              );
+                            }),
                       ),
                     ] else
                       _buildSinglePlayerView(context, state),
@@ -441,7 +446,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
                 text: state.players.first.isCursed
                     ? S.of(context).cursed
                     : S.of(context).clearance,
-                style: theme.display2.copyWith(color: theme.redColor),
+                builder: (context, scrambledText) => Text(
+                  scrambledText,
+                  style: theme.display2.copyWith(color: theme.redColor),
+                ),
                 key: ValueKey(
                     'curse_status_single_${state.players.first.isCursed}'),
               ),
@@ -481,9 +489,11 @@ class _MunchkinGameState extends State<MunchkinGame> {
             );
           },
           child: TextScramble(
-            text: S.of(context).modifiers,
-            style: theme.display2.copyWith(color: theme.redColor),
-          ),
+              text: S.of(context).modifiers,
+              builder: (context, scrambledText) => Text(
+                    scrambledText,
+                    style: theme.display2.copyWith(color: theme.redColor),
+                  )),
         ),
       ],
     );

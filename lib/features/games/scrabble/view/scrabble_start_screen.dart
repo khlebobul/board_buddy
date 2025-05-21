@@ -116,10 +116,12 @@ class ScrabbleStartScreenView extends StatelessWidget {
                             );
                           },
                           child: TextScramble(
-                            text: S.of(context).add,
-                            style:
-                                theme.display2.copyWith(color: theme.redColor),
-                          ),
+                              text: S.of(context).add,
+                              builder: (context, scrambledText) => Text(
+                                    scrambledText,
+                                    style: theme.display2
+                                        .copyWith(color: theme.redColor),
+                                  )),
                         ),
 
                       // bottom padding for keyboard
