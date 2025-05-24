@@ -8,6 +8,8 @@ import 'package:board_buddy/features/games/scrabble/view/scrabble_game.dart';
 import 'package:board_buddy/features/games/set/bloc/set_bloc.dart';
 import 'package:board_buddy/features/games/set/view/set_game.dart';
 import 'package:board_buddy/features/games/set/view/set_start_screen.dart';
+import 'package:board_buddy/features/games/ticket_to_ride/view/ticket_to_ride_rules.dart';
+import 'package:board_buddy/features/games/ticket_to_ride/view/ticket_to_ride_start_screen.dart';
 import 'package:board_buddy/features/games/uno/view/uno_start_screen.dart';
 import 'package:board_buddy/features/games/uno_flip/bloc/uno_flip_bloc.dart';
 import 'package:board_buddy/features/games/uno_flip/view/uno_flip_game.dart';
@@ -47,6 +49,7 @@ class AppRoutes {
   static const String dosRules = '/dosRules';
   static const String setRules = '/setRules';
   static const String munchkinRules = '/munchkinRules';
+  static const String ticketToRideRules = '/ticketToRideRules';
 
   // games
   static const String unoGame = '/unoGame';
@@ -63,6 +66,8 @@ class AppRoutes {
   static const String commonGame = '/commonGame';
   static const String commonGameStartScreen = '/commonStartGame';
   static const String scrabbleStartGame = '/scrabbleStartGame';
+  static const String ticketToRideGame = '/ticketToRideGame';
+  static const String ticketToRideStartGame = '/ticketToRideStartGame';
 
   static Map<String, WidgetBuilder> get routes => {
         // main
@@ -79,6 +84,7 @@ class AppRoutes {
         dosRules: (context) => const DosRulesScreen(),
         setRules: (context) => const SetRulesScreen(),
         munchkinRules: (context) => const MunchkinRulesScreen(),
+        ticketToRideRules: (context) => const TicketToRideRulesScreen(),
 
         // games
         unoStartGame: (context) => const UnoStartScreen(),
@@ -90,6 +96,7 @@ class AppRoutes {
         munchkinStartGame: (context) => const MunchkinStartScreen(),
         munchkinGame: (context) => const MunchkinGameWrapper(),
         commonGameStartScreen: (context) => const CommonGameStartScreen(),
+        ticketToRideStartGame: (context) => const TicketToRideStartScreen(),
       };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {

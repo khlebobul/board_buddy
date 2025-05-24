@@ -26,6 +26,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "add": MessageLookupByLibrary.simpleMessage("add"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("add player"),
     "adding": MessageLookupByLibrary.simpleMessage("adding"),
+    "addsubtractPointsFromCompletedfailedDestinationTickets":
+        MessageLookupByLibrary.simpleMessage(
+          "add/subtract points from completed/failed destination tickets.",
+        ),
     "allowsThePlayerToChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage(
           "allows the player to choose the color.",
@@ -76,6 +80,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "character\'s gender: male",
     ),
     "checkMyWebsite": MessageLookupByLibrary.simpleMessage("check my website"),
+    "claimARouteByDiscardingMatchingCards":
+        MessageLookupByLibrary.simpleMessage(
+          "claim a route by discarding matching cards.",
+        ),
     "class1": MessageLookupByLibrary.simpleMessage("class 1"),
     "class2": MessageLookupByLibrary.simpleMessage("class 2"),
     "clearance": MessageLookupByLibrary.simpleMessage("clearance"),
@@ -156,14 +164,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
       "the first player to reach 200 points wins.",
     ),
+    "doubleRoutesIn45PlayerGamesAllowTwoPlayersTo":
+        MessageLookupByLibrary.simpleMessage(
+          "double routes (in 4-5 player games) allow two players to claim the same connection.",
+        ),
     "doublesTheValueOfALetterScrabbleInfo":
         MessageLookupByLibrary.simpleMessage("doubles the value of a letter"),
     "doublesTheValueOfAnEntireWordScrabbleInfo":
         MessageLookupByLibrary.simpleMessage(
           "doubles the value of an entire word",
         ),
+    "draw3DestinationTicketsKeepAtLeast1": MessageLookupByLibrary.simpleMessage(
+      "draw 3 destination tickets (keep at least 1).",
+    ),
     "drawFiveUnoFlipInfo": MessageLookupByLibrary.simpleMessage("draw five"),
     "drawOneUnoFlipInfo": MessageLookupByLibrary.simpleMessage("draw one"),
+    "drawTrainCarCards2TotalOneAtATime": MessageLookupByLibrary.simpleMessage(
+      "draw train car cards (2 total, one at a time).",
+    ),
     "drawTwoCardUnoInfo": MessageLookupByLibrary.simpleMessage("draw two card"),
     "dwarf": MessageLookupByLibrary.simpleMessage("dwarf"),
     "eachCardHasANumberDeterminingItsValue":
@@ -177,6 +195,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "eachCardHasANumberFrom1To9Which": MessageLookupByLibrary.simpleMessage(
       "each card has a number from 1 to 9, which determines its value.",
     ),
+    "eachPlayerChoosesAColorAndTakes45TrainCars":
+        MessageLookupByLibrary.simpleMessage(
+          "each player chooses a color and takes 45 train cars.",
+        ),
     "edit": MessageLookupByLibrary.simpleMessage("edit"),
     "elf": MessageLookupByLibrary.simpleMessage("elf"),
     "emailCopied": MessageLookupByLibrary.simpleMessage("email copied"),
@@ -204,6 +226,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "githubRepository": MessageLookupByLibrary.simpleMessage(
       "github repository",
     ),
+    "grayRoutesCanBeClaimedWithAnyColorButAll":
+        MessageLookupByLibrary.simpleMessage(
+          "gray routes can be claimed with any color, but all cards must match.",
+        ),
     "halfBreed": MessageLookupByLibrary.simpleMessage("half breed"),
     "halfling": MessageLookupByLibrary.simpleMessage("halfling"),
     "headGear": MessageLookupByLibrary.simpleMessage("head gear"),
@@ -215,6 +241,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "highest score wins",
     ),
     "human": MessageLookupByLibrary.simpleMessage("human"),
+    "ifYouDrawAFaceupLocomotiveItMustBeThe": MessageLookupByLibrary.simpleMessage(
+      "if you draw a face-up locomotive, it must be the only card you draw that turn.",
+    ),
+    "inCaseOfATiePlayerWithTheMostCompleted": MessageLookupByLibrary.simpleMessage(
+      "in case of a tie, player with the most completed destination tickets wins.",
+    ),
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "indicates an active curse",
     ),
@@ -227,6 +259,11 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "level": MessageLookupByLibrary.simpleMessage("level"),
     "light": MessageLookupByLibrary.simpleMessage("light"),
+    "locomotiveCard": MessageLookupByLibrary.simpleMessage("locomotive card:"),
+    "locomotivesActAsWildCardsAndCanReplaceAnyColor":
+        MessageLookupByLibrary.simpleMessage(
+          "locomotives act as wild cards and can replace any color.",
+        ),
     "lowestScoreWins": MessageLookupByLibrary.simpleMessage(
       "lowest score wins",
     ),
@@ -347,10 +384,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "off": MessageLookupByLibrary.simpleMessage("off"),
     "on": MessageLookupByLibrary.simpleMessage("on"),
     "others": MessageLookupByLibrary.simpleMessage("others"),
+    "placeTheRemainingDestinationAndTrainCarCardsAsSeparate":
+        MessageLookupByLibrary.simpleMessage(
+          "place the remaining destination and train car cards as separate decks.",
+        ),
     "play": MessageLookupByLibrary.simpleMessage("play"),
     "playerName": MessageLookupByLibrary.simpleMessage("player name"),
+    "playerWithTheMostPointsWins": MessageLookupByLibrary.simpleMessage(
+      "player with the most points wins.",
+    ),
     "players": MessageLookupByLibrary.simpleMessage("players"),
     "points": MessageLookupByLibrary.simpleMessage("points"),
+    "pointsForEachRouteClaimedLongerRoutesGiveMorePoints":
+        MessageLookupByLibrary.simpleMessage(
+          "points for each route claimed (longer routes give more points).",
+        ),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
       "possibly the removal of curses or debuffs",
     ),
@@ -361,15 +409,27 @@ class MessageLookup extends MessageLookupByLibrary {
     "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
     "results": MessageLookupByLibrary.simpleMessage("results"),
     "returnToMenu": MessageLookupByLibrary.simpleMessage("return to menu"),
+    "reveal5TrainCarCardsFaceUp": MessageLookupByLibrary.simpleMessage(
+      "reveal 5 train car cards face up.",
+    ),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage("reverse card"),
     "rightHand": MessageLookupByLibrary.simpleMessage("right hand"),
     "round": MessageLookupByLibrary.simpleMessage("round"),
+    "routeRules": MessageLookupByLibrary.simpleMessage("route rules:"),
+    "routesRequireANumberOfCardsOfASpecificColor":
+        MessageLookupByLibrary.simpleMessage(
+          "routes require a number of cards of a specific color.",
+        ),
     "rules": MessageLookupByLibrary.simpleMessage("rules"),
     "russian": MessageLookupByLibrary.simpleMessage("russian"),
     "score": MessageLookupByLibrary.simpleMessage("score"),
     "score50ExtraPointsForUsingAll7Tiles": MessageLookupByLibrary.simpleMessage(
       "score 50 extra points for using all 7 tiles",
     ),
+    "scoreTheMostPointsByClaimingTrainRoutesAndCompleting":
+        MessageLookupByLibrary.simpleMessage(
+          "score the most points by claiming train routes and completing destination tickets.",
+        ),
     "scrabble": MessageLookupByLibrary.simpleMessage("scrabble"),
     "scrabbleAdditionalDisputedWords": MessageLookupByLibrary.simpleMessage(
       "challenged words are checked in an agreed-upon dictionary.",
@@ -540,6 +600,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "shareWithFriends": MessageLookupByLibrary.simpleMessage(
       "share with friends",
     ),
+    "shuffleAndDeal4TrainCarCardsToEachPlayer":
+        MessageLookupByLibrary.simpleMessage(
+          "shuffle and deal 4 train car cards to each player.",
+        ),
+    "shuffleDestinationTicketsAndDeal3ToEachPlayerKeep":
+        MessageLookupByLibrary.simpleMessage(
+          "shuffle destination tickets and deal 3 to each player. keep at least 2.",
+        ),
     "sinceThisIsAnOpenSourceProjectYouCanLeave":
         MessageLookupByLibrary.simpleMessage(
           "since this is an open-source project, feel free to contribute to it",
@@ -567,11 +635,20 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "sword": MessageLookupByLibrary.simpleMessage("sword"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
+    "tenBonusPointsForTheLongestContinuousPath":
+        MessageLookupByLibrary.simpleMessage(
+          "10 bonus points for the longest continuous path.",
+        ),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "the number of players should be more than",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("theme"),
     "thief": MessageLookupByLibrary.simpleMessage("thief"),
+    "ticketToRide": MessageLookupByLibrary.simpleMessage("ticket to ride"),
+    "ticketToRideIsARegisteredTrademarkOfDaysOf":
+        MessageLookupByLibrary.simpleMessage(
+          "ticket to ride® is a registered trademark of days of wonder, inc.",
+        ),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
       "thanks to everyone who created",
     ),
@@ -749,6 +826,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "victoryTitle": MessageLookupByLibrary.simpleMessage("victory:"),
     "warrior": MessageLookupByLibrary.simpleMessage("warrior"),
+    "whenAPlayerHas2OrFewerTrainCarsLeft": MessageLookupByLibrary.simpleMessage(
+      "when a player has 2 or fewer train cars left, each player gets one final turn.",
+    ),
     "wildCardOneDosInfo": MessageLookupByLibrary.simpleMessage("wild # card"),
     "wildCardUnoInfo": MessageLookupByLibrary.simpleMessage("wild card"),
     "wildDrawColorUnoFlipInfo": MessageLookupByLibrary.simpleMessage(

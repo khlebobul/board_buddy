@@ -28,10 +28,9 @@ class S {
   static const AppLocalizationDelegate delegate = AppLocalizationDelegate();
 
   static Future<S> load(Locale locale) {
-    final name =
-        (locale.countryCode?.isEmpty ?? false)
-            ? locale.languageCode
-            : locale.toString();
+    final name = (locale.countryCode?.isEmpty ?? false)
+        ? locale.languageCode
+        : locale.toString();
     final localeName = Intl.canonicalizedLocale(name);
     return initializeMessages(localeName).then((_) {
       Intl.defaultLocale = localeName;
@@ -2910,6 +2909,241 @@ class S {
     return Intl.message(
       'my other apps',
       name: 'myOtherApps',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ticket to ride`
+  String get ticketToRide {
+    return Intl.message(
+      'ticket to ride',
+      name: 'ticketToRide',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `score the most points by claiming train routes and completing destination tickets.`
+  String get scoreTheMostPointsByClaimingTrainRoutesAndCompleting {
+    return Intl.message(
+      'score the most points by claiming train routes and completing destination tickets.',
+      name: 'scoreTheMostPointsByClaimingTrainRoutesAndCompleting',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `each player chooses a color and takes 45 train cars.`
+  String get eachPlayerChoosesAColorAndTakes45TrainCars {
+    return Intl.message(
+      'each player chooses a color and takes 45 train cars.',
+      name: 'eachPlayerChoosesAColorAndTakes45TrainCars',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `shuffle and deal 4 train car cards to each player.`
+  String get shuffleAndDeal4TrainCarCardsToEachPlayer {
+    return Intl.message(
+      'shuffle and deal 4 train car cards to each player.',
+      name: 'shuffleAndDeal4TrainCarCardsToEachPlayer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `shuffle destination tickets and deal 3 to each player. keep at least 2.`
+  String get shuffleDestinationTicketsAndDeal3ToEachPlayerKeep {
+    return Intl.message(
+      'shuffle destination tickets and deal 3 to each player. keep at least 2.',
+      name: 'shuffleDestinationTicketsAndDeal3ToEachPlayerKeep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `place the remaining destination and train car cards as separate decks.`
+  String get placeTheRemainingDestinationAndTrainCarCardsAsSeparate {
+    return Intl.message(
+      'place the remaining destination and train car cards as separate decks.',
+      name: 'placeTheRemainingDestinationAndTrainCarCardsAsSeparate',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `reveal 5 train car cards face up.`
+  String get reveal5TrainCarCardsFaceUp {
+    return Intl.message(
+      'reveal 5 train car cards face up.',
+      name: 'reveal5TrainCarCardsFaceUp',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `draw train car cards (2 total, one at a time).`
+  String get drawTrainCarCards2TotalOneAtATime {
+    return Intl.message(
+      'draw train car cards (2 total, one at a time).',
+      name: 'drawTrainCarCards2TotalOneAtATime',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `claim a route by discarding matching cards.`
+  String get claimARouteByDiscardingMatchingCards {
+    return Intl.message(
+      'claim a route by discarding matching cards.',
+      name: 'claimARouteByDiscardingMatchingCards',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `draw 3 destination tickets (keep at least 1).`
+  String get draw3DestinationTicketsKeepAtLeast1 {
+    return Intl.message(
+      'draw 3 destination tickets (keep at least 1).',
+      name: 'draw3DestinationTicketsKeepAtLeast1',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `route rules:`
+  String get routeRules {
+    return Intl.message('route rules:', name: 'routeRules', desc: '', args: []);
+  }
+
+  /// `routes require a number of cards of a specific color.`
+  String get routesRequireANumberOfCardsOfASpecificColor {
+    return Intl.message(
+      'routes require a number of cards of a specific color.',
+      name: 'routesRequireANumberOfCardsOfASpecificColor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `gray routes can be claimed with any color, but all cards must match.`
+  String get grayRoutesCanBeClaimedWithAnyColorButAll {
+    return Intl.message(
+      'gray routes can be claimed with any color, but all cards must match.',
+      name: 'grayRoutesCanBeClaimedWithAnyColorButAll',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `double routes (in 4-5 player games) allow two players to claim the same connection.`
+  String get doubleRoutesIn45PlayerGamesAllowTwoPlayersTo {
+    return Intl.message(
+      'double routes (in 4-5 player games) allow two players to claim the same connection.',
+      name: 'doubleRoutesIn45PlayerGamesAllowTwoPlayersTo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `locomotive card:`
+  String get locomotiveCard {
+    return Intl.message(
+      'locomotive card:',
+      name: 'locomotiveCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `locomotives act as wild cards and can replace any color.`
+  String get locomotivesActAsWildCardsAndCanReplaceAnyColor {
+    return Intl.message(
+      'locomotives act as wild cards and can replace any color.',
+      name: 'locomotivesActAsWildCardsAndCanReplaceAnyColor',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `if you draw a face-up locomotive, it must be the only card you draw that turn.`
+  String get ifYouDrawAFaceupLocomotiveItMustBeThe {
+    return Intl.message(
+      'if you draw a face-up locomotive, it must be the only card you draw that turn.',
+      name: 'ifYouDrawAFaceupLocomotiveItMustBeThe',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `when a player has 2 or fewer train cars left, each player gets one final turn.`
+  String get whenAPlayerHas2OrFewerTrainCarsLeft {
+    return Intl.message(
+      'when a player has 2 or fewer train cars left, each player gets one final turn.',
+      name: 'whenAPlayerHas2OrFewerTrainCarsLeft',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `points for each route claimed (longer routes give more points).`
+  String get pointsForEachRouteClaimedLongerRoutesGiveMorePoints {
+    return Intl.message(
+      'points for each route claimed (longer routes give more points).',
+      name: 'pointsForEachRouteClaimedLongerRoutesGiveMorePoints',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `add/subtract points from completed/failed destination tickets.`
+  String get addsubtractPointsFromCompletedfailedDestinationTickets {
+    return Intl.message(
+      'add/subtract points from completed/failed destination tickets.',
+      name: 'addsubtractPointsFromCompletedfailedDestinationTickets',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `10 bonus points for the longest continuous path.`
+  String get tenBonusPointsForTheLongestContinuousPath {
+    return Intl.message(
+      '10 bonus points for the longest continuous path.',
+      name: 'tenBonusPointsForTheLongestContinuousPath',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `player with the most points wins.`
+  String get playerWithTheMostPointsWins {
+    return Intl.message(
+      'player with the most points wins.',
+      name: 'playerWithTheMostPointsWins',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `in case of a tie, player with the most completed destination tickets wins.`
+  String get inCaseOfATiePlayerWithTheMostCompleted {
+    return Intl.message(
+      'in case of a tie, player with the most completed destination tickets wins.',
+      name: 'inCaseOfATiePlayerWithTheMostCompleted',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ticket to ride® is a registered trademark of days of wonder, inc.`
+  String get ticketToRideIsARegisteredTrademarkOfDaysOf {
+    return Intl.message(
+      'ticket to ride® is a registered trademark of days of wonder, inc.',
+      name: 'ticketToRideIsARegisteredTrademarkOfDaysOf',
       desc: '',
       args: [],
     );

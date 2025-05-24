@@ -100,6 +100,18 @@ class RulesScreen extends StatelessWidget {
                       );
                     }),
               ),
+              const SizedBox(height: 5),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/ticketToRideRules'),
+                child: TextScramble(
+                    text: '06 - ${S.of(context).ticketToRide}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
+              ),
               const Spacer(),
               const AddFavouriteGame(),
             ],

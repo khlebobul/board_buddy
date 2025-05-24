@@ -26,6 +26,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "add": MessageLookupByLibrary.simpleMessage("добавить"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("добавить игрока"),
     "adding": MessageLookupByLibrary.simpleMessage("прибавление"),
+    "addsubtractPointsFromCompletedfailedDestinationTickets":
+        MessageLookupByLibrary.simpleMessage(
+          "добавьте/вычтите очки за выполненные/невыполненные билеты назначения.",
+        ),
     "allowsThePlayerToChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage("позволяет игроку выбрать цвет."),
     "appreciation": MessageLookupByLibrary.simpleMessage("благодарность"),
@@ -76,6 +80,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "пол персонажа: мужской",
     ),
     "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
+    "claimARouteByDiscardingMatchingCards":
+        MessageLookupByLibrary.simpleMessage(
+          "занимайте маршрут, сбрасывая соответствующие карты.",
+        ),
     "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
     "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
     "clearance": MessageLookupByLibrary.simpleMessage("очистка"),
@@ -158,15 +166,25 @@ class MessageLookup extends MessageLookupByLibrary {
     "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
       "игрок выигрывает, набрав 200 очков.",
     ),
+    "doubleRoutesIn45PlayerGamesAllowTwoPlayersTo":
+        MessageLookupByLibrary.simpleMessage(
+          "двойные маршруты (в игре на 4–5 игроков) можно занять двум игрокам.",
+        ),
     "doublesTheValueOfALetterScrabbleInfo":
         MessageLookupByLibrary.simpleMessage("удваивает значение буквы"),
     "doublesTheValueOfAnEntireWordScrabbleInfo":
         MessageLookupByLibrary.simpleMessage("удваивает значение всего слова"),
+    "draw3DestinationTicketsKeepAtLeast1": MessageLookupByLibrary.simpleMessage(
+      "возьмите 3 билета назначения и оставьте минимум 1.",
+    ),
     "drawFiveUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
       "карта «возьми пять»",
     ),
     "drawOneUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
       "карта «возьми одну»",
+    ),
+    "drawTrainCarCards2TotalOneAtATime": MessageLookupByLibrary.simpleMessage(
+      "возьмите 2 карты вагонов (по одной за раз).",
     ),
     "drawTwoCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "карта «возьми две»",
@@ -183,6 +201,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "eachCardHasANumberFrom1To9Which": MessageLookupByLibrary.simpleMessage(
       "каждая карта имеет число от 1 до 9, которое определяет её значение.",
     ),
+    "eachPlayerChoosesAColorAndTakes45TrainCars":
+        MessageLookupByLibrary.simpleMessage(
+          "каждый игрок выбирает цвет и берёт 45 вагонов.",
+        ),
     "edit": MessageLookupByLibrary.simpleMessage("изменить"),
     "elf": MessageLookupByLibrary.simpleMessage("эльф"),
     "emailCopied": MessageLookupByLibrary.simpleMessage(
@@ -214,6 +236,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "githubRepository": MessageLookupByLibrary.simpleMessage(
       "репозиторий github",
     ),
+    "grayRoutesCanBeClaimedWithAnyColorButAll":
+        MessageLookupByLibrary.simpleMessage(
+          "серые маршруты можно занимать любым цветом, но все карты должны быть одного цвета.",
+        ),
     "halfBreed": MessageLookupByLibrary.simpleMessage("полукровка"),
     "halfling": MessageLookupByLibrary.simpleMessage("хоббит"),
     "headGear": MessageLookupByLibrary.simpleMessage("головной убор"),
@@ -225,6 +251,12 @@ class MessageLookup extends MessageLookupByLibrary {
       "побеждает высокий счет",
     ),
     "human": MessageLookupByLibrary.simpleMessage("человек"),
+    "ifYouDrawAFaceupLocomotiveItMustBeThe": MessageLookupByLibrary.simpleMessage(
+      "если вы берёте открытую карту локомотива, это должна быть единственная карта за ход.",
+    ),
+    "inCaseOfATiePlayerWithTheMostCompleted": MessageLookupByLibrary.simpleMessage(
+      "в случае ничьей побеждает игрок с наибольшим числом выполненных билетов назначения.",
+    ),
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "указывает на наложенное проклятие",
     ),
@@ -239,6 +271,11 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "level": MessageLookupByLibrary.simpleMessage("уровень"),
     "light": MessageLookupByLibrary.simpleMessage("светлая"),
+    "locomotiveCard": MessageLookupByLibrary.simpleMessage("локомотив:"),
+    "locomotivesActAsWildCardsAndCanReplaceAnyColor":
+        MessageLookupByLibrary.simpleMessage(
+          "локомотивы — это джокеры, которые заменяют любой цвет.",
+        ),
     "lowestScoreWins": MessageLookupByLibrary.simpleMessage(
       "побеждает низкий счет",
     ),
@@ -359,10 +396,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "off": MessageLookupByLibrary.simpleMessage("выкл."),
     "on": MessageLookupByLibrary.simpleMessage("вкл."),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
+    "placeTheRemainingDestinationAndTrainCarCardsAsSeparate":
+        MessageLookupByLibrary.simpleMessage(
+          "оставшиеся билеты назначения и карты вагонов разложите в отдельные колоды.",
+        ),
     "play": MessageLookupByLibrary.simpleMessage("играть"),
     "playerName": MessageLookupByLibrary.simpleMessage("имя игрока"),
+    "playerWithTheMostPointsWins": MessageLookupByLibrary.simpleMessage(
+      "побеждает игрок с наибольшим количеством очков.",
+    ),
     "players": MessageLookupByLibrary.simpleMessage("игроки"),
     "points": MessageLookupByLibrary.simpleMessage("очков"),
+    "pointsForEachRouteClaimedLongerRoutesGiveMorePoints":
+        MessageLookupByLibrary.simpleMessage(
+          "очки начисляются за занятые маршруты (чем длиннее, тем больше очков).",
+        ),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
       "снятие проклятий или дебафов",
     ),
@@ -373,17 +421,29 @@ class MessageLookup extends MessageLookupByLibrary {
     "reportABug": MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
     "results": MessageLookupByLibrary.simpleMessage("результат"),
     "returnToMenu": MessageLookupByLibrary.simpleMessage("вернуться в меню"),
+    "reveal5TrainCarCardsFaceUp": MessageLookupByLibrary.simpleMessage(
+      "выложите 5 карт вагонов лицом вверх.",
+    ),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "карта «смена направления»",
     ),
     "rightHand": MessageLookupByLibrary.simpleMessage("правая рука"),
     "round": MessageLookupByLibrary.simpleMessage("раунд"),
+    "routeRules": MessageLookupByLibrary.simpleMessage("правила маршрутов:"),
+    "routesRequireANumberOfCardsOfASpecificColor":
+        MessageLookupByLibrary.simpleMessage(
+          "для маршрута требуется определённое количество карт одного цвета.",
+        ),
     "rules": MessageLookupByLibrary.simpleMessage("правила"),
     "russian": MessageLookupByLibrary.simpleMessage("русский"),
     "score": MessageLookupByLibrary.simpleMessage("счет"),
     "score50ExtraPointsForUsingAll7Tiles": MessageLookupByLibrary.simpleMessage(
       "50 дополнительных очков за использование всех 7 букв",
     ),
+    "scoreTheMostPointsByClaimingTrainRoutesAndCompleting":
+        MessageLookupByLibrary.simpleMessage(
+          "наберите наибольшее количество очков, занимая железнодорожные маршруты и выполняя билеты назначения.",
+        ),
     "scrabble": MessageLookupByLibrary.simpleMessage("скраббл"),
     "scrabbleAdditionalDisputedWords": MessageLookupByLibrary.simpleMessage(
       "спорные слова проверяются в согласованном словаре.",
@@ -560,6 +620,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "shareWithFriends": MessageLookupByLibrary.simpleMessage(
       "поделитесь с друзьями",
     ),
+    "shuffleAndDeal4TrainCarCardsToEachPlayer":
+        MessageLookupByLibrary.simpleMessage(
+          "перемешайте и раздайте по 4 карты вагонов каждому игроку.",
+        ),
+    "shuffleDestinationTicketsAndDeal3ToEachPlayerKeep":
+        MessageLookupByLibrary.simpleMessage(
+          "перемешайте билеты назначения и раздайте по 3 каждому игроку. оставьте минимум 2.",
+        ),
     "sinceThisIsAnOpenSourceProjectYouCanLeave":
         MessageLookupByLibrary.simpleMessage(
           "так как это проект с открытым исходным кодом, вы можете внести свой вклад",
@@ -591,11 +659,20 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "sword": MessageLookupByLibrary.simpleMessage("меч"),
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
+    "tenBonusPointsForTheLongestContinuousPath":
+        MessageLookupByLibrary.simpleMessage(
+          "10 бонусных очков за самый длинный непрерывный маршрут.",
+        ),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "количество игроков должно быть больше",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),
+    "ticketToRide": MessageLookupByLibrary.simpleMessage("билет на поезд"),
+    "ticketToRideIsARegisteredTrademarkOfDaysOf":
+        MessageLookupByLibrary.simpleMessage(
+          "ticket to ride® является зарегистрированной торговой маркой компании days of wonder.",
+        ),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
       "спасибо всем, кто создал",
     ),
@@ -777,6 +854,9 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:"),
     "warrior": MessageLookupByLibrary.simpleMessage("воин"),
+    "whenAPlayerHas2OrFewerTrainCarsLeft": MessageLookupByLibrary.simpleMessage(
+      "когда у игрока остаётся 2 или меньше вагонов, каждый игрок делает ещё один финальный ход.",
+    ),
     "wildCardOneDosInfo": MessageLookupByLibrary.simpleMessage(
       "дикая карта «#»",
     ),
