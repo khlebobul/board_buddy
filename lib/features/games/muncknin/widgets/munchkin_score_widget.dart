@@ -43,6 +43,9 @@ class MunchkinScoreWidget extends StatelessWidget {
 
     return Container(
       width: isSinglePlayer ? screenWidth : screenWidth * 0.8,
+      constraints: BoxConstraints(
+        maxHeight: isSinglePlayer ? double.infinity : 280,
+      ),
       decoration: BoxDecoration(
         border: Border.all(color: theme.borderColor, width: 1),
         borderRadius: BorderRadius.circular(20),
@@ -53,13 +56,15 @@ class MunchkinScoreWidget extends StatelessWidget {
         children: [
           if (!isSinglePlayer) ...[
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
               child: Text(
                 playerName.toLowerCase(),
                 style: theme.display2.copyWith(
                   color: theme.secondaryTextColor,
                 ),
                 overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
             ),
             Divider(
@@ -68,7 +73,7 @@ class MunchkinScoreWidget extends StatelessWidget {
             ),
           ],
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             child: ScoreRowWidget(
               title: S.of(context).gear,
               score: gearScore,
@@ -81,7 +86,7 @@ class MunchkinScoreWidget extends StatelessWidget {
             height: 1,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             child: ScoreRowWidget(
               title: S.of(context).level,
               score: level,
@@ -94,7 +99,7 @@ class MunchkinScoreWidget extends StatelessWidget {
             height: 1,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -104,6 +109,7 @@ class MunchkinScoreWidget extends StatelessWidget {
                     color: theme.textColor,
                   ),
                 ),
+                const SizedBox(width: 8),
                 Text(
                   totalScore.toString(),
                   style: theme.display2.copyWith(
@@ -149,33 +155,44 @@ class ScoreRowWidget extends StatelessWidget {
       children: [
         GestureDetector(
           onTap: onDecrease,
-          child: Text(
-            '-',
-            style: theme.display9.copyWith(color: theme.redColor),
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            child: Text(
+              '-',
+              style: theme.display9.copyWith(color: theme.redColor),
+            ),
           ),
         ),
-        Column(
-          children: [
-            Text(
-              title,
-              style: theme.display2.copyWith(
-                color: theme.textColor,
+        Expanded(
+          child: Column(
+            children: [
+              Text(
+                title,
+                style: theme.display2.copyWith(
+                  color: theme.textColor,
+                ),
+                textAlign: TextAlign.center,
+                overflow: TextOverflow.ellipsis,
               ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              score.toString(),
-              style: theme.display2.copyWith(
-                color: theme.textColor,
+              const SizedBox(height: 4),
+              Text(
+                score.toString(),
+                style: theme.display2.copyWith(
+                  color: theme.textColor,
+                ),
+                textAlign: TextAlign.center,
               ),
-            ),
-          ],
+            ],
+          ),
         ),
         GestureDetector(
           onTap: onIncrease,
-          child: Text(
-            '+',
-            style: theme.display9.copyWith(color: theme.redColor),
+          child: Container(
+            padding: const EdgeInsets.all(8),
+            child: Text(
+              '+',
+              style: theme.display9.copyWith(color: theme.redColor),
+            ),
           ),
         ),
       ],

@@ -308,8 +308,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
   }
 
   Widget _buildMultiPlayerView(BuildContext context, MunchkinGameState state) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: screenHeight * 0.45,
       child: Column(
         children: [
           Expanded(
@@ -328,26 +330,32 @@ class _MunchkinGameState extends State<MunchkinGame> {
                   padding: const EdgeInsets.symmetric(
                     horizontal: GeneralConst.paddingHorizontal / 2,
                   ),
-                  child: MunchkinScoreWidget(
-                    playerName: state.players[index].name,
-                    totalScore: state.players[index].score,
-                    gearScore: state.players[index].gear,
-                    level: state.players[index].level,
-                    onIncrease: (scoreType) {
-                      if (scoreType == 0) {
-                        context.read<MunchkinBloc>().add(IncreaseGear(index));
-                      } else {
-                        context.read<MunchkinBloc>().add(IncreaseLevel(index));
-                      }
-                    },
-                    onDecrease: (scoreType) {
-                      if (scoreType == 0) {
-                        context.read<MunchkinBloc>().add(DecreaseGear(index));
-                      } else {
-                        context.read<MunchkinBloc>().add(DecreaseLevel(index));
-                      }
-                    },
-                    isSinglePlayer: false,
+                  child: Center(
+                    child: MunchkinScoreWidget(
+                      playerName: state.players[index].name,
+                      totalScore: state.players[index].score,
+                      gearScore: state.players[index].gear,
+                      level: state.players[index].level,
+                      onIncrease: (scoreType) {
+                        if (scoreType == 0) {
+                          context.read<MunchkinBloc>().add(IncreaseGear(index));
+                        } else {
+                          context
+                              .read<MunchkinBloc>()
+                              .add(IncreaseLevel(index));
+                        }
+                      },
+                      onDecrease: (scoreType) {
+                        if (scoreType == 0) {
+                          context.read<MunchkinBloc>().add(DecreaseGear(index));
+                        } else {
+                          context
+                              .read<MunchkinBloc>()
+                              .add(DecreaseLevel(index));
+                        }
+                      },
+                      isSinglePlayer: false,
+                    ),
                   ),
                 );
               },
