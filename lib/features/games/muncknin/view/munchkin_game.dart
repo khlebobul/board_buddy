@@ -85,6 +85,37 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          GestureDetector(
+                            onTap: () {
+                              final bloc = context.read<MunchkinBloc>();
+                              showModalBottomSheet(
+                                isScrollControlled: true,
+                                context: context,
+                                builder: (context) =>
+                                    MunchkinModifiersBottomSheet(
+                                  playerIndex: _currentPlayerIndex,
+                                  player: state.players[_currentPlayerIndex],
+                                  onModifierUpdated:
+                                      (playerIndex, modifierType, value) {
+                                    bloc.add(
+                                      UpdatePlayerModifier(
+                                        playerIndex: playerIndex,
+                                        modifierType: modifierType,
+                                        value: value,
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                            child: SvgPicture.asset(
+                              CustomIcons.modifiers,
+                              width: 27,
+                              height: 27,
+                              colorFilter: ColorFilter.mode(
+                                  theme.textColor, BlendMode.srcIn),
+                            ),
+                          ),
                           const Spacer(),
                           GestureDetector(
                             onTap: () => DiceModal.show(context),
@@ -173,40 +204,40 @@ class _MunchkinGameState extends State<MunchkinGame> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          final bloc = context.read<MunchkinBloc>();
+                      // const SizedBox(height: 20),
+                      // GestureDetector(
+                      //   onTap: () {
+                      //     final bloc = context.read<MunchkinBloc>();
 
-                          showModalBottomSheet(
-                            isScrollControlled: true,
-                            context: context,
-                            builder: (context) => MunchkinModifiersBottomSheet(
-                              playerIndex: _currentPlayerIndex,
-                              player: state.players[_currentPlayerIndex],
-                              onModifierUpdated:
-                                  (playerIndex, modifierType, value) {
-                                bloc.add(
-                                  UpdatePlayerModifier(
-                                    playerIndex: playerIndex,
-                                    modifierType: modifierType,
-                                    value: value,
-                                  ),
-                                );
-                              },
-                            ),
-                          );
-                        },
-                        child: TextScramble(
-                            text: S.of(context).modifiers,
-                            builder: (context, scrambledText) {
-                              return Text(
-                                scrambledText,
-                                style: theme.display2
-                                    .copyWith(color: theme.redColor),
-                              );
-                            }),
-                      ),
+                      //     showModalBottomSheet(
+                      //       isScrollControlled: true,
+                      //       context: context,
+                      //       builder: (context) => MunchkinModifiersBottomSheet(
+                      //         playerIndex: _currentPlayerIndex,
+                      //         player: state.players[_currentPlayerIndex],
+                      //         onModifierUpdated:
+                      //             (playerIndex, modifierType, value) {
+                      //           bloc.add(
+                      //             UpdatePlayerModifier(
+                      //               playerIndex: playerIndex,
+                      //               modifierType: modifierType,
+                      //               value: value,
+                      //             ),
+                      //           );
+                      //         },
+                      //       ),
+                      //     );
+                      //   },
+                      //   child: TextScramble(
+                      //       text: S.of(context).modifiers,
+                      //       builder: (context, scrambledText) {
+                      //         return Text(
+                      //           scrambledText,
+                      //           style: theme.display2
+                      //               .copyWith(color: theme.redColor),
+                      //         );
+                      //       }),
+                      // ),
                     ] else
                       _buildSinglePlayerView(context, state),
                   ],
