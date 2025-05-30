@@ -131,10 +131,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 8),
                     if (state.players.length > 1) ...[
                       _buildMultiPlayerView(context, state),
-                      const SizedBox(height: 15),
+                      const SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -205,7 +205,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
+                      const SizedBox(height: 8),
                       // Custom keyboard for temporary modifiers
                       Padding(
                         padding: const EdgeInsets.symmetric(
@@ -332,7 +332,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return SizedBox(
-      height: screenHeight * 0.45,
+      height: screenHeight * 0.55,
       child: Column(
         children: [
           Expanded(
@@ -349,7 +349,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: GeneralConst.paddingHorizontal / 2,
+                    horizontal: 4,
                   ),
                   child: Center(
                     child: MunchkinScoreWidget(
@@ -420,11 +420,11 @@ class _MunchkinGameState extends State<MunchkinGame> {
     return Column(
       children: [
         SizedBox(
-          height: screenHeight * 0.4,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: GeneralConst.paddingHorizontal),
+          height: screenHeight * 0.5,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: GeneralConst.paddingHorizontal),
+            child: Center(
               child: MunchkinScoreWidget(
                 playerName: state.players.first.name,
                 totalScore: state.players.first.score,
@@ -516,37 +516,6 @@ class _MunchkinGameState extends State<MunchkinGame> {
                   );
             },
           ),
-        ),
-        const SizedBox(height: 20),
-        GestureDetector(
-          onTap: () {
-            // Save player modifiers
-            final bloc = context.read<MunchkinBloc>();
-
-            showModalBottomSheet(
-              isScrollControlled: true,
-              context: context,
-              builder: (context) => MunchkinModifiersBottomSheet(
-                playerIndex: 0,
-                player: state.players.first,
-                onModifierUpdated: (playerIndex, modifierType, value) {
-                  bloc.add(
-                    UpdatePlayerModifier(
-                      playerIndex: playerIndex,
-                      modifierType: modifierType,
-                      value: value,
-                    ),
-                  );
-                },
-              ),
-            );
-          },
-          child: TextScramble(
-              text: S.of(context).modifiers,
-              builder: (context, scrambledText) => Text(
-                    scrambledText,
-                    style: theme.display2.copyWith(color: theme.redColor),
-                  )),
         ),
       ],
     );
