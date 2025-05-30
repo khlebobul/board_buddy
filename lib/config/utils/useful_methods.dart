@@ -10,7 +10,7 @@ Future<void> sendEmail(
     scheme: 'mailto',
     path: email,
     queryParameters: {
-      'subject': subject,
+      'subject': '$subject - Board Buddy',
     },
   );
 

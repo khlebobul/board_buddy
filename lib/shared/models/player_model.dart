@@ -67,6 +67,7 @@ class Player {
   PlayerModifiers modifiers;
   bool isMale;
   bool isCursed;
+  int temporaryModifier;
 
   Player({
     required this.name,
@@ -77,10 +78,11 @@ class Player {
     PlayerModifiers? modifiers,
     this.isMale = true,
     this.isCursed = true,
+    this.temporaryModifier = 0,
   }) : modifiers = modifiers ?? PlayerModifiers();
 
   @override
   String toString() {
-    return 'Player(name: $name, id: $id, score: $score, gear: $gear, level: $level)';
+    return 'Player(name: $name, id: $id, score: $score, gear: $gear, level: $level, temporaryModifier: $temporaryModifier)';
   }
 }
