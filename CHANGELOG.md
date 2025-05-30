@@ -1,5 +1,19 @@
 # Changelog
 
+## [1.0.4]
+
+### New Features
+- Added support for temporary modifiers in the Munchkin game, allowing players to add or clear one-time modifiers to their score.
+- Introduced a custom keyboard UI for managing temporary modifiers directly within the game screen.
+- Temporary modifiers are now displayed in the player score widgets and included in the total strength calculation.
+
+### UI Improvements
+- Updated layout and spacing in the Munchkin game screen to better integrate the new custom keyboard and modifier display.
+
+### Other Changes
+- Email subject lines now include " - Board Buddy".
+- Added new icons for modifiers and trash actions.
+
 ## [1.0.3]
 
 ### New Features
