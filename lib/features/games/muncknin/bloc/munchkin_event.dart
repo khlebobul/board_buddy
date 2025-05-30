@@ -99,6 +99,23 @@ class TogglePlayerCursed extends MunchkinEvent {
   TogglePlayerCursed(this.playerIndex);
 }
 
+// Temporary modifier events
+class AddTemporaryModifier extends MunchkinEvent {
+  final int playerIndex;
+  final int modifierValue;
+
+  AddTemporaryModifier({
+    required this.playerIndex,
+    required this.modifierValue,
+  });
+}
+
+class ClearTemporaryModifiers extends MunchkinEvent {
+  final int playerIndex;
+
+  ClearTemporaryModifiers(this.playerIndex);
+}
+
 // Database-related events
 class CheckSavedGame extends MunchkinEvent {}
 

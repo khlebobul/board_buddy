@@ -42,6 +42,8 @@ class ScoreHistoryItem {
   final int? newGear;
   final int? oldLevel;
   final int? newLevel;
+  final int? oldTemporaryModifier;
+  final int? newTemporaryModifier;
 
   ScoreHistoryItem({
     required this.playerIndex,
@@ -52,6 +54,8 @@ class ScoreHistoryItem {
     this.newGear,
     this.oldLevel,
     this.newLevel,
+    this.oldTemporaryModifier,
+    this.newTemporaryModifier,
   });
 }
 
