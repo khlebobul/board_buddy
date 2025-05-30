@@ -31,6 +31,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     on<UndoAction>(_onUndoAction);
     on<RedoAction>(_onRedoAction);
 
+    // Temporary modifier event handlers
+    on<AddTemporaryModifier>(_onAddTemporaryModifier);
+    on<ClearTemporaryModifiers>(_onClearTemporaryModifiers);
+
     // Database-related event handlers
     on<CheckSavedGame>(_onCheckSavedGame);
     on<LoadSavedGame>(_onLoadSavedGame);
@@ -642,6 +646,11 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             player.level = historyItem.oldLevel!;
           }
 
+          // Revert temporary modifier if available
+          if (historyItem.oldTemporaryModifier != null) {
+            player.temporaryModifier = historyItem.oldTemporaryModifier!;
+          }
+
           emit(currentState.copyWith(
             players: updatedPlayers,
             history: updatedHistory,
@@ -702,6 +711,11 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             player.level = redoItem.newLevel!;
           }
 
+          // Apply temporary modifier changes if available
+          if (redoItem.newTemporaryModifier != null) {
+            player.temporaryModifier = redoItem.newTemporaryModifier!;
+          }
+
           emit(currentState.copyWith(
             players: updatedPlayers,
             history: updatedHistory,
@@ -711,6 +725,95 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           // Save game after redo
           add(SaveGameSession());
         }
+      }
+    }
+  }
+
+  // Temporary modifier event handlers
+  void _onAddTemporaryModifier(
+    AddTemporaryModifier event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        final player = updatedPlayers[event.playerIndex];
+
+        // Save current state to history before making changes
+        final historyItem = ScoreHistoryItem(
+          playerIndex: event.playerIndex,
+          oldScore: player.score,
+          newScore:
+              player.score, // Score doesn't change, only temporary modifier
+          isIncrease: true,
+          oldGear: player.gear,
+          newGear: player.gear,
+          oldLevel: player.level,
+          newLevel: player.level,
+          oldTemporaryModifier: player.temporaryModifier,
+          newTemporaryModifier: player.temporaryModifier + event.modifierValue,
+        );
+
+        // Add the modifier value to the temporary modifier
+        player.temporaryModifier += event.modifierValue;
+
+        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
+          ..add(historyItem);
+
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+          history: updatedHistory,
+          redoHistory: [], // Clear redo history on new action
+        ));
+
+        // Save game after temporary modifier change
+        add(SaveGameSession());
+      }
+    }
+  }
+
+  void _onClearTemporaryModifiers(
+    ClearTemporaryModifiers event,
+    Emitter<MunchkinState> emit,
+  ) {
+    if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
+        final player = updatedPlayers[event.playerIndex];
+
+        // Save current state to history before making changes
+        final historyItem = ScoreHistoryItem(
+          playerIndex: event.playerIndex,
+          oldScore: player.score,
+          newScore:
+              player.score, // Score doesn't change, only temporary modifier
+          isIncrease: false,
+          oldGear: player.gear,
+          newGear: player.gear,
+          oldLevel: player.level,
+          newLevel: player.level,
+          oldTemporaryModifier: player.temporaryModifier,
+          newTemporaryModifier: 0,
+        );
+
+        // Clear the temporary modifier for the specific player
+        player.temporaryModifier = 0;
+
+        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
+          ..add(historyItem);
+
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+          history: updatedHistory,
+          redoHistory: [], // Clear redo history on new action
+        ));
+
+        // Save game after clearing temporary modifiers
+        add(SaveGameSession());
       }
     }
   }
@@ -766,9 +869,12 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           players[i].gear = playerData['gear'] as int? ?? 0;
           players[i].isMale = playerData['is_male'] as bool? ?? true;
           players[i].isCursed = playerData['is_cursed'] as bool? ?? false;
+          players[i].temporaryModifier =
+              playerData['temporary_modifier'] as int? ?? 0;
 
           debugPrint('Restored player $i: ${players[i].name}');
           debugPrint('  Level: ${players[i].level}, Gear: ${players[i].gear}');
+          debugPrint('  Temporary Modifier: ${players[i].temporaryModifier}');
           debugPrint(
               '  Gender: ${players[i].isMale ? "Male" : "Female"}, Cursed: ${players[i].isCursed}');
 
@@ -881,11 +987,12 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
             'gear': player.gear,
             'is_male': player.isMale,
             'is_cursed': player.isCursed,
+            'temporary_modifier': player.temporaryModifier,
             'modifiers': modifiersMap,
           };
 
           debugPrint(
-              'Saving player $i: ${player.name} (level: ${player.level}, gear: ${player.gear})');
+              'Saving player $i: ${player.name} (level: ${player.level}, gear: ${player.gear}, temp_modifier: ${player.temporaryModifier})');
         }
 
         // Create player score history map

@@ -7,6 +7,7 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/munchkin_modifiers_bs.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/munchkin_score_widget.dart';
 import 'package:board_buddy/features/games/muncknin/widgets/info_munchkin_dialog_widget.dart';
+import 'package:board_buddy/features/games/muncknin/widgets/munchkin_custom_keyboard.dart';
 import 'package:board_buddy/features/games/muncknin/bloc/munchkin_bloc.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
@@ -85,6 +86,37 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
+                          GestureDetector(
+                            onTap: () {
+                              final bloc = context.read<MunchkinBloc>();
+                              showModalBottomSheet(
+                                isScrollControlled: true,
+                                context: context,
+                                builder: (context) =>
+                                    MunchkinModifiersBottomSheet(
+                                  playerIndex: _currentPlayerIndex,
+                                  player: state.players[_currentPlayerIndex],
+                                  onModifierUpdated:
+                                      (playerIndex, modifierType, value) {
+                                    bloc.add(
+                                      UpdatePlayerModifier(
+                                        playerIndex: playerIndex,
+                                        modifierType: modifierType,
+                                        value: value,
+                                      ),
+                                    );
+                                  },
+                                ),
+                              );
+                            },
+                            child: SvgPicture.asset(
+                              CustomIcons.modifiers,
+                              width: 27,
+                              height: 27,
+                              colorFilter: ColorFilter.mode(
+                                  theme.textColor, BlendMode.srcIn),
+                            ),
+                          ),
                           const Spacer(),
                           GestureDetector(
                             onTap: () => DiceModal.show(context),
@@ -99,10 +131,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         ],
                       ),
                     ),
-                    const SizedBox(height: 20),
+                    const SizedBox(height: 8),
                     if (state.players.length > 1) ...[
                       _buildMultiPlayerView(context, state),
-                      const SizedBox(height: 50),
+                      const SizedBox(height: 8),
                       Row(
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
@@ -173,39 +205,28 @@ class _MunchkinGameState extends State<MunchkinGame> {
                           ),
                         ],
                       ),
-                      const SizedBox(height: 20),
-                      GestureDetector(
-                        onTap: () {
-                          final bloc = context.read<MunchkinBloc>();
-
-                          showModalBottomSheet(
-                            isScrollControlled: true,
-                            context: context,
-                            builder: (context) => MunchkinModifiersBottomSheet(
-                              playerIndex: _currentPlayerIndex,
-                              player: state.players[_currentPlayerIndex],
-                              onModifierUpdated:
-                                  (playerIndex, modifierType, value) {
-                                bloc.add(
-                                  UpdatePlayerModifier(
-                                    playerIndex: playerIndex,
-                                    modifierType: modifierType,
-                                    value: value,
+                      const SizedBox(height: 8),
+                      // Custom keyboard for temporary modifiers
+                      Padding(
+                        padding: const EdgeInsets.symmetric(
+                            horizontal: GeneralConst.paddingHorizontal),
+                        child: MunchkinCustomKeyboard(
+                          currentModifier: state
+                              .players[_currentPlayerIndex].temporaryModifier,
+                          onModifierSelected: (value) {
+                            context.read<MunchkinBloc>().add(
+                                  AddTemporaryModifier(
+                                    playerIndex: _currentPlayerIndex,
+                                    modifierValue: value,
                                   ),
                                 );
-                              },
-                            ),
-                          );
-                        },
-                        child: TextScramble(
-                            text: S.of(context).modifiers,
-                            builder: (context, scrambledText) {
-                              return Text(
-                                scrambledText,
-                                style: theme.display2
-                                    .copyWith(color: theme.redColor),
-                              );
-                            }),
+                          },
+                          onClear: () {
+                            context.read<MunchkinBloc>().add(
+                                  ClearTemporaryModifiers(_currentPlayerIndex),
+                                );
+                          },
+                        ),
                       ),
                     ] else
                       _buildSinglePlayerView(context, state),
@@ -308,8 +329,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
   }
 
   Widget _buildMultiPlayerView(BuildContext context, MunchkinGameState state) {
+    final screenHeight = MediaQuery.of(context).size.height;
+
     return SizedBox(
-      height: MediaQuery.of(context).size.height * 0.4,
+      height: screenHeight * 0.55,
       child: Column(
         children: [
           Expanded(
@@ -326,28 +349,35 @@ class _MunchkinGameState extends State<MunchkinGame> {
               itemBuilder: (context, index) {
                 return Padding(
                   padding: const EdgeInsets.symmetric(
-                    horizontal: GeneralConst.paddingHorizontal / 2,
+                    horizontal: 4,
                   ),
-                  child: MunchkinScoreWidget(
-                    playerName: state.players[index].name,
-                    totalScore: state.players[index].score,
-                    gearScore: state.players[index].gear,
-                    level: state.players[index].level,
-                    onIncrease: (scoreType) {
-                      if (scoreType == 0) {
-                        context.read<MunchkinBloc>().add(IncreaseGear(index));
-                      } else {
-                        context.read<MunchkinBloc>().add(IncreaseLevel(index));
-                      }
-                    },
-                    onDecrease: (scoreType) {
-                      if (scoreType == 0) {
-                        context.read<MunchkinBloc>().add(DecreaseGear(index));
-                      } else {
-                        context.read<MunchkinBloc>().add(DecreaseLevel(index));
-                      }
-                    },
-                    isSinglePlayer: false,
+                  child: Center(
+                    child: MunchkinScoreWidget(
+                      playerName: state.players[index].name,
+                      totalScore: state.players[index].score,
+                      gearScore: state.players[index].gear,
+                      level: state.players[index].level,
+                      temporaryModifier: state.players[index].temporaryModifier,
+                      onIncrease: (scoreType) {
+                        if (scoreType == 0) {
+                          context.read<MunchkinBloc>().add(IncreaseGear(index));
+                        } else {
+                          context
+                              .read<MunchkinBloc>()
+                              .add(IncreaseLevel(index));
+                        }
+                      },
+                      onDecrease: (scoreType) {
+                        if (scoreType == 0) {
+                          context.read<MunchkinBloc>().add(DecreaseGear(index));
+                        } else {
+                          context
+                              .read<MunchkinBloc>()
+                              .add(DecreaseLevel(index));
+                        }
+                      },
+                      isSinglePlayer: false,
+                    ),
                   ),
                 );
               },
@@ -390,16 +420,17 @@ class _MunchkinGameState extends State<MunchkinGame> {
     return Column(
       children: [
         SizedBox(
-          height: screenHeight * 0.4,
-          child: Center(
-            child: Padding(
-              padding: const EdgeInsets.symmetric(
-                  horizontal: GeneralConst.paddingHorizontal),
+          height: screenHeight * 0.5,
+          child: Padding(
+            padding: const EdgeInsets.symmetric(
+                horizontal: GeneralConst.paddingHorizontal),
+            child: Center(
               child: MunchkinScoreWidget(
                 playerName: state.players.first.name,
                 totalScore: state.players.first.score,
                 gearScore: state.players.first.gear,
                 level: state.players.first.level,
+                temporaryModifier: state.players.first.temporaryModifier,
                 onIncrease: (scoreType) {
                   if (scoreType == 0) {
                     context.read<MunchkinBloc>().add(IncreaseGear(0));
@@ -465,35 +496,26 @@ class _MunchkinGameState extends State<MunchkinGame> {
           ],
         ),
         const SizedBox(height: 20),
-        GestureDetector(
-          onTap: () {
-            // Save player modifiers
-            final bloc = context.read<MunchkinBloc>();
-
-            showModalBottomSheet(
-              isScrollControlled: true,
-              context: context,
-              builder: (context) => MunchkinModifiersBottomSheet(
-                playerIndex: 0,
-                player: state.players.first,
-                onModifierUpdated: (playerIndex, modifierType, value) {
-                  bloc.add(
-                    UpdatePlayerModifier(
-                      playerIndex: playerIndex,
-                      modifierType: modifierType,
-                      value: value,
+        // Custom keyboard for temporary modifiers
+        Padding(
+          padding: const EdgeInsets.symmetric(
+              horizontal: GeneralConst.paddingHorizontal),
+          child: MunchkinCustomKeyboard(
+            currentModifier: state.players.first.temporaryModifier,
+            onModifierSelected: (value) {
+              context.read<MunchkinBloc>().add(
+                    AddTemporaryModifier(
+                      playerIndex: 0,
+                      modifierValue: value,
                     ),
                   );
-                },
-              ),
-            );
-          },
-          child: TextScramble(
-              text: S.of(context).modifiers,
-              builder: (context, scrambledText) => Text(
-                    scrambledText,
-                    style: theme.display2.copyWith(color: theme.redColor),
-                  )),
+            },
+            onClear: () {
+              context.read<MunchkinBloc>().add(
+                    ClearTemporaryModifiers(0),
+                  );
+            },
+          ),
         ),
       ],
     );

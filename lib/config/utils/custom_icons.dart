@@ -34,6 +34,9 @@ class CustomIcons {
   static const String bone = 'assets/icons/games_icons/munchkin/bone.svg';
   static const String male = 'assets/icons/games_icons/munchkin/male.svg';
   static const String female = 'assets/icons/games_icons/munchkin/female.svg';
+  static const String modifiers =
+      'assets/icons/games_icons/munchkin/biceps-flexed.svg';
+  static const String trash = 'assets/icons/games_icons/munchkin/trash.svg';
 
   // scrabble
   static const String star = 'assets/icons/games_icons/scrabble/star.svg';

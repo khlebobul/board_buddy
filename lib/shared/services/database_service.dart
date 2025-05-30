@@ -195,6 +195,7 @@ class DatabaseService {
         name: playerData['name'] as String,
         id: playerData['player_index'] as int,
         score: playerData['score'] as int,
+        temporaryModifier: 0,
       );
     }).toList();
 

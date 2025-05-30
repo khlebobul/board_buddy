@@ -16,6 +16,9 @@ class MunchkinScoreWidget extends StatelessWidget {
   /// The level of the player.
   final int level;
 
+  /// The temporary modifier value (from one-time use cards)
+  final int temporaryModifier;
+
   /// Callback function to increase the score.
   final void Function(int index) onIncrease;
 
@@ -32,6 +35,7 @@ class MunchkinScoreWidget extends StatelessWidget {
     required this.totalScore,
     required this.gearScore,
     required this.level,
+    this.temporaryModifier = 0,
     this.isSinglePlayer = false,
     super.key,
   });
@@ -41,8 +45,14 @@ class MunchkinScoreWidget extends StatelessWidget {
     final theme = UIThemes.of(context);
     final screenWidth = MediaQuery.of(context).size.width;
 
+    // Calculate total strength including temporary modifiers
+    final totalStrength = totalScore + temporaryModifier;
+
     return Container(
       width: isSinglePlayer ? screenWidth : screenWidth * 0.8,
+      constraints: BoxConstraints(
+        maxHeight: isSinglePlayer ? double.infinity : 320,
+      ),
       decoration: BoxDecoration(
         border: Border.all(color: theme.borderColor, width: 1),
         borderRadius: BorderRadius.circular(20),
@@ -53,13 +63,15 @@ class MunchkinScoreWidget extends StatelessWidget {
         children: [
           if (!isSinglePlayer) ...[
             Padding(
-              padding: const EdgeInsets.all(12.0),
+              padding:
+                  const EdgeInsets.symmetric(horizontal: 12.0, vertical: 8.0),
               child: Text(
                 playerName.toLowerCase(),
                 style: theme.display2.copyWith(
                   color: theme.secondaryTextColor,
                 ),
                 overflow: TextOverflow.ellipsis,
+                maxLines: 1,
               ),
             ),
             Divider(
@@ -68,7 +80,7 @@ class MunchkinScoreWidget extends StatelessWidget {
             ),
           ],
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             child: ScoreRowWidget(
               title: S.of(context).gear,
               score: gearScore,
@@ -81,7 +93,7 @@ class MunchkinScoreWidget extends StatelessWidget {
             height: 1,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
             child: ScoreRowWidget(
               title: S.of(context).level,
               score: level,
@@ -89,12 +101,44 @@ class MunchkinScoreWidget extends StatelessWidget {
               onDecrease: () => onDecrease(1),
             ),
           ),
+          // Show temporary modifier if it's not zero
+          if (temporaryModifier != 0) ...[
+            Divider(
+              color: theme.borderColor,
+              height: 1,
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 8),
+              child: Row(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  Text(
+                    S.of(context).modifiers,
+                    style: theme.display2.copyWith(
+                      color: theme.textColor,
+                    ),
+                  ),
+                  const SizedBox(width: 8),
+                  Text(
+                    temporaryModifier > 0
+                        ? '+$temporaryModifier'
+                        : temporaryModifier.toString(),
+                    style: theme.display2.copyWith(
+                      color: temporaryModifier > 0
+                          ? theme.textColor
+                          : theme.redColor,
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          ],
           Divider(
             color: theme.borderColor,
             height: 1,
           ),
           Padding(
-            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 20),
+            padding: const EdgeInsets.symmetric(horizontal: 20, vertical: 12),
             child: Row(
               mainAxisAlignment: MainAxisAlignment.center,
               children: [
@@ -104,8 +148,9 @@ class MunchkinScoreWidget extends StatelessWidget {
                     color: theme.textColor,
                   ),
                 ),
+                const SizedBox(width: 8),
                 Text(
-                  totalScore.toString(),
+                  totalStrength.toString(),
                   style: theme.display2.copyWith(
                     color: theme.redColor,
                   ),
