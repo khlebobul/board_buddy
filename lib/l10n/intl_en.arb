@@ -358,5 +358,6 @@
   "tenBonusPointsForTheLongestContinuousPath": "10 bonus points for the longest continuous path.",
   "playerWithTheMostPointsWins": "player with the most points wins.",
   "inCaseOfATiePlayerWithTheMostCompleted": "in case of a tie, player with the most completed destination tickets wins.",
-  "ticketToRideIsARegisteredTrademarkOfDaysOf": "ticket to ride® is a registered trademark of days of wonder, inc."
+  "ticketToRideIsARegisteredTrademarkOfDaysOf": "ticket to ride® is a registered trademark of days of wonder, inc.",
+  "clearingOfTemporaryModifiers": "clearing of temporary modifiers"
 }

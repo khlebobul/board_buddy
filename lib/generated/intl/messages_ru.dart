@@ -87,6 +87,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
     "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
     "clearance": MessageLookupByLibrary.simpleMessage("очистка"),
+    "clearingOfTemporaryModifiers": MessageLookupByLibrary.simpleMessage(
+      "очистка временных модификаторов",
+    ),
     "cleric": MessageLookupByLibrary.simpleMessage("клирик"),
     "close": MessageLookupByLibrary.simpleMessage("закрыть"),
     "common": MessageLookupByLibrary.simpleMessage("счетчик"),

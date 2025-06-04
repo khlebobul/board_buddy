@@ -3148,6 +3148,16 @@ class S {
       args: [],
     );
   }
+
+  /// `clearing of temporary modifiers`
+  String get clearingOfTemporaryModifiers {
+    return Intl.message(
+      'clearing of temporary modifiers',
+      name: 'clearingOfTemporaryModifiers',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

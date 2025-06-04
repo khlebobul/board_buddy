@@ -358,5 +358,6 @@
   "tenBonusPointsForTheLongestContinuousPath": "10 бонусных очков за самый длинный непрерывный маршрут.",
   "playerWithTheMostPointsWins": "побеждает игрок с наибольшим количеством очков.",
   "inCaseOfATiePlayerWithTheMostCompleted": "в случае ничьей побеждает игрок с наибольшим числом выполненных билетов назначения.",
-  "ticketToRideIsARegisteredTrademarkOfDaysOf": "ticket to ride® является зарегистрированной торговой маркой компании days of wonder."
+  "ticketToRideIsARegisteredTrademarkOfDaysOf": "ticket to ride® является зарегистрированной торговой маркой компании days of wonder.",
+  "clearingOfTemporaryModifiers": "очистка временных модификаторов"
 }
