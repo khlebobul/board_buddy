@@ -65,6 +65,8 @@ class SettingsScreenView extends StatelessWidget {
                       context, S.of(context).english, 'en', state),
                   _buildLanguageOption(
                       context, S.of(context).russian, 'ru', state),
+                  _buildLanguageOption(
+                      context, S.of(context).german, 'de', state),
                   const SizedBox(height: 12),
                   Text(
                     S.of(context).theme,

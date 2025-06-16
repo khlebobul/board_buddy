@@ -2913,6 +2913,11 @@ class S {
       args: [],
     );
   }
+
+  /// `german`
+  String get german {
+    return Intl.message('german', name: 'german', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -2921,6 +2926,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
   List<Locale> get supportedLocales {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
+      Locale.fromSubtags(languageCode: 'de'),
       Locale.fromSubtags(languageCode: 'ru'),
     ];
   }
