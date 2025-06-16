@@ -211,6 +211,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "gameUpTo": MessageLookupByLibrary.simpleMessage("игра до: "),
     "games": MessageLookupByLibrary.simpleMessage("игры"),
     "gear": MessageLookupByLibrary.simpleMessage("снаряжение"),
+    "german": MessageLookupByLibrary.simpleMessage("немецкий"),
     "githubRepository": MessageLookupByLibrary.simpleMessage(
       "репозиторий github",
     ),
