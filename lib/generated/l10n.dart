@@ -2029,9 +2029,9 @@ class S {
     return Intl.message('human', name: 'human', desc: '', args: []);
   }
 
-  /// `2nd race`
+  /// `race 2`
   String get secondRace {
-    return Intl.message('2nd race', name: 'secondRace', desc: '', args: []);
+    return Intl.message('race 2', name: 'secondRace', desc: '', args: []);
   }
 
   /// `class 1`
@@ -2918,6 +2918,11 @@ class S {
   String get german {
     return Intl.message('german', name: 'german', desc: '', args: []);
   }
+
+  /// `french`
+  String get french {
+    return Intl.message('french', name: 'french', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -2927,6 +2932,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'de'),
+      Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'ru'),
     ];
   }

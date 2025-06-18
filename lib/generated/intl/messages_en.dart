@@ -195,6 +195,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "followMeOnXTwitter": MessageLookupByLibrary.simpleMessage(
       "follow me on x (twitter)",
     ),
+    "french": MessageLookupByLibrary.simpleMessage("french"),
     "gameGoal": MessageLookupByLibrary.simpleMessage("game goal:"),
     "gameOver": MessageLookupByLibrary.simpleMessage("game over"),
     "gameTurnTitle": MessageLookupByLibrary.simpleMessage("game turn:"),
@@ -452,7 +453,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "turn rules:",
     ),
     "secondBonus": MessageLookupByLibrary.simpleMessage("second bonus"),
-    "secondRace": MessageLookupByLibrary.simpleMessage("2nd race"),
+    "secondRace": MessageLookupByLibrary.simpleMessage("race 2"),
     "set": MessageLookupByLibrary.simpleMessage("set"),
     "setCardAttributeFillType": MessageLookupByLibrary.simpleMessage(
       "fill type: empty, striped, solid.",

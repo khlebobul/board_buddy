@@ -217,7 +217,7 @@
   "halfling": "halbling",
   "halfBreed": "halbblut",
   "human": "mensch",
-  "secondRace": "2. rasse",
+  "secondRace": "rasse 2",
   "class1": "klasse 1",
   "cleric": "kleriker",
   "thief": "dieb",
@@ -334,5 +334,6 @@
   "on": "an",
   "off": "aus",
   "myOtherApps": "meine anderen apps",
-  "german": "deutsch"
+  "german": "deutsch",
+  "french": "französisch"
 }

@@ -205,6 +205,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "followMeOnXTwitter": MessageLookupByLibrary.simpleMessage(
       "мой x (twitter)",
     ),
+    "french": MessageLookupByLibrary.simpleMessage("французский"),
     "gameGoal": MessageLookupByLibrary.simpleMessage("цель игры:"),
     "gameOver": MessageLookupByLibrary.simpleMessage("игра окончена"),
     "gameTurnTitle": MessageLookupByLibrary.simpleMessage("ход игры:"),
@@ -472,7 +473,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "правила хода:",
     ),
     "secondBonus": MessageLookupByLibrary.simpleMessage("второй бонус"),
-    "secondRace": MessageLookupByLibrary.simpleMessage("вторая раса"),
+    "secondRace": MessageLookupByLibrary.simpleMessage("раса 2"),
     "set": MessageLookupByLibrary.simpleMessage("сет"),
     "setCardAttributeFillType": MessageLookupByLibrary.simpleMessage(
       "заполнение: пустое, заштрихованное, закрашенное.",

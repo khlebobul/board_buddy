@@ -218,7 +218,7 @@
   "halfling": "halfling",
   "halfBreed": "half breed",
   "human": "human",
-  "secondRace": "2nd race",
+  "secondRace": "race 2",
   "class1": "class 1",
   "cleric": "cleric",
   "thief": "thief",
@@ -335,5 +335,6 @@
   "on": "on",
   "off": "off",
   "myOtherApps": "my other apps",
-  "german": "german"
+  "german": "german",
+  "french": "french"
 }
