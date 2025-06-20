@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.6]
+
+### New Features
+- French is now available as a selectable language in the settings screen.
+
 ## [1.0.5]
 
 ### New Features

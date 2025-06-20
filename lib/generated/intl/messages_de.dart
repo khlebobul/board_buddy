@@ -205,6 +205,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "followMeOnXTwitter": MessageLookupByLibrary.simpleMessage(
       "folge mir auf x (twitter)",
     ),
+    "french": MessageLookupByLibrary.simpleMessage("französisch"),
     "gameGoal": MessageLookupByLibrary.simpleMessage("spielziel:"),
     "gameOver": MessageLookupByLibrary.simpleMessage("spiel beendet"),
     "gameTurnTitle": MessageLookupByLibrary.simpleMessage("spielzug:"),
@@ -468,7 +469,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "spielzugregeln:",
     ),
     "secondBonus": MessageLookupByLibrary.simpleMessage("zweiter bonus"),
-    "secondRace": MessageLookupByLibrary.simpleMessage("2. rasse"),
+    "secondRace": MessageLookupByLibrary.simpleMessage("rasse 2"),
     "set": MessageLookupByLibrary.simpleMessage("set"),
     "setCardAttributeFillType": MessageLookupByLibrary.simpleMessage(
       "füllung: leer, gestreift, voll.",
