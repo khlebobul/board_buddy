@@ -14,7 +14,7 @@
   "projectwebsite": "site du projet",
   "ratetheapp": "notez l’application",
   "sharewithfriends": "partager avec des amis",
-  "letsyoutrackscoresandkeymomentsseamlesslykeepingyour": "vous permet de suivre scores et moments clés sans effort, en gardant votre attention sur le jeu",
+  "letsyoutrackscoresandkeymomentsseamlesslykeepingyour": " vous permet de suivre scores et moments clés sans effort, en gardant votre attention sur le jeu",
   "heymynameisgleb": "salut ! je m’appelle gleb",
   "emailcopied": "e-mail copié",
   "languages": "langues",
@@ -335,5 +335,6 @@
   "off": "désactivé",
   "myotherapps": "mes autres applis",
   "german": "allemand",
-  "french": "français"
+  "french": "français",
+  "spanish": "espagnol"
 }

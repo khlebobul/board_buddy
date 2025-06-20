@@ -581,6 +581,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "skipsTheNextPlayersTurnUnoInfo": MessageLookupByLibrary.simpleMessage(
       "следующий игрок пропускает ход.",
     ),
+    "spanish": MessageLookupByLibrary.simpleMessage("испанский"),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage("особые карты:"),
     "specialRulesTitle": MessageLookupByLibrary.simpleMessage(
       "особые правила:",

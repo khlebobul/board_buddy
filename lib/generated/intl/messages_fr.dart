@@ -80,6 +80,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "settings": MessageLookupByLibrary.simpleMessage("paramètres"),
     "singleplayer": MessageLookupByLibrary.simpleMessage("solo"),
     "skip": MessageLookupByLibrary.simpleMessage("passer"),
+    "spanish": MessageLookupByLibrary.simpleMessage("espagnol"),
     "subtracting": MessageLookupByLibrary.simpleMessage("soustraire"),
     "sword": MessageLookupByLibrary.simpleMessage("épée"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
