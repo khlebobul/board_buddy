@@ -559,6 +559,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "skipsTheNextPlayersTurnUnoInfo": MessageLookupByLibrary.simpleMessage(
       "skips the next player\'s turn.",
     ),
+    "spanish": MessageLookupByLibrary.simpleMessage("spanish"),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage("special cards:"),
     "specialRulesTitle": MessageLookupByLibrary.simpleMessage("special rules:"),
     "subtracting": MessageLookupByLibrary.simpleMessage("subtracting"),
