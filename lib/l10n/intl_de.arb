@@ -14,7 +14,7 @@
   "projectWebsite": "projektwebsite",
   "rateTheApp": "bewerte die app",
   "shareWithFriends": "mit freunden teilen",
-  "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour": "hilft dir, punkte und schlüsselmomente mühelos zu verfolgen, damit du dich auf das spiel konzentrieren kannst",
+  "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour": " hilft dir, punkte und schlüsselmomente mühelos zu verfolgen, damit du dich auf das spiel konzentrieren kannst",
   "heyMyNameIsGleb": "hey! mein name ist gleb",
   "emailCopied": "e-mail kopiert",
   "languages": "sprachen",
@@ -335,5 +335,6 @@
   "off": "aus",
   "myOtherApps": "meine anderen apps",
   "german": "deutsch",
-  "french": "französisch"
+  "french": "französisch",
+  "spanish": "spanisch"
 }

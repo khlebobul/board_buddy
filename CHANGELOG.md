@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.7]
+
+### New Features
+- Spanish is now available as a selectable language in the settings screen.
+
 ## [1.0.6]
 
 ### New Features
