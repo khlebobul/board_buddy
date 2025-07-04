@@ -10,6 +10,10 @@ a free cross-platform mobile app for tracking scores and rules in board games. b
 
 [![Website](https://img.shields.io/badge/Website-414141?style=for-the-badge&logo=Website&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul_dev) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://yoomoney.ru/to/4100118234947004) [![LICENCE - MIT](https://img.shields.io/badge/LICENCE-MIT-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
 
+<a href="https://www.uneed.best/tool/board-buddy">
+    <img src="https://www.uneed.best/POTD2.png" style="width: 250px;" alt="Uneed POTD2 Badge" />
+    </a>
+
 </div>
 
 ## table of contents
