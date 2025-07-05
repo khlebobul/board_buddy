@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.7]
+
+### New Features
+- Added RuStore links for other apps on the About screen.
+
 ## [1.0.6]
 
 ### New Features
