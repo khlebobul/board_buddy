@@ -140,7 +140,6 @@ class SetBloc extends Bloc<SetEvent, SetState> {
         debugPrint('Loaded timerSeconds from session: $timerSeconds');
       } else if (session.containsKey('custom_data') &&
           session['custom_data'] != null) {
-
         try {
           final customDataString = session['custom_data'] as String;
           final customData =

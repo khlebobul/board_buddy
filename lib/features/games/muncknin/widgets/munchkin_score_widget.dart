@@ -193,10 +193,15 @@ class ScoreRowWidget extends StatelessWidget {
       mainAxisAlignment: MainAxisAlignment.spaceBetween,
       children: [
         GestureDetector(
+          behavior: HitTestBehavior.opaque,
           onTap: onDecrease,
-          child: Text(
-            '-',
-            style: theme.display9.copyWith(color: theme.redColor),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            alignment: Alignment.center,
+            child: Text(
+              '-',
+              style: theme.display9.copyWith(color: theme.redColor),
+            ),
           ),
         ),
         Column(
@@ -217,10 +222,15 @@ class ScoreRowWidget extends StatelessWidget {
           ],
         ),
         GestureDetector(
+          behavior: HitTestBehavior.opaque,
           onTap: onIncrease,
-          child: Text(
-            '+',
-            style: theme.display9.copyWith(color: theme.redColor),
+          child: Container(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            alignment: Alignment.center,
+            child: Text(
+              '+',
+              style: theme.display9.copyWith(color: theme.redColor),
+            ),
           ),
         ),
       ],

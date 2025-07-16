@@ -116,9 +116,10 @@ class MunchkinCustomKeyboard extends StatelessWidget {
     required String displayText,
     required UIThemes theme,
     Color? textColor,
-    Widget? icon, // Добавляем параметр для иконки
+    Widget? icon,
   }) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: onTap,
       child: Container(
         height: double.infinity,

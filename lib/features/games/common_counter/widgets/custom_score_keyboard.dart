@@ -91,6 +91,7 @@ class CustomScoreKeyboard extends StatelessWidget {
     double height = double.infinity,
   }) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () => onValueSelected(value),
       child: Container(
         height: height,

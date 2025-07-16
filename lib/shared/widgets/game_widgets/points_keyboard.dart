@@ -93,6 +93,7 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: _onTap,
       child: Container(
         margin: widget.button.useCompactMargin

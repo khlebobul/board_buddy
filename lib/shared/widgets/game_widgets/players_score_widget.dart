@@ -39,10 +39,15 @@ class PlayersScoreWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => onDecrease(0),
-                child: Text(
-                  '-',
-                  style: theme.display9.copyWith(color: theme.redColor),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  alignment: Alignment.center,
+                  child: Text(
+                    '-',
+                    style: theme.display9.copyWith(color: theme.redColor),
+                  ),
                 ),
               ),
               Text(
@@ -52,10 +57,15 @@ class PlayersScoreWidget extends StatelessWidget {
                 ),
               ),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => onIncrease(0),
-                child: Text(
-                  '+',
-                  style: theme.display9.copyWith(color: theme.redColor),
+                child: Container(
+                  padding: const EdgeInsets.symmetric(horizontal: 30.0),
+                  alignment: Alignment.center,
+                  child: Text(
+                    '+',
+                    style: theme.display9.copyWith(color: theme.redColor),
+                  ),
                 ),
               ),
             ],
@@ -81,10 +91,15 @@ class PlayersScoreWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: () => onDecrease(index),
-                    child: Text(
-                      '-',
-                      style: theme.display9.copyWith(color: theme.redColor),
+                    child: Container(
+                      padding: const EdgeInsets.all(16.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        '-',
+                        style: theme.display9.copyWith(color: theme.redColor),
+                      ),
                     ),
                   ),
                   Column(
@@ -105,10 +120,15 @@ class PlayersScoreWidget extends StatelessWidget {
                     ],
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: () => onIncrease(index),
-                    child: Text(
-                      '+',
-                      style: theme.display9.copyWith(color: theme.redColor),
+                    child: Container(
+                      padding: const EdgeInsets.all(16.0),
+                      alignment: Alignment.center,
+                      child: Text(
+                        '+',
+                        style: theme.display9.copyWith(color: theme.redColor),
+                      ),
                     ),
                   ),
                 ],
