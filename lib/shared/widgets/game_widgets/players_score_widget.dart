@@ -2,6 +2,7 @@ import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/useful_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:gaimon/gaimon.dart';
 
 /// widget that represents a score widget for multiple players.
 class PlayersScoreWidget extends StatelessWidget {
@@ -67,8 +68,11 @@ class PlayersScoreWidget extends StatelessWidget {
                 width: constraints.maxWidth / 2,
                 child: GestureDetector(
                   behavior: HitTestBehavior.opaque,
-                  onTap: () => onDecrease(0),
-                  child: Container(),
+                  onTap: () {
+                    onDecrease(0);
+                    Gaimon.soft();
+                  },
+                  child: const SizedBox.shrink(),
                 ),
               ),
               // Right half for increase
@@ -79,8 +83,11 @@ class PlayersScoreWidget extends StatelessWidget {
                 width: constraints.maxWidth / 2,
                 child: GestureDetector(
                   behavior: HitTestBehavior.opaque,
-                  onTap: () => onIncrease(0),
-                  child: Container(),
+                  onTap: () {
+                    onIncrease(0);
+                    Gaimon.soft();
+                  },
+                  child: const SizedBox.shrink(),
                 ),
               ),
             ],
@@ -144,8 +151,11 @@ class PlayersScoreWidget extends StatelessWidget {
                     width: constraints.maxWidth / 2,
                     child: GestureDetector(
                       behavior: HitTestBehavior.opaque,
-                      onTap: () => onDecrease(index),
-                      child: Container(),
+                      onTap: () {
+                        Gaimon.soft();
+                        onDecrease(index);
+                      },
+                      child: const SizedBox.shrink(),
                     ),
                   ),
                   // Right half for increase
@@ -156,8 +166,11 @@ class PlayersScoreWidget extends StatelessWidget {
                     width: constraints.maxWidth / 2,
                     child: GestureDetector(
                       behavior: HitTestBehavior.opaque,
-                      onTap: () => onIncrease(index),
-                      child: Container(),
+                      onTap: () {
+                        Gaimon.soft();
+                        onDecrease(index);
+                      },
+                      child: const SizedBox.shrink(),
                     ),
                   ),
                 ],

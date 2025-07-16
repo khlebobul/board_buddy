@@ -1,6 +1,7 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:gaimon/gaimon.dart';
 
 /// widget that represents a score widget for a Munchkin player.
 class MunchkinScoreWidget extends StatelessWidget {
@@ -230,8 +231,11 @@ class ScoreRowWidget extends StatelessWidget {
             width: constraints.maxWidth / 2,
             child: GestureDetector(
               behavior: HitTestBehavior.opaque,
-              onTap: onDecrease,
-              child: Container(),
+              onTap: () {
+                onDecrease();
+                Gaimon.soft();
+              },
+              child: const SizedBox.shrink(),
             ),
           ),
           // Right half for increase
@@ -242,8 +246,11 @@ class ScoreRowWidget extends StatelessWidget {
             width: constraints.maxWidth / 2,
             child: GestureDetector(
               behavior: HitTestBehavior.opaque,
-              onTap: onIncrease,
-              child: Container(),
+              onTap: () {
+                onIncrease();
+                Gaimon.soft();
+              },
+              child: const SizedBox.shrink(),
             ),
           ),
         ],

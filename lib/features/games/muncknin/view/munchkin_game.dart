@@ -16,6 +16,7 @@ import 'package:board_buddy/features/games/common_counter/widgets/game_end_commo
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gaimon/gaimon.dart';
 import 'package:use_scramble/use_scramble.dart';
 
 /// munchkin game screen
@@ -458,6 +459,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
             GestureDetector(
               onTap: () {
                 context.read<MunchkinBloc>().add(TogglePlayerGender(0));
+                Gaimon.soft();
               },
               child: SvgPicture.asset(
                 state.players.first.isMale
@@ -472,6 +474,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                 debugPrint(
                     'Current curse status: ${state.players.first.isCursed}');
                 context.read<MunchkinBloc>().add(TogglePlayerCursed(0));
+                Gaimon.soft();
               },
               child: TextScramble(
                 text: state.players.first.isCursed
@@ -490,6 +493,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
               onTap: () {
                 // Reset player modifiers according to Munchkin rules
                 context.read<MunchkinBloc>().add(ResetPlayerModifiers(0));
+                Gaimon.soft();
               },
               child: SvgPicture.asset(CustomIcons.bone),
             ),

@@ -1,5 +1,6 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:gaimon/gaimon.dart';
 
 /// A custom keyboard widget for score adjustments in the Common Counter game.
 class CustomScoreKeyboard extends StatelessWidget {
@@ -92,7 +93,10 @@ class CustomScoreKeyboard extends StatelessWidget {
   }) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () => onValueSelected(value),
+      onTap: () {
+        onValueSelected(value);
+        Gaimon.soft();
+      },
       child: Container(
         height: height,
         alignment: Alignment.center,
