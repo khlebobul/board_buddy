@@ -189,51 +189,65 @@ class ScoreRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: onDecrease,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            alignment: Alignment.center,
-            child: Text(
-              '-',
-              style: theme.display9.copyWith(color: theme.redColor),
+    return LayoutBuilder(
+      builder: (context, constraints) => Stack(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '-',
+                style: theme.display9.copyWith(color: theme.redColor),
+              ),
+              Column(
+                children: [
+                  Text(
+                    title,
+                    style: theme.display2.copyWith(
+                      color: theme.textColor,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    score.toString(),
+                    style: theme.display2.copyWith(
+                      color: theme.textColor,
+                    ),
+                  ),
+                ],
+              ),
+              Text(
+                '+',
+                style: theme.display9.copyWith(color: theme.redColor),
+              ),
+            ],
+          ),
+          // Left half for decrease
+          Positioned(
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: constraints.maxWidth / 2,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: onDecrease,
+              child: Container(),
             ),
           ),
-        ),
-        Column(
-          children: [
-            Text(
-              title,
-              style: theme.display2.copyWith(
-                color: theme.textColor,
-              ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              score.toString(),
-              style: theme.display2.copyWith(
-                color: theme.textColor,
-              ),
-            ),
-          ],
-        ),
-        GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: onIncrease,
-          child: Container(
-            padding: const EdgeInsets.symmetric(horizontal: 16.0),
-            alignment: Alignment.center,
-            child: Text(
-              '+',
-              style: theme.display9.copyWith(color: theme.redColor),
+          // Right half for increase
+          Positioned(
+            right: 0,
+            top: 0,
+            bottom: 0,
+            width: constraints.maxWidth / 2,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: onIncrease,
+              child: Container(),
             ),
           ),
-        ),
-      ],
+        ],
+      ),
     );
   }
 }
