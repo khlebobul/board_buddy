@@ -2,6 +2,7 @@ import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/useful_methods.dart';
 import 'package:flutter/material.dart';
+import 'package:gaimon/gaimon.dart';
 
 /// widget that represents a score widget for multiple players.
 class PlayersScoreWidget extends StatelessWidget {
@@ -33,29 +34,60 @@ class PlayersScoreWidget extends StatelessWidget {
           borderRadius: BorderRadius.circular(20),
           color: theme.fgColor,
         ),
-        child: Padding(
-          padding: const EdgeInsets.symmetric(vertical: 20.0, horizontal: 30.0),
-          child: Row(
-            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+        child: LayoutBuilder(
+          builder: (context, constraints) => Stack(
             children: [
-              GestureDetector(
-                onTap: () => onDecrease(0),
-                child: Text(
-                  '-',
-                  style: theme.display9.copyWith(color: theme.redColor),
+              Padding(
+                padding: const EdgeInsets.symmetric(
+                    vertical: 20.0, horizontal: 30.0),
+                child: Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                  children: [
+                    Text(
+                      '-',
+                      style: theme.display9.copyWith(color: theme.redColor),
+                    ),
+                    Text(
+                      players[0].score.toString(),
+                      style: theme.display2.copyWith(
+                        color: theme.textColor,
+                      ),
+                    ),
+                    Text(
+                      '+',
+                      style: theme.display9.copyWith(color: theme.redColor),
+                    ),
+                  ],
                 ),
               ),
-              Text(
-                players[0].score.toString(),
-                style: theme.display2.copyWith(
-                  color: theme.textColor,
+              // Left half for decrease
+              Positioned(
+                left: 0,
+                top: 0,
+                bottom: 0,
+                width: constraints.maxWidth / 2,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    onDecrease(0);
+                    Gaimon.soft();
+                  },
+                  child: const SizedBox.shrink(),
                 ),
               ),
-              GestureDetector(
-                onTap: () => onIncrease(0),
-                child: Text(
-                  '+',
-                  style: theme.display9.copyWith(color: theme.redColor),
+              // Right half for increase
+              Positioned(
+                right: 0,
+                top: 0,
+                bottom: 0,
+                width: constraints.maxWidth / 2,
+                child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
+                  onTap: () {
+                    onIncrease(0);
+                    Gaimon.soft();
+                  },
+                  child: const SizedBox.shrink(),
                 ),
               ),
             ],
@@ -74,41 +106,71 @@ class PlayersScoreWidget extends StatelessWidget {
       child: Column(
         children: [
           for (int index = 0; index < players.length; index++) ...[
-            Padding(
-              padding:
-                  const EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            LayoutBuilder(
+              builder: (context, constraints) => Stack(
                 children: [
-                  GestureDetector(
-                    onTap: () => onDecrease(index),
-                    child: Text(
-                      '-',
-                      style: theme.display9.copyWith(color: theme.redColor),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(
+                        vertical: 10.0, horizontal: 20.0),
+                    child: Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          '-',
+                          style: theme.display9.copyWith(color: theme.redColor),
+                        ),
+                        Column(
+                          children: [
+                            Text(
+                              '${formatPlayerNumber(index + 1)} - ${players[index].name.toLowerCase()}',
+                              style: theme.display2.copyWith(
+                                color: theme.secondaryTextColor,
+                              ),
+                            ),
+                            const SizedBox(height: 5),
+                            Text(
+                              players[index].score.toString(),
+                              style: theme.display2.copyWith(
+                                color: theme.textColor,
+                              ),
+                            ),
+                          ],
+                        ),
+                        Text(
+                          '+',
+                          style: theme.display9.copyWith(color: theme.redColor),
+                        ),
+                      ],
                     ),
                   ),
-                  Column(
-                    children: [
-                      Text(
-                        '${formatPlayerNumber(index + 1)} - ${players[index].name.toLowerCase()}',
-                        style: theme.display2.copyWith(
-                          color: theme.secondaryTextColor,
-                        ),
-                      ),
-                      const SizedBox(height: 5),
-                      Text(
-                        players[index].score.toString(),
-                        style: theme.display2.copyWith(
-                          color: theme.textColor,
-                        ),
-                      ),
-                    ],
+                  // Left half for decrease
+                  Positioned(
+                    left: 0,
+                    top: 0,
+                    bottom: 0,
+                    width: constraints.maxWidth / 2,
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () {
+                        Gaimon.soft();
+                        onDecrease(index);
+                      },
+                      child: const SizedBox.shrink(),
+                    ),
                   ),
-                  GestureDetector(
-                    onTap: () => onIncrease(index),
-                    child: Text(
-                      '+',
-                      style: theme.display9.copyWith(color: theme.redColor),
+                  // Right half for increase
+                  Positioned(
+                    right: 0,
+                    top: 0,
+                    bottom: 0,
+                    width: constraints.maxWidth / 2,
+                    child: GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () {
+                        Gaimon.soft();
+                        onDecrease(index);
+                      },
+                      child: const SizedBox.shrink(),
                     ),
                   ),
                 ],

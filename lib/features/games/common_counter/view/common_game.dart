@@ -545,7 +545,7 @@ class _CommonGameViewState extends State<CommonGameView>
       onNewGame: () {
         Navigator.of(context).pop();
         Navigator.of(context).pop();
-        Navigator.pushNamed(context, '/commonCounterStartGame');
+        Navigator.pushNamed(context, '/commonStartGame');
       },
       onReturnToMenu: () {
         Navigator.pushNamedAndRemoveUntil(

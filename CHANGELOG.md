@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.0.8]
+
+### New Features
+- Added haptic feedback (soft vibration) to various game and score adjustment interactions for a more tactile user experience.
+
+### Bug Fixes
+- Fixed Common Counter game's route bug
+
+### UI Improvements
+- Improved tap area responsiveness on several buttons and score controls.
+
 ## [1.0.7]
 
 ### New Features

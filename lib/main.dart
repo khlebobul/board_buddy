@@ -39,7 +39,7 @@ class MyApp extends StatelessWidget {
           future: LanguageService.getInitialLanguage(),
           builder: (BuildContext context, AsyncSnapshot<String> snapshot) {
             if (snapshot.connectionState == ConnectionState.waiting) {
-              return Container();
+              return const SizedBox.shrink();
             } else {
               return MaterialApp(
                 routes: AppRoutes.routes,

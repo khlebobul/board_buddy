@@ -2,6 +2,7 @@ import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
+import 'package:gaimon/gaimon.dart';
 
 /// A custom keyboard widget for Munchkin one-time modifiers.
 /// Provides quick access to common modifier values (+2, +3, +5, +10) and a clear button.
@@ -86,7 +87,10 @@ class MunchkinCustomKeyboard extends StatelessWidget {
           ),
         ),
         child: _buildButton(
-          onTap: () => onModifierSelected(value),
+          onTap: () {
+            onModifierSelected(value);
+            Gaimon.soft();
+          },
           displayText: displayText,
           theme: theme,
           textColor: theme.textColor,
@@ -116,9 +120,10 @@ class MunchkinCustomKeyboard extends StatelessWidget {
     required String displayText,
     required UIThemes theme,
     Color? textColor,
-    Widget? icon, // Добавляем параметр для иконки
+    Widget? icon,
   }) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: onTap,
       child: Container(
         height: double.infinity,

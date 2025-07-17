@@ -1,6 +1,7 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:gaimon/gaimon.dart';
 
 /// widget that represents a score widget for a Munchkin player.
 class MunchkinScoreWidget extends StatelessWidget {
@@ -189,41 +190,71 @@ class ScoreRowWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-    return Row(
-      mainAxisAlignment: MainAxisAlignment.spaceBetween,
-      children: [
-        GestureDetector(
-          onTap: onDecrease,
-          child: Text(
-            '-',
-            style: theme.display9.copyWith(color: theme.redColor),
-          ),
-        ),
-        Column(
-          children: [
-            Text(
-              title,
-              style: theme.display2.copyWith(
-                color: theme.textColor,
+    return LayoutBuilder(
+      builder: (context, constraints) => Stack(
+        children: [
+          Row(
+            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+            children: [
+              Text(
+                '-',
+                style: theme.display9.copyWith(color: theme.redColor),
               ),
-            ),
-            const SizedBox(height: 5),
-            Text(
-              score.toString(),
-              style: theme.display2.copyWith(
-                color: theme.textColor,
+              Column(
+                children: [
+                  Text(
+                    title,
+                    style: theme.display2.copyWith(
+                      color: theme.textColor,
+                    ),
+                  ),
+                  const SizedBox(height: 5),
+                  Text(
+                    score.toString(),
+                    style: theme.display2.copyWith(
+                      color: theme.textColor,
+                    ),
+                  ),
+                ],
               ),
-            ),
-          ],
-        ),
-        GestureDetector(
-          onTap: onIncrease,
-          child: Text(
-            '+',
-            style: theme.display9.copyWith(color: theme.redColor),
+              Text(
+                '+',
+                style: theme.display9.copyWith(color: theme.redColor),
+              ),
+            ],
           ),
-        ),
-      ],
+          // Left half for decrease
+          Positioned(
+            left: 0,
+            top: 0,
+            bottom: 0,
+            width: constraints.maxWidth / 2,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                onDecrease();
+                Gaimon.soft();
+              },
+              child: const SizedBox.shrink(),
+            ),
+          ),
+          // Right half for increase
+          Positioned(
+            right: 0,
+            top: 0,
+            bottom: 0,
+            width: constraints.maxWidth / 2,
+            child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
+              onTap: () {
+                onIncrease();
+                Gaimon.soft();
+              },
+              child: const SizedBox.shrink(),
+            ),
+          ),
+        ],
+      ),
     );
   }
 }
