@@ -8,6 +8,9 @@
 ### Bug Fixes
 - Fixed Common Counter game's route bug
 
+### UI Improvements
+- Improved tap area responsiveness on several buttons and score controls.
+
 ## [1.0.7]
 
 ### New Features
