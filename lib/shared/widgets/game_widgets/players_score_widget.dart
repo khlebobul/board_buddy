@@ -168,7 +168,7 @@ class PlayersScoreWidget extends StatelessWidget {
                       behavior: HitTestBehavior.opaque,
                       onTap: () {
                         Gaimon.soft();
-                        onDecrease(index);
+                        onIncrease(index);
                       },
                       child: const SizedBox.shrink(),
                     ),
