@@ -60,13 +60,6 @@ flutter pub get
 flutter run
 ```
 
-- or use `fvm` to run the project in a virtual machine:
-
-```sh
-fvm flutter pub get
-fvm flutter run
-```
-
 - you can use [Makefile](https://github.com/khlebobul/board_buddy/blob/main/Makefile) to run the project:
 
 ```sh
@@ -86,25 +79,10 @@ make run
       "program": "lib/main.dart"
     },
     {
-      "name": "board_buddy_debug_fvm",
-      "type": "dart",
-      "request": "launch",
-      "program": "lib/main.dart",
-      "toolArgs": ["fvm"]
-    },
-    {
       "name": "board_buddy_release",
       "type": "dart",
       "request": "launch",
       "program": "lib/main.dart",
-      "args": ["--release"]
-    },
-    {
-      "name": "board_buddy_release_fvm",
-      "type": "dart",
-      "request": "launch",
-      "program": "lib/main.dart",
-      "toolArgs": ["fvm"],
       "args": ["--release"]
     }
   ]
