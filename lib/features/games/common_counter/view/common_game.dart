@@ -358,7 +358,9 @@ class _CommonGameViewState extends State<CommonGameView>
                                         ? '+${gameState.lastScoreChange}'
                                         : '${gameState.lastScoreChange}',
                                     style: theme.display2.copyWith(
-                                      color: theme.secondaryTextColor,
+                                      color: gameState.lastScoreChange < 0
+                                          ? theme.redColor
+                                          : theme.secondaryTextColor,
                                     ),
                                   ),
                                 ),

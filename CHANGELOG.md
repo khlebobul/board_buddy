@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.0.9]
+
+### New Features
+- Added support for negative values in counters and scores in Common Counter.
+
 ## [1.0.8]
 
 ### New Features
