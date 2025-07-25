@@ -308,30 +308,27 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
       final updatedPlayers = List<Player>.from(currentState.players);
 
       if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
-        if (updatedPlayers[event.playerIndex].score > 0) {
-          // Save current state to history before making changes
-          final historyItem = ScoreHistoryItem(
-            playerIndex: event.playerIndex,
-            oldScore: updatedPlayers[event.playerIndex].score,
-            newScore: updatedPlayers[event.playerIndex].score - 1,
-            isIncrease: false,
-          );
+        // Save current state to history before making changes
+        final historyItem = ScoreHistoryItem(
+          playerIndex: event.playerIndex,
+          oldScore: updatedPlayers[event.playerIndex].score,
+          newScore: updatedPlayers[event.playerIndex].score - 1,
+          isIncrease: false,
+        );
 
-          updatedPlayers[event.playerIndex].score -= 1;
+        updatedPlayers[event.playerIndex].score -= 1;
 
-          final updatedHistory =
-              List<ScoreHistoryItem>.from(currentState.history)
-                ..add(historyItem);
+        final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
+          ..add(historyItem);
 
-          emit(currentState.copyWith(
-            players: updatedPlayers,
-            history: updatedHistory,
-            redoHistory: [], // Clear redo history on new action
-          ));
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+          history: updatedHistory,
+          redoHistory: [], // Clear redo history on new action
+        ));
 
-          // Save game session after score update
-          add(SaveGameSession());
-        }
+        // Save game session after score update
+        add(SaveGameSession());
       }
     }
   }
@@ -382,19 +379,16 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
 
       if (event.playerIndex >= 0 && event.playerIndex < updatedPlayers.length) {
         final newScore = updatedPlayers[event.playerIndex].score - event.amount;
-        final actualScore = newScore < 0 ? 0 : newScore;
-        final actualDecrease =
-            updatedPlayers[event.playerIndex].score - actualScore;
 
         // Save current state to history before making changes
         final historyItem = ScoreHistoryItem(
           playerIndex: event.playerIndex,
           oldScore: updatedPlayers[event.playerIndex].score,
-          newScore: actualScore,
+          newScore: newScore,
           isIncrease: false,
         );
 
-        updatedPlayers[event.playerIndex].score = actualScore;
+        updatedPlayers[event.playerIndex].score = newScore;
 
         final updatedHistory = List<ScoreHistoryItem>.from(currentState.history)
           ..add(historyItem);
@@ -404,7 +398,7 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
           history: updatedHistory,
           redoHistory: [], // Clear redo history on new action
           isScoreChanging: true,
-          lastScoreChange: -actualDecrease,
+          lastScoreChange: -event.amount,
         ));
 
         // Save game session after score update

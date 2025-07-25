@@ -1,5 +1,7 @@
+import 'dart:async';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
+import 'package:board_buddy/config/theme/app_colors.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
@@ -358,7 +360,9 @@ class _CommonGameViewState extends State<CommonGameView>
                                         ? '+${gameState.lastScoreChange}'
                                         : '${gameState.lastScoreChange}',
                                     style: theme.display2.copyWith(
-                                      color: theme.secondaryTextColor,
+                                      color: gameState.lastScoreChange < 0
+                                          ? theme.redColor
+                                          : theme.secondaryTextColor,
                                     ),
                                   ),
                                 ),

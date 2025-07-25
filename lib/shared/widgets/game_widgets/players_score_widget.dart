@@ -50,7 +50,9 @@ class PlayersScoreWidget extends StatelessWidget {
                     Text(
                       players[0].score.toString(),
                       style: theme.display2.copyWith(
-                        color: theme.textColor,
+                        color: players[0].score < 0
+                            ? theme.redColor
+                            : theme.textColor,
                       ),
                     ),
                     Text(
@@ -131,7 +133,9 @@ class PlayersScoreWidget extends StatelessWidget {
                             Text(
                               players[index].score.toString(),
                               style: theme.display2.copyWith(
-                                color: theme.textColor,
+                                color: players[index].score < 0
+                                    ? theme.redColor
+                                    : theme.textColor,
                               ),
                             ),
                           ],
