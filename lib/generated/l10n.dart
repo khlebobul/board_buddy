@@ -2923,6 +2923,11 @@ class S {
   String get french {
     return Intl.message('french', name: 'french', desc: '', args: []);
   }
+
+  /// `spanish`
+  String get spanish {
+    return Intl.message('spanish', name: 'spanish', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {
@@ -2932,6 +2937,7 @@ class AppLocalizationDelegate extends LocalizationsDelegate<S> {
     return const <Locale>[
       Locale.fromSubtags(languageCode: 'en'),
       Locale.fromSubtags(languageCode: 'de'),
+      Locale.fromSubtags(languageCode: 'es'),
       Locale.fromSubtags(languageCode: 'fr'),
       Locale.fromSubtags(languageCode: 'ru'),
     ];

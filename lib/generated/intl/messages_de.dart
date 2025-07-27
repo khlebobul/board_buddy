@@ -235,7 +235,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "leftHand": MessageLookupByLibrary.simpleMessage("linke hand"),
     "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
         MessageLookupByLibrary.simpleMessage(
-          "hilft dir, punkte und schlüsselmomente mühelos zu verfolgen, damit du dich auf das spiel konzentrieren kannst",
+          " hilft dir, punkte und schlüsselmomente mühelos zu verfolgen, damit du dich auf das spiel konzentrieren kannst",
         ),
     "level": MessageLookupByLibrary.simpleMessage("level"),
     "light": MessageLookupByLibrary.simpleMessage("hell"),
@@ -572,6 +572,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "skipsTheNextPlayersTurnUnoInfo": MessageLookupByLibrary.simpleMessage(
       "der nächste spieler wird übersprungen.",
     ),
+    "spanish": MessageLookupByLibrary.simpleMessage("spanisch"),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage("sonderkarten:"),
     "specialRulesTitle": MessageLookupByLibrary.simpleMessage(
       "besondere regeln:",

@@ -4,6 +4,7 @@
 
 ### New Features
 - Added support for negative values in counters and scores in Common Counter.
+- Spanish is now available as a selectable language in the settings screen.
 
 ## [1.0.8]
 
