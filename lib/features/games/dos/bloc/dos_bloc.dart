@@ -44,7 +44,6 @@ class DosBloc extends Bloc<DosEvent, DosState> {
       scoreLimit: 200,
     ));
 
-    
     add(CheckSavedGame());
   }
 

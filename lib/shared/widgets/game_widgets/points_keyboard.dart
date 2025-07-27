@@ -1,6 +1,7 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gaimon/gaimon.dart';
 
 /// widget that represents a custom keyboard.
 class CustomKeyboard extends StatelessWidget {
@@ -86,6 +87,7 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
   void _onTap() {
     if (widget.button.onPressed != null) {
       widget.button.onPressed!();
+      Gaimon.soft();
       _controller.forward().then((_) => _controller.reverse());
     }
   }
@@ -93,6 +95,7 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
   @override
   Widget build(BuildContext context) {
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: _onTap,
       child: Container(
         margin: widget.button.useCompactMargin

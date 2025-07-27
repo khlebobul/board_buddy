@@ -47,7 +47,7 @@ class PlayerCard extends StatelessWidget {
             child: Text(
               player.score.toString(),
               style: theme.display5.copyWith(
-                color: theme.textColor,
+                color: player.score < 0 ? theme.redColor : theme.textColor,
               ),
             ),
           ),

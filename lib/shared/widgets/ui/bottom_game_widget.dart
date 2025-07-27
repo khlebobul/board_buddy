@@ -4,6 +4,7 @@ import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:gaimon/gaimon.dart';
 import 'package:use_scramble/use_scramble.dart';
 
 /// widget that represents a customizable bottom game bar.
@@ -113,7 +114,14 @@ class BottomGameBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   GestureDetector(
-                    onTap: isLeftArrowActive ? onLeftArrowTap : null,
+                    onTap: isLeftArrowActive
+                        ? () {
+                            if (onLeftArrowTap != null) {
+                              onLeftArrowTap!();
+                              Gaimon.soft();
+                            }
+                          }
+                        : null,
                     child: SvgPicture.asset(
                       CustomIcons.leftArrow,
                       colorFilter: ColorFilter.mode(
@@ -135,6 +143,7 @@ class BottomGameBar extends StatelessWidget {
                                 return dialogWidget ?? const InfoUnoDialog();
                               },
                             );
+                            Gaimon.soft();
                           },
                           child: SvgPicture.asset(
                             CustomIcons.info,
@@ -146,7 +155,12 @@ class BottomGameBar extends StatelessWidget {
                   isKeyboardActive == false
                       ? const SizedBox()
                       : GestureDetector(
-                          onTap: onKeyboardBtnTap,
+                          onTap: () {
+                            if (onKeyboardBtnTap != null) {
+                              onKeyboardBtnTap!();
+                              Gaimon.soft();
+                            }
+                          },
                           child: SvgPicture.asset(
                             CustomIcons.keyboard,
                             colorFilter: ColorFilter.mode(
@@ -156,7 +170,14 @@ class BottomGameBar extends StatelessWidget {
                         ),
                   const SizedBox(width: 20),
                   GestureDetector(
-                    onTap: isRightArrowActive ? onRightArrowTap : null,
+                    onTap: isRightArrowActive
+                        ? () {
+                            if (onRightArrowTap != null) {
+                              onRightArrowTap!();
+                              Gaimon.soft();
+                            }
+                          }
+                        : null,
                     child: SvgPicture.asset(
                       CustomIcons.rightArrow,
                       colorFilter: ColorFilter.mode(

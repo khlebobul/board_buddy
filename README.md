@@ -10,6 +10,10 @@ a free cross-platform mobile app for tracking scores and rules in board games. b
 
 [![Website](https://img.shields.io/badge/Website-414141?style=for-the-badge&logo=Website&logoColor=F1F1F1)](https://boardbuddyapp.vercel.app) [![Support - Stars](https://img.shields.io/badge/Support-Stars-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul_dev) [![Support - YooMoney](https://img.shields.io/badge/Support-YooMoney-414141?style=for-the-badge&logo=YooMoney&logoColor=F1F1F1)](https://yoomoney.ru/to/4100118234947004) [![LICENCE - MIT](https://img.shields.io/badge/LICENCE-MIT-414141?style=for-the-badge&logo=Licence&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/LICENSE)
 
+<a href="https://www.uneed.best/tool/board-buddy">
+    <img src="https://www.uneed.best/POTD2.png" style="width: 250px;" alt="Uneed POTD2 Badge" />
+    </a>
+
 </div>
 
 ## table of contents
@@ -75,7 +79,7 @@ your ultimate board game companion
 
 ### packages
 
-[gen_art_bg](https://pub.dev/packages/gen_art_bg) / [use_scramble](https://pub.dev/packages/use_scramble) / [shared_preferences](https://pub.dev/packages/shared_preferences) / [intl](https://pub.dev/packages/intl) / [url_launcher](https://pub.dev/packages/url_launcher) / [flutter_svg](https://pub.dev/packages/flutter_svg) / [flutter_bloc](https://pub.dev/packages/flutter_bloc) / [flutter_popup](https://pub.dev/packages/flutter_popup) / [wheel_chooser](https://pub.dev/packages/wheel_chooser) / [sqflite](https://pub.dev/packages/sqflite) / [path](https://pub.dev/packages/path) / [share_plus](https://pub.dev/packages/share_plus) / [in_app_review](https://pub.dev/packages/in_app_review) / [wakelock_plus](https://pub.dev/packages/wakelock_plus)
+[gen_art_bg](https://pub.dev/packages/gen_art_bg) / [use_scramble](https://pub.dev/packages/use_scramble) / [shared_preferences](https://pub.dev/packages/shared_preferences) / [intl](https://pub.dev/packages/intl) / [url_launcher](https://pub.dev/packages/url_launcher) / [flutter_svg](https://pub.dev/packages/flutter_svg) / [flutter_bloc](https://pub.dev/packages/flutter_bloc) / [flutter_popup](https://pub.dev/packages/flutter_popup) / [wheel_chooser](https://pub.dev/packages/wheel_chooser) / [sqflite](https://pub.dev/packages/sqflite) / [path](https://pub.dev/packages/path) / [share_plus](https://pub.dev/packages/share_plus) / [in_app_review](https://pub.dev/packages/in_app_review) / [wakelock_plus](https://pub.dev/packages/wakelock_plus) / [gaimon](https://pub.dev/packages/gaimon)
 
 ## contacts
 

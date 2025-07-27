@@ -1,9 +1,25 @@
 # Changelog
 
+## [1.0.9]
+
+### New Features
+- Added support for negative values in counters and scores in Common Counter.
+
+## [1.0.8]
+
+### New Features
+- Added haptic feedback (soft vibration) to various game and score adjustment interactions for a more tactile user experience.
+
+### Bug Fixes
+- Fixed Common Counter game's route bug
+
+### UI Improvements
+- Improved tap area responsiveness on several buttons and score controls.
+
 ## [1.0.7]
 
 ### New Features
-- Spanish is now available as a selectable language in the settings screen.
+- Added RuStore links for other apps on the About screen.
 
 ## [1.0.6]
 
