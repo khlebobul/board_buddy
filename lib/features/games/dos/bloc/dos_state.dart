@@ -47,6 +47,7 @@ final class DosGameState extends DosState {
   final int lastScoreChange;
   final bool isScoreChanging;
   final bool gameEnded;
+  final bool hasShownGameEndModal;
 
   DosGameState({
     required this.players,
@@ -58,6 +59,7 @@ final class DosGameState extends DosState {
     this.lastScoreChange = 0,
     this.isScoreChanging = false,
     this.gameEnded = false,
+    this.hasShownGameEndModal = false,
   })  : playerScoreHistory = playerScoreHistory ?? {},
         playerRedoStack = playerRedoStack ?? {};
 
@@ -71,6 +73,7 @@ final class DosGameState extends DosState {
     int? lastScoreChange,
     bool? isScoreChanging,
     bool? gameEnded,
+    bool? hasShownGameEndModal,
   }) {
     return DosGameState(
       players: players ?? this.players,
@@ -82,6 +85,7 @@ final class DosGameState extends DosState {
       lastScoreChange: lastScoreChange ?? this.lastScoreChange,
       isScoreChanging: isScoreChanging ?? this.isScoreChanging,
       gameEnded: gameEnded ?? this.gameEnded,
+      hasShownGameEndModal: hasShownGameEndModal ?? this.hasShownGameEndModal,
     );
   }
 

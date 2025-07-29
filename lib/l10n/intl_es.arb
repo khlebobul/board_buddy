@@ -306,6 +306,7 @@
   "theNumberOfPlayersShouldBe": "el número de jugadores debe ser más que",
   "gameUpTo": "juego hasta: ",
   "gameOver": "fin del juego",
+  "continueGame": "continuar juego",
   "newGameWithSamePlayers": "otra ronda",
   "newGame": "nuevo juego",
   "returnToMenu": "volver al menú",

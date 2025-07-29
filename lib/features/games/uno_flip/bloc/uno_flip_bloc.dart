@@ -30,6 +30,9 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
     on<StartNewGame>(_onStartNewGame);
     on<ReturnToMenu>(_onReturnToMenu);
     on<CheckGameEnd>(_onCheckGameEnd);
+    on<ContinueGame>(_onContinueGame);
+    on<FinishGame>(_onFinishGame);
+    on<MarkGameEndModalShown>(_onMarkGameEndModalShown);
     on<SaveGameSession>(_onSaveGameSession);
   }
 
@@ -338,7 +341,8 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
         }
       }
 
-      if (gameEnded) {
+      // Only set gameEnded to true if we haven't shown the modal yet
+      if (gameEnded && !currentState.hasShownGameEndModal) {
         emit(currentState.copyWith(gameEnded: true));
 
         add(DeleteSavedGame());
@@ -399,6 +403,7 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
         playerRedoStack: playerRedoStack,
         currentPlayerIndex: 0,
         gameEnded: false,
+        hasShownGameEndModal: false,
       ));
 
       add(DeleteSavedGame());
@@ -436,6 +441,36 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
 
     // Just emit initial state, navigation will be handled in the UI
     emit(UnoFlipInitial());
+  }
+
+  void _onContinueGame(
+    ContinueGame event,
+    Emitter<UnoFlipState> emit,
+  ) {
+    if (state is UnoFlipGameState) {
+      final currentState = state as UnoFlipGameState;
+      emit(currentState.copyWith(gameEnded: false));
+    }
+  }
+
+  void _onFinishGame(
+    FinishGame event,
+    Emitter<UnoFlipState> emit,
+  ) {
+    if (state is UnoFlipGameState) {
+      final currentState = state as UnoFlipGameState;
+      emit(currentState.copyWith(gameEnded: true));
+    }
+  }
+
+  void _onMarkGameEndModalShown(
+    MarkGameEndModalShown event,
+    Emitter<UnoFlipState> emit,
+  ) {
+    if (state is UnoFlipGameState) {
+      final currentState = state as UnoFlipGameState;
+      emit(currentState.copyWith(hasShownGameEndModal: true));
+    }
   }
 
   // Helper methods for working with state
@@ -499,5 +534,20 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
 
   void deleteSavedGame() {
     add(DeleteSavedGame());
+  }
+
+  // Continue the game after reaching score limit
+  void continueGame() {
+    add(ContinueGame());
+  }
+
+  // Finish the game manually
+  void finishGame() {
+    add(FinishGame());
+  }
+
+  // Mark that the game end modal has been shown
+  void markGameEndModalShown() {
+    add(MarkGameEndModalShown());
   }
 }

@@ -75,3 +75,9 @@ class StartNewGame extends DosEvent {}
 class ReturnToMenu extends DosEvent {}
 
 class CheckGameEnd extends DosEvent {}
+
+class ContinueGame extends DosEvent {}
+
+class FinishGame extends DosEvent {}
+
+class MarkGameEndModalShown extends DosEvent {}

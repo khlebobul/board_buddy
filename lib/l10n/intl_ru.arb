@@ -308,6 +308,7 @@
   "theNumberOfPlayersShouldBe": "количество игроков должно быть больше",
   "gameUpTo": "игра до: ",
   "gameOver": "игра окончена",
+  "continueGame": "продолжить игру",
   "newGameWithSamePlayers": "еще раунд",
   "newGame": "новая игра",
   "returnToMenu": "вернуться в меню",

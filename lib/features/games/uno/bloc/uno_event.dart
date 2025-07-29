@@ -76,3 +76,9 @@ class StartNewGame extends UnoEvent {}
 class ReturnToMenu extends UnoEvent {}
 
 class CheckGameEnd extends UnoEvent {}
+
+class ContinueGame extends UnoEvent {}
+
+class FinishGame extends UnoEvent {}
+
+class MarkGameEndModalShown extends UnoEvent {}
