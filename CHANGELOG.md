@@ -5,6 +5,7 @@
 ### New Features
 - Added support for negative values in counters and scores in Common Counter.
 - Spanish is now available as a selectable language in the settings screen.
+- Added a "Continue Game" option to the end-of-game modal for Uno, Uno Flip, and Dos games, allowing players to resume a finished game.
 
 ## [1.0.8]
 
