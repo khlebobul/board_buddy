@@ -30,6 +30,9 @@ class DosBloc extends Bloc<DosEvent, DosState> {
     on<StartNewGame>(_onStartNewGame);
     on<ReturnToMenu>(_onReturnToMenu);
     on<CheckGameEnd>(_onCheckGameEnd);
+    on<ContinueGame>(_onContinueGame);
+    on<FinishGame>(_onFinishGame);
+    on<MarkGameEndModalShown>(_onMarkGameEndModalShown);
     on<SaveGameSession>(_onSaveGameSession);
   }
 
@@ -338,7 +341,8 @@ class DosBloc extends Bloc<DosEvent, DosState> {
         }
       }
 
-      if (gameEnded) {
+      // Only set gameEnded to true if we haven't shown the modal yet
+      if (gameEnded && !currentState.hasShownGameEndModal) {
         emit(currentState.copyWith(gameEnded: true));
 
         add(DeleteSavedGame());
@@ -399,6 +403,7 @@ class DosBloc extends Bloc<DosEvent, DosState> {
         playerRedoStack: playerRedoStack,
         currentPlayerIndex: 0,
         gameEnded: false,
+        hasShownGameEndModal: false,
       ));
 
       add(DeleteSavedGame());
@@ -436,6 +441,36 @@ class DosBloc extends Bloc<DosEvent, DosState> {
 
     // Just emit initial state, navigation will be handled in the UI
     emit(DosInitial());
+  }
+
+  void _onContinueGame(
+    ContinueGame event,
+    Emitter<DosState> emit,
+  ) {
+    if (state is DosGameState) {
+      final currentState = state as DosGameState;
+      emit(currentState.copyWith(gameEnded: false));
+    }
+  }
+
+  void _onFinishGame(
+    FinishGame event,
+    Emitter<DosState> emit,
+  ) {
+    if (state is DosGameState) {
+      final currentState = state as DosGameState;
+      emit(currentState.copyWith(gameEnded: true));
+    }
+  }
+
+  void _onMarkGameEndModalShown(
+    MarkGameEndModalShown event,
+    Emitter<DosState> emit,
+  ) {
+    if (state is DosGameState) {
+      final currentState = state as DosGameState;
+      emit(currentState.copyWith(hasShownGameEndModal: true));
+    }
   }
 
   // Helper methods for working with state
@@ -499,5 +534,20 @@ class DosBloc extends Bloc<DosEvent, DosState> {
 
   void deleteSavedGame() {
     add(DeleteSavedGame());
+  }
+
+  // Continue the game after reaching score limit
+  void continueGame() {
+    add(ContinueGame());
+  }
+
+  // Finish the game manually
+  void finishGame() {
+    add(FinishGame());
+  }
+
+  // Mark that the game end modal has been shown
+  void markGameEndModalShown() {
+    add(MarkGameEndModalShown());
   }
 }

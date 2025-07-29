@@ -47,6 +47,7 @@ final class UnoFlipGameState extends UnoFlipState {
   final int lastScoreChange;
   final bool isScoreChanging;
   final bool gameEnded;
+  final bool hasShownGameEndModal;
 
   UnoFlipGameState({
     required this.players,
@@ -58,6 +59,7 @@ final class UnoFlipGameState extends UnoFlipState {
     this.lastScoreChange = 0,
     this.isScoreChanging = false,
     this.gameEnded = false,
+    this.hasShownGameEndModal = false,
   })  : playerScoreHistory = playerScoreHistory ?? {},
         playerRedoStack = playerRedoStack ?? {};
 
@@ -71,6 +73,7 @@ final class UnoFlipGameState extends UnoFlipState {
     int? lastScoreChange,
     bool? isScoreChanging,
     bool? gameEnded,
+    bool? hasShownGameEndModal,
   }) {
     return UnoFlipGameState(
       players: players ?? this.players,
@@ -82,6 +85,7 @@ final class UnoFlipGameState extends UnoFlipState {
       lastScoreChange: lastScoreChange ?? this.lastScoreChange,
       isScoreChanging: isScoreChanging ?? this.isScoreChanging,
       gameEnded: gameEnded ?? this.gameEnded,
+      hasShownGameEndModal: hasShownGameEndModal ?? this.hasShownGameEndModal,
     );
   }
 

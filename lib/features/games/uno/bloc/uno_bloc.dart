@@ -30,6 +30,9 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
     on<StartNewGame>(_onStartNewGame);
     on<ReturnToMenu>(_onReturnToMenu);
     on<CheckGameEnd>(_onCheckGameEnd);
+    on<ContinueGame>(_onContinueGame);
+    on<FinishGame>(_onFinishGame);
+    on<MarkGameEndModalShown>(_onMarkGameEndModalShown);
     on<SaveGameSession>(_onSaveGameSession);
   }
 
@@ -344,7 +347,8 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
         }
       }
 
-      if (gameEnded) {
+      // Only set gameEnded to true if we haven't shown the modal yet
+      if (gameEnded && !currentState.hasShownGameEndModal) {
         emit(currentState.copyWith(gameEnded: true));
 
         // Delete saved game when a game ends
@@ -408,6 +412,7 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
         playerRedoStack: playerRedoStack,
         currentPlayerIndex: 0,
         gameEnded: false,
+        hasShownGameEndModal: false,
       ));
 
       // Delete the saved game session when starting a new game
@@ -448,6 +453,36 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
 
     // Just emit initial state, navigation will be handled in the UI
     emit(UnoInitial());
+  }
+
+  void _onContinueGame(
+    ContinueGame event,
+    Emitter<UnoState> emit,
+  ) {
+    if (state is UnoGameState) {
+      final currentState = state as UnoGameState;
+      emit(currentState.copyWith(gameEnded: false));
+    }
+  }
+
+  void _onFinishGame(
+    FinishGame event,
+    Emitter<UnoState> emit,
+  ) {
+    if (state is UnoGameState) {
+      final currentState = state as UnoGameState;
+      emit(currentState.copyWith(gameEnded: true));
+    }
+  }
+
+  void _onMarkGameEndModalShown(
+    MarkGameEndModalShown event,
+    Emitter<UnoState> emit,
+  ) {
+    if (state is UnoGameState) {
+      final currentState = state as UnoGameState;
+      emit(currentState.copyWith(hasShownGameEndModal: true));
+    }
   }
 
   // Helper methods for working with state
@@ -513,5 +548,20 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
   // Delete the saved game
   void deleteSavedGame() {
     add(DeleteSavedGame());
+  }
+
+  // Continue the game after reaching score limit
+  void continueGame() {
+    add(ContinueGame());
+  }
+
+  // Finish the game manually
+  void finishGame() {
+    add(FinishGame());
+  }
+
+  // Mark that the game end modal has been shown
+  void markGameEndModalShown() {
+    add(MarkGameEndModalShown());
   }
 }

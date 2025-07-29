@@ -15,6 +15,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
   final VoidCallback onNewGameWithSamePlayers;
   final VoidCallback onNewGame;
   final VoidCallback onReturnToMenu;
+  final VoidCallback onContinueGame;
 
   const GameEndUnoModalWidget({
     super.key,
@@ -24,6 +25,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
     required this.onNewGameWithSamePlayers,
     required this.onNewGame,
     required this.onReturnToMenu,
+    required this.onContinueGame,
   });
 
   @override
@@ -138,6 +140,23 @@ class GameEndUnoModalWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
+                    onTap: onContinueGame,
+                    child: Padding(
+                      padding: const EdgeInsets.symmetric(vertical: 8.0),
+                      child: TextScramble(
+                          text: S.of(context).continueGame,
+                          builder: (context, scrambledText) {
+                            return Text(
+                              scrambledText,
+                              style: theme.display2.copyWith(
+                                color: theme.redColor,
+                              ),
+                              textAlign: TextAlign.center,
+                            );
+                          }),
+                    ),
+                  ),
+                  GestureDetector(
                     onTap: onNewGameWithSamePlayers,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -200,6 +219,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
     required VoidCallback onNewGameWithSamePlayers,
     required VoidCallback onNewGame,
     required VoidCallback onReturnToMenu,
+    required VoidCallback onContinueGame,
   }) {
     HapticFeedback.selectionClick();
 
@@ -225,6 +245,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
                 onNewGameWithSamePlayers: onNewGameWithSamePlayers,
                 onNewGame: onNewGame,
                 onReturnToMenu: onReturnToMenu,
+                onContinueGame: onContinueGame,
               ),
             ),
           ],

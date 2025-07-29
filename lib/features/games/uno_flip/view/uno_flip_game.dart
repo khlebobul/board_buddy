@@ -109,11 +109,20 @@ class _UnoFlipGameState extends State<UnoFlipGame>
     // Set flag that modal is shown
     _isGameEndModalShown = true;
 
+    // Mark that the game end modal has been shown
+    bloc.markGameEndModalShown();
+
     GameEndUnoModalWidget.show(
       context,
       players: players,
       gameMode: gameMode,
       scoreLimit: scoreLimit,
+      onContinueGame: () {
+        bloc.continueGame();
+        Navigator.pop(context);
+        // Reset flag after closing modal
+        _isGameEndModalShown = false;
+      },
       onNewGameWithSamePlayers: () {
         bloc.startNewGameWithSamePlayers();
         Navigator.pop(context);
@@ -137,17 +146,26 @@ class _UnoFlipGameState extends State<UnoFlipGame>
   }
 
   void _showEndGameModalWithoutScoreLimit() {
-    ModalWindowWidget.show(
-      context,
-      mainText: S.of(context).youHaveAnUnfinishedGame,
-      button1Text: S.of(context).doReturn,
-      button2Text: S.of(context).finish,
-      button1Action: () => Navigator.pop(context),
-      button2Action: () {
-        bloc.returnToMenu();
-        Navigator.pushNamed(context, '/home');
-      },
-    );
+    final currentState = bloc.state;
+
+    if (currentState is UnoFlipGameState) {
+      // Show the same game end modal as when score limit is reached
+      _showGameEndModal(
+          currentState.players, currentState.gameMode, currentState.scoreLimit);
+    } else {
+      // Fallback to simple modal if state is not available
+      ModalWindowWidget.show(
+        context,
+        mainText: S.of(context).youHaveAnUnfinishedGame,
+        button1Text: S.of(context).doReturn,
+        button2Text: S.of(context).finish,
+        button1Action: () => Navigator.pop(context),
+        button2Action: () {
+          bloc.returnToMenu();
+          Navigator.pushNamed(context, '/home');
+        },
+      );
+    }
   }
 
   void _undo() {
@@ -200,8 +218,10 @@ class _UnoFlipGameState extends State<UnoFlipGame>
             );
           }
 
-          // Show game end modal if game ended
-          if (state.gameEnded && !_isGameEndModalShown) {
+          // Show game end modal if game ended and modal hasn't been shown yet
+          if (state.gameEnded &&
+              !state.hasShownGameEndModal &&
+              !_isGameEndModalShown) {
             _showGameEndModal(state.players, state.gameMode, state.scoreLimit);
           }
         }
