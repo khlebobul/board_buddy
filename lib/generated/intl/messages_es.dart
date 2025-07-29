@@ -84,6 +84,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "cleric": MessageLookupByLibrary.simpleMessage("clérigo"),
     "close": MessageLookupByLibrary.simpleMessage("cerrar"),
     "common": MessageLookupByLibrary.simpleMessage("contador"),
+    "continueGame": MessageLookupByLibrary.simpleMessage("continuar juego"),
     "continueTitle": MessageLookupByLibrary.simpleMessage("continuar"),
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage(
       "no se pudo iniciar",

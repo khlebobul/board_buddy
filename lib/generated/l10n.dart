@@ -2714,6 +2714,16 @@ class S {
     return Intl.message('game over', name: 'gameOver', desc: '', args: []);
   }
 
+  /// `continue game`
+  String get continueGame {
+    return Intl.message(
+      'continue game',
+      name: 'continueGame',
+      desc: '',
+      args: [],
+    );
+  }
+
   /// `another round`
   String get newGameWithSamePlayers {
     return Intl.message(

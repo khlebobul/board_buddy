@@ -307,6 +307,7 @@
   "thenumberofplayersshouldbe": "le nombre de joueurs doit être plus de",
   "gameupto": "partie jusqu’à : ",
   "gameover": "fin de jeu",
+  "continuegame": "continuer le jeu",
   "newgamewithsameplayers": "nouvelle partie",
   "newgame": "nouveau jeu",
   "returntomenu": "retour au menu",
