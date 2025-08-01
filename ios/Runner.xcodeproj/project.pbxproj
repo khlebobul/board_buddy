@@ -66,6 +66,8 @@
 		97C147021CF9000F007C117D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		BB6160132D98C07800D037B9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		BB6160142D98C07800D037B9 /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
+		BB85547F2E3C77E600BE3369 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/Main.strings; sourceTree = "<group>"; };
+		BB8554802E3C77E600BE3369 /* es */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = es; path = es.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BBC049162DFFF3EA000FEB76 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/Main.strings; sourceTree = "<group>"; };
 		BBC049172DFFF3EA000FEB76 /* de */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = de; path = de.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		BBC2734D2E027CAF0046C912 /* fr */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = fr; path = fr.lproj/Main.strings; sourceTree = "<group>"; };
@@ -244,6 +246,7 @@
 				ru,
 				de,
 				fr,
+				es,
 			);
 			mainGroup = 97C146E51CF9000F007C117D;
 			productRefGroup = 97C146EF1CF9000F007C117D /* Products */;
@@ -324,9 +327,13 @@
 			inputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-input-files.xcfilelist",
 			);
+			inputPaths = (
+			);
 			name = "[CP] Embed Pods Frameworks";
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-Runner/Pods-Runner-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			outputPaths = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
@@ -408,6 +415,7 @@
 				BB6160132D98C07800D037B9 /* ru */,
 				BBC049162DFFF3EA000FEB76 /* de */,
 				BBC2734D2E027CAF0046C912 /* fr */,
+				BB85547F2E3C77E600BE3369 /* es */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -419,6 +427,7 @@
 				BB6160142D98C07800D037B9 /* ru */,
 				BBC049172DFFF3EA000FEB76 /* de */,
 				BBC2734E2E027CAF0046C912 /* fr */,
+				BB8554802E3C77E600BE3369 /* es */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
