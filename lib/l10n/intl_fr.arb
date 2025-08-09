@@ -210,7 +210,7 @@
   "level": "niveau",
   "totalstrength": "force totale : ",
   "modifiers": "modificateurs",
-  "addplayer": "ajouter un joueur",
+  "addPlayer": "ajouter un joueur",
   "race1": "race 1",
   "dwarf": "nain",
   "elf": "elfe",
@@ -337,5 +337,6 @@
   "myotherapps": "mes autres applis",
   "german": "allemand",
   "french": "français",
-  "spanish": "espagnol"
+  "spanish": "espagnol",
+  "options": "options"
 }

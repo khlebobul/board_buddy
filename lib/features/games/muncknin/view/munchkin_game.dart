@@ -239,7 +239,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                       ? const InfoMunchkinDialogWidget()
                       : null,
                   isArrow: true,
-                  rightButtonText: S.of(context).finish,
+                  rightButtonText: S.of(context).options,
                   onRightBtnTap: () => _showEndGameModal(context, state),
                   isLeftArrowActive: state.history
                       .where((item) =>

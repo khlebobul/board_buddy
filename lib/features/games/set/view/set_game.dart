@@ -165,7 +165,7 @@ class _SetGameState extends State<SetGame> with WidgetsBindingObserver {
             ),
             bottomNavigationBar: BottomGameBar(
               isArrow: true,
-              rightButtonText: S.of(context).finish,
+              rightButtonText: S.of(context).options,
               onRightBtnTap: () {
                 if (gameState.isSinglePlayer) {
                   _pauseTimer();

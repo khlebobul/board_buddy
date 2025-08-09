@@ -164,7 +164,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: TextScramble(
-                            text: S.of(context).add,
+                            text: S.of(context).addPlayer,
                             builder: (context, scrambledText) {
                               return Text(
                                 scrambledText,

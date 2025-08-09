@@ -24,6 +24,7 @@ class MessageLookup extends MessageLookupByLibrary {
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("à propos"),
     "add": MessageLookupByLibrary.simpleMessage("ajouter"),
+    "addPlayer": MessageLookupByLibrary.simpleMessage("ajouter un joueur"),
     "adding": MessageLookupByLibrary.simpleMessage("ajouter"),
     "appreciation": MessageLookupByLibrary.simpleMessage("crédits"),
     "armour": MessageLookupByLibrary.simpleMessage("armure"),
@@ -64,6 +65,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "name": MessageLookupByLibrary.simpleMessage("nom"),
     "off": MessageLookupByLibrary.simpleMessage("désactivé"),
     "on": MessageLookupByLibrary.simpleMessage("activé"),
+    "options": MessageLookupByLibrary.simpleMessage("options"),
     "others": MessageLookupByLibrary.simpleMessage("autres"),
     "play": MessageLookupByLibrary.simpleMessage("jouer"),
     "players": MessageLookupByLibrary.simpleMessage("joueurs"),

@@ -103,7 +103,7 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
               bottomNavigationBar: BottomGameBar(
                 dialogWidget: const InfoscrabbleDialog(),
                 isArrow: true,
-                rightButtonText: S.of(context).finish,
+                rightButtonText: S.of(context).options,
                 onRightBtnTap: () {
                   // Show game completion dialog
                   _showGameEndModal(context, gameState.players);

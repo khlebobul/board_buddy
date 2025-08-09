@@ -255,7 +255,7 @@ class _CommonGameViewState extends State<CommonGameView>
             ),
             bottomNavigationBar: BottomGameBar(
               isArrow: true,
-              rightButtonText: S.of(context).finish,
+              rightButtonText: S.of(context).options,
               onRightBtnTap: () {
                 _showGameEndModal(context, gameState);
               },

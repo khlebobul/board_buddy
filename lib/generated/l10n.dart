@@ -2938,6 +2938,11 @@ class S {
   String get spanish {
     return Intl.message('spanish', name: 'spanish', desc: '', args: []);
   }
+
+  /// `options`
+  String get options {
+    return Intl.message('options', name: 'options', desc: '', args: []);
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

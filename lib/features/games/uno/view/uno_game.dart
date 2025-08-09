@@ -178,7 +178,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
         context,
         mainText: S.of(context).youHaveAnUnfinishedGame,
         button1Text: S.of(context).doReturn,
-        button2Text: S.of(context).finish,
+        button2Text: S.of(context).options,
         button1Action: () => Navigator.pop(context),
         button2Action: () {
           bloc.returnToMenu();
@@ -479,7 +479,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
             bottomNavigationBar: BottomGameBar(
               dialogWidget: const InfoUnoDialog(),
               isArrow: true,
-              rightButtonText: S.of(context).finish,
+              rightButtonText: S.of(context).options,
               onLeftArrowTap: _undo,
               onRightArrowTap: _redo,
               onRightBtnTap: _showEndGameModalWithoutScoreLimit,
