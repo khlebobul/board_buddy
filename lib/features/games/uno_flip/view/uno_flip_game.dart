@@ -11,6 +11,7 @@ import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/features/games/uno_flip/widgets/info_uno_flip_dialog_widget.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -142,6 +143,24 @@ class _UnoFlipGameState extends State<UnoFlipGame>
         // Reset the flag after closing the modal window
         _isGameEndModalShown = false;
       },
+      onAddPlayer: players.length < GameMaxPlayers.unoFlip
+          ? () {
+              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
+                final unoFlipBloc = context.read<UnoFlipBloc>();
+                unoFlipBloc.add(AddPlayer(newPlayer));
+                // Close and reopen modal with updated players
+                Navigator.pop(context);
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  final current = unoFlipBloc.state;
+                  if (current is UnoFlipGameState) {
+                    _isGameEndModalShown = false;
+                    _showGameEndModal(
+                        current.players, current.gameMode, current.scoreLimit);
+                  }
+                });
+              });
+            }
+          : null,
     );
   }
 

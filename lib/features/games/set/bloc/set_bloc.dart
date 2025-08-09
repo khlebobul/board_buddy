@@ -71,6 +71,16 @@ class SetBloc extends Bloc<SetEvent, SetState> {
       final updatedPlayers = List<Player>.from(currentState.players)
         ..add(event.player);
       emit(currentState.copyWith(players: updatedPlayers));
+    } else if (state is SetGameState) {
+      final currentState = state as SetGameState;
+      final updatedPlayers = List<Player>.from(currentState.players)
+        ..add(event.player);
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+      ));
+
+      add(SaveGameSession());
     }
   }
 

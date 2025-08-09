@@ -13,6 +13,7 @@ import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -326,6 +327,26 @@ class _MunchkinGameState extends State<MunchkinGame> {
           (route) => false,
         );
       },
+      onAddPlayer:
+          !isSinglePlayer && state.players.length < GameMaxPlayers.munchkin
+              ? () {
+                  AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
+                    final munchkinBloc = context.read<MunchkinBloc>();
+                    munchkinBloc.add(AddPlayer(newPlayer));
+                    Navigator.of(context).pop();
+                    WidgetsBinding.instance.addPostFrameCallback((_) {
+                      final updated = List<Player>.from(state.players)
+                        ..add(newPlayer);
+                      _showEndGameModal(
+                        context,
+                        state.copyWith(
+                          players: updated,
+                        ),
+                      );
+                    });
+                  });
+                }
+              : null,
     );
   }
 

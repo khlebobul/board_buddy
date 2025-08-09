@@ -7,6 +7,7 @@ import 'package:board_buddy/shared/widgets/game_widgets/timer.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_score_widget.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -212,6 +213,22 @@ class _SetGameState extends State<SetGame> with WidgetsBindingObserver {
       onReturnToMenu: () {
         Navigator.pushNamed(context, '/home');
       },
+      onAddPlayer: !gameState.isSinglePlayer &&
+              gameState.players.length < GameMaxPlayers.set
+          ? () {
+              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
+                final setBloc = context.read<SetBloc>();
+                setBloc.add(AddPlayer(newPlayer));
+                Navigator.of(context).pop();
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  final updated = List<Player>.from(gameState.players)
+                    ..add(newPlayer);
+                  _showGameEndModal(
+                      context, gameState.copyWith(players: updated));
+                });
+              });
+            }
+          : null,
     );
   }
 }

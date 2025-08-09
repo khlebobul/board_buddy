@@ -11,6 +11,7 @@ import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/features/games/dos/widgets/info_dos_dialog_widget.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -109,7 +110,7 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
 
     final bloc = context.read<DosBloc>();
     bloc.markGameEndModalShown();
-    
+
     GameEndUnoModalWidget.show(
       // same as uno
       context,
@@ -140,16 +141,34 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
         // Reset the flag after closing the modal window
         _isGameEndModalShown = false;
       },
+      onAddPlayer: players.length < GameMaxPlayers.dos
+          ? () {
+              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
+                final dosBloc = context.read<DosBloc>();
+                dosBloc.add(AddPlayer(newPlayer));
+                Navigator.pop(context);
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  final current = dosBloc.state;
+                  if (current is DosGameState) {
+                    _isGameEndModalShown = false;
+                    _showGameEndModal(
+                        current.players, current.gameMode, current.scoreLimit);
+                  }
+                });
+              });
+            }
+          : null,
     );
   }
 
   void _showEndGameModalWithoutScoreLimit() {
     final bloc = context.read<DosBloc>();
     final currentState = bloc.state;
-    
+
     if (currentState is DosGameState) {
       // Show the same game end modal as when score limit is reached
-      _showGameEndModal(currentState.players, currentState.gameMode, currentState.scoreLimit);
+      _showGameEndModal(
+          currentState.players, currentState.gameMode, currentState.scoreLimit);
     } else {
       // Fallback to simple modal if state is not available
       ModalWindowWidget.show(
@@ -214,7 +233,9 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
           }
 
           // Show game end modal if game ended and modal hasn't been shown yet
-          if (state.gameEnded && !state.hasShownGameEndModal && !_isGameEndModalShown) {
+          if (state.gameEnded &&
+              !state.hasShownGameEndModal &&
+              !_isGameEndModalShown) {
             _showGameEndModal(state.players, state.gameMode, state.scoreLimit);
           }
         }

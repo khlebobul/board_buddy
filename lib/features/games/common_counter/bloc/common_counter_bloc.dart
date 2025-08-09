@@ -74,6 +74,17 @@ class CommonCounterBloc extends Bloc<CommonCounterEvent, CommonCounterState> {
       final updatedPlayers = List<Player>.from(currentState.players)
         ..add(event.player);
       emit(currentState.copyWith(players: updatedPlayers));
+    } else if (state is CommonCounterGameState) {
+      final currentState = state as CommonCounterGameState;
+      final updatedPlayers = List<Player>.from(currentState.players)
+        ..add(event.player);
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+      ));
+
+      // Save immediately to persist new roster
+      add(SaveGameSession());
     }
   }
 

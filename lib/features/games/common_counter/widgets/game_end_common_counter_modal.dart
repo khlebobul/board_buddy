@@ -15,6 +15,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
   final VoidCallback onNewRound;
   final VoidCallback onNewGame;
   final VoidCallback onReturnToMenu;
+  final VoidCallback? onAddPlayer;
 
   const GameEndCommonCounterModal({
     super.key,
@@ -24,6 +25,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
     required this.onNewRound,
     required this.onNewGame,
     required this.onReturnToMenu,
+    this.onAddPlayer,
   });
 
   @override
@@ -164,6 +166,22 @@ class GameEndCommonCounterModal extends StatelessWidget {
                           }),
                     ),
                   ),
+                  if (!isSinglePlayer && onAddPlayer != null)
+                    GestureDetector(
+                      onTap: onAddPlayer,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: TextScramble(
+                            text: S.of(context).add,
+                            builder: (context, scrambledText) {
+                              return Text(
+                                scrambledText,
+                                style: theme.display2,
+                                textAlign: TextAlign.center,
+                              );
+                            }),
+                      ),
+                    ),
                   GestureDetector(
                     onTap: onNewRound,
                     child: Padding(
@@ -227,6 +245,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
     required VoidCallback onNewRound,
     required VoidCallback onNewGame,
     required VoidCallback onReturnToMenu,
+    VoidCallback? onAddPlayer,
   }) {
     HapticFeedback.selectionClick();
 
@@ -252,6 +271,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
                 onNewRound: onNewRound,
                 onNewGame: onNewGame,
                 onReturnToMenu: onReturnToMenu,
+                onAddPlayer: onAddPlayer,
               ),
             ),
           ],

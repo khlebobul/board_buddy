@@ -83,6 +83,16 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       final updatedPlayers = List<Player>.from(currentState.players)
         ..add(event.player);
       emit(currentState.copyWith(players: updatedPlayers));
+    } else if (state is MunchkinGameState) {
+      final currentState = state as MunchkinGameState;
+      final updatedPlayers = List<Player>.from(currentState.players)
+        ..add(event.player);
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+      ));
+
+      add(SaveGameSession());
     }
   }
 

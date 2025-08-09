@@ -79,6 +79,27 @@ class UnoFlipBloc extends Bloc<UnoFlipEvent, UnoFlipState> {
       final updatedPlayers = List<Player>.from(currentState.players)
         ..add(event.player);
       emit(currentState.copyWith(players: updatedPlayers));
+    } else if (state is UnoFlipGameState) {
+      final currentState = state as UnoFlipGameState;
+      final updatedPlayers = List<Player>.from(currentState.players)
+        ..add(event.player);
+
+      final updatedScoreHistory =
+          Map<int, List<int>>.from(currentState.playerScoreHistory);
+      final updatedRedoStack =
+          Map<int, List<int>>.from(currentState.playerRedoStack);
+
+      final newIndex = updatedPlayers.length - 1;
+      updatedScoreHistory[newIndex] = [];
+      updatedRedoStack[newIndex] = [];
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+        playerScoreHistory: updatedScoreHistory,
+        playerRedoStack: updatedRedoStack,
+      ));
+
+      add(SaveGameSession());
     }
   }
 
