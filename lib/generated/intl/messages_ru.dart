@@ -361,6 +361,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberCards": MessageLookupByLibrary.simpleMessage("номерные карты"),
     "off": MessageLookupByLibrary.simpleMessage("выкл."),
     "on": MessageLookupByLibrary.simpleMessage("вкл."),
+    "options": MessageLookupByLibrary.simpleMessage("опции"),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
     "play": MessageLookupByLibrary.simpleMessage("играть"),
     "playerName": MessageLookupByLibrary.simpleMessage("имя игрока"),

@@ -80,6 +80,29 @@ class UnoBloc extends Bloc<UnoEvent, UnoState> {
       final updatedPlayers = List<Player>.from(currentState.players)
         ..add(event.player);
       emit(currentState.copyWith(players: updatedPlayers));
+    } else if (state is UnoGameState) {
+      final currentState = state as UnoGameState;
+      final updatedPlayers = List<Player>.from(currentState.players)
+        ..add(event.player);
+
+      // Extend histories for the new player
+      final updatedScoreHistory =
+          Map<int, List<int>>.from(currentState.playerScoreHistory);
+      final updatedRedoStack =
+          Map<int, List<int>>.from(currentState.playerRedoStack);
+
+      final newIndex = updatedPlayers.length - 1;
+      updatedScoreHistory[newIndex] = [];
+      updatedRedoStack[newIndex] = [];
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+        playerScoreHistory: updatedScoreHistory,
+        playerRedoStack: updatedRedoStack,
+      ));
+
+      // Persist changes
+      add(SaveGameSession());
     }
   }
 

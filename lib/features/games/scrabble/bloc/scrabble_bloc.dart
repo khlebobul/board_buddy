@@ -45,6 +45,16 @@ class ScrabbleBloc extends Bloc<ScrabbleEvent, ScrabbleState> {
       final updatedPlayers = List<Player>.from(currentState.players)
         ..add(event.player);
       emit(currentState.copyWith(players: updatedPlayers));
+    } else if (state is ScrabbleGameState) {
+      final currentState = state as ScrabbleGameState;
+      final updatedPlayers = List<Player>.from(currentState.players)
+        ..add(event.player);
+
+      emit(currentState.copyWith(
+        players: updatedPlayers,
+      ));
+
+      add(SaveGameSession());
     }
   }
 

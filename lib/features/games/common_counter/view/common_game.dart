@@ -14,6 +14,7 @@ import 'package:board_buddy/shared/widgets/game_widgets/timer.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_score_widget.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -254,7 +255,7 @@ class _CommonGameViewState extends State<CommonGameView>
             ),
             bottomNavigationBar: BottomGameBar(
               isArrow: true,
-              rightButtonText: S.of(context).finish,
+              rightButtonText: S.of(context).options,
               onRightBtnTap: () {
                 _showGameEndModal(context, gameState);
               },
@@ -556,6 +557,25 @@ class _CommonGameViewState extends State<CommonGameView>
           (route) => false,
         );
       },
+      onAddPlayer: !gameState.isSinglePlayer &&
+              gameState.players.length < GameMaxPlayers.commonCounter
+          ? () {
+              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
+                final ccBloc = context.read<CommonCounterBloc>();
+                ccBloc.add(AddPlayer(newPlayer));
+                Navigator.of(context).pop();
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  final updated = List<Player>.from(gameState.players)
+                    ..add(newPlayer);
+                  _showGameEndModal(
+                      context,
+                      gameState.copyWith(
+                        players: updated,
+                      ));
+                });
+              });
+            }
+          : null,
     );
   }
 }

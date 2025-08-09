@@ -1,6 +1,8 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
+import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/features/games/scrabble/bloc/scrabble_bloc.dart';
 import 'package:board_buddy/features/games/scrabble/widgets/scrabble_word_input_widget.dart';
@@ -101,7 +103,7 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
               bottomNavigationBar: BottomGameBar(
                 dialogWidget: const InfoscrabbleDialog(),
                 isArrow: true,
-                rightButtonText: S.of(context).finish,
+                rightButtonText: S.of(context).options,
                 onRightBtnTap: () {
                   // Show game completion dialog
                   _showGameEndModal(context, gameState.players);
@@ -168,6 +170,20 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
         Navigator.of(context).pop();
         Navigator.pushNamed(context, '/home');
       },
+      onAddPlayer: !isSinglePlayer && players.length < GameMaxPlayers.scrabble
+          ? () {
+              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
+                final scrabbleBloc = context.read<ScrabbleBloc>();
+                scrabbleBloc.add(AddPlayer(newPlayer));
+                Navigator.of(context).pop();
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  final currentPlayers = List<Player>.from(players)
+                    ..add(newPlayer);
+                  _showGameEndModal(context, currentPlayers);
+                });
+              });
+            }
+          : null,
     );
   }
 }

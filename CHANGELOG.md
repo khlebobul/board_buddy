@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.1.0]
+
+### New Features
+- Added the ability to add new players directly from the game.
+
 ## [1.0.9]
 
 ### New Features

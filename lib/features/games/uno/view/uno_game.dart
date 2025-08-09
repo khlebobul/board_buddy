@@ -10,6 +10,7 @@ import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
 import 'package:flutter/material.dart';
@@ -142,6 +143,24 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
         // Reset the flag after closing the modal window
         _isGameEndModalShown = false;
       },
+      onAddPlayer: players.length < GameMaxPlayers.uno
+          ? () {
+              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
+                final unoBloc = context.read<UnoBloc>();
+                unoBloc.add(AddPlayer(newPlayer));
+                // Close and reopen modal with updated players
+                Navigator.pop(context);
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  final current = unoBloc.state;
+                  if (current is UnoGameState) {
+                    _isGameEndModalShown = false;
+                    _showGameEndModal(
+                        current.players, current.gameMode, current.scoreLimit);
+                  }
+                });
+              });
+            }
+          : null,
     );
   }
 
@@ -159,7 +178,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
         context,
         mainText: S.of(context).youHaveAnUnfinishedGame,
         button1Text: S.of(context).doReturn,
-        button2Text: S.of(context).finish,
+        button2Text: S.of(context).options,
         button1Action: () => Navigator.pop(context),
         button2Action: () {
           bloc.returnToMenu();
@@ -460,7 +479,7 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
             bottomNavigationBar: BottomGameBar(
               dialogWidget: const InfoUnoDialog(),
               isArrow: true,
-              rightButtonText: S.of(context).finish,
+              rightButtonText: S.of(context).options,
               onLeftArrowTap: _undo,
               onRightArrowTap: _redo,
               onRightBtnTap: _showEndGameModalWithoutScoreLimit,

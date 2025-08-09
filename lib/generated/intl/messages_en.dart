@@ -349,6 +349,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "numberCards": MessageLookupByLibrary.simpleMessage("number cards"),
     "off": MessageLookupByLibrary.simpleMessage("off"),
     "on": MessageLookupByLibrary.simpleMessage("on"),
+    "options": MessageLookupByLibrary.simpleMessage("options"),
     "others": MessageLookupByLibrary.simpleMessage("others"),
     "play": MessageLookupByLibrary.simpleMessage("play"),
     "playerName": MessageLookupByLibrary.simpleMessage("player name"),
