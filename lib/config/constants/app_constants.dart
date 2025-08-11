@@ -21,11 +21,7 @@ class AppLnksConst {
   static const otherAppsAppStoreLink =
       'https://apps.apple.com/developer/gleb-shalimov/id1775466597';
   static const otherAppsGooglePlayLink =
-      'https://play.google.com/store/apps/developer?id=Gleb+Shalimov&h';
-
-  // TODO (change for Google Play) rustore link
-  // static const otherAppsGooglePlayLink =
-  //     'https://www.rustore.ru/catalog/developer/xbww3r';
+      'https://www.rustore.ru/catalog/developer/xbww3r';
 }
 
 class GeneralConst {

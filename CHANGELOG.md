@@ -1,6 +1,12 @@
 # Changelog
 
-## [1.1.0]
+## [1.0.11]
+
+### Chores
+- Introduced build automation to produce releases for multiple Android markets
+- Removed header and winner text from game-end modals
+
+## [1.0.10]
 
 ### New Features
 - Added the ability to add new players directly from the game.

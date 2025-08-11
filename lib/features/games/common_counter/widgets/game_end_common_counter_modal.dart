@@ -55,31 +55,31 @@ class GameEndCommonCounterModal extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                S.of(context).results,
-                style: theme.display1.copyWith(
-                  color: theme.redColor,
-                ),
-                textAlign: TextAlign.center,
-              ),
-            ),
-            if (hasLeader)
-              Padding(
-                padding: const EdgeInsets.symmetric(
-                    horizontal: GeneralConst.paddingHorizontal),
-                child: Text(
-                  '${S.of(context).winner}${leader.name.toLowerCase()}',
-                  style: theme.display2.copyWith(
-                    color: theme.secondaryTextColor,
-                  ),
-                  textAlign: TextAlign.center,
-                  overflow: TextOverflow.ellipsis,
-                  maxLines: 1,
-                ),
-              ),
-            const SizedBox(height: 16),
+            // Padding(
+            //   padding: const EdgeInsets.all(16.0),
+            //   child: Text(
+            //     S.of(context).results,
+            //     style: theme.display1.copyWith(
+            //       color: theme.redColor,
+            //     ),
+            //     textAlign: TextAlign.center,
+            //   ),
+            // ),
+            // if (hasLeader)
+            //   Padding(
+            //     padding: const EdgeInsets.symmetric(
+            //         horizontal: GeneralConst.paddingHorizontal),
+            //     child: Text(
+            //       '${S.of(context).winner}${leader.name.toLowerCase()}',
+            //       style: theme.display2.copyWith(
+            //         color: theme.secondaryTextColor,
+            //       ),
+            //       textAlign: TextAlign.center,
+            //       overflow: TextOverflow.ellipsis,
+            //       maxLines: 1,
+            //     ),
+            //   ),
+            // const SizedBox(height: 16),
 
             // Player scores list - this part is scrollable
             Flexible(
