@@ -5,7 +5,7 @@ import 'package:url_launcher/url_launcher.dart';
 import 'package:use_scramble/use_scramble.dart';
 import 'package:share_plus/share_plus.dart';
 
-/// widget that represents a clickable link button.
+/// Widget that represents a clickable link button.
 class LinkBtnWidget extends StatelessWidget {
   /// The text to display on the button.
   final String text;
@@ -33,7 +33,7 @@ class LinkBtnWidget extends StatelessWidget {
     return GestureDetector(
       onTap: () async {
         if (isShareButton) {
-          await Share.share(shareText!);
+          await SharePlus.instance.share(ShareParams(text: shareText!));
         } else {
           final uri = Uri.parse(url);
           if (uri.toString().isNotEmpty &&

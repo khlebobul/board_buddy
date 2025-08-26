@@ -4,7 +4,6 @@ class ContributorsConst {
 }
 
 class AppLnksConst {
-  static const link = 'https://khlebobul.github.io';
   static const myWebSitelink = 'https://khlebobul.github.io';
   static const telegramLink = 'https://t.me/khlebobul_dev';
   static const xLink = 'https://twitter.com/khlebobul';

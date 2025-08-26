@@ -60,14 +60,7 @@ flutter pub get
 flutter run
 ```
 
-- you can use [Makefile](https://github.com/khlebobul/board_buddy/blob/main/Makefile) to run the project:
-
-```sh
-make get
-make run
-```
-
-- for VS Code users `launch.json` (`.vscode/launch.json`):
+- For VS Code users `launch.json` (`.vscode/launch.json`):
 
 ```json
 {
