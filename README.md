@@ -2,7 +2,7 @@
 
 <div align="center">
 
-[![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://apps.apple.com/ru/app/board-buddy-score-counter/id6743980638?) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://play.google.com/store/apps/details?id=com.khlebobul.board_buddy)
+[![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://apps.apple.com/ru/app/board-buddy-score-counter/id6743980638?) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://play.google.com/store/apps/details?id=com.khlebobul.board_buddy) [![RuStore](https://img.shields.io/badge/RuStore-414141?style=for-the-badge&logo=RuSrore&logoColor=F1F1F1)](https://www.rustore.ru/catalog/app/com.khlebobul.board_buddy)
 
 <img width="1000" alt="Frame 2" src="https://github.com/user-attachments/assets/2db1490f-4568-4bf1-9f2d-274dfd62bd0b" />
 
