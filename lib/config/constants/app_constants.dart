@@ -21,6 +21,8 @@ class AppLnksConst {
       'https://apps.apple.com/developer/gleb-shalimov/id1775466597';
   static const otherAppsGooglePlayLink =
       'https://www.rustore.ru/catalog/developer/xbww3r';
+  static const otherAppsRustoreLink =
+      'https://www.rustore.ru/catalog/developer/xbww3r';
 }
 
 class GeneralConst {

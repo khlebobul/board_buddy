@@ -12,6 +12,7 @@ MARKET ?= google-play
 
 # Target file that contains the market link used on Android
 FILE := lib/config/constants/app_constants.dart
+MARKET_HELPER_FILE := lib/config/utils/market_helper.dart
 
 .PHONY: show-market set-google-play set-rustore build-google-play build-rustore build help
 
@@ -29,11 +30,13 @@ show-market:
 # Switch to Google Play: set the next-line string to Google Play URL
 set-google-play:
 	@sed -i '' -E "/static const otherAppsGooglePlayLink/{n; s#'[^']*'#'https://play.google.com/store/apps/developer?id=Gleb+Shalimov\&h'#; }" $(FILE)
+	@sed -i '' -E "s|return AppLnksConst\\.otherAppsRustoreLink;|return AppLnksConst.otherAppsGooglePlayLink;|" $(MARKET_HELPER_FILE)
 	@$(MAKE) --no-print-directory show-market
 
 # Switch to RuStore: set the next-line string to RuStore URL
 set-rustore:
 	@sed -i '' -E "/static const otherAppsGooglePlayLink/{n; s#'[^']*'#'https://www.rustore.ru/catalog/developer/xbww3r'#; }" $(FILE)
+	@sed -i '' -E "s|return AppLnksConst\\.otherAppsGooglePlayLink;|return AppLnksConst.otherAppsRustoreLink;|" $(MARKET_HELPER_FILE)
 	@$(MAKE) --no-print-directory show-market
 
 # Build for Google Play: switch link and produce AAB
@@ -51,10 +54,12 @@ build:
 	@command -v flutter >/dev/null 2>&1 || { echo "flutter not found in PATH"; exit 127; }
 	@if [ "$(MARKET)" = "google-play" ]; then \
 		sed -i '' -E "/static const otherAppsGooglePlayLink/{n; s#'[^']*'#'https://play.google.com/store/apps/developer?id=Gleb+Shalimov\&h'#; }" $(FILE); \
+		sed -i '' -E "s|return AppLnksConst\\.otherAppsRustoreLink;|return AppLnksConst.otherAppsGooglePlayLink;|" $(MARKET_HELPER_FILE); \
 		echo "Market: Google Play"; \
 		flutter build appbundle --release; \
 	elif [ "$(MARKET)" = "rustore" ]; then \
 		sed -i '' -E "/static const otherAppsGooglePlayLink/{n; s#'[^']*'#'https://www.rustore.ru/catalog/developer/xbww3r'#; }" $(FILE); \
+		sed -i '' -E "s|return AppLnksConst\\.otherAppsGooglePlayLink;|return AppLnksConst.otherAppsRustoreLink;|" $(MARKET_HELPER_FILE); \
 		echo "Market: RuStore"; \
 		flutter build apk --release; \
 	else \
@@ -68,6 +73,7 @@ help:
 	&& echo "  make build-google-play                   # convenience alias" \
 	&& echo "  make build-rustore                       # convenience alias" \
 	&& echo "  make show-market                         # detect current link setting in file"
+
 
 
 

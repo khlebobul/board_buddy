@@ -16,7 +16,8 @@ import 'package:talker_bloc_logger/talker_bloc_logger.dart';
 
 final talker = TalkerFlutter.init(
   settings: TalkerSettings(
-    enabled: true,
+    // TODO fix android build memory leak
+    enabled: false,
     colors: {
       'error': AnsiPen()..red(),
       'info': AnsiPen()..magenta(),
