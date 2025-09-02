@@ -16,8 +16,7 @@ import 'package:talker_bloc_logger/talker_bloc_logger.dart';
 
 final talker = TalkerFlutter.init(
   settings: TalkerSettings(
-    // TODO fix android build memory leak
-    enabled: false,
+    enabled: true,
     colors: {
       'error': AnsiPen()..red(),
       'info': AnsiPen()..magenta(),
@@ -36,17 +35,11 @@ void main() async {
 
   LoggerService.initialize(talker);
 
-  debugPrint = (String? message, {int? wrapWidth}) {
-    if (message != null) {
-      talker.debug(message);
-    }
-  };
-
   Bloc.observer = TalkerBlocObserver(
     talker: talker,
     settings: const TalkerBlocLoggerSettings(
-      printEventFullData: true,
-      printStateFullData: true,
+      printEventFullData: false,
+      printStateFullData: false,
       printChanges: true,
       printCreations: true,
       printClosings: true,
