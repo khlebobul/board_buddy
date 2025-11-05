@@ -1,3 +1,5 @@
+import 'dart:io';
+
 import 'package:board_buddy/config/constants/app_constants.dart';
 
 /// Helper class to determine the current market based on the configuration
@@ -24,8 +26,13 @@ class MarketHelper {
   }
 
   /// Returns true if rating functionality should be shown
-  /// (only for Google Play and App Store, not for RuStore)
+  /// (always for App Store, only for Google Play on Android, not for RuStore)
   static bool shouldShowRating() {
+    // iOS always uses App Store, so always show rating
+    if (Platform.isIOS) {
+      return true;
+    }
+    // For Android, only show if not RuStore
     return !isRuStore();
   }
 
