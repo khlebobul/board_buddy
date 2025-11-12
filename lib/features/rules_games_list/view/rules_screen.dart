@@ -100,6 +100,18 @@ class RulesScreen extends StatelessWidget {
                       );
                     }),
               ),
+              const SizedBox(height: 5),
+              GestureDetector(
+                onTap: () => Navigator.pushNamed(context, '/thousandRules'),
+                child: TextScramble(
+                    text: '07 - 1000',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
+              ),
               const Spacer(),
               const AddFavouriteGame(),
             ],

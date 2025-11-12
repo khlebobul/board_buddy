@@ -23,12 +23,14 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("à propos"),
+    "ace11Points": MessageLookupByLibrary.simpleMessage("as: 11 points"),
     "add": MessageLookupByLibrary.simpleMessage("ajouter"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("ajouter un joueur"),
     "adding": MessageLookupByLibrary.simpleMessage("ajouter"),
     "appreciation": MessageLookupByLibrary.simpleMessage("crédits"),
     "armour": MessageLookupByLibrary.simpleMessage("armure"),
     "back": MessageLookupByLibrary.simpleMessage("retour"),
+    "biddingPhase": MessageLookupByLibrary.simpleMessage("phase d\'enchères:"),
     "bingo": MessageLookupByLibrary.simpleMessage("bingo"),
     "boots": MessageLookupByLibrary.simpleMessage("bottes"),
     "cancel": MessageLookupByLibrary.simpleMessage("annuler"),
@@ -38,8 +40,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "cleric": MessageLookupByLibrary.simpleMessage("clerc"),
     "close": MessageLookupByLibrary.simpleMessage("fermer"),
     "common": MessageLookupByLibrary.simpleMessage("compteur"),
+    "contractResolution": MessageLookupByLibrary.simpleMessage(
+      "résolution du contrat:",
+    ),
     "cursed": MessageLookupByLibrary.simpleMessage("maudit"),
     "dark": MessageLookupByLibrary.simpleMessage("sombre"),
+    "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
+      "vous n\'avez pas votre jeu préféré ? écrivez-moi!",
+    ),
     "dos": MessageLookupByLibrary.simpleMessage("dos"),
     "dwarf": MessageLookupByLibrary.simpleMessage("nain"),
     "edit": MessageLookupByLibrary.simpleMessage("modifier"),
@@ -53,16 +61,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "halfling": MessageLookupByLibrary.simpleMessage("halfelin"),
     "helmet": MessageLookupByLibrary.simpleMessage("casque"),
     "human": MessageLookupByLibrary.simpleMessage("humain"),
+    "jack2Points": MessageLookupByLibrary.simpleMessage("valet: 2 points"),
+    "king4Points": MessageLookupByLibrary.simpleMessage("roi: 4 points"),
     "languages": MessageLookupByLibrary.simpleMessage("langues"),
     "level": MessageLookupByLibrary.simpleMessage("niveau"),
     "light": MessageLookupByLibrary.simpleMessage("clair"),
     "magic": MessageLookupByLibrary.simpleMessage("magie"),
+    "marriage": MessageLookupByLibrary.simpleMessage("mariage:"),
     "menu": MessageLookupByLibrary.simpleMessage("menu"),
     "mode": MessageLookupByLibrary.simpleMessage("mode"),
     "modifiers": MessageLookupByLibrary.simpleMessage("modificateurs"),
     "multiplayer": MessageLookupByLibrary.simpleMessage("multijoueur"),
     "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
     "name": MessageLookupByLibrary.simpleMessage("nom"),
+    "nine0Points": MessageLookupByLibrary.simpleMessage("neuf: 0 points"),
     "off": MessageLookupByLibrary.simpleMessage("désactivé"),
     "on": MessageLookupByLibrary.simpleMessage("activé"),
     "options": MessageLookupByLibrary.simpleMessage("options"),
@@ -71,6 +83,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "players": MessageLookupByLibrary.simpleMessage("joueurs"),
     "points": MessageLookupByLibrary.simpleMessage("points"),
     "preparation": MessageLookupByLibrary.simpleMessage("préparation :"),
+    "queen3Points": MessageLookupByLibrary.simpleMessage("dame: 3 points"),
     "race1": MessageLookupByLibrary.simpleMessage("race 1"),
     "results": MessageLookupByLibrary.simpleMessage("résultats"),
     "round": MessageLookupByLibrary.simpleMessage("manche"),
@@ -86,8 +99,72 @@ class MessageLookup extends MessageLookupByLibrary {
     "subtracting": MessageLookupByLibrary.simpleMessage("soustraire"),
     "sword": MessageLookupByLibrary.simpleMessage("épée"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
+    "ten10Points": MessageLookupByLibrary.simpleMessage("dix: 10 points"),
     "theme": MessageLookupByLibrary.simpleMessage("thème"),
     "thief": MessageLookupByLibrary.simpleMessage("voleur"),
+    "thousandBiddingPhaseOne": MessageLookupByLibrary.simpleMessage(
+      "en commençant par le joueur après le donneur, les joueurs enchérissent sur le nombre de points qu\'ils pensent pouvoir marquer (enchère minimale de 100). chaque enchère doit être supérieure à l\'enchère précédente (par incréments de 5 ou 10).",
+    ),
+    "thousandBiddingPhaseThree": MessageLookupByLibrary.simpleMessage(
+      "le joueur avec l\'enchère la plus élevée remporte l\'enchère, prend le talon et déclare l\'atout. l\'enchérisseur défausse 3 cartes face cachée (mais conserve leur valeur en points).",
+    ),
+    "thousandBiddingPhaseTwo": MessageLookupByLibrary.simpleMessage(
+      "les joueurs peuvent passer s\'ils ne veulent pas enchérir plus haut.",
+    ),
+    "thousandContractResolutionOne": MessageLookupByLibrary.simpleMessage(
+      "si l\'enchérisseur marque au moins son montant d\'enchère: il ajoute son score réel à son total.",
+    ),
+    "thousandContractResolutionThree": MessageLookupByLibrary.simpleMessage(
+      "les autres joueurs ajoutent les points des plis qu\'ils ont remportés à leurs totaux.",
+    ),
+    "thousandContractResolutionTwo": MessageLookupByLibrary.simpleMessage(
+      "si l\'enchérisseur ne remplit pas son enchère: son montant d\'enchère est soustrait de son total (il peut devenir négatif).",
+    ),
+    "thousandGameTurnTitleOne": MessageLookupByLibrary.simpleMessage(
+      "l\'enchérisseur commence le premier pli en jouant n\'importe quelle carte. les autres joueurs doivent suivre la couleur si possible. s\'ils ne peuvent pas, ils doivent jouer un atout s\'ils en ont un.",
+    ),
+    "thousandGameTurnTitleThree": MessageLookupByLibrary.simpleMessage(
+      "le gagnant du pli commence le pli suivant. continuez jusqu\'à ce que toutes les cartes soient jouées.",
+    ),
+    "thousandGameTurnTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "la carte la plus haute de la couleur jouée l\'emporte, sauf si un atout est joué. l\'atout le plus haut l\'emporte.",
+    ),
+    "thousandGoal": MessageLookupByLibrary.simpleMessage(
+      "le but est d\'être le premier joueur à atteindre 1000 points en remportant des plis dans un jeu d\'enchères. les joueurs enchérissent sur le nombre de points qu\'ils peuvent marquer, puis essaient de remplir leur contrat.",
+    ),
+    "thousandMarriageFour": MessageLookupByLibrary.simpleMessage(
+      "vous ne pouvez marquer des mariages que si vous remportez au moins un pli.",
+    ),
+    "thousandMarriageOne": MessageLookupByLibrary.simpleMessage(
+      "un mariage est un roi et une dame de la même couleur dans votre main.",
+    ),
+    "thousandMarriageThree": MessageLookupByLibrary.simpleMessage(
+      "mariage non-atout: 80 points (même règle s\'applique).",
+    ),
+    "thousandMarriageTwo": MessageLookupByLibrary.simpleMessage(
+      "mariage atout: 100 points (doit être déclaré lors du jeu de la première carte de la paire).",
+    ),
+    "thousandPreparationOne": MessageLookupByLibrary.simpleMessage(
+      "utilisez un jeu de 24 cartes: 9, 10, valet, dame, roi, as des quatre couleurs.",
+    ),
+    "thousandPreparationThree": MessageLookupByLibrary.simpleMessage(
+      "placez 3 cartes face cachée au centre comme le talon (veuve).",
+    ),
+    "thousandPreparationTwo": MessageLookupByLibrary.simpleMessage(
+      "distribuez 7 cartes à chaque joueur (pour 3 joueurs), ou 8 cartes (pour 2 joueurs).",
+    ),
+    "thousandSpecialRulesTitleOne": MessageLookupByLibrary.simpleMessage(
+      "règle du baril: si un joueur atteint 880+ points, il est «sur le baril» et doit marquer exactement 1000, sinon il retombe à 880.",
+    ),
+    "thousandSpecialRulesTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "certaines variantes nécessitent exactement 1000 points pour gagner. dépasser vous ramène à 880 ou au score précédent.",
+    ),
+    "thousandTotalPoints": MessageLookupByLibrary.simpleMessage(
+      "total des points dans le jeu: 120. ajoutez les bonus de mariage si applicable.",
+    ),
+    "thousandVictoryRule": MessageLookupByLibrary.simpleMessage(
+      "le premier joueur à atteindre 1000 points (ou exactement 1000, selon les règles de la maison) remporte la partie.",
+    ),
     "total": MessageLookupByLibrary.simpleMessage("total"),
     "uno": MessageLookupByLibrary.simpleMessage("uno"),
     "warrior": MessageLookupByLibrary.simpleMessage("guerrier"),

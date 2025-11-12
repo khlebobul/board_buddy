@@ -23,6 +23,7 @@ class MessageLookup extends MessageLookupByLibrary {
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("acerca de"),
+    "ace11Points": MessageLookupByLibrary.simpleMessage("asso: 11 punti"),
     "add": MessageLookupByLibrary.simpleMessage("añadir"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("añadir jugador"),
     "adding": MessageLookupByLibrary.simpleMessage("sumando"),
@@ -31,6 +32,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "appreciation": MessageLookupByLibrary.simpleMessage("créditos"),
     "armour": MessageLookupByLibrary.simpleMessage("armadura"),
     "back": MessageLookupByLibrary.simpleMessage("atrás"),
+    "biddingPhase": MessageLookupByLibrary.simpleMessage(
+      "fase di dichiarazione:",
+    ),
     "bigArmour": MessageLookupByLibrary.simpleMessage("armadura grande"),
     "bigBoots": MessageLookupByLibrary.simpleMessage("botas grandes"),
     "bigHelmet": MessageLookupByLibrary.simpleMessage("casco grande"),
@@ -86,6 +90,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "common": MessageLookupByLibrary.simpleMessage("contador"),
     "continueGame": MessageLookupByLibrary.simpleMessage("continuar juego"),
     "continueTitle": MessageLookupByLibrary.simpleMessage("continuar"),
+    "contractResolution": MessageLookupByLibrary.simpleMessage(
+      "risoluzione del contratto:",
+    ),
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage(
       "no se pudo iniciar",
     ),
@@ -227,9 +234,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "indica una maldición activa",
     ),
+    "jack2Points": MessageLookupByLibrary.simpleMessage("fante: 2 punti"),
     "keepAwakeMode": MessageLookupByLibrary.simpleMessage(
       "modo mantener encendido",
     ),
+    "king4Points": MessageLookupByLibrary.simpleMessage("re: 4 punti"),
     "languages": MessageLookupByLibrary.simpleMessage("idiomas"),
     "leftHand": MessageLookupByLibrary.simpleMessage("mano izquierda"),
     "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
@@ -245,6 +254,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "marca un personaje muerto",
     ),
+    "marriage": MessageLookupByLibrary.simpleMessage("matrimonio:"),
     "menu": MessageLookupByLibrary.simpleMessage("menú"),
     "mode": MessageLookupByLibrary.simpleMessage("modo"),
     "modifiers": MessageLookupByLibrary.simpleMessage("modificadores"),
@@ -354,6 +364,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "el siguiente roba hasta obtener el color elegido.",
         ),
+    "nine0Points": MessageLookupByLibrary.simpleMessage("nove: 0 punti"),
     "noClass": MessageLookupByLibrary.simpleMessage("sin clase"),
     "noItem": MessageLookupByLibrary.simpleMessage("sin objeto"),
     "numberCards": MessageLookupByLibrary.simpleMessage("cartas numéricas"),
@@ -372,6 +383,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "projectWebsite": MessageLookupByLibrary.simpleMessage(
       "sitio web del proyecto",
     ),
+    "queen3Points": MessageLookupByLibrary.simpleMessage("regina: 3 punti"),
     "race1": MessageLookupByLibrary.simpleMessage("raza 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("valora la app"),
     "reportABug": MessageLookupByLibrary.simpleMessage("reportar un error"),
@@ -592,11 +604,75 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "sword": MessageLookupByLibrary.simpleMessage("espada"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
+    "ten10Points": MessageLookupByLibrary.simpleMessage("dieci: 10 punti"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "el número de jugadores debe ser más que",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("tema"),
     "thief": MessageLookupByLibrary.simpleMessage("ladrón"),
+    "thousandBiddingPhaseOne": MessageLookupByLibrary.simpleMessage(
+      "iniziando dal giocatore dopo il mazziere, i giocatori dichiarano quanti punti pensano di poter segnare (dichiarazione minima di 100). ogni dichiarazione deve essere più alta della precedente (con incrementi di 5 o 10).",
+    ),
+    "thousandBiddingPhaseThree": MessageLookupByLibrary.simpleMessage(
+      "il giocatore con la dichiarazione più alta vince l\'asta, prende il tallone e dichiara il seme di briscola. il dichiarante scarta 3 carte coperte (ma mantiene il loro valore in punti).",
+    ),
+    "thousandBiddingPhaseTwo": MessageLookupByLibrary.simpleMessage(
+      "i giocatori possono passare se non vogliono dichiarare più alto.",
+    ),
+    "thousandContractResolutionOne": MessageLookupByLibrary.simpleMessage(
+      "se il dichiarante segna almeno il suo importo dichiarato: aggiunge il suo punteggio effettivo al suo totale.",
+    ),
+    "thousandContractResolutionThree": MessageLookupByLibrary.simpleMessage(
+      "gli altri giocatori aggiungono i punti delle prese che hanno vinto ai loro totali.",
+    ),
+    "thousandContractResolutionTwo": MessageLookupByLibrary.simpleMessage(
+      "se il dichiarante non soddisfa la sua dichiarazione: il suo importo dichiarato viene sottratto dal suo totale (può diventare negativo).",
+    ),
+    "thousandGameTurnTitleOne": MessageLookupByLibrary.simpleMessage(
+      "il dichiarante apre la prima presa giocando qualsiasi carta. gli altri giocatori devono seguire il seme se possibile. se non possono, devono giocare una carta di briscola se ne hanno una.",
+    ),
+    "thousandGameTurnTitleThree": MessageLookupByLibrary.simpleMessage(
+      "il vincitore della presa apre la presa successiva. continua finché tutte le carte non sono state giocate.",
+    ),
+    "thousandGameTurnTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "la carta più alta del seme giocato vince, a meno che non venga giocata una briscola. la briscola più alta vince.",
+    ),
+    "thousandGoal": MessageLookupByLibrary.simpleMessage(
+      "l\'obiettivo è essere il primo giocatore a raggiungere 1000 punti vincendo prese in un gioco di dichiarazioni. i giocatori dichiarano quanti punti possono segnare, poi cercano di soddisfare il loro contratto.",
+    ),
+    "thousandMarriageFour": MessageLookupByLibrary.simpleMessage(
+      "puoi segnare matrimoni solo se vinci almeno una presa.",
+    ),
+    "thousandMarriageOne": MessageLookupByLibrary.simpleMessage(
+      "un matrimonio è un re e una regina dello stesso seme nella tua mano.",
+    ),
+    "thousandMarriageThree": MessageLookupByLibrary.simpleMessage(
+      "matrimonio non di briscola: 80 punti (si applica la stessa regola).",
+    ),
+    "thousandMarriageTwo": MessageLookupByLibrary.simpleMessage(
+      "matrimonio di briscola: 100 punti (deve essere dichiarato quando si gioca la prima carta della coppia).",
+    ),
+    "thousandPreparationOne": MessageLookupByLibrary.simpleMessage(
+      "usa un mazzo di 24 carte: 9, 10, fante, regina, re, asso di tutti e quattro i semi.",
+    ),
+    "thousandPreparationThree": MessageLookupByLibrary.simpleMessage(
+      "posiziona 3 carte coperte al centro come il tallone (vedova).",
+    ),
+    "thousandPreparationTwo": MessageLookupByLibrary.simpleMessage(
+      "distribuisci 7 carte a ogni giocatore (per 3 giocatori), o 8 carte (per 2 giocatori).",
+    ),
+    "thousandSpecialRulesTitleOne": MessageLookupByLibrary.simpleMessage(
+      "regola del barile: se un giocatore raggiunge 880+ punti, è «sul barile» e deve segnare esattamente 1000, altrimenti torna a 880.",
+    ),
+    "thousandSpecialRulesTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "alcune varianti richiedono esattamente 1000 punti per vincere. superare ti riporta a 880 o al punteggio precedente.",
+    ),
+    "thousandTotalPoints": MessageLookupByLibrary.simpleMessage(
+      "punti totali nel mazzo: 120. aggiungi bonus matrimonio se applicabile.",
+    ),
+    "thousandVictoryRule": MessageLookupByLibrary.simpleMessage(
+      "il primo giocatore a raggiungere 1000 punti (o esattamente 1000, a seconda delle regole della casa) vince la partita.",
+    ),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
       "gracias a todos los que crearon",
     ),

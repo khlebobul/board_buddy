@@ -78,6 +78,11 @@ class RulesConst {
 // common counter
   static const commonCounterAge = '6+';
   static const commonCounterPlayers = '2-10';
+
+// thousand
+  static const thousandAge = '12+';
+  static const thousandPlayers = '2-4';
+  static const thousand = '1000';
 }
 
 class GameConst {
