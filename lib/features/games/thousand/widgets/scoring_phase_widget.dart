@@ -93,14 +93,12 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
             ],
           ),
           const SizedBox(height: 8),
-
           PlayersScoreWidget(
             players: widget.state.players,
             playerData: widget.state.playerData,
             bidWinnerIndex: widget.state.bidWinnerIndex,
           ),
           const SizedBox(height: 16),
-
           Expanded(
             child: SingleChildScrollView(
               child: Column(
@@ -130,21 +128,11 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                                 ),
                               ),
                               if (isBidder)
-                                Container(
-                                  padding: const EdgeInsets.symmetric(
-                                    horizontal: 8,
-                                    vertical: 4,
-                                  ),
-                                  decoration: BoxDecoration(
-                                    color: theme.redColor,
-                                    borderRadius: BorderRadius.circular(4),
-                                  ),
-                                  child: Text(
-                                    'Ставка: ${widget.state.winningBid}',
-                                    style: theme.display4.copyWith(
-                                      color: theme.textColor,
-                                      fontSize: 12,
-                                    ),
+                                Text(
+                                  'cтавка: ${widget.state.winningBid}',
+                                  style: theme.display4.copyWith(
+                                    color: theme.textColor,
+                                    fontSize: 12,
                                   ),
                                 ),
                             ],
@@ -196,77 +184,70 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                     );
                   }),
                   const SizedBox(height: 16),
-
                   if (widget.state.enteredScores.length ==
                           widget.state.players.length &&
                       widget.state.enteredScores.values
                           .every((score) => score != null))
-                    Padding(
-                      padding: const EdgeInsets.all(16),
-                      child: Column(
-                        crossAxisAlignment: CrossAxisAlignment.stretch,
-                        children: [
-                          Text(
-                            'набрал ли ${bidderPlayer.name.toLowerCase()} свою ставку (${widget.state.winningBid} очков)?',
-                            textAlign: TextAlign.center,
-                            style: theme.display2.copyWith(
-                              color: theme.textColor,
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.stretch,
+                      children: [
+                        Text(
+                          'набрал ли ${bidderPlayer.name.toLowerCase()} свою ставку (${widget.state.winningBid} очков)?',
+                          textAlign: TextAlign.center,
+                          style: theme.display2.copyWith(
+                            color: theme.textColor,
+                          ),
+                        ),
+                        const SizedBox(height: 16),
+                        Row(
+                          children: [
+                            Expanded(
+                              child: ElevatedButton(
+                                onPressed: widget.state.bidderSuccess != true
+                                    ? () {
+                                        context.read<ThousandBloc>().add(
+                                              ConfirmBidderSuccess(true),
+                                            );
+                                      }
+                                    : null,
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: theme.fgColor,
+                                ),
+                                child: Text(
+                                  'да',
+                                  style: theme.display2.copyWith(
+                                    color: theme.textColor,
+                                  ),
+                                ),
+                              ),
                             ),
-                          ),
-                          const SizedBox(height: 16),
-                          Row(
-                            children: [
-                              Expanded(
-                                child: ElevatedButton(
-                                  onPressed: widget.state.bidderSuccess != true
-                                      ? () {
-                                          context.read<ThousandBloc>().add(
-                                                ConfirmBidderSuccess(true),
-                                              );
-                                        }
-                                      : null,
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: theme.fgColor,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 16,
-                                    ),
+                            const SizedBox(width: 12),
+                            Expanded(
+                              child: ElevatedButton(
+                                onPressed: widget.state.bidderSuccess != false
+                                    ? () {
+                                        context.read<ThousandBloc>().add(
+                                              ConfirmBidderSuccess(false),
+                                            );
+                                      }
+                                    : null,
+                                style: ElevatedButton.styleFrom(
+                                  backgroundColor: theme.redColor,
+                                  padding: const EdgeInsets.symmetric(
+                                    vertical: 16,
                                   ),
-                                  child: Text(
-                                    'да',
-                                    style: theme.display2.copyWith(
-                                      color: theme.textColor,
-                                    ),
+                                ),
+                                child: Text(
+                                  'нет',
+                                  style: theme.display2.copyWith(
+                                    color: theme.textColor,
                                   ),
                                 ),
                               ),
-                              const SizedBox(width: 12),
-                              Expanded(
-                                child: ElevatedButton(
-                                  onPressed: widget.state.bidderSuccess != false
-                                      ? () {
-                                          context.read<ThousandBloc>().add(
-                                                ConfirmBidderSuccess(false),
-                                              );
-                                        }
-                                      : null,
-                                  style: ElevatedButton.styleFrom(
-                                    backgroundColor: theme.redColor,
-                                    padding: const EdgeInsets.symmetric(
-                                      vertical: 16,
-                                    ),
-                                  ),
-                                  child: Text(
-                                    'нет',
-                                    style: theme.display2.copyWith(
-                                      color: theme.textColor,
-                                    ),
-                                  ),
-                                ),
-                              ),
-                            ],
-                          ),
-                        ],
-                      ),
+                            ),
+                          ],
+                        ),
+                      ],
                     ),
                 ],
               ),

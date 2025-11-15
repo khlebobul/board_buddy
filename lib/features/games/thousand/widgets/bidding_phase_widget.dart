@@ -129,10 +129,10 @@ class BiddingPhaseWidget extends StatelessWidget {
 
     // Define suit icons and colors (4 suits)
     final suitData = [
-      {'icon': CustomIcons.heart, 'color': Colors.red},
-      {'icon': CustomIcons.diamond, 'color': Colors.red},
-      {'icon': CustomIcons.club, 'color': Colors.black},
-      {'icon': CustomIcons.spade, 'color': Colors.black},
+      {'icon': CustomIcons.heart, 'color': theme.redColor},
+      {'icon': CustomIcons.diamond, 'color': theme.redColor},
+      {'icon': CustomIcons.club, 'color': theme.textColor},
+      {'icon': CustomIcons.spade, 'color': theme.textColor},
     ];
 
     final List<List<KeyboardButton>> rows = [];

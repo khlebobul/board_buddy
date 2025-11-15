@@ -6,7 +6,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 
 class SelectDealerWidget extends StatelessWidget {
   final SelectingFirstDealerState state;
-
   const SelectDealerWidget({
     super.key,
     required this.state,
@@ -15,7 +14,6 @@ class SelectDealerWidget extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-
     return Scaffold(
       body: SafeArea(
         child: Padding(
@@ -42,27 +40,33 @@ class SelectDealerWidget extends StatelessWidget {
                     final player = entry.value;
                     String formattedIndex =
                         (index + 1).toString().padLeft(2, '0');
-
-                    return GestureDetector(
-                      onTap: () {
-                        context.read<ThousandBloc>().add(
-                              SelectFirstDealer(index),
-                            );
-                      },
-                      child: Row(
-                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                        children: [
-                          Expanded(
-                            child: Text(
-                              '$formattedIndex - ${player.name}'.toLowerCase(),
-                              softWrap: true,
-                              style: theme.display2.copyWith(
-                                color: theme.textColor,
+                    return Column(
+                      children: [
+                        GestureDetector(
+                          onTap: () {
+                            context.read<ThousandBloc>().add(
+                                  SelectFirstDealer(index),
+                                );
+                          },
+                          child: Row(
+                            mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  '$formattedIndex - ${player.name}'
+                                      .toLowerCase(),
+                                  softWrap: true,
+                                  style: theme.display2.copyWith(
+                                    color: theme.textColor,
+                                  ),
+                                ),
                               ),
-                            ),
+                            ],
                           ),
-                        ],
-                      ),
+                        ),
+                        if (index < state.players.length - 1)
+                          const SizedBox(height: 12),
+                      ],
                     );
                   }).toList(),
                 ),
