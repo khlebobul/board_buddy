@@ -40,4 +40,10 @@ class CustomIcons {
 
   // scrabble
   static const String star = 'assets/icons/games_icons/scrabble/star.svg';
+
+  // cards
+  static const String heart = 'assets/icons/games_icons/cards/heart.svg';
+  static const String spade = 'assets/icons/games_icons/cards/spade.svg';
+  static const String club = 'assets/icons/games_icons/cards/club.svg';
+  static const String diamond = 'assets/icons/games_icons/cards/diamond.svg';
 }
