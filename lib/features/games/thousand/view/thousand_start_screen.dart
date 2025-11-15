@@ -2,6 +2,7 @@ import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/routes/routes.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/thousand/bloc/thousand_bloc.dart';
+import 'package:board_buddy/features/games/thousand/view/thousand_game_screen.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
@@ -11,6 +12,28 @@ import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:use_scramble/use_scramble.dart';
+
+class ThousandStartScreen extends StatelessWidget {
+  const ThousandStartScreen({super.key});
+
+  @override
+  Widget build(BuildContext context) {
+    return BlocProvider(
+      create: (context) => ThousandBloc()..add(InitializeThousandStartScreen()),
+      child: BlocBuilder<ThousandBloc, ThousandState>(
+        builder: (context, state) {
+          if (state is ThousandStartScreenState) {
+            return const ThousandStartScreenContent();
+          } else if (state is ThousandInitial) {
+            return const ThousandStartScreenContent();
+          } else {
+            return const ThousandGameScreen();
+          }
+        },
+      ),
+    );
+  }
+}
 
 class ThousandStartScreenContent extends StatelessWidget {
   const ThousandStartScreenContent({super.key});
