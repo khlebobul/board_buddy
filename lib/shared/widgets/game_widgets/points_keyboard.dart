@@ -112,8 +112,9 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
             return widget.button.buttonIcon.isEmpty
                 ? Text(
                     widget.button.buttonText,
-                    style: widget.theme.display8
-                        .copyWith(color: _colorAnimation.value),
+                    style: widget.theme.display8.copyWith(
+                      color: widget.button.textColor ?? _colorAnimation.value,
+                    ),
                   )
                 : Padding(
                     padding: const EdgeInsets.symmetric(vertical: 3.0),
@@ -124,7 +125,8 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
                         widget.button.buttonIcon,
                         fit: BoxFit.fitHeight,
                         colorFilter: ColorFilter.mode(
-                            _colorAnimation.value!, BlendMode.srcIn),
+                            widget.button.iconColor ?? _colorAnimation.value!,
+                            BlendMode.srcIn),
                       ),
                     ),
                   );
@@ -155,6 +157,12 @@ class KeyboardButton {
   /// Whether to use a compact margin
   final bool useCompactMargin;
 
+  /// Custom color for the icon (if null, uses animated color)
+  final Color? iconColor;
+
+  /// Custom color for the text (if null, uses animated color)
+  final Color? textColor;
+
   KeyboardButton({
     this.buttonIcon = '',
     this.buttonText = '',
@@ -162,5 +170,7 @@ class KeyboardButton {
     this.backgroundColor,
     this.iconSize = 30.0,
     this.useCompactMargin = false,
+    this.iconColor,
+    this.textColor,
   });
 }

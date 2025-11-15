@@ -49,23 +49,19 @@ class SelectDealerWidget extends StatelessWidget {
                               SelectFirstDealer(index),
                             );
                       },
-                      child: SizedBox(
-                        height: 48,
-                        child: Row(
-                          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                          children: [
-                            Expanded(
-                              child: Text(
-                                '$formattedIndex - ${player.name}'
-                                    .toLowerCase(),
-                                softWrap: true,
-                                style: theme.display2.copyWith(
-                                  color: theme.textColor,
-                                ),
+                      child: Row(
+                        mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                        children: [
+                          Expanded(
+                            child: Text(
+                              '$formattedIndex - ${player.name}'.toLowerCase(),
+                              softWrap: true,
+                              style: theme.display2.copyWith(
+                                color: theme.textColor,
                               ),
                             ),
-                          ],
-                        ),
+                          ),
+                        ],
                       ),
                     );
                   }).toList(),
