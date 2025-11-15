@@ -81,7 +81,7 @@ class RulesConst {
 
 // thousand
   static const thousandAge = '12+';
-  static const thousandPlayers = '2-4';
+  static const thousandPlayers = '2-3';
   static const thousand = '1000';
 }
 
@@ -113,6 +113,7 @@ class GameMaxPlayers {
   static const unoFlip = 10;
   static const munchkin = 6;
   static const commonCounter = 30;
+  static const thousand = 3;
 }
 
 class GameMinPlayers {
@@ -123,6 +124,7 @@ class GameMinPlayers {
   static const unoFlip = 2;
   static const munchkin = 3;
   static const commonCounter = 2;
+  static const thousand = 2;
 }
 
 class UnoLikeGameCardsText {

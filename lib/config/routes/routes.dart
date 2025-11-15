@@ -28,7 +28,6 @@ import 'package:board_buddy/features/splash/view/splash_screen.dart';
 import 'package:board_buddy/features/games/uno/bloc/uno_bloc.dart';
 import 'package:board_buddy/features/games/dos/bloc/dos_bloc.dart';
 import 'package:board_buddy/features/games/thousand/view/thousand_start_screen.dart';
-import 'package:board_buddy/features/games/thousand/view/thousand_game_screen.dart';
 import 'package:board_buddy/features/games/thousand/view/thousand_rules_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -255,7 +254,7 @@ class AppRoutes {
     // thousand game
     if (settings.name == thousandGame) {
       return MaterialPageRoute(
-        builder: (context) => const ThousandGameScreen(),
+        builder: (context) => const ThousandStartScreen(),
       );
     }
 
