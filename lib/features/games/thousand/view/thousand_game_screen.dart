@@ -5,6 +5,7 @@ import 'package:board_buddy/features/games/thousand/widgets/bidding_phase_widget
 import 'package:board_buddy/features/games/thousand/widgets/scoring_phase_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/select_dealer_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/barrel_warning_widget.dart';
+import 'package:board_buddy/features/games/thousand/widgets/info_thousand_dialog_widget.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
@@ -50,12 +51,19 @@ class ThousandGameScreen extends StatelessWidget {
         ),
         bottomNavigationBar: BlocBuilder<ThousandBloc, ThousandState>(
           builder: (context, state) {
-            if (state is SelectingFirstDealerState ||
-                state is BiddingPhaseState ||
-                state is ScoringPhaseState ||
-                state is BarrelWarningState) {
+            if (state is SelectingFirstDealerState) {
               return BottomGameBar(
                 isArrow: false,
+                rightButtonText: S.of(context).options,
+                onRightBtnTap: () {
+                  _showExitConfirmation(context);
+                },
+              );
+            } else if (state is BiddingPhaseState ||
+                state is ScoringPhaseState) {
+              return BottomGameBar(
+                isArrow: true,
+                dialogWidget: const InfoThousandDialog(),
                 rightButtonText: S.of(context).options,
                 onRightBtnTap: () {
                   _showExitConfirmation(context);

@@ -16,7 +16,7 @@ class ThousandRulesScreen extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: RulesConst.thousand,
+        rightButtonText: ThousandCardsText.thousand,
         onRightButtonPressed: () {},
       ),
       body: SafeArea(

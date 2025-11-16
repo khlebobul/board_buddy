@@ -11,6 +11,7 @@ class InfoRowWidget extends StatelessWidget {
   final String points;
   final String description;
   final bool isScrabble;
+  final Color? iconColor;
 
   const InfoRowWidget({
     super.key,
@@ -21,6 +22,7 @@ class InfoRowWidget extends StatelessWidget {
     this.points = '',
     required this.description,
     this.isScrabble = false,
+    this.iconColor,
   });
 
   @override
@@ -31,6 +33,7 @@ class InfoRowWidget extends StatelessWidget {
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
         crossAxisAlignment: CrossAxisAlignment.center,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
             width: 30,
@@ -41,8 +44,8 @@ class InfoRowWidget extends StatelessWidget {
                       iconPath,
                       width: 24,
                       height: 24,
-                      colorFilter:
-                          ColorFilter.mode(theme.textColor, BlendMode.srcIn),
+                      colorFilter: ColorFilter.mode(
+                          iconColor ?? theme.textColor, BlendMode.srcIn),
                     )
                   : Text(
                       cardName,

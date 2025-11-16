@@ -60,7 +60,7 @@ class ThousandStartScreenContent extends StatelessWidget {
             appBar: CustomAppBar(
               leftButtonText: S.of(context).back,
               onLeftButtonPressed: () => Navigator.pop(context),
-              rightButtonText: RulesConst.thousand,
+              rightButtonText: ThousandCardsText.thousand,
               onRightButtonPressed: () =>
                   Navigator.pushNamed(context, AppRoutes.thousandRules),
             ),

@@ -82,7 +82,7 @@ class RulesConst {
 // thousand
   static const thousandAge = '12+';
   static const thousandPlayers = '2-3';
-  static const thousand = '1000';
+  
 }
 
 class GameConst {
@@ -143,4 +143,14 @@ class UnoLikeGameCardsText {
   static const plusOne = '+1';
   static const plusFive = '+5';
   static const dosWild = '#';
+}
+
+class ThousandCardsText {
+  static const thousand = '1000';
+  static const ace = 'A';
+  static const ten = '10';
+  static const king = 'K';
+  static const queen = 'Q';
+  static const jack = 'J';
+  static const nine = '9';
 }
