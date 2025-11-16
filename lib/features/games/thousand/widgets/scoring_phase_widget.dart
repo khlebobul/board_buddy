@@ -5,6 +5,7 @@ import 'package:board_buddy/features/games/thousand/widgets/players_score_widget
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:gaimon/gaimon.dart';
 
 // TODO edit
 class ScoringPhaseWidget extends StatefulWidget {
@@ -56,7 +57,7 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'подсчет очков',
+                    'подсчет очков:',
                     style: theme.display6.copyWith(
                       color: theme.secondaryTextColor,
                     ),
@@ -73,22 +74,12 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                 ],
               ),
               const SizedBox(height: 8),
-              Row(
-                mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                children: [
-                  Text(
-                    'ставка:',
-                    style: theme.display6.copyWith(
-                      color: theme.secondaryTextColor,
-                    ),
-                  ),
-                  Text(
-                    '${widget.state.winningBid}',
-                    style: theme.display6.copyWith(
-                      color: theme.textColor,
-                    ),
-                  ),
-                ],
+              Text(
+                '${widget.state.winningBid}',
+                style: theme.display6.copyWith(
+                  color: theme.textColor,
+                ),
+                overflow: TextOverflow.ellipsis,
               ),
             ],
           ),
@@ -107,7 +98,6 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                   ...widget.state.players.asMap().entries.map((entry) {
                     final index = entry.key;
                     final player = entry.value;
-                    final isBidder = index == widget.state.bidWinnerIndex;
 
                     return Padding(
                       padding: const EdgeInsets.only(bottom: 12),
@@ -127,63 +117,52 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                                   ),
                                 ),
                               ),
-                              if (isBidder)
-                                Text(
-                                  'cтавка: ${widget.state.winningBid}',
-                                  style: theme.display4.copyWith(
-                                    color: theme.textColor,
-                                    fontSize: 12,
-                                  ),
-                                ),
                             ],
                           ),
                           const SizedBox(height: 8),
-                          TextField(
-                            controller: _controllers[index],
-                            keyboardType: TextInputType.number,
-                            inputFormatters: [
-                              FilteringTextInputFormatter.digitsOnly,
-                            ],
-                            style: theme.display3.copyWith(
-                              color: theme.textColor,
+                          Container(
+                            decoration: BoxDecoration(
+                              color: theme.bgColor,
+                              borderRadius: BorderRadius.circular(8.0),
+                              border:
+                                  Border.all(color: theme.secondaryTextColor),
                             ),
-                            decoration: InputDecoration(
-                              hintText: 'введите очки',
-                              hintStyle: theme.display3.copyWith(
-                                color: theme.secondaryTextColor,
-                              ),
-                              border: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: theme.secondaryTextColor,
+                            child: TextField(
+                              controller: _controllers[index],
+                              keyboardType: TextInputType.number,
+                              inputFormatters: [
+                                FilteringTextInputFormatter.digitsOnly,
+                              ],
+                              cursorColor: theme.secondaryTextColor,
+                              style: TextStyle(color: theme.textColor),
+                              decoration: InputDecoration(
+                                hintText: 'введите очки',
+                                hintStyle:
+                                    TextStyle(color: theme.secondaryTextColor),
+                                border: InputBorder.none,
+                                contentPadding: const EdgeInsets.symmetric(
+                                  horizontal: 12.0,
+                                  vertical: 8.0,
                                 ),
                               ),
-                              enabledBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: theme.secondaryTextColor,
-                                ),
-                              ),
-                              focusedBorder: OutlineInputBorder(
-                                borderSide: BorderSide(
-                                  color: theme.redColor,
-                                ),
-                              ),
-                            ),
-                            onChanged: (value) {
-                              if (value.isNotEmpty) {
-                                final score = int.tryParse(value);
-                                if (score != null) {
-                                  context.read<ThousandBloc>().add(
-                                        EnterPlayerScore(index, score),
-                                      );
+                              onChanged: (value) {
+                                if (value.isNotEmpty) {
+                                  final score = int.tryParse(value);
+                                  if (score != null) {
+                                    context.read<ThousandBloc>().add(
+                                          EnterPlayerScore(index, score),
+                                        );
+                                  }
                                 }
-                              }
-                            },
+                              },
+                            ),
                           ),
                         ],
                       ),
                     );
                   }),
                   const SizedBox(height: 16),
+                  // TODO into modal
                   if (widget.state.enteredScores.length ==
                           widget.state.players.length &&
                       widget.state.enteredScores.values
@@ -194,25 +173,24 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                         Text(
                           'набрал ли ${bidderPlayer.name.toLowerCase()} свою ставку (${widget.state.winningBid} очков)?',
                           textAlign: TextAlign.center,
-                          style: theme.display2.copyWith(
+                          style: theme.display5.copyWith(
                             color: theme.textColor,
                           ),
+                          overflow: TextOverflow.ellipsis,
+                          maxLines: 2,
                         ),
                         const SizedBox(height: 16),
                         Row(
+                          mainAxisAlignment: MainAxisAlignment.center,
                           children: [
-                            Expanded(
-                              child: ElevatedButton(
-                                onPressed: widget.state.bidderSuccess != true
-                                    ? () {
-                                        context.read<ThousandBloc>().add(
-                                              ConfirmBidderSuccess(true),
-                                            );
-                                      }
-                                    : null,
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: theme.fgColor,
-                                ),
+                            if (widget.state.bidderSuccess != true)
+                              GestureDetector(
+                                onTap: () {
+                                  Gaimon.soft();
+                                  context.read<ThousandBloc>().add(
+                                        ConfirmBidderSuccess(true),
+                                      );
+                                },
                                 child: Text(
                                   'да',
                                   style: theme.display2.copyWith(
@@ -220,31 +198,24 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                                   ),
                                 ),
                               ),
-                            ),
-                            const SizedBox(width: 12),
-                            Expanded(
-                              child: ElevatedButton(
-                                onPressed: widget.state.bidderSuccess != false
-                                    ? () {
-                                        context.read<ThousandBloc>().add(
-                                              ConfirmBidderSuccess(false),
-                                            );
-                                      }
-                                    : null,
-                                style: ElevatedButton.styleFrom(
-                                  backgroundColor: theme.redColor,
-                                  padding: const EdgeInsets.symmetric(
-                                    vertical: 16,
-                                  ),
-                                ),
+                            if (widget.state.bidderSuccess != true &&
+                                widget.state.bidderSuccess != false)
+                              const SizedBox(width: 24),
+                            if (widget.state.bidderSuccess != false)
+                              GestureDetector(
+                                onTap: () {
+                                  Gaimon.soft();
+                                  context.read<ThousandBloc>().add(
+                                        ConfirmBidderSuccess(false),
+                                      );
+                                },
                                 child: Text(
                                   'нет',
                                   style: theme.display2.copyWith(
-                                    color: theme.textColor,
+                                    color: theme.redColor,
                                   ),
                                 ),
                               ),
-                            ),
                           ],
                         ),
                       ],

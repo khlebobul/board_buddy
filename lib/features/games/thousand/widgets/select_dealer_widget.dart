@@ -65,7 +65,7 @@ class SelectDealerWidget extends StatelessWidget {
                           ),
                         ),
                         if (index < state.players.length - 1)
-                          const SizedBox(height: 12),
+                          const SizedBox(height: 16),
                       ],
                     );
                   }).toList(),

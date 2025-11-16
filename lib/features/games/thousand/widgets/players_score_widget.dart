@@ -1,8 +1,10 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/config/utils/useful_methods.dart';
 import 'package:board_buddy/features/games/thousand/models/thousand_models.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter_svg/flutter_svg.dart';
 
 class PlayersScoreWidget extends StatelessWidget {
   final List<Player> players;
@@ -56,33 +58,53 @@ class PlayersScoreWidget extends StatelessWidget {
                         ),
                       ),
                       const SizedBox(width: 4),
+                      if (playerData[index]!.roundScore != 0)
+                        Text(
+                          playerData[index]!.roundScore.toString(),
+                          style: theme.display2.copyWith(
+                            color: theme.textColor,
+                          ),
+                        )
+                      else if (showBids && passedPlayers != null)
+                        Text(
+                          passedPlayers!.contains(index)
+                              ? 'пас'
+                              : (playerData[index]!.currentBid != null
+                                  ? '${playerData[index]!.currentBid}'
+                                  : '0'),
+                          style: theme.display2.copyWith(
+                            color: passedPlayers!.contains(index)
+                                ? theme.secondaryTextColor
+                                : theme.textColor,
+                          ),
+                        )
+                      else
+                        Text(
+                          '0',
+                          style: theme.display2.copyWith(
+                            color: theme.textColor,
+                          ),
+                        ),
+                    ],
+                  ),
+                  const SizedBox(height: 5),
+                  Row(
+                    mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                    children: [
+                      Text(
+                        playerData[index]!.totalScore.toString(),
+                        style: theme.display2.copyWith(
+                          color: playerData[index]!.isOnBarrel ||
+                                  playerData[index]!.totalScore < 0
+                              ? theme.redColor
+                              : theme.textColor,
+                        ),
+                      ),
                       Row(
                         children: [
-                          Text(
-                            playerData[index]!.roundScore.toString(),
-                            style: theme.display2.copyWith(
-                              color: theme.textColor,
-                            ),
-                          ),
-                          if (showBids && passedPlayers != null) ...[
-                            const SizedBox(width: 8),
-                            Text(
-                              passedPlayers!.contains(index)
-                                  ? 'пас'
-                                  : (playerData[index]!.currentBid != null
-                                      ? '${playerData[index]!.currentBid}'
-                                      : ''),
-                              style: theme.display2.copyWith(
-                                color: passedPlayers!.contains(index)
-                                    ? theme.secondaryTextColor
-                                    : theme.textColor,
-                              ),
-                            ),
-                          ],
                           if (bidWinnerIndex == index &&
                               playerData[index]!.currentBid != null &&
                               !showBids) ...[
-                            const SizedBox(width: 8),
                             Container(
                               padding: const EdgeInsets.symmetric(
                                 horizontal: 6,
@@ -100,32 +122,21 @@ class PlayersScoreWidget extends StatelessWidget {
                                 ),
                               ),
                             ),
+                            if (playerData[index]!.isOnBarrel)
+                              const SizedBox(width: 8),
                           ],
                           if (playerData[index]!.isOnBarrel) ...[
-                            const SizedBox(width: 8),
-                            // TODO edit icon
-                            Icon(
-                              Icons.warning_rounded,
-                              size: 16,
-                              color: theme.redColor,
+                            SvgPicture.asset(
+                              CustomIcons.warning,
+                              width: 16,
+                              height: 16,
+                              colorFilter: ColorFilter.mode(
+                                theme.redColor,
+                                BlendMode.srcIn,
+                              ),
                             ),
                           ],
                         ],
-                      ),
-                    ],
-                  ),
-                  const SizedBox(height: 5),
-                  Row(
-                    mainAxisAlignment: MainAxisAlignment.center,
-                    children: [
-                      Text(
-                        playerData[index]!.totalScore.toString(),
-                        style: theme.display2.copyWith(
-                          color: playerData[index]!.isOnBarrel ||
-                                  playerData[index]!.totalScore < 0
-                              ? theme.redColor
-                              : theme.textColor,
-                        ),
                       ),
                     ],
                   ),

@@ -11,6 +11,7 @@ class CustomIcons {
   static const String sun = 'assets/icons/sun.svg';
   static const String sunDark = 'assets/icons/sun-dark.svg';
   static const String keyboard = 'assets/icons/keyboard.svg';
+  static const String warning = 'assets/icons/warning.svg';
 
   // games icons
   // uno, dos, uno flip
