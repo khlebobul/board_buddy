@@ -2,12 +2,13 @@ import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/thousand/bloc/thousand_bloc.dart';
 import 'package:board_buddy/features/games/thousand/widgets/players_score_widget.dart';
+import 'package:board_buddy/shared/models/player_model.dart';
+import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gaimon/gaimon.dart';
 
-// TODO edit
 class ScoringPhaseWidget extends StatefulWidget {
   final ScoringPhaseState state;
 
@@ -39,6 +40,30 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
       controller.dispose();
     }
     super.dispose();
+  }
+
+  void _showBidderSuccessModal(BuildContext context, Player bidderPlayer) {
+    ModalWindowWidget.show(
+      context,
+      mainText:
+          'набрал ли ${bidderPlayer.name.toLowerCase()} свою ставку (${widget.state.winningBid} очков)?',
+      button1Text: 'да',
+      button2Text: 'нет',
+      button1Action: () {
+        Navigator.of(context).pop();
+        Gaimon.soft();
+        context.read<ThousandBloc>().add(
+              ConfirmBidderSuccess(true),
+            );
+      },
+      button2Action: () {
+        Navigator.of(context).pop();
+        Gaimon.soft();
+        context.read<ThousandBloc>().add(
+              ConfirmBidderSuccess(false),
+            );
+      },
+    );
   }
 
   @override
@@ -76,7 +101,7 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
               const SizedBox(height: 8),
               Text(
                 '${widget.state.winningBid}',
-                style: theme.display6.copyWith(
+                style: theme.display2.copyWith(
                   color: theme.textColor,
                 ),
                 overflow: TextOverflow.ellipsis,
@@ -162,63 +187,24 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                     );
                   }),
                   const SizedBox(height: 16),
-                  // TODO into modal
                   if (widget.state.enteredScores.length ==
                           widget.state.players.length &&
                       widget.state.enteredScores.values
-                          .every((score) => score != null))
-                    Column(
-                      crossAxisAlignment: CrossAxisAlignment.stretch,
-                      children: [
-                        Text(
-                          'набрал ли ${bidderPlayer.name.toLowerCase()} свою ставку (${widget.state.winningBid} очков)?',
-                          textAlign: TextAlign.center,
-                          style: theme.display5.copyWith(
-                            color: theme.textColor,
+                          .every((score) => score != null) &&
+                      widget.state.bidderSuccess == null)
+                    Center(
+                      child: GestureDetector(
+                        onTap: () {
+                          Gaimon.soft();
+                          _showBidderSuccessModal(context, bidderPlayer);
+                        },
+                        child: Text(
+                          'далее',
+                          style: theme.display2.copyWith(
+                            color: theme.redColor,
                           ),
-                          overflow: TextOverflow.ellipsis,
-                          maxLines: 2,
                         ),
-                        const SizedBox(height: 16),
-                        Row(
-                          mainAxisAlignment: MainAxisAlignment.center,
-                          children: [
-                            if (widget.state.bidderSuccess != true)
-                              GestureDetector(
-                                onTap: () {
-                                  Gaimon.soft();
-                                  context.read<ThousandBloc>().add(
-                                        ConfirmBidderSuccess(true),
-                                      );
-                                },
-                                child: Text(
-                                  'да',
-                                  style: theme.display2.copyWith(
-                                    color: theme.textColor,
-                                  ),
-                                ),
-                              ),
-                            if (widget.state.bidderSuccess != true &&
-                                widget.state.bidderSuccess != false)
-                              const SizedBox(width: 24),
-                            if (widget.state.bidderSuccess != false)
-                              GestureDetector(
-                                onTap: () {
-                                  Gaimon.soft();
-                                  context.read<ThousandBloc>().add(
-                                        ConfirmBidderSuccess(false),
-                                      );
-                                },
-                                child: Text(
-                                  'нет',
-                                  style: theme.display2.copyWith(
-                                    color: theme.redColor,
-                                  ),
-                                ),
-                              ),
-                          ],
-                        ),
-                      ],
+                      ),
                     ),
                 ],
               ),

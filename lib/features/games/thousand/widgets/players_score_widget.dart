@@ -105,21 +105,10 @@ class PlayersScoreWidget extends StatelessWidget {
                           if (bidWinnerIndex == index &&
                               playerData[index]!.currentBid != null &&
                               !showBids) ...[
-                            Container(
-                              padding: const EdgeInsets.symmetric(
-                                horizontal: 6,
-                                vertical: 2,
-                              ),
-                              decoration: BoxDecoration(
+                            Text(
+                              '${playerData[index]!.currentBid}',
+                              style: theme.display2.copyWith(
                                 color: theme.redColor,
-                                borderRadius: BorderRadius.circular(4),
-                              ),
-                              child: Text(
-                                '${playerData[index]!.currentBid}',
-                                style: theme.display4.copyWith(
-                                  color: theme.textColor,
-                                  fontSize: 12,
-                                ),
                               ),
                             ),
                             if (playerData[index]!.isOnBarrel)

@@ -23,13 +23,13 @@ class BarrelWarningWidget extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-        Column(
+          Column(
             children: [
               Text(
                 state.playersOnBarrel.length == 1
                     ? 'игрок на бочке:'
                     : 'игроки на бочке:',
-                style: theme.display6.copyWith(
+                style: theme.display2.copyWith(
                   color: theme.secondaryTextColor,
                 ),
               ),
@@ -44,7 +44,7 @@ class BarrelWarningWidget extends StatelessWidget {
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
-                    style: theme.display6.copyWith(
+                    style: theme.display2.copyWith(
                       color: theme.redColor,
                     ),
                   ),
@@ -56,7 +56,7 @@ class BarrelWarningWidget extends StatelessWidget {
           Text(
             S.of(context).thousandSpecialRulesTitleOne,
             textAlign: TextAlign.center,
-            style: theme.display6.copyWith(
+            style: theme.display2.copyWith(
               color: theme.secondaryTextColor,
             ),
           ),
@@ -66,7 +66,7 @@ class BarrelWarningWidget extends StatelessWidget {
             children: [
               Text(
                 'текущий счет:',
-                style: theme.display6.copyWith(
+                style: theme.display2.copyWith(
                   color: theme.secondaryTextColor,
                 ),
               ),
@@ -86,7 +86,7 @@ class BarrelWarningWidget extends StatelessWidget {
                           player.name.toLowerCase(),
                           overflow: TextOverflow.ellipsis,
                           maxLines: 1,
-                          style: theme.display6.copyWith(
+                          style: theme.display2.copyWith(
                             color:
                                 isOnBarrel ? theme.redColor : theme.textColor,
                           ),
@@ -95,9 +95,8 @@ class BarrelWarningWidget extends StatelessWidget {
                       const SizedBox(width: 4),
                       Text(
                         '$score',
-                        style: theme.display6.copyWith(
-                          color:
-                              isOnBarrel ? theme.redColor : theme.textColor,
+                        style: theme.display2.copyWith(
+                          color: isOnBarrel ? theme.redColor : theme.textColor,
                         ),
                       ),
                     ],
