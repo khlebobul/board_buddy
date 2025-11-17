@@ -51,6 +51,8 @@ class ThousandGameScreen extends StatelessWidget {
         ),
         bottomNavigationBar: BlocBuilder<ThousandBloc, ThousandState>(
           builder: (context, state) {
+            final bloc = context.read<ThousandBloc>();
+
             if (state is SelectingFirstDealerState) {
               return BottomGameBar(
                 isArrow: false,
@@ -68,6 +70,10 @@ class ThousandGameScreen extends StatelessWidget {
                 onRightBtnTap: () {
                   _showExitConfirmation(context);
                 },
+                onLeftArrowTap: bloc.undo,
+                onRightArrowTap: bloc.redo,
+                isLeftArrowActive: bloc.canUndo(),
+                isRightArrowActive: bloc.canRedo(),
               );
             }
             return const SizedBox.shrink();

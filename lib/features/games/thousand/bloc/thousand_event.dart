@@ -68,6 +68,11 @@ class StartNewGameWithSamePlayers extends ThousandEvent {}
 
 class ReturnToMenu extends ThousandEvent {}
 
+/// Undo/Redo events
+class UndoThousandAction extends ThousandEvent {}
+
+class RedoThousandAction extends ThousandEvent {}
+
 /// Save/load events
 class CheckSavedThousandGame extends ThousandEvent {}
 

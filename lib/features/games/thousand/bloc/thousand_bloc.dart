@@ -8,6 +8,9 @@ part 'thousand_event.dart';
 part 'thousand_state.dart';
 
 class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
+  final List<ThousandState> _undoStack = [];
+  final List<ThousandState> _redoStack = [];
+
   ThousandBloc() : super(ThousandInitial()) {
     // Start screen events
     on<InitializeThousandStartScreen>(_onInitializeStartScreen);
@@ -42,6 +45,10 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
     on<StartNewGameWithSamePlayers>(_onStartNewGameWithSamePlayers);
     on<ReturnToMenu>(_onReturnToMenu);
     on<SaveThousandGameSession>(_onSaveGameSession);
+
+    // Undo/redo events
+    on<UndoThousandAction>(_onUndoAction);
+    on<RedoThousandAction>(_onRedoAction);
   }
 
   // ============ Start screen event handlers ============
@@ -114,6 +121,8 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
     StartThousandGame event,
     Emitter<ThousandState> emit,
   ) {
+    _resetHistory();
+
     // Initialize data for each player
     final playerData = <int, ThousandPlayerData>{};
     for (int i = 0; i < event.players.length; i++) {
@@ -165,6 +174,8 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
         return; // Bid must be higher than current
       }
 
+      _saveStateForUndo();
+
       // If this is the first bid and it equals 100, next dealer = this player
       int nextDealer = currentState.currentDealerIndex;
       if (currentState.highestBid == null && event.bidAmount == 100) {
@@ -205,6 +216,8 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
     if (state is BiddingPhaseState) {
       final currentState = state as BiddingPhaseState;
 
+      _saveStateForUndo();
+
       // Add player to passed players list
       final updatedPassedPlayers = Set<int>.from(currentState.passedPlayers);
       updatedPassedPlayers.add(currentState.currentBidderIndex);
@@ -239,6 +252,8 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
   ) {
     if (state is BiddingPhaseState) {
       final currentState = state as BiddingPhaseState;
+
+      _saveStateForUndo();
 
       if (currentState.highestBidderIndex != null &&
           currentState.highestBid != null) {
@@ -289,6 +304,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
   ) {
     if (state is ScoringPhaseState) {
       final currentState = state as ScoringPhaseState;
+
+      _saveStateForUndo();
+
       emit(currentState.copyWith(bidderSuccess: event.success));
 
       // If all data is entered, can finish scoring
@@ -305,6 +323,8 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
   ) {
     if (state is ScoringPhaseState) {
       final currentState = state as ScoringPhaseState;
+
+      _saveStateForUndo();
 
       // Update total player scores
       final updatedPlayerData =
@@ -466,6 +486,8 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
       firstDealerIndex = currentState.firstDealerIndex;
       currentDealerIndex = currentState.currentDealerIndex;
       roundNumber = currentState.roundNumber;
+
+      _saveStateForUndo();
     } else if (currentState is BarrelWarningState) {
       players = currentState.players;
       playerData = currentState.playerData;
@@ -511,6 +533,8 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
         player.score = 0;
       }
 
+      _resetHistory();
+
       // Start new game
       add(StartThousandGame(currentState.players));
     }
@@ -520,6 +544,7 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
     ReturnToMenu event,
     Emitter<ThousandState> emit,
   ) {
+    _resetHistory();
     emit(ThousandInitial());
   }
 
@@ -528,5 +553,151 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
     Emitter<ThousandState> emit,
   ) async {
     // TODO: Implement saving game state
+  }
+
+  void _onUndoAction(
+    UndoThousandAction event,
+    Emitter<ThousandState> emit,
+  ) {
+    if (_undoStack.isEmpty) return;
+
+    final previousState = _undoStack.removeLast();
+    final currentSnapshot = _cloneState(state);
+    if (currentSnapshot != null) {
+      _redoStack.add(currentSnapshot);
+    } else {
+      _redoStack.clear();
+    }
+
+    emit(previousState);
+  }
+
+  void _onRedoAction(
+    RedoThousandAction event,
+    Emitter<ThousandState> emit,
+  ) {
+    if (_redoStack.isEmpty) return;
+
+    final nextState = _redoStack.removeLast();
+    final currentSnapshot = _cloneState(state);
+    if (currentSnapshot != null) {
+      _undoStack.add(currentSnapshot);
+    }
+
+    emit(nextState);
+  }
+
+  void _resetHistory() {
+    _undoStack.clear();
+    _redoStack.clear();
+  }
+
+  void _saveStateForUndo() {
+    if (state is! BiddingPhaseState && state is! ScoringPhaseState) {
+      return;
+    }
+
+    final snapshot = _cloneState(state);
+    if (snapshot != null) {
+      _undoStack.add(snapshot);
+      _redoStack.clear();
+    }
+  }
+
+  ThousandState? _cloneState(ThousandState currentState) {
+    if (currentState is BiddingPhaseState) {
+      return BiddingPhaseState(
+        players: _clonePlayers(currentState.players),
+        playerData: _clonePlayerData(currentState.playerData),
+        currentBidderIndex: currentState.currentBidderIndex,
+        highestBid: currentState.highestBid,
+        highestBidderIndex: currentState.highestBidderIndex,
+        firstDealerIndex: currentState.firstDealerIndex,
+        currentDealerIndex: currentState.currentDealerIndex,
+        passedPlayers: Set<int>.from(currentState.passedPlayers),
+        roundNumber: currentState.roundNumber,
+      );
+    } else if (currentState is ScoringPhaseState) {
+      return ScoringPhaseState(
+        players: _clonePlayers(currentState.players),
+        playerData: _clonePlayerData(currentState.playerData),
+        bidWinnerIndex: currentState.bidWinnerIndex,
+        winningBid: currentState.winningBid,
+        firstDealerIndex: currentState.firstDealerIndex,
+        currentDealerIndex: currentState.currentDealerIndex,
+        enteredScores: _cloneEnteredScores(currentState.enteredScores),
+        bidderSuccess: currentState.bidderSuccess,
+        roundNumber: currentState.roundNumber,
+      );
+    }
+    return null;
+  }
+
+  List<Player> _clonePlayers(List<Player> players) {
+    return players.map(_clonePlayer).toList();
+  }
+
+  Player _clonePlayer(Player player) {
+    return Player(
+      name: player.name,
+      id: player.id,
+      score: player.score,
+      gear: player.gear,
+      level: player.level,
+      modifiers: _cloneModifiers(player.modifiers),
+      isMale: player.isMale,
+      isCursed: player.isCursed,
+      temporaryModifier: player.temporaryModifier,
+    );
+  }
+
+  PlayerModifiers _cloneModifiers(PlayerModifiers modifiers) {
+    return PlayerModifiers(
+      race1: modifiers.race1,
+      race2: modifiers.race2,
+      class1: modifiers.class1,
+      class2: modifiers.class2,
+      leftHand: modifiers.leftHand,
+      twoHanded: modifiers.twoHanded,
+      rightHand: modifiers.rightHand,
+      firstBonus: modifiers.firstBonus,
+      secondBonus: modifiers.secondBonus,
+      headGear: modifiers.headGear,
+      armour: modifiers.armour,
+      boots: modifiers.boots,
+    );
+  }
+
+  Map<int, ThousandPlayerData> _clonePlayerData(
+    Map<int, ThousandPlayerData> data,
+  ) {
+    final cloned = <int, ThousandPlayerData>{};
+    data.forEach((key, value) {
+      cloned[key] = ThousandPlayerData(
+        roundScore: value.roundScore,
+        totalScore: value.totalScore,
+        tricksWon: value.tricksWon,
+        isOnBarrel: value.isOnBarrel,
+        hasBolt: value.hasBolt,
+        currentBid: value.currentBid,
+      );
+    });
+    return cloned;
+  }
+
+  Map<int, int?> _cloneEnteredScores(Map<int, int?> source) {
+    return Map<int, int?>.from(source);
+  }
+
+  bool canUndo() => _undoStack.isNotEmpty;
+
+  bool canRedo() => _redoStack.isNotEmpty;
+
+  void undo() {
+    add(UndoThousandAction());
+  }
+
+  void redo() {
+    add(RedoThousandAction());
   }
 }
