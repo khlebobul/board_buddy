@@ -45,6 +45,25 @@ class EnterPlayerScore extends ThousandEvent {
   EnterPlayerScore(this.playerIndex, this.score);
 }
 
+/// Add card points to player's current score calculation
+class AddCardToPlayerScore extends ThousandEvent {
+  final int playerIndex;
+  final int cardPoints;
+  AddCardToPlayerScore(this.playerIndex, this.cardPoints);
+}
+
+/// Clear player's current score calculation
+class ClearPlayerScore extends ThousandEvent {
+  final int playerIndex;
+  ClearPlayerScore(this.playerIndex);
+}
+
+/// Confirm entered score for a player
+class ConfirmPlayerScore extends ThousandEvent {
+  final int playerIndex;
+  ConfirmPlayerScore(this.playerIndex);
+}
+
 class ConfirmBidderSuccess extends ThousandEvent {
   final bool success;
   ConfirmBidderSuccess(this.success);

@@ -107,9 +107,8 @@ final class ScoringPhaseState extends ThousandState {
   final int winningBid;
   final int firstDealerIndex;
   final int currentDealerIndex;
-  /// Entered scores for each player
   final Map<int, int?> enteredScores;
-  /// Whether the bidder met their bid
+  final Map<int, int> currentScoreCalculation;
   final bool? bidderSuccess;
   final int roundNumber;
 
@@ -121,9 +120,11 @@ final class ScoringPhaseState extends ThousandState {
     required this.firstDealerIndex,
     required this.currentDealerIndex,
     Map<int, int?>? enteredScores,
+    Map<int, int>? currentScoreCalculation,
     this.bidderSuccess,
     this.roundNumber = 1,
-  }) : enteredScores = enteredScores ?? {};
+  }) : enteredScores = enteredScores ?? {},
+       currentScoreCalculation = currentScoreCalculation ?? {};
 
   ScoringPhaseState copyWith({
     List<Player>? players,
@@ -133,6 +134,7 @@ final class ScoringPhaseState extends ThousandState {
     int? firstDealerIndex,
     int? currentDealerIndex,
     Map<int, int?>? enteredScores,
+    Map<int, int>? currentScoreCalculation,
     bool? bidderSuccess,
     int? roundNumber,
   }) {
@@ -144,6 +146,7 @@ final class ScoringPhaseState extends ThousandState {
       firstDealerIndex: firstDealerIndex ?? this.firstDealerIndex,
       currentDealerIndex: currentDealerIndex ?? this.currentDealerIndex,
       enteredScores: enteredScores ?? this.enteredScores,
+      currentScoreCalculation: currentScoreCalculation ?? this.currentScoreCalculation,
       bidderSuccess: bidderSuccess ?? this.bidderSuccess,
       roundNumber: roundNumber ?? this.roundNumber,
     );

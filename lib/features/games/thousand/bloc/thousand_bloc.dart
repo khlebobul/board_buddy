@@ -31,6 +31,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
 
     // Scoring events
     on<EnterPlayerScore>(_onEnterPlayerScore);
+    on<AddCardToPlayerScore>(_onAddCardToPlayerScore);
+    on<ClearPlayerScore>(_onClearPlayerScore);
+    on<ConfirmPlayerScore>(_onConfirmPlayerScore);
     on<ConfirmBidderSuccess>(_onConfirmBidderSuccess);
     on<FinishScoring>(_onFinishScoring);
 
@@ -287,6 +290,71 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
       final updatedPlayerData =
           Map<int, ThousandPlayerData>.from(currentState.playerData);
       if (event.score == 0) {
+        updatedPlayerData[event.playerIndex] =
+            updatedPlayerData[event.playerIndex]!.copyWith(hasBolt: true);
+      }
+
+      emit(currentState.copyWith(
+        enteredScores: updatedScores,
+        playerData: updatedPlayerData,
+      ));
+    }
+  }
+
+  void _onAddCardToPlayerScore(
+    AddCardToPlayerScore event,
+    Emitter<ThousandState> emit,
+  ) {
+    if (state is ScoringPhaseState) {
+      final currentState = state as ScoringPhaseState;
+      _saveStateForUndo();
+
+      final updatedCalculation =
+          Map<int, int>.from(currentState.currentScoreCalculation);
+      final currentScore = updatedCalculation[event.playerIndex] ?? 0;
+      updatedCalculation[event.playerIndex] = currentScore + event.cardPoints;
+
+      emit(currentState.copyWith(
+        currentScoreCalculation: updatedCalculation,
+      ));
+    }
+  }
+
+  void _onClearPlayerScore(
+    ClearPlayerScore event,
+    Emitter<ThousandState> emit,
+  ) {
+    if (state is ScoringPhaseState) {
+      final currentState = state as ScoringPhaseState;
+      _saveStateForUndo();
+
+      final updatedCalculation =
+          Map<int, int>.from(currentState.currentScoreCalculation);
+      updatedCalculation.remove(event.playerIndex);
+
+      emit(currentState.copyWith(
+        currentScoreCalculation: updatedCalculation,
+      ));
+    }
+  }
+
+  void _onConfirmPlayerScore(
+    ConfirmPlayerScore event,
+    Emitter<ThousandState> emit,
+  ) {
+    if (state is ScoringPhaseState) {
+      final currentState = state as ScoringPhaseState;
+      _saveStateForUndo();
+
+      final score =
+          currentState.currentScoreCalculation[event.playerIndex] ?? 0;
+
+      final updatedScores = Map<int, int?>.from(currentState.enteredScores);
+      updatedScores[event.playerIndex] = score;
+
+      final updatedPlayerData =
+          Map<int, ThousandPlayerData>.from(currentState.playerData);
+      if (score == 0) {
         updatedPlayerData[event.playerIndex] =
             updatedPlayerData[event.playerIndex]!.copyWith(hasBolt: true);
       }
@@ -626,6 +694,8 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
         firstDealerIndex: currentState.firstDealerIndex,
         currentDealerIndex: currentState.currentDealerIndex,
         enteredScores: _cloneEnteredScores(currentState.enteredScores),
+        currentScoreCalculation:
+            Map<int, int>.from(currentState.currentScoreCalculation),
         bidderSuccess: currentState.bidderSuccess,
         roundNumber: currentState.roundNumber,
       );
