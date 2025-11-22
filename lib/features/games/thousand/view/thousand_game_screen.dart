@@ -6,6 +6,7 @@ import 'package:board_buddy/features/games/thousand/widgets/scoring_phase_widget
 import 'package:board_buddy/features/games/thousand/widgets/select_dealer_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/barrel_warning_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/info_thousand_dialog_widget.dart';
+import 'package:board_buddy/features/games/thousand/widgets/game_end_thousand_modal_widget.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
@@ -20,67 +21,100 @@ class ThousandGameScreen extends StatelessWidget {
     final theme = UIThemes.of(context);
     return PopScope(
       canPop: false,
-      child: Scaffold(
-        appBar: CustomAppBar(
-          leftButtonText: S.of(context).menu,
-          onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
-          isRules: true,
-          rightButtonText: S.of(context).rules,
-          onRightButtonPressed: () =>
-              Navigator.pushNamed(context, AppRoutes.thousandRules),
-        ),
-        body: SafeArea(
-          child: BlocBuilder<ThousandBloc, ThousandState>(
+      child: BlocListener<ThousandBloc, ThousandState>(
+        listener: (context, state) {
+          if (state is GameEndedState) {
+            _showGameEndModal(context, state);
+          }
+        },
+        child: Scaffold(
+          appBar: CustomAppBar(
+            leftButtonText: S.of(context).menu,
+            onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
+            isRules: true,
+            rightButtonText: S.of(context).rules,
+            onRightButtonPressed: () =>
+                Navigator.pushNamed(context, AppRoutes.thousandRules),
+          ),
+          body: SafeArea(
+            child: BlocBuilder<ThousandBloc, ThousandState>(
+              builder: (context, state) {
+                if (state is SelectingFirstDealerState) {
+                  return SelectDealerWidget(state: state);
+                } else if (state is BiddingPhaseState) {
+                  return BiddingPhaseWidget(state: state);
+                } else if (state is ScoringPhaseState) {
+                  return ScoringPhaseWidget(state: state);
+                } else if (state is BarrelWarningState) {
+                  return BarrelWarningWidget(state: state);
+                } else if (state is GameEndedState) {
+                  return const SizedBox.shrink();
+                }
+                return Center(
+                  child: CircularProgressIndicator(
+                    color: theme.redColor,
+                  ),
+                );
+              },
+            ),
+          ),
+          bottomNavigationBar: BlocBuilder<ThousandBloc, ThousandState>(
             builder: (context, state) {
+              final bloc = context.read<ThousandBloc>();
+
               if (state is SelectingFirstDealerState) {
-                return SelectDealerWidget(state: state);
-              } else if (state is BiddingPhaseState) {
-                return BiddingPhaseWidget(state: state);
-              } else if (state is ScoringPhaseState) {
-                return ScoringPhaseWidget(state: state);
-              } else if (state is BarrelWarningState) {
-                return BarrelWarningWidget(state: state);
+                return BottomGameBar(
+                  isArrow: false,
+                  rightButtonText: S.of(context).options,
+                  onRightBtnTap: () {
+                    _showExitConfirmation(context);
+                  },
+                );
+              } else if (state is BiddingPhaseState ||
+                  state is ScoringPhaseState) {
+                return BottomGameBar(
+                  isArrow: true,
+                  dialogWidget: const InfoThousandDialog(),
+                  rightButtonText: S.of(context).options,
+                  onRightBtnTap: () {
+                    _showExitConfirmation(context);
+                  },
+                  onLeftArrowTap: bloc.undo,
+                  onRightArrowTap: bloc.redo,
+                  isLeftArrowActive: bloc.canUndo(),
+                  isRightArrowActive: bloc.canRedo(),
+                );
               }
-              return Center(
-                child: CircularProgressIndicator(
-                  color: theme.redColor,
-                ),
-              );
+              return const SizedBox.shrink();
             },
           ),
         ),
-        bottomNavigationBar: BlocBuilder<ThousandBloc, ThousandState>(
-          builder: (context, state) {
-            final bloc = context.read<ThousandBloc>();
-
-            if (state is SelectingFirstDealerState) {
-              return BottomGameBar(
-                isArrow: false,
-                rightButtonText: S.of(context).options,
-                onRightBtnTap: () {
-                  _showExitConfirmation(context);
-                },
-              );
-            } else if (state is BiddingPhaseState ||
-                state is ScoringPhaseState) {
-              return BottomGameBar(
-                isArrow: true,
-                dialogWidget: const InfoThousandDialog(),
-                rightButtonText: S.of(context).options,
-                onRightBtnTap: () {
-                  _showExitConfirmation(context);
-                },
-                onLeftArrowTap: bloc.undo,
-                onRightArrowTap: bloc.redo,
-                isLeftArrowActive: bloc.canUndo(),
-                isRightArrowActive: bloc.canRedo(),
-              );
-            }
-            return const SizedBox.shrink();
-          },
-        ),
       ),
     );
+  }
+
+  void _showGameEndModal(BuildContext context, GameEndedState state) {
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      GameEndThousandModalWidget.show(
+        context,
+        players: state.players,
+        playerData: state.playerData,
+        winnerIndex: state.winnerIndex,
+        onNewGameWithSamePlayers: () {
+          Navigator.of(context).pop();
+          context.read<ThousandBloc>().add(StartNewGameWithSamePlayers());
+        },
+        onNewGame: () {
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.pushNamed(context, '/thousandStartGame');
+        },
+        onReturnToMenu: () {
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+        },
+      );
+    });
   }
 
   void _showExitConfirmation(BuildContext context) {
