@@ -87,6 +87,7 @@ class BiddingPhaseWidget extends StatelessWidget {
             children: [
               Center(
                 child: GestureDetector(
+                  behavior: HitTestBehavior.opaque,
                   onTap: () {
                     Gaimon.soft();
                     context.read<ThousandBloc>().add(PassBidding());

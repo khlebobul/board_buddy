@@ -31,6 +31,7 @@ class LinkBtnWidget extends StatelessWidget {
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () async {
         if (isShareButton) {
           await SharePlus.instance.share(ShareParams(text: shareText!));

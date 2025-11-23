@@ -118,6 +118,7 @@ class CommonGameStartScreenView extends StatelessWidget {
                         if (counterState.players.length <
                             GameMaxPlayers.commonCounter)
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               final counterBloc =
                                   context.read<CommonCounterBloc>();
@@ -211,6 +212,7 @@ class CommonGameStartScreenView extends StatelessWidget {
     final theme = UIThemes.of(context);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<CommonCounterBloc>().add(SelectGameMode(modeName));
       },

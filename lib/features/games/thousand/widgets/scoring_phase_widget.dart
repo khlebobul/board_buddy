@@ -258,6 +258,7 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                       final player = entry.value;
                       final firstLetter = player.name.characters.first;
                       return GestureDetector(
+                        behavior: HitTestBehavior.opaque,
                         onTap: () {
                           _pageController.animateToPage(
                             index,
@@ -289,6 +290,7 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                       mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                       children: [
                         GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             Gaimon.soft();
                             context.read<ThousandBloc>().add(
@@ -304,6 +306,7 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                           ),
                         ),
                         GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             Gaimon.soft();
                             context.read<ThousandBloc>().add(

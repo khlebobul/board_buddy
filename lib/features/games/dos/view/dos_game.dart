@@ -359,8 +359,8 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
                                 final firstLetter =
                                     player.name.characters.first;
                                 return GestureDetector(
+                                  behavior: HitTestBehavior.opaque,
                                   onTap: () {
-                                    // Navigate to the needed page
                                     _pageController.animateToPage(
                                       index,
                                       duration:

@@ -123,6 +123,7 @@ class TimerWidgetState extends State<TimerWidget> {
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
         GestureDetector(
+          behavior: HitTestBehavior.opaque,
           onTap: _isRunning ? _stopTimer : _startTimer,
           child: SvgPicture.asset(
             _isRunning ? CustomIcons.pause : CustomIcons.play,
@@ -140,6 +141,7 @@ class TimerWidgetState extends State<TimerWidget> {
         ),
         const SizedBox(width: 15),
         GestureDetector(
+          behavior: HitTestBehavior.opaque,
           onTap: _resetTimer,
           child: SvgPicture.asset(
             CustomIcons.refresh,

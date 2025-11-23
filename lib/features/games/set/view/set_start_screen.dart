@@ -116,6 +116,7 @@ class SetGameStartScreenView extends StatelessWidget {
                         const SizedBox(height: 12),
                         if (setState.players.length < GameMaxPlayers.set)
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               final setBloc = context.read<SetBloc>();
                               showDialog(
@@ -210,6 +211,7 @@ class SetGameStartScreenView extends StatelessWidget {
     final theme = UIThemes.of(context);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<SetBloc>().add(SelectGameMode(modeName));
       },

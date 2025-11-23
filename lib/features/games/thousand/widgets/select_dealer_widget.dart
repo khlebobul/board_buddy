@@ -44,6 +44,7 @@ class SelectDealerWidget extends StatelessWidget {
                     return Column(
                       children: [
                         GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             context.read<ThousandBloc>().add(
                                   SelectFirstDealer(index),

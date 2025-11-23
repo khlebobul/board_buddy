@@ -137,6 +137,7 @@ class GameEndThousandModalWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onNewGameWithSamePlayers,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -152,6 +153,7 @@ class GameEndThousandModalWidget extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onNewGame,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -167,6 +169,7 @@ class GameEndThousandModalWidget extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onReturnToMenu,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),

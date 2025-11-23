@@ -108,6 +108,7 @@ class BarrelWarningWidget extends StatelessWidget {
           const Spacer(),
           Center(
             child: GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () {
                 Gaimon.soft();
                 context.read<ThousandBloc>().add(ContinueFromBarrel());

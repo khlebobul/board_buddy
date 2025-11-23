@@ -29,6 +29,7 @@ class GamesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/commonStartGame'),
                 child: TextScramble(
                     text: '00 - ${S.of(context).common}',
@@ -41,6 +42,7 @@ class GamesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/unoStartGame'),
                 child: TextScramble(
                     text: '01 - ${S.of(context).uno}',
@@ -53,6 +55,7 @@ class GamesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/scrabbleStartGame'),
                 child: TextScramble(
                     text: '02 - ${S.of(context).scrabble}',
@@ -65,6 +68,7 @@ class GamesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/unoFlipStartGame'),
                 child: TextScramble(
                     text: '03 - ${S.of(context).unoFlip}',
@@ -77,6 +81,7 @@ class GamesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/dosStartGame'),
                 child: TextScramble(
                     text: '04 - ${S.of(context).dos}',
@@ -89,6 +94,7 @@ class GamesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/setStartGame'),
                 child: TextScramble(
                     text: '05 - ${S.of(context).set}',
@@ -101,6 +107,7 @@ class GamesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/munchkinStartGame'),
                 child: TextScramble(
                     text: '06 - ${S.of(context).munchkin}',
@@ -113,6 +120,7 @@ class GamesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/thousandStartGame'),
                 child: TextScramble(
                     text: '07 - 1000',

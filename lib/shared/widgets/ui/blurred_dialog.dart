@@ -60,6 +60,7 @@ class BlurredDialog extends StatelessWidget {
                     child: Align(
                       alignment: Alignment.topRight,
                       child: GestureDetector(
+                        behavior: HitTestBehavior.opaque,
                         onTap: () => Navigator.pop(context),
                         child: Icon(Icons.close, color: theme.hintColor),
                       ),

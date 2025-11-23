@@ -46,6 +46,7 @@ class ModalWindowWidget extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: button1Action,
                 child: TextScramble(
                     text: button1Text,
@@ -57,6 +58,7 @@ class ModalWindowWidget extends StatelessWidget {
                     }),
               ),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: button2Action,
                 child: TextScramble(
                     text: button2Text,

@@ -42,6 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
             GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: onLeftButtonPressed,
               child: TextScramble(
                   text: leftButtonText,
@@ -53,6 +54,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                   }),
             ),
             GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: onRightButtonPressed,
               child: isRules
                   ? TextScramble(

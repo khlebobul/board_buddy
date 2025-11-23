@@ -62,6 +62,7 @@ class _HomeScreenState extends State<HomeScreen> {
                       (item) => Padding(
                         padding: const EdgeInsets.only(bottom: 25),
                         child: GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () => _navigateTo(context, item['route']!),
                           child: TextScramble(
                               text: item['title']!,

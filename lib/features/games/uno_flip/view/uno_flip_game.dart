@@ -364,6 +364,7 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                 final firstLetter =
                                     player.name.characters.first;
                                 return GestureDetector(
+                                  behavior: HitTestBehavior.opaque,
                                   onTap: () {
                                     _pageController.animateToPage(
                                       index,

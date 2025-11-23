@@ -116,6 +116,7 @@ class ThousandStartScreenContent extends StatelessWidget {
                       if (thousandState.players.length <
                           GameMaxPlayers.thousand)
                         GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             final thousandBloc = context.read<ThousandBloc>();
                             showDialog(

@@ -142,6 +142,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onContinueGame,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -160,6 +161,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
                   ),
                   if (onAddPlayer != null)
                     GestureDetector(
+                      behavior: HitTestBehavior.opaque,
                       onTap: onAddPlayer,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -175,6 +177,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
                       ),
                     ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onNewGameWithSamePlayers,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -190,6 +193,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onNewGame,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -205,6 +209,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onReturnToMenu,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),

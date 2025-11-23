@@ -104,6 +104,7 @@ class ScrabbleStartScreenView extends StatelessWidget {
                       if (scrabbleState.players.length <
                           GameMaxPlayers.scrabble)
                         GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             final scrabbleBloc = context.read<ScrabbleBloc>();
                             showDialog(

@@ -141,6 +141,7 @@ class UnoFlipStartScreenView extends StatelessWidget {
                       const SizedBox(height: 12),
                       if (unoFlipState.players.length < GameMaxPlayers.unoFlip)
                         GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             final unoFlipBloc = context.read<UnoFlipBloc>();
                             showDialog(
@@ -232,6 +233,7 @@ class UnoFlipStartScreenView extends StatelessWidget {
       BuildContext context, String modeName, UnoFlipStartScreenState state) {
     final theme = UIThemes.of(context);
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<UnoFlipBloc>().add(SelectGameMode(modeName));
       },

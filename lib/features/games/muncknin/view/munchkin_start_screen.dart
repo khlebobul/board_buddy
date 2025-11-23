@@ -139,6 +139,7 @@ class _MunchkinStartScreenViewState extends State<MunchkinStartScreenView> {
                         if (munchkinState.players.length <
                             GameMaxPlayers.munchkin)
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               final munchkinBloc = context.read<MunchkinBloc>();
                               showDialog(
@@ -231,6 +232,7 @@ class _MunchkinStartScreenViewState extends State<MunchkinStartScreenView> {
     final theme = UIThemes.of(context);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<MunchkinBloc>().add(SelectGameMode(modeName));
       },
