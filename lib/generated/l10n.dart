@@ -3238,6 +3238,126 @@ class S {
       args: [],
     );
   }
+
+  /// `current count:`
+  String get currentCount {
+    return Intl.message(
+      'current count:',
+      name: 'currentCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `current bet:`
+  String get currentBet {
+    return Intl.message('current bet:', name: 'currentBet', desc: '', args: []);
+  }
+
+  /// `pass`
+  String get pass {
+    return Intl.message('pass', name: 'pass', desc: '', args: []);
+  }
+
+  /// `ace`
+  String get ace {
+    return Intl.message('ace', name: 'ace', desc: '', args: []);
+  }
+
+  /// `king`
+  String get king {
+    return Intl.message('king', name: 'king', desc: '', args: []);
+  }
+
+  /// `queen`
+  String get queen {
+    return Intl.message('queen', name: 'queen', desc: '', args: []);
+  }
+
+  /// `jack`
+  String get jack {
+    return Intl.message('jack', name: 'jack', desc: '', args: []);
+  }
+
+  /// `did reach`
+  String get didYouEnter {
+    return Intl.message('did reach', name: 'didYouEnter', desc: '', args: []);
+  }
+
+  /// `yes`
+  String get yes {
+    return Intl.message('yes', name: 'yes', desc: '', args: []);
+  }
+
+  /// `no`
+  String get no {
+    return Intl.message('no', name: 'no', desc: '', args: []);
+  }
+
+  /// `your bet`
+  String get yourBet {
+    return Intl.message('your bet', name: 'yourBet', desc: '', args: []);
+  }
+
+  /// `clear`
+  String get clear {
+    return Intl.message('clear', name: 'clear', desc: '', args: []);
+  }
+
+  /// `confirm`
+  String get confirm {
+    return Intl.message('confirm', name: 'confirm', desc: '', args: []);
+  }
+
+  /// `points confirmed`
+  String get pointsConfirmed {
+    return Intl.message(
+      'points confirmed',
+      name: 'pointsConfirmed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `who deals first?`
+  String get whoGoesFirst {
+    return Intl.message(
+      'who deals first?',
+      name: 'whoGoesFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `did {playerName} reach their bid ({winningBid} points)?`
+  String didPlayerReachBid(String playerName, int winningBid) {
+    return Intl.message(
+      'did $playerName reach their bid ($winningBid points)?',
+      name: 'didPlayerReachBid',
+      desc: '',
+      args: [playerName, winningBid],
+    );
+  }
+
+  /// `player on barrel:`
+  String get playerOnBarrel {
+    return Intl.message(
+      'player on barrel:',
+      name: 'playerOnBarrel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `players on barrel:`
+  String get playersOnBarrel {
+    return Intl.message(
+      'players on barrel:',
+      name: 'playersOnBarrel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

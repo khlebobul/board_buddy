@@ -369,5 +369,33 @@
   "thousandContractResolutionThree": "other players add the points from tricks they won to their totals.",
   "thousandSpecialRulesTitleOne": "barrel rule: if a player reaches 880+ points, they are \"on the barrel\" and must score exactly to 1000, or else drop back to 880.",
   "thousandSpecialRulesTitleTwo": "some variants require exactly 1000 points to win. going over resets you to 880 or previous score.",
-  "thousandVictoryRule": "the first player to reach 1000 points (or exactly 1000, depending on house rules) wins the game."
+  "thousandVictoryRule": "the first player to reach 1000 points (or exactly 1000, depending on house rules) wins the game.",
+  "currentCount": "current count:",
+  "currentBet": "current bet:",
+  "pass": "pass",
+  "ace": "ace",
+  "king": "king",
+  "queen": "queen",
+  "jack": "jack",
+  "didYouEnter": "did reach",
+  "yes": "yes",
+  "no": "no",
+  "yourBet": "your bet",
+  "clear": "clear",
+  "confirm": "confirm",
+  "pointsConfirmed": "points confirmed",
+  "whoGoesFirst": "who deals first?",
+  "didPlayerReachBid": "did {playerName} reach their bid ({winningBid} points)?",
+  "@didPlayerReachBid": {
+    "placeholders": {
+      "playerName": {
+        "type": "String"
+      },
+      "winningBid": {
+        "type": "int"
+      }
+    }
+  },
+  "playerOnBarrel": "player on barrel:",
+  "playersOnBarrel": "players on barrel:"
 }

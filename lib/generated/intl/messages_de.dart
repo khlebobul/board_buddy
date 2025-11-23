@@ -20,9 +20,13 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'de';
 
+  static String m0(playerName, winningBid) =>
+      "hat ${playerName} sein Gebot (${winningBid} Punkte) erreicht?";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("über"),
+    "ace": MessageLookupByLibrary.simpleMessage("Ass"),
     "ace11Points": MessageLookupByLibrary.simpleMessage("ass: 11 punkte"),
     "add": MessageLookupByLibrary.simpleMessage("hinzufügen"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("spieler hinzufügen"),
@@ -84,10 +88,12 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "class1": MessageLookupByLibrary.simpleMessage("klasse 1"),
     "class2": MessageLookupByLibrary.simpleMessage("klasse 2"),
+    "clear": MessageLookupByLibrary.simpleMessage("löschen"),
     "clearance": MessageLookupByLibrary.simpleMessage("befreiung"),
     "cleric": MessageLookupByLibrary.simpleMessage("kleriker"),
     "close": MessageLookupByLibrary.simpleMessage("schließen"),
     "common": MessageLookupByLibrary.simpleMessage("zähler"),
+    "confirm": MessageLookupByLibrary.simpleMessage("bestätigen"),
     "continueGame": MessageLookupByLibrary.simpleMessage("spiel fortsetzen"),
     "continueTitle": MessageLookupByLibrary.simpleMessage("fortsetzen"),
     "contractResolution": MessageLookupByLibrary.simpleMessage(
@@ -96,12 +102,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage(
       "konnte nicht starten",
     ),
+    "currentBet": MessageLookupByLibrary.simpleMessage("aktuelles Gebot:"),
+    "currentCount": MessageLookupByLibrary.simpleMessage("aktueller Stand:"),
     "cursed": MessageLookupByLibrary.simpleMessage("verflucht"),
     "dark": MessageLookupByLibrary.simpleMessage("dunkel"),
     "darkSideCardsAreReplacedWithLightOnesAndVice":
         MessageLookupByLibrary.simpleMessage(
           "dunkle karten werden durch helle ersetzt und umgekehrt.",
         ),
+    "didPlayerReachBid": m0,
+    "didYouEnter": MessageLookupByLibrary.simpleMessage("hat erreicht"),
     "doReturn": MessageLookupByLibrary.simpleMessage("zurückkehren"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "fehlt dein lieblingsspiel? schreib mir eine e-mail!",
@@ -236,8 +246,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "zeigt einen aktiven fluch an",
     ),
+    "jack": MessageLookupByLibrary.simpleMessage("Bube"),
     "jack2Points": MessageLookupByLibrary.simpleMessage("bube: 2 punkte"),
     "keepAwakeMode": MessageLookupByLibrary.simpleMessage("wachhaltemodus"),
+    "king": MessageLookupByLibrary.simpleMessage("König"),
     "king4Points": MessageLookupByLibrary.simpleMessage("könig: 4 punkte"),
     "languages": MessageLookupByLibrary.simpleMessage("sprachen"),
     "leftHand": MessageLookupByLibrary.simpleMessage("linke hand"),
@@ -363,6 +375,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "der nächste spieler zieht, bis er die gewählte farbe erhält.",
         ),
     "nine0Points": MessageLookupByLibrary.simpleMessage("neun: 0 punkte"),
+    "no": MessageLookupByLibrary.simpleMessage("nein"),
     "noClass": MessageLookupByLibrary.simpleMessage("keine klasse"),
     "noItem": MessageLookupByLibrary.simpleMessage("kein gegenstand"),
     "numberCards": MessageLookupByLibrary.simpleMessage("zahlenkarten"),
@@ -370,15 +383,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "on": MessageLookupByLibrary.simpleMessage("an"),
     "options": MessageLookupByLibrary.simpleMessage("optionen"),
     "others": MessageLookupByLibrary.simpleMessage("anderes"),
+    "pass": MessageLookupByLibrary.simpleMessage("passen"),
     "play": MessageLookupByLibrary.simpleMessage("spielen"),
     "playerName": MessageLookupByLibrary.simpleMessage("spielername"),
+    "playerOnBarrel": MessageLookupByLibrary.simpleMessage("Spieler im Fass:"),
     "players": MessageLookupByLibrary.simpleMessage("spieler"),
+    "playersOnBarrel": MessageLookupByLibrary.simpleMessage("Spieler im Fass:"),
     "points": MessageLookupByLibrary.simpleMessage("punkte"),
+    "pointsConfirmed": MessageLookupByLibrary.simpleMessage("Punkte bestätigt"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
       "möglicherweise die entfernung von flüchen oder debuffs",
     ),
     "preparation": MessageLookupByLibrary.simpleMessage("vorbereitung:"),
     "projectWebsite": MessageLookupByLibrary.simpleMessage("projektwebsite"),
+    "queen": MessageLookupByLibrary.simpleMessage("Dame"),
     "queen3Points": MessageLookupByLibrary.simpleMessage("dame: 3 punkte"),
     "race1": MessageLookupByLibrary.simpleMessage("rasse 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("bewerte die app"),
@@ -844,6 +862,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "victoryTitle": MessageLookupByLibrary.simpleMessage("sieg:"),
     "warrior": MessageLookupByLibrary.simpleMessage("krieger"),
+    "whoGoesFirst": MessageLookupByLibrary.simpleMessage("wer gibt zuerst?"),
     "wildCardOneDosInfo": MessageLookupByLibrary.simpleMessage(
       "wilder #-stein",
     ),
@@ -865,8 +884,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "wordModifier": MessageLookupByLibrary.simpleMessage("wortmodifikator: "),
     "x2Word": MessageLookupByLibrary.simpleMessage("x2 wort"),
     "x3Word": MessageLookupByLibrary.simpleMessage("x3 wort"),
+    "yes": MessageLookupByLibrary.simpleMessage("ja"),
     "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
       "du hast ein unvollendetes spiel",
     ),
+    "yourBet": MessageLookupByLibrary.simpleMessage("dein Gebot"),
   };
 }

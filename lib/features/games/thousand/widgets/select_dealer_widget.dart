@@ -1,6 +1,7 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/thousand/bloc/thousand_bloc.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -27,7 +28,7 @@ class SelectDealerWidget extends StatelessWidget {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Text(
-                  'who deals first?',
+                  S.of(context).whoGoesFirst,
                   style: theme.display2.copyWith(
                     color: theme.secondaryTextColor,
                   ),

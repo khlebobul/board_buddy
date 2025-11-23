@@ -28,7 +28,6 @@ class BiddingPhaseWidget extends StatelessWidget {
       child: Column(
         crossAxisAlignment: CrossAxisAlignment.stretch,
         children: [
-          // Header - current player
           Column(
             children: [
               Row(
@@ -56,7 +55,7 @@ class BiddingPhaseWidget extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'текущая ставка:',
+                    S.of(context).currentBet,
                     style: theme.display6.copyWith(
                       color: theme.secondaryTextColor,
                     ),
@@ -93,7 +92,7 @@ class BiddingPhaseWidget extends StatelessWidget {
                     context.read<ThousandBloc>().add(PassBidding());
                   },
                   child: Text(
-                    'пас',
+                    S.of(context).pass,
                     style: theme.display2.copyWith(
                       color: theme.redColor,
                     ),

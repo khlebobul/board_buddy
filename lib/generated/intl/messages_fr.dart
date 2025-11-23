@@ -20,9 +20,13 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'fr';
 
+  static String m0(playerName, winningBid) =>
+      "${playerName} a-t-il atteint sa mise (${winningBid} points)?";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("à propos"),
+    "ace": MessageLookupByLibrary.simpleMessage("as"),
     "ace11Points": MessageLookupByLibrary.simpleMessage("as: 11 points"),
     "add": MessageLookupByLibrary.simpleMessage("ajouter"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("ajouter un joueur"),
@@ -36,15 +40,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "cancel": MessageLookupByLibrary.simpleMessage("annuler"),
     "class1": MessageLookupByLibrary.simpleMessage("classe 1"),
     "class2": MessageLookupByLibrary.simpleMessage("classe 2"),
+    "clear": MessageLookupByLibrary.simpleMessage("effacer"),
     "clearance": MessageLookupByLibrary.simpleMessage("dégagement"),
     "cleric": MessageLookupByLibrary.simpleMessage("clerc"),
     "close": MessageLookupByLibrary.simpleMessage("fermer"),
     "common": MessageLookupByLibrary.simpleMessage("compteur"),
+    "confirm": MessageLookupByLibrary.simpleMessage("confirmer"),
     "contractResolution": MessageLookupByLibrary.simpleMessage(
       "résolution du contrat:",
     ),
+    "currentBet": MessageLookupByLibrary.simpleMessage("mise actuelle:"),
+    "currentCount": MessageLookupByLibrary.simpleMessage("compte actuel:"),
     "cursed": MessageLookupByLibrary.simpleMessage("maudit"),
     "dark": MessageLookupByLibrary.simpleMessage("sombre"),
+    "didPlayerReachBid": m0,
+    "didYouEnter": MessageLookupByLibrary.simpleMessage("a-t-il atteint"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "vous n\'avez pas votre jeu préféré ? écrivez-moi!",
     ),
@@ -61,7 +71,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "halfling": MessageLookupByLibrary.simpleMessage("halfelin"),
     "helmet": MessageLookupByLibrary.simpleMessage("casque"),
     "human": MessageLookupByLibrary.simpleMessage("humain"),
+    "jack": MessageLookupByLibrary.simpleMessage("valet"),
     "jack2Points": MessageLookupByLibrary.simpleMessage("valet: 2 points"),
+    "king": MessageLookupByLibrary.simpleMessage("roi"),
     "king4Points": MessageLookupByLibrary.simpleMessage("roi: 4 points"),
     "languages": MessageLookupByLibrary.simpleMessage("langues"),
     "level": MessageLookupByLibrary.simpleMessage("niveau"),
@@ -75,14 +87,24 @@ class MessageLookup extends MessageLookupByLibrary {
     "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
     "name": MessageLookupByLibrary.simpleMessage("nom"),
     "nine0Points": MessageLookupByLibrary.simpleMessage("neuf: 0 points"),
+    "no": MessageLookupByLibrary.simpleMessage("non"),
     "off": MessageLookupByLibrary.simpleMessage("désactivé"),
     "on": MessageLookupByLibrary.simpleMessage("activé"),
     "options": MessageLookupByLibrary.simpleMessage("options"),
     "others": MessageLookupByLibrary.simpleMessage("autres"),
+    "pass": MessageLookupByLibrary.simpleMessage("passer"),
     "play": MessageLookupByLibrary.simpleMessage("jouer"),
+    "playerOnBarrel": MessageLookupByLibrary.simpleMessage(
+      "joueur sur le baril:",
+    ),
     "players": MessageLookupByLibrary.simpleMessage("joueurs"),
+    "playersOnBarrel": MessageLookupByLibrary.simpleMessage(
+      "joueurs sur le baril:",
+    ),
     "points": MessageLookupByLibrary.simpleMessage("points"),
+    "pointsConfirmed": MessageLookupByLibrary.simpleMessage("points confirmés"),
     "preparation": MessageLookupByLibrary.simpleMessage("préparation :"),
+    "queen": MessageLookupByLibrary.simpleMessage("dame"),
     "queen3Points": MessageLookupByLibrary.simpleMessage("dame: 3 points"),
     "race1": MessageLookupByLibrary.simpleMessage("race 1"),
     "results": MessageLookupByLibrary.simpleMessage("résultats"),
@@ -168,7 +190,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "total": MessageLookupByLibrary.simpleMessage("total"),
     "uno": MessageLookupByLibrary.simpleMessage("uno"),
     "warrior": MessageLookupByLibrary.simpleMessage("guerrier"),
+    "whoGoesFirst": MessageLookupByLibrary.simpleMessage(
+      "qui distribue en premier ?",
+    ),
     "winner": MessageLookupByLibrary.simpleMessage("gagnant : "),
     "wizard": MessageLookupByLibrary.simpleMessage("magicien"),
+    "yes": MessageLookupByLibrary.simpleMessage("oui"),
+    "yourBet": MessageLookupByLibrary.simpleMessage("votre mise"),
   };
 }

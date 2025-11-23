@@ -1,7 +1,9 @@
+import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/config/utils/useful_methods.dart';
 import 'package:board_buddy/features/games/thousand/models/thousand_models.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
@@ -68,10 +70,10 @@ class PlayersScoreWidget extends StatelessWidget {
                       else if (showBids && passedPlayers != null)
                         Text(
                           passedPlayers!.contains(index)
-                              ? 'пас'
+                              ? S.of(context).pass
                               : (playerData[index]!.currentBid != null
                                   ? '${playerData[index]!.currentBid}'
-                                  : '0'),
+                                  : UnoLikeGameCardsText.zero),
                           style: theme.display2.copyWith(
                             color: passedPlayers!.contains(index)
                                 ? theme.secondaryTextColor
@@ -80,7 +82,7 @@ class PlayersScoreWidget extends StatelessWidget {
                         )
                       else
                         Text(
-                          '0',
+                          UnoLikeGameCardsText.zero,
                           style: theme.display2.copyWith(
                             color: theme.textColor,
                           ),

@@ -66,9 +66,7 @@ class ThousandGameScreen extends StatelessWidget {
                 return BottomGameBar(
                   isArrow: false,
                   rightButtonText: S.of(context).options,
-                  onRightBtnTap: () {
-                    _showExitConfirmation(context);
-                  },
+                  onRightBtnTap: () {},
                 );
               } else if (state is BiddingPhaseState ||
                   state is ScoringPhaseState) {
@@ -76,9 +74,7 @@ class ThousandGameScreen extends StatelessWidget {
                   isArrow: true,
                   dialogWidget: const InfoThousandDialog(),
                   rightButtonText: S.of(context).options,
-                  onRightBtnTap: () {
-                    _showExitConfirmation(context);
-                  },
+                  onRightBtnTap: () {},
                   onLeftArrowTap: bloc.undo,
                   onRightArrowTap: bloc.redo,
                   isLeftArrowActive: bloc.canUndo(),
@@ -115,42 +111,5 @@ class ThousandGameScreen extends StatelessWidget {
         },
       );
     });
-  }
-
-  void _showExitConfirmation(BuildContext context) {
-    final theme = UIThemes.of(context);
-    showDialog(
-      context: context,
-      builder: (dialogContext) => AlertDialog(
-        backgroundColor: theme.bgColor,
-        title: Text(
-          'are you sure?',
-          style: theme.display2.copyWith(color: theme.textColor),
-        ),
-        content: Text(
-          'game will be lost',
-          style: theme.display3.copyWith(color: theme.secondaryTextColor),
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.of(dialogContext).pop(),
-            child: Text(
-              S.of(context).cancel,
-              style: theme.display3.copyWith(color: theme.secondaryTextColor),
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              Navigator.of(dialogContext).pop();
-              Navigator.of(context).pop();
-            },
-            child: Text(
-              'exit',
-              style: theme.display3.copyWith(color: theme.redColor),
-            ),
-          ),
-        ],
-      ),
-    );
   }
 }

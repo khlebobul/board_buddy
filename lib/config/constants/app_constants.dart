@@ -154,3 +154,12 @@ class ThousandCardsText {
   static const jack = 'J';
   static const nine = '9';
 }
+
+class ThousandCardsPoints {
+  static const ace = '11';
+  static const ten = '10';
+  static const king = '4';
+  static const queen = '3';
+  static const jack = '2';
+  static const nine = '0';
+}

@@ -1,6 +1,8 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/thousand/bloc/thousand_bloc.dart';
+import 'package:board_buddy/features/games/thousand/models/thousand_models.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
@@ -85,10 +87,12 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
           }
         },
         child: ModalWindowWidget(
-          mainText:
-              'набрал ли ${bidderPlayer.name.toLowerCase()} свою ставку ($winningBid очков)?',
-          button1Text: 'да',
-          button2Text: 'нет',
+          mainText: S.of(context).didPlayerReachBid(
+                bidderPlayer.name.toLowerCase(),
+                winningBid,
+              ),
+          button1Text: S.of(context).yes,
+          button2Text: S.of(context).no,
           button1Action: () {
             Navigator.of(dialogContext).pop();
             Gaimon.soft();
@@ -139,7 +143,7 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   Text(
-                    'подсчет очков:',
+                    S.of(context).setScoringTitle,
                     style: theme.display6.copyWith(
                       color: theme.secondaryTextColor,
                     ),
@@ -292,7 +296,7 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                                 );
                           },
                           child: Text(
-                            'очистить',
+                            S.of(context).clear,
                             style: theme.display2.copyWith(
                               color: theme.secondaryTextColor,
                             ),
@@ -316,7 +320,7 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
                             }
                           },
                           child: Text(
-                            'подтвердить',
+                            S.of(context).confirm,
                             style: theme.display2.copyWith(
                               color: theme.redColor,
                             ),
@@ -337,11 +341,13 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
               Padding(
                 padding: const EdgeInsets.only(bottom: 16),
                 child: Text(
-                  'очки подтверждены',
+                  S.of(context).pointsConfirmed,
                   style: theme.display2.copyWith(
                     color: theme.secondaryTextColor,
                   ),
                   textAlign: TextAlign.center,
+                  overflow: TextOverflow.ellipsis,
+                  maxLines: 1,
                 ),
               ),
           ],
@@ -357,25 +363,38 @@ class _ScoringPhaseWidgetState extends State<ScoringPhaseWidget> {
   ) {
     final bloc = context.read<ThousandBloc>();
 
-    // Card values: A=11, 10=10, K=4, Q=3, J=2, 9=0
-    final cards = [
-      {'label': 'A', 'points': 11},
-      {'label': '10', 'points': 10},
-      {'label': 'K', 'points': 4},
-      {'label': 'Q', 'points': 3},
-      {'label': 'J', 'points': 2},
-      {'label': '9', 'points': 0},
+    // Map CardRank to display labels using constants
+    final cardRankToLabel = {
+      CardRank.ace: ThousandCardsText.ace,
+      CardRank.ten: ThousandCardsText.ten,
+      CardRank.king: ThousandCardsText.king,
+      CardRank.queen: ThousandCardsText.queen,
+      CardRank.jack: ThousandCardsText.jack,
+      CardRank.nine: ThousandCardsText.nine,
+    };
+
+    // Card ranks in display order: A, 10, K, Q, J, 9
+    final cardRanks = [
+      CardRank.ace,
+      CardRank.ten,
+      CardRank.king,
+      CardRank.queen,
+      CardRank.jack,
+      CardRank.nine,
     ];
 
     final List<List<KeyboardButton>> rows = [];
     List<KeyboardButton> currentRow = [];
 
-    for (var card in cards) {
+    for (var cardRank in cardRanks) {
+      final label = cardRankToLabel[cardRank]!;
+      final points = cardRank.points;
+
       currentRow.add(
         KeyboardButton(
-          buttonText: card['label'] as String,
+          buttonText: label,
           onPressed: () {
-            bloc.add(AddCardToPlayerScore(playerIndex, card['points'] as int));
+            bloc.add(AddCardToPlayerScore(playerIndex, points));
           },
         ),
       );

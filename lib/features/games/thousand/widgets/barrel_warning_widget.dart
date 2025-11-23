@@ -27,8 +27,8 @@ class BarrelWarningWidget extends StatelessWidget {
             children: [
               Text(
                 state.playersOnBarrel.length == 1
-                    ? 'игрок на бочке:'
-                    : 'игроки на бочке:',
+                    ? S.of(context).playerOnBarrel
+                    : S.of(context).playersOnBarrel,
                 style: theme.display2.copyWith(
                   color: theme.secondaryTextColor,
                 ),
@@ -40,7 +40,7 @@ class BarrelWarningWidget extends StatelessWidget {
                 return Padding(
                   padding: const EdgeInsets.symmetric(vertical: 4),
                   child: Text(
-                    '${player.name.toLowerCase()} - $score очков',
+                    '${player.name.toLowerCase()} - $score',
                     textAlign: TextAlign.center,
                     overflow: TextOverflow.ellipsis,
                     maxLines: 1,
@@ -65,7 +65,7 @@ class BarrelWarningWidget extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               Text(
-                'текущий счет:',
+                S.of(context).currentCount,
                 style: theme.display2.copyWith(
                   color: theme.secondaryTextColor,
                 ),

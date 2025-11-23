@@ -20,9 +20,13 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
+  static String m0(playerName, winningBid) =>
+      "набрал ли ${playerName} свою ставку (${winningBid} очков)?";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("о проекте"),
+    "ace": MessageLookupByLibrary.simpleMessage("туз"),
     "ace11Points": MessageLookupByLibrary.simpleMessage("туз: 11 очков"),
     "add": MessageLookupByLibrary.simpleMessage("добавить"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("добавить игрока"),
@@ -80,10 +84,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
     "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
     "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
+    "clear": MessageLookupByLibrary.simpleMessage("очистить"),
     "clearance": MessageLookupByLibrary.simpleMessage("очистка"),
     "cleric": MessageLookupByLibrary.simpleMessage("клирик"),
     "close": MessageLookupByLibrary.simpleMessage("закрыть"),
     "common": MessageLookupByLibrary.simpleMessage("счетчик"),
+    "confirm": MessageLookupByLibrary.simpleMessage("подтвердить"),
     "continueGame": MessageLookupByLibrary.simpleMessage("продолжить игру"),
     "continueTitle": MessageLookupByLibrary.simpleMessage("продолжить"),
     "contractResolution": MessageLookupByLibrary.simpleMessage(
@@ -92,12 +98,16 @@ class MessageLookup extends MessageLookupByLibrary {
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage(
       "не удалось запустить",
     ),
+    "currentBet": MessageLookupByLibrary.simpleMessage("текущая ставка:"),
+    "currentCount": MessageLookupByLibrary.simpleMessage("текущий счет:"),
     "cursed": MessageLookupByLibrary.simpleMessage("проклятие"),
     "dark": MessageLookupByLibrary.simpleMessage("темная"),
     "darkSideCardsAreReplacedWithLightOnesAndVice":
         MessageLookupByLibrary.simpleMessage(
           "карточки темной стороны заменяться на светлые и наоборот.",
         ),
+    "didPlayerReachBid": m0,
+    "didYouEnter": MessageLookupByLibrary.simpleMessage("набрал ли"),
     "doReturn": MessageLookupByLibrary.simpleMessage("вернуться"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "нет вашей любимой игры? напишите мне!",
@@ -236,10 +246,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "указывает на наложенное проклятие",
     ),
+    "jack": MessageLookupByLibrary.simpleMessage("валет"),
     "jack2Points": MessageLookupByLibrary.simpleMessage("валет: 2 очка"),
     "keepAwakeMode": MessageLookupByLibrary.simpleMessage(
       "режим \'бодрствования\' экрана",
     ),
+    "king": MessageLookupByLibrary.simpleMessage("король"),
     "king4Points": MessageLookupByLibrary.simpleMessage("король: 4 очка"),
     "languages": MessageLookupByLibrary.simpleMessage("языки"),
     "leftHand": MessageLookupByLibrary.simpleMessage("левая рука"),
@@ -365,6 +377,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "следующий игрок берёт карты, пока не вытянет карту выбранного цвета.",
         ),
     "nine0Points": MessageLookupByLibrary.simpleMessage("девятка: 0 очков"),
+    "no": MessageLookupByLibrary.simpleMessage("нет"),
     "noClass": MessageLookupByLibrary.simpleMessage("без класса"),
     "noItem": MessageLookupByLibrary.simpleMessage("без предмета"),
     "numberCards": MessageLookupByLibrary.simpleMessage("номерные карты"),
@@ -372,15 +385,22 @@ class MessageLookup extends MessageLookupByLibrary {
     "on": MessageLookupByLibrary.simpleMessage("вкл."),
     "options": MessageLookupByLibrary.simpleMessage("опции"),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
+    "pass": MessageLookupByLibrary.simpleMessage("пас"),
     "play": MessageLookupByLibrary.simpleMessage("играть"),
     "playerName": MessageLookupByLibrary.simpleMessage("имя игрока"),
+    "playerOnBarrel": MessageLookupByLibrary.simpleMessage("игрок на бочке:"),
     "players": MessageLookupByLibrary.simpleMessage("игроки"),
+    "playersOnBarrel": MessageLookupByLibrary.simpleMessage("игроки на бочке:"),
     "points": MessageLookupByLibrary.simpleMessage("очков"),
+    "pointsConfirmed": MessageLookupByLibrary.simpleMessage(
+      "очки подтверждены",
+    ),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
       "снятие проклятий или дебафов",
     ),
     "preparation": MessageLookupByLibrary.simpleMessage("подготовка:"),
     "projectWebsite": MessageLookupByLibrary.simpleMessage("сайт проекта"),
+    "queen": MessageLookupByLibrary.simpleMessage("дама"),
     "queen3Points": MessageLookupByLibrary.simpleMessage("дама: 3 очка"),
     "race1": MessageLookupByLibrary.simpleMessage("раса 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("оцените приложение"),
@@ -856,6 +876,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:"),
     "warrior": MessageLookupByLibrary.simpleMessage("воин"),
+    "whoGoesFirst": MessageLookupByLibrary.simpleMessage("кто раздает первым?"),
     "wildCardOneDosInfo": MessageLookupByLibrary.simpleMessage(
       "дикая карта «#»",
     ),
@@ -877,8 +898,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "wordModifier": MessageLookupByLibrary.simpleMessage("модификатор: "),
     "x2Word": MessageLookupByLibrary.simpleMessage("x2 слово"),
     "x3Word": MessageLookupByLibrary.simpleMessage("x3 слово"),
+    "yes": MessageLookupByLibrary.simpleMessage("да"),
     "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
       "игра не завершена",
     ),
+    "yourBet": MessageLookupByLibrary.simpleMessage("свою ставку"),
   };
 }
