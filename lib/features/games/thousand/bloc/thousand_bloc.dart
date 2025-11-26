@@ -2,7 +2,7 @@ import 'package:bloc/bloc.dart';
 import 'package:board_buddy/features/games/thousand/models/thousand_models.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/services/database_service.dart';
-import 'package:meta/meta.dart';
+import 'package:flutter/foundation.dart';
 
 part 'thousand_event.dart';
 part 'thousand_state.dart';
@@ -103,8 +103,116 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
     LoadSavedThousandGame event,
     Emitter<ThousandState> emit,
   ) async {
-    // TODO: Implement loading saved game
-    // For now, just transition to initial state
+    try {
+      final gameData = await DatabaseService.getLatestGameSession('thousand');
+
+      if (gameData == null) {
+        debugPrint('No saved game found for Thousand');
+        return;
+      }
+
+      final session = gameData['session'] as Map<String, dynamic>;
+      final players = gameData['players'] as List<Player>;
+
+      debugPrint('Loading Thousand game with phase: ${session['phase']}');
+
+      // Parse player data
+      final Map<int, ThousandPlayerData> playerData = {};
+      if (session.containsKey('playerData')) {
+        final playerDataMap = session['playerData'] as Map<String, dynamic>;
+        playerDataMap.forEach((key, value) {
+          final data = value as Map<String, dynamic>;
+          playerData[int.parse(key)] = ThousandPlayerData(
+            roundScore: data['roundScore'] as int? ?? 0,
+            totalScore: data['totalScore'] as int? ?? 0,
+            tricksWon: data['tricksWon'] as int? ?? 0,
+            isOnBarrel: data['isOnBarrel'] as bool? ?? false,
+            hasBolt: data['hasBolt'] as bool? ?? false,
+            currentBid: data['currentBid'] as int?,
+          );
+        });
+      }
+
+      // Restore the appropriate state based on saved phase
+      final phase = session['phase'] as String?;
+
+      if (phase == 'selectingFirstDealer') {
+        emit(SelectingFirstDealerState(
+          players: players,
+          playerData: playerData,
+        ));
+      } else if (phase == 'bidding') {
+        final passedPlayersList = (session['passedPlayers'] as List<dynamic>?)
+                ?.map((e) => e as int)
+                .toList() ??
+            [];
+
+        emit(BiddingPhaseState(
+          players: players,
+          playerData: playerData,
+          currentBidderIndex: session['currentBidderIndex'] as int,
+          highestBid: session['highestBid'] as int?,
+          highestBidderIndex: session['highestBidderIndex'] as int?,
+          firstDealerIndex: session['firstDealerIndex'] as int,
+          currentDealerIndex: session['currentDealerIndex'] as int,
+          passedPlayers: Set<int>.from(passedPlayersList),
+          roundNumber: session['roundNumber'] as int? ?? 1,
+        ));
+      } else if (phase == 'scoring') {
+        // Parse enteredScores
+        final Map<int, int?> enteredScores = {};
+        if (session.containsKey('enteredScores')) {
+          final scoresMap = session['enteredScores'] as Map<String, dynamic>;
+          scoresMap.forEach((key, value) {
+            enteredScores[int.parse(key)] = value as int?;
+          });
+        }
+
+        // Parse currentScoreCalculation
+        final Map<int, int> currentScoreCalculation = {};
+        if (session.containsKey('currentScoreCalculation')) {
+          final calcMap =
+              session['currentScoreCalculation'] as Map<String, dynamic>;
+          calcMap.forEach((key, value) {
+            currentScoreCalculation[int.parse(key)] = value as int;
+          });
+        }
+
+        emit(ScoringPhaseState(
+          players: players,
+          playerData: playerData,
+          bidWinnerIndex: session['bidWinnerIndex'] as int,
+          winningBid: session['winningBid'] as int,
+          firstDealerIndex: session['firstDealerIndex'] as int,
+          currentDealerIndex: session['currentDealerIndex'] as int,
+          enteredScores: enteredScores,
+          currentScoreCalculation: currentScoreCalculation,
+          bidderSuccess: session['bidderSuccess'] as bool?,
+          roundNumber: session['roundNumber'] as int? ?? 1,
+        ));
+      } else if (phase == 'barrelWarning') {
+        final playersOnBarrelList =
+            (session['playersOnBarrel'] as List<dynamic>?)
+                    ?.map((e) => e as int)
+                    .toList() ??
+                [];
+
+        emit(BarrelWarningState(
+          players: players,
+          playerData: playerData,
+          playersOnBarrel: playersOnBarrelList,
+          firstDealerIndex: session['firstDealerIndex'] as int,
+          currentDealerIndex: session['currentDealerIndex'] as int,
+          roundNumber: session['roundNumber'] as int? ?? 1,
+        ));
+      } else {
+        debugPrint('Unknown phase: $phase');
+      }
+
+      debugPrint('Thousand game loaded successfully');
+    } catch (e) {
+      debugPrint('Error loading Thousand game: $e');
+    }
   }
 
   void _onDeleteSavedGame(
@@ -159,6 +267,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
         currentDealerIndex: event.playerIndex,
         roundNumber: 1,
       ));
+
+      // Save game state after selecting dealer
+      add(SaveThousandGameSession());
     }
   }
 
@@ -209,6 +320,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
         currentBidderIndex: nextBidder,
         currentDealerIndex: nextDealer,
       ));
+
+      // Save game state after bid
+      add(SaveThousandGameSession());
     }
   }
 
@@ -242,6 +356,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
 
       emit(updatedState);
 
+      // Save game state after passing
+      add(SaveThousandGameSession());
+
       // If bidding is complete, automatically transition to scoring
       if (updatedState.isBiddingComplete) {
         add(CompleteBidding());
@@ -270,6 +387,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
           currentDealerIndex: currentState.currentDealerIndex,
           roundNumber: currentState.roundNumber,
         ));
+
+        // Save game state when transitioning to scoring
+        add(SaveThousandGameSession());
       }
     }
   }
@@ -298,6 +418,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
         enteredScores: updatedScores,
         playerData: updatedPlayerData,
       ));
+
+      // Save game state after entering score
+      add(SaveThousandGameSession());
     }
   }
 
@@ -363,6 +486,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
         enteredScores: updatedScores,
         playerData: updatedPlayerData,
       ));
+
+      // Save game state after confirming score
+      add(SaveThousandGameSession());
     }
   }
 
@@ -376,6 +502,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
       _saveStateForUndo();
 
       emit(currentState.copyWith(bidderSuccess: event.success));
+
+      // Save game state after confirming bidder success
+      add(SaveThousandGameSession());
 
       // If all data is entered, can finish scoring
       final updatedState = state as ScoringPhaseState;
@@ -450,9 +579,14 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
           currentDealerIndex: updatedState.currentDealerIndex,
           roundNumber: updatedState.roundNumber,
         ));
+
+        // Save game state after finishing scoring
+        add(SaveThousandGameSession());
       } else {
         // First update state with new scores
         emit(updatedState);
+        // Save game state after finishing scoring
+        add(SaveThousandGameSession());
         // Then check game end
         add(CheckGameEnd());
       }
@@ -587,6 +721,9 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
       currentDealerIndex: currentDealerIndex,
       roundNumber: roundNumber + 1,
     ));
+
+    // Save game state when starting new round
+    add(SaveThousandGameSession());
   }
 
   void _onStartNewGameWithSamePlayers(
@@ -620,7 +757,92 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
     SaveThousandGameSession event,
     Emitter<ThousandState> emit,
   ) async {
-    // TODO: Implement saving game state
+    try {
+      // Delete any existing Thousand game sessions first
+      await DatabaseService.deleteGameSession('thousand');
+
+      // Prepare custom data based on current state
+      Map<String, dynamic> customData = {};
+      List<Player> players = [];
+      Map<int, ThousandPlayerData> playerData = {};
+
+      // Extract data based on current state type
+      if (state is SelectingFirstDealerState) {
+        final gameState = state as SelectingFirstDealerState;
+        players = gameState.players;
+        playerData = gameState.playerData;
+        customData['phase'] = 'selectingFirstDealer';
+      } else if (state is BiddingPhaseState) {
+        final gameState = state as BiddingPhaseState;
+        players = gameState.players;
+        playerData = gameState.playerData;
+        customData['phase'] = 'bidding';
+        customData['currentBidderIndex'] = gameState.currentBidderIndex;
+        customData['highestBid'] = gameState.highestBid;
+        customData['highestBidderIndex'] = gameState.highestBidderIndex;
+        customData['firstDealerIndex'] = gameState.firstDealerIndex;
+        customData['currentDealerIndex'] = gameState.currentDealerIndex;
+        customData['passedPlayers'] = gameState.passedPlayers.toList();
+        customData['roundNumber'] = gameState.roundNumber;
+      } else if (state is ScoringPhaseState) {
+        final gameState = state as ScoringPhaseState;
+        players = gameState.players;
+        playerData = gameState.playerData;
+        customData['phase'] = 'scoring';
+        customData['bidWinnerIndex'] = gameState.bidWinnerIndex;
+        customData['winningBid'] = gameState.winningBid;
+        customData['firstDealerIndex'] = gameState.firstDealerIndex;
+        customData['currentDealerIndex'] = gameState.currentDealerIndex;
+        customData['enteredScores'] = gameState.enteredScores.map(
+          (key, value) => MapEntry(key.toString(), value),
+        );
+        customData['currentScoreCalculation'] =
+            gameState.currentScoreCalculation.map(
+          (key, value) => MapEntry(key.toString(), value),
+        );
+        customData['bidderSuccess'] = gameState.bidderSuccess;
+        customData['roundNumber'] = gameState.roundNumber;
+      } else if (state is BarrelWarningState) {
+        final gameState = state as BarrelWarningState;
+        players = gameState.players;
+        playerData = gameState.playerData;
+        customData['phase'] = 'barrelWarning';
+        customData['playersOnBarrel'] = gameState.playersOnBarrel;
+        customData['firstDealerIndex'] = gameState.firstDealerIndex;
+        customData['currentDealerIndex'] = gameState.currentDealerIndex;
+        customData['roundNumber'] = gameState.roundNumber;
+      } else {
+        // Can't save other states
+        return;
+      }
+
+      // Save player data
+      customData['playerData'] = playerData.map((key, value) => MapEntry(
+            key.toString(),
+            {
+              'roundScore': value.roundScore,
+              'totalScore': value.totalScore,
+              'tricksWon': value.tricksWon,
+              'isOnBarrel': value.isOnBarrel,
+              'hasBolt': value.hasBolt,
+              'currentBid': value.currentBid,
+            },
+          ));
+
+      // Save the current game session
+      await DatabaseService.saveGameSession(
+        gameType: 'thousand',
+        scoreLimit: 1000, // Default score limit for Thousand
+        gameMode: 'standard',
+        players: players,
+        playerScoreHistory: {}, // Thousand doesn't use the same score history as Uno
+        customData: customData,
+      );
+
+      debugPrint('Thousand game session saved successfully');
+    } catch (e) {
+      debugPrint('Error saving Thousand game session: $e');
+    }
   }
 
   void _onUndoAction(
