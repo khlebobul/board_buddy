@@ -169,19 +169,10 @@ class ScrabbleStartScreenView extends StatelessWidget {
   void _showContinueGameDialog(BuildContext context) {
     final bloc = context.read<ScrabbleBloc>();
 
-    ModalWindowWidget.show(
+    ModalWindowWidget.showContinueGameDialog(
       context,
-      mainText: S.of(context).youHaveAnUnfinishedGame,
-      button1Text: S.of(context).newGame,
-      button2Text: S.of(context).continueTitle,
-      button1Action: () {
-        bloc.add(DeleteSavedGame());
-        Navigator.pop(context);
-      },
-      button2Action: () {
-        Navigator.pop(context);
-        Navigator.pushNamed(context, '/scrabbleGame');
-      },
+      onNewGame: () => bloc.add(DeleteSavedGame()),
+      onContinue: () => Navigator.pushNamed(context, '/scrabbleGame'),
     );
   }
 }

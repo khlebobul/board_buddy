@@ -1,6 +1,6 @@
 import 'dart:ui';
-
 import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:use_scramble/use_scramble.dart';
@@ -118,6 +118,27 @@ class ModalWindowWidget extends StatelessWidget {
           opacity: anim1,
           child: child,
         );
+      },
+    );
+  }
+
+  static void showContinueGameDialog(
+    BuildContext context, {
+    required VoidCallback onNewGame,
+    required VoidCallback onContinue,
+  }) {
+    show(
+      context,
+      mainText: S.of(context).youHaveAnUnfinishedGame,
+      button1Text: S.of(context).newGame,
+      button2Text: S.of(context).continueTitle,
+      button1Action: () {
+        onNewGame();
+        Navigator.pop(context);
+      },
+      button2Action: () {
+        onContinue();
+        Navigator.pop(context);
       },
     );
   }

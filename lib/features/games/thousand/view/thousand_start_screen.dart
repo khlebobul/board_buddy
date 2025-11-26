@@ -176,19 +176,10 @@ class ThousandStartScreenContent extends StatelessWidget {
   void _showContinueGameDialog(BuildContext context) {
     final bloc = context.read<ThousandBloc>();
 
-    ModalWindowWidget.show(
+    ModalWindowWidget.showContinueGameDialog(
       context,
-      mainText: S.of(context).youHaveAnUnfinishedGame,
-      button1Text: S.of(context).newGame,
-      button2Text: S.of(context).continueTitle,
-      button1Action: () {
-        bloc.add(DeleteSavedThousandGame());
-        Navigator.pop(context);
-      },
-      button2Action: () {
-        bloc.add(LoadSavedThousandGame());
-        Navigator.pop(context);
-      },
+      onNewGame: () => bloc.add(DeleteSavedThousandGame()),
+      onContinue: () => bloc.add(LoadSavedThousandGame()),
     );
   }
 }

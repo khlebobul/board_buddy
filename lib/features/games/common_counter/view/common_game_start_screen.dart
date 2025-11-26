@@ -189,19 +189,11 @@ class CommonGameStartScreenView extends StatelessWidget {
   void _showContinueGameDialog(BuildContext context) {
     final bloc = context.read<CommonCounterBloc>();
 
-    ModalWindowWidget.show(
+    ModalWindowWidget.showContinueGameDialog(
       context,
-      mainText: S.of(context).youHaveAnUnfinishedGame,
-      button1Text: S.of(context).newGame,
-      button2Text: S.of(context).continueTitle,
-      button1Action: () {
-        bloc.deleteSavedGame();
-        Navigator.pop(context);
-      },
-      button2Action: () {
-        // Load the saved game
+      onNewGame: () => bloc.deleteSavedGame(),
+      onContinue: () {
         bloc.loadSavedGame();
-        Navigator.pop(context);
         Navigator.pushNamed(context, '/commonGame');
       },
     );
