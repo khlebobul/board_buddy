@@ -1,12 +1,13 @@
-import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
-import 'package:board_buddy/features/games/scrabble/bloc/scrabble_bloc.dart';
-import 'package:board_buddy/features/games/scrabble/widgets/info_scrabble_dialog_widget.dart';
-import 'package:board_buddy/features/games/scrabble/widgets/scrabble_word_input_widget.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
+import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
+import 'package:board_buddy/features/games/scrabble/bloc/scrabble_bloc.dart';
+import 'package:board_buddy/features/games/scrabble/widgets/scrabble_word_input_widget.dart';
+import 'package:board_buddy/features/games/scrabble/widgets/info_scrabble_dialog_widget.dart';
+import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -142,19 +143,23 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
     // Determine if it's a single player game
     final bool isSinglePlayer = players.length == 1;
 
-    GameEndModalHelper.showCommonCounterStyleModal(
-      context: context,
+    GameEndCommonCounterModal.show(
+      context,
       players: players,
       isSinglePlayer: isSinglePlayer,
-      maxPlayers: GameMaxPlayers.scrabble,
-      onContinue: () {},
+      onContinue: () {
+        Navigator.of(context).pop();
+      },
       onNewRound: () {
+        Navigator.of(context).pop();
         // Reset the game with the same players
         context.read<ScrabbleBloc>().add(ResetGame(keepPlayers: true));
         // Reset the word input widget
         wordInputKey.currentState?.resetGame();
       },
       onNewGame: () {
+        Navigator.of(context).pop();
+
         context.read<ScrabbleBloc>().add(ResetGame(keepPlayers: false));
         Navigator.of(context).pop();
         Navigator.pushNamed(context, '/scrabbleStartGame');
@@ -162,14 +167,23 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
       onReturnToMenu: () {
         // Delete the saved game
         context.read<ScrabbleBloc>().add(DeleteSavedGame());
+        Navigator.of(context).pop();
         Navigator.pushNamed(context, '/home');
       },
-      onAddPlayerToBloc: (newPlayer) {
-        context.read<ScrabbleBloc>().add(AddPlayer(newPlayer));
-      },
-      onReopenModal: (ctx, updatedPlayers) {
-        _showGameEndModal(ctx, updatedPlayers);
-      },
+      onAddPlayer: !isSinglePlayer && players.length < GameMaxPlayers.scrabble
+          ? () {
+              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
+                final scrabbleBloc = context.read<ScrabbleBloc>();
+                scrabbleBloc.add(AddPlayer(newPlayer));
+                Navigator.of(context).pop();
+                WidgetsBinding.instance.addPostFrameCallback((_) {
+                  final currentPlayers = List<Player>.from(players)
+                    ..add(newPlayer);
+                  _showGameEndModal(context, currentPlayers);
+                });
+              });
+            }
+          : null,
     );
   }
 }

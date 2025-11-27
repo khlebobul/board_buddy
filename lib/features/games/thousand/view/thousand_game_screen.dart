@@ -1,13 +1,13 @@
 import 'package:board_buddy/config/routes/routes.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/thousand/bloc/thousand_bloc.dart';
 import 'package:board_buddy/features/games/thousand/models/thousand_models.dart';
-import 'package:board_buddy/features/games/thousand/widgets/barrel_warning_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/bidding_phase_widget.dart';
-import 'package:board_buddy/features/games/thousand/widgets/info_thousand_dialog_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/scoring_phase_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/select_dealer_widget.dart';
+import 'package:board_buddy/features/games/thousand/widgets/barrel_warning_widget.dart';
+import 'package:board_buddy/features/games/thousand/widgets/info_thousand_dialog_widget.dart';
+import 'package:board_buddy/features/games/thousand/widgets/game_end_thousand_modal_widget.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
@@ -93,19 +93,22 @@ class ThousandGameScreen extends StatelessWidget {
 
   void _showGameEndModal(BuildContext context, GameEndedState state) {
     WidgetsBinding.instance.addPostFrameCallback((_) {
-      GameEndModalHelper.showThousandStyleModal(
-        context: context,
+      GameEndThousandModalWidget.show(
+        context,
         players: state.players,
         playerData: state.playerData,
         winnerIndex: state.winnerIndex,
         onNewGameWithSamePlayers: () {
+          Navigator.of(context).pop();
           context.read<ThousandBloc>().add(StartNewGameWithSamePlayers());
         },
         onNewGame: () {
           Navigator.of(context).pop();
+          Navigator.of(context).pop();
           Navigator.pushNamed(context, '/thousandStartGame');
         },
         onReturnToMenu: () {
+          Navigator.of(context).pop();
           Navigator.of(context).pop();
         },
       );
@@ -134,20 +137,23 @@ class ThousandGameScreen extends StatelessWidget {
     }
 
     if (players.isNotEmpty) {
-      GameEndModalHelper.showThousandStyleModal(
-        context: context,
+      GameEndThousandModalWidget.show(
+        context,
         players: players,
         playerData: playerData,
         winnerIndex: null,
-        onContinueGame: () {},
+        onContinueGame: () => Navigator.of(context).pop(),
         onNewGameWithSamePlayers: () {
+          Navigator.of(context).pop();
           bloc.add(StartNewGameWithSamePlayers());
         },
         onNewGame: () {
           Navigator.of(context).pop();
+          Navigator.of(context).pop();
           Navigator.pushNamed(context, '/thousandStartGame');
         },
         onReturnToMenu: () {
+          Navigator.of(context).pop();
           Navigator.of(context).pop();
         },
       );
