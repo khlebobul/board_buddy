@@ -16,6 +16,7 @@ class GameEndThousandModalWidget extends StatelessWidget {
   final VoidCallback onNewGameWithSamePlayers;
   final VoidCallback onNewGame;
   final VoidCallback onReturnToMenu;
+  final VoidCallback? onContinueGame;
 
   const GameEndThousandModalWidget({
     super.key,
@@ -25,6 +26,7 @@ class GameEndThousandModalWidget extends StatelessWidget {
     required this.onNewGameWithSamePlayers,
     required this.onNewGame,
     required this.onReturnToMenu,
+    this.onContinueGame,
   });
 
   @override
@@ -51,16 +53,17 @@ class GameEndThousandModalWidget extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
-            Padding(
-              padding: const EdgeInsets.all(16.0),
-              child: Text(
-                S.of(context).gameOver,
-                style: theme.display1.copyWith(
-                  color: theme.redColor,
+            if (winnerIndex != null)
+              Padding(
+                padding: const EdgeInsets.all(16.0),
+                child: Text(
+                  S.of(context).gameOver,
+                  style: theme.display1.copyWith(
+                    color: theme.redColor,
+                  ),
+                  textAlign: TextAlign.center,
                 ),
-                textAlign: TextAlign.center,
               ),
-            ),
             if (winnerIndex != null)
               Padding(
                 padding: const EdgeInsets.symmetric(
@@ -136,6 +139,25 @@ class GameEndThousandModalWidget extends StatelessWidget {
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
+                  if (onContinueGame != null)
+                    GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: onContinueGame,
+                      child: Padding(
+                        padding: const EdgeInsets.symmetric(vertical: 8.0),
+                        child: TextScramble(
+                            text: S.of(context).continueGame,
+                            builder: (context, scrambledText) {
+                              return Text(
+                                scrambledText,
+                                style: theme.display2.copyWith(
+                                  color: theme.redColor,
+                                ),
+                                textAlign: TextAlign.center,
+                              );
+                            }),
+                      ),
+                    ),
                   GestureDetector(
                     behavior: HitTestBehavior.opaque,
                     onTap: onNewGameWithSamePlayers,
@@ -202,6 +224,7 @@ class GameEndThousandModalWidget extends StatelessWidget {
     required VoidCallback onNewGameWithSamePlayers,
     required VoidCallback onNewGame,
     required VoidCallback onReturnToMenu,
+    VoidCallback? onContinueGame,
   }) {
     HapticFeedback.selectionClick();
 
@@ -227,6 +250,7 @@ class GameEndThousandModalWidget extends StatelessWidget {
                 onNewGameWithSamePlayers: onNewGameWithSamePlayers,
                 onNewGame: onNewGame,
                 onReturnToMenu: onReturnToMenu,
+                onContinueGame: onContinueGame,
               ),
             ),
           ],

@@ -1,6 +1,7 @@
 import 'package:board_buddy/config/routes/routes.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/thousand/bloc/thousand_bloc.dart';
+import 'package:board_buddy/features/games/thousand/models/thousand_models.dart';
 import 'package:board_buddy/features/games/thousand/widgets/bidding_phase_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/scoring_phase_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/select_dealer_widget.dart';
@@ -8,6 +9,7 @@ import 'package:board_buddy/features/games/thousand/widgets/barrel_warning_widge
 import 'package:board_buddy/features/games/thousand/widgets/info_thousand_dialog_widget.dart';
 import 'package:board_buddy/features/games/thousand/widgets/game_end_thousand_modal_widget.dart';
 import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -66,7 +68,7 @@ class ThousandGameScreen extends StatelessWidget {
                 return BottomGameBar(
                   isArrow: false,
                   rightButtonText: S.of(context).options,
-                  onRightBtnTap: () {},
+                  onRightBtnTap: () => _showOptionsModal(context),
                 );
               } else if (state is BiddingPhaseState ||
                   state is ScoringPhaseState) {
@@ -74,7 +76,7 @@ class ThousandGameScreen extends StatelessWidget {
                   isArrow: true,
                   dialogWidget: const InfoThousandDialog(),
                   rightButtonText: S.of(context).options,
-                  onRightBtnTap: () {},
+                  onRightBtnTap: () => _showOptionsModal(context),
                   onLeftArrowTap: bloc.undo,
                   onRightArrowTap: bloc.redo,
                   isLeftArrowActive: bloc.canUndo(),
@@ -111,5 +113,50 @@ class ThousandGameScreen extends StatelessWidget {
         },
       );
     });
+  }
+
+  void _showOptionsModal(BuildContext context) {
+    final bloc = context.read<ThousandBloc>();
+    final currentState = bloc.state;
+
+    List<Player> players = [];
+    Map<int, ThousandPlayerData> playerData = {};
+
+    if (currentState is SelectingFirstDealerState) {
+      players = currentState.players;
+      playerData = currentState.playerData;
+    } else if (currentState is BiddingPhaseState) {
+      players = currentState.players;
+      playerData = currentState.playerData;
+    } else if (currentState is ScoringPhaseState) {
+      players = currentState.players;
+      playerData = currentState.playerData;
+    } else if (currentState is BarrelWarningState) {
+      players = currentState.players;
+      playerData = currentState.playerData;
+    }
+
+    if (players.isNotEmpty) {
+      GameEndThousandModalWidget.show(
+        context,
+        players: players,
+        playerData: playerData,
+        winnerIndex: null,
+        onContinueGame: () => Navigator.of(context).pop(),
+        onNewGameWithSamePlayers: () {
+          Navigator.of(context).pop();
+          bloc.add(StartNewGameWithSamePlayers());
+        },
+        onNewGame: () {
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+          Navigator.pushNamed(context, '/thousandStartGame');
+        },
+        onReturnToMenu: () {
+          Navigator.of(context).pop();
+          Navigator.of(context).pop();
+        },
+      );
+    }
   }
 }
