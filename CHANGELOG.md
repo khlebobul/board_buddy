@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.1.0]
+
+### New Features
+
+- Added Thousand card game with complete gameplay including dealer selection, bidding, scoring phases, and interactive rules screens
+- Improved tap reliability and hit detection across all game interfaces and interactive elements
+
+### Bug Fixes
+
+- Fixed `_showGameEndModal` game saving bug
+
 ## [1.0.12]
 
 - Technical updates

@@ -44,6 +44,7 @@ your ultimate board game companion
 - scrabble® _(registered trademark of hasbro, inc.)_ ➭ [post](https://x.com/khlebobul/status/1921881428293263490)
 - set® _(registered trademark of set enterprises, inc.)_ ➭ [post](https://x.com/khlebobul/status/1922156520579461502)
 - munchkin® _(registered trademark of steve jackson games)_ ➭ [post](https://x.com/khlebobul/status/1922513917374353692)
+- thousand ("tysyacha") / 1000 card game
 - universal counter ➭ [post](https://x.com/khlebobul/status/1922881738553905177)
 
 ## how to help
