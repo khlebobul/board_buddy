@@ -210,8 +210,17 @@ class DosStartScreenView extends StatelessWidget {
       context,
       onNewGame: () => bloc.deleteSavedGame(),
       onContinue: () {
-        bloc.loadSavedGame();
-        Navigator.pushNamed(context, '/dosGame');
+        // Navigate to game screen with empty parameters
+        // This will trigger LoadSavedGame in the game screen
+        Navigator.pushNamed(
+          context,
+          '/dosGame',
+          arguments: {
+            'players': <Player>[],
+            'scoreLimit': 0,
+            'gameMode': '',
+          },
+        );
       },
     );
   }

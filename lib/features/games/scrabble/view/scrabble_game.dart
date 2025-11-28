@@ -139,6 +139,9 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
       }
     }
 
+    // Save the game when opening options modal (in case user exits to menu)
+    context.read<ScrabbleBloc>().add(SaveGameSession());
+
     // Determine if it's a single player game
     final bool isSinglePlayer = players.length == 1;
 
@@ -155,13 +158,13 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
         wordInputKey.currentState?.resetGame();
       },
       onNewGame: () {
+        // Delete the saved game before starting a new one
+        context.read<ScrabbleBloc>().add(DeleteSavedGame());
         context.read<ScrabbleBloc>().add(ResetGame(keepPlayers: false));
-        Navigator.of(context).pop();
+        // Helper already closed the modal, just navigate
         Navigator.pushNamed(context, '/scrabbleStartGame');
       },
       onReturnToMenu: () {
-        // Delete the saved game
-        context.read<ScrabbleBloc>().add(DeleteSavedGame());
         Navigator.pushNamed(context, '/home');
       },
       onAddPlayerToBloc: (newPlayer) {

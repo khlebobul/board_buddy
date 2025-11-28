@@ -111,6 +111,9 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
     final bloc = context.read<UnoBloc>();
     // Mark that the game end modal has been shown
     bloc.markGameEndModalShown();
+    
+    // Save the game when opening options modal (in case user exits to menu)
+    bloc.add(SaveGameSession());
 
     GameEndModalHelper.showUnoStyleModal(
       context: context,
@@ -127,11 +130,14 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
         _isGameEndModalShown = false;
       },
       onNewGame: () {
+        // Delete the saved game before starting a new one
+        bloc.add(DeleteSavedGame());
         bloc.startNewGame();
         _isGameEndModalShown = false;
       },
       onReturnToMenu: () {
-        bloc.returnToMenu();
+        // Game is already saved, just reset the flag
+        // Navigation is handled by GameEndModalHelper
         _isGameEndModalShown = false;
       },
       onAddPlayerToBloc: (newPlayer) {

@@ -102,11 +102,15 @@ class ThousandGameScreen extends StatelessWidget {
           context.read<ThousandBloc>().add(StartNewGameWithSamePlayers());
         },
         onNewGame: () {
-          Navigator.of(context).pop();
+          // Delete the saved game before starting a new one
+          context.read<ThousandBloc>().add(DeleteSavedThousandGame());
+          // Helper already closed the modal, just navigate
           Navigator.pushNamed(context, '/thousandStartGame');
         },
         onReturnToMenu: () {
-          Navigator.of(context).pop();
+          // Navigate to home screen
+          // Helper already closed the modal, just navigate
+          Navigator.pushNamed(context, '/home');
         },
       );
     });
@@ -134,6 +138,9 @@ class ThousandGameScreen extends StatelessWidget {
     }
 
     if (players.isNotEmpty) {
+      // Save the game when opening options modal (in case user exits to menu)
+      bloc.add(SaveThousandGameSession());
+      
       GameEndModalHelper.showThousandStyleModal(
         context: context,
         players: players,
@@ -144,11 +151,15 @@ class ThousandGameScreen extends StatelessWidget {
           bloc.add(StartNewGameWithSamePlayers());
         },
         onNewGame: () {
-          Navigator.of(context).pop();
+          // Delete the saved game before starting a new one
+          bloc.add(DeleteSavedThousandGame());
+          // Helper already closed the modal, just navigate
           Navigator.pushNamed(context, '/thousandStartGame');
         },
         onReturnToMenu: () {
-          Navigator.of(context).pop();
+          // Navigate to home screen (game is already saved)
+          // Helper already closed the modal, just navigate
+          Navigator.pushNamed(context, '/home');
         },
       );
     }

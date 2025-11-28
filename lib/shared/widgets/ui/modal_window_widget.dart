@@ -137,8 +137,8 @@ class ModalWindowWidget extends StatelessWidget {
         Navigator.pop(context);
       },
       button2Action: () {
-        onContinue();
         Navigator.pop(context);
+        onContinue();
       },
     );
   }

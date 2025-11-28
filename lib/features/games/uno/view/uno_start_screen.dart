@@ -212,8 +212,17 @@ class UnoStartScreenView extends StatelessWidget {
       context,
       onNewGame: () => bloc.deleteSavedGame(),
       onContinue: () {
-        bloc.loadSavedGame();
-        Navigator.pushNamed(context, '/unoGame');
+        // Navigate to game screen with empty parameters
+        // This will trigger LoadSavedGame in the game screen
+        Navigator.pushNamed(
+          context,
+          '/unoGame',
+          arguments: {
+            'players': <Player>[],
+            'scoreLimit': 0,
+            'gameMode': '',
+          },
+        );
       },
     );
   }

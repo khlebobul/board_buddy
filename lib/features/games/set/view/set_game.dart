@@ -191,7 +191,8 @@ class _SetGameState extends State<SetGame> with WidgetsBindingObserver {
   }
 
   void _showGameEndModal(BuildContext context, SetGameState gameState) {
-    context.read<SetBloc>().add(DeleteSavedGame());
+    // Save the game when opening options modal (in case user exits to menu)
+    context.read<SetBloc>().add(SaveGameSession());
 
     GameEndModalHelper.showCommonCounterStyleModal(
       context: context,
@@ -203,7 +204,9 @@ class _SetGameState extends State<SetGame> with WidgetsBindingObserver {
         context.read<SetBloc>().add(ResetScores());
       },
       onNewGame: () {
-        Navigator.of(context).pop();
+        // Delete the saved game before starting a new one
+        context.read<SetBloc>().add(DeleteSavedGame());
+        // Helper already closed the modal, just navigate
         Navigator.pushNamed(context, '/setStartGame');
       },
       onReturnToMenu: () {

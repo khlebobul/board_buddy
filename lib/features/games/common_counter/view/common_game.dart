@@ -531,7 +531,8 @@ class _CommonGameViewState extends State<CommonGameView>
   void _showGameEndModal(
       BuildContext context, CommonCounterGameState gameState) {
     _pauseTimer();
-    context.read<CommonCounterBloc>().add(DeleteSavedGame());
+    // Save the game when opening options modal (in case user exits to menu)
+    context.read<CommonCounterBloc>().add(SaveGameSession());
 
     GameEndModalHelper.showCommonCounterStyleModal(
       context: context,
@@ -543,7 +544,9 @@ class _CommonGameViewState extends State<CommonGameView>
         context.read<CommonCounterBloc>().add(ResetScores());
       },
       onNewGame: () {
-        Navigator.of(context).pop();
+        // Delete the saved game before starting a new one
+        context.read<CommonCounterBloc>().add(DeleteSavedGame());
+        // Helper already closed the modal, just navigate
         Navigator.pushNamed(context, '/commonStartGame');
       },
       onReturnToMenu: () {
