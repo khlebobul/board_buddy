@@ -139,7 +139,7 @@ class BottomGameBar extends StatelessWidget {
                   dialogWidget == null
                       ? const SizedBox()
                       : GestureDetector(
-                        behavior: HitTestBehavior.opaque,
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             showDialog(
                               context: context,
@@ -159,7 +159,7 @@ class BottomGameBar extends StatelessWidget {
                   isKeyboardActive == false
                       ? const SizedBox()
                       : GestureDetector(
-                        behavior: HitTestBehavior.opaque,
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             if (onKeyboardBtnTap != null) {
                               onKeyboardBtnTap!();

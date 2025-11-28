@@ -50,6 +50,7 @@ final class BiddingPhaseState extends ThousandState {
   final int? highestBidderIndex;
   final int firstDealerIndex;
   final int currentDealerIndex;
+
   /// Players who passed
   final Set<int> passedPlayers;
   final int roundNumber;
@@ -93,7 +94,7 @@ final class BiddingPhaseState extends ThousandState {
   bool get isBiddingComplete {
     // Bidding is complete when there's a winner and all others passed
     if (highestBidderIndex == null) return false;
-    
+
     final activePlayers = players.length - passedPlayers.length;
     return activePlayers == 1;
   }
@@ -123,8 +124,8 @@ final class ScoringPhaseState extends ThousandState {
     Map<int, int>? currentScoreCalculation,
     this.bidderSuccess,
     this.roundNumber = 1,
-  }) : enteredScores = enteredScores ?? {},
-       currentScoreCalculation = currentScoreCalculation ?? {};
+  })  : enteredScores = enteredScores ?? {},
+        currentScoreCalculation = currentScoreCalculation ?? {};
 
   ScoringPhaseState copyWith({
     List<Player>? players,
@@ -146,7 +147,8 @@ final class ScoringPhaseState extends ThousandState {
       firstDealerIndex: firstDealerIndex ?? this.firstDealerIndex,
       currentDealerIndex: currentDealerIndex ?? this.currentDealerIndex,
       enteredScores: enteredScores ?? this.enteredScores,
-      currentScoreCalculation: currentScoreCalculation ?? this.currentScoreCalculation,
+      currentScoreCalculation:
+          currentScoreCalculation ?? this.currentScoreCalculation,
       bidderSuccess: bidderSuccess ?? this.bidderSuccess,
       roundNumber: roundNumber ?? this.roundNumber,
     );
@@ -164,6 +166,7 @@ final class ScoringPhaseState extends ThousandState {
 final class BarrelWarningState extends ThousandState {
   final List<Player> players;
   final Map<int, ThousandPlayerData> playerData;
+
   /// Indices of players on barrel
   final List<int> playersOnBarrel;
   final int firstDealerIndex;
@@ -184,6 +187,7 @@ final class BarrelWarningState extends ThousandState {
 final class GameEndedState extends ThousandState {
   final List<Player> players;
   final Map<int, ThousandPlayerData> playerData;
+
   /// null if no one won (all lost)
   final int? winnerIndex;
   final int roundNumber;

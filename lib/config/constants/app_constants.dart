@@ -82,7 +82,6 @@ class RulesConst {
 // thousand
   static const thousandAge = '12+';
   static const thousandPlayers = '2-3';
-  
 }
 
 class GameConst {

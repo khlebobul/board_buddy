@@ -140,7 +140,7 @@ class ThousandGameScreen extends StatelessWidget {
     if (players.isNotEmpty) {
       // Save the game when opening options modal (in case user exits to menu)
       bloc.add(SaveThousandGameSession());
-      
+
       GameEndModalHelper.showThousandStyleModal(
         context: context,
         players: players,

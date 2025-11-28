@@ -44,4 +44,3 @@ class MarketHelper {
     return AppLnksConst.otherAppsGooglePlayLink; // This will be changed by make
   }
 }
-

@@ -2,16 +2,22 @@
 enum GamePhase {
   /// Selecting first dealer
   selectingFirstDealer,
+
   /// Auction (bidding)
   bidding,
+
   /// Selecting marriage (if needed)
   selectingMarriage,
+
   /// Gameplay (tricks)
   playing,
+
   /// Scoring
   scoring,
+
   /// Barrel warning
   barrelWarning,
+
   /// Game ended
   gameEnded,
 }
@@ -20,10 +26,13 @@ enum GamePhase {
 enum CardSuit {
   /// Hearts
   hearts,
+
   /// Diamonds
   diamonds,
+
   /// Clubs
   clubs,
+
   /// Spades
   spades,
 }
@@ -32,14 +41,19 @@ enum CardSuit {
 enum CardRank {
   /// 9 - 0 points
   nine(0),
+
   /// 10 - 10 points
   ten(10),
+
   /// Jack - 2 points
   jack(2),
+
   /// Queen - 3 points
   queen(3),
+
   /// King - 4 points
   king(4),
+
   /// Ace - 11 points
   ace(11);
 
@@ -108,14 +122,19 @@ class Bid {
 class ThousandPlayerData {
   /// Points in current round
   final int roundScore;
+
   /// Total points
   final int totalScore;
+
   /// Number of tricks won in round
   final int tricksWon;
+
   /// Is on barrel (880+)
   final bool isOnBarrel;
+
   /// Has bolt (didn't win any tricks)
   final bool hasBolt;
+
   /// Current player bid
   final int? currentBid;
 

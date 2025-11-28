@@ -77,8 +77,7 @@ class GameEndModalHelper {
     required VoidCallback onNewGame,
     required VoidCallback onReturnToMenu,
     required void Function(Player player) onAddPlayerToBloc,
-    required Function(BuildContext context, List<Player> players)
-        onReopenModal,
+    required Function(BuildContext context, List<Player> players) onReopenModal,
   }) {
     GameEndCommonCounterModal.show(
       context,

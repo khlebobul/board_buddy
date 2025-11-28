@@ -79,7 +79,6 @@ class GameEndThousandModalWidget extends StatelessWidget {
                 ),
               ),
             const SizedBox(height: 16),
-
             Flexible(
               child: Container(
                 constraints: const BoxConstraints(maxHeight: 300),
@@ -129,9 +128,7 @@ class GameEndThousandModalWidget extends StatelessWidget {
                 ),
               ),
             ),
-
             const SizedBox(height: 24),
-
             Padding(
               padding: const EdgeInsets.symmetric(
                   horizontal: GeneralConst.paddingHorizontal),

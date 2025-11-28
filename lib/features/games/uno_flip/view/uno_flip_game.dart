@@ -111,7 +111,7 @@ class _UnoFlipGameState extends State<UnoFlipGame>
 
     // Mark that the game end modal has been shown
     bloc.markGameEndModalShown();
-    
+
     // Save the game when opening options modal (in case user exits to menu)
     bloc.add(SaveGameSession());
 
@@ -147,7 +147,8 @@ class _UnoFlipGameState extends State<UnoFlipGame>
         final current = bloc.state;
         if (current is UnoFlipGameState) {
           _isGameEndModalShown = false;
-          _showGameEndModal(current.players, current.gameMode, current.scoreLimit);
+          _showGameEndModal(
+              current.players, current.gameMode, current.scoreLimit);
         }
       },
     );

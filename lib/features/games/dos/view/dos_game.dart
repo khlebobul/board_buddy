@@ -109,7 +109,7 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
 
     final bloc = context.read<DosBloc>();
     bloc.markGameEndModalShown();
-    
+
     // Save the game when opening options modal (in case user exits to menu)
     bloc.add(SaveGameSession());
 
@@ -145,7 +145,8 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
         final current = bloc.state;
         if (current is DosGameState) {
           _isGameEndModalShown = false;
-          _showGameEndModal(current.players, current.gameMode, current.scoreLimit);
+          _showGameEndModal(
+              current.players, current.gameMode, current.scoreLimit);
         }
       },
     );
