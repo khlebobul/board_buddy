@@ -27,6 +27,8 @@ import 'package:board_buddy/features/settings/settings_screen.dart';
 import 'package:board_buddy/features/splash/view/splash_screen.dart';
 import 'package:board_buddy/features/games/uno/bloc/uno_bloc.dart';
 import 'package:board_buddy/features/games/dos/bloc/dos_bloc.dart';
+import 'package:board_buddy/features/games/thousand/view/thousand_start_screen.dart';
+import 'package:board_buddy/features/games/thousand/view/thousand_rules_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_start_screen.dart';
@@ -47,6 +49,7 @@ class AppRoutes {
   static const String dosRules = '/dosRules';
   static const String setRules = '/setRules';
   static const String munchkinRules = '/munchkinRules';
+  static const String thousandRules = '/thousandRules';
 
   // games
   static const String unoGame = '/unoGame';
@@ -63,6 +66,8 @@ class AppRoutes {
   static const String commonGame = '/commonGame';
   static const String commonGameStartScreen = '/commonStartGame';
   static const String scrabbleStartGame = '/scrabbleStartGame';
+  static const String thousandGame = '/thousandGame';
+  static const String thousandStartGame = '/thousandStartGame';
 
   static Map<String, WidgetBuilder> get routes => {
         // main
@@ -79,6 +84,7 @@ class AppRoutes {
         dosRules: (context) => const DosRulesScreen(),
         setRules: (context) => const SetRulesScreen(),
         munchkinRules: (context) => const MunchkinRulesScreen(),
+        thousandRules: (context) => const ThousandRulesScreen(),
 
         // games
         unoStartGame: (context) => const UnoStartScreen(),
@@ -90,6 +96,7 @@ class AppRoutes {
         munchkinStartGame: (context) => const MunchkinStartScreen(),
         munchkinGame: (context) => const MunchkinGameWrapper(),
         commonGameStartScreen: (context) => const CommonGameStartScreen(),
+        thousandStartGame: (context) => const ThousandStartScreen(),
       };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -242,6 +249,13 @@ class AppRoutes {
           builder: (context) => const ScrabbleGame(),
         );
       }
+    }
+
+    // thousand game
+    if (settings.name == thousandGame) {
+      return MaterialPageRoute(
+        builder: (context) => const ThousandStartScreen(),
+      );
     }
 
     final builder = routes[settings.name];

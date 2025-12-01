@@ -20,9 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'de';
 
+  static String m0(playerName, winningBid) =>
+      "hat ${playerName} sein Gebot (${winningBid} Punkte) erreicht?";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("über"),
+    "ace": MessageLookupByLibrary.simpleMessage("Ass"),
+    "ace11Points": MessageLookupByLibrary.simpleMessage("ass: 11 punkte"),
     "add": MessageLookupByLibrary.simpleMessage("hinzufügen"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("spieler hinzufügen"),
     "adding": MessageLookupByLibrary.simpleMessage("hinzufügen"),
@@ -33,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appreciation": MessageLookupByLibrary.simpleMessage("danksagung"),
     "armour": MessageLookupByLibrary.simpleMessage("rüstung"),
     "back": MessageLookupByLibrary.simpleMessage("zurück"),
+    "biddingPhase": MessageLookupByLibrary.simpleMessage("bietphase:"),
     "bigArmour": MessageLookupByLibrary.simpleMessage("große rüstung"),
     "bigBoots": MessageLookupByLibrary.simpleMessage("große stiefel"),
     "bigHelmet": MessageLookupByLibrary.simpleMessage("großer helm"),
@@ -82,21 +88,30 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "class1": MessageLookupByLibrary.simpleMessage("klasse 1"),
     "class2": MessageLookupByLibrary.simpleMessage("klasse 2"),
+    "clear": MessageLookupByLibrary.simpleMessage("löschen"),
     "clearance": MessageLookupByLibrary.simpleMessage("befreiung"),
     "cleric": MessageLookupByLibrary.simpleMessage("kleriker"),
     "close": MessageLookupByLibrary.simpleMessage("schließen"),
     "common": MessageLookupByLibrary.simpleMessage("zähler"),
+    "confirm": MessageLookupByLibrary.simpleMessage("bestätigen"),
     "continueGame": MessageLookupByLibrary.simpleMessage("spiel fortsetzen"),
     "continueTitle": MessageLookupByLibrary.simpleMessage("fortsetzen"),
+    "contractResolution": MessageLookupByLibrary.simpleMessage(
+      "vertragsauflösung:",
+    ),
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage(
       "konnte nicht starten",
     ),
+    "currentBet": MessageLookupByLibrary.simpleMessage("aktuelles Gebot:"),
+    "currentCount": MessageLookupByLibrary.simpleMessage("aktueller Stand:"),
     "cursed": MessageLookupByLibrary.simpleMessage("verflucht"),
     "dark": MessageLookupByLibrary.simpleMessage("dunkel"),
     "darkSideCardsAreReplacedWithLightOnesAndVice":
         MessageLookupByLibrary.simpleMessage(
           "dunkle karten werden durch helle ersetzt und umgekehrt.",
         ),
+    "didPlayerReachBid": m0,
+    "didYouEnter": MessageLookupByLibrary.simpleMessage("hat erreicht"),
     "doReturn": MessageLookupByLibrary.simpleMessage("zurückkehren"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "fehlt dein lieblingsspiel? schreib mir eine e-mail!",
@@ -231,7 +246,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "zeigt einen aktiven fluch an",
     ),
+    "jack": MessageLookupByLibrary.simpleMessage("Bube"),
+    "jack2Points": MessageLookupByLibrary.simpleMessage("bube: 2 punkte"),
     "keepAwakeMode": MessageLookupByLibrary.simpleMessage("wachhaltemodus"),
+    "king": MessageLookupByLibrary.simpleMessage("König"),
+    "king4Points": MessageLookupByLibrary.simpleMessage("könig: 4 punkte"),
     "languages": MessageLookupByLibrary.simpleMessage("sprachen"),
     "leftHand": MessageLookupByLibrary.simpleMessage("linke hand"),
     "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
@@ -247,6 +266,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "markiert einen toten charakter",
     ),
+    "marriage": MessageLookupByLibrary.simpleMessage("hochzeit:"),
     "menu": MessageLookupByLibrary.simpleMessage("menü"),
     "mode": MessageLookupByLibrary.simpleMessage("modus"),
     "modifiers": MessageLookupByLibrary.simpleMessage("modifikatoren"),
@@ -354,6 +374,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "der nächste spieler zieht, bis er die gewählte farbe erhält.",
         ),
+    "nine0Points": MessageLookupByLibrary.simpleMessage("neun: 0 punkte"),
+    "no": MessageLookupByLibrary.simpleMessage("nein"),
     "noClass": MessageLookupByLibrary.simpleMessage("keine klasse"),
     "noItem": MessageLookupByLibrary.simpleMessage("kein gegenstand"),
     "numberCards": MessageLookupByLibrary.simpleMessage("zahlenkarten"),
@@ -361,15 +383,21 @@ class MessageLookup extends MessageLookupByLibrary {
     "on": MessageLookupByLibrary.simpleMessage("an"),
     "options": MessageLookupByLibrary.simpleMessage("optionen"),
     "others": MessageLookupByLibrary.simpleMessage("anderes"),
+    "pass": MessageLookupByLibrary.simpleMessage("passen"),
     "play": MessageLookupByLibrary.simpleMessage("spielen"),
     "playerName": MessageLookupByLibrary.simpleMessage("spielername"),
+    "playerOnBarrel": MessageLookupByLibrary.simpleMessage("Spieler im Fass:"),
     "players": MessageLookupByLibrary.simpleMessage("spieler"),
+    "playersOnBarrel": MessageLookupByLibrary.simpleMessage("Spieler im Fass:"),
     "points": MessageLookupByLibrary.simpleMessage("punkte"),
+    "pointsConfirmed": MessageLookupByLibrary.simpleMessage("Punkte bestätigt"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
       "möglicherweise die entfernung von flüchen oder debuffs",
     ),
     "preparation": MessageLookupByLibrary.simpleMessage("vorbereitung:"),
     "projectWebsite": MessageLookupByLibrary.simpleMessage("projektwebsite"),
+    "queen": MessageLookupByLibrary.simpleMessage("Dame"),
+    "queen3Points": MessageLookupByLibrary.simpleMessage("dame: 3 punkte"),
     "race1": MessageLookupByLibrary.simpleMessage("rasse 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("bewerte die app"),
     "reportABug": MessageLookupByLibrary.simpleMessage("einen fehler melden"),
@@ -587,11 +615,75 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "sword": MessageLookupByLibrary.simpleMessage("schwert"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
+    "ten10Points": MessageLookupByLibrary.simpleMessage("zehn: 10 punkte"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "die anzahl der spieler sollte größer sein als",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("thema"),
     "thief": MessageLookupByLibrary.simpleMessage("dieb"),
+    "thousandBiddingPhaseOne": MessageLookupByLibrary.simpleMessage(
+      "beginnend mit dem spieler nach dem geber bieten die spieler darauf, wie viele punkte sie ihrer meinung nach erzielen können (mindestgebot ist 100). jedes gebot muss höher sein als das vorherige gebot (in schritten von 5 oder 10).",
+    ),
+    "thousandBiddingPhaseThree": MessageLookupByLibrary.simpleMessage(
+      "der spieler mit dem höchsten gebot gewinnt die auktion, nimmt den talon und erklärt die trumpffarbe. der bieter legt 3 karten verdeckt ab (behält aber ihren punktwert).",
+    ),
+    "thousandBiddingPhaseTwo": MessageLookupByLibrary.simpleMessage(
+      "spieler können passen, wenn sie nicht höher bieten wollen.",
+    ),
+    "thousandContractResolutionOne": MessageLookupByLibrary.simpleMessage(
+      "wenn der bieter mindestens seinen gebotsbetrag erzielt: fügt er seine tatsächliche punktzahl zu seiner gesamtsumme hinzu.",
+    ),
+    "thousandContractResolutionThree": MessageLookupByLibrary.simpleMessage(
+      "andere spieler fügen die punkte aus den stichen, die sie gewonnen haben, zu ihren gesamtsummen hinzu.",
+    ),
+    "thousandContractResolutionTwo": MessageLookupByLibrary.simpleMessage(
+      "wenn der bieter sein gebot nicht erfüllt: wird sein gebotsbetrag von seiner gesamtsumme abgezogen (kann negativ werden).",
+    ),
+    "thousandGameTurnTitleOne": MessageLookupByLibrary.simpleMessage(
+      "der bieter spielt den ersten stich aus, indem er eine beliebige karte spielt. andere spieler müssen die farbe bedienen, wenn möglich. wenn sie nicht können, müssen sie eine trumpfkarte spielen, wenn sie eine haben.",
+    ),
+    "thousandGameTurnTitleThree": MessageLookupByLibrary.simpleMessage(
+      "der gewinner des stichs spielt den nächsten stich aus. fahren sie fort, bis alle karten gespielt sind.",
+    ),
+    "thousandGameTurnTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "die höchste karte der ausgespielten farbe gewinnt, es sei denn, ein trumpf wird gespielt. der höchste trumpf gewinnt.",
+    ),
+    "thousandGoal": MessageLookupByLibrary.simpleMessage(
+      "das ziel ist es, als erster spieler 1000 punkte zu erreichen, indem man stiche in einem bietspiel gewinnt. spieler bieten darauf, wie viele punkte sie erzielen können, und versuchen dann, ihren vertrag zu erfüllen.",
+    ),
+    "thousandMarriageFour": MessageLookupByLibrary.simpleMessage(
+      "sie können hochzeiten nur punkten, wenn sie mindestens einen stich gewinnen.",
+    ),
+    "thousandMarriageOne": MessageLookupByLibrary.simpleMessage(
+      "eine hochzeit ist ein könig und eine dame der gleichen farbe auf ihrer hand.",
+    ),
+    "thousandMarriageThree": MessageLookupByLibrary.simpleMessage(
+      "nicht-trumpf-hochzeit: 80 punkte (gleiche regel gilt).",
+    ),
+    "thousandMarriageTwo": MessageLookupByLibrary.simpleMessage(
+      "trumpf-hochzeit: 100 punkte (muss beim ausspielen der ersten karte des paares angesagt werden).",
+    ),
+    "thousandPreparationOne": MessageLookupByLibrary.simpleMessage(
+      "verwende ein 24-karten-deck: 9, 10, bube, dame, könig, ass aller vier farben.",
+    ),
+    "thousandPreparationThree": MessageLookupByLibrary.simpleMessage(
+      "lege 3 karten verdeckt in die mitte als talon (witwe).",
+    ),
+    "thousandPreparationTwo": MessageLookupByLibrary.simpleMessage(
+      "gib jedem spieler 7 karten (für 3 spieler) oder 8 karten (für 2 spieler).",
+    ),
+    "thousandSpecialRulesTitleOne": MessageLookupByLibrary.simpleMessage(
+      "fassregel: wenn ein spieler 880+ punkte erreicht, ist er «im fass» und muss genau 1000 punkten, sonst fällt er auf 880 zurück.",
+    ),
+    "thousandSpecialRulesTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "einige varianten erfordern genau 1000 punkte zum gewinnen. überschreiten setzt sie auf 880 oder die vorherige punktzahl zurück.",
+    ),
+    "thousandTotalPoints": MessageLookupByLibrary.simpleMessage(
+      "gesamtpunkte im deck: 120. fügen sie hochzeitsboni hinzu, falls zutreffend.",
+    ),
+    "thousandVictoryRule": MessageLookupByLibrary.simpleMessage(
+      "der erste spieler, der 1000 punkte erreicht (oder genau 1000, je nach hausregeln), gewinnt das spiel.",
+    ),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
       "danke an alle, die beigetragen haben",
     ),
@@ -770,6 +862,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "victoryTitle": MessageLookupByLibrary.simpleMessage("sieg:"),
     "warrior": MessageLookupByLibrary.simpleMessage("krieger"),
+    "whoGoesFirst": MessageLookupByLibrary.simpleMessage("wer gibt zuerst?"),
     "wildCardOneDosInfo": MessageLookupByLibrary.simpleMessage(
       "wilder #-stein",
     ),
@@ -791,8 +884,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "wordModifier": MessageLookupByLibrary.simpleMessage("wortmodifikator: "),
     "x2Word": MessageLookupByLibrary.simpleMessage("x2 wort"),
     "x3Word": MessageLookupByLibrary.simpleMessage("x3 wort"),
+    "yes": MessageLookupByLibrary.simpleMessage("ja"),
     "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
       "du hast ein unvollendetes spiel",
     ),
+    "yourBet": MessageLookupByLibrary.simpleMessage("dein Gebot"),
   };
 }

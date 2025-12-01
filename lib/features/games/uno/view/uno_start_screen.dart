@@ -140,6 +140,7 @@ class UnoStartScreenView extends StatelessWidget {
                       const SizedBox(height: 12),
                       if (unoState.players.length < GameMaxPlayers.uno)
                         GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             final unoBloc = context.read<UnoBloc>();
                             showDialog(
@@ -207,20 +208,21 @@ class UnoStartScreenView extends StatelessWidget {
   void _showContinueGameDialog(BuildContext context) {
     final bloc = context.read<UnoBloc>();
 
-    ModalWindowWidget.show(
+    ModalWindowWidget.showContinueGameDialog(
       context,
-      mainText: S.of(context).youHaveAnUnfinishedGame,
-      button1Text: S.of(context).newGame,
-      button2Text: S.of(context).continueTitle,
-      button1Action: () {
-        bloc.deleteSavedGame();
-        Navigator.pop(context);
-      },
-      button2Action: () {
-        // Load the saved game
-        bloc.loadSavedGame();
-        Navigator.pop(context);
-        Navigator.pushNamed(context, '/unoGame');
+      onNewGame: () => bloc.deleteSavedGame(),
+      onContinue: () {
+        // Navigate to game screen with empty parameters
+        // This will trigger LoadSavedGame in the game screen
+        Navigator.pushNamed(
+          context,
+          '/unoGame',
+          arguments: {
+            'players': <Player>[],
+            'scoreLimit': 0,
+            'gameMode': '',
+          },
+        );
       },
     );
   }
@@ -229,6 +231,7 @@ class UnoStartScreenView extends StatelessWidget {
       BuildContext context, String modeName, UnoStartScreenState state) {
     final theme = UIThemes.of(context);
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<UnoBloc>().add(SelectGameMode(modeName));
       },

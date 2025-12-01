@@ -2943,6 +2943,421 @@ class S {
   String get options {
     return Intl.message('options', name: 'options', desc: '', args: []);
   }
+
+  /// `contract resolution:`
+  String get contractResolution {
+    return Intl.message(
+      'contract resolution:',
+      name: 'contractResolution',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `marriage:`
+  String get marriage {
+    return Intl.message('marriage:', name: 'marriage', desc: '', args: []);
+  }
+
+  /// `bidding phase:`
+  String get biddingPhase {
+    return Intl.message(
+      'bidding phase:',
+      name: 'biddingPhase',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the goal is to be the first player to reach 1000 points by winning tricks in a bidding game. players bid on how many points they can score, then try to fulfill their contract.`
+  String get thousandGoal {
+    return Intl.message(
+      'the goal is to be the first player to reach 1000 points by winning tricks in a bidding game. players bid on how many points they can score, then try to fulfill their contract.',
+      name: 'thousandGoal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `use a 24-card deck: 9, 10, jack, queen, king, ace of all four suits.`
+  String get thousandPreparationOne {
+    return Intl.message(
+      'use a 24-card deck: 9, 10, jack, queen, king, ace of all four suits.',
+      name: 'thousandPreparationOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `deal 7 cards to each player (for 3 players), or 8 cards (for 2 players).`
+  String get thousandPreparationTwo {
+    return Intl.message(
+      'deal 7 cards to each player (for 3 players), or 8 cards (for 2 players).',
+      name: 'thousandPreparationTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `place 3 cards face down in the center as the talon (widow).`
+  String get thousandPreparationThree {
+    return Intl.message(
+      'place 3 cards face down in the center as the talon (widow).',
+      name: 'thousandPreparationThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `starting with the player after the dealer, players bid on how many points they think they can score (minimum bid is 100). each bid must be higher than the previous bid (in increments of 5 or 10).`
+  String get thousandBiddingPhaseOne {
+    return Intl.message(
+      'starting with the player after the dealer, players bid on how many points they think they can score (minimum bid is 100). each bid must be higher than the previous bid (in increments of 5 or 10).',
+      name: 'thousandBiddingPhaseOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `players can pass if they don't want to bid higher.`
+  String get thousandBiddingPhaseTwo {
+    return Intl.message(
+      'players can pass if they don\'t want to bid higher.',
+      name: 'thousandBiddingPhaseTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the player with the highest bid wins the auction, takes the talon, and declares trump suit. the bidder discards 3 cards face down (but keeps their point value).`
+  String get thousandBiddingPhaseThree {
+    return Intl.message(
+      'the player with the highest bid wins the auction, takes the talon, and declares trump suit. the bidder discards 3 cards face down (but keeps their point value).',
+      name: 'thousandBiddingPhaseThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a marriage is a king and queen of the same suit in your hand.`
+  String get thousandMarriageOne {
+    return Intl.message(
+      'a marriage is a king and queen of the same suit in your hand.',
+      name: 'thousandMarriageOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `trump marriage: 100 points (must be declared when playing the first card of the pair).`
+  String get thousandMarriageTwo {
+    return Intl.message(
+      'trump marriage: 100 points (must be declared when playing the first card of the pair).',
+      name: 'thousandMarriageTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `non-trump marriage: 80 points (same rule applies).`
+  String get thousandMarriageThree {
+    return Intl.message(
+      'non-trump marriage: 80 points (same rule applies).',
+      name: 'thousandMarriageThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `you can only score marriages if you win at least one trick.`
+  String get thousandMarriageFour {
+    return Intl.message(
+      'you can only score marriages if you win at least one trick.',
+      name: 'thousandMarriageFour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the bidder leads the first trick by playing any card. other players must follow suit if possible. if they cannot, they must play a trump card if they have one.`
+  String get thousandGameTurnTitleOne {
+    return Intl.message(
+      'the bidder leads the first trick by playing any card. other players must follow suit if possible. if they cannot, they must play a trump card if they have one.',
+      name: 'thousandGameTurnTitleOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the highest card of the led suit wins, unless a trump is played. the highest trump wins.`
+  String get thousandGameTurnTitleTwo {
+    return Intl.message(
+      'the highest card of the led suit wins, unless a trump is played. the highest trump wins.',
+      name: 'thousandGameTurnTitleTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the winner of the trick leads the next trick. continue until all cards are played.`
+  String get thousandGameTurnTitleThree {
+    return Intl.message(
+      'the winner of the trick leads the next trick. continue until all cards are played.',
+      name: 'thousandGameTurnTitleThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ace: 11 points`
+  String get ace11Points {
+    return Intl.message(
+      'ace: 11 points',
+      name: 'ace11Points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ten: 10 points`
+  String get ten10Points {
+    return Intl.message(
+      'ten: 10 points',
+      name: 'ten10Points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `king: 4 points`
+  String get king4Points {
+    return Intl.message(
+      'king: 4 points',
+      name: 'king4Points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `queen: 3 points`
+  String get queen3Points {
+    return Intl.message(
+      'queen: 3 points',
+      name: 'queen3Points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `jack: 2 points`
+  String get jack2Points {
+    return Intl.message(
+      'jack: 2 points',
+      name: 'jack2Points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `nine: 0 points`
+  String get nine0Points {
+    return Intl.message(
+      'nine: 0 points',
+      name: 'nine0Points',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `total points in deck: 120. add marriage bonuses if applicable.`
+  String get thousandTotalPoints {
+    return Intl.message(
+      'total points in deck: 120. add marriage bonuses if applicable.',
+      name: 'thousandTotalPoints',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `if the bidder scores at least their bid amount: they add their actual score to their total.`
+  String get thousandContractResolutionOne {
+    return Intl.message(
+      'if the bidder scores at least their bid amount: they add their actual score to their total.',
+      name: 'thousandContractResolutionOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `if the bidder fails to meet their bid: their bid amount is subtracted from their total (they can go negative).`
+  String get thousandContractResolutionTwo {
+    return Intl.message(
+      'if the bidder fails to meet their bid: their bid amount is subtracted from their total (they can go negative).',
+      name: 'thousandContractResolutionTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `other players add the points from tricks they won to their totals.`
+  String get thousandContractResolutionThree {
+    return Intl.message(
+      'other players add the points from tricks they won to their totals.',
+      name: 'thousandContractResolutionThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `barrel rule: if a player reaches 880+ points, they are "on the barrel" and must score exactly to 1000, or else drop back to 880.`
+  String get thousandSpecialRulesTitleOne {
+    return Intl.message(
+      'barrel rule: if a player reaches 880+ points, they are "on the barrel" and must score exactly to 1000, or else drop back to 880.',
+      name: 'thousandSpecialRulesTitleOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `some variants require exactly 1000 points to win. going over resets you to 880 or previous score.`
+  String get thousandSpecialRulesTitleTwo {
+    return Intl.message(
+      'some variants require exactly 1000 points to win. going over resets you to 880 or previous score.',
+      name: 'thousandSpecialRulesTitleTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the first player to reach 1000 points (or exactly 1000, depending on house rules) wins the game.`
+  String get thousandVictoryRule {
+    return Intl.message(
+      'the first player to reach 1000 points (or exactly 1000, depending on house rules) wins the game.',
+      name: 'thousandVictoryRule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `current count:`
+  String get currentCount {
+    return Intl.message(
+      'current count:',
+      name: 'currentCount',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `current bet:`
+  String get currentBet {
+    return Intl.message('current bet:', name: 'currentBet', desc: '', args: []);
+  }
+
+  /// `pass`
+  String get pass {
+    return Intl.message('pass', name: 'pass', desc: '', args: []);
+  }
+
+  /// `ace`
+  String get ace {
+    return Intl.message('ace', name: 'ace', desc: '', args: []);
+  }
+
+  /// `king`
+  String get king {
+    return Intl.message('king', name: 'king', desc: '', args: []);
+  }
+
+  /// `queen`
+  String get queen {
+    return Intl.message('queen', name: 'queen', desc: '', args: []);
+  }
+
+  /// `jack`
+  String get jack {
+    return Intl.message('jack', name: 'jack', desc: '', args: []);
+  }
+
+  /// `did reach`
+  String get didYouEnter {
+    return Intl.message('did reach', name: 'didYouEnter', desc: '', args: []);
+  }
+
+  /// `yes`
+  String get yes {
+    return Intl.message('yes', name: 'yes', desc: '', args: []);
+  }
+
+  /// `no`
+  String get no {
+    return Intl.message('no', name: 'no', desc: '', args: []);
+  }
+
+  /// `your bet`
+  String get yourBet {
+    return Intl.message('your bet', name: 'yourBet', desc: '', args: []);
+  }
+
+  /// `clear`
+  String get clear {
+    return Intl.message('clear', name: 'clear', desc: '', args: []);
+  }
+
+  /// `confirm`
+  String get confirm {
+    return Intl.message('confirm', name: 'confirm', desc: '', args: []);
+  }
+
+  /// `points confirmed`
+  String get pointsConfirmed {
+    return Intl.message(
+      'points confirmed',
+      name: 'pointsConfirmed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `who deals first?`
+  String get whoGoesFirst {
+    return Intl.message(
+      'who deals first?',
+      name: 'whoGoesFirst',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `did {playerName} reach their bid ({winningBid} points)?`
+  String didPlayerReachBid(String playerName, int winningBid) {
+    return Intl.message(
+      'did $playerName reach their bid ($winningBid points)?',
+      name: 'didPlayerReachBid',
+      desc: '',
+      args: [playerName, winningBid],
+    );
+  }
+
+  /// `player on barrel:`
+  String get playerOnBarrel {
+    return Intl.message(
+      'player on barrel:',
+      name: 'playerOnBarrel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `players on barrel:`
+  String get playersOnBarrel {
+    return Intl.message(
+      'players on barrel:',
+      name: 'playersOnBarrel',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

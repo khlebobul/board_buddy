@@ -1,5 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
+import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/set/bloc/set_bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
@@ -7,7 +7,6 @@ import 'package:board_buddy/shared/widgets/game_widgets/timer.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_score_widget.dart';
-import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
@@ -192,43 +191,36 @@ class _SetGameState extends State<SetGame> with WidgetsBindingObserver {
   }
 
   void _showGameEndModal(BuildContext context, SetGameState gameState) {
-    context.read<SetBloc>().add(DeleteSavedGame());
+    // Save the game when opening options modal (in case user exits to menu)
+    context.read<SetBloc>().add(SaveGameSession());
 
-    GameEndCommonCounterModal.show(
-      context,
+    GameEndModalHelper.showCommonCounterStyleModal(
+      context: context,
       players: gameState.players,
       isSinglePlayer: gameState.isSinglePlayer,
-      onContinue: () {
-        Navigator.of(context).pop();
-      },
+      maxPlayers: GameMaxPlayers.set,
+      onContinue: () {},
       onNewRound: () {
-        Navigator.of(context).pop();
         context.read<SetBloc>().add(ResetScores());
       },
       onNewGame: () {
-        Navigator.of(context).pop();
-        Navigator.of(context).pop();
+        // Delete the saved game before starting a new one
+        context.read<SetBloc>().add(DeleteSavedGame());
+        // Helper already closed the modal, just navigate
         Navigator.pushNamed(context, '/setStartGame');
       },
       onReturnToMenu: () {
         Navigator.pushNamed(context, '/home');
       },
-      onAddPlayer: !gameState.isSinglePlayer &&
-              gameState.players.length < GameMaxPlayers.set
-          ? () {
-              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
-                final setBloc = context.read<SetBloc>();
-                setBloc.add(AddPlayer(newPlayer));
-                Navigator.of(context).pop();
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  final updated = List<Player>.from(gameState.players)
-                    ..add(newPlayer);
-                  _showGameEndModal(
-                      context, gameState.copyWith(players: updated));
-                });
-              });
-            }
-          : null,
+      onAddPlayerToBloc: (newPlayer) {
+        context.read<SetBloc>().add(AddPlayer(newPlayer));
+      },
+      onReopenModal: (ctx, updatedPlayers) {
+        _showGameEndModal(
+          ctx,
+          gameState.copyWith(players: updatedPlayers),
+        );
+      },
     );
   }
 }

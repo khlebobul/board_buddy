@@ -22,6 +22,7 @@ class ContributorsWidget extends StatelessWidget {
       children: [
         for (int i = 0; i < contributors.length; i++) ...[
           GestureDetector(
+            behavior: HitTestBehavior.opaque,
             onTap: () async {
               final url = 'https://github.com/${contributors[i]}';
               final uri = Uri.parse(url);

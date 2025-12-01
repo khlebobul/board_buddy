@@ -152,6 +152,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.center,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onContinue,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -168,6 +169,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
                   ),
                   if (!isSinglePlayer && onAddPlayer != null)
                     GestureDetector(
+                      behavior: HitTestBehavior.opaque,
                       onTap: onAddPlayer,
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -183,6 +185,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
                       ),
                     ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onNewRound,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -198,6 +201,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onNewGame,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
@@ -213,6 +217,7 @@ class GameEndCommonCounterModal extends StatelessWidget {
                     ),
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onReturnToMenu,
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),

@@ -1,20 +1,19 @@
+import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/config/utils/custom_icons.dart';
+import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
+import 'package:board_buddy/features/games/common_counter/bloc/common_counter_bloc.dart';
+import 'package:board_buddy/features/games/common_counter/widgets/custom_score_keyboard.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
-import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
-import 'package:board_buddy/features/games/common_counter/bloc/common_counter_bloc.dart';
-import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
-import 'package:board_buddy/features/games/common_counter/widgets/custom_score_keyboard.dart';
-import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
-import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
-import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
-import 'package:board_buddy/shared/widgets/game_widgets/timer.dart';
-import 'package:board_buddy/shared/widgets/game_widgets/players_score_widget.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
-import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
+import 'package:board_buddy/shared/widgets/game_widgets/players_score_widget.dart';
+import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
+import 'package:board_buddy/shared/widgets/game_widgets/timer.dart';
+import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
+import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
@@ -532,22 +531,22 @@ class _CommonGameViewState extends State<CommonGameView>
   void _showGameEndModal(
       BuildContext context, CommonCounterGameState gameState) {
     _pauseTimer();
-    context.read<CommonCounterBloc>().add(DeleteSavedGame());
+    // Save the game when opening options modal (in case user exits to menu)
+    context.read<CommonCounterBloc>().add(SaveGameSession());
 
-    GameEndCommonCounterModal.show(
-      context,
+    GameEndModalHelper.showCommonCounterStyleModal(
+      context: context,
       players: gameState.players,
       isSinglePlayer: gameState.isSinglePlayer,
-      onContinue: () {
-        Navigator.of(context).pop();
-      },
+      maxPlayers: GameMaxPlayers.commonCounter,
+      onContinue: () {},
       onNewRound: () {
-        Navigator.of(context).pop();
         context.read<CommonCounterBloc>().add(ResetScores());
       },
       onNewGame: () {
-        Navigator.of(context).pop();
-        Navigator.of(context).pop();
+        // Delete the saved game before starting a new one
+        context.read<CommonCounterBloc>().add(DeleteSavedGame());
+        // Helper already closed the modal, just navigate
         Navigator.pushNamed(context, '/commonStartGame');
       },
       onReturnToMenu: () {
@@ -557,25 +556,15 @@ class _CommonGameViewState extends State<CommonGameView>
           (route) => false,
         );
       },
-      onAddPlayer: !gameState.isSinglePlayer &&
-              gameState.players.length < GameMaxPlayers.commonCounter
-          ? () {
-              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
-                final ccBloc = context.read<CommonCounterBloc>();
-                ccBloc.add(AddPlayer(newPlayer));
-                Navigator.of(context).pop();
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  final updated = List<Player>.from(gameState.players)
-                    ..add(newPlayer);
-                  _showGameEndModal(
-                      context,
-                      gameState.copyWith(
-                        players: updated,
-                      ));
-                });
-              });
-            }
-          : null,
+      onAddPlayerToBloc: (newPlayer) {
+        context.read<CommonCounterBloc>().add(AddPlayer(newPlayer));
+      },
+      onReopenModal: (ctx, updatedPlayers) {
+        _showGameEndModal(
+          ctx,
+          gameState.copyWith(players: updatedPlayers),
+        );
+      },
     );
   }
 }

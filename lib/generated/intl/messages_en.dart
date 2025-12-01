@@ -20,9 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'en';
 
+  static String m0(playerName, winningBid) =>
+      "did ${playerName} reach their bid (${winningBid} points)?";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("about"),
+    "ace": MessageLookupByLibrary.simpleMessage("ace"),
+    "ace11Points": MessageLookupByLibrary.simpleMessage("ace: 11 points"),
     "add": MessageLookupByLibrary.simpleMessage("add"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("add player"),
     "adding": MessageLookupByLibrary.simpleMessage("adding"),
@@ -33,6 +38,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appreciation": MessageLookupByLibrary.simpleMessage("credits"),
     "armour": MessageLookupByLibrary.simpleMessage("armour"),
     "back": MessageLookupByLibrary.simpleMessage("back"),
+    "biddingPhase": MessageLookupByLibrary.simpleMessage("bidding phase:"),
     "bigArmour": MessageLookupByLibrary.simpleMessage("big armour"),
     "bigBoots": MessageLookupByLibrary.simpleMessage("big boots"),
     "bigHelmet": MessageLookupByLibrary.simpleMessage("big helmet"),
@@ -78,19 +84,28 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkMyWebsite": MessageLookupByLibrary.simpleMessage("check my website"),
     "class1": MessageLookupByLibrary.simpleMessage("class 1"),
     "class2": MessageLookupByLibrary.simpleMessage("class 2"),
+    "clear": MessageLookupByLibrary.simpleMessage("clear"),
     "clearance": MessageLookupByLibrary.simpleMessage("clearance"),
     "cleric": MessageLookupByLibrary.simpleMessage("cleric"),
     "close": MessageLookupByLibrary.simpleMessage("close"),
     "common": MessageLookupByLibrary.simpleMessage("counter"),
+    "confirm": MessageLookupByLibrary.simpleMessage("confirm"),
     "continueGame": MessageLookupByLibrary.simpleMessage("continue game"),
     "continueTitle": MessageLookupByLibrary.simpleMessage("continue"),
+    "contractResolution": MessageLookupByLibrary.simpleMessage(
+      "contract resolution:",
+    ),
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage("could not launch"),
+    "currentBet": MessageLookupByLibrary.simpleMessage("current bet:"),
+    "currentCount": MessageLookupByLibrary.simpleMessage("current count:"),
     "cursed": MessageLookupByLibrary.simpleMessage("cursed"),
     "dark": MessageLookupByLibrary.simpleMessage("dark"),
     "darkSideCardsAreReplacedWithLightOnesAndVice":
         MessageLookupByLibrary.simpleMessage(
           "dark side cards are replaced with light ones and vice versa.",
         ),
+    "didPlayerReachBid": m0,
+    "didYouEnter": MessageLookupByLibrary.simpleMessage("did reach"),
     "doReturn": MessageLookupByLibrary.simpleMessage("return"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "don\'t have your favourite game? email me!",
@@ -221,7 +236,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "indicates an active curse",
     ),
+    "jack": MessageLookupByLibrary.simpleMessage("jack"),
+    "jack2Points": MessageLookupByLibrary.simpleMessage("jack: 2 points"),
     "keepAwakeMode": MessageLookupByLibrary.simpleMessage("keep awake mode"),
+    "king": MessageLookupByLibrary.simpleMessage("king"),
+    "king4Points": MessageLookupByLibrary.simpleMessage("king: 4 points"),
     "languages": MessageLookupByLibrary.simpleMessage("languages"),
     "leftHand": MessageLookupByLibrary.simpleMessage("left hand"),
     "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
@@ -237,6 +256,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "marks a dead character",
     ),
+    "marriage": MessageLookupByLibrary.simpleMessage("marriage:"),
     "menu": MessageLookupByLibrary.simpleMessage("menu"),
     "mode": MessageLookupByLibrary.simpleMessage("mode"),
     "modifiers": MessageLookupByLibrary.simpleMessage("modifiers"),
@@ -344,6 +364,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "next player draws until they get the chosen color.",
         ),
+    "nine0Points": MessageLookupByLibrary.simpleMessage("nine: 0 points"),
+    "no": MessageLookupByLibrary.simpleMessage("no"),
     "noClass": MessageLookupByLibrary.simpleMessage("no class"),
     "noItem": MessageLookupByLibrary.simpleMessage("no item"),
     "numberCards": MessageLookupByLibrary.simpleMessage("number cards"),
@@ -351,15 +373,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "on": MessageLookupByLibrary.simpleMessage("on"),
     "options": MessageLookupByLibrary.simpleMessage("options"),
     "others": MessageLookupByLibrary.simpleMessage("others"),
+    "pass": MessageLookupByLibrary.simpleMessage("pass"),
     "play": MessageLookupByLibrary.simpleMessage("play"),
     "playerName": MessageLookupByLibrary.simpleMessage("player name"),
+    "playerOnBarrel": MessageLookupByLibrary.simpleMessage("player on barrel:"),
     "players": MessageLookupByLibrary.simpleMessage("players"),
+    "playersOnBarrel": MessageLookupByLibrary.simpleMessage(
+      "players on barrel:",
+    ),
     "points": MessageLookupByLibrary.simpleMessage("points"),
+    "pointsConfirmed": MessageLookupByLibrary.simpleMessage("points confirmed"),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
       "possibly the removal of curses or debuffs",
     ),
     "preparation": MessageLookupByLibrary.simpleMessage("preparation:"),
     "projectWebsite": MessageLookupByLibrary.simpleMessage("project website"),
+    "queen": MessageLookupByLibrary.simpleMessage("queen"),
+    "queen3Points": MessageLookupByLibrary.simpleMessage("queen: 3 points"),
     "race1": MessageLookupByLibrary.simpleMessage("race 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("rate the app"),
     "reportABug": MessageLookupByLibrary.simpleMessage("report a bug"),
@@ -572,11 +602,75 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "sword": MessageLookupByLibrary.simpleMessage("sword"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
+    "ten10Points": MessageLookupByLibrary.simpleMessage("ten: 10 points"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "the number of players should be more than",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("theme"),
     "thief": MessageLookupByLibrary.simpleMessage("thief"),
+    "thousandBiddingPhaseOne": MessageLookupByLibrary.simpleMessage(
+      "starting with the player after the dealer, players bid on how many points they think they can score (minimum bid is 100). each bid must be higher than the previous bid (in increments of 5 or 10).",
+    ),
+    "thousandBiddingPhaseThree": MessageLookupByLibrary.simpleMessage(
+      "the player with the highest bid wins the auction, takes the talon, and declares trump suit. the bidder discards 3 cards face down (but keeps their point value).",
+    ),
+    "thousandBiddingPhaseTwo": MessageLookupByLibrary.simpleMessage(
+      "players can pass if they don\'t want to bid higher.",
+    ),
+    "thousandContractResolutionOne": MessageLookupByLibrary.simpleMessage(
+      "if the bidder scores at least their bid amount: they add their actual score to their total.",
+    ),
+    "thousandContractResolutionThree": MessageLookupByLibrary.simpleMessage(
+      "other players add the points from tricks they won to their totals.",
+    ),
+    "thousandContractResolutionTwo": MessageLookupByLibrary.simpleMessage(
+      "if the bidder fails to meet their bid: their bid amount is subtracted from their total (they can go negative).",
+    ),
+    "thousandGameTurnTitleOne": MessageLookupByLibrary.simpleMessage(
+      "the bidder leads the first trick by playing any card. other players must follow suit if possible. if they cannot, they must play a trump card if they have one.",
+    ),
+    "thousandGameTurnTitleThree": MessageLookupByLibrary.simpleMessage(
+      "the winner of the trick leads the next trick. continue until all cards are played.",
+    ),
+    "thousandGameTurnTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "the highest card of the led suit wins, unless a trump is played. the highest trump wins.",
+    ),
+    "thousandGoal": MessageLookupByLibrary.simpleMessage(
+      "the goal is to be the first player to reach 1000 points by winning tricks in a bidding game. players bid on how many points they can score, then try to fulfill their contract.",
+    ),
+    "thousandMarriageFour": MessageLookupByLibrary.simpleMessage(
+      "you can only score marriages if you win at least one trick.",
+    ),
+    "thousandMarriageOne": MessageLookupByLibrary.simpleMessage(
+      "a marriage is a king and queen of the same suit in your hand.",
+    ),
+    "thousandMarriageThree": MessageLookupByLibrary.simpleMessage(
+      "non-trump marriage: 80 points (same rule applies).",
+    ),
+    "thousandMarriageTwo": MessageLookupByLibrary.simpleMessage(
+      "trump marriage: 100 points (must be declared when playing the first card of the pair).",
+    ),
+    "thousandPreparationOne": MessageLookupByLibrary.simpleMessage(
+      "use a 24-card deck: 9, 10, jack, queen, king, ace of all four suits.",
+    ),
+    "thousandPreparationThree": MessageLookupByLibrary.simpleMessage(
+      "place 3 cards face down in the center as the talon (widow).",
+    ),
+    "thousandPreparationTwo": MessageLookupByLibrary.simpleMessage(
+      "deal 7 cards to each player (for 3 players), or 8 cards (for 2 players).",
+    ),
+    "thousandSpecialRulesTitleOne": MessageLookupByLibrary.simpleMessage(
+      "barrel rule: if a player reaches 880+ points, they are \"on the barrel\" and must score exactly to 1000, or else drop back to 880.",
+    ),
+    "thousandSpecialRulesTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "some variants require exactly 1000 points to win. going over resets you to 880 or previous score.",
+    ),
+    "thousandTotalPoints": MessageLookupByLibrary.simpleMessage(
+      "total points in deck: 120. add marriage bonuses if applicable.",
+    ),
+    "thousandVictoryRule": MessageLookupByLibrary.simpleMessage(
+      "the first player to reach 1000 points (or exactly 1000, depending on house rules) wins the game.",
+    ),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
       "thanks to everyone who created",
     ),
@@ -754,6 +848,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "victoryTitle": MessageLookupByLibrary.simpleMessage("victory:"),
     "warrior": MessageLookupByLibrary.simpleMessage("warrior"),
+    "whoGoesFirst": MessageLookupByLibrary.simpleMessage("who deals first?"),
     "wildCardOneDosInfo": MessageLookupByLibrary.simpleMessage("wild # card"),
     "wildCardUnoInfo": MessageLookupByLibrary.simpleMessage("wild card"),
     "wildDrawColorUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
@@ -773,8 +868,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "wordModifier": MessageLookupByLibrary.simpleMessage("word modifier: "),
     "x2Word": MessageLookupByLibrary.simpleMessage("x2 word"),
     "x3Word": MessageLookupByLibrary.simpleMessage("x3 word"),
+    "yes": MessageLookupByLibrary.simpleMessage("yes"),
     "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
       "you have an unfinished game",
     ),
+    "yourBet": MessageLookupByLibrary.simpleMessage("your bet"),
   };
 }

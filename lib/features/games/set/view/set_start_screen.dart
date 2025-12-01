@@ -116,6 +116,7 @@ class SetGameStartScreenView extends StatelessWidget {
                         const SizedBox(height: 12),
                         if (setState.players.length < GameMaxPlayers.set)
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               final setBloc = context.read<SetBloc>();
                               showDialog(
@@ -186,20 +187,11 @@ class SetGameStartScreenView extends StatelessWidget {
   void _showContinueGameDialog(BuildContext context) {
     final bloc = context.read<SetBloc>();
 
-    ModalWindowWidget.show(
+    ModalWindowWidget.showContinueGameDialog(
       context,
-      mainText: S.of(context).youHaveAnUnfinishedGame,
-      button1Text: S.of(context).newGame,
-      button2Text: S.of(context).continueTitle,
-      button1Action: () {
-        bloc.deleteSavedGame();
-        Navigator.pop(context);
-      },
-      button2Action: () {
+      onNewGame: () => bloc.deleteSavedGame(),
+      onContinue: () {
         bloc.loadSavedGame();
-
-        Navigator.pop(context);
-
         Navigator.pushNamed(context, '/setGame');
       },
     );
@@ -210,6 +202,7 @@ class SetGameStartScreenView extends StatelessWidget {
     final theme = UIThemes.of(context);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<SetBloc>().add(SelectGameMode(modeName));
       },

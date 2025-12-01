@@ -133,6 +133,7 @@ class SettingsScreenView extends StatelessWidget {
   ) {
     final theme = UIThemes.of(context);
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<SettingsBloc>().add(ChangeLanguage(languageCode));
         LanguageService.changeLanguage(context, languageCode);
@@ -167,6 +168,7 @@ class SettingsScreenView extends StatelessWidget {
   ) {
     final theme = UIThemes.of(context);
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<SettingsBloc>().add(ChangeTheme(isDarkMode));
       },
@@ -200,6 +202,7 @@ class SettingsScreenView extends StatelessWidget {
   ) {
     final theme = UIThemes.of(context);
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<SettingsBloc>().add(ToggleKeepScreenOn(keepScreenOn));
       },
@@ -228,6 +231,7 @@ class SettingsScreenView extends StatelessWidget {
   Widget _buildMailOption(BuildContext context, String label, String subject) {
     final theme = UIThemes.of(context);
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () => sendEmail(context, GeneralConst.email, subject),
       child: Padding(
         padding: const EdgeInsets.only(left: 14),

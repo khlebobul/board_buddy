@@ -118,6 +118,7 @@ class CommonGameStartScreenView extends StatelessWidget {
                         if (counterState.players.length <
                             GameMaxPlayers.commonCounter)
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               final counterBloc =
                                   context.read<CommonCounterBloc>();
@@ -188,19 +189,11 @@ class CommonGameStartScreenView extends StatelessWidget {
   void _showContinueGameDialog(BuildContext context) {
     final bloc = context.read<CommonCounterBloc>();
 
-    ModalWindowWidget.show(
+    ModalWindowWidget.showContinueGameDialog(
       context,
-      mainText: S.of(context).youHaveAnUnfinishedGame,
-      button1Text: S.of(context).newGame,
-      button2Text: S.of(context).continueTitle,
-      button1Action: () {
-        bloc.deleteSavedGame();
-        Navigator.pop(context);
-      },
-      button2Action: () {
-        // Load the saved game
+      onNewGame: () => bloc.deleteSavedGame(),
+      onContinue: () {
         bloc.loadSavedGame();
-        Navigator.pop(context);
         Navigator.pushNamed(context, '/commonGame');
       },
     );
@@ -211,6 +204,7 @@ class CommonGameStartScreenView extends StatelessWidget {
     final theme = UIThemes.of(context);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<CommonCounterBloc>().add(SelectGameMode(modeName));
       },

@@ -1,17 +1,16 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
+import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/dos/bloc/dos_bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
-import 'package:board_buddy/shared/widgets/game_widgets/game_end_uno_modal_widget.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/features/games/dos/widgets/info_dos_dialog_widget.dart';
-import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -111,53 +110,45 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
     final bloc = context.read<DosBloc>();
     bloc.markGameEndModalShown();
 
-    GameEndUnoModalWidget.show(
-      // same as uno
-      context,
+    // Save the game when opening options modal (in case user exits to menu)
+    bloc.add(SaveGameSession());
+
+    GameEndModalHelper.showUnoStyleModal(
+      context: context,
       players: players,
       gameMode: gameMode,
       scoreLimit: scoreLimit,
+      maxPlayers: GameMaxPlayers.dos,
       onContinueGame: () {
         bloc.continueGame();
-        Navigator.pop(context);
         _isGameEndModalShown = false;
       },
       onNewGameWithSamePlayers: () {
         bloc.startNewGameWithSamePlayers();
-        Navigator.pop(context);
-        // Reset flag after closing modal
         _isGameEndModalShown = false;
       },
       onNewGame: () {
+        // Delete the saved game before starting a new one
+        bloc.add(DeleteSavedGame());
         bloc.startNewGame();
-        Navigator.pop(context);
-        Navigator.pop(context);
-        // Reset the flag after closing the modal window
         _isGameEndModalShown = false;
       },
       onReturnToMenu: () {
-        bloc.returnToMenu();
-        Navigator.pushNamed(context, '/home');
-        // Reset the flag after closing the modal window
+        // Game is already saved, just reset the flag
+        // Navigation is handled by GameEndModalHelper
         _isGameEndModalShown = false;
       },
-      onAddPlayer: players.length < GameMaxPlayers.dos
-          ? () {
-              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
-                final dosBloc = context.read<DosBloc>();
-                dosBloc.add(AddPlayer(newPlayer));
-                Navigator.pop(context);
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  final current = dosBloc.state;
-                  if (current is DosGameState) {
-                    _isGameEndModalShown = false;
-                    _showGameEndModal(
-                        current.players, current.gameMode, current.scoreLimit);
-                  }
-                });
-              });
-            }
-          : null,
+      onAddPlayerToBloc: (newPlayer) {
+        bloc.add(AddPlayer(newPlayer));
+      },
+      onReopenModal: (updatedPlayers, updatedGameMode, updatedScoreLimit) {
+        final current = bloc.state;
+        if (current is DosGameState) {
+          _isGameEndModalShown = false;
+          _showGameEndModal(
+              current.players, current.gameMode, current.scoreLimit);
+        }
+      },
     );
   }
 
@@ -359,8 +350,8 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
                                 final firstLetter =
                                     player.name.characters.first;
                                 return GestureDetector(
+                                  behavior: HitTestBehavior.opaque,
                                   onTap: () {
-                                    // Navigate to the needed page
                                     _pageController.animateToPage(
                                       index,
                                       duration:

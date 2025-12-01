@@ -83,6 +83,7 @@ class AddPlayerDialog extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () {
                   Navigator.pop(context);
                 },
@@ -97,6 +98,7 @@ class AddPlayerDialog extends StatelessWidget {
                     }),
               ),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: addPlayer,
                 child: TextScramble(
                     text: S.of(context).add,

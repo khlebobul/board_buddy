@@ -2,7 +2,7 @@ name: board_buddy
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.0.12+21
+version: 1.1.0+22
 
 environment:
   sdk: ^3.5.3
@@ -70,6 +70,7 @@ flutter:
     - assets/icons/games_icons/uno_like/
     - assets/icons/games_icons/munchkin/
     - assets/icons/games_icons/scrabble/
+    - assets/icons/games_icons/cards/
 
   fonts:
   - family: RobotoMono

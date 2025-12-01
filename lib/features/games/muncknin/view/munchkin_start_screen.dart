@@ -139,6 +139,7 @@ class _MunchkinStartScreenViewState extends State<MunchkinStartScreenView> {
                         if (munchkinState.players.length <
                             GameMaxPlayers.munchkin)
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               final munchkinBloc = context.read<MunchkinBloc>();
                               showDialog(
@@ -210,19 +211,10 @@ class _MunchkinStartScreenViewState extends State<MunchkinStartScreenView> {
   void _showContinueGameDialog(BuildContext context) {
     final bloc = context.read<MunchkinBloc>();
 
-    ModalWindowWidget.show(
+    ModalWindowWidget.showContinueGameDialog(
       context,
-      mainText: S.of(context).youHaveAnUnfinishedGame,
-      button1Text: S.of(context).newGame,
-      button2Text: S.of(context).continueTitle,
-      button1Action: () {
-        bloc.add(DeleteSavedGame());
-        Navigator.pop(context);
-      },
-      button2Action: () {
-        bloc.add(LoadSavedGame());
-        Navigator.pop(context);
-      },
+      onNewGame: () => bloc.add(DeleteSavedGame()),
+      onContinue: () => bloc.add(LoadSavedGame()),
     );
   }
 
@@ -231,6 +223,7 @@ class _MunchkinStartScreenViewState extends State<MunchkinStartScreenView> {
     final theme = UIThemes.of(context);
 
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<MunchkinBloc>().add(SelectGameMode(modeName));
       },

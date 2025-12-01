@@ -30,6 +30,7 @@ class RulesScreen extends StatelessWidget {
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/unoRules'),
                 child: TextScramble(
                     text: '01 - ${S.of(context).uno}',
@@ -42,6 +43,7 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/scrabbleRules'),
                 child: TextScramble(
                     text: '02 - ${S.of(context).scrabble}',
@@ -54,6 +56,7 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/unoFlipRules'),
                 child: TextScramble(
                     text: '03 - ${S.of(context).unoFlip}',
@@ -66,6 +69,7 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/dosRules'),
                 child: TextScramble(
                     text: '04 - ${S.of(context).dos}',
@@ -78,6 +82,7 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/setRules'),
                 child: TextScramble(
                     text: '05 - ${S.of(context).set}',
@@ -90,9 +95,23 @@ class RulesScreen extends StatelessWidget {
               ),
               const SizedBox(height: 5),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/munchkinRules'),
                 child: TextScramble(
                     text: '06 - ${S.of(context).munchkin}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
+              ),
+              const SizedBox(height: 5),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => Navigator.pushNamed(context, '/thousandRules'),
+                child: TextScramble(
+                    text: '07 - 1000',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,

@@ -89,6 +89,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               final bloc = context.read<MunchkinBloc>();
                               showModalBottomSheet(
@@ -121,6 +122,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                           ),
                           const Spacer(),
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () => DiceModal.show(context),
                             child: SvgPicture.asset(
                               CustomIcons.dice,
@@ -142,6 +144,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               final currentPlayer = _currentPlayerIndex;
                               if (currentPlayer >= 0 &&
@@ -161,6 +164,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                           ),
                           const SizedBox(width: 40),
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
                               final currentPlayer = _currentPlayerIndex;
                               if (currentPlayer >= 0 &&
@@ -186,8 +190,8 @@ class _MunchkinGameState extends State<MunchkinGame> {
                           ),
                           const SizedBox(width: 40),
                           GestureDetector(
+                            behavior: HitTestBehavior.opaque,
                             onTap: () {
-                              // Reset player modifiers according to Munchkin rules
                               final currentPlayer = _currentPlayerIndex;
                               if (currentPlayer >= 0 &&
                                   currentPlayer < state.players.length) {
@@ -413,6 +417,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
               final player = entry.value;
               final firstLetter = player.name.characters.first;
               return GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () {
                   _pageController.animateToPage(
                     index,
@@ -478,6 +483,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
             GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () {
                 context.read<MunchkinBloc>().add(TogglePlayerGender(0));
                 Gaimon.soft();
@@ -490,6 +496,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
             ),
             const SizedBox(width: 40),
             GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () {
                 debugPrint('Toggling curse button tapped for single player');
                 debugPrint(
@@ -511,6 +518,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
             ),
             const SizedBox(width: 40),
             GestureDetector(
+              behavior: HitTestBehavior.opaque,
               onTap: () {
                 // Reset player modifiers according to Munchkin rules
                 context.read<MunchkinBloc>().add(ResetPlayerModifiers(0));

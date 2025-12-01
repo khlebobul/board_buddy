@@ -140,6 +140,7 @@ class DosStartScreenView extends StatelessWidget {
                       const SizedBox(height: 12),
                       if (dosState.players.length < GameMaxPlayers.dos)
                         GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             final dosBloc = context.read<DosBloc>();
                             showDialog(
@@ -205,21 +206,21 @@ class DosStartScreenView extends StatelessWidget {
   void _showContinueGameDialog(BuildContext context) {
     final bloc = context.read<DosBloc>();
 
-    ModalWindowWidget.show(
+    ModalWindowWidget.showContinueGameDialog(
       context,
-      mainText: S.of(context).youHaveAnUnfinishedGame,
-      button1Text: S.of(context).newGame,
-      button2Text: S.of(context).continueTitle,
-      button1Action: () {
-        bloc.deleteSavedGame();
-        Navigator.pop(context);
-      },
-      button2Action: () {
-        bloc.loadSavedGame();
-
-        Navigator.pop(context);
-
-        Navigator.pushNamed(context, '/dosGame');
+      onNewGame: () => bloc.deleteSavedGame(),
+      onContinue: () {
+        // Navigate to game screen with empty parameters
+        // This will trigger LoadSavedGame in the game screen
+        Navigator.pushNamed(
+          context,
+          '/dosGame',
+          arguments: {
+            'players': <Player>[],
+            'scoreLimit': 0,
+            'gameMode': '',
+          },
+        );
       },
     );
   }
@@ -228,6 +229,7 @@ class DosStartScreenView extends StatelessWidget {
       BuildContext context, String modeName, DosStartScreenState state) {
     final theme = UIThemes.of(context);
     return GestureDetector(
+      behavior: HitTestBehavior.opaque,
       onTap: () {
         context.read<DosBloc>().add(SelectGameMode(modeName));
       },

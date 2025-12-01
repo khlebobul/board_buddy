@@ -78,6 +78,10 @@ class RulesConst {
 // common counter
   static const commonCounterAge = '6+';
   static const commonCounterPlayers = '2-10';
+
+// thousand
+  static const thousandAge = '12+';
+  static const thousandPlayers = '2-3';
 }
 
 class GameConst {
@@ -108,6 +112,7 @@ class GameMaxPlayers {
   static const unoFlip = 10;
   static const munchkin = 6;
   static const commonCounter = 30;
+  static const thousand = 3;
 }
 
 class GameMinPlayers {
@@ -118,6 +123,7 @@ class GameMinPlayers {
   static const unoFlip = 2;
   static const munchkin = 3;
   static const commonCounter = 2;
+  static const thousand = 2;
 }
 
 class UnoLikeGameCardsText {
@@ -136,4 +142,23 @@ class UnoLikeGameCardsText {
   static const plusOne = '+1';
   static const plusFive = '+5';
   static const dosWild = '#';
+}
+
+class ThousandCardsText {
+  static const thousand = '1000';
+  static const ace = 'A';
+  static const ten = '10';
+  static const king = 'K';
+  static const queen = 'Q';
+  static const jack = 'J';
+  static const nine = '9';
+}
+
+class ThousandCardsPoints {
+  static const ace = '11';
+  static const ten = '10';
+  static const king = '4';
+  static const queen = '3';
+  static const jack = '2';
+  static const nine = '0';
 }

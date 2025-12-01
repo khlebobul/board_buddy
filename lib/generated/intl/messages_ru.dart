@@ -20,9 +20,14 @@ typedef String MessageIfAbsent(String messageStr, List<dynamic> args);
 class MessageLookup extends MessageLookupByLibrary {
   String get localeName => 'ru';
 
+  static String m0(playerName, winningBid) =>
+      "набрал ли ${playerName} свою ставку (${winningBid} очков)?";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("о проекте"),
+    "ace": MessageLookupByLibrary.simpleMessage("туз"),
+    "ace11Points": MessageLookupByLibrary.simpleMessage("туз: 11 очков"),
     "add": MessageLookupByLibrary.simpleMessage("добавить"),
     "addPlayer": MessageLookupByLibrary.simpleMessage("добавить игрока"),
     "adding": MessageLookupByLibrary.simpleMessage("прибавление"),
@@ -31,6 +36,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "appreciation": MessageLookupByLibrary.simpleMessage("благодарность"),
     "armour": MessageLookupByLibrary.simpleMessage("броня"),
     "back": MessageLookupByLibrary.simpleMessage("назад"),
+    "biddingPhase": MessageLookupByLibrary.simpleMessage("фаза торговли:"),
     "bigArmour": MessageLookupByLibrary.simpleMessage("большая броня"),
     "bigBoots": MessageLookupByLibrary.simpleMessage("большие ботинки"),
     "bigHelmet": MessageLookupByLibrary.simpleMessage("большой шлем"),
@@ -78,21 +84,30 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
     "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
     "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
+    "clear": MessageLookupByLibrary.simpleMessage("очистить"),
     "clearance": MessageLookupByLibrary.simpleMessage("очистка"),
     "cleric": MessageLookupByLibrary.simpleMessage("клирик"),
     "close": MessageLookupByLibrary.simpleMessage("закрыть"),
     "common": MessageLookupByLibrary.simpleMessage("счетчик"),
+    "confirm": MessageLookupByLibrary.simpleMessage("подтвердить"),
     "continueGame": MessageLookupByLibrary.simpleMessage("продолжить игру"),
     "continueTitle": MessageLookupByLibrary.simpleMessage("продолжить"),
+    "contractResolution": MessageLookupByLibrary.simpleMessage(
+      "подсчёт контракта:",
+    ),
     "couldNotLaunch": MessageLookupByLibrary.simpleMessage(
       "не удалось запустить",
     ),
+    "currentBet": MessageLookupByLibrary.simpleMessage("текущая ставка:"),
+    "currentCount": MessageLookupByLibrary.simpleMessage("текущий счет:"),
     "cursed": MessageLookupByLibrary.simpleMessage("проклятие"),
     "dark": MessageLookupByLibrary.simpleMessage("темная"),
     "darkSideCardsAreReplacedWithLightOnesAndVice":
         MessageLookupByLibrary.simpleMessage(
           "карточки темной стороны заменяться на светлые и наоборот.",
         ),
+    "didPlayerReachBid": m0,
+    "didYouEnter": MessageLookupByLibrary.simpleMessage("набрал ли"),
     "doReturn": MessageLookupByLibrary.simpleMessage("вернуться"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
       "нет вашей любимой игры? напишите мне!",
@@ -231,9 +246,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
       "указывает на наложенное проклятие",
     ),
+    "jack": MessageLookupByLibrary.simpleMessage("валет"),
+    "jack2Points": MessageLookupByLibrary.simpleMessage("валет: 2 очка"),
     "keepAwakeMode": MessageLookupByLibrary.simpleMessage(
       "режим \'бодрствования\' экрана",
     ),
+    "king": MessageLookupByLibrary.simpleMessage("король"),
+    "king4Points": MessageLookupByLibrary.simpleMessage("король: 4 очка"),
     "languages": MessageLookupByLibrary.simpleMessage("языки"),
     "leftHand": MessageLookupByLibrary.simpleMessage("левая рука"),
     "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
@@ -249,6 +268,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "отмечает мёртвого персонажа",
     ),
+    "marriage": MessageLookupByLibrary.simpleMessage("марьяж:"),
     "menu": MessageLookupByLibrary.simpleMessage("меню"),
     "mode": MessageLookupByLibrary.simpleMessage("режим"),
     "modifiers": MessageLookupByLibrary.simpleMessage("модификаторы"),
@@ -356,6 +376,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "следующий игрок берёт карты, пока не вытянет карту выбранного цвета.",
         ),
+    "nine0Points": MessageLookupByLibrary.simpleMessage("девятка: 0 очков"),
+    "no": MessageLookupByLibrary.simpleMessage("нет"),
     "noClass": MessageLookupByLibrary.simpleMessage("без класса"),
     "noItem": MessageLookupByLibrary.simpleMessage("без предмета"),
     "numberCards": MessageLookupByLibrary.simpleMessage("номерные карты"),
@@ -363,15 +385,23 @@ class MessageLookup extends MessageLookupByLibrary {
     "on": MessageLookupByLibrary.simpleMessage("вкл."),
     "options": MessageLookupByLibrary.simpleMessage("опции"),
     "others": MessageLookupByLibrary.simpleMessage("другое"),
+    "pass": MessageLookupByLibrary.simpleMessage("пас"),
     "play": MessageLookupByLibrary.simpleMessage("играть"),
     "playerName": MessageLookupByLibrary.simpleMessage("имя игрока"),
+    "playerOnBarrel": MessageLookupByLibrary.simpleMessage("игрок на бочке:"),
     "players": MessageLookupByLibrary.simpleMessage("игроки"),
+    "playersOnBarrel": MessageLookupByLibrary.simpleMessage("игроки на бочке:"),
     "points": MessageLookupByLibrary.simpleMessage("очков"),
+    "pointsConfirmed": MessageLookupByLibrary.simpleMessage(
+      "очки подтверждены",
+    ),
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
       "снятие проклятий или дебафов",
     ),
     "preparation": MessageLookupByLibrary.simpleMessage("подготовка:"),
     "projectWebsite": MessageLookupByLibrary.simpleMessage("сайт проекта"),
+    "queen": MessageLookupByLibrary.simpleMessage("дама"),
+    "queen3Points": MessageLookupByLibrary.simpleMessage("дама: 3 очка"),
     "race1": MessageLookupByLibrary.simpleMessage("раса 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("оцените приложение"),
     "reportABug": MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
@@ -596,11 +626,75 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "sword": MessageLookupByLibrary.simpleMessage("меч"),
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
+    "ten10Points": MessageLookupByLibrary.simpleMessage("десятка: 10 очков"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "количество игроков должно быть больше",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),
+    "thousandBiddingPhaseOne": MessageLookupByLibrary.simpleMessage(
+      "начиная с игрока после сдающего, игроки торгуются, объявляя сколько очков они смогут набрать (минимальная ставка 100). каждая ставка должна быть выше предыдущей (с шагом 5 или 10 очков).",
+    ),
+    "thousandBiddingPhaseThree": MessageLookupByLibrary.simpleMessage(
+      "игрок с наибольшей ставкой выигрывает торги, забирает прикуп и объявляет козырную масть. победитель торгов сбрасывает 3 карты рубашкой вверх (но сохраняет их очки).",
+    ),
+    "thousandBiddingPhaseTwo": MessageLookupByLibrary.simpleMessage(
+      "игроки могут спасовать, если не хотят повышать ставку.",
+    ),
+    "thousandContractResolutionOne": MessageLookupByLibrary.simpleMessage(
+      "если победитель торгов набрал свою ставку или больше: он добавляет реально набранные очки к своему счёту.",
+    ),
+    "thousandContractResolutionThree": MessageLookupByLibrary.simpleMessage(
+      "остальные игроки добавляют очки из взятых ими взяток к своему счёту.",
+    ),
+    "thousandContractResolutionTwo": MessageLookupByLibrary.simpleMessage(
+      "если победитель торгов не выполнил контракт: его ставка вычитается из счёта (счёт может стать отрицательным).",
+    ),
+    "thousandGameTurnTitleOne": MessageLookupByLibrary.simpleMessage(
+      "победитель торгов ходит первым, сыграв любую карту. остальные игроки обязаны идти в масть, если могут. если не могут, должны бить козырем, если он есть.",
+    ),
+    "thousandGameTurnTitleThree": MessageLookupByLibrary.simpleMessage(
+      "взявший взятку ходит следующим. продолжайте, пока все карты не будут разыграны.",
+    ),
+    "thousandGameTurnTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "взятку берёт старшая карта в масти хода, либо старший козырь.",
+    ),
+    "thousandGoal": MessageLookupByLibrary.simpleMessage(
+      "цель игры - первым набрать 1000 очков, выигрывая взятки в игре с торгами. игроки делают ставки на количество очков, которое они смогут набрать, затем пытаются выполнить свой контракт.",
+    ),
+    "thousandMarriageFour": MessageLookupByLibrary.simpleMessage(
+      "марьяж засчитывается только если вы взяли хотя бы одну взятку.",
+    ),
+    "thousandMarriageOne": MessageLookupByLibrary.simpleMessage(
+      "марьяж - это король и дама одной масти на руках.",
+    ),
+    "thousandMarriageThree": MessageLookupByLibrary.simpleMessage(
+      "некозырной марьяж: 80 очков (действует то же правило).",
+    ),
+    "thousandMarriageTwo": MessageLookupByLibrary.simpleMessage(
+      "козырной марьяж: 100 очков (должен быть объявлен при розыгрыше первой карты из пары).",
+    ),
+    "thousandPreparationOne": MessageLookupByLibrary.simpleMessage(
+      "используйте колоду из 24 карт: 9, 10, валет, дама, король, туз всех четырёх мастей.",
+    ),
+    "thousandPreparationThree": MessageLookupByLibrary.simpleMessage(
+      "положите 3 карты рубашкой вверх в центр стола - это прикуп (талон).",
+    ),
+    "thousandPreparationTwo": MessageLookupByLibrary.simpleMessage(
+      "сдайте по 7 карт каждому игроку (для 3 игроков) или по 8 карт (для 2 игроков).",
+    ),
+    "thousandSpecialRulesTitleOne": MessageLookupByLibrary.simpleMessage(
+      "правило «бочки»: если игрок набрал 880+ очков, он «на бочке» и должен набрать ровно 1000, иначе опускается обратно до 880.",
+    ),
+    "thousandSpecialRulesTitleTwo": MessageLookupByLibrary.simpleMessage(
+      "в некоторых вариантах нужно набрать ровно 1000 очков. перебор возвращает вас на 880 или предыдущий счёт.",
+    ),
+    "thousandTotalPoints": MessageLookupByLibrary.simpleMessage(
+      "всего очков в колоде: 120. добавляйте бонусы за марьяжи, если применимо.",
+    ),
+    "thousandVictoryRule": MessageLookupByLibrary.simpleMessage(
+      "первый игрок, набравший 1000 очков (или ровно 1000, в зависимости от домашних правил), выигрывает игру.",
+    ),
     "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
       "спасибо всем, кто создал",
     ),
@@ -782,6 +876,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:"),
     "warrior": MessageLookupByLibrary.simpleMessage("воин"),
+    "whoGoesFirst": MessageLookupByLibrary.simpleMessage("кто раздает первым?"),
     "wildCardOneDosInfo": MessageLookupByLibrary.simpleMessage(
       "дикая карта «#»",
     ),
@@ -803,8 +898,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "wordModifier": MessageLookupByLibrary.simpleMessage("модификатор: "),
     "x2Word": MessageLookupByLibrary.simpleMessage("x2 слово"),
     "x3Word": MessageLookupByLibrary.simpleMessage("x3 слово"),
+    "yes": MessageLookupByLibrary.simpleMessage("да"),
     "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
       "игра не завершена",
     ),
+    "yourBet": MessageLookupByLibrary.simpleMessage("свою ставку"),
   };
 }

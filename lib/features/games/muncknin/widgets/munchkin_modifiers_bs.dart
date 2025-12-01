@@ -71,6 +71,7 @@ class _MunchkinModifiersBottomSheetState
                 style: theme.display2.copyWith(color: theme.secondaryTextColor),
               ),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pop(context),
                 child: Icon(Icons.close, color: theme.secondaryTextColor),
               ),

@@ -81,6 +81,7 @@ class BottomGameBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.spaceBetween,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onLeftBtnTap,
                     child: TextScramble(
                         text: leftButtonText,
@@ -93,6 +94,7 @@ class BottomGameBar extends StatelessWidget {
                         }),
                   ),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: onRightBtnTap,
                     child: TextScramble(
                         text: rightButtonText,
@@ -114,6 +116,7 @@ class BottomGameBar extends StatelessWidget {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: isLeftArrowActive
                         ? () {
                             if (onLeftArrowTap != null) {
@@ -136,6 +139,7 @@ class BottomGameBar extends StatelessWidget {
                   dialogWidget == null
                       ? const SizedBox()
                       : GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             showDialog(
                               context: context,
@@ -155,6 +159,7 @@ class BottomGameBar extends StatelessWidget {
                   isKeyboardActive == false
                       ? const SizedBox()
                       : GestureDetector(
+                          behavior: HitTestBehavior.opaque,
                           onTap: () {
                             if (onKeyboardBtnTap != null) {
                               onKeyboardBtnTap!();
@@ -170,6 +175,7 @@ class BottomGameBar extends StatelessWidget {
                         ),
                   const SizedBox(width: 20),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: isRightArrowActive
                         ? () {
                             if (onRightArrowTap != null) {

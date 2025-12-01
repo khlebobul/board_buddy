@@ -366,6 +366,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                 ),
               ),
               GestureDetector(
+                behavior: HitTestBehavior.opaque,
                 onTap: _skipTurn,
                 child: TextScramble(
                     text: S.current.skip,
@@ -418,8 +419,8 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
           ),
           const SizedBox(height: 12),
 
-          // Bingo button
           GestureDetector(
+            behavior: HitTestBehavior.opaque,
             onTap: _addBingo,
             child: TextScramble(
                 text: S.of(context).bingo,
@@ -448,6 +449,7 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                   ),
                   const SizedBox(width: 8),
                   GestureDetector(
+                    behavior: HitTestBehavior.opaque,
                     onTap: () {
                       setState(() {
                         _wordModifier = null;
