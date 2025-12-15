@@ -58,6 +58,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "mejoras o debilitamientos que afectan personajes/objetos",
         ),
+    "buildingCosts": MessageLookupByLibrary.simpleMessage("building costs:"),
+    "buildingRules": MessageLookupByLibrary.simpleMessage("building rules:"),
     "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
         MessageLookupByLibrary.simpleMessage(
           "puede ser cualquier color elegido por el jugador actual. si se roba, el jugador decide el color.",
@@ -68,6 +70,156 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "cancel": MessageLookupByLibrary.simpleMessage("cancelar"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("tipos de cartas:"),
+    "catan": MessageLookupByLibrary.simpleMessage("catan"),
+    "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
+      "development card: 1 wool + 1 grain + 1 ore",
+    ),
+    "catanBuildingCostsOne": MessageLookupByLibrary.simpleMessage(
+      "road: 1 lumber + 1 brick",
+    ),
+    "catanBuildingCostsThree": MessageLookupByLibrary.simpleMessage(
+      "city (upgrade): 2 grain + 3 ore (2 vp)",
+    ),
+    "catanBuildingCostsTwo": MessageLookupByLibrary.simpleMessage(
+      "settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1 vp)",
+    ),
+    "catanBuildingRulesFour": MessageLookupByLibrary.simpleMessage(
+      "cities replace existing settlements",
+    ),
+    "catanBuildingRulesOne": MessageLookupByLibrary.simpleMessage(
+      "roads must connect to your existing roads, settlements, or cities",
+    ),
+    "catanBuildingRulesThree": MessageLookupByLibrary.simpleMessage(
+      "settlements must connect to your road network",
+    ),
+    "catanBuildingRulesTwo": MessageLookupByLibrary.simpleMessage(
+      "settlements must be at least 2 intersections away from any other settlement/city",
+    ),
+    "catanComponentsEight": MessageLookupByLibrary.simpleMessage(
+      "2 special cards: longest road, largest army",
+    ),
+    "catanComponentsFive": MessageLookupByLibrary.simpleMessage(
+      "95 resource cards (19 each: lumber, brick, wool, grain, ore)",
+    ),
+    "catanComponentsFour": MessageLookupByLibrary.simpleMessage(
+      "18 number tokens",
+    ),
+    "catanComponentsNine": MessageLookupByLibrary.simpleMessage(
+      "1 robber, 2 dice",
+    ),
+    "catanComponentsOne": MessageLookupByLibrary.simpleMessage(
+      "19 terrain hexes (4 forest, 4 grain, 4 pasture, 3 mountains, 3 hills, 1 desert)",
+    ),
+    "catanComponentsSeven": MessageLookupByLibrary.simpleMessage(
+      "player pieces: 5 settlements, 4 cities, 15 roads per player",
+    ),
+    "catanComponentsSix": MessageLookupByLibrary.simpleMessage(
+      "25 development cards",
+    ),
+    "catanComponentsThree": MessageLookupByLibrary.simpleMessage(
+      "9 harbor pieces",
+    ),
+    "catanComponentsTwo": MessageLookupByLibrary.simpleMessage(
+      "6 sea frame pieces",
+    ),
+    "catanDevelopmentCardsFour": MessageLookupByLibrary.simpleMessage(
+      "monopoly (2): name a resource, all players give you theirs",
+    ),
+    "catanDevelopmentCardsOne": MessageLookupByLibrary.simpleMessage(
+      "knight (14): move robber, steal 1 resource from adjacent player",
+    ),
+    "catanDevelopmentCardsThree": MessageLookupByLibrary.simpleMessage(
+      "road building (2): build 2 roads for free",
+    ),
+    "catanDevelopmentCardsTwo": MessageLookupByLibrary.simpleMessage(
+      "victory point (5): worth 1 vp, keep hidden until winning",
+    ),
+    "catanGameGoal": MessageLookupByLibrary.simpleMessage(
+      "be the first player to reach 10 victory points by building settlements, cities, roads, and earning special cards.",
+    ),
+    "catanGameTurnOne": MessageLookupByLibrary.simpleMessage(
+      "roll dice: all players with settlements/cities on hexes matching the number receive resources",
+    ),
+    "catanGameTurnThree": MessageLookupByLibrary.simpleMessage(
+      "build: spend resources to construct roads, settlements, cities, or buy development cards",
+    ),
+    "catanGameTurnTwo": MessageLookupByLibrary.simpleMessage(
+      "trade: exchange resources with other players or use harbors (4:1 or special rates)",
+    ),
+    "catanPreparationFour": MessageLookupByLibrary.simpleMessage(
+      "each player places 2 settlements and 2 roads in reverse turn order",
+    ),
+    "catanPreparationOne": MessageLookupByLibrary.simpleMessage(
+      "assemble the board with terrain hexes inside the sea frame",
+    ),
+    "catanPreparationThree": MessageLookupByLibrary.simpleMessage(
+      "place the robber on the desert hex",
+    ),
+    "catanPreparationTwo": MessageLookupByLibrary.simpleMessage(
+      "place number tokens on hexes (except desert)",
+    ),
+    "catanResourcesFive": MessageLookupByLibrary.simpleMessage(
+      "mountains – ore",
+    ),
+    "catanResourcesFour": MessageLookupByLibrary.simpleMessage(
+      "fields – grain (wheat)",
+    ),
+    "catanResourcesOne": MessageLookupByLibrary.simpleMessage(
+      "forest – lumber (wood)",
+    ),
+    "catanResourcesSix": MessageLookupByLibrary.simpleMessage(
+      "desert – no resources",
+    ),
+    "catanResourcesTree": MessageLookupByLibrary.simpleMessage(
+      "pasture – wool (sheep)",
+    ),
+    "catanResourcesTwo": MessageLookupByLibrary.simpleMessage(
+      "hills – brick (clay)",
+    ),
+    "catanScoringFive": MessageLookupByLibrary.simpleMessage(
+      "victory point cards: 1 vp each",
+    ),
+    "catanScoringFour": MessageLookupByLibrary.simpleMessage(
+      "largest army: 2 vp",
+    ),
+    "catanScoringOne": MessageLookupByLibrary.simpleMessage("settlement: 1 vp"),
+    "catanScoringThree": MessageLookupByLibrary.simpleMessage(
+      "longest road: 2 vp",
+    ),
+    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("city: 2 vp"),
+    "catanSpecialCards2VpEachOne": MessageLookupByLibrary.simpleMessage(
+      "longest road: first player with 5+ continuous roads (can be stolen)",
+    ),
+    "catanSpecialCards2VpEachTwo": MessageLookupByLibrary.simpleMessage(
+      "largest army: first player with 3+ played knight cards (can be stolen)",
+    ),
+    "catanTheRobberRolling7Four": MessageLookupByLibrary.simpleMessage(
+      "the blocked hex produces no resources while robber is there",
+    ),
+    "catanTheRobberRolling7One": MessageLookupByLibrary.simpleMessage(
+      "any player with more than 7 cards must discard half (rounded down)",
+    ),
+    "catanTheRobberRolling7Three": MessageLookupByLibrary.simpleMessage(
+      "steal 1 random resource from a player with a settlement/city on that hex",
+    ),
+    "catanTheRobberRolling7Two": MessageLookupByLibrary.simpleMessage(
+      "move the robber to any hex (except desert)",
+    ),
+    "catanTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      "catan® is a trademark of catan gmbh. this app is not affiliated with or endorsed by catan gmbh.",
+    ),
+    "catanTradingOne": MessageLookupByLibrary.simpleMessage(
+      "domestic trade: negotiate any exchange with other players on your turn",
+    ),
+    "catanTradingThree": MessageLookupByLibrary.simpleMessage(
+      "harbor trade: 3:1 generic or 2:1 specific resource harbors",
+    ),
+    "catanTradingTwo": MessageLookupByLibrary.simpleMessage(
+      "maritime trade: 4:1 with bank (any 4 same resources for 1)",
+    ),
+    "catanVictoryRule": MessageLookupByLibrary.simpleMessage(
+      "the first player to reach 10 victory points on their turn wins the game. you must announce your victory on your turn.",
+    ),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
           "cambia el color y obliga al siguiente a robar cuatro cartas.",
@@ -108,6 +260,9 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "las cartas del lado oscuro se reemplazan con las del lado claro y viceversa.",
         ),
+    "developmentCards": MessageLookupByLibrary.simpleMessage(
+      "development cards:",
+    ),
     "didPlayerReachBid": m0,
     "didYouEnter": MessageLookupByLibrary.simpleMessage("¿alcanzó?"),
     "doReturn": MessageLookupByLibrary.simpleMessage("volver"),
@@ -409,6 +564,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "race1": MessageLookupByLibrary.simpleMessage("raza 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("valora la app"),
     "reportABug": MessageLookupByLibrary.simpleMessage("reportar un error"),
+    "resources": MessageLookupByLibrary.simpleMessage("resources:"),
     "results": MessageLookupByLibrary.simpleMessage("resultados"),
     "returnToMenu": MessageLookupByLibrary.simpleMessage("volver al menú"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage("carta reversa"),
@@ -612,6 +768,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "salta el próximo turno.",
     ),
     "spanish": MessageLookupByLibrary.simpleMessage("español"),
+    "specialCards2VpEach": MessageLookupByLibrary.simpleMessage(
+      "special cards (2 vp each):",
+    ),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage(
       "cartas especiales:",
     ),
@@ -629,6 +788,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "ten10Points": MessageLookupByLibrary.simpleMessage("diez: 10 puntos"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "el número de jugadores debe ser más que",
+    ),
+    "theRobberRolling7": MessageLookupByLibrary.simpleMessage(
+      "the robber (rolling 7):",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("tema"),
     "thief": MessageLookupByLibrary.simpleMessage("ladrón"),
@@ -703,6 +865,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "total": MessageLookupByLibrary.simpleMessage("total"),
     "totalStrength": MessageLookupByLibrary.simpleMessage("fuerza total: "),
+    "trading": MessageLookupByLibrary.simpleMessage("trading:"),
     "tripleTheValueOfALetterScrabbleInfo": MessageLookupByLibrary.simpleMessage(
       "triplica el valor de una letra",
     ),

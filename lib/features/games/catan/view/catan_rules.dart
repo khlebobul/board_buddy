@@ -18,7 +18,7 @@ class CatanRulesScreen extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: 'catan',
+        rightButtonText: S.of(context).catan,
         onRightButtonPressed: () {},
       ),
       body: SafeArea(
@@ -38,196 +38,158 @@ class CatanRulesScreen extends StatelessWidget {
             ),
             const SizedBox(height: 20),
             Text(
-              'game goal',
+              S.of(context).gameGoal,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
             Text(
-              'be the first player to reach 10 victory points by building settlements, cities, roads, and earning special cards.',
+              S.of(context).catanGameGoal,
               style: theme.display2.copyWith(color: theme.textColor),
             ),
             const SizedBox(height: 15),
             Text(
-              'components',
+              S.of(context).scrabbleGameSetTitle,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(
-                contentText:
-                    '19 terrain hexes (4 forest, 4 grain, 4 pasture, 3 mountains, 3 hills, 1 desert)'),
-            const BulletPointText(contentText: '6 sea frame pieces'),
-            const BulletPointText(contentText: '9 harbor pieces'),
-            const BulletPointText(contentText: '18 number tokens'),
-            const BulletPointText(
-                contentText:
-                    '95 resource cards (19 each: lumber, brick, wool, grain, ore)'),
-            const BulletPointText(contentText: '25 development cards'),
-            const BulletPointText(
-                contentText:
-                    'player pieces: 5 settlements, 4 cities, 15 roads per player'),
-            const BulletPointText(
-                contentText: '2 special cards: longest road, largest army'),
-            const BulletPointText(contentText: '1 robber, 2 dice'),
+            BulletPointText(contentText: S.of(context).catanComponentsOne),
+            BulletPointText(contentText: S.of(context).catanComponentsTwo),
+            BulletPointText(contentText: S.of(context).catanComponentsThree),
+            BulletPointText(contentText: S.of(context).catanComponentsFour),
+            BulletPointText(contentText: S.of(context).catanComponentsFive),
+            BulletPointText(contentText: S.of(context).catanComponentsSix),
+            BulletPointText(contentText: S.of(context).catanComponentsSeven),
+            BulletPointText(contentText: S.of(context).catanComponentsEight),
+            BulletPointText(contentText: S.of(context).catanComponentsNine),
             const SizedBox(height: 15),
             Text(
-              'setup',
+              S.of(context).preparation,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletOne,
-                contentText:
-                    'assemble the board with terrain hexes inside the sea frame'),
-            const BulletPointText(
+                contentText: S.of(context).catanPreparationOne),
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletTwo,
-                contentText: 'place number tokens on hexes (except desert)'),
-            const BulletPointText(
+                contentText: S.of(context).catanPreparationTwo),
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletThree,
-                contentText: 'place the robber on the desert hex'),
-            const BulletPointText(
+                contentText: S.of(context).catanPreparationThree),
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletFour,
-                contentText:
-                    'each player places 2 settlements and 2 roads in reverse turn order'),
+                contentText: S.of(context).catanPreparationFour),
             const SizedBox(height: 15),
             Text(
-              'resources',
+              S.of(context).resources,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(contentText: 'forest → lumber (wood)'),
-            const BulletPointText(contentText: 'hills → brick (clay)'),
-            const BulletPointText(contentText: 'pasture → wool (sheep)'),
-            const BulletPointText(contentText: 'fields → grain (wheat)'),
-            const BulletPointText(contentText: 'mountains → ore'),
-            const BulletPointText(contentText: 'desert → no resources'),
+            BulletPointText(contentText: S.of(context).catanResourcesOne),
+            BulletPointText(contentText: S.of(context).catanResourcesTwo),
+            BulletPointText(contentText: S.of(context).catanResourcesTree),
+            BulletPointText(contentText: S.of(context).catanResourcesFour),
+            BulletPointText(contentText: S.of(context).catanResourcesFive),
+            BulletPointText(contentText: S.of(context).catanResourcesSix),
             const SizedBox(height: 15),
             Text(
-              'turn structure',
+              S.of(context).gameTurnTitle,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletOne,
-                contentText:
-                    'roll dice: all players with settlements/cities on hexes matching the number receive resources'),
-            const BulletPointText(
+                contentText: S.of(context).catanGameTurnOne),
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletTwo,
-                contentText:
-                    'trade: exchange resources with other players or use harbors (4:1 or special rates)'),
-            const BulletPointText(
+                contentText: S.of(context).catanGameTurnTwo),
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletThree,
-                contentText:
-                    'build: spend resources to construct roads, settlements, cities, or buy development cards'),
+                contentText: S.of(context).catanGameTurnThree),
             const SizedBox(height: 15),
             Text(
-              'building costs',
+              S.of(context).buildingCosts,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(contentText: 'road: 1 lumber + 1 brick'),
-            const BulletPointText(
-                contentText:
-                    'settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1 vp)'),
-            const BulletPointText(
-                contentText: 'city (upgrade): 2 grain + 3 ore (2 vp)'),
-            const BulletPointText(
-                contentText: 'development card: 1 wool + 1 grain + 1 ore'),
+            BulletPointText(contentText: S.of(context).catanBuildingCostsOne),
+            BulletPointText(contentText: S.of(context).catanBuildingCostsTwo),
+            BulletPointText(contentText: S.of(context).catanBuildingCostsThree),
+            BulletPointText(contentText: S.of(context).catanBuildingCostsFour),
             const SizedBox(height: 15),
             Text(
-              'development cards',
+              S.of(context).developmentCards,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(
-                contentText:
-                    'knight (14): move robber, steal 1 resource from adjacent player'),
-            const BulletPointText(
-                contentText:
-                    'victory point (5): worth 1 vp, keep hidden until winning'),
-            const BulletPointText(
-                contentText: 'road building (2): build 2 roads for free'),
-            const BulletPointText(
-                contentText:
-                    'year of plenty (2): take any 2 resources from bank'),
-            const BulletPointText(
-                contentText:
-                    'monopoly (2): name a resource, all players give you theirs'),
+            BulletPointText(
+                contentText: S.of(context).catanDevelopmentCardsOne),
+            BulletPointText(
+                contentText: S.of(context).catanDevelopmentCardsTwo),
+            BulletPointText(
+                contentText: S.of(context).catanDevelopmentCardsThree),
+            BulletPointText(
+                contentText: S.of(context).catanDevelopmentCardsThree),
+            BulletPointText(
+                contentText: S.of(context).catanDevelopmentCardsFour),
             const SizedBox(height: 15),
             Text(
-              'the robber (rolling 7)',
+              S.of(context).theRobberRolling7,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletOne,
-                contentText:
-                    'any player with more than 7 cards must discard half (rounded down)'),
-            const BulletPointText(
+                contentText: S.of(context).catanTheRobberRolling7One),
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletTwo,
-                contentText: 'move the robber to any hex (except desert)'),
-            const BulletPointText(
+                contentText: S.of(context).catanTheRobberRolling7Two),
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletThree,
-                contentText:
-                    'steal 1 random resource from a player with a settlement/city on that hex'),
-            const BulletPointText(
+                contentText: S.of(context).catanTheRobberRolling7Three),
+            BulletPointText(
                 pointSimbol: BulletPointsConst.bulletFour,
-                contentText:
-                    'the blocked hex produces no resources while robber is there'),
+                contentText: S.of(context).catanTheRobberRolling7Four),
             const SizedBox(height: 15),
             Text(
-              'special cards (2 vp each)',
+              S.of(context).specialCards2VpEach,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(
-                contentText:
-                    'longest road: first player with 5+ continuous roads (can be stolen)'),
-            const BulletPointText(
-                contentText:
-                    'largest army: first player with 3+ played knight cards (can be stolen)'),
+            BulletPointText(
+                contentText: S.of(context).catanSpecialCards2VpEachOne),
+            BulletPointText(
+                contentText: S.of(context).catanSpecialCards2VpEachTwo),
             const SizedBox(height: 15),
             Text(
-              'building rules',
+              S.of(context).buildingRules,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(
-                contentText:
-                    'roads must connect to your existing roads, settlements, or cities'),
-            const BulletPointText(
-                contentText:
-                    'settlements must be at least 2 intersections away from any other settlement/city'),
-            const BulletPointText(
-                contentText: 'settlements must connect to your road network'),
-            const BulletPointText(
-                contentText: 'cities replace existing settlements'),
+            BulletPointText(contentText: S.of(context).catanBuildingRulesOne),
+            BulletPointText(contentText: S.of(context).catanBuildingRulesTwo),
+            BulletPointText(contentText: S.of(context).catanBuildingRulesThree),
+            BulletPointText(contentText: S.of(context).catanBuildingRulesFour),
             const SizedBox(height: 15),
             Text(
-              'trading',
+              S.of(context).trading,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(
-                contentText:
-                    'domestic trade: negotiate any exchange with other players on your turn'),
-            const BulletPointText(
-                contentText:
-                    'maritime trade: 4:1 with bank (any 4 same resources for 1)'),
-            const BulletPointText(
-                contentText:
-                    'harbor trade: 3:1 generic or 2:1 specific resource harbors'),
+            BulletPointText(contentText: S.of(context).catanTradingOne),
+            BulletPointText(contentText: S.of(context).catanTradingTwo),
+            BulletPointText(contentText: S.of(context).catanTradingThree),
             const SizedBox(height: 15),
             Text(
-              'victory points',
+              S.of(context).setScoringTitle,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const BulletPointText(contentText: 'settlement: 1 vp'),
-            const BulletPointText(contentText: 'city: 2 vp'),
-            const BulletPointText(contentText: 'longest road: 2 vp'),
-            const BulletPointText(contentText: 'largest army: 2 vp'),
-            const BulletPointText(
-                contentText: 'victory point cards: 1 vp each'),
+            BulletPointText(contentText: S.of(context).catanScoringOne),
+            BulletPointText(contentText: S.of(context).catanScoringTwo),
+            BulletPointText(contentText: S.of(context).catanScoringThree),
+            BulletPointText(contentText: S.of(context).catanScoringFour),
+            BulletPointText(contentText: S.of(context).catanScoringFive),
             const SizedBox(height: 15),
             Text(
-              'winning',
+              S.of(context).victoryTitle,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
             Text(
-              'the first player to reach 10 victory points on their turn wins the game. you must announce your victory on your turn.',
+              S.of(context).catanVictoryRule,
               style: theme.display2,
             ),
             const SizedBox(height: 20),
             Text(
-              'catan® is a trademark of catan gmbh. this app is not affiliated with or endorsed by catan gmbh.',
+              S.of(context).catanTrademarkNotice,
               style: theme.display2.copyWith(color: theme.secondaryTextColor),
             ),
             const SizedBox(height: 20),
