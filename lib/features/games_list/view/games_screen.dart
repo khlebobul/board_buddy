@@ -136,7 +136,7 @@ class GamesScreen extends StatelessWidget {
                 behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/catanStartGame'),
                 child: TextScramble(
-                    text: '08 - catan',
+                    text: '08 - ${S.of(context).catan}',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,

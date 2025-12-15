@@ -60,8 +60,8 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "buffs oder debuffs, die charaktere/gegenstände beeinflussen",
         ),
-    "buildingCosts": MessageLookupByLibrary.simpleMessage("building costs:"),
-    "buildingRules": MessageLookupByLibrary.simpleMessage("building rules:"),
+    "buildingCosts": MessageLookupByLibrary.simpleMessage("baukosten:"),
+    "buildingRules": MessageLookupByLibrary.simpleMessage("bauregeln:"),
     "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
         MessageLookupByLibrary.simpleMessage(
           "kann jede farbe sein, die der aktuelle spieler wählt. wenn gezogen, entscheidet der spieler über die farbe.",
@@ -74,153 +74,149 @@ class MessageLookup extends MessageLookupByLibrary {
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("kartentypen:"),
     "catan": MessageLookupByLibrary.simpleMessage("catan"),
     "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
-      "development card: 1 wool + 1 grain + 1 ore",
+      "entwicklungskarte: 1 wolle + 1 getreide + 1 erz",
     ),
     "catanBuildingCostsOne": MessageLookupByLibrary.simpleMessage(
-      "road: 1 lumber + 1 brick",
+      "straße: 1 holz + 1 lehm",
     ),
     "catanBuildingCostsThree": MessageLookupByLibrary.simpleMessage(
-      "city (upgrade): 2 grain + 3 ore (2 vp)",
+      "stadt (ausbau): 2 getreide + 3 erz (2)",
     ),
     "catanBuildingCostsTwo": MessageLookupByLibrary.simpleMessage(
-      "settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1 vp)",
+      "siedlung: 1 holz + 1 lehm + 1 wolle + 1 getreide (1)",
     ),
     "catanBuildingRulesFour": MessageLookupByLibrary.simpleMessage(
-      "cities replace existing settlements",
+      "städte ersetzen bestehende siedlungen",
     ),
     "catanBuildingRulesOne": MessageLookupByLibrary.simpleMessage(
-      "roads must connect to your existing roads, settlements, or cities",
+      "straßen müssen an deine bestehenden straßen, siedlungen oder städte anschließen",
     ),
     "catanBuildingRulesThree": MessageLookupByLibrary.simpleMessage(
-      "settlements must connect to your road network",
+      "siedlungen müssen an dein straßennetz angeschlossen sein",
     ),
     "catanBuildingRulesTwo": MessageLookupByLibrary.simpleMessage(
-      "settlements must be at least 2 intersections away from any other settlement/city",
+      "siedlungen müssen mindestens 2 kreuzungen von jeder anderen siedlung/stadt entfernt sein",
     ),
     "catanComponentsEight": MessageLookupByLibrary.simpleMessage(
-      "2 special cards: longest road, largest army",
+      "2 sonderkarten: längste handelsstraße, größte rittermacht",
     ),
     "catanComponentsFive": MessageLookupByLibrary.simpleMessage(
-      "95 resource cards (19 each: lumber, brick, wool, grain, ore)",
+      "95 rohstoffkarten (je 19: holz, lehm, wolle, getreide, erz)",
     ),
     "catanComponentsFour": MessageLookupByLibrary.simpleMessage(
-      "18 number tokens",
+      "18 zahlenplättchen",
     ),
     "catanComponentsNine": MessageLookupByLibrary.simpleMessage(
-      "1 robber, 2 dice",
+      "1 räuber, 2 würfel",
     ),
     "catanComponentsOne": MessageLookupByLibrary.simpleMessage(
-      "19 terrain hexes (4 forest, 4 grain, 4 pasture, 3 mountains, 3 hills, 1 desert)",
+      "19 landschaftsfelder (4 wald, 4 ackerland, 4 weideland, 3 gebirge, 3 hügelland, 1 wüste)",
     ),
     "catanComponentsSeven": MessageLookupByLibrary.simpleMessage(
-      "player pieces: 5 settlements, 4 cities, 15 roads per player",
+      "spielfiguren: 5 siedlungen, 4 städte, 15 straßen pro spieler",
     ),
     "catanComponentsSix": MessageLookupByLibrary.simpleMessage(
-      "25 development cards",
+      "25 entwicklungskarten",
     ),
     "catanComponentsThree": MessageLookupByLibrary.simpleMessage(
-      "9 harbor pieces",
+      "9 hafenteile",
     ),
     "catanComponentsTwo": MessageLookupByLibrary.simpleMessage(
-      "6 sea frame pieces",
+      "6 meerrahmenteile",
     ),
     "catanDevelopmentCardsFour": MessageLookupByLibrary.simpleMessage(
-      "monopoly (2): name a resource, all players give you theirs",
+      "monopol (2): nenne einen rohstoff, alle spieler geben dir ihre",
     ),
     "catanDevelopmentCardsOne": MessageLookupByLibrary.simpleMessage(
-      "knight (14): move robber, steal 1 resource from adjacent player",
+      "ritter (14): versetze den räuber, stiehl 1 rohstoff von einem angrenzenden spieler",
     ),
     "catanDevelopmentCardsThree": MessageLookupByLibrary.simpleMessage(
-      "road building (2): build 2 roads for free",
+      "straßenbau (2): baue 2 straßen kostenlos",
     ),
     "catanDevelopmentCardsTwo": MessageLookupByLibrary.simpleMessage(
-      "victory point (5): worth 1 vp, keep hidden until winning",
+      "siegpunkt (5): zählt 1, halte sie bis zum sieg verdeckt",
     ),
     "catanGameGoal": MessageLookupByLibrary.simpleMessage(
-      "be the first player to reach 10 victory points by building settlements, cities, roads, and earning special cards.",
+      "sei der erste spieler, der 10 siegpunkte erreicht, indem du siedlungen, städte, straßen baust und sonderkarten erhältst.",
     ),
     "catanGameTurnOne": MessageLookupByLibrary.simpleMessage(
-      "roll dice: all players with settlements/cities on hexes matching the number receive resources",
+      "würfeln: alle spieler mit siedlungen/städten auf feldern mit der gewürfelten zahl erhalten rohstoffe",
     ),
     "catanGameTurnThree": MessageLookupByLibrary.simpleMessage(
-      "build: spend resources to construct roads, settlements, cities, or buy development cards",
+      "bauen: gib rohstoffe aus, um straßen, siedlungen, städte zu bauen oder entwicklungskarten zu kaufen",
     ),
     "catanGameTurnTwo": MessageLookupByLibrary.simpleMessage(
-      "trade: exchange resources with other players or use harbors (4:1 or special rates)",
+      "handeln: tausche rohstoffe mit anderen spielern oder nutze häfen (4:1 oder sondertarife)",
     ),
     "catanPreparationFour": MessageLookupByLibrary.simpleMessage(
-      "each player places 2 settlements and 2 roads in reverse turn order",
+      "jeder spieler platziert 2 siedlungen und 2 straßen in umgekehrter zugreihenfolge",
     ),
     "catanPreparationOne": MessageLookupByLibrary.simpleMessage(
-      "assemble the board with terrain hexes inside the sea frame",
+      "baue das spielfeld mit den landschaftsfeldern innerhalb des meerrahmens auf",
     ),
     "catanPreparationThree": MessageLookupByLibrary.simpleMessage(
-      "place the robber on the desert hex",
+      "stelle den räuber auf das wüstenfeld",
     ),
     "catanPreparationTwo": MessageLookupByLibrary.simpleMessage(
-      "place number tokens on hexes (except desert)",
+      "lege die zahlenplättchen auf die felder (außer wüste)",
     ),
-    "catanResourcesFive": MessageLookupByLibrary.simpleMessage(
-      "mountains – ore",
-    ),
+    "catanResourcesFive": MessageLookupByLibrary.simpleMessage("gebirge – erz"),
     "catanResourcesFour": MessageLookupByLibrary.simpleMessage(
-      "fields – grain (wheat)",
+      "ackerland – getreide (weizen)",
     ),
-    "catanResourcesOne": MessageLookupByLibrary.simpleMessage(
-      "forest – lumber (wood)",
-    ),
+    "catanResourcesOne": MessageLookupByLibrary.simpleMessage("wald – holz"),
     "catanResourcesSix": MessageLookupByLibrary.simpleMessage(
-      "desert – no resources",
+      "wüste – keine rohstoffe",
     ),
     "catanResourcesTree": MessageLookupByLibrary.simpleMessage(
-      "pasture – wool (sheep)",
+      "weideland – wolle (schaf)",
     ),
     "catanResourcesTwo": MessageLookupByLibrary.simpleMessage(
-      "hills – brick (clay)",
+      "hügelland – lehm",
     ),
     "catanScoringFive": MessageLookupByLibrary.simpleMessage(
-      "victory point cards: 1 vp each",
+      "siegpunktkarten: je 1",
     ),
     "catanScoringFour": MessageLookupByLibrary.simpleMessage(
-      "largest army: 2 vp",
+      "größte rittermacht: 2",
     ),
-    "catanScoringOne": MessageLookupByLibrary.simpleMessage("settlement: 1 vp"),
+    "catanScoringOne": MessageLookupByLibrary.simpleMessage("siedlung: 1"),
     "catanScoringThree": MessageLookupByLibrary.simpleMessage(
-      "longest road: 2 vp",
+      "längste handelsstraße: 2",
     ),
-    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("city: 2 vp"),
+    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("stadt: 2"),
     "catanSpecialCards2VpEachOne": MessageLookupByLibrary.simpleMessage(
-      "longest road: first player with 5+ continuous roads (can be stolen)",
+      "längste handelsstraße: erster spieler mit 5+ zusammenhängenden straßen (kann gestohlen werden)",
     ),
     "catanSpecialCards2VpEachTwo": MessageLookupByLibrary.simpleMessage(
-      "largest army: first player with 3+ played knight cards (can be stolen)",
+      "größte rittermacht: erster spieler mit 3+ ausgespielten ritterkarten (kann gestohlen werden)",
     ),
     "catanTheRobberRolling7Four": MessageLookupByLibrary.simpleMessage(
-      "the blocked hex produces no resources while robber is there",
+      "das blockierte feld produziert keine rohstoffe, solange der räuber dort steht",
     ),
     "catanTheRobberRolling7One": MessageLookupByLibrary.simpleMessage(
-      "any player with more than 7 cards must discard half (rounded down)",
+      "jeder spieler mit mehr als 7 karten muss die hälfte abwerfen (abgerundet)",
     ),
     "catanTheRobberRolling7Three": MessageLookupByLibrary.simpleMessage(
-      "steal 1 random resource from a player with a settlement/city on that hex",
+      "stiehl 1 zufälligen rohstoff von einem spieler mit siedlung/stadt auf diesem feld",
     ),
     "catanTheRobberRolling7Two": MessageLookupByLibrary.simpleMessage(
-      "move the robber to any hex (except desert)",
+      "versetze den räuber auf ein beliebiges feld (außer wüste)",
     ),
     "catanTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-      "catan® is a trademark of catan gmbh. this app is not affiliated with or endorsed by catan gmbh.",
+      "catan® ist eine marke von catan gmbh.",
     ),
     "catanTradingOne": MessageLookupByLibrary.simpleMessage(
-      "domestic trade: negotiate any exchange with other players on your turn",
+      "binnenhandel: verhandle jeden tausch mit anderen spielern in deinem zug",
     ),
     "catanTradingThree": MessageLookupByLibrary.simpleMessage(
-      "harbor trade: 3:1 generic or 2:1 specific resource harbors",
+      "hafenhandel: allgemeine häfen 3:1 oder spezifische rohstoffhäfen 2:1",
     ),
     "catanTradingTwo": MessageLookupByLibrary.simpleMessage(
-      "maritime trade: 4:1 with bank (any 4 same resources for 1)",
+      "seehandel: 4:1 mit der bank (4 gleiche rohstoffe für 1)",
     ),
     "catanVictoryRule": MessageLookupByLibrary.simpleMessage(
-      "the first player to reach 10 victory points on their turn wins the game. you must announce your victory on your turn.",
+      "der erste spieler, der in seinem zug 10 siegpunkte erreicht, gewinnt das spiel. du musst deinen sieg in deinem zug verkünden.",
     ),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -263,7 +259,7 @@ class MessageLookup extends MessageLookupByLibrary {
           "dunkle karten werden durch helle ersetzt und umgekehrt.",
         ),
     "developmentCards": MessageLookupByLibrary.simpleMessage(
-      "development cards:",
+      "entwicklungskarten:",
     ),
     "didPlayerReachBid": m0,
     "didYouEnter": MessageLookupByLibrary.simpleMessage("hat erreicht"),
@@ -556,7 +552,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "race1": MessageLookupByLibrary.simpleMessage("rasse 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("bewerte die app"),
     "reportABug": MessageLookupByLibrary.simpleMessage("einen fehler melden"),
-    "resources": MessageLookupByLibrary.simpleMessage("resources:"),
+    "resources": MessageLookupByLibrary.simpleMessage("rohstoffe:"),
     "results": MessageLookupByLibrary.simpleMessage("ergebnisse"),
     "returnToMenu": MessageLookupByLibrary.simpleMessage("zurück zum menü"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage(
@@ -760,7 +756,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "spanish": MessageLookupByLibrary.simpleMessage("spanisch"),
     "specialCards2VpEach": MessageLookupByLibrary.simpleMessage(
-      "special cards (2 vp each):",
+      "sonderkarten (je 2):",
     ),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage("sonderkarten:"),
     "specialRulesTitle": MessageLookupByLibrary.simpleMessage(
@@ -779,7 +775,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "die anzahl der spieler sollte größer sein als",
     ),
     "theRobberRolling7": MessageLookupByLibrary.simpleMessage(
-      "the robber (rolling 7):",
+      "der räuber (bei einer 7):",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("thema"),
     "thief": MessageLookupByLibrary.simpleMessage("dieb"),
@@ -854,7 +850,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "total": MessageLookupByLibrary.simpleMessage("gesamt"),
     "totalStrength": MessageLookupByLibrary.simpleMessage("gesamtstärke: "),
-    "trading": MessageLookupByLibrary.simpleMessage("trading:"),
+    "trading": MessageLookupByLibrary.simpleMessage("handel:"),
     "tripleTheValueOfALetterScrabbleInfo": MessageLookupByLibrary.simpleMessage(
       "verdreifacht den wert eines buchstabens",
     ),

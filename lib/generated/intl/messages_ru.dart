@@ -58,8 +58,12 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "усиления или ослабления персонажа/предметов",
         ),
-    "buildingCosts": MessageLookupByLibrary.simpleMessage("building costs:"),
-    "buildingRules": MessageLookupByLibrary.simpleMessage("building rules:"),
+    "buildingCosts": MessageLookupByLibrary.simpleMessage(
+      "стоимость строительства:",
+    ),
+    "buildingRules": MessageLookupByLibrary.simpleMessage(
+      "правила строительства:",
+    ),
     "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
         MessageLookupByLibrary.simpleMessage(
           "может быть любого цвета по выбору текущего игрока. если вытянута, игрок выбирает цвет.",
@@ -70,155 +74,153 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "cancel": MessageLookupByLibrary.simpleMessage("отмена"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
-    "catan": MessageLookupByLibrary.simpleMessage("catan"),
+    "catan": MessageLookupByLibrary.simpleMessage("колонизаторы"),
     "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
-      "development card: 1 wool + 1 grain + 1 ore",
+      "карта развития: 1 шерсть + 1 зерно + 1 руда",
     ),
     "catanBuildingCostsOne": MessageLookupByLibrary.simpleMessage(
-      "road: 1 lumber + 1 brick",
+      "дорога: 1 древесина + 1 кирпич",
     ),
     "catanBuildingCostsThree": MessageLookupByLibrary.simpleMessage(
-      "city (upgrade): 2 grain + 3 ore (2 vp)",
+      "город (улучшение): 2 зерна + 3 руды (2)",
     ),
     "catanBuildingCostsTwo": MessageLookupByLibrary.simpleMessage(
-      "settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1 vp)",
+      "поселение: 1 древесина + 1 кирпич + 1 шерсть + 1 зерно (1)",
     ),
     "catanBuildingRulesFour": MessageLookupByLibrary.simpleMessage(
-      "cities replace existing settlements",
+      "города заменяют существующие поселения",
     ),
     "catanBuildingRulesOne": MessageLookupByLibrary.simpleMessage(
-      "roads must connect to your existing roads, settlements, or cities",
+      "дороги должны соединяться с вашими существующими дорогами, поселениями или городами",
     ),
     "catanBuildingRulesThree": MessageLookupByLibrary.simpleMessage(
-      "settlements must connect to your road network",
+      "поселения должны соединяться с вашей сетью дорог",
     ),
     "catanBuildingRulesTwo": MessageLookupByLibrary.simpleMessage(
-      "settlements must be at least 2 intersections away from any other settlement/city",
+      "поселения должны находиться минимум в 2 перекрёстках от любого другого поселения/города",
     ),
     "catanComponentsEight": MessageLookupByLibrary.simpleMessage(
-      "2 special cards: longest road, largest army",
+      "2 специальные карты: самый длинный торговый путь, самая большая армия",
     ),
     "catanComponentsFive": MessageLookupByLibrary.simpleMessage(
-      "95 resource cards (19 each: lumber, brick, wool, grain, ore)",
+      "95 карт ресурсов (по 19: древесина, кирпич, шерсть, зерно, руда)",
     ),
     "catanComponentsFour": MessageLookupByLibrary.simpleMessage(
-      "18 number tokens",
+      "18 жетонов с числами",
     ),
     "catanComponentsNine": MessageLookupByLibrary.simpleMessage(
-      "1 robber, 2 dice",
+      "1 разбойник, 2 кубика",
     ),
     "catanComponentsOne": MessageLookupByLibrary.simpleMessage(
-      "19 terrain hexes (4 forest, 4 grain, 4 pasture, 3 mountains, 3 hills, 1 desert)",
+      "19 гексов местности (4 леса, 4 поля пшеницы, 4 пастбища, 3 горы, 3 холма, 1 пустыня)",
     ),
     "catanComponentsSeven": MessageLookupByLibrary.simpleMessage(
-      "player pieces: 5 settlements, 4 cities, 15 roads per player",
+      "фигурки игроков: 5 поселений, 4 города, 15 дорог на игрока",
     ),
     "catanComponentsSix": MessageLookupByLibrary.simpleMessage(
-      "25 development cards",
+      "25 карт развития",
     ),
     "catanComponentsThree": MessageLookupByLibrary.simpleMessage(
-      "9 harbor pieces",
+      "9 частей портов",
     ),
     "catanComponentsTwo": MessageLookupByLibrary.simpleMessage(
-      "6 sea frame pieces",
+      "6 частей морской рамки",
     ),
     "catanDevelopmentCardsFour": MessageLookupByLibrary.simpleMessage(
-      "monopoly (2): name a resource, all players give you theirs",
+      "монополия (2): назовите ресурс, все игроки отдают вам свои",
     ),
     "catanDevelopmentCardsOne": MessageLookupByLibrary.simpleMessage(
-      "knight (14): move robber, steal 1 resource from adjacent player",
+      "рыцарь (14): переместите разбойника, украдите 1 ресурс у соседнего игрока",
     ),
     "catanDevelopmentCardsThree": MessageLookupByLibrary.simpleMessage(
-      "road building (2): build 2 roads for free",
+      "строительство дорог (2): постройте 2 дороги бесплатно",
     ),
     "catanDevelopmentCardsTwo": MessageLookupByLibrary.simpleMessage(
-      "victory point (5): worth 1 vp, keep hidden until winning",
+      "победное очко (5): даёт 1, держите скрытой до победы",
     ),
     "catanGameGoal": MessageLookupByLibrary.simpleMessage(
-      "be the first player to reach 10 victory points by building settlements, cities, roads, and earning special cards.",
+      "первым набрать 10 победных очков, строя поселения, города, дороги и получая специальные карты.",
     ),
     "catanGameTurnOne": MessageLookupByLibrary.simpleMessage(
-      "roll dice: all players with settlements/cities on hexes matching the number receive resources",
+      "бросок кубиков: все игроки с поселениями/городами на гексах с выпавшим числом получают ресурсы",
     ),
     "catanGameTurnThree": MessageLookupByLibrary.simpleMessage(
-      "build: spend resources to construct roads, settlements, cities, or buy development cards",
+      "строительство: тратьте ресурсы на строительство дорог, поселений, городов или покупку карт развития",
     ),
     "catanGameTurnTwo": MessageLookupByLibrary.simpleMessage(
-      "trade: exchange resources with other players or use harbors (4:1 or special rates)",
+      "торговля: обменивайте ресурсы с другими игроками или используйте порты (4:1 или специальные курсы)",
     ),
     "catanPreparationFour": MessageLookupByLibrary.simpleMessage(
-      "each player places 2 settlements and 2 roads in reverse turn order",
+      "каждый игрок размещает 2 поселения и 2 дороги в обратном порядке хода",
     ),
     "catanPreparationOne": MessageLookupByLibrary.simpleMessage(
-      "assemble the board with terrain hexes inside the sea frame",
+      "соберите поле из гексов местности внутри морской рамки",
     ),
     "catanPreparationThree": MessageLookupByLibrary.simpleMessage(
-      "place the robber on the desert hex",
+      "поставьте разбойника на гекс пустыни",
     ),
     "catanPreparationTwo": MessageLookupByLibrary.simpleMessage(
-      "place number tokens on hexes (except desert)",
+      "разместите жетоны с числами на гексах (кроме пустыни)",
     ),
-    "catanResourcesFive": MessageLookupByLibrary.simpleMessage(
-      "mountains – ore",
-    ),
+    "catanResourcesFive": MessageLookupByLibrary.simpleMessage("горы – руда"),
     "catanResourcesFour": MessageLookupByLibrary.simpleMessage(
-      "fields – grain (wheat)",
+      "поля – зерно (пшеница)",
     ),
     "catanResourcesOne": MessageLookupByLibrary.simpleMessage(
-      "forest – lumber (wood)",
+      "лес – древесина",
     ),
     "catanResourcesSix": MessageLookupByLibrary.simpleMessage(
-      "desert – no resources",
+      "пустыня – без ресурсов",
     ),
     "catanResourcesTree": MessageLookupByLibrary.simpleMessage(
-      "pasture – wool (sheep)",
+      "пастбище – шерсть (овца)",
     ),
     "catanResourcesTwo": MessageLookupByLibrary.simpleMessage(
-      "hills – brick (clay)",
+      "холмы – кирпич (глина)",
     ),
     "catanScoringFive": MessageLookupByLibrary.simpleMessage(
-      "victory point cards: 1 vp each",
+      "карты победных очков: 1 каждая",
     ),
     "catanScoringFour": MessageLookupByLibrary.simpleMessage(
-      "largest army: 2 vp",
+      "самая большая армия: 2",
     ),
-    "catanScoringOne": MessageLookupByLibrary.simpleMessage("settlement: 1 vp"),
+    "catanScoringOne": MessageLookupByLibrary.simpleMessage("поселение: 1"),
     "catanScoringThree": MessageLookupByLibrary.simpleMessage(
-      "longest road: 2 vp",
+      "самый длинный торговый путь: 2",
     ),
-    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("city: 2 vp"),
+    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("город: 2"),
     "catanSpecialCards2VpEachOne": MessageLookupByLibrary.simpleMessage(
-      "longest road: first player with 5+ continuous roads (can be stolen)",
+      "самый длинный торговый путь: первый игрок с 5+ непрерывными дорогами (может быть украдена)",
     ),
     "catanSpecialCards2VpEachTwo": MessageLookupByLibrary.simpleMessage(
-      "largest army: first player with 3+ played knight cards (can be stolen)",
+      "самая большая армия: первый игрок с 3+ сыгранными картами рыцарей (может быть украдена)",
     ),
     "catanTheRobberRolling7Four": MessageLookupByLibrary.simpleMessage(
-      "the blocked hex produces no resources while robber is there",
+      "заблокированный гекс не производит ресурсы, пока там разбойник",
     ),
     "catanTheRobberRolling7One": MessageLookupByLibrary.simpleMessage(
-      "any player with more than 7 cards must discard half (rounded down)",
+      "любой игрок с более чем 7 картами должен сбросить половину (округляя вниз)",
     ),
     "catanTheRobberRolling7Three": MessageLookupByLibrary.simpleMessage(
-      "steal 1 random resource from a player with a settlement/city on that hex",
+      "украдите 1 случайный ресурс у игрока с поселением/городом на этом гексе",
     ),
     "catanTheRobberRolling7Two": MessageLookupByLibrary.simpleMessage(
-      "move the robber to any hex (except desert)",
+      "переместите разбойника на любой гекс (кроме пустыни)",
     ),
     "catanTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-      "catan® is a trademark of catan gmbh. this app is not affiliated with or endorsed by catan gmbh.",
+      "catan® является торговой маркой catan gmbh.",
     ),
     "catanTradingOne": MessageLookupByLibrary.simpleMessage(
-      "domestic trade: negotiate any exchange with other players on your turn",
+      "внутренняя торговля: договаривайтесь об обмене с другими игроками в свой ход",
     ),
     "catanTradingThree": MessageLookupByLibrary.simpleMessage(
-      "harbor trade: 3:1 generic or 2:1 specific resource harbors",
+      "портовая торговля: общие порты 3:1 или специализированные 2:1",
     ),
     "catanTradingTwo": MessageLookupByLibrary.simpleMessage(
-      "maritime trade: 4:1 with bank (any 4 same resources for 1)",
+      "морская торговля: 4:1 с банком (любые 4 одинаковых ресурса за 1)",
     ),
     "catanVictoryRule": MessageLookupByLibrary.simpleMessage(
-      "the first player to reach 10 victory points on their turn wins the game. you must announce your victory on your turn.",
+      "первый игрок, набравший 10 победных очков в свой ход, выигрывает игру. вы должны объявить о своей победе в свой ход.",
     ),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
@@ -258,9 +260,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "карточки темной стороны заменяться на светлые и наоборот.",
         ),
-    "developmentCards": MessageLookupByLibrary.simpleMessage(
-      "development cards:",
-    ),
+    "developmentCards": MessageLookupByLibrary.simpleMessage("карты развития:"),
     "didPlayerReachBid": m0,
     "didYouEnter": MessageLookupByLibrary.simpleMessage("набрал ли"),
     "doReturn": MessageLookupByLibrary.simpleMessage("вернуться"),
@@ -560,7 +560,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "race1": MessageLookupByLibrary.simpleMessage("раса 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("оцените приложение"),
     "reportABug": MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
-    "resources": MessageLookupByLibrary.simpleMessage("resources:"),
+    "resources": MessageLookupByLibrary.simpleMessage("ресурсы:"),
     "results": MessageLookupByLibrary.simpleMessage("результат"),
     "returnToMenu": MessageLookupByLibrary.simpleMessage("вернуться в меню"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage(
@@ -771,7 +771,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "spanish": MessageLookupByLibrary.simpleMessage("испанский"),
     "specialCards2VpEach": MessageLookupByLibrary.simpleMessage(
-      "special cards (2 vp each):",
+      "специальные карты (по 2 каждая):",
     ),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage("особые карты:"),
     "specialRulesTitle": MessageLookupByLibrary.simpleMessage(
@@ -790,7 +790,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "количество игроков должно быть больше",
     ),
     "theRobberRolling7": MessageLookupByLibrary.simpleMessage(
-      "the robber (rolling 7):",
+      "разбойник (при выпадении 7):",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),
@@ -865,7 +865,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "total": MessageLookupByLibrary.simpleMessage("всего"),
     "totalStrength": MessageLookupByLibrary.simpleMessage("общая сила: "),
-    "trading": MessageLookupByLibrary.simpleMessage("trading:"),
+    "trading": MessageLookupByLibrary.simpleMessage("торговля:"),
     "tripleTheValueOfALetterScrabbleInfo": MessageLookupByLibrary.simpleMessage(
       "утраивает значение буквы",
     ),

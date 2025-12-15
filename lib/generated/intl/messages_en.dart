@@ -78,10 +78,10 @@ class MessageLookup extends MessageLookupByLibrary {
       "road: 1 lumber + 1 brick",
     ),
     "catanBuildingCostsThree": MessageLookupByLibrary.simpleMessage(
-      "city (upgrade): 2 grain + 3 ore (2 vp)",
+      "city (upgrade): 2 grain + 3 ore (2)",
     ),
     "catanBuildingCostsTwo": MessageLookupByLibrary.simpleMessage(
-      "settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1 vp)",
+      "settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1)",
     ),
     "catanBuildingRulesFour": MessageLookupByLibrary.simpleMessage(
       "cities replace existing settlements",
@@ -132,7 +132,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "road building (2): build 2 roads for free",
     ),
     "catanDevelopmentCardsTwo": MessageLookupByLibrary.simpleMessage(
-      "victory point (5): worth 1 vp, keep hidden until winning",
+      "victory point (5): worth 1, keep hidden until winning",
     ),
     "catanGameGoal": MessageLookupByLibrary.simpleMessage(
       "be the first player to reach 10 victory points by building settlements, cities, roads, and earning special cards.",
@@ -177,16 +177,14 @@ class MessageLookup extends MessageLookupByLibrary {
       "hills – brick (clay)",
     ),
     "catanScoringFive": MessageLookupByLibrary.simpleMessage(
-      "victory point cards: 1 vp each",
+      "victory point cards: 1 each",
     ),
-    "catanScoringFour": MessageLookupByLibrary.simpleMessage(
-      "largest army: 2 vp",
-    ),
-    "catanScoringOne": MessageLookupByLibrary.simpleMessage("settlement: 1 vp"),
+    "catanScoringFour": MessageLookupByLibrary.simpleMessage("largest army: 2"),
+    "catanScoringOne": MessageLookupByLibrary.simpleMessage("settlement: 1"),
     "catanScoringThree": MessageLookupByLibrary.simpleMessage(
-      "longest road: 2 vp",
+      "longest road: 2",
     ),
-    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("city: 2 vp"),
+    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("city: 2"),
     "catanSpecialCards2VpEachOne": MessageLookupByLibrary.simpleMessage(
       "longest road: first player with 5+ continuous roads (can be stolen)",
     ),
@@ -206,7 +204,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "move the robber to any hex (except desert)",
     ),
     "catanTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-      "catan® is a trademark of catan gmbh. this app is not affiliated with or endorsed by catan gmbh.",
+      "catan® is a trademark of catan gmbh.",
     ),
     "catanTradingOne": MessageLookupByLibrary.simpleMessage(
       "domestic trade: negotiate any exchange with other players on your turn",
@@ -749,7 +747,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "spanish": MessageLookupByLibrary.simpleMessage("spanish"),
     "specialCards2VpEach": MessageLookupByLibrary.simpleMessage(
-      "special cards (2 vp each):",
+      "special cards (2 each):",
     ),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage("special cards:"),
     "specialRulesTitle": MessageLookupByLibrary.simpleMessage("special rules:"),

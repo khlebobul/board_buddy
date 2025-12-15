@@ -3619,20 +3619,20 @@ class S {
     );
   }
 
-  /// `settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1 vp)`
+  /// `settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1)`
   String get catanBuildingCostsTwo {
     return Intl.message(
-      'settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1 vp)',
+      'settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1)',
       name: 'catanBuildingCostsTwo',
       desc: '',
       args: [],
     );
   }
 
-  /// `city (upgrade): 2 grain + 3 ore (2 vp)`
+  /// `city (upgrade): 2 grain + 3 ore (2)`
   String get catanBuildingCostsThree {
     return Intl.message(
-      'city (upgrade): 2 grain + 3 ore (2 vp)',
+      'city (upgrade): 2 grain + 3 ore (2)',
       name: 'catanBuildingCostsThree',
       desc: '',
       args: [],
@@ -3669,10 +3669,10 @@ class S {
     );
   }
 
-  /// `victory point (5): worth 1 vp, keep hidden until winning`
+  /// `victory point (5): worth 1, keep hidden until winning`
   String get catanDevelopmentCardsTwo {
     return Intl.message(
-      'victory point (5): worth 1 vp, keep hidden until winning',
+      'victory point (5): worth 1, keep hidden until winning',
       name: 'catanDevelopmentCardsTwo',
       desc: '',
       args: [],
@@ -3749,10 +3749,10 @@ class S {
     );
   }
 
-  /// `special cards (2 vp each):`
+  /// `special cards (2 each):`
   String get specialCards2VpEach {
     return Intl.message(
-      'special cards (2 vp each):',
+      'special cards (2 each):',
       name: 'specialCards2VpEach',
       desc: '',
       args: [],
@@ -3864,50 +3864,45 @@ class S {
     );
   }
 
-  /// `settlement: 1 vp`
+  /// `settlement: 1`
   String get catanScoringOne {
     return Intl.message(
-      'settlement: 1 vp',
+      'settlement: 1',
       name: 'catanScoringOne',
       desc: '',
       args: [],
     );
   }
 
-  /// `city: 2 vp`
+  /// `city: 2`
   String get catanScoringTwo {
-    return Intl.message(
-      'city: 2 vp',
-      name: 'catanScoringTwo',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('city: 2', name: 'catanScoringTwo', desc: '', args: []);
   }
 
-  /// `longest road: 2 vp`
+  /// `longest road: 2`
   String get catanScoringThree {
     return Intl.message(
-      'longest road: 2 vp',
+      'longest road: 2',
       name: 'catanScoringThree',
       desc: '',
       args: [],
     );
   }
 
-  /// `largest army: 2 vp`
+  /// `largest army: 2`
   String get catanScoringFour {
     return Intl.message(
-      'largest army: 2 vp',
+      'largest army: 2',
       name: 'catanScoringFour',
       desc: '',
       args: [],
     );
   }
 
-  /// `victory point cards: 1 vp each`
+  /// `victory point cards: 1 each`
   String get catanScoringFive {
     return Intl.message(
-      'victory point cards: 1 vp each',
+      'victory point cards: 1 each',
       name: 'catanScoringFive',
       desc: '',
       args: [],
@@ -3924,10 +3919,10 @@ class S {
     );
   }
 
-  /// `catan® is a trademark of catan gmbh. this app is not affiliated with or endorsed by catan gmbh.`
+  /// `catan® is a trademark of catan gmbh.`
   String get catanTrademarkNotice {
     return Intl.message(
-      'catan® is a trademark of catan gmbh. this app is not affiliated with or endorsed by catan gmbh.',
+      'catan® is a trademark of catan gmbh.',
       name: 'catanTrademarkNotice',
       desc: '',
       args: [],
