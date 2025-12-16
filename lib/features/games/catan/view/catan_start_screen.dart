@@ -164,7 +164,16 @@ class CatanStartScreenView extends StatelessWidget {
                 Navigator.pushNamed(context, '/catanRules');
               },
               onRightBtnTap: () {
-                if (catanState.players.length >= 3) {
+                if (catanState.players.length < 3) {
+                  ScaffoldMessenger.of(context).showSnackBar(
+                    SnackBar(
+                      behavior: SnackBarBehavior.floating,
+                      duration: const Duration(seconds: 5),
+                      content: Text(
+                          '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.catanPlayers}'),
+                    ),
+                  );
+                } else {
                   Navigator.pushNamed(
                     context,
                     '/catanGame',

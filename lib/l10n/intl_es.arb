@@ -303,7 +303,7 @@
   "cancel": "cancelar",
   "add": "añadir",
   "playerName": "nombre del jugador",
-  "theNumberOfPlayersShouldBe": "el número de jugadores debe ser más que",
+  "theNumberOfPlayersShouldBe": "el número de jugadores debe ser",
   "gameUpTo": "juego hasta: ",
   "gameOver": "fin del juego",
   "continueGame": "continuar juego",
