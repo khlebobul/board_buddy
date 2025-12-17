@@ -63,8 +63,6 @@ flutter:
   uses-material-design: true
 
   assets:
-    - assets/images/
-    - assets/images/dice/
     - assets/icons/
     - assets/icons/games_icons/
     - assets/icons/games_icons/uno_like/
