@@ -1,9 +1,11 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/catan/bloc/catan_bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
+import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
@@ -11,6 +13,7 @@ import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:flutter_svg/svg.dart';
 
 class CatanGame extends StatefulWidget {
   final List<Player> players;
@@ -228,6 +231,16 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
                               '${S.of(context).gameUpTo}${gameState.scoreLimit}',
                               style: theme.display2
                                   .copyWith(color: theme.secondaryTextColor),
+                            ),
+                            GestureDetector(
+                              onTap: () => DiceModal.show(context, diceCount: 2),
+                              child: SvgPicture.asset(
+                                CustomIcons.dice,
+                                width: 27,
+                                height: 27,
+                                colorFilter: ColorFilter.mode(
+                                    theme.textColor, BlendMode.srcIn),
+                              ),
                             ),
                           ],
                         ),
