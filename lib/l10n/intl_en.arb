@@ -456,5 +456,6 @@
   "catanScoringFour": "largest army: 2",
   "catanScoringFive": "victory point cards: 1 each",
   "catanVictoryRule": "the first player to reach 10 victory points on their turn wins the game. you must announce your victory on your turn.",
-  "catanTrademarkNotice": "catan® is a trademark of catan gmbh."
+  "catanTrademarkNotice": "catan® is a trademark of catan gmbh.",
+  "wordIsTooLongMaximum15LettersAllowed": "word is too long. maximum 15 letters allowed"
 }

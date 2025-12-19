@@ -795,6 +795,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("wild shuffle hands card"),
         "winner": MessageLookupByLibrary.simpleMessage("winner: "),
         "wizard": MessageLookupByLibrary.simpleMessage("wizard"),
+        "wordIsTooLongMaximum15LettersAllowed":
+            MessageLookupByLibrary.simpleMessage(
+                "word is too long. maximum 15 letters allowed"),
         "wordModifier": MessageLookupByLibrary.simpleMessage("word modifier: "),
         "x2Word": MessageLookupByLibrary.simpleMessage("x2 word"),
         "x3Word": MessageLookupByLibrary.simpleMessage("x3 word"),

@@ -4,6 +4,7 @@ import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/config/utils/scrabble_letter_values.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
+import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
@@ -218,12 +219,9 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
 
     // Add validation for maximum word length (15 letters for standard Scrabble board)
     if (word.length > 15) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Text('Word is too long. Maximum 15 letters allowed'),
-          duration: const Duration(seconds: 3),
-        ),
+      AnimatedSnackBar.show(
+        context,
+        message: S.of(context).wordIsTooLongMaximum15LettersAllowed,
       );
       return;
     }

@@ -797,6 +797,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("carta comodín baraja manos"),
         "winner": MessageLookupByLibrary.simpleMessage("ganador: "),
         "wizard": MessageLookupByLibrary.simpleMessage("mago"),
+        "wordIsTooLongMaximum15LettersAllowed":
+            MessageLookupByLibrary.simpleMessage(
+                "la palabra es demasiado larga. máximo 15 letras permitidas"),
         "wordModifier":
             MessageLookupByLibrary.simpleMessage("modificador de palabra: "),
         "x2Word": MessageLookupByLibrary.simpleMessage("x2 palabra"),

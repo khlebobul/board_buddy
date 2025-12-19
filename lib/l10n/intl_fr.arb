@@ -455,5 +455,6 @@
   "catanScoringFour": "armée la plus puissante : 2",
   "catanScoringFive": "cartes point de victoire : 1 chacune",
   "catanVictoryRule": "le premier joueur à atteindre 10 points de victoire pendant son tour gagne la partie. vous devez annoncer votre victoire pendant votre tour.",
-  "catanTrademarkNotice": "catan® est une marque déposée de catan gmbh."
+  "catanTrademarkNotice": "catan® est une marque déposée de catan gmbh.",
+  "wordIsTooLongMaximum15LettersAllowed": "le mot est trop long. maximum 15 lettres autorisées"
 }

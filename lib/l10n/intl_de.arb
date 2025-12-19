@@ -455,5 +455,6 @@
   "catanScoringFour": "größte rittermacht: 2",
   "catanScoringFive": "siegpunktkarten: je 1",
   "catanVictoryRule": "der erste spieler, der in seinem zug 10 siegpunkte erreicht, gewinnt das spiel. du musst deinen sieg in deinem zug verkünden.",
-  "catanTrademarkNotice": "catan® ist eine marke von catan gmbh."
+  "catanTrademarkNotice": "catan® ist eine marke von catan gmbh.",
+  "wordIsTooLongMaximum15LettersAllowed": "wort ist zu lang. maximal 15 buchstaben erlaubt"
 }

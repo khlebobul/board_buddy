@@ -792,6 +792,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("handtausch-karte"),
         "winner": MessageLookupByLibrary.simpleMessage("gewinner: "),
         "wizard": MessageLookupByLibrary.simpleMessage("zauberer"),
+        "wordIsTooLongMaximum15LettersAllowed":
+            MessageLookupByLibrary.simpleMessage(
+                "wort ist zu lang. maximal 15 buchstaben erlaubt"),
         "wordModifier":
             MessageLookupByLibrary.simpleMessage("wortmodifikator: "),
         "x2Word": MessageLookupByLibrary.simpleMessage("x2 wort"),

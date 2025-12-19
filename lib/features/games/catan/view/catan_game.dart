@@ -233,7 +233,8 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
                                   .copyWith(color: theme.secondaryTextColor),
                             ),
                             GestureDetector(
-                              onTap: () => DiceModal.show(context, diceCount: 2),
+                              onTap: () =>
+                                  DiceModal.show(context, diceCount: 2),
                               child: SvgPicture.asset(
                                 CustomIcons.dice,
                                 width: 27,

@@ -4529,6 +4529,16 @@ class S {
       args: [],
     );
   }
+
+  /// `word is too long. maximum 15 letters allowed`
+  String get wordIsTooLongMaximum15LettersAllowed {
+    return Intl.message(
+      'word is too long. maximum 15 letters allowed',
+      name: 'wordIsTooLongMaximum15LettersAllowed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

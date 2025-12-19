@@ -108,7 +108,8 @@ class CatanBloc extends Bloc<CatanEvent, CatanState> {
     }
   }
 
-  void _onDeleteSavedGame(DeleteSavedGame event, Emitter<CatanState> emit) async {
+  void _onDeleteSavedGame(
+      DeleteSavedGame event, Emitter<CatanState> emit) async {
     await DatabaseService.deleteGameSession('catan');
     if (state is CatanStartScreenState) {
       final currentState = state as CatanStartScreenState;

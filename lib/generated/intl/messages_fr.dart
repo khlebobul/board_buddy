@@ -285,6 +285,9 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("qui distribue en premier ?"),
         "winner": MessageLookupByLibrary.simpleMessage("gagnant : "),
         "wizard": MessageLookupByLibrary.simpleMessage("magicien"),
+        "wordIsTooLongMaximum15LettersAllowed":
+            MessageLookupByLibrary.simpleMessage(
+                "le mot est trop long. maximum 15 lettres autorisées"),
         "yes": MessageLookupByLibrary.simpleMessage("oui"),
         "yourBet": MessageLookupByLibrary.simpleMessage("votre mise")
       };

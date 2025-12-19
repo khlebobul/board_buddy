@@ -798,6 +798,9 @@ class MessageLookup extends MessageLookupByLibrary {
             "дикая карта «перетасовка рук»"),
         "winner": MessageLookupByLibrary.simpleMessage("победитель: "),
         "wizard": MessageLookupByLibrary.simpleMessage("маг"),
+        "wordIsTooLongMaximum15LettersAllowed":
+            MessageLookupByLibrary.simpleMessage(
+                "слово слишком длинное. максимум 15 букв"),
         "wordModifier": MessageLookupByLibrary.simpleMessage("модификатор: "),
         "x2Word": MessageLookupByLibrary.simpleMessage("x2 слово"),
         "x3Word": MessageLookupByLibrary.simpleMessage("x3 слово"),

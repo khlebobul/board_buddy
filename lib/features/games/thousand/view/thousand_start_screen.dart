@@ -6,6 +6,7 @@ import 'package:board_buddy/features/games/thousand/view/thousand_game_screen.da
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
+import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
@@ -152,18 +153,17 @@ class ThousandStartScreenContent extends StatelessWidget {
               onLeftBtnTap: () =>
                   Navigator.pushNamed(context, AppRoutes.thousandRules),
               onRightBtnTap: () {
-                thousandState.players.length < GameMinPlayers.thousand
-                    ? ScaffoldMessenger.of(context).showSnackBar(
-                        SnackBar(
-                          behavior: SnackBarBehavior.floating,
-                          duration: const Duration(seconds: 5),
-                          content: Text(
-                              '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.thousandPlayers}'),
-                        ),
-                      )
-                    : context.read<ThousandBloc>().add(
-                          StartThousandGame(thousandState.players),
-                        );
+                if (thousandState.players.length < GameMinPlayers.thousand) {
+                  AnimatedSnackBar.show(
+                    context,
+                    message:
+                        '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.thousandPlayers}',
+                  );
+                } else {
+                  context.read<ThousandBloc>().add(
+                        StartThousandGame(thousandState.players),
+                      );
+                }
               },
             ),
             resizeToAvoidBottomInset: true,

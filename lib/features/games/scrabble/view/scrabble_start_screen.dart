@@ -4,6 +4,7 @@ import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/features/games/scrabble/bloc/scrabble_bloc.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
+import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
@@ -142,22 +143,21 @@ class ScrabbleStartScreenView extends StatelessWidget {
                 onLeftBtnTap: () =>
                     Navigator.pushNamed(context, '/scrabbleRules'),
                 onRightBtnTap: () {
-                  scrabbleState.players.length < GameMinPlayers.scrabble
-                      ? ScaffoldMessenger.of(context).showSnackBar(
-                          SnackBar(
-                            behavior: SnackBarBehavior.floating,
-                            duration: const Duration(seconds: 5),
-                            content: Text(
-                                '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.scrabblePlayers}'),
-                          ),
-                        )
-                      : Navigator.pushNamed(
-                          context,
-                          '/scrabbleGame',
-                          arguments: {
-                            'players': scrabbleState.players,
-                          },
-                        );
+                  if (scrabbleState.players.length < GameMinPlayers.scrabble) {
+                    AnimatedSnackBar.show(
+                      context,
+                      message:
+                          '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.scrabblePlayers}',
+                    );
+                  } else {
+                    Navigator.pushNamed(
+                      context,
+                      '/scrabbleGame',
+                      arguments: {
+                        'players': scrabbleState.players,
+                      },
+                    );
+                  }
                 }),
             resizeToAvoidBottomInset: true,
           ),

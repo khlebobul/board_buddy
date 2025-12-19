@@ -1,4 +1,5 @@
 import 'package:board_buddy/generated/l10n.dart';
+import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:url_launcher/url_launcher.dart';
@@ -14,17 +15,16 @@ Future<void> sendEmail(
     },
   );
 
+  final message = S.of(context).emailCopied;
+
   if (await canLaunchUrl(emailLaunchUri)) {
     await launchUrl(emailLaunchUri);
   } else {
     await Clipboard.setData(ClipboardData(text: email));
-    // ignore: use_build_context_synchronously
-    ScaffoldMessenger.of(context).showSnackBar(
-      SnackBar(
-          behavior: SnackBarBehavior.floating,
-          duration: const Duration(seconds: 5),
-          // ignore: use_build_context_synchronously
-          content: Text(S.of(context).emailCopied)),
+    if (!context.mounted) return;
+    AnimatedSnackBar.show(
+      context,
+      message: message,
     );
   }
 }

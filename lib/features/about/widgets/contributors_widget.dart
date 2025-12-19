@@ -1,5 +1,6 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:use_scramble/use_scramble.dart';
@@ -31,12 +32,9 @@ class ContributorsWidget extends StatelessWidget {
                   (uri.scheme == 'http' || uri.scheme == 'https')) {
                 await launchUrl(uri);
               } else {
-                // ignore: use_build_context_synchronously
-                ScaffoldMessenger.of(context).showSnackBar(
-                  SnackBar(
-                      behavior: SnackBarBehavior.floating,
-                      duration: const Duration(seconds: 5),
-                      content: Text('Could not launch $url')),
+                AnimatedSnackBar.show(
+                  context,
+                  message: 'Could not launch $url',
                 );
               }
             },

@@ -454,5 +454,6 @@
   "catanScoringFour": "ejército más grande: 2",
   "catanScoringFive": "cartas de punto de victoria: 1 cada una",
   "catanVictoryRule": "el primer jugador en alcanzar 10 puntos de victoria en su turno gana el juego. debes anunciar tu victoria en tu turno.",
-  "catanTrademarkNotice": "catan® es una marca registrada de catan gmbh."
+  "catanTrademarkNotice": "catan® es una marca registrada de catan gmbh.",
+  "wordIsTooLongMaximum15LettersAllowed": "la palabra es demasiado larga. máximo 15 letras permitidas"
 }

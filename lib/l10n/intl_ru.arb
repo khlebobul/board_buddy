@@ -456,5 +456,6 @@
   "catanScoringFour": "самая большая армия: 2",
   "catanScoringFive": "карты победных очков: 1 каждая",
   "catanVictoryRule": "первый игрок, набравший 10 победных очков в свой ход, выигрывает игру. вы должны объявить о своей победе в свой ход.",
-  "catanTrademarkNotice": "catan® является торговой маркой catan gmbh."
+  "catanTrademarkNotice": "catan® является торговой маркой catan gmbh.",
+  "wordIsTooLongMaximum15LettersAllowed": "слово слишком длинное. максимум 15 букв"
 }
