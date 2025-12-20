@@ -1,4 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/set/bloc/set_bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
@@ -87,10 +88,15 @@ class _SetGameState extends State<SetGame> with WidgetsBindingObserver {
 
   @override
   Widget build(BuildContext context) {
+    final theme = UIThemes.of(context);
+    
     return BlocBuilder<SetBloc, SetState>(
       builder: (context, state) {
         if (state is! SetGameState) {
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         }
 
         final gameState = state;

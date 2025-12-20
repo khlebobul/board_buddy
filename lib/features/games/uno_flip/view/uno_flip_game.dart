@@ -237,7 +237,10 @@ class _UnoFlipGameState extends State<UnoFlipGame>
       },
       builder: (context, state) {
         if (state is! UnoFlipGameState) {
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         }
 
         final gameState = state;

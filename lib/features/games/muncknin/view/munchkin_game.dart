@@ -287,7 +287,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
               ),
             );
           }
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         },
       ),
     );

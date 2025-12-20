@@ -1,4 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/scrabble/bloc/scrabble_bloc.dart';
 import 'package:board_buddy/features/games/scrabble/widgets/info_scrabble_dialog_widget.dart';
@@ -62,7 +63,11 @@ class _ScrabbleGameState extends State<ScrabbleGame> {
         },
         builder: (context, state) {
           if (state is! ScrabbleGameState) {
-            return const Center(child: CircularProgressIndicator());
+            final theme = UIThemes.of(context);
+            return Scaffold(
+              backgroundColor: theme.bgColor,
+              body: const Center(child: CircularProgressIndicator()),
+            );
           }
 
           final gameState = state;

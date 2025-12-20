@@ -200,7 +200,10 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
       },
       builder: (context, state) {
         if (state is! CatanGameState) {
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         }
 
         final gameState = state;

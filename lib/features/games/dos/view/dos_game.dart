@@ -233,7 +233,10 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
       },
       builder: (context, state) {
         if (state is! DosGameState) {
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         }
 
         final gameState = state;

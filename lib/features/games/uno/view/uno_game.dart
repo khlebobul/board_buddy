@@ -235,7 +235,10 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
       },
       builder: (context, state) {
         if (state is! UnoGameState) {
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         }
 
         final gameState = state;

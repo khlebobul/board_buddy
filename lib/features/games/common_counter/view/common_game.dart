@@ -173,14 +173,18 @@ class _CommonGameViewState extends State<CommonGameView>
 
   @override
   Widget build(BuildContext context) {
+    final theme = UIThemes.of(context);
+    
     return BlocBuilder<CommonCounterBloc, CommonCounterState>(
       builder: (context, state) {
         if (state is! CommonCounterGameState) {
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         }
 
         final gameState = state;
-        final theme = UIThemes.of(context);
 
         if (gameState.isSinglePlayer) {
           debugPrint(
