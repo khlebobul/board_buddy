@@ -47,4 +47,9 @@ class CustomIcons {
   static const String spade = 'assets/icons/games_icons/cards/spade.svg';
   static const String club = 'assets/icons/games_icons/cards/club.svg';
   static const String diamond = 'assets/icons/games_icons/cards/diamond.svg';
+
+  // catan
+  static const String home = 'assets/icons/games_icons/catan/house.svg';
+  static const String city = 'assets/icons/games_icons/catan/building.svg';
+  static const String vp = 'assets/icons/games_icons/catan/victory-points.svg';
 }
