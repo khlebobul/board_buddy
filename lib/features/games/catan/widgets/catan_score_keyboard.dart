@@ -50,7 +50,7 @@ class CatanScoreKeyboard extends StatelessWidget {
               ],
             ),
           ),
-          // Full width +2 button with text
+          // Full width +2 button with icons
           Container(
             decoration: BoxDecoration(
               border: Border(
@@ -58,9 +58,8 @@ class CatanScoreKeyboard extends StatelessWidget {
               ),
             ),
             height: 55,
-            child: _buildFullWidthButton(
+            child: _buildRoadArmyButton(
               value: 2,
-              displayText: 'longest road / largest army',
               theme: theme,
             ),
           ),
@@ -159,9 +158,8 @@ class CatanScoreKeyboard extends StatelessWidget {
     );
   }
 
-  Widget _buildFullWidthButton({
+  Widget _buildRoadArmyButton({
     required int value,
-    required String displayText,
     required UIThemes theme,
   }) {
     return GestureDetector(
@@ -171,9 +169,29 @@ class CatanScoreKeyboard extends StatelessWidget {
         Gaimon.soft();
       },
       child: Center(
-        child: Text(
-          displayText,
-          style: theme.display2.copyWith(color: theme.textColor),
+        child: Row(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            SvgPicture.asset(
+              CustomIcons.road,
+              width: 28,
+              height: 28,
+              colorFilter: ColorFilter.mode(theme.textColor, BlendMode.srcIn),
+            ),
+            Padding(
+              padding: const EdgeInsets.symmetric(horizontal: 12),
+              child: Text(
+                '/',
+                style: theme.display3.copyWith(color: theme.textColor),
+              ),
+            ),
+            SvgPicture.asset(
+              CustomIcons.army,
+              width: 28,
+              height: 28,
+              colorFilter: ColorFilter.mode(theme.textColor, BlendMode.srcIn),
+            ),
+          ],
         ),
       ),
     );

@@ -52,4 +52,6 @@ class CustomIcons {
   static const String home = 'assets/icons/games_icons/catan/house.svg';
   static const String city = 'assets/icons/games_icons/catan/building.svg';
   static const String vp = 'assets/icons/games_icons/catan/victory-points.svg';
+  static const String road = 'assets/icons/games_icons/catan/road.svg';
+  static const String army = 'assets/icons/games_icons/catan/swords.svg';
 }
