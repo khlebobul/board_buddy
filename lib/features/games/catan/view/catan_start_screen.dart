@@ -51,7 +51,7 @@ class CatanStartScreenView extends StatelessWidget {
           appBar: CustomAppBar(
             leftButtonText: S.of(context).back,
             onLeftButtonPressed: () => Navigator.pop(context),
-            rightButtonText: 'catan',
+            rightButtonText: S.of(context).catan,
             onRightButtonPressed: () {},
           ),
           body: SafeArea(

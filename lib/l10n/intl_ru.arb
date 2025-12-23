@@ -250,6 +250,14 @@
   "finish": "завершить",
   "eachCardHasANumberDeterminingItsValue": "у каждой карты есть число, определяющее её значение.",
   "points": "очков",
+  "pointsCount": "{count, plural, =1{очко} few{очка} many{очков} other{очков}}",
+  "@pointsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "wildDrawTwoCardDosInfo": "дикая карта «возьми две»",
   "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo": "может быть любого цвета по выбору текущего игрока. если вытянута, игрок выбирает цвет.",
   "canRepresentAnyNumberForItsOwnParticularColorDosInfo": "может представлять любое число своего цвета.",

@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(playerName, winningBid) =>
       "did ${playerName} reach their bid (${winningBid} points)?";
 
+  static String m1(count) =>
+      "${Intl.plural(count, one: 'point', other: 'points')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("about"),
@@ -447,6 +450,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "points": MessageLookupByLibrary.simpleMessage("points"),
         "pointsConfirmed":
             MessageLookupByLibrary.simpleMessage("points confirmed"),
+        "pointsCount": m1,
         "possiblyTheRemovalOfCursesOrDebuffs":
             MessageLookupByLibrary.simpleMessage(
                 "possibly the removal of curses or debuffs"),

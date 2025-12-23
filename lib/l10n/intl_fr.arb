@@ -249,6 +249,14 @@
   "finish": "terminer",
   "eachcardhasanumberdeterminingitsvalue": "chaque carte a un nombre qui détermine sa valeur.",
   "points": "points",
+  "pointsCount": "{count, plural, =1{point} other{points}}",
+  "@pointsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "wilddrawtwocarddosinfo": "carte joker +2",
   "canbeanycolorchosenbythecurrentplayerifdosinfo": "peut être de n’importe quelle couleur choisie par le joueur actuel. si piochée, le joueur décide de la couleur.",
   "canrepresentanynumberforitsownparticularcolordosinfo": "peut représenter n’importe quel numéro pour sa couleur propre.",

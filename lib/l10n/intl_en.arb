@@ -250,6 +250,14 @@
   "finish": "finish",
   "eachCardHasANumberDeterminingItsValue": "each card has a number, determining its value.",
   "points": "points",
+  "pointsCount": "{count, plural, =1{point} other{points}}",
+  "@pointsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "wildDrawTwoCardDosInfo": "wild draw two card",
   "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo": "can be any color chosen by the current player. if drawn, the player decides the color.",
   "canRepresentAnyNumberForItsOwnParticularColorDosInfo": "can represent any number for its own particular color.",

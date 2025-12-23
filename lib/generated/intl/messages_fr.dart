@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(playerName, winningBid) =>
       "${playerName} a-t-il atteint sa mise (${winningBid} points)?";
 
+  static String m1(count) =>
+      "${Intl.plural(count, one: 'point', other: 'points')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("à propos"),
@@ -35,10 +38,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "armour": MessageLookupByLibrary.simpleMessage("armure"),
         "awardedToThePlayerWith3KnightCardsPlayed":
             MessageLookupByLibrary.simpleMessage(
-                "awarded to the player with 3+ knight cards played"),
+                "attribuée au joueur avec 3+ cartes chevalier jouées"),
         "awardedToThePlayerWith5ConnectedRoads":
             MessageLookupByLibrary.simpleMessage(
-                "awarded to the player with 5+ connected roads"),
+                "attribuée au joueur avec 5+ routes connectées"),
         "back": MessageLookupByLibrary.simpleMessage("retour"),
         "biddingPhase":
             MessageLookupByLibrary.simpleMessage("phase d\'enchères:"),
@@ -46,7 +49,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "boots": MessageLookupByLibrary.simpleMessage("bottes"),
         "buildANewSettlementOnAnIntersection":
             MessageLookupByLibrary.simpleMessage(
-                "build a new settlement on an intersection"),
+                "construisez une nouvelle colonie sur une intersection"),
         "buildingCosts":
             MessageLookupByLibrary.simpleMessage("coûts de construction :"),
         "buildingRules":
@@ -153,7 +156,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "commerce maritime : 4:1 avec la banque (4 ressources identiques pour 1)"),
         "catanVictoryRule": MessageLookupByLibrary.simpleMessage(
             "le premier joueur à atteindre 10 points de victoire pendant son tour gagne la partie. vous devez annoncer votre victoire pendant votre tour."),
-        "city": MessageLookupByLibrary.simpleMessage("city"),
+        "city": MessageLookupByLibrary.simpleMessage("ville"),
         "class1": MessageLookupByLibrary.simpleMessage("classe 1"),
         "class2": MessageLookupByLibrary.simpleMessage("classe 2"),
         "clear": MessageLookupByLibrary.simpleMessage("effacer"),
@@ -170,7 +173,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "dark": MessageLookupByLibrary.simpleMessage("sombre"),
         "developmentCardWorth1VictoryPoint":
             MessageLookupByLibrary.simpleMessage(
-                "development card worth 1 victory point"),
+                "carte de développement valant 1 point de victoire"),
         "developmentCards":
             MessageLookupByLibrary.simpleMessage("cartes de développement :"),
         "didPlayerReachBid": m0,
@@ -196,10 +199,12 @@ class MessageLookup extends MessageLookupByLibrary {
         "king": MessageLookupByLibrary.simpleMessage("roi"),
         "king4Points": MessageLookupByLibrary.simpleMessage("roi: 4 points"),
         "languages": MessageLookupByLibrary.simpleMessage("langues"),
-        "largestArmy": MessageLookupByLibrary.simpleMessage("largest army"),
+        "largestArmy":
+            MessageLookupByLibrary.simpleMessage("armée la plus puissante"),
         "level": MessageLookupByLibrary.simpleMessage("niveau"),
         "light": MessageLookupByLibrary.simpleMessage("clair"),
-        "longestRoad": MessageLookupByLibrary.simpleMessage("longest road"),
+        "longestRoad":
+            MessageLookupByLibrary.simpleMessage("route la plus longue"),
         "magic": MessageLookupByLibrary.simpleMessage("magie"),
         "marriage": MessageLookupByLibrary.simpleMessage("mariage:"),
         "menu": MessageLookupByLibrary.simpleMessage("menu"),
@@ -224,6 +229,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "points": MessageLookupByLibrary.simpleMessage("points"),
         "pointsConfirmed":
             MessageLookupByLibrary.simpleMessage("points confirmés"),
+        "pointsCount": m1,
         "preparation": MessageLookupByLibrary.simpleMessage("préparation :"),
         "queen": MessageLookupByLibrary.simpleMessage("dame"),
         "queen3Points": MessageLookupByLibrary.simpleMessage("dame: 3 points"),
@@ -237,7 +243,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "scrabble": MessageLookupByLibrary.simpleMessage("scrabble"),
         "set": MessageLookupByLibrary.simpleMessage("set"),
         "settings": MessageLookupByLibrary.simpleMessage("paramètres"),
-        "settlement": MessageLookupByLibrary.simpleMessage("settlement"),
+        "settlement": MessageLookupByLibrary.simpleMessage("colonie"),
         "singleplayer": MessageLookupByLibrary.simpleMessage("solo"),
         "skip": MessageLookupByLibrary.simpleMessage("passer"),
         "spanish": MessageLookupByLibrary.simpleMessage("espagnol"),
@@ -297,9 +303,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "trading": MessageLookupByLibrary.simpleMessage("commerce :"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
-            "upgrade a settlement to a city (+1 point)"),
+            "améliorez une colonie en ville (+1 point)"),
         "victoryPointCard":
-            MessageLookupByLibrary.simpleMessage("victory point card"),
+            MessageLookupByLibrary.simpleMessage("carte point de victoire"),
         "warrior": MessageLookupByLibrary.simpleMessage("guerrier"),
         "whoGoesFirst":
             MessageLookupByLibrary.simpleMessage("qui distribue en premier ?"),

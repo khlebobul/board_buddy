@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(playerName, winningBid) =>
       "набрал ли ${playerName} свою ставку (${winningBid} очков)?";
 
+  static String m1(count) =>
+      "${Intl.plural(count, one: 'очко', few: 'очка', many: 'очков', other: 'очков')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("о проекте"),
@@ -38,10 +41,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "armour": MessageLookupByLibrary.simpleMessage("броня"),
         "awardedToThePlayerWith3KnightCardsPlayed":
             MessageLookupByLibrary.simpleMessage(
-                "awarded to the player with 3+ knight cards played"),
+                "присуждается игроку с 3+ сыгранными картами рыцарей"),
         "awardedToThePlayerWith5ConnectedRoads":
             MessageLookupByLibrary.simpleMessage(
-                "awarded to the player with 5+ connected roads"),
+                "присуждается игроку с 5+ соединёнными дорогами"),
         "back": MessageLookupByLibrary.simpleMessage("назад"),
         "biddingPhase": MessageLookupByLibrary.simpleMessage("фаза торговли:"),
         "bigArmour": MessageLookupByLibrary.simpleMessage("большая броня"),
@@ -64,7 +67,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "усиления или ослабления персонажа/предметов"),
         "buildANewSettlementOnAnIntersection":
             MessageLookupByLibrary.simpleMessage(
-                "build a new settlement on an intersection"),
+                "постройте новое поселение на перекрёстке"),
         "buildingCosts":
             MessageLookupByLibrary.simpleMessage("стоимость строительства:"),
         "buildingRules":
@@ -188,7 +191,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "charactersGenderMaleInfo":
             MessageLookupByLibrary.simpleMessage("пол персонажа: мужской"),
         "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
-        "city": MessageLookupByLibrary.simpleMessage("city"),
+        "city": MessageLookupByLibrary.simpleMessage("город"),
         "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
         "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
         "clear": MessageLookupByLibrary.simpleMessage("очистить"),
@@ -212,7 +215,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "карточки темной стороны заменяться на светлые и наоборот."),
         "developmentCardWorth1VictoryPoint":
             MessageLookupByLibrary.simpleMessage(
-                "development card worth 1 victory point"),
+                "карта развития, дающая 1 победное очко"),
         "developmentCards":
             MessageLookupByLibrary.simpleMessage("карты развития:"),
         "didPlayerReachBid": m0,
@@ -333,14 +336,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "king": MessageLookupByLibrary.simpleMessage("король"),
         "king4Points": MessageLookupByLibrary.simpleMessage("король: 4 очка"),
         "languages": MessageLookupByLibrary.simpleMessage("языки"),
-        "largestArmy": MessageLookupByLibrary.simpleMessage("largest army"),
+        "largestArmy":
+            MessageLookupByLibrary.simpleMessage("самая большая армия"),
         "leftHand": MessageLookupByLibrary.simpleMessage("левая рука"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
         "level": MessageLookupByLibrary.simpleMessage("уровень"),
         "light": MessageLookupByLibrary.simpleMessage("светлая"),
-        "longestRoad": MessageLookupByLibrary.simpleMessage("longest road"),
+        "longestRoad":
+            MessageLookupByLibrary.simpleMessage("самый длинный торговый путь"),
         "lowestScoreWins":
             MessageLookupByLibrary.simpleMessage("побеждает низкий счет"),
         "magic": MessageLookupByLibrary.simpleMessage("магия"),
@@ -445,6 +450,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "points": MessageLookupByLibrary.simpleMessage("очков"),
         "pointsConfirmed":
             MessageLookupByLibrary.simpleMessage("очки подтверждены"),
+        "pointsCount": m1,
         "possiblyTheRemovalOfCursesOrDebuffs":
             MessageLookupByLibrary.simpleMessage(
                 "снятие проклятий или дебафов"),
@@ -587,7 +593,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setTrademarkNotice": MessageLookupByLibrary.simpleMessage(
             "set® является зарегистрированной торговой маркой компании set enterprises, inc."),
         "settings": MessageLookupByLibrary.simpleMessage("настройки"),
-        "settlement": MessageLookupByLibrary.simpleMessage("settlement"),
+        "settlement": MessageLookupByLibrary.simpleMessage("поселение"),
         "shareFeedback": MessageLookupByLibrary.simpleMessage("обратная связь"),
         "shareWithFriedns":
             MessageLookupByLibrary.simpleMessage("поделиться с друзьями"),
@@ -798,9 +804,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
             "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры."),
         "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
-            "upgrade a settlement to a city (+1 point)"),
+            "улучшите поселение до города (+1 очко)"),
         "victoryPointCard":
-            MessageLookupByLibrary.simpleMessage("victory point card"),
+            MessageLookupByLibrary.simpleMessage("карта победного очка"),
         "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:"),
         "warrior": MessageLookupByLibrary.simpleMessage("воин"),
         "whoGoesFirst":

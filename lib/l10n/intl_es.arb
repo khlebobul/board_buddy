@@ -248,6 +248,14 @@
   "finish": "finalizar",
   "eachCardHasANumberDeterminingItsValue": "cada carta tiene un número que determina su valor.",
   "points": "puntos",
+  "pointsCount": "{count, plural, =1{punto} other{puntos}}",
+  "@pointsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "wildDrawTwoCardDosInfo": "carta comodín roba dos",
   "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo": "puede ser cualquier color elegido por el jugador actual. si se roba, el jugador decide el color.",
   "canRepresentAnyNumberForItsOwnParticularColorDosInfo": "puede representar cualquier número de su color.",

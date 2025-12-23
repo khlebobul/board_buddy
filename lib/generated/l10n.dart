@@ -2560,6 +2560,18 @@ class S {
     );
   }
 
+  /// `{count, plural, =1{point} other{points}}`
+  String pointsCount(int count) {
+    return Intl.plural(
+      count,
+      one: 'point',
+      other: 'points',
+      name: 'pointsCount',
+      desc: '',
+      args: [count],
+    );
+  }
+
   /// `wild draw two card`
   String get wildDrawTwoCardDosInfo {
     return Intl.message(

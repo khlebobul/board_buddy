@@ -249,6 +249,14 @@
   "finish": "beenden",
   "eachCardHasANumberDeterminingItsValue": "jede karte hat eine zahl, die ihren wert bestimmt.",
   "points": "punkte",
+  "pointsCount": "{count, plural, =1{punkt} other{punkte}}",
+  "@pointsCount": {
+    "placeholders": {
+      "count": {
+        "type": "int"
+      }
+    }
+  },
   "wildDrawTwoCardDosInfo": "wilder +2-stein",
   "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo": "kann jede farbe sein, die der aktuelle spieler wählt. wenn gezogen, entscheidet der spieler über die farbe.",
   "canRepresentAnyNumberForItsOwnParticularColorDosInfo": "kann jede zahl in ihrer eigenen farbe darstellen.",

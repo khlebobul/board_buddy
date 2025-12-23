@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(playerName, winningBid) =>
       "¿alcanzó ${playerName} su apuesta (${winningBid} puntos)?";
 
+  static String m1(count) =>
+      "${Intl.plural(count, one: 'punto', other: 'puntos')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
         "about": MessageLookupByLibrary.simpleMessage("acerca de"),
@@ -37,10 +40,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "armour": MessageLookupByLibrary.simpleMessage("armadura"),
         "awardedToThePlayerWith3KnightCardsPlayed":
             MessageLookupByLibrary.simpleMessage(
-                "awarded to the player with 3+ knight cards played"),
+                "otorgada al jugador con 3+ cartas de caballero jugadas"),
         "awardedToThePlayerWith5ConnectedRoads":
             MessageLookupByLibrary.simpleMessage(
-                "awarded to the player with 5+ connected roads"),
+                "otorgada al jugador con 5+ caminos conectados"),
         "back": MessageLookupByLibrary.simpleMessage("atrás"),
         "biddingPhase": MessageLookupByLibrary.simpleMessage("fase de puja:"),
         "bigArmour": MessageLookupByLibrary.simpleMessage("armadura grande"),
@@ -63,7 +66,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "mejoras o debilitamientos que afectan personajes/objetos"),
         "buildANewSettlementOnAnIntersection":
             MessageLookupByLibrary.simpleMessage(
-                "build a new settlement on an intersection"),
+                "construye un nuevo poblado en una intersección"),
         "buildingCosts":
             MessageLookupByLibrary.simpleMessage("costos de construcción:"),
         "buildingRules":
@@ -190,7 +193,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "género del personaje: masculino"),
         "checkMyWebsite":
             MessageLookupByLibrary.simpleMessage("visita mi sitio web"),
-        "city": MessageLookupByLibrary.simpleMessage("city"),
+        "city": MessageLookupByLibrary.simpleMessage("ciudad"),
         "class1": MessageLookupByLibrary.simpleMessage("clase 1"),
         "class2": MessageLookupByLibrary.simpleMessage("clase 2"),
         "clear": MessageLookupByLibrary.simpleMessage("limpiar"),
@@ -214,7 +217,7 @@ class MessageLookup extends MessageLookupByLibrary {
                 "las cartas del lado oscuro se reemplazan con las del lado claro y viceversa."),
         "developmentCardWorth1VictoryPoint":
             MessageLookupByLibrary.simpleMessage(
-                "development card worth 1 victory point"),
+                "carta de desarrollo que vale 1 punto de victoria"),
         "developmentCards":
             MessageLookupByLibrary.simpleMessage("cartas de desarrollo:"),
         "didPlayerReachBid": m0,
@@ -334,14 +337,16 @@ class MessageLookup extends MessageLookupByLibrary {
         "king": MessageLookupByLibrary.simpleMessage("rey"),
         "king4Points": MessageLookupByLibrary.simpleMessage("rey: 4 puntos"),
         "languages": MessageLookupByLibrary.simpleMessage("idiomas"),
-        "largestArmy": MessageLookupByLibrary.simpleMessage("largest army"),
+        "largestArmy":
+            MessageLookupByLibrary.simpleMessage("ejército más grande"),
         "leftHand": MessageLookupByLibrary.simpleMessage("mano izquierda"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " te permite seguir puntuaciones y momentos clave sin esfuerzo, manteniendo tu enfoque en el juego"),
         "level": MessageLookupByLibrary.simpleMessage("nivel"),
         "light": MessageLookupByLibrary.simpleMessage("claro"),
-        "longestRoad": MessageLookupByLibrary.simpleMessage("longest road"),
+        "longestRoad":
+            MessageLookupByLibrary.simpleMessage("ruta comercial más larga"),
         "lowestScoreWins":
             MessageLookupByLibrary.simpleMessage("gana la puntuación más baja"),
         "magic": MessageLookupByLibrary.simpleMessage("magia"),
@@ -447,6 +452,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "points": MessageLookupByLibrary.simpleMessage("puntos"),
         "pointsConfirmed":
             MessageLookupByLibrary.simpleMessage("puntos confirmados"),
+        "pointsCount": m1,
         "possiblyTheRemovalOfCursesOrDebuffs":
             MessageLookupByLibrary.simpleMessage(
                 "posiblemente la eliminación de maldiciones o debilitamientos"),
@@ -586,7 +592,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setTrademarkNotice": MessageLookupByLibrary.simpleMessage(
             "set® es una marca registrada de set enterprises, inc."),
         "settings": MessageLookupByLibrary.simpleMessage("ajustes"),
-        "settlement": MessageLookupByLibrary.simpleMessage("settlement"),
+        "settlement": MessageLookupByLibrary.simpleMessage("poblado"),
         "shareFeedback":
             MessageLookupByLibrary.simpleMessage("enviar opiniones"),
         "shareWithFriedns":
@@ -796,9 +802,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
             "alternativa: gana quien tenga la puntuación más baja al final."),
         "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
-            "upgrade a settlement to a city (+1 point)"),
+            "mejora un poblado a ciudad (+1 punto)"),
         "victoryPointCard":
-            MessageLookupByLibrary.simpleMessage("victory point card"),
+            MessageLookupByLibrary.simpleMessage("carta de punto de victoria"),
         "victoryTitle": MessageLookupByLibrary.simpleMessage("victoria:"),
         "warrior": MessageLookupByLibrary.simpleMessage("guerrero"),
         "whoGoesFirst":

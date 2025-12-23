@@ -62,7 +62,7 @@ class InfoRowWidget extends StatelessWidget {
                 children: [
                   if (title.isNotEmpty && points.isNotEmpty)
                     TextSpan(
-                      text: '$title\n($points ${S.of(context).points})\n',
+                      text: '$title\n($points ${S.of(context).pointsCount(int.tryParse(points) ?? 0)})\n',
                       style: theme.display2.copyWith(color: theme.textColor),
                     ),
                   if (title.isNotEmpty && points.isEmpty)
