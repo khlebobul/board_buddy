@@ -455,5 +455,15 @@
   "catanScoringFive": "cartas de punto de victoria: 1 cada una",
   "catanVictoryRule": "el primer jugador en alcanzar 10 puntos de victoria en su turno gana el juego. debes anunciar tu victoria en tu turno.",
   "catanTrademarkNotice": "catan® es una marca registrada de catan gmbh.",
-  "wordIsTooLongMaximum15LettersAllowed": "la palabra es demasiado larga. máximo 15 letras permitidas"
+  "wordIsTooLongMaximum15LettersAllowed": "la palabra es demasiado larga. máximo 15 letras permitidas",
+  "settlement": "poblado",
+  "buildANewSettlementOnAnIntersection": "construye un nuevo poblado en una intersección",
+  "city": "ciudad",
+  "upgradeASettlementToACity1Point": "mejora un poblado a ciudad (+1 punto)",
+  "victoryPointCard": "carta de punto de victoria",
+  "developmentCardWorth1VictoryPoint": "carta de desarrollo que vale 1 punto de victoria",
+  "longestRoad": "ruta comercial más larga",
+  "awardedToThePlayerWith5ConnectedRoads": "otorgada al jugador con 5+ caminos conectados",
+  "largestArmy": "ejército más grande",
+  "awardedToThePlayerWith3KnightCardsPlayed": "otorgada al jugador con 3+ cartas de caballero jugadas"
 }

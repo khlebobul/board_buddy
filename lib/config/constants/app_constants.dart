@@ -168,3 +168,11 @@ class ThousandCardsPoints {
   static const jack = '2';
   static const nine = '0';
 }
+
+class CatanCardsPoints {
+  static const settlement = '1';
+  static const city = '2';
+  static const victoryPointCard = '1';
+  static const longestRoad = '2';
+  static const largestArmy = '2';
+}

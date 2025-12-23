@@ -456,5 +456,15 @@
   "catanScoringFive": "siegpunktkarten: je 1",
   "catanVictoryRule": "der erste spieler, der in seinem zug 10 siegpunkte erreicht, gewinnt das spiel. du musst deinen sieg in deinem zug verkünden.",
   "catanTrademarkNotice": "catan® ist eine marke von catan gmbh.",
-  "wordIsTooLongMaximum15LettersAllowed": "wort ist zu lang. maximal 15 buchstaben erlaubt"
+  "wordIsTooLongMaximum15LettersAllowed": "wort ist zu lang. maximal 15 buchstaben erlaubt",
+  "settlement": "siedlung",
+  "buildANewSettlementOnAnIntersection": "baue eine neue siedlung auf einer kreuzung",
+  "city": "stadt",
+  "upgradeASettlementToACity1Point": "werte eine siedlung zu einer stadt auf (+1 punkt)",
+  "victoryPointCard": "siegpunktkarte",
+  "developmentCardWorth1VictoryPoint": "entwicklungskarte mit 1 siegpunkt",
+  "longestRoad": "längste handelsstraße",
+  "awardedToThePlayerWith5ConnectedRoads": "wird dem spieler mit 5+ verbundenen straßen verliehen",
+  "largestArmy": "größte rittermacht",
+  "awardedToThePlayerWith3KnightCardsPlayed": "wird dem spieler mit 3+ ausgespielten ritterkarten verliehen"
 }

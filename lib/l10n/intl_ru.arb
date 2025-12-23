@@ -457,5 +457,15 @@
   "catanScoringFive": "карты победных очков: 1 каждая",
   "catanVictoryRule": "первый игрок, набравший 10 победных очков в свой ход, выигрывает игру. вы должны объявить о своей победе в свой ход.",
   "catanTrademarkNotice": "catan® является торговой маркой catan gmbh.",
-  "wordIsTooLongMaximum15LettersAllowed": "слово слишком длинное. максимум 15 букв"
+  "wordIsTooLongMaximum15LettersAllowed": "слово слишком длинное. максимум 15 букв",
+  "settlement": "поселение",
+  "buildANewSettlementOnAnIntersection": "постройте новое поселение на перекрёстке",
+  "city": "город",
+  "upgradeASettlementToACity1Point": "улучшите поселение до города (+1 очко)",
+  "victoryPointCard": "карта победного очка",
+  "developmentCardWorth1VictoryPoint": "карта развития, дающая 1 победное очко",
+  "longestRoad": "самый длинный торговый путь",
+  "awardedToThePlayerWith5ConnectedRoads": "присуждается игроку с 5+ соединёнными дорогами",
+  "largestArmy": "самая большая армия",
+  "awardedToThePlayerWith3KnightCardsPlayed": "присуждается игроку с 3+ сыгранными картами рыцарей"
 }

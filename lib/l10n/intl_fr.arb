@@ -456,5 +456,15 @@
   "catanScoringFive": "cartes point de victoire : 1 chacune",
   "catanVictoryRule": "le premier joueur à atteindre 10 points de victoire pendant son tour gagne la partie. vous devez annoncer votre victoire pendant votre tour.",
   "catanTrademarkNotice": "catan® est une marque déposée de catan gmbh.",
-  "wordIsTooLongMaximum15LettersAllowed": "le mot est trop long. maximum 15 lettres autorisées"
+  "wordIsTooLongMaximum15LettersAllowed": "le mot est trop long. maximum 15 lettres autorisées",
+  "settlement": "colonie",
+  "buildANewSettlementOnAnIntersection": "construisez une nouvelle colonie sur une intersection",
+  "city": "ville",
+  "upgradeASettlementToACity1Point": "améliorez une colonie en ville (+1 point)",
+  "victoryPointCard": "carte point de victoire",
+  "developmentCardWorth1VictoryPoint": "carte de développement valant 1 point de victoire",
+  "longestRoad": "route la plus longue",
+  "awardedToThePlayerWith5ConnectedRoads": "attribuée au joueur avec 5+ routes connectées",
+  "largestArmy": "armée la plus puissante",
+  "awardedToThePlayerWith3KnightCardsPlayed": "attribuée au joueur avec 3+ cartes chevalier jouées"
 }

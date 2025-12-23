@@ -4,6 +4,7 @@ import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/catan/bloc/catan_bloc.dart';
 import 'package:board_buddy/features/games/catan/widgets/catan_score_keyboard.dart';
+import 'package:board_buddy/features/games/catan/widgets/info_catan_dialog_widget.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
@@ -367,6 +368,7 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
               ),
             ),
             bottomNavigationBar: BottomGameBar(
+              dialogWidget: InfoCatanDialog(),
               isArrow: true,
               rightButtonText: S.of(context).options,
               onLeftArrowTap: _undo,

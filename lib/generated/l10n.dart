@@ -4539,6 +4539,106 @@ class S {
       args: [],
     );
   }
+
+  /// `settlement`
+  String get settlement {
+    return Intl.message(
+      'settlement',
+      name: 'settlement',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `build a new settlement on an intersection`
+  String get buildANewSettlementOnAnIntersection {
+    return Intl.message(
+      'build a new settlement on an intersection',
+      name: 'buildANewSettlementOnAnIntersection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `city`
+  String get city {
+    return Intl.message(
+      'city',
+      name: 'city',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `upgrade a settlement to a city (+1 point)`
+  String get upgradeASettlementToACity1Point {
+    return Intl.message(
+      'upgrade a settlement to a city (+1 point)',
+      name: 'upgradeASettlementToACity1Point',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `victory point card`
+  String get victoryPointCard {
+    return Intl.message(
+      'victory point card',
+      name: 'victoryPointCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `development card worth 1 victory point`
+  String get developmentCardWorth1VictoryPoint {
+    return Intl.message(
+      'development card worth 1 victory point',
+      name: 'developmentCardWorth1VictoryPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `longest road`
+  String get longestRoad {
+    return Intl.message(
+      'longest road',
+      name: 'longestRoad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `awarded to the player with 5+ connected roads`
+  String get awardedToThePlayerWith5ConnectedRoads {
+    return Intl.message(
+      'awarded to the player with 5+ connected roads',
+      name: 'awardedToThePlayerWith5ConnectedRoads',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `largest army`
+  String get largestArmy {
+    return Intl.message(
+      'largest army',
+      name: 'largestArmy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `awarded to the player with 3+ knight cards played`
+  String get awardedToThePlayerWith3KnightCardsPlayed {
+    return Intl.message(
+      'awarded to the player with 3+ knight cards played',
+      name: 'awardedToThePlayerWith3KnightCardsPlayed',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

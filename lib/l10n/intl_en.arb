@@ -457,5 +457,15 @@
   "catanScoringFive": "victory point cards: 1 each",
   "catanVictoryRule": "the first player to reach 10 victory points on their turn wins the game. you must announce your victory on your turn.",
   "catanTrademarkNotice": "catan® is a trademark of catan gmbh.",
-  "wordIsTooLongMaximum15LettersAllowed": "word is too long. maximum 15 letters allowed"
+  "wordIsTooLongMaximum15LettersAllowed": "word is too long. maximum 15 letters allowed",
+  "settlement": "settlement",
+  "buildANewSettlementOnAnIntersection": "build a new settlement on an intersection",
+  "city": "city",
+  "upgradeASettlementToACity1Point": "upgrade a settlement to a city (+1 point)",
+  "victoryPointCard": "victory point card",
+  "developmentCardWorth1VictoryPoint": "development card worth 1 victory point",
+  "longestRoad": "longest road",
+  "awardedToThePlayerWith5ConnectedRoads": "awarded to the player with 5+ connected roads",
+  "largestArmy": "largest army",
+  "awardedToThePlayerWith3KnightCardsPlayed": "awarded to the player with 3+ knight cards played"
 }

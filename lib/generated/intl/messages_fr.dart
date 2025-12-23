@@ -33,11 +33,20 @@ class MessageLookup extends MessageLookupByLibrary {
         "adding": MessageLookupByLibrary.simpleMessage("ajouter"),
         "appreciation": MessageLookupByLibrary.simpleMessage("crédits"),
         "armour": MessageLookupByLibrary.simpleMessage("armure"),
+        "awardedToThePlayerWith3KnightCardsPlayed":
+            MessageLookupByLibrary.simpleMessage(
+                "awarded to the player with 3+ knight cards played"),
+        "awardedToThePlayerWith5ConnectedRoads":
+            MessageLookupByLibrary.simpleMessage(
+                "awarded to the player with 5+ connected roads"),
         "back": MessageLookupByLibrary.simpleMessage("retour"),
         "biddingPhase":
             MessageLookupByLibrary.simpleMessage("phase d\'enchères:"),
         "bingo": MessageLookupByLibrary.simpleMessage("bingo"),
         "boots": MessageLookupByLibrary.simpleMessage("bottes"),
+        "buildANewSettlementOnAnIntersection":
+            MessageLookupByLibrary.simpleMessage(
+                "build a new settlement on an intersection"),
         "buildingCosts":
             MessageLookupByLibrary.simpleMessage("coûts de construction :"),
         "buildingRules":
@@ -144,6 +153,7 @@ class MessageLookup extends MessageLookupByLibrary {
             "commerce maritime : 4:1 avec la banque (4 ressources identiques pour 1)"),
         "catanVictoryRule": MessageLookupByLibrary.simpleMessage(
             "le premier joueur à atteindre 10 points de victoire pendant son tour gagne la partie. vous devez annoncer votre victoire pendant votre tour."),
+        "city": MessageLookupByLibrary.simpleMessage("city"),
         "class1": MessageLookupByLibrary.simpleMessage("classe 1"),
         "class2": MessageLookupByLibrary.simpleMessage("classe 2"),
         "clear": MessageLookupByLibrary.simpleMessage("effacer"),
@@ -158,6 +168,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentCount": MessageLookupByLibrary.simpleMessage("compte actuel:"),
         "cursed": MessageLookupByLibrary.simpleMessage("maudit"),
         "dark": MessageLookupByLibrary.simpleMessage("sombre"),
+        "developmentCardWorth1VictoryPoint":
+            MessageLookupByLibrary.simpleMessage(
+                "development card worth 1 victory point"),
         "developmentCards":
             MessageLookupByLibrary.simpleMessage("cartes de développement :"),
         "didPlayerReachBid": m0,
@@ -183,8 +196,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "king": MessageLookupByLibrary.simpleMessage("roi"),
         "king4Points": MessageLookupByLibrary.simpleMessage("roi: 4 points"),
         "languages": MessageLookupByLibrary.simpleMessage("langues"),
+        "largestArmy": MessageLookupByLibrary.simpleMessage("largest army"),
         "level": MessageLookupByLibrary.simpleMessage("niveau"),
         "light": MessageLookupByLibrary.simpleMessage("clair"),
+        "longestRoad": MessageLookupByLibrary.simpleMessage("longest road"),
         "magic": MessageLookupByLibrary.simpleMessage("magie"),
         "marriage": MessageLookupByLibrary.simpleMessage("mariage:"),
         "menu": MessageLookupByLibrary.simpleMessage("menu"),
@@ -222,6 +237,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "scrabble": MessageLookupByLibrary.simpleMessage("scrabble"),
         "set": MessageLookupByLibrary.simpleMessage("set"),
         "settings": MessageLookupByLibrary.simpleMessage("paramètres"),
+        "settlement": MessageLookupByLibrary.simpleMessage("settlement"),
         "singleplayer": MessageLookupByLibrary.simpleMessage("solo"),
         "skip": MessageLookupByLibrary.simpleMessage("passer"),
         "spanish": MessageLookupByLibrary.simpleMessage("espagnol"),
@@ -280,6 +296,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "total": MessageLookupByLibrary.simpleMessage("total"),
         "trading": MessageLookupByLibrary.simpleMessage("commerce :"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
+        "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
+            "upgrade a settlement to a city (+1 point)"),
+        "victoryPointCard":
+            MessageLookupByLibrary.simpleMessage("victory point card"),
         "warrior": MessageLookupByLibrary.simpleMessage("guerrier"),
         "whoGoesFirst":
             MessageLookupByLibrary.simpleMessage("qui distribue en premier ?"),

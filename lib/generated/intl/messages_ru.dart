@@ -36,6 +36,12 @@ class MessageLookup extends MessageLookupByLibrary {
                 "позволяет игроку выбрать цвет."),
         "appreciation": MessageLookupByLibrary.simpleMessage("благодарность"),
         "armour": MessageLookupByLibrary.simpleMessage("броня"),
+        "awardedToThePlayerWith3KnightCardsPlayed":
+            MessageLookupByLibrary.simpleMessage(
+                "awarded to the player with 3+ knight cards played"),
+        "awardedToThePlayerWith5ConnectedRoads":
+            MessageLookupByLibrary.simpleMessage(
+                "awarded to the player with 5+ connected roads"),
         "back": MessageLookupByLibrary.simpleMessage("назад"),
         "biddingPhase": MessageLookupByLibrary.simpleMessage("фаза торговли:"),
         "bigArmour": MessageLookupByLibrary.simpleMessage("большая броня"),
@@ -56,6 +62,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "buffsOrDebuffsAffectingCharactersitemsInfo":
             MessageLookupByLibrary.simpleMessage(
                 "усиления или ослабления персонажа/предметов"),
+        "buildANewSettlementOnAnIntersection":
+            MessageLookupByLibrary.simpleMessage(
+                "build a new settlement on an intersection"),
         "buildingCosts":
             MessageLookupByLibrary.simpleMessage("стоимость строительства:"),
         "buildingRules":
@@ -179,6 +188,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "charactersGenderMaleInfo":
             MessageLookupByLibrary.simpleMessage("пол персонажа: мужской"),
         "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
+        "city": MessageLookupByLibrary.simpleMessage("city"),
         "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
         "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
         "clear": MessageLookupByLibrary.simpleMessage("очистить"),
@@ -200,6 +210,9 @@ class MessageLookup extends MessageLookupByLibrary {
         "darkSideCardsAreReplacedWithLightOnesAndVice":
             MessageLookupByLibrary.simpleMessage(
                 "карточки темной стороны заменяться на светлые и наоборот."),
+        "developmentCardWorth1VictoryPoint":
+            MessageLookupByLibrary.simpleMessage(
+                "development card worth 1 victory point"),
         "developmentCards":
             MessageLookupByLibrary.simpleMessage("карты развития:"),
         "didPlayerReachBid": m0,
@@ -320,12 +333,14 @@ class MessageLookup extends MessageLookupByLibrary {
         "king": MessageLookupByLibrary.simpleMessage("король"),
         "king4Points": MessageLookupByLibrary.simpleMessage("король: 4 очка"),
         "languages": MessageLookupByLibrary.simpleMessage("языки"),
+        "largestArmy": MessageLookupByLibrary.simpleMessage("largest army"),
         "leftHand": MessageLookupByLibrary.simpleMessage("левая рука"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
                 " позволяет легко отслеживать счета и ключевые моменты, оставаясь сосредоточенным на игре"),
         "level": MessageLookupByLibrary.simpleMessage("уровень"),
         "light": MessageLookupByLibrary.simpleMessage("светлая"),
+        "longestRoad": MessageLookupByLibrary.simpleMessage("longest road"),
         "lowestScoreWins":
             MessageLookupByLibrary.simpleMessage("побеждает низкий счет"),
         "magic": MessageLookupByLibrary.simpleMessage("магия"),
@@ -572,6 +587,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "setTrademarkNotice": MessageLookupByLibrary.simpleMessage(
             "set® является зарегистрированной торговой маркой компании set enterprises, inc."),
         "settings": MessageLookupByLibrary.simpleMessage("настройки"),
+        "settlement": MessageLookupByLibrary.simpleMessage("settlement"),
         "shareFeedback": MessageLookupByLibrary.simpleMessage("обратная связь"),
         "shareWithFriedns":
             MessageLookupByLibrary.simpleMessage("поделиться с друзьями"),
@@ -781,6 +797,10 @@ class MessageLookup extends MessageLookupByLibrary {
             "игрок выигрывает, набрав 500 очков."),
         "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
             "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры."),
+        "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
+            "upgrade a settlement to a city (+1 point)"),
+        "victoryPointCard":
+            MessageLookupByLibrary.simpleMessage("victory point card"),
         "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:"),
         "warrior": MessageLookupByLibrary.simpleMessage("воин"),
         "whoGoesFirst":
