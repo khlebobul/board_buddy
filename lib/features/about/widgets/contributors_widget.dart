@@ -1,11 +1,12 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:url_launcher/url_launcher.dart';
 import 'package:use_scramble/use_scramble.dart';
 
-/// widget that displays a list of contributors with links to their GitHub profiles.
+/// Widget that displays a list of contributors with links to their GitHub profiles.
 class ContributorsWidget extends StatelessWidget {
   /// List of contributor usernames.
   final List<String> contributors;
@@ -34,7 +35,7 @@ class ContributorsWidget extends StatelessWidget {
               } else {
                 AnimatedSnackBar.show(
                   context,
-                  message: 'Could not launch $url',
+                  message: '${S.of(context).couldNotLaunch} $url',
                 );
               }
             },
