@@ -34,6 +34,9 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog>
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
     _generateMap();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _generateMapWithAnimation();
+    });
   }
 
   @override
