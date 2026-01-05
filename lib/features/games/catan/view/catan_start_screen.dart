@@ -125,7 +125,7 @@ class CatanStartScreenView extends StatelessWidget {
                       }).toList(),
                     ),
                     const SizedBox(height: 12),
-                    if (catanState.players.length < 6)
+                    if (catanState.players.length < GameMaxPlayers.catan)
                       GestureDetector(
                         behavior: HitTestBehavior.opaque,
                         onTap: () {
@@ -186,7 +186,7 @@ class CatanStartScreenView extends StatelessWidget {
                 Navigator.pushNamed(context, '/catanRules');
               },
               onRightBtnTap: () {
-                if (catanState.players.length < 3) {
+                if (catanState.players.length < GameMinPlayers.catan) {
                   AnimatedSnackBar.show(
                     context,
                     message:
