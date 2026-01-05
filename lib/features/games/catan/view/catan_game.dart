@@ -1,6 +1,7 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/utils/custom_icons.dart';
+import 'package:board_buddy/features/games/catan/widgets/catan_map_generator_dialog.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/catan/bloc/catan_bloc.dart';
 import 'package:board_buddy/features/games/catan/widgets/catan_score_keyboard.dart';
@@ -236,16 +237,37 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
                               style: theme.display2
                                   .copyWith(color: theme.secondaryTextColor),
                             ),
-                            GestureDetector(
-                              onTap: () =>
-                                  DiceModal.show(context, diceCount: 2),
-                              child: SvgPicture.asset(
-                                CustomIcons.dice,
-                                width: 27,
-                                height: 27,
-                                colorFilter: ColorFilter.mode(
-                                    theme.textColor, BlendMode.srcIn),
-                              ),
+                            Row(
+                              children: [
+                                GestureDetector(
+                                  onTap: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) =>
+                                          CatanMapGeneratorDialog(),
+                                    );
+                                  },
+                                  child: SvgPicture.asset(
+                                    CustomIcons.map,
+                                    width: 27,
+                                    height: 27,
+                                    colorFilter: ColorFilter.mode(
+                                        theme.textColor, BlendMode.srcIn),
+                                  ),
+                                ),
+                                const SizedBox(width: 16),
+                                GestureDetector(
+                                  onTap: () =>
+                                      DiceModal.show(context, diceCount: 2),
+                                  child: SvgPicture.asset(
+                                    CustomIcons.dice,
+                                    width: 27,
+                                    height: 27,
+                                    colorFilter: ColorFilter.mode(
+                                        theme.textColor, BlendMode.srcIn),
+                                  ),
+                                ),
+                              ],
                             ),
                           ],
                         ),
