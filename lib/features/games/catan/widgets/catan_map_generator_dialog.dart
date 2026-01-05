@@ -5,6 +5,7 @@ import 'package:board_buddy/features/games/catan/models/catan_resource.dart';
 import 'package:board_buddy/features/games/catan/models/catan_tile.dart';
 import 'package:board_buddy/features/games/catan/widgets/hexagon_border_painter.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 
 class CatanMapGeneratorDialog extends StatefulWidget {
   const CatanMapGeneratorDialog({super.key});
@@ -14,14 +15,54 @@ class CatanMapGeneratorDialog extends StatefulWidget {
       _CatanMapGeneratorDialogState();
 }
 
-class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog> {
+class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog>
+    with SingleTickerProviderStateMixin {
   List<CatanTile> tiles = [];
   final random = Random();
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+  bool _isGenerating = false;
 
   @override
   void initState() {
     super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 300),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.8).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
     _generateMap();
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  Future<void> _generateMapWithAnimation() async {
+    if (_isGenerating) return;
+    _isGenerating = true;
+
+    HapticFeedback.selectionClick();
+
+    await _controller.forward();
+
+    const rollDuration = Duration(milliseconds: 400);
+    const interval = Duration(milliseconds: 50);
+    final stopwatch = Stopwatch()..start();
+
+    while (stopwatch.elapsed < rollDuration) {
+      _generateMap();
+      await Future.delayed(interval);
+    }
+
+    _generateMap();
+
+    await _controller.reverse();
+    _isGenerating = false;
   }
 
   void _generateMap() {
@@ -114,12 +155,20 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog> {
     }
 
     return GestureDetector(
-      onTap: _generateMap,
+      onTap: _generateMapWithAnimation,
       child: SizedBox(
         height: 300,
-        child: Column(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: rows,
+        child: AnimatedBuilder(
+          animation: _scaleAnimation,
+          builder: (context, child) {
+            return Transform.scale(
+              scale: _scaleAnimation.value,
+              child: Column(
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: rows,
+              ),
+            );
+          },
         ),
       ),
     );
