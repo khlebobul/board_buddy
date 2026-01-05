@@ -8,6 +8,7 @@ import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
+import 'package:board_buddy/features/games/catan/widgets/catan_map_generator_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:use_scramble/use_scramble.dart';
@@ -148,6 +149,26 @@ class CatanStartScreenView extends StatelessWidget {
                               );
                             }),
                       ),
+                    const SizedBox(height: 24),
+                    GestureDetector(
+                      behavior: HitTestBehavior.opaque,
+                      onTap: () {
+                        showDialog(
+                          context: context,
+                          builder: (context) => const CatanMapGeneratorDialog(),
+                        );
+                      },
+                      child: TextScramble(
+                        text: 'map generator',
+                        builder: (context, scrambledText) {
+                          return Text(
+                            scrambledText,
+                            style: theme.display2
+                                .copyWith(color: theme.secondaryTextColor),
+                          );
+                        },
+                      ),
+                    ),
                     SizedBox(
                         height: MediaQuery.of(context).viewInsets.bottom > 0
                             ? 300
