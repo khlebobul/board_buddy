@@ -1,42 +1,10 @@
 import 'dart:math';
 import 'package:board_buddy/config/theme/app_colors.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/features/games/catan/models/catan_resource.dart';
+import 'package:board_buddy/features/games/catan/models/catan_tile.dart';
+import 'package:board_buddy/features/games/catan/widgets/hexagon_border_painter.dart';
 import 'package:flutter/material.dart';
-
-enum CatanResource {
-  wood,
-  brick,
-  wheat,
-  sheep,
-  ore,
-  desert,
-}
-
-extension CatanResourceColor on CatanResource {
-  Color get color {
-    switch (this) {
-      case CatanResource.wood:
-        return const Color(0xFF5D7A3A);
-      case CatanResource.brick:
-        return const Color(0xFFA65D32);
-      case CatanResource.wheat:
-        return const Color(0xFFE8D44D);
-      case CatanResource.sheep:
-        return const Color(0xFF9DC45F);
-      case CatanResource.ore:
-        return const Color(0xFF7A7A7A);
-      case CatanResource.desert:
-        return const Color(0xFFD4C89A);
-    }
-  }
-}
-
-class CatanTile {
-  final CatanResource resource;
-  final int? number;
-
-  CatanTile({required this.resource, this.number});
-}
 
 class CatanMapGeneratorDialog extends StatefulWidget {
   const CatanMapGeneratorDialog({super.key});
@@ -199,46 +167,4 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog> {
       ),
     );
   }
-}
-
-class HexagonBorderPainter extends CustomPainter {
-  final Color fillColor;
-  final Color borderColor;
-  final double borderWidth;
-
-  HexagonBorderPainter({
-    required this.fillColor,
-    required this.borderColor,
-    required this.borderWidth,
-  });
-
-  @override
-  void paint(Canvas canvas, Size size) {
-    final path = Path();
-    final w = size.width;
-    final h = size.height;
-
-    path.moveTo(w * 0.5, 0);
-    path.lineTo(w, h * 0.25);
-    path.lineTo(w, h * 0.75);
-    path.lineTo(w * 0.5, h);
-    path.lineTo(0, h * 0.75);
-    path.lineTo(0, h * 0.25);
-    path.close();
-
-    final fillPaint = Paint()
-      ..color = fillColor
-      ..style = PaintingStyle.fill;
-
-    final borderPaint = Paint()
-      ..color = borderColor
-      ..style = PaintingStyle.stroke
-      ..strokeWidth = borderWidth;
-
-    canvas.drawPath(path, fillPaint);
-    canvas.drawPath(path, borderPaint);
-  }
-
-  @override
-  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }
