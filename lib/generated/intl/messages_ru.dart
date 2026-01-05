@@ -442,6 +442,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "побеждает низкий счет",
     ),
     "magic": MessageLookupByLibrary.simpleMessage("магия"),
+    "mapGenerator": MessageLookupByLibrary.simpleMessage("генератор карты"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "отмечает мёртвого персонажа",
     ),

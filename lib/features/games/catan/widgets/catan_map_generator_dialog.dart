@@ -1,4 +1,5 @@
 import 'dart:math';
+import 'package:board_buddy/config/theme/app_colors.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 
@@ -103,25 +104,6 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog> {
             ),
             const SizedBox(height: 8),
             _buildHexGrid(theme),
-            const SizedBox(height: 16),
-            _buildLegend(theme),
-            const SizedBox(height: 20),
-            GestureDetector(
-              onTap: _generateMap,
-              child: Container(
-                padding:
-                    const EdgeInsets.symmetric(horizontal: 48, vertical: 12),
-                decoration: BoxDecoration(
-                  color: theme.fgColor,
-                  borderRadius: BorderRadius.circular(24),
-                ),
-                child: Text(
-                  'Generate',
-                  style:
-                      theme.display4.copyWith(color: theme.secondaryTextColor),
-                ),
-              ),
-            ),
           ],
         ),
       ),
@@ -163,11 +145,14 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog> {
       );
     }
 
-    return SizedBox(
-      height: 300,
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: rows,
+    return GestureDetector(
+      onTap: _generateMap,
+      child: SizedBox(
+        height: 300,
+        child: Column(
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: rows,
+        ),
       ),
     );
   }
@@ -182,21 +167,22 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog> {
       child: Stack(
         alignment: Alignment.center,
         children: [
-          ClipPath(
-            clipper: PointyTopHexagonClipper(),
-            child: Container(
-              width: width,
-              height: height,
-              color: tile.resource.color,
+          CustomPaint(
+            size: Size(width, height),
+            painter: HexagonBorderPainter(
+              fillColor: tile.resource.color,
+              borderColor: theme.textColor,
+              borderWidth: 1.5,
             ),
           ),
           if (tile.number != null)
             Container(
               width: 22,
               height: 22,
-              decoration: const BoxDecoration(
-                color: Colors.white,
+              decoration: BoxDecoration(
+                color: LightModeColors.background,
                 shape: BoxShape.circle,
+                border: Border.all(color: LightModeColors.text, width: 1.5),
               ),
               child: Center(
                 child: Text(
@@ -204,7 +190,7 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog> {
                   style: TextStyle(
                     fontSize: 11,
                     fontWeight: FontWeight.bold,
-                    color: isRedNumber ? theme.redColor : Colors.black87,
+                    color: isRedNumber ? theme.redColor : LightModeColors.text,
                   ),
                 ),
               ),
@@ -213,43 +199,21 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog> {
       ),
     );
   }
-
-  Widget _buildLegend(UIThemes theme) {
-    final resources =
-        CatanResource.values.where((r) => r != CatanResource.desert).toList();
-    final names = ['Wood', 'Brick', 'Wheat', 'Sheep', 'Ore'];
-
-    return Wrap(
-      spacing: 12,
-      runSpacing: 6,
-      alignment: WrapAlignment.center,
-      children: List.generate(resources.length, (i) {
-        return Row(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Container(
-              width: 12,
-              height: 12,
-              decoration: BoxDecoration(
-                color: resources[i].color,
-                borderRadius: BorderRadius.circular(2),
-              ),
-            ),
-            const SizedBox(width: 4),
-            Text(
-              names[i],
-              style: theme.display10.copyWith(color: theme.secondaryTextColor),
-            ),
-          ],
-        );
-      }),
-    );
-  }
 }
 
-class PointyTopHexagonClipper extends CustomClipper<Path> {
+class HexagonBorderPainter extends CustomPainter {
+  final Color fillColor;
+  final Color borderColor;
+  final double borderWidth;
+
+  HexagonBorderPainter({
+    required this.fillColor,
+    required this.borderColor,
+    required this.borderWidth,
+  });
+
   @override
-  Path getClip(Size size) {
+  void paint(Canvas canvas, Size size) {
     final path = Path();
     final w = size.width;
     final h = size.height;
@@ -262,9 +226,19 @@ class PointyTopHexagonClipper extends CustomClipper<Path> {
     path.lineTo(0, h * 0.25);
     path.close();
 
-    return path;
+    final fillPaint = Paint()
+      ..color = fillColor
+      ..style = PaintingStyle.fill;
+
+    final borderPaint = Paint()
+      ..color = borderColor
+      ..style = PaintingStyle.stroke
+      ..strokeWidth = borderWidth;
+
+    canvas.drawPath(path, fillPaint);
+    canvas.drawPath(path, borderPaint);
   }
 
   @override
-  bool shouldReclip(CustomClipper<Path> oldClipper) => false;
+  bool shouldRepaint(covariant CustomPainter oldDelegate) => false;
 }

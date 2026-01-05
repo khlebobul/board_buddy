@@ -475,5 +475,6 @@
   "longestRoad": "самый длинный торговый путь",
   "awardedToThePlayerWith5ConnectedRoads": "присуждается игроку с 5+ соединёнными дорогами",
   "largestArmy": "самая большая армия",
-  "awardedToThePlayerWith3KnightCardsPlayed": "присуждается игроку с 3+ сыгранными картами рыцарей"
+  "awardedToThePlayerWith3KnightCardsPlayed": "присуждается игроку с 3+ сыгранными картами рыцарей",
+  "mapGenerator": "генератор карты"
 }

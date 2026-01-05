@@ -474,5 +474,6 @@
   "longestRoad": "route la plus longue",
   "awardedToThePlayerWith5ConnectedRoads": "attribuée au joueur avec 5+ routes connectées",
   "largestArmy": "armée la plus puissante",
-  "awardedToThePlayerWith3KnightCardsPlayed": "attribuée au joueur avec 3+ cartes chevalier jouées"
+  "awardedToThePlayerWith3KnightCardsPlayed": "attribuée au joueur avec 3+ cartes chevalier jouées",
+  "mapGenerator": "générateur de carte"
 }

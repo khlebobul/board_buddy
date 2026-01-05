@@ -159,12 +159,12 @@ class CatanStartScreenView extends StatelessWidget {
                         );
                       },
                       child: TextScramble(
-                        text: 'map generator',
+                        text: S.of(context).mapGenerator,
                         builder: (context, scrambledText) {
                           return Text(
                             scrambledText,
-                            style: theme.display2
-                                .copyWith(color: theme.secondaryTextColor),
+                            style:
+                                theme.display2.copyWith(color: theme.redColor),
                           );
                         },
                       ),

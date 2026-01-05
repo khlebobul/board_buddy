@@ -256,6 +256,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "light": MessageLookupByLibrary.simpleMessage("clair"),
     "longestRoad": MessageLookupByLibrary.simpleMessage("route la plus longue"),
     "magic": MessageLookupByLibrary.simpleMessage("magie"),
+    "mapGenerator": MessageLookupByLibrary.simpleMessage("générateur de carte"),
     "marriage": MessageLookupByLibrary.simpleMessage("mariage:"),
     "menu": MessageLookupByLibrary.simpleMessage("menu"),
     "mode": MessageLookupByLibrary.simpleMessage("mode"),

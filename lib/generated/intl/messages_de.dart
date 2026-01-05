@@ -436,6 +436,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "niedrigste punktzahl gewinnt",
     ),
     "magic": MessageLookupByLibrary.simpleMessage("magie"),
+    "mapGenerator": MessageLookupByLibrary.simpleMessage("karten-generator"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "markiert einen toten charakter",
     ),
