@@ -57,6 +57,9 @@ class _DiceModalState extends State<DiceModal>
     _scaleAnimation = Tween<double>(begin: 1.0, end: 0.8).animate(
       CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
     );
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      _rollDice();
+    });
   }
 
   @override

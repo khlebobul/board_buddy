@@ -4040,6 +4040,16 @@ class S {
       args: [],
     );
   }
+
+  /// `map generator`
+  String get mapGenerator {
+    return Intl.message(
+      'map generator',
+      name: 'mapGenerator',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -17,3 +17,12 @@ class DarkModeColors {
   static const Color border = Color(0xff929292);
   static const Color foreground = Color(0xff4B4B4B);
 }
+
+class CatanResourceColors {
+  static const Color wood = Color(0xFF5D7A3A);
+  static const Color brick = Color(0xFFA65D32);
+  static const Color wheat = Color(0xFFE8D44D);
+  static const Color sheep = Color(0xFF9DC45F);
+  static const Color ore = Color(0xFF7A7A7A);
+  static const Color desert = Color(0xFFD4C89A);
+}

@@ -474,5 +474,6 @@
   "longestRoad": "längste handelsstraße",
   "awardedToThePlayerWith5ConnectedRoads": "wird dem spieler mit 5+ verbundenen straßen verliehen",
   "largestArmy": "größte rittermacht",
-  "awardedToThePlayerWith3KnightCardsPlayed": "wird dem spieler mit 3+ ausgespielten ritterkarten verliehen"
+  "awardedToThePlayerWith3KnightCardsPlayed": "wird dem spieler mit 3+ ausgespielten ritterkarten verliehen",
+  "mapGenerator": "karten-generator"
 }
