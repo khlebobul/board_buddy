@@ -62,16 +62,11 @@ class SettingsScreenView extends StatelessWidget {
                       style: theme.display2
                           .copyWith(color: theme.secondaryTextColor),
                     ),
-                    _buildLanguageOption(
-                        context, S.of(context).english, 'en', state),
-                    _buildLanguageOption(
-                        context, S.of(context).russian, 'ru', state),
-                    _buildLanguageOption(
-                        context, S.of(context).german, 'de', state),
-                    _buildLanguageOption(
-                        context, S.of(context).french, 'fr', state),
-                    _buildLanguageOption(
-                        context, S.of(context).spanish, 'es', state),
+                    _buildLanguageOption(context, 'english', 'en', state),
+                    _buildLanguageOption(context, 'русский', 'ru', state),
+                    _buildLanguageOption(context, 'deutsch', 'de', state),
+                    _buildLanguageOption(context, 'français', 'fr', state),
+                    _buildLanguageOption(context, 'español', 'es', state),
                     const SizedBox(height: 12),
                     Text(
                       S.of(context).theme,
@@ -233,17 +228,14 @@ class SettingsScreenView extends StatelessWidget {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
       onTap: () => sendEmail(context, GeneralConst.email, subject),
-      child: Padding(
-        padding: const EdgeInsets.only(left: 14),
-        child: TextScramble(
-            text: label,
-            builder: (context, scrambledText) {
-              return Text(
-                scrambledText,
-                style: theme.display2,
-              );
-            }),
-      ),
+      child: TextScramble(
+          text: label,
+          builder: (context, scrambledText) {
+            return Text(
+              scrambledText,
+              style: theme.display2,
+            );
+          }),
     );
   }
 }
