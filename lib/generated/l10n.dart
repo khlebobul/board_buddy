@@ -4050,6 +4050,16 @@ class S {
       args: [],
     );
   }
+
+  /// `roll dice`
+  String get rollDiceLocale {
+    return Intl.message(
+      'roll dice',
+      name: 'rollDiceLocale',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

@@ -54,12 +54,12 @@ class InfoCatanDialog extends StatelessWidget {
         InfoRowWidget(
           context: context,
           iconPath: CustomIcons.dice,
-          description: 'roll dice',
+          description: S.of(context).rollDiceLocale,
         ),
         InfoRowWidget(
           context: context,
           iconPath: CustomIcons.map,
-          description: 'generate map layouts',
+          description: S.of(context).mapGenerator,
         ),
       ],
     );

@@ -476,5 +476,6 @@
   "awardedToThePlayerWith5ConnectedRoads": "присуждается игроку с 5+ соединёнными дорогами",
   "largestArmy": "самая большая армия",
   "awardedToThePlayerWith3KnightCardsPlayed": "присуждается игроку с 3+ сыгранными картами рыцарей",
-  "mapGenerator": "генератор карты"
+  "mapGenerator": "генератор карты",
+  "rollDiceLocale": "бросить кубики"
 }
