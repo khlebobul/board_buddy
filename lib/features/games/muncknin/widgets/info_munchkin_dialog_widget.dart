@@ -33,6 +33,16 @@ class InfoMunchkinDialogWidget extends StatelessWidget {
         ),
         InfoRowWidget(
           context: context,
+          iconPath: CustomIcons.modifiers,
+          description: S.of(context).buffsOrDebuffsAffectingCharactersitemsInfo,
+        ),
+        InfoRowWidget(
+          context: context,
+          iconPath: CustomIcons.dice,
+          description: S.of(context).rollDiceLocale,
+        ),
+        InfoRowWidget(
+          context: context,
           title: S.of(context).cursed,
           description: S.of(context).indicatesAnActiveCurse,
         ),
@@ -40,11 +50,6 @@ class InfoMunchkinDialogWidget extends StatelessWidget {
           context: context,
           title: S.of(context).clearance,
           description: S.of(context).possiblyTheRemovalOfCursesOrDebuffs,
-        ),
-        InfoRowWidget(
-          context: context,
-          title: S.of(context).modifiers,
-          description: S.of(context).buffsOrDebuffsAffectingCharactersitemsInfo,
         ),
       ],
     );
