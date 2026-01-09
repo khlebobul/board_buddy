@@ -12,6 +12,7 @@ class InfoRowWidget extends StatelessWidget {
   final String description;
   final bool isScrabble;
   final Color? iconColor;
+  final bool simpleMode;
 
   const InfoRowWidget({
     super.key,
@@ -23,16 +24,19 @@ class InfoRowWidget extends StatelessWidget {
     required this.description,
     this.isScrabble = false,
     this.iconColor,
+    this.simpleMode = false,
   });
 
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
 
+    final bool isSimple = simpleMode || (title.isEmpty && points.isEmpty);
+
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
-        crossAxisAlignment: CrossAxisAlignment.center,
+        crossAxisAlignment: isSimple ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
@@ -56,29 +60,36 @@ class InfoRowWidget extends StatelessWidget {
           ),
           const SizedBox(width: 15),
           Expanded(
-            child: RichText(
-              text: TextSpan(
-                style: theme.display2,
-                children: [
-                  if (title.isNotEmpty && points.isNotEmpty)
-                    TextSpan(
-                      text: '$title\n($points ${S.of(context).pointsCount(int.tryParse(points) ?? 0)})\n',
-                      style: theme.display2.copyWith(color: theme.textColor),
-                    ),
-                  if (title.isNotEmpty && points.isEmpty)
-                    TextSpan(
-                      text: '$title\n',
-                      style: theme.display2.copyWith(color: theme.textColor),
-                    ),
-                  TextSpan(
-                    text: description,
+            child: isSimple
+                ? Text(
+                    description,
                     style: theme.display2.copyWith(
                       color: theme.secondaryTextColor,
                     ),
+                  )
+                : RichText(
+                    text: TextSpan(
+                      style: theme.display2,
+                      children: [
+                        if (title.isNotEmpty && points.isNotEmpty)
+                          TextSpan(
+                            text: '$title\n($points ${S.of(context).pointsCount(int.tryParse(points) ?? 0)})\n',
+                            style: theme.display2.copyWith(color: theme.textColor),
+                          ),
+                        if (title.isNotEmpty && points.isEmpty)
+                          TextSpan(
+                            text: '$title\n',
+                            style: theme.display2.copyWith(color: theme.textColor),
+                          ),
+                        TextSpan(
+                          text: description,
+                          style: theme.display2.copyWith(
+                            color: theme.secondaryTextColor,
+                          ),
+                        ),
+                      ],
+                    ),
                   ),
-                ],
-              ),
-            ),
           ),
         ],
       ),
