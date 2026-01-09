@@ -51,6 +51,16 @@ class InfoCatanDialog extends StatelessWidget {
           points: CatanCardsPoints.largestArmy,
           description: S.of(context).awardedToThePlayerWith3KnightCardsPlayed,
         ),
+        InfoRowWidget(
+          context: context,
+          iconPath: CustomIcons.dice,
+          description: 'roll dice',
+        ),
+        InfoRowWidget(
+          context: context,
+          iconPath: CustomIcons.map,
+          description: 'generate map layouts',
+        ),
       ],
     );
   }
