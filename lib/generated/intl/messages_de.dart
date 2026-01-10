@@ -583,6 +583,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "richtungswechsel-karte",
     ),
     "rightHand": MessageLookupByLibrary.simpleMessage("rechte hand"),
+    "rollDiceLocale": MessageLookupByLibrary.simpleMessage("würfeln"),
     "round": MessageLookupByLibrary.simpleMessage("runde"),
     "rules": MessageLookupByLibrary.simpleMessage("regeln"),
     "russian": MessageLookupByLibrary.simpleMessage("russisch"),

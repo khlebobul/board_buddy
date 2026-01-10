@@ -476,5 +476,6 @@
   "awardedToThePlayerWith5ConnectedRoads": "awarded to the player with 5+ connected roads",
   "largestArmy": "largest army",
   "awardedToThePlayerWith3KnightCardsPlayed": "awarded to the player with 3+ knight cards played",
-  "mapGenerator": "map generator"
+  "mapGenerator": "map generator",
+  "rollDiceLocale": "roll dice"
 }

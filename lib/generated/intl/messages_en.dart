@@ -573,6 +573,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "returnToMenu": MessageLookupByLibrary.simpleMessage("return to menu"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage("reverse card"),
     "rightHand": MessageLookupByLibrary.simpleMessage("right hand"),
+    "rollDiceLocale": MessageLookupByLibrary.simpleMessage("roll dice"),
     "round": MessageLookupByLibrary.simpleMessage("round"),
     "rules": MessageLookupByLibrary.simpleMessage("rules"),
     "russian": MessageLookupByLibrary.simpleMessage("russian"),

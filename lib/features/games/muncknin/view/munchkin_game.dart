@@ -239,9 +239,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                   ],
                 ),
                 bottomNavigationBar: BottomGameBar(
-                  dialogWidget: state.players.length > 1
-                      ? const InfoMunchkinDialogWidget()
-                      : null,
+                  dialogWidget: InfoMunchkinDialogWidget(),
                   isArrow: true,
                   rightButtonText: S.of(context).options,
                   onRightBtnTap: () => _showEndGameModal(context, state),

@@ -599,6 +599,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "returnToMenu": MessageLookupByLibrary.simpleMessage("volver al menú"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage("carta reversa"),
     "rightHand": MessageLookupByLibrary.simpleMessage("mano derecha"),
+    "rollDiceLocale": MessageLookupByLibrary.simpleMessage("tira los dados"),
     "round": MessageLookupByLibrary.simpleMessage("ronda"),
     "rules": MessageLookupByLibrary.simpleMessage("reglas"),
     "russian": MessageLookupByLibrary.simpleMessage("ruso"),

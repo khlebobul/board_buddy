@@ -288,6 +288,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "race1": MessageLookupByLibrary.simpleMessage("race 1"),
     "resources": MessageLookupByLibrary.simpleMessage("ressources :"),
     "results": MessageLookupByLibrary.simpleMessage("résultats"),
+    "rollDiceLocale": MessageLookupByLibrary.simpleMessage("lancer des dés"),
     "round": MessageLookupByLibrary.simpleMessage("manche"),
     "rules": MessageLookupByLibrary.simpleMessage("règles"),
     "russian": MessageLookupByLibrary.simpleMessage("russe"),
