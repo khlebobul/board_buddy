@@ -1,8 +1,12 @@
+import 'dart:io';
+
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gen_art_bg/gen_art_bg.dart';
+import 'package:upgrader/upgrader.dart';
 import 'package:use_scramble/use_scramble.dart';
 
 class HomeScreen extends StatefulWidget {
@@ -13,6 +17,17 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
+  late final Upgrader _upgrader;
+
+  @override
+  void initState() {
+    super.initState();
+    _upgrader = Upgrader(
+      debugLogging: true,
+      debugDisplayAlways: false,
+    );
+  }
+
   void _navigateTo(BuildContext context, String routeName) {
     Navigator.pushNamed(context, routeName);
   }
@@ -28,7 +43,7 @@ class _HomeScreenState extends State<HomeScreen> {
       {'title': S.of(context).settings, 'route': '/settings'},
     ];
 
-    return Scaffold(
+    final content = Scaffold(
       body: Stack(
         children: [
           Positioned.fill(
@@ -83,5 +98,29 @@ class _HomeScreenState extends State<HomeScreen> {
         ],
       ),
     );
+
+    final upgradeAlert = UpgradeAlert(
+      showReleaseNotes: false,
+      dialogStyle: Platform.isIOS
+          ? UpgradeDialogStyle.cupertino
+          : UpgradeDialogStyle.material,
+      cupertinoButtonTextStyle: const TextStyle(
+        color: CupertinoColors.activeBlue,
+        fontSize: 17,
+      ),
+      upgrader: _upgrader,
+      child: content,
+    );
+
+    if (!Platform.isIOS) {
+      return Theme(
+        data: Theme.of(context).brightness == Brightness.dark
+            ? ThemeData.dark(useMaterial3: true)
+            : ThemeData.light(useMaterial3: true),
+        child: upgradeAlert,
+      );
+    }
+
+    return upgradeAlert;
   }
 }
