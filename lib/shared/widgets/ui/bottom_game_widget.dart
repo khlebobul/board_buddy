@@ -1,9 +1,7 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gaimon/gaimon.dart';
 import 'package:not_static_icons/not_static_icons.dart';
 import 'package:use_scramble/use_scramble.dart';

@@ -1,9 +1,7 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:flutter/material.dart';
 import 'dart:async';
-
-import 'package:flutter_svg/svg.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class TimerWidget extends StatefulWidget {
   final int? initialSeconds;
@@ -122,16 +120,19 @@ class TimerWidgetState extends State<TimerWidget> {
     return Row(
       mainAxisAlignment: MainAxisAlignment.center,
       children: [
-        GestureDetector(
-          behavior: HitTestBehavior.opaque,
-          onTap: _isRunning ? _stopTimer : _startTimer,
-          child: SvgPicture.asset(
-            _isRunning ? CustomIcons.pause : CustomIcons.play,
-            width: 27,
-            height: 27,
-            colorFilter: ColorFilter.mode(theme.textColor, BlendMode.srcIn),
-          ),
-        ),
+        _isRunning
+            ? PauseIcon(
+                color: theme.textColor,
+                size: 27,
+                strokeWidth: 1,
+                hoverColor: theme.secondaryTextColor,
+                onTap: _stopTimer)
+            : PlayIcon(
+                color: theme.textColor,
+                size: 27,
+                strokeWidth: 1,
+                hoverColor: theme.secondaryTextColor,
+                onTap: _startTimer),
         const SizedBox(width: 15),
         Text(
           _formatTime(_seconds),
@@ -140,15 +141,12 @@ class TimerWidgetState extends State<TimerWidget> {
               : theme.display4.copyWith(color: theme.secondaryTextColor),
         ),
         const SizedBox(width: 15),
-        GestureDetector(
-          behavior: HitTestBehavior.opaque,
+        RotateCcwIcon(
+          color: theme.textColor,
+          size: 27,
+          strokeWidth: 1,
+          hoverColor: theme.secondaryTextColor,
           onTap: _resetTimer,
-          child: SvgPicture.asset(
-            CustomIcons.refresh,
-            width: 27,
-            height: 27,
-            colorFilter: ColorFilter.mode(theme.textColor, BlendMode.srcIn),
-          ),
         ),
       ],
     );
