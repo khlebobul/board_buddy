@@ -1,9 +1,9 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/shared/widgets/ui/info_row_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/blurred_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class InfoMunchkinDialogWidget extends StatelessWidget {
   const InfoMunchkinDialogWidget({super.key});
@@ -18,27 +18,52 @@ class InfoMunchkinDialogWidget extends StatelessWidget {
       children: [
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.bone,
+          icon: BoneIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           description: S.of(context).marksADeadCharacterInfo,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.male,
+          icon: MarsIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           description: S.of(context).charactersGenderMaleInfo,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.female,
+          icon: VenusIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           description: S.of(context).charactersGenderFemaleInfo,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.modifiers,
+          icon: BicepsFlexedIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           description: S.of(context).buffsOrDebuffsAffectingCharactersitemsInfo,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.dice,
+          icon: BoxIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           description: S.of(context).rollDiceLocale,
         ),
         InfoRowWidget(

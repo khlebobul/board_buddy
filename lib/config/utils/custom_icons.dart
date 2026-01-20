@@ -1,6 +1,5 @@
 class CustomIcons {
   static const String dice = 'assets/icons/box.svg';
-  static const String remove = 'assets/icons/remove.svg';
   static const String sun = 'assets/icons/sun.svg';
   static const String sunDark = 'assets/icons/sun-dark.svg';
   static const String warning = 'assets/icons/warning.svg';

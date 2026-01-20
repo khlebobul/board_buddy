@@ -7,6 +7,7 @@ class InfoRowWidget extends StatelessWidget {
   final BuildContext context;
   final String cardName;
   final String iconPath;
+  final Widget? icon;
   final String title;
   final String points;
   final String description;
@@ -19,6 +20,7 @@ class InfoRowWidget extends StatelessWidget {
     required this.context,
     this.cardName = '',
     this.iconPath = '',
+    this.icon,
     this.title = '',
     this.points = '',
     required this.description,
@@ -43,19 +45,21 @@ class InfoRowWidget extends StatelessWidget {
             width: 30,
             height: 30,
             child: Center(
-              child: iconPath.isNotEmpty
-                  ? SvgPicture.asset(
-                      iconPath,
-                      width: 24,
-                      height: 24,
-                      colorFilter: ColorFilter.mode(
-                          iconColor ?? theme.textColor, BlendMode.srcIn),
-                    )
-                  : Text(
-                      cardName,
-                      style: isScrabble ? theme.display7 : theme.display2,
-                      textAlign: TextAlign.center,
-                    ),
+              child: icon != null
+                  ? icon!
+                  : iconPath.isNotEmpty
+                      ? SvgPicture.asset(
+                          iconPath,
+                          width: 24,
+                          height: 24,
+                          colorFilter: ColorFilter.mode(
+                              iconColor ?? theme.textColor, BlendMode.srcIn),
+                        )
+                      : Text(
+                          cardName,
+                          style: isScrabble ? theme.display7 : theme.display2,
+                          textAlign: TextAlign.center,
+                        ),
             ),
           ),
           const SizedBox(width: 15),

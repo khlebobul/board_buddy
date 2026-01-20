@@ -1,10 +1,10 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/shared/widgets/ui/info_row_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/blurred_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class InfoThousandDialog extends StatelessWidget {
   const InfoThousandDialog({super.key});
@@ -61,35 +61,60 @@ class InfoThousandDialog extends StatelessWidget {
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.heart,
+          icon: HeartIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).thousandMarriageTwo,
           description: S.of(context).thousandMarriageOne,
           iconColor: theme.redColor,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.diamond,
+          icon: DiamondIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).thousandMarriageThree,
           description: S.of(context).thousandMarriageFour,
           iconColor: theme.redColor,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.club,
+          icon: ClubIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).thousandMarriageThree,
           description: S.of(context).thousandMarriageFour,
           iconColor: theme.textColor,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.spade,
+          icon: SpadeIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).thousandMarriageThree,
           description: S.of(context).thousandMarriageFour,
           iconColor: theme.textColor,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.warning,
+          icon: CircleAlertIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).thousandSpecialRulesTitleOne,
           points: '',
           description: S.of(context).thousandSpecialRulesTitleTwo,
