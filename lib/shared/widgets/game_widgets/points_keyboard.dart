@@ -109,27 +109,38 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
         child: AnimatedBuilder(
           animation: _colorAnimation,
           builder: (context, child) {
-            return widget.button.buttonIcon.isEmpty
-                ? Text(
-                    widget.button.buttonText,
-                    style: widget.theme.display8.copyWith(
-                      color: widget.button.textColor ?? _colorAnimation.value,
-                    ),
-                  )
-                : Padding(
-                    padding: const EdgeInsets.symmetric(vertical: 3.0),
-                    child: SizedBox(
-                      width: widget.button.iconSize,
-                      height: widget.button.iconSize,
-                      child: SvgPicture.asset(
-                        widget.button.buttonIcon,
-                        fit: BoxFit.fitHeight,
-                        colorFilter: ColorFilter.mode(
-                            widget.button.iconColor ?? _colorAnimation.value!,
-                            BlendMode.srcIn),
-                      ),
-                    ),
-                  );
+            if (widget.button.icon != null) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 3.0),
+                child: SizedBox(
+                  width: widget.button.iconSize,
+                  height: widget.button.iconSize,
+                  child: widget.button.icon!,
+                ),
+              );
+            } else if (widget.button.buttonIcon.isNotEmpty) {
+              return Padding(
+                padding: const EdgeInsets.symmetric(vertical: 3.0),
+                child: SizedBox(
+                  width: widget.button.iconSize,
+                  height: widget.button.iconSize,
+                  child: SvgPicture.asset(
+                    widget.button.buttonIcon,
+                    fit: BoxFit.fitHeight,
+                    colorFilter: ColorFilter.mode(
+                        widget.button.iconColor ?? _colorAnimation.value!,
+                        BlendMode.srcIn),
+                  ),
+                ),
+              );
+            } else {
+              return Text(
+                widget.button.buttonText,
+                style: widget.theme.display8.copyWith(
+                  color: widget.button.textColor ?? _colorAnimation.value,
+                ),
+              );
+            }
           },
         ),
       ),
@@ -141,6 +152,9 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
 class KeyboardButton {
   /// Path to the icon to display on the button.
   final String buttonIcon;
+
+  /// Widget icon to display on the button (from not_static_icons package).
+  final Widget? icon;
 
   /// Text to display on the button.
   final String buttonText;
@@ -165,6 +179,7 @@ class KeyboardButton {
 
   KeyboardButton({
     this.buttonIcon = '',
+    this.icon,
     this.buttonText = '',
     this.onPressed,
     this.backgroundColor,

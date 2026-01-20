@@ -16,6 +16,7 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/svg.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class CatanGame extends StatefulWidget {
   final List<Player> players;
@@ -239,7 +240,11 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
                             ),
                             Row(
                               children: [
-                                GestureDetector(
+                                MapPlusIcon(
+                                  color: theme.textColor,
+                                  size: 27,
+                                  strokeWidth: 1,
+                                  hoverColor: theme.secondaryTextColor,
                                   onTap: () {
                                     showDialog(
                                       context: context,
@@ -247,13 +252,6 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
                                           CatanMapGeneratorDialog(),
                                     );
                                   },
-                                  child: SvgPicture.asset(
-                                    CustomIcons.map,
-                                    width: 27,
-                                    height: 27,
-                                    colorFilter: ColorFilter.mode(
-                                        theme.textColor, BlendMode.srcIn),
-                                  ),
                                 ),
                                 const SizedBox(width: 16),
                                 GestureDetector(

@@ -14,6 +14,7 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// uno game screen
 class UnoGame extends StatefulWidget {
@@ -438,26 +439,46 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                                 onPressed: () => _updateScore(20),
                               ),
                               KeyboardButton(
-                                buttonIcon: CustomIcons.reverse,
-                                onPressed: () => _updateScore(20),
+                                icon: RepeatIcon(
+                                  color: theme.textColor,
+                                  hoverColor: theme.secondaryTextColor,
+                                  strokeWidth: 1,
+                                  size: 30,
+                                  onTap: () => _updateScore(20),
+                                ),
                               ),
                             ],
                             [
                               KeyboardButton(
-                                buttonIcon: CustomIcons.skip,
-                                onPressed: () => _updateScore(20),
+                                icon: BanIcon(
+                                  color: theme.textColor,
+                                  hoverColor: theme.secondaryTextColor,
+                                  strokeWidth: 1,
+                                  size: 30,
+                                  onTap: () => _updateScore(20),
+                                ),
                               ),
                               KeyboardButton(
-                                buttonIcon: CustomIcons.wild,
-                                onPressed: () => _updateScore(50),
+                                icon: Grid2x2Icon(
+                                  color: theme.textColor,
+                                  hoverColor: theme.secondaryTextColor,
+                                  strokeWidth: 1,
+                                  size: 30,
+                                  onTap: () => _updateScore(50),
+                                ),
                               ),
                               KeyboardButton(
                                 buttonIcon: CustomIcons.wildDrawFour,
                                 onPressed: () => _updateScore(50),
                               ),
                               KeyboardButton(
-                                buttonIcon: CustomIcons.swap,
-                                onPressed: () => _updateScore(40),
+                                icon: ReplaceIcon(
+                                  color: theme.textColor,
+                                  hoverColor: theme.secondaryTextColor,
+                                  strokeWidth: 1,
+                                  size: 30,
+                                  onTap: () => _updateScore(40),
+                                ),
                               ),
                             ],
                           ],

@@ -18,6 +18,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gaimon/gaimon.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 import 'package:use_scramble/use_scramble.dart';
 
 /// munchkin game screen
@@ -143,25 +144,33 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onTap: () {
-                              final currentPlayer = _currentPlayerIndex;
-                              if (currentPlayer >= 0 &&
-                                  currentPlayer < state.players.length) {
-                                context
-                                    .read<MunchkinBloc>()
-                                    .add(TogglePlayerGender(currentPlayer));
-                              }
-                            },
-                            child: SvgPicture.asset(
-                              state.players[_currentPlayerIndex].isMale
-                                  ? CustomIcons.male
-                                  : CustomIcons.female,
-                              colorFilter: ColorFilter.mode(
-                                  theme.textColor, BlendMode.srcIn),
-                            ),
-                          ),
+                          state.players[_currentPlayerIndex].isMale
+                              ? MarsIcon(
+                                  color: theme.textColor,
+                                  strokeWidth: 1,
+                                  size: 28,
+                                  onTap: () {
+                                    final currentPlayer = _currentPlayerIndex;
+                                    if (currentPlayer >= 0 &&
+                                        currentPlayer < state.players.length) {
+                                      context.read<MunchkinBloc>().add(
+                                          TogglePlayerGender(currentPlayer));
+                                    }
+                                  },
+                                )
+                              : VenusIcon(
+                                  color: theme.textColor,
+                                  strokeWidth: 1,
+                                  size: 28,
+                                  onTap: () {
+                                    final currentPlayer = _currentPlayerIndex;
+                                    if (currentPlayer >= 0 &&
+                                        currentPlayer < state.players.length) {
+                                      context.read<MunchkinBloc>().add(
+                                          TogglePlayerGender(currentPlayer));
+                                    }
+                                  },
+                                ),
                           const SizedBox(width: 40),
                           GestureDetector(
                             behavior: HitTestBehavior.opaque,
@@ -483,18 +492,25 @@ class _MunchkinGameState extends State<MunchkinGame> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                context.read<MunchkinBloc>().add(TogglePlayerGender(0));
-                Gaimon.soft();
-              },
-              child: SvgPicture.asset(
-                state.players.first.isMale
-                    ? CustomIcons.male
-                    : CustomIcons.female,
-              ),
-            ),
+            state.players.first.isMale
+                ? MarsIcon(
+                    color: theme.textColor,
+                    strokeWidth: 1,
+                    size: 28,
+                    onTap: () {
+                      context.read<MunchkinBloc>().add(TogglePlayerGender(0));
+                      Gaimon.soft();
+                    },
+                  )
+                : VenusIcon(
+                    color: theme.textColor,
+                    strokeWidth: 1,
+                    size: 28,
+                    onTap: () {
+                      context.read<MunchkinBloc>().add(TogglePlayerGender(0));
+                      Gaimon.soft();
+                    },
+                  ),
             const SizedBox(width: 40),
             GestureDetector(
               behavior: HitTestBehavior.opaque,

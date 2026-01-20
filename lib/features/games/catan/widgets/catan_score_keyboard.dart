@@ -3,6 +3,7 @@ import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gaimon/gaimon.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// A custom keyboard widget for score adjustments in the Catan game.
 class CatanScoreKeyboard extends StatelessWidget {
@@ -172,11 +173,11 @@ class CatanScoreKeyboard extends StatelessWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
-            SvgPicture.asset(
-              CustomIcons.road,
-              width: 28,
-              height: 28,
-              colorFilter: ColorFilter.mode(theme.textColor, BlendMode.srcIn),
+            RoadIcon(
+              size: 28,
+              color: theme.textColor,
+              strokeWidth: 1,
+              enableTouchInteraction: false,
             ),
             Padding(
               padding: const EdgeInsets.symmetric(horizontal: 12),
@@ -185,12 +186,12 @@ class CatanScoreKeyboard extends StatelessWidget {
                 style: theme.display3.copyWith(color: theme.textColor),
               ),
             ),
-            SvgPicture.asset(
-              CustomIcons.army,
-              width: 28,
-              height: 28,
-              colorFilter: ColorFilter.mode(theme.textColor, BlendMode.srcIn),
-            ),
+            SwordsIcon(
+              size: 28,
+              color: theme.textColor,
+              strokeWidth: 1,
+              enableTouchInteraction: false,
+            )
           ],
         ),
       ),

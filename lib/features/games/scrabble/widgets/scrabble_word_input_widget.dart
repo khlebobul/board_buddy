@@ -9,6 +9,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_svg/svg.dart';
 import 'package:flutter_popup/flutter_popup.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 import 'package:use_scramble/use_scramble.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:board_buddy/features/games/scrabble/bloc/scrabble_bloc.dart';
@@ -313,11 +314,11 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
   // Helper method to render modifier indicator
   Widget _renderModifierIndicator(String modifier, UIThemes theme) {
     if (modifier == 'star') {
-      return SvgPicture.asset(
-        CustomIcons.star,
-        width: 12,
-        height: 12,
-        colorFilter: ColorFilter.mode(theme.redColor, BlendMode.srcIn),
+      return StarIcon(
+        size: 12,
+        color: theme.redColor,
+        strokeWidth: 1,
+        enableTouchInteraction: false,
       );
     } else if (modifier == S.current.blankTile) {
       return Text(
