@@ -1,6 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/common_counter/bloc/common_counter_bloc.dart';
 import 'package:board_buddy/features/games/common_counter/widgets/custom_score_keyboard.dart';
@@ -16,7 +15,7 @@ import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// common game screen (calculator)
 class CommonGame extends StatelessWidget {
@@ -174,7 +173,7 @@ class _CommonGameViewState extends State<CommonGameView>
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-    
+
     return BlocBuilder<CommonCounterBloc, CommonCounterState>(
       builder: (context, state) {
         if (state is! CommonCounterGameState) {
@@ -234,15 +233,11 @@ class _CommonGameViewState extends State<CommonGameView>
                           },
                         ),
                         const Spacer(),
-                        GestureDetector(
+                        BoxIcon(
                           onTap: () => DiceModal.show(context),
-                          child: SvgPicture.asset(
-                            CustomIcons.dice,
-                            width: 27,
-                            height: 27,
-                            colorFilter: ColorFilter.mode(
-                                theme.textColor, BlendMode.srcIn),
-                          ),
+                          size: 27,
+                          color: theme.textColor,
+                          strokeWidth: 1,
                         ),
                       ],
                     ),

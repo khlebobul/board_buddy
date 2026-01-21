@@ -1,6 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/catan/widgets/catan_map_generator_dialog.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/catan/bloc/catan_bloc.dart';
@@ -15,7 +14,6 @@ import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:not_static_icons/not_static_icons.dart';
 
 class CatanGame extends StatefulWidget {
@@ -254,16 +252,13 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
                                   },
                                 ),
                                 const SizedBox(width: 16),
-                                GestureDetector(
+                                BoxIcon(
                                   onTap: () =>
                                       DiceModal.show(context, diceCount: 2),
-                                  child: SvgPicture.asset(
-                                    CustomIcons.dice,
-                                    width: 27,
-                                    height: 27,
-                                    colorFilter: ColorFilter.mode(
-                                        theme.textColor, BlendMode.srcIn),
-                                  ),
+                                  color: theme.textColor,
+                                  size: 27,
+                                  strokeWidth: 1,
+                                  hoverColor: theme.secondaryTextColor,
                                 ),
                               ],
                             ),

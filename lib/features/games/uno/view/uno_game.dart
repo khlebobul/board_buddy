@@ -1,6 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/uno/bloc/uno_bloc.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
@@ -468,8 +467,15 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                                 ),
                               ),
                               KeyboardButton(
-                                buttonIcon: CustomIcons.wildDrawFour,
-                                onPressed: () => _updateScore(50),
+                                icon: GridPlus4Icon(
+                                  color: theme.textColor,
+                                  hoverColor: theme.secondaryTextColor,
+                                  strokeWidth: 1,
+                                  size: 30,
+                                  // TODO: implement
+                                  //onTap: () => _updateScore(50),
+                                ),
+                                // onPressed: () => _updateScore(50),
                               ),
                               KeyboardButton(
                                 icon: ReplaceIcon(

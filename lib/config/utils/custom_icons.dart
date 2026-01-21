@@ -1,17 +1,5 @@
 class CustomIcons {
-  static const String dice = 'assets/icons/box.svg';
-
   // games icons
-  // uno, dos, uno flip
-  static const String wildDrawFour =
-      'assets/icons/games_icons/uno_like/wild_4.svg';
-  static const String wildDrawTwoDos =
-      'assets/icons/games_icons/uno_like/wild_2.svg';
-  static const String flip = 'assets/icons/games_icons/uno_like/flip.svg';
-  static const String wildDrawColor =
-      'assets/icons/games_icons/uno_like/wild_draw_color.svg';
-  static const String wildDrawTwoUnoflip =
-      'assets/icons/games_icons/uno_like/wild_2_unoflip.svg';
 
   // munchkin
   static const String bone = 'assets/icons/games_icons/munchkin/bone.svg';

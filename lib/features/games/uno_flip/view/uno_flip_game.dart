@@ -1,6 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/uno_flip/bloc/uno_flip_bloc.dart';
 import 'package:board_buddy/features/games/uno_flip/widgets/info_uno_flip_dialog_widget.dart';
@@ -470,7 +469,12 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                             ],
                             [
                               KeyboardButton(
-                                buttonIcon: CustomIcons.flip,
+                                icon: ReplaceIcon(
+                                  color: theme.textColor,
+                                  hoverColor: theme.secondaryTextColor,
+                                  strokeWidth: 1,
+                                  size: 30,
+                                ),
                                 onPressed: () => _updateScore(20),
                               ),
                               KeyboardButton(
@@ -484,13 +488,23 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                               ),
                               _isDarkSide
                                   ? KeyboardButton(
-                                      buttonIcon: CustomIcons.wildDrawColor,
-                                      onPressed: () => _updateScore(60),
+                                      icon: Grid2x2Icon(
+                                        color: theme.textColor,
+                                        hoverColor: theme.secondaryTextColor,
+                                        strokeWidth: 1,
+                                        size: 30,
+                                        onTap: () => _updateScore(40),
+                                      ),
                                     )
                                   : KeyboardButton(
-                                      buttonIcon:
-                                          CustomIcons.wildDrawTwoUnoflip,
-                                      onPressed: () => _updateScore(50),
+                                      icon: GridPlus2Icon(
+                                        color: theme.textColor,
+                                        hoverColor: theme.secondaryTextColor,
+                                        strokeWidth: 1,
+                                        size: 30,
+                                        // TODO: implement
+                                        // onTap: () => _updateScore(50),
+                                      ),
                                     ),
                               KeyboardButton(
                                 icon: _isDarkSide

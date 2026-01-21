@@ -1,6 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/widgets/ui/info_row_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/blurred_dialog.dart';
@@ -19,14 +18,24 @@ class InfoCatanDialog extends StatelessWidget {
       children: [
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.home,
+          icon: HouseIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).settlement,
           points: CatanCardsPoints.settlement,
           description: S.of(context).buildANewSettlementOnAnIntersection,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.city,
+          icon: Building2Icon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).city,
           points: CatanCardsPoints.city,
           description: S.of(context).upgradeASettlementToACity1Point,
