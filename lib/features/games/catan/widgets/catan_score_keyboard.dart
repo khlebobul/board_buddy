@@ -302,21 +302,27 @@ class _AnimatedRoadArmyButtonState extends State<_AnimatedRoadArmyButton>
                     size: 28,
                     color: widget.theme.textColor,
                     strokeWidth: 1,
-                    enableTouchInteraction: false,
+                    enableTouchInteraction: true,
                   ),
-                  Padding(
-                    padding: const EdgeInsets.symmetric(horizontal: 12),
-                    child: Text(
-                      '/',
-                      style: widget.theme.display3
-                          .copyWith(color: widget.theme.textColor),
-                    ),
-                  ),
-                  SwordsIcon(
+                  SlashIcon(
                     size: 28,
                     color: widget.theme.textColor,
                     strokeWidth: 1,
                     enableTouchInteraction: false,
+                  ),
+                  // Padding(
+                  //   padding: const EdgeInsets.symmetric(horizontal: 12),
+                  //   child: Text(
+                  //     '/',
+                  //     style: widget.theme.display3
+                  //         .copyWith(color: widget.theme.textColor),
+                  //   ),
+                  // ),
+                  SwordsIcon(
+                    size: 28,
+                    color: widget.theme.textColor,
+                    strokeWidth: 1,
+                    enableTouchInteraction: true,
                   )
                 ],
               ),

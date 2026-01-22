@@ -474,10 +474,8 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
-                                  // TODO: implement
-                                  //onTap: () => _updateScore(50),
+                                  onTap: () => _updateScore(50),
                                 ),
-                                // onPressed: () => _updateScore(50),
                               ),
                               KeyboardButton(
                                 icon: ReplaceIcon(

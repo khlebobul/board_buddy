@@ -513,10 +513,10 @@ packages:
     dependency: "direct main"
     description:
       name: not_static_icons
-      sha256: "25032e52ce3473517d7d41b7aeba12bb8e155cb6e2bb298739fa553fe56db9db"
+      sha256: "2ea6915083585e99b7081f5634a876571e8a96f4be43aae10a0301de44d4e69f"
       url: "https://pub.dev"
     source: hosted
-    version: "0.30.0"
+    version: "0.31.0"
   os_detect:
     dependency: transitive
     description:

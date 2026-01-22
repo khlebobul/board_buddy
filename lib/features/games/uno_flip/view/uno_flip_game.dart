@@ -504,8 +504,7 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                         hoverColor: theme.secondaryTextColor,
                                         strokeWidth: 1,
                                         size: 30,
-                                        // TODO: implement
-                                        // onTap: () => _updateScore(50),
+                                        onTap: () => _updateScore(50),
                                       ),
                                     ),
                               KeyboardButton(

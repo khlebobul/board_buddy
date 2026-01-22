@@ -35,7 +35,7 @@ dependencies:
   talker_bloc_logger: ^5.1.9
   talker_flutter: ^5.1.9
   upgrader: ^12.3.0
-  not_static_icons: ^0.30.0
+  not_static_icons: ^0.31.0
 
 dev_dependencies:
   flutter_test:
