@@ -1,10 +1,10 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/shared/widgets/ui/info_row_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/blurred_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class InfoUnoDialog extends StatelessWidget {
   const InfoUnoDialog({super.key});
@@ -18,14 +18,25 @@ class InfoUnoDialog extends StatelessWidget {
       children: [
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.reverse,
+          icon: RepeatIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).reverseCardUnoInfo,
           points: GameConst.twenty,
           description: S.of(context).changesTheDirectionOfPlayUnoInfo,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.skip,
+          icon: BanIcon(
+            animationDuration: Duration(milliseconds: 450),
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).skipCardUnoInfo,
           points: GameConst.twenty,
           description: S.of(context).skipsTheNextPlayersTurnUnoInfo,
@@ -40,14 +51,24 @@ class InfoUnoDialog extends StatelessWidget {
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.wild,
+          icon: Grid2x2Icon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).wildCardUnoInfo,
           points: GameConst.fifty,
           description: S.of(context).allowsThePlayerToChooseTheColorUnoInfo,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.wildDrawFour,
+          icon: GridPlus4Icon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).wildDrawFourCardUnoInfo,
           points: GameConst.fifty,
           description:
@@ -55,7 +76,12 @@ class InfoUnoDialog extends StatelessWidget {
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.swap,
+          icon: ReplaceIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).wildShuffleHandsCardUnoInfo,
           points: GameConst.fifty,
           description:

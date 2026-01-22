@@ -1,10 +1,9 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gaimon/gaimon.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 import 'package:use_scramble/use_scramble.dart';
 
 /// widget that represents a customizable bottom game bar.
@@ -115,8 +114,13 @@ class BottomGameBar extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  GestureDetector(
-                    behavior: HitTestBehavior.opaque,
+                  Undo2Icon(
+                    size: 20,
+                    strokeWidth: 1,
+                    color: isLeftArrowActive
+                        ? theme.textColor
+                        : theme.secondaryTextColor,
+                    hoverColor: theme.secondaryTextColor,
                     onTap: isLeftArrowActive
                         ? () {
                             if (onLeftArrowTap != null) {
@@ -125,21 +129,15 @@ class BottomGameBar extends StatelessWidget {
                             }
                           }
                         : null,
-                    child: SvgPicture.asset(
-                      CustomIcons.leftArrow,
-                      colorFilter: ColorFilter.mode(
-                          isLeftArrowActive
-                              ? theme.textColor
-                              : theme.secondaryTextColor,
-                          BlendMode.srcIn),
-                      width: 20,
-                    ),
                   ),
                   const SizedBox(width: 20),
                   dialogWidget == null
                       ? const SizedBox()
-                      : GestureDetector(
-                          behavior: HitTestBehavior.opaque,
+                      : CircleQuestionMarkIcon(
+                          size: 20,
+                          strokeWidth: 1,
+                          color: theme.textColor,
+                          hoverColor: theme.secondaryTextColor,
                           onTap: () {
                             showDialog(
                               context: context,
@@ -149,33 +147,29 @@ class BottomGameBar extends StatelessWidget {
                             );
                             Gaimon.soft();
                           },
-                          child: SvgPicture.asset(
-                            CustomIcons.info,
-                            colorFilter: ColorFilter.mode(
-                                theme.textColor, BlendMode.srcIn),
-                            width: 20,
-                          ),
                         ),
                   isKeyboardActive == false
                       ? const SizedBox()
-                      : GestureDetector(
-                          behavior: HitTestBehavior.opaque,
+                      : KeyboardIcon(
+                          size: 20,
+                          strokeWidth: 1,
+                          color: theme.textColor,
+                          hoverColor: theme.secondaryTextColor,
                           onTap: () {
                             if (onKeyboardBtnTap != null) {
                               onKeyboardBtnTap!();
                               Gaimon.soft();
                             }
                           },
-                          child: SvgPicture.asset(
-                            CustomIcons.keyboard,
-                            colorFilter: ColorFilter.mode(
-                                theme.textColor, BlendMode.srcIn),
-                            width: 20,
-                          ),
                         ),
                   const SizedBox(width: 20),
-                  GestureDetector(
-                    behavior: HitTestBehavior.opaque,
+                  Redo2Icon(
+                    size: 20,
+                    strokeWidth: 1,
+                    color: isRightArrowActive
+                        ? theme.textColor
+                        : theme.secondaryTextColor,
+                    hoverColor: theme.secondaryTextColor,
                     onTap: isRightArrowActive
                         ? () {
                             if (onRightArrowTap != null) {
@@ -184,15 +178,6 @@ class BottomGameBar extends StatelessWidget {
                             }
                           }
                         : null,
-                    child: SvgPicture.asset(
-                      CustomIcons.rightArrow,
-                      colorFilter: ColorFilter.mode(
-                          isRightArrowActive
-                              ? theme.textColor
-                              : theme.secondaryTextColor,
-                          BlendMode.srcIn),
-                      width: 20,
-                    ),
                   ),
                 ],
               ),

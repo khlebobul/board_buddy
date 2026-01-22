@@ -1,10 +1,10 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/shared/widgets/ui/info_row_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/blurred_dialog.dart';
 import 'package:flutter/material.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class InfoUnoFlipDialog extends StatelessWidget {
   const InfoUnoFlipDialog({super.key});
@@ -27,28 +27,49 @@ class InfoUnoFlipDialog extends StatelessWidget {
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.reverse,
+          icon: RepeatIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).reverseCardUnoInfo,
           points: GameConst.twenty,
           description: S.of(context).changesTheDirectionOfPlayUnoInfo,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.skip,
+          icon: BanIcon(
+            animationDuration: Duration(milliseconds: 450),
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).skipCardUnoInfo,
           points: GameConst.twenty,
           description: S.of(context).skipsTheNextPlayersTurnUnoInfo,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.wild,
+          icon: Grid2x2Icon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).wildCardUnoInfo,
           points: GameConst.forty,
           description: S.of(context).allowsThePlayerToChooseTheColorUnoInfo,
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.wildDrawTwoUnoflip,
+          icon: GridPlus2Icon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).drawTwoCardUnoInfo,
           points: GameConst.fifty,
           description:
@@ -56,7 +77,12 @@ class InfoUnoFlipDialog extends StatelessWidget {
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.flip,
+          icon: Replace2Icon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).flipCardUnoFlipInfo,
           points: GameConst.twenty,
           description: S.of(context).flipsAllCardsToTheOppositeSideUnoFlipInfo,
@@ -71,7 +97,12 @@ class InfoUnoFlipDialog extends StatelessWidget {
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.skipEveryone,
+          icon: RotateCwIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).skipEveryoneCardUnoFlipInfo,
           points: GameConst.thirty,
           description: S
@@ -80,7 +111,12 @@ class InfoUnoFlipDialog extends StatelessWidget {
         ),
         InfoRowWidget(
           context: context,
-          iconPath: CustomIcons.wildDrawColor,
+          icon: LayersIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           title: S.of(context).wildDrawColorUnoFlipInfo,
           points: GameConst.sixty,
           description: S
@@ -96,7 +132,12 @@ class InfoUnoFlipDialog extends StatelessWidget {
         InfoRowWidget(
           context: context,
           title: S.of(context).flipSide,
-          iconPath: CustomIcons.sun,
+          icon: SunIcon(
+            strokeWidth: 1,
+            size: 30,
+            enableTouchInteraction: false,
+            color: theme.textColor,
+          ),
           description:
               S.of(context).darkSideCardsAreReplacedWithLightOnesAndVice,
         ),

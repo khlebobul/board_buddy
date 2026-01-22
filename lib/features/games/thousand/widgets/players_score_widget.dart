@@ -1,12 +1,11 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/config/utils/useful_methods.dart';
 import 'package:board_buddy/features/games/thousand/models/thousand_models.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class PlayersScoreWidget extends StatelessWidget {
   final List<Player> players;
@@ -117,14 +116,11 @@ class PlayersScoreWidget extends StatelessWidget {
                               const SizedBox(width: 8),
                           ],
                           if (playerData[index]!.isOnBarrel) ...[
-                            SvgPicture.asset(
-                              CustomIcons.warning,
-                              width: 16,
-                              height: 16,
-                              colorFilter: ColorFilter.mode(
-                                theme.redColor,
-                                BlendMode.srcIn,
-                              ),
+                            CircleAlertIcon(
+                              onTap: null,
+                              enableTouchInteraction: false,
+                              size: 16,
+                              color: theme.redColor,
                             ),
                           ],
                         ],
