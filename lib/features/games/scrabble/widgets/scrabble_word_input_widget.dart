@@ -1,13 +1,11 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/config/utils/scrabble_letter_values.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_popup/flutter_popup.dart';
 import 'package:not_static_icons/not_static_icons.dart';
 import 'package:use_scramble/use_scramble.dart';
@@ -505,14 +503,12 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                               () => _applyModifier(
                                   letter, index, GameConst.scrabblex3),
                             ),
-                            _buildModifierButton(
-                              SvgPicture.asset(
-                                CustomIcons.star,
-                                width: 24,
-                                colorFilter: ColorFilter.mode(
-                                    theme.textColor, BlendMode.srcIn),
-                              ),
-                              () => _applyModifier(letter, index, 'star'),
+                            StarIcon(
+                              color: theme.textColor,
+                              size: 24,
+                              strokeWidth: 1,
+                              hoverColor: theme.secondaryTextColor,
+                              onTap: () => _applyModifier(letter, index, 'star'),
                             ),
                             _buildModifierButton(
                               Text('${GameConst.scrabblex2}${S.current.nWord}',

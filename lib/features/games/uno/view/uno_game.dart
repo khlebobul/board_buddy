@@ -450,6 +450,8 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                             [
                               KeyboardButton(
                                 icon: BanIcon(
+                                  animationDuration:
+                                      Duration(milliseconds: 450),
                                   color: theme.textColor,
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,

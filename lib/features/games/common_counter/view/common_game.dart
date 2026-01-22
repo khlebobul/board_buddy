@@ -489,12 +489,16 @@ class _CommonGameViewState extends State<CommonGameView>
                         [
                           KeyboardButton(
                             useCompactMargin: true,
-                            buttonText: '-',
-                            onPressed: () {
-                              setState(() {
-                                _isAddOperation = false;
-                              });
-                            },
+                            icon: MinusIcon(
+                              color: theme.textColor,
+                              strokeWidth: 1,
+                              size: 30,
+                              onTap: () {
+                                setState(() {
+                                  _isAddOperation = false;
+                                });
+                              },
+                            ),
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
@@ -504,12 +508,16 @@ class _CommonGameViewState extends State<CommonGameView>
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
-                            buttonText: '+',
-                            onPressed: () {
-                              setState(() {
-                                _isAddOperation = true;
-                              });
-                            },
+                            icon: PlusIcon(
+                              color: theme.textColor,
+                              strokeWidth: 1,
+                              size: 30,
+                              onTap: () {
+                                setState(() {
+                                  _isAddOperation = true;
+                                });
+                              },
+                            ),
                           ),
                         ],
                       ],

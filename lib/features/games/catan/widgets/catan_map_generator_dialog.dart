@@ -6,6 +6,7 @@ import 'package:board_buddy/features/games/catan/models/catan_tile.dart';
 import 'package:board_buddy/features/games/catan/widgets/hexagon_border_painter.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class CatanMapGeneratorDialog extends StatefulWidget {
   const CatanMapGeneratorDialog({super.key});
@@ -109,9 +110,10 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog>
           children: [
             Align(
               alignment: Alignment.topRight,
-              child: GestureDetector(
-                onTap: () => Navigator.pop(context),
-                child: Icon(Icons.close, color: theme.secondaryTextColor),
+              child: XIcon(
+                color: theme.secondaryTextColor,
+                strokeWidth: 1.5,
+                size: 24,
               ),
             ),
             const SizedBox(height: 8),

@@ -31,6 +31,7 @@ class InfoUnoDialog extends StatelessWidget {
         InfoRowWidget(
           context: context,
           icon: BanIcon(
+            animationDuration: Duration(milliseconds: 450),
             strokeWidth: 1,
             size: 30,
             enableTouchInteraction: false,

@@ -1,6 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/thousand/bloc/thousand_bloc.dart';
 import 'package:board_buddy/features/games/thousand/models/thousand_models.dart';
 import 'package:board_buddy/features/games/thousand/widgets/players_score_widget.dart';
@@ -9,6 +8,7 @@ import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:gaimon/gaimon.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class BiddingPhaseWidget extends StatelessWidget {
   final BiddingPhaseState state;
@@ -129,10 +129,54 @@ class BiddingPhaseWidget extends StatelessWidget {
 
     // Define suit icons and colors (4 suits)
     final suitData = [
-      {'icon': CustomIcons.heart, 'color': theme.redColor},
-      {'icon': CustomIcons.diamond, 'color': theme.redColor},
-      {'icon': CustomIcons.club, 'color': theme.textColor},
-      {'icon': CustomIcons.spade, 'color': theme.textColor},
+      {
+        'icon': HeartIcon(
+          color: theme.redColor,
+          size: 30,
+          strokeWidth: 1,
+        ),
+        'disabledIcon': HeartIcon(
+          color: theme.secondaryTextColor,
+          size: 30,
+          strokeWidth: 1,
+        ),
+      },
+      {
+        'icon': DiamondIcon(
+          color: theme.redColor,
+          size: 30,
+          strokeWidth: 1,
+        ),
+        'disabledIcon': DiamondIcon(
+          color: theme.secondaryTextColor,
+          size: 30,
+          strokeWidth: 1,
+        ),
+      },
+      {
+        'icon': ClubIcon(
+          color: theme.textColor,
+          size: 30,
+          strokeWidth: 1,
+        ),
+        'disabledIcon': ClubIcon(
+          color: theme.secondaryTextColor,
+          size: 30,
+          strokeWidth: 1,
+        ),
+      },
+      {
+        'icon': SpadeIcon(
+          color: theme.textColor,
+          size: 30,
+          strokeWidth: 1,
+        ),
+        'disabledIcon': SpadeIcon(
+          color: theme.secondaryTextColor,
+          size: 30,
+          strokeWidth: 1,
+        ),
+      },
     ];
 
     final List<List<KeyboardButton>> rows = [];
@@ -169,15 +213,13 @@ class BiddingPhaseWidget extends StatelessWidget {
 
       currentRow.add(
         KeyboardButton(
-          buttonIcon: suit['icon'] as String,
+          icon: isEnabled ? suit['icon'] as Widget : suit['disabledIcon'] as Widget,
           onPressed: isEnabled
               ? () {
                   bloc.add(MakeBid(marriageBid.value));
                 }
               : null,
           iconSize: 30.0,
-          iconColor:
-              isEnabled ? (suit['color'] as Color) : theme.secondaryTextColor,
         ),
       );
 

@@ -64,12 +64,6 @@ flutter:
 
   uses-material-design: true
 
-  assets:
-    - assets/icons/games_icons/munchkin/
-    - assets/icons/games_icons/scrabble/
-    - assets/icons/games_icons/cards/
-    - assets/icons/games_icons/catan/
-
   fonts:
   - family: RobotoMono
     fonts:

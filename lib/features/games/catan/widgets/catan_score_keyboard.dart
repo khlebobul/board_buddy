@@ -1,7 +1,5 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gaimon/gaimon.dart';
 import 'package:not_static_icons/not_static_icons.dart';
 
@@ -27,24 +25,41 @@ class CatanScoreKeyboard extends StatelessWidget {
       ),
       child: Column(
         children: [
-          // Top row: Settlement, City, VP Card with SVG icons
+          // Top row: Settlement, City, VP Card with icons
           SizedBox(
             height: 55,
             child: Row(
               children: [
-                _buildSvgButton(
+                _buildIconButton(
                   value: 1,
-                  svgPath: CustomIcons.home,
+                  icon: HouseIcon(
+                    animationDuration: Duration(milliseconds: 450),
+                    color: theme.textColor,
+                    size: 28,
+                    strokeWidth: 1,
+                    hoverColor: theme.secondaryTextColor,
+                  ),
                   theme: theme,
                 ),
-                _buildSvgButton(
+                _buildIconButton(
                   value: 1,
-                  svgPath: CustomIcons.city,
+                  icon: Building2Icon(
+                    animationDuration: Duration(milliseconds: 450),
+                    color: theme.textColor,
+                    size: 28,
+                    strokeWidth: 1,
+                    hoverColor: theme.secondaryTextColor,
+                  ),
                   theme: theme,
                 ),
-                _buildSvgButton(
+                _buildIconButton(
                   value: 1,
-                  svgPath: CustomIcons.vp,
+                  icon: VictoryPointsIcon(
+                    color: theme.textColor,
+                    size: 28,
+                    strokeWidth: 1,
+                    hoverColor: theme.secondaryTextColor,
+                  ),
                   theme: theme,
                   isLast: true,
                 ),
@@ -93,9 +108,9 @@ class CatanScoreKeyboard extends StatelessWidget {
     );
   }
 
-  Widget _buildSvgButton({
+  Widget _buildIconButton({
     required int value,
-    required String svgPath,
+    required Widget icon,
     required UIThemes theme,
     bool isLast = false,
   }) {
@@ -108,20 +123,12 @@ class CatanScoreKeyboard extends StatelessWidget {
                   right: BorderSide(color: theme.borderColor, width: 1),
                 ),
         ),
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
+        child: _AnimatedButton(
           onTap: () {
             onValueSelected(value);
             Gaimon.soft();
           },
-          child: Center(
-            child: SvgPicture.asset(
-              svgPath,
-              width: 28,
-              height: 28,
-              colorFilter: ColorFilter.mode(theme.textColor, BlendMode.srcIn),
-            ),
-          ),
+          child: icon,
         ),
       ),
     );
@@ -142,17 +149,14 @@ class CatanScoreKeyboard extends StatelessWidget {
                   right: BorderSide(color: theme.borderColor, width: 1),
                 ),
         ),
-        child: GestureDetector(
-          behavior: HitTestBehavior.opaque,
+        child: _AnimatedButton(
           onTap: () {
             onValueSelected(value);
             Gaimon.soft();
           },
-          child: Center(
-            child: Text(
-              displayText,
-              style: theme.display3.copyWith(color: theme.textColor),
-            ),
+          child: Text(
+            displayText,
+            style: theme.display3.copyWith(color: theme.textColor),
           ),
         ),
       ),
@@ -163,36 +167,161 @@ class CatanScoreKeyboard extends StatelessWidget {
     required int value,
     required UIThemes theme,
   }) {
+    return _AnimatedRoadArmyButton(
+      value: value,
+      theme: theme,
+      onValueSelected: onValueSelected,
+    );
+  }
+}
+
+/// Generic animated button wrapper
+class _AnimatedButton extends StatefulWidget {
+  final VoidCallback onTap;
+  final Widget child;
+
+  const _AnimatedButton({
+    required this.onTap,
+    required this.child,
+  });
+
+  @override
+  State<_AnimatedButton> createState() => _AnimatedButtonState();
+}
+
+class _AnimatedButtonState extends State<_AnimatedButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 150),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.85).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onTap() {
+    _controller.forward().then((_) => _controller.reverse());
+    widget.onTap();
+  }
+
+  @override
+  Widget build(BuildContext context) {
     return GestureDetector(
       behavior: HitTestBehavior.opaque,
-      onTap: () {
-        onValueSelected(value);
-        Gaimon.soft();
-      },
+      onTap: _onTap,
       child: Center(
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RoadIcon(
-              size: 28,
-              color: theme.textColor,
-              strokeWidth: 1,
-              enableTouchInteraction: false,
-            ),
-            Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 12),
-              child: Text(
-                '/',
-                style: theme.display3.copyWith(color: theme.textColor),
+        child: AnimatedBuilder(
+          animation: _scaleAnimation,
+          builder: (context, child) {
+            return Transform.scale(
+              scale: _scaleAnimation.value,
+              child: widget.child,
+            );
+          },
+        ),
+      ),
+    );
+  }
+}
+
+/// Animated button for road/army with icon animation
+class _AnimatedRoadArmyButton extends StatefulWidget {
+  final int value;
+  final UIThemes theme;
+  final Function(int) onValueSelected;
+
+  const _AnimatedRoadArmyButton({
+    required this.value,
+    required this.theme,
+    required this.onValueSelected,
+  });
+
+  @override
+  State<_AnimatedRoadArmyButton> createState() =>
+      _AnimatedRoadArmyButtonState();
+}
+
+class _AnimatedRoadArmyButtonState extends State<_AnimatedRoadArmyButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 150),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.85).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void _onTap() {
+    _controller.forward().then((_) => _controller.reverse());
+    widget.onValueSelected(widget.value);
+    Gaimon.soft();
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return GestureDetector(
+      behavior: HitTestBehavior.opaque,
+      onTap: _onTap,
+      child: Center(
+        child: AnimatedBuilder(
+          animation: _scaleAnimation,
+          builder: (context, child) {
+            return Transform.scale(
+              scale: _scaleAnimation.value,
+              child: Row(
+                mainAxisSize: MainAxisSize.min,
+                mainAxisAlignment: MainAxisAlignment.center,
+                children: [
+                  RoadIcon(
+                    size: 28,
+                    color: widget.theme.textColor,
+                    strokeWidth: 1,
+                    enableTouchInteraction: false,
+                  ),
+                  Padding(
+                    padding: const EdgeInsets.symmetric(horizontal: 12),
+                    child: Text(
+                      '/',
+                      style: widget.theme.display3
+                          .copyWith(color: widget.theme.textColor),
+                    ),
+                  ),
+                  SwordsIcon(
+                    size: 28,
+                    color: widget.theme.textColor,
+                    strokeWidth: 1,
+                    enableTouchInteraction: false,
+                  )
+                ],
               ),
-            ),
-            SwordsIcon(
-              size: 28,
-              color: theme.textColor,
-              strokeWidth: 1,
-              enableTouchInteraction: false,
-            )
-          ],
+            );
+          },
         ),
       ),
     );

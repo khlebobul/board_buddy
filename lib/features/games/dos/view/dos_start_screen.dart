@@ -10,6 +10,7 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 import 'package:use_scramble/use_scramble.dart';
 import 'package:wheel_chooser/wheel_chooser.dart';
 
@@ -124,11 +125,11 @@ class DosStartScreenView extends StatelessWidget {
                                   style: theme.display2
                                       .copyWith(color: theme.textColor),
                                 ),
-                              ),
-                              IconButton(
-                                icon: Icon(Icons.close,
-                                    color: theme.secondaryTextColor),
-                                onPressed: () {
+                              ),XIcon(
+                                size: 20,
+                                color: theme.secondaryTextColor,
+                                strokeWidth: 1.5,
+                                onTap: () {
                                   context
                                       .read<DosBloc>()
                                       .add(RemovePlayer(entry.key));
