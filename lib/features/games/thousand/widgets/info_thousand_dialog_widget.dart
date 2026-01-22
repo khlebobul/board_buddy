@@ -69,7 +69,6 @@ class InfoThousandDialog extends StatelessWidget {
           ),
           title: S.of(context).thousandMarriageTwo,
           description: S.of(context).thousandMarriageOne,
-          iconColor: theme.redColor,
         ),
         InfoRowWidget(
           context: context,
@@ -81,7 +80,6 @@ class InfoThousandDialog extends StatelessWidget {
           ),
           title: S.of(context).thousandMarriageThree,
           description: S.of(context).thousandMarriageFour,
-          iconColor: theme.redColor,
         ),
         InfoRowWidget(
           context: context,
@@ -93,7 +91,6 @@ class InfoThousandDialog extends StatelessWidget {
           ),
           title: S.of(context).thousandMarriageThree,
           description: S.of(context).thousandMarriageFour,
-          iconColor: theme.textColor,
         ),
         InfoRowWidget(
           context: context,
@@ -105,7 +102,6 @@ class InfoThousandDialog extends StatelessWidget {
           ),
           title: S.of(context).thousandMarriageThree,
           description: S.of(context).thousandMarriageFour,
-          iconColor: theme.textColor,
         ),
         InfoRowWidget(
           context: context,
@@ -118,7 +114,6 @@ class InfoThousandDialog extends StatelessWidget {
           title: S.of(context).thousandSpecialRulesTitleOne,
           points: '',
           description: S.of(context).thousandSpecialRulesTitleTwo,
-          iconColor: theme.redColor,
         ),
       ],
     );

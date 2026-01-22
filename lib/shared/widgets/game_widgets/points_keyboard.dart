@@ -1,6 +1,5 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:gaimon/gaimon.dart';
 
 /// widget that represents a custom keyboard.
@@ -118,21 +117,6 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
                   child: widget.button.icon!,
                 ),
               );
-            } else if (widget.button.buttonIcon.isNotEmpty) {
-              return Padding(
-                padding: const EdgeInsets.symmetric(vertical: 3.0),
-                child: SizedBox(
-                  width: widget.button.iconSize,
-                  height: widget.button.iconSize,
-                  child: SvgPicture.asset(
-                    widget.button.buttonIcon,
-                    fit: BoxFit.fitHeight,
-                    colorFilter: ColorFilter.mode(
-                        widget.button.iconColor ?? _colorAnimation.value!,
-                        BlendMode.srcIn),
-                  ),
-                ),
-              );
             } else {
               return Text(
                 widget.button.buttonText,
@@ -150,9 +134,6 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
 
 /// class representing a button on the custom keyboard.
 class KeyboardButton {
-  /// Path to the icon to display on the button.
-  final String buttonIcon;
-
   /// Widget icon to display on the button (from not_static_icons package).
   final Widget? icon;
 
@@ -171,21 +152,16 @@ class KeyboardButton {
   /// Whether to use a compact margin
   final bool useCompactMargin;
 
-  /// Custom color for the icon (if null, uses animated color)
-  final Color? iconColor;
-
   /// Custom color for the text (if null, uses animated color)
   final Color? textColor;
 
   KeyboardButton({
-    this.buttonIcon = '',
     this.icon,
     this.buttonText = '',
     this.onPressed,
     this.backgroundColor,
     this.iconSize = 30.0,
     this.useCompactMargin = false,
-    this.iconColor,
     this.textColor,
   });
 }

@@ -1,31 +1,26 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 
 class InfoRowWidget extends StatelessWidget {
   final BuildContext context;
   final String cardName;
-  final String iconPath;
   final Widget? icon;
   final String title;
   final String points;
   final String description;
   final bool isScrabble;
-  final Color? iconColor;
   final bool simpleMode;
 
   const InfoRowWidget({
     super.key,
     required this.context,
     this.cardName = '',
-    this.iconPath = '',
     this.icon,
     this.title = '',
     this.points = '',
     required this.description,
     this.isScrabble = false,
-    this.iconColor,
     this.simpleMode = false,
   });
 
@@ -45,21 +40,12 @@ class InfoRowWidget extends StatelessWidget {
             width: 30,
             height: 30,
             child: Center(
-              child: icon != null
-                  ? icon!
-                  : iconPath.isNotEmpty
-                      ? SvgPicture.asset(
-                          iconPath,
-                          width: 24,
-                          height: 24,
-                          colorFilter: ColorFilter.mode(
-                              iconColor ?? theme.textColor, BlendMode.srcIn),
-                        )
-                      : Text(
-                          cardName,
-                          style: isScrabble ? theme.display7 : theme.display2,
-                          textAlign: TextAlign.center,
-                        ),
+              child: icon ??
+                  Text(
+                    cardName,
+                    style: isScrabble ? theme.display7 : theme.display2,
+                    textAlign: TextAlign.center,
+                  ),
             ),
           ),
           const SizedBox(width: 15),
