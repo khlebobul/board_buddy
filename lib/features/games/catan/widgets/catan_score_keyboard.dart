@@ -32,33 +32,36 @@ class CatanScoreKeyboard extends StatelessWidget {
               children: [
                 _buildIconButton(
                   value: 1,
-                  icon: HouseIcon(
+                  iconBuilder: (onTap) => HouseIcon(
                     animationDuration: Duration(milliseconds: 450),
                     color: theme.textColor,
                     size: 28,
                     strokeWidth: 1,
                     hoverColor: theme.secondaryTextColor,
+                    onTap: onTap,
                   ),
                   theme: theme,
                 ),
                 _buildIconButton(
                   value: 1,
-                  icon: Building2Icon(
+                  iconBuilder: (onTap) => Building2Icon(
                     animationDuration: Duration(milliseconds: 450),
                     color: theme.textColor,
                     size: 28,
                     strokeWidth: 1,
                     hoverColor: theme.secondaryTextColor,
+                    onTap: onTap,
                   ),
                   theme: theme,
                 ),
                 _buildIconButton(
                   value: 1,
-                  icon: VictoryPointsIcon(
+                  iconBuilder: (onTap) => VictoryPointsIcon(
                     color: theme.textColor,
                     size: 28,
                     strokeWidth: 1,
                     hoverColor: theme.secondaryTextColor,
+                    onTap: onTap,
                   ),
                   theme: theme,
                   isLast: true,
@@ -110,7 +113,7 @@ class CatanScoreKeyboard extends StatelessWidget {
 
   Widget _buildIconButton({
     required int value,
-    required Widget icon,
+    required Widget Function(VoidCallback onTap) iconBuilder,
     required UIThemes theme,
     bool isLast = false,
   }) {
@@ -123,12 +126,11 @@ class CatanScoreKeyboard extends StatelessWidget {
                   right: BorderSide(color: theme.borderColor, width: 1),
                 ),
         ),
-        child: _AnimatedButton(
-          onTap: () {
+        child: Center(
+          child: iconBuilder(() {
             onValueSelected(value);
             Gaimon.soft();
-          },
-          child: icon,
+          }),
         ),
       ),
     );
@@ -149,15 +151,13 @@ class CatanScoreKeyboard extends StatelessWidget {
                   right: BorderSide(color: theme.borderColor, width: 1),
                 ),
         ),
-        child: _AnimatedButton(
+        child: _AnimatedTextButton(
           onTap: () {
             onValueSelected(value);
             Gaimon.soft();
           },
-          child: Text(
-            displayText,
-            style: theme.display3.copyWith(color: theme.textColor),
-          ),
+          displayText: displayText,
+          theme: theme,
         ),
       ),
     );
@@ -175,35 +175,38 @@ class CatanScoreKeyboard extends StatelessWidget {
   }
 }
 
-/// Generic animated button wrapper
-class _AnimatedButton extends StatefulWidget {
+/// Animated text button with color animation
+class _AnimatedTextButton extends StatefulWidget {
   final VoidCallback onTap;
-  final Widget child;
+  final String displayText;
+  final UIThemes theme;
 
-  const _AnimatedButton({
+  const _AnimatedTextButton({
     required this.onTap,
-    required this.child,
+    required this.displayText,
+    required this.theme,
   });
 
   @override
-  State<_AnimatedButton> createState() => _AnimatedButtonState();
+  State<_AnimatedTextButton> createState() => _AnimatedTextButtonState();
 }
 
-class _AnimatedButtonState extends State<_AnimatedButton>
+class _AnimatedTextButtonState extends State<_AnimatedTextButton>
     with SingleTickerProviderStateMixin {
   late AnimationController _controller;
-  late Animation<double> _scaleAnimation;
+  late Animation<Color?> _colorAnimation;
 
   @override
   void initState() {
     super.initState();
     _controller = AnimationController(
-      duration: const Duration(milliseconds: 150),
+      duration: const Duration(milliseconds: 100),
       vsync: this,
     );
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.85).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
-    );
+    _colorAnimation = ColorTween(
+      begin: widget.theme.textColor,
+      end: widget.theme.secondaryTextColor,
+    ).animate(_controller);
   }
 
   @override
@@ -213,8 +216,8 @@ class _AnimatedButtonState extends State<_AnimatedButton>
   }
 
   void _onTap() {
-    _controller.forward().then((_) => _controller.reverse());
     widget.onTap();
+    _controller.forward().then((_) => _controller.reverse());
   }
 
   @override
@@ -224,11 +227,13 @@ class _AnimatedButtonState extends State<_AnimatedButton>
       onTap: _onTap,
       child: Center(
         child: AnimatedBuilder(
-          animation: _scaleAnimation,
+          animation: _colorAnimation,
           builder: (context, child) {
-            return Transform.scale(
-              scale: _scaleAnimation.value,
-              child: widget.child,
+            return Text(
+              widget.displayText,
+              style: widget.theme.display3.copyWith(
+                color: _colorAnimation.value,
+              ),
             );
           },
         ),
@@ -237,8 +242,8 @@ class _AnimatedButtonState extends State<_AnimatedButton>
   }
 }
 
-/// Animated button for road/army with icon animation
-class _AnimatedRoadArmyButton extends StatefulWidget {
+/// Button for road/army with icon animation
+class _AnimatedRoadArmyButton extends StatelessWidget {
   final int value;
   final UIThemes theme;
   final Function(int) onValueSelected;
@@ -249,86 +254,41 @@ class _AnimatedRoadArmyButton extends StatefulWidget {
     required this.onValueSelected,
   });
 
-  @override
-  State<_AnimatedRoadArmyButton> createState() =>
-      _AnimatedRoadArmyButtonState();
-}
-
-class _AnimatedRoadArmyButtonState extends State<_AnimatedRoadArmyButton>
-    with SingleTickerProviderStateMixin {
-  late AnimationController _controller;
-  late Animation<double> _scaleAnimation;
-
-  @override
-  void initState() {
-    super.initState();
-    _controller = AnimationController(
-      duration: const Duration(milliseconds: 150),
-      vsync: this,
-    );
-    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.85).animate(
-      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
-    );
-  }
-
-  @override
-  void dispose() {
-    _controller.dispose();
-    super.dispose();
-  }
-
   void _onTap() {
-    _controller.forward().then((_) => _controller.reverse());
-    widget.onValueSelected(widget.value);
+    onValueSelected(value);
     Gaimon.soft();
   }
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: _onTap,
-      child: Center(
-        child: AnimatedBuilder(
-          animation: _scaleAnimation,
-          builder: (context, child) {
-            return Transform.scale(
-              scale: _scaleAnimation.value,
-              child: Row(
-                mainAxisSize: MainAxisSize.min,
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  RoadIcon(
-                    size: 28,
-                    color: widget.theme.textColor,
-                    strokeWidth: 1,
-                    enableTouchInteraction: true,
-                  ),
-                  SlashIcon(
-                    size: 28,
-                    color: widget.theme.textColor,
-                    strokeWidth: 1,
-                    enableTouchInteraction: false,
-                  ),
-                  // Padding(
-                  //   padding: const EdgeInsets.symmetric(horizontal: 12),
-                  //   child: Text(
-                  //     '/',
-                  //     style: widget.theme.display3
-                  //         .copyWith(color: widget.theme.textColor),
-                  //   ),
-                  // ),
-                  SwordsIcon(
-                    size: 28,
-                    color: widget.theme.textColor,
-                    strokeWidth: 1,
-                    enableTouchInteraction: true,
-                  )
-                ],
-              ),
-            );
-          },
-        ),
+    return Center(
+      child: Row(
+        mainAxisSize: MainAxisSize.min,
+        mainAxisAlignment: MainAxisAlignment.center,
+        children: [
+          RoadIcon(
+            size: 28,
+            color: theme.textColor,
+            strokeWidth: 1,
+            hoverColor: theme.secondaryTextColor,
+            onTap: _onTap,
+          ),
+          const SizedBox(width: 20),
+          SlashIcon(
+            size: 15,
+            color: theme.textColor,
+            strokeWidth: 1,
+            enableTouchInteraction: false,
+          ),
+          const SizedBox(width: 20),
+          SwordsIcon(
+            size: 28,
+            color: theme.textColor,
+            strokeWidth: 1,
+            hoverColor: theme.secondaryTextColor,
+            onTap: _onTap,
+          )
+        ],
       ),
     );
   }
