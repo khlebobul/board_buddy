@@ -33,7 +33,8 @@ class InfoRowWidget extends StatelessWidget {
     return Padding(
       padding: const EdgeInsets.symmetric(vertical: 4.0),
       child: Row(
-        crossAxisAlignment: isSimple ? CrossAxisAlignment.center : CrossAxisAlignment.start,
+        crossAxisAlignment:
+            isSimple ? CrossAxisAlignment.center : CrossAxisAlignment.start,
         mainAxisAlignment: MainAxisAlignment.center,
         children: [
           SizedBox(
@@ -63,13 +64,16 @@ class InfoRowWidget extends StatelessWidget {
                       children: [
                         if (title.isNotEmpty && points.isNotEmpty)
                           TextSpan(
-                            text: '$title\n($points ${S.of(context).pointsCount(int.tryParse(points) ?? 0)})\n',
-                            style: theme.display2.copyWith(color: theme.textColor),
+                            text:
+                                '$title\n($points ${S.of(context).pointsCount(int.tryParse(points) ?? 0)})\n',
+                            style:
+                                theme.display2.copyWith(color: theme.textColor),
                           ),
                         if (title.isNotEmpty && points.isEmpty)
                           TextSpan(
                             text: '$title\n',
-                            style: theme.display2.copyWith(color: theme.textColor),
+                            style:
+                                theme.display2.copyWith(color: theme.textColor),
                           ),
                         TextSpan(
                           text: description,

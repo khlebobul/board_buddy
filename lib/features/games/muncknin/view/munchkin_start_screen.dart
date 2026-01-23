@@ -125,10 +125,10 @@ class _MunchkinStartScreenViewState extends State<MunchkinStartScreenView> {
                                   ),
                                 ),
                                 XIcon(
-                                size: 20,
-                                color: theme.secondaryTextColor,
-                                strokeWidth: 1.5,
-                                onTap: () {
+                                  size: 20,
+                                  color: theme.secondaryTextColor,
+                                  strokeWidth: 1.5,
+                                  onTap: () {
                                     context
                                         .read<MunchkinBloc>()
                                         .add(RemovePlayer(entry.key));

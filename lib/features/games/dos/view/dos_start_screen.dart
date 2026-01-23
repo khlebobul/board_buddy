@@ -125,7 +125,8 @@ class DosStartScreenView extends StatelessWidget {
                                   style: theme.display2
                                       .copyWith(color: theme.textColor),
                                 ),
-                              ),XIcon(
+                              ),
+                              XIcon(
                                 size: 20,
                                 color: theme.secondaryTextColor,
                                 strokeWidth: 1.5,

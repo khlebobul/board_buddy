@@ -103,10 +103,10 @@ class SetGameStartScreenView extends StatelessWidget {
                                   ),
                                 ),
                                 XIcon(
-                                size: 20,
-                                color: theme.secondaryTextColor,
-                                strokeWidth: 1.5,
-                                onTap: () {
+                                  size: 20,
+                                  color: theme.secondaryTextColor,
+                                  strokeWidth: 1.5,
+                                  onTap: () {
                                     context
                                         .read<SetBloc>()
                                         .add(RemovePlayer(entry.key));

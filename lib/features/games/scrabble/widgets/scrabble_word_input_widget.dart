@@ -508,7 +508,8 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                               size: 24,
                               strokeWidth: 1,
                               hoverColor: theme.secondaryTextColor,
-                              onTap: () => _applyModifier(letter, index, 'star'),
+                              onTap: () =>
+                                  _applyModifier(letter, index, 'star'),
                             ),
                             _buildModifierButton(
                               Text('${GameConst.scrabblex2}${S.current.nWord}',

@@ -213,7 +213,9 @@ class BiddingPhaseWidget extends StatelessWidget {
 
       currentRow.add(
         KeyboardButton(
-          icon: isEnabled ? suit['icon'] as Widget : suit['disabledIcon'] as Widget,
+          icon: isEnabled
+              ? suit['icon'] as Widget
+              : suit['disabledIcon'] as Widget,
           onPressed: isEnabled
               ? () {
                   bloc.add(MakeBid(marriageBid.value));

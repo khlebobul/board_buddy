@@ -89,7 +89,7 @@ class _SetGameState extends State<SetGame> with WidgetsBindingObserver {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
-    
+
     return BlocBuilder<SetBloc, SetState>(
       builder: (context, state) {
         if (state is! SetGameState) {
