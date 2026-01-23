@@ -231,7 +231,7 @@ class _AnimatedTextButtonState extends State<_AnimatedTextButton>
           builder: (context, child) {
             return Text(
               widget.displayText,
-              style: widget.theme.display3.copyWith(
+              style: widget.theme.display8.copyWith(
                 color: _colorAnimation.value,
               ),
             );

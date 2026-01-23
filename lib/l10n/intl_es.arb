@@ -474,6 +474,6 @@
   "awardedToThePlayerWith5ConnectedRoads": "otorgada al jugador con 5+ caminos conectados",
   "largestArmy": "ejército más grande",
   "awardedToThePlayerWith3KnightCardsPlayed": "otorgada al jugador con 3+ cartas de caballero jugadas",
-  "mapGenerator": "generador de tarjetas",
+  "mapGenerator": "generador de mapas",
   "rollDiceLocale": "tira los dados"
 }

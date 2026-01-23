@@ -471,13 +471,13 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                             ],
                             [
                               KeyboardButton(
-                                icon: ReplaceIcon(
+                                icon: Replace2Icon(
                                   color: theme.textColor,
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
+                                  onTap: () => _updateScore(20),
                                 ),
-                                onPressed: () => _updateScore(20),
                               ),
                               KeyboardButton(
                                 icon: Grid2x2Icon(

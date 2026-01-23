@@ -122,8 +122,6 @@ class CatanRulesScreen extends StatelessWidget {
             BulletPointText(
                 contentText: S.of(context).catanDevelopmentCardsThree),
             BulletPointText(
-                contentText: S.of(context).catanDevelopmentCardsThree),
-            BulletPointText(
                 contentText: S.of(context).catanDevelopmentCardsFour),
             const SizedBox(height: 15),
             Text(

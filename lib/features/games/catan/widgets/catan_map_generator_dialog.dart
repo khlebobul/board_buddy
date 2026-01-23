@@ -114,6 +114,7 @@ class _CatanMapGeneratorDialogState extends State<CatanMapGeneratorDialog>
                 color: theme.secondaryTextColor,
                 strokeWidth: 1.5,
                 size: 24,
+                onTap: () => Navigator.pop(context),
               ),
             ),
             const SizedBox(height: 8),

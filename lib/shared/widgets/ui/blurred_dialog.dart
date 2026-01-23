@@ -63,6 +63,7 @@ class BlurredDialog extends StatelessWidget {
                         color: themeUI.secondaryTextColor,
                         strokeWidth: 1.5,
                         size: 24,
+                        onTap: () => Navigator.pop(context),
                       ),
                     ),
                   ),
