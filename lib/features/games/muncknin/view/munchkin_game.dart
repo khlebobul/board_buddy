@@ -49,6 +49,13 @@ class _MunchkinGameState extends State<MunchkinGame> {
 
   @override
   void dispose() {
+    if (mounted) {
+      try {
+        context.read<MunchkinBloc>().add(SaveGameSession());
+      } catch (e) {
+        debugPrint('Error saving game on dispose: $e');
+      }
+    }
     _pageController.dispose();
     super.dispose();
   }

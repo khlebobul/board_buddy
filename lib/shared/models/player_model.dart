@@ -72,7 +72,7 @@ class Player {
   Player({
     required this.name,
     required this.id,
-    this.score = 1,
+    this.score = 0,
     this.gear = 0,
     this.level = 1,
     PlayerModifiers? modifiers,

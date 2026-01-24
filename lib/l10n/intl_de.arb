@@ -404,6 +404,7 @@
     }
   },
   "playerOnBarrel": "spieler im fass:",
+  "playersOnBarrel": "spieler im fass:",
   "catan": "catan",
   "catanGameGoal": "sei der erste spieler, der 10 siegpunkte erreicht, indem du siedlungen, städte, straßen baust und sonderkarten erhältst.",
   "catanComponentsOne": "19 landschaftsfelder (4 wald, 4 ackerland, 4 weideland, 3 gebirge, 3 hügelland, 1 wüste)",

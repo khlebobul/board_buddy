@@ -562,6 +562,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "playerName": MessageLookupByLibrary.simpleMessage("spielername"),
     "playerOnBarrel": MessageLookupByLibrary.simpleMessage("spieler im fass:"),
     "players": MessageLookupByLibrary.simpleMessage("spieler"),
+    "playersOnBarrel": MessageLookupByLibrary.simpleMessage("spieler im fass:"),
     "points": MessageLookupByLibrary.simpleMessage("punkte"),
     "pointsConfirmed": MessageLookupByLibrary.simpleMessage("Punkte bestätigt"),
     "pointsCount": m1,

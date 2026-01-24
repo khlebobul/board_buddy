@@ -730,18 +730,30 @@ class ThousandBloc extends Bloc<ThousandEvent, ThousandState> {
     StartNewGameWithSamePlayers event,
     Emitter<ThousandState> emit,
   ) {
-    if (state is GameEndedState) {
-      final currentState = state as GameEndedState;
+    List<Player>? players;
 
+    if (state is GameEndedState) {
+      players = (state as GameEndedState).players;
+    } else if (state is SelectingFirstDealerState) {
+      players = (state as SelectingFirstDealerState).players;
+    } else if (state is BiddingPhaseState) {
+      players = (state as BiddingPhaseState).players;
+    } else if (state is ScoringPhaseState) {
+      players = (state as ScoringPhaseState).players;
+    } else if (state is BarrelWarningState) {
+      players = (state as BarrelWarningState).players;
+    }
+
+    if (players != null) {
       // Reset all players' scores
-      for (var player in currentState.players) {
+      for (var player in players) {
         player.score = 0;
       }
 
       _resetHistory();
 
       // Start new game
-      add(StartThousandGame(currentState.players));
+      add(StartThousandGame(players));
     }
   }
 

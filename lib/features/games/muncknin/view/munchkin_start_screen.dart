@@ -194,7 +194,7 @@ class _MunchkinStartScreenViewState extends State<MunchkinStartScreenView> {
                       '/munchkinGame',
                       arguments: {
                         'players': munchkinState.isSinglePlayer
-                            ? [Player(name: 'Player', score: 0, id: 1)]
+                            ? [Player(name: 'Player', score: 1, id: 1)]
                             : munchkinState.players,
                         'isSinglePlayer': munchkinState.isSinglePlayer,
                       },
