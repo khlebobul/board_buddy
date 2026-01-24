@@ -490,12 +490,12 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                               ),
                               _isDarkSide
                                   ? KeyboardButton(
-                                      icon: Grid2x2Icon(
+                                      icon: LayersIcon(
                                         color: theme.textColor,
                                         hoverColor: theme.secondaryTextColor,
                                         strokeWidth: 1,
                                         size: 30,
-                                        onTap: () => _updateScore(40),
+                                        onTap: () => _updateScore(60),
                                       ),
                                     )
                                   : KeyboardButton(

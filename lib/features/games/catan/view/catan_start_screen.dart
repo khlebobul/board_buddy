@@ -214,9 +214,9 @@ class CatanStartScreenView extends StatelessWidget {
   void _showContinueGameDialog(BuildContext context) {
     ModalWindowWidget.show(
       context,
-      mainText: S.of(context).continueGame,
-      button1Text: S.of(context).no,
-      button2Text: S.of(context).yes,
+      mainText: S.of(context).youHaveAnUnfinishedGame,
+      button1Text: S.of(context).newGame,
+      button2Text: S.of(context).continueTitle,
       button1Action: () {
         context.read<CatanBloc>().add(DeleteSavedGame());
         Navigator.of(context).pop();

@@ -441,7 +441,7 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
                                 onTap: () => _updateScore(20),
                               )),
                               KeyboardButton(
-                                icon: Grid2x2Icon(
+                                icon: GridPlus2Icon(
                                   color: theme.textColor,
                                   size: 30,
                                   strokeWidth: 1,
