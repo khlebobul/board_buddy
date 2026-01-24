@@ -182,7 +182,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "catanResourcesSix": MessageLookupByLibrary.simpleMessage(
       "wüste – keine rohstoffe",
     ),
-    "catanResourcesTree": MessageLookupByLibrary.simpleMessage(
+    "catanResourcesThree": MessageLookupByLibrary.simpleMessage(
       "weideland – wolle (schaf)",
     ),
     "catanResourcesTwo": MessageLookupByLibrary.simpleMessage(

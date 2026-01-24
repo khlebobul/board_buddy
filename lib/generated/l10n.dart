@@ -3542,10 +3542,10 @@ class S {
   }
 
   /// `pasture – wool (sheep)`
-  String get catanResourcesTree {
+  String get catanResourcesThree {
     return Intl.message(
       'pasture – wool (sheep)',
-      name: 'catanResourcesTree',
+      name: 'catanResourcesThree',
       desc: '',
       args: [],
     );

@@ -422,7 +422,7 @@
   "resources": "recursos:",
   "catanResourcesOne": "bosque – madera",
   "catanResourcesTwo": "colinas – ladrillo (arcilla)",
-  "catanResourcesTree": "pasto – lana (oveja)",
+  "catanResourcesThree": "pasto – lana (oveja)",
   "catanResourcesFour": "campos – trigo",
   "catanResourcesFive": "montañas – mineral",
   "catanResourcesSix": "desierto – sin recursos",

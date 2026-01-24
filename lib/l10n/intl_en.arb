@@ -424,7 +424,7 @@
   "resources": "resources:",
   "catanResourcesOne": "forest – lumber (wood)",
   "catanResourcesTwo": "hills – brick (clay)",
-  "catanResourcesTree": "pasture – wool (sheep)",
+  "catanResourcesThree": "pasture – wool (sheep)",
   "catanResourcesFour": "fields – grain (wheat)",
   "catanResourcesFive": "mountains – ore",
   "catanResourcesSix": "desert – no resources",

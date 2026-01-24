@@ -184,7 +184,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "catanResourcesSix": MessageLookupByLibrary.simpleMessage(
       "desert – no resources",
     ),
-    "catanResourcesTree": MessageLookupByLibrary.simpleMessage(
+    "catanResourcesThree": MessageLookupByLibrary.simpleMessage(
       "pasture – wool (sheep)",
     ),
     "catanResourcesTwo": MessageLookupByLibrary.simpleMessage(

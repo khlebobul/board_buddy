@@ -83,7 +83,7 @@ class CatanRulesScreen extends StatelessWidget {
             ),
             BulletPointText(contentText: S.of(context).catanResourcesOne),
             BulletPointText(contentText: S.of(context).catanResourcesTwo),
-            BulletPointText(contentText: S.of(context).catanResourcesTree),
+            BulletPointText(contentText: S.of(context).catanResourcesThree),
             BulletPointText(contentText: S.of(context).catanResourcesFour),
             BulletPointText(contentText: S.of(context).catanResourcesFive),
             BulletPointText(contentText: S.of(context).catanResourcesSix),

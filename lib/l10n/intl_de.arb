@@ -422,7 +422,7 @@
   "resources": "rohstoffe:",
   "catanResourcesOne": "wald – holz",
   "catanResourcesTwo": "hügelland – lehm",
-  "catanResourcesTree": "weideland – wolle (schaf)",
+  "catanResourcesThree": "weideland – wolle (schaf)",
   "catanResourcesFour": "ackerland – getreide (weizen)",
   "catanResourcesFive": "gebirge – erz",
   "catanResourcesSix": "wüste – keine rohstoffe",

@@ -423,7 +423,7 @@
   "resources": "ressources :",
   "catanResourcesOne": "forêt – bois",
   "catanResourcesTwo": "collines – argile (brique)",
-  "catanResourcesTree": "pâturage – laine (mouton)",
+  "catanResourcesThree": "pâturage – laine (mouton)",
   "catanResourcesFour": "champs – blé",
   "catanResourcesFive": "montagnes – minerai",
   "catanResourcesSix": "désert – pas de ressources",
