@@ -386,9 +386,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       final updatedPlayers = List<Player>.from(currentState.players);
 
       for (var i = 0; i < updatedPlayers.length; i++) {
-        updatedPlayers[i].score = 0;
         updatedPlayers[i].level = 1;
         updatedPlayers[i].gear = 0;
+        updatedPlayers[i].score =
+            updatedPlayers[i].gear + updatedPlayers[i].level;
         updatedPlayers[i].modifiers = PlayerModifiers();
         updatedPlayers[i].isCursed = false;
       }

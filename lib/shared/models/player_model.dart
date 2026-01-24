@@ -72,12 +72,12 @@ class Player {
   Player({
     required this.name,
     required this.id,
-    this.score = 0,
+    this.score = 1,
     this.gear = 0,
     this.level = 1,
     PlayerModifiers? modifiers,
     this.isMale = true,
-    this.isCursed = true,
+    this.isCursed = false,
     this.temporaryModifier = 0,
   }) : modifiers = modifiers ?? PlayerModifiers();
 
