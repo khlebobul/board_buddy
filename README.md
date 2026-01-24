@@ -45,6 +45,7 @@ your ultimate board game companion
 - set® _(registered trademark of set enterprises, inc.)_ ➭ [post](https://x.com/khlebobul/status/1922156520579461502)
 - munchkin® _(registered trademark of steve jackson games)_ ➭ [post](https://x.com/khlebobul/status/1922513917374353692)
 - thousand ("tysyacha") / 1000 card game
+- catan®  _(registered trademark of catan gmbh)_
 - universal counter ➭ [post](https://x.com/khlebobul/status/1922881738553905177)
 
 ## how to help
