@@ -1,8 +1,7 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gaimon/gaimon.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// A custom keyboard widget for Munchkin one-time modifiers.
 /// Provides quick access to common modifier values (+2, +3, +5, +10) and a clear button.
@@ -104,14 +103,17 @@ class MunchkinCustomKeyboard extends StatelessWidget {
     required BuildContext context,
   }) {
     return Expanded(
-      child: _buildButton(
+      child: Container(
+        height: double.infinity,
+        alignment: Alignment.center,
+        child: TrashIcon(
+          color: theme.textColor,
+          size: 24,
+          strokeWidth: 1,
+          hoverColor: theme.secondaryTextColor,
           onTap: onClear,
-          displayText: '',
-          theme: theme,
-          textColor: theme.redColor,
-          icon: SvgPicture.asset(
-            CustomIcons.trash,
-          )),
+        ),
+      ),
     );
   }
 

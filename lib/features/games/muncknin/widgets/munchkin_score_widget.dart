@@ -2,6 +2,7 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// widget that represents a score widget for a Munchkin player.
 class MunchkinScoreWidget extends StatelessWidget {
@@ -166,7 +167,7 @@ class MunchkinScoreWidget extends StatelessWidget {
 }
 
 /// widget that represents a row for a score component.
-class ScoreRowWidget extends StatelessWidget {
+class ScoreRowWidget extends StatefulWidget {
   /// The title of the score component.
   final String title;
 
@@ -188,6 +189,14 @@ class ScoreRowWidget extends StatelessWidget {
   });
 
   @override
+  State<ScoreRowWidget> createState() => _ScoreRowWidgetState();
+}
+
+class _ScoreRowWidgetState extends State<ScoreRowWidget> {
+  final GlobalKey<_AnimatedIconButtonState> _minusKey = GlobalKey();
+  final GlobalKey<_AnimatedIconButtonState> _plusKey = GlobalKey();
+
+  @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
     return LayoutBuilder(
@@ -196,30 +205,48 @@ class ScoreRowWidget extends StatelessWidget {
           Row(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: [
-              Text(
-                '-',
-                style: theme.display9.copyWith(color: theme.redColor),
+              _AnimatedIconButton(
+                key: _minusKey,
+                icon: MinusIcon(
+                  color: theme.redColor,
+                  size: 24,
+                  strokeWidth: 1.5,
+                  hoverColor: theme.secondaryTextColor,
+                ),
+                onTap: () {
+                  widget.onDecrease();
+                  Gaimon.soft();
+                },
               ),
               Column(
                 children: [
                   Text(
-                    title,
+                    widget.title,
                     style: theme.display2.copyWith(
                       color: theme.textColor,
                     ),
                   ),
                   const SizedBox(height: 5),
                   Text(
-                    score.toString(),
+                    widget.score.toString(),
                     style: theme.display2.copyWith(
                       color: theme.textColor,
                     ),
                   ),
                 ],
               ),
-              Text(
-                '+',
-                style: theme.display9.copyWith(color: theme.redColor),
+              _AnimatedIconButton(
+                key: _plusKey,
+                icon: PlusIcon(
+                  color: theme.redColor,
+                  size: 24,
+                  strokeWidth: 1.5,
+                  hoverColor: theme.secondaryTextColor,
+                ),
+                onTap: () {
+                  widget.onIncrease();
+                  Gaimon.soft();
+                },
               ),
             ],
           ),
@@ -232,7 +259,8 @@ class ScoreRowWidget extends StatelessWidget {
             child: GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () {
-                onDecrease();
+                _minusKey.currentState?.triggerAnimation();
+                widget.onDecrease();
                 Gaimon.soft();
               },
               child: const SizedBox.shrink(),
@@ -247,7 +275,8 @@ class ScoreRowWidget extends StatelessWidget {
             child: GestureDetector(
               behavior: HitTestBehavior.opaque,
               onTap: () {
-                onIncrease();
+                _plusKey.currentState?.triggerAnimation();
+                widget.onIncrease();
                 Gaimon.soft();
               },
               child: const SizedBox.shrink(),
@@ -255,6 +284,62 @@ class ScoreRowWidget extends StatelessWidget {
           ),
         ],
       ),
+    );
+  }
+}
+
+/// Animated icon button wrapper that triggers icon animation
+class _AnimatedIconButton extends StatefulWidget {
+  final Widget icon;
+  final VoidCallback onTap;
+
+  const _AnimatedIconButton({
+    super.key,
+    required this.icon,
+    required this.onTap,
+  });
+
+  @override
+  State<_AnimatedIconButton> createState() => _AnimatedIconButtonState();
+}
+
+class _AnimatedIconButtonState extends State<_AnimatedIconButton>
+    with SingleTickerProviderStateMixin {
+  late AnimationController _controller;
+  late Animation<double> _scaleAnimation;
+
+  @override
+  void initState() {
+    super.initState();
+    _controller = AnimationController(
+      duration: const Duration(milliseconds: 150),
+      vsync: this,
+    );
+    _scaleAnimation = Tween<double>(begin: 1.0, end: 0.85).animate(
+      CurvedAnimation(parent: _controller, curve: Curves.easeInOut),
+    );
+  }
+
+  @override
+  void dispose() {
+    _controller.dispose();
+    super.dispose();
+  }
+
+  void triggerAnimation() {
+    _controller.forward().then((_) => _controller.reverse());
+  }
+
+  @override
+  Widget build(BuildContext context) {
+    return AnimatedBuilder(
+      animation: _scaleAnimation,
+      builder: (context, child) {
+        return Transform.scale(
+          scale: _scaleAnimation.value,
+          child: widget.icon,
+        );
+      },
     );
   }
 }

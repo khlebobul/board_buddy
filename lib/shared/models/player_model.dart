@@ -77,7 +77,7 @@ class Player {
     this.level = 1,
     PlayerModifiers? modifiers,
     this.isMale = true,
-    this.isCursed = true,
+    this.isCursed = false,
     this.temporaryModifier = 0,
   }) : modifiers = modifiers ?? PlayerModifiers();
 

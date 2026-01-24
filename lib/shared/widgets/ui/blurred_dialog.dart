@@ -1,5 +1,6 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// A dialog with a blurred scrollable content area that automatically adjusts its height.
 class BlurredDialog extends StatelessWidget {
@@ -53,16 +54,16 @@ class BlurredDialog extends StatelessWidget {
               child: Column(
                 mainAxisSize: MainAxisSize.min,
                 children: [
-                  // Close button at the top
                   Padding(
                     padding: const EdgeInsets.symmetric(
                         vertical: 12, horizontal: 16),
                     child: Align(
                       alignment: Alignment.topRight,
-                      child: GestureDetector(
-                        behavior: HitTestBehavior.opaque,
+                      child: XIcon(
+                        color: themeUI.secondaryTextColor,
+                        strokeWidth: 1.5,
+                        size: 24,
                         onTap: () => Navigator.pop(context),
-                        child: Icon(Icons.close, color: theme.hintColor),
                       ),
                     ),
                   ),

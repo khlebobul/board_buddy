@@ -1,6 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/uno_flip/bloc/uno_flip_bloc.dart';
 import 'package:board_buddy/features/games/uno_flip/widgets/info_uno_flip_dialog_widget.dart';
@@ -14,6 +13,7 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// uno flip game screen
 class UnoFlipGame extends StatefulWidget {
@@ -237,7 +237,10 @@ class _UnoFlipGameState extends State<UnoFlipGame>
       },
       builder: (context, state) {
         if (state is! UnoFlipGameState) {
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         }
 
         final gameState = state;
@@ -436,43 +439,90 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                     _updateScore(_isDarkSide ? 20 : 10),
                               ),
                               KeyboardButton(
-                                buttonIcon: CustomIcons.reverse,
-                                onPressed: () => _updateScore(20),
+                                icon: RepeatIcon(
+                                  color: theme.textColor,
+                                  hoverColor: theme.secondaryTextColor,
+                                  strokeWidth: 1,
+                                  size: 30,
+                                  onTap: () => _updateScore(20),
+                                ),
                               ),
                               _isDarkSide
                                   ? KeyboardButton(
-                                      buttonIcon: CustomIcons.skipEveryone,
-                                      onPressed: () => _updateScore(30),
+                                      icon: RotateCwIcon(
+                                        color: theme.textColor,
+                                        hoverColor: theme.secondaryTextColor,
+                                        strokeWidth: 1,
+                                        size: 30,
+                                        onTap: () => _updateScore(30),
+                                      ),
                                     )
                                   : KeyboardButton(
-                                      buttonIcon: CustomIcons.skip,
-                                      onPressed: () => _updateScore(20),
+                                      icon: BanIcon(
+                                        animationDuration:
+                                            Duration(milliseconds: 450),
+                                        color: theme.textColor,
+                                        hoverColor: theme.secondaryTextColor,
+                                        strokeWidth: 1,
+                                        size: 30,
+                                        onTap: () => _updateScore(20),
+                                      ),
                                     ),
                             ],
                             [
                               KeyboardButton(
-                                buttonIcon: CustomIcons.flip,
-                                onPressed: () => _updateScore(20),
+                                icon: Replace2Icon(
+                                  color: theme.textColor,
+                                  hoverColor: theme.secondaryTextColor,
+                                  strokeWidth: 1,
+                                  size: 30,
+                                  onTap: () => _updateScore(20),
+                                ),
                               ),
                               KeyboardButton(
-                                buttonIcon: CustomIcons.wild,
-                                onPressed: () => _updateScore(40),
+                                icon: Grid2x2Icon(
+                                  color: theme.textColor,
+                                  hoverColor: theme.secondaryTextColor,
+                                  strokeWidth: 1,
+                                  size: 30,
+                                  onTap: () => _updateScore(40),
+                                ),
                               ),
                               _isDarkSide
                                   ? KeyboardButton(
-                                      buttonIcon: CustomIcons.wildDrawColor,
-                                      onPressed: () => _updateScore(60),
+                                      icon: LayersIcon(
+                                        color: theme.textColor,
+                                        hoverColor: theme.secondaryTextColor,
+                                        strokeWidth: 1,
+                                        size: 30,
+                                        onTap: () => _updateScore(60),
+                                      ),
                                     )
                                   : KeyboardButton(
-                                      buttonIcon:
-                                          CustomIcons.wildDrawTwoUnoflip,
-                                      onPressed: () => _updateScore(50),
+                                      icon: GridPlus2Icon(
+                                        color: theme.textColor,
+                                        hoverColor: theme.secondaryTextColor,
+                                        strokeWidth: 1,
+                                        size: 30,
+                                        onTap: () => _updateScore(50),
+                                      ),
                                     ),
                               KeyboardButton(
-                                buttonIcon: _isDarkSide
-                                    ? CustomIcons.sun
-                                    : CustomIcons.sunDark,
-                                onPressed: _toggleSide,
+                                icon: _isDarkSide
+                                    ? SunIcon(
+                                        strokeWidth: 1,
+                                        size: 30,
+                                        color: theme.textColor,
+                                        hoverColor: theme.secondaryTextColor,
+                                        onTap: _toggleSide,
+                                      )
+                                    : MoonIcon(
+                                        strokeWidth: 1,
+                                        size: 30,
+                                        color: theme.textColor,
+                                        hoverColor: theme.secondaryTextColor,
+                                        onTap: _toggleSide,
+                                      ),
                               ),
                             ],
                           ],

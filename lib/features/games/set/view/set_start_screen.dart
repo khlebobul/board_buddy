@@ -4,11 +4,13 @@ import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
+import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 import 'package:use_scramble/use_scramble.dart';
 
 class SetGameStartScreen extends StatelessWidget {
@@ -100,10 +102,11 @@ class SetGameStartScreenView extends StatelessWidget {
                                         .copyWith(color: theme.textColor),
                                   ),
                                 ),
-                                IconButton(
-                                  icon: Icon(Icons.close,
-                                      color: theme.secondaryTextColor),
-                                  onPressed: () {
+                                XIcon(
+                                  size: 20,
+                                  color: theme.secondaryTextColor,
+                                  strokeWidth: 1.5,
+                                  onTap: () {
                                     context
                                         .read<SetBloc>()
                                         .add(RemovePlayer(entry.key));
@@ -156,13 +159,10 @@ class SetGameStartScreenView extends StatelessWidget {
                 onRightBtnTap: () {
                   if (!setState.isSinglePlayer &&
                       setState.players.length < GameMinPlayers.set) {
-                    ScaffoldMessenger.of(context).showSnackBar(
-                      SnackBar(
-                        behavior: SnackBarBehavior.floating,
-                        duration: const Duration(seconds: 5),
-                        content: Text(
-                            '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.setPlayers}'),
-                      ),
+                    AnimatedSnackBar.show(
+                      context,
+                      message:
+                          '${S.of(context).theNumberOfPlayersShouldBe} ${RulesConst.setPlayers}',
                     );
                   } else {
                     Navigator.pushNamed(

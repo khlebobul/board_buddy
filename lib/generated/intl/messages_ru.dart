@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(playerName, winningBid) =>
       "набрал ли ${playerName} свою ставку (${winningBid} очков)?";
 
+  static String m1(count) =>
+      "${Intl.plural(count, one: 'очко', few: 'очка', many: 'очков', other: 'очков')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("о проекте"),
@@ -35,6 +38,14 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage("позволяет игроку выбрать цвет."),
     "appreciation": MessageLookupByLibrary.simpleMessage("благодарность"),
     "armour": MessageLookupByLibrary.simpleMessage("броня"),
+    "awardedToThePlayerWith3KnightCardsPlayed":
+        MessageLookupByLibrary.simpleMessage(
+          "присуждается игроку с 3+ сыгранными картами рыцарей",
+        ),
+    "awardedToThePlayerWith5ConnectedRoads":
+        MessageLookupByLibrary.simpleMessage(
+          "присуждается игроку с 5+ соединёнными дорогами",
+        ),
     "back": MessageLookupByLibrary.simpleMessage("назад"),
     "biddingPhase": MessageLookupByLibrary.simpleMessage("фаза торговли:"),
     "bigArmour": MessageLookupByLibrary.simpleMessage("большая броня"),
@@ -58,6 +69,15 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "усиления или ослабления персонажа/предметов",
         ),
+    "buildANewSettlementOnAnIntersection": MessageLookupByLibrary.simpleMessage(
+      "постройте новое поселение на перекрёстке",
+    ),
+    "buildingCosts": MessageLookupByLibrary.simpleMessage(
+      "стоимость строительства:",
+    ),
+    "buildingRules": MessageLookupByLibrary.simpleMessage(
+      "правила строительства:",
+    ),
     "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
         MessageLookupByLibrary.simpleMessage(
           "может быть любого цвета по выбору текущего игрока. если вытянута, игрок выбирает цвет.",
@@ -68,6 +88,154 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "cancel": MessageLookupByLibrary.simpleMessage("отмена"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
+    "catan": MessageLookupByLibrary.simpleMessage("колонизаторы"),
+    "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
+      "карта развития: 1 шерсть + 1 зерно + 1 руда",
+    ),
+    "catanBuildingCostsOne": MessageLookupByLibrary.simpleMessage(
+      "дорога: 1 древесина + 1 кирпич",
+    ),
+    "catanBuildingCostsThree": MessageLookupByLibrary.simpleMessage(
+      "город (улучшение): 2 зерна + 3 руды (2)",
+    ),
+    "catanBuildingCostsTwo": MessageLookupByLibrary.simpleMessage(
+      "поселение: 1 древесина + 1 кирпич + 1 шерсть + 1 зерно (1)",
+    ),
+    "catanBuildingRulesFour": MessageLookupByLibrary.simpleMessage(
+      "города заменяют существующие поселения",
+    ),
+    "catanBuildingRulesOne": MessageLookupByLibrary.simpleMessage(
+      "дороги должны соединяться с вашими существующими дорогами, поселениями или городами",
+    ),
+    "catanBuildingRulesThree": MessageLookupByLibrary.simpleMessage(
+      "поселения должны соединяться с вашей сетью дорог",
+    ),
+    "catanBuildingRulesTwo": MessageLookupByLibrary.simpleMessage(
+      "поселения должны находиться минимум в 2 перекрёстках от любого другого поселения/города",
+    ),
+    "catanComponentsEight": MessageLookupByLibrary.simpleMessage(
+      "2 специальные карты: самый длинный торговый путь, самая большая армия",
+    ),
+    "catanComponentsFive": MessageLookupByLibrary.simpleMessage(
+      "95 карт ресурсов (по 19: древесина, кирпич, шерсть, зерно, руда)",
+    ),
+    "catanComponentsFour": MessageLookupByLibrary.simpleMessage(
+      "18 жетонов с числами",
+    ),
+    "catanComponentsNine": MessageLookupByLibrary.simpleMessage(
+      "1 разбойник, 2 кубика",
+    ),
+    "catanComponentsOne": MessageLookupByLibrary.simpleMessage(
+      "19 гексов местности (4 леса, 4 поля пшеницы, 4 пастбища, 3 горы, 3 холма, 1 пустыня)",
+    ),
+    "catanComponentsSeven": MessageLookupByLibrary.simpleMessage(
+      "фигурки игроков: 5 поселений, 4 города, 15 дорог на игрока",
+    ),
+    "catanComponentsSix": MessageLookupByLibrary.simpleMessage(
+      "25 карт развития",
+    ),
+    "catanComponentsThree": MessageLookupByLibrary.simpleMessage(
+      "9 частей портов",
+    ),
+    "catanComponentsTwo": MessageLookupByLibrary.simpleMessage(
+      "6 частей морской рамки",
+    ),
+    "catanDevelopmentCardsFour": MessageLookupByLibrary.simpleMessage(
+      "монополия (2): назовите ресурс, все игроки отдают вам свои",
+    ),
+    "catanDevelopmentCardsOne": MessageLookupByLibrary.simpleMessage(
+      "рыцарь (14): переместите разбойника, украдите 1 ресурс у соседнего игрока",
+    ),
+    "catanDevelopmentCardsThree": MessageLookupByLibrary.simpleMessage(
+      "строительство дорог (2): постройте 2 дороги бесплатно",
+    ),
+    "catanDevelopmentCardsTwo": MessageLookupByLibrary.simpleMessage(
+      "победное очко (5): даёт 1, держите скрытой до победы",
+    ),
+    "catanGameGoal": MessageLookupByLibrary.simpleMessage(
+      "первым набрать 10 победных очков, строя поселения, города, дороги и получая специальные карты.",
+    ),
+    "catanGameTurnOne": MessageLookupByLibrary.simpleMessage(
+      "бросок кубиков: все игроки с поселениями/городами на гексах с выпавшим числом получают ресурсы",
+    ),
+    "catanGameTurnThree": MessageLookupByLibrary.simpleMessage(
+      "строительство: тратьте ресурсы на строительство дорог, поселений, городов или покупку карт развития",
+    ),
+    "catanGameTurnTwo": MessageLookupByLibrary.simpleMessage(
+      "торговля: обменивайте ресурсы с другими игроками или используйте порты (4:1 или специальные курсы)",
+    ),
+    "catanPreparationFour": MessageLookupByLibrary.simpleMessage(
+      "каждый игрок размещает 2 поселения и 2 дороги в обратном порядке хода",
+    ),
+    "catanPreparationOne": MessageLookupByLibrary.simpleMessage(
+      "соберите поле из гексов местности внутри морской рамки",
+    ),
+    "catanPreparationThree": MessageLookupByLibrary.simpleMessage(
+      "поставьте разбойника на гекс пустыни",
+    ),
+    "catanPreparationTwo": MessageLookupByLibrary.simpleMessage(
+      "разместите жетоны с числами на гексах (кроме пустыни)",
+    ),
+    "catanResourcesFive": MessageLookupByLibrary.simpleMessage("горы – руда"),
+    "catanResourcesFour": MessageLookupByLibrary.simpleMessage(
+      "поля – зерно (пшеница)",
+    ),
+    "catanResourcesOne": MessageLookupByLibrary.simpleMessage(
+      "лес – древесина",
+    ),
+    "catanResourcesSix": MessageLookupByLibrary.simpleMessage(
+      "пустыня – без ресурсов",
+    ),
+    "catanResourcesThree": MessageLookupByLibrary.simpleMessage(
+      "пастбище – шерсть (овца)",
+    ),
+    "catanResourcesTwo": MessageLookupByLibrary.simpleMessage(
+      "холмы – кирпич (глина)",
+    ),
+    "catanScoringFive": MessageLookupByLibrary.simpleMessage(
+      "карты победных очков: 1 каждая",
+    ),
+    "catanScoringFour": MessageLookupByLibrary.simpleMessage(
+      "самая большая армия: 2",
+    ),
+    "catanScoringOne": MessageLookupByLibrary.simpleMessage("поселение: 1"),
+    "catanScoringThree": MessageLookupByLibrary.simpleMessage(
+      "самый длинный торговый путь: 2",
+    ),
+    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("город: 2"),
+    "catanSpecialCards2VpEachOne": MessageLookupByLibrary.simpleMessage(
+      "самый длинный торговый путь: первый игрок с 5+ непрерывными дорогами (может быть украдена)",
+    ),
+    "catanSpecialCards2VpEachTwo": MessageLookupByLibrary.simpleMessage(
+      "самая большая армия: первый игрок с 3+ сыгранными картами рыцарей (может быть украдена)",
+    ),
+    "catanTheRobberRolling7Four": MessageLookupByLibrary.simpleMessage(
+      "заблокированный гекс не производит ресурсы, пока там разбойник",
+    ),
+    "catanTheRobberRolling7One": MessageLookupByLibrary.simpleMessage(
+      "любой игрок с более чем 7 картами должен сбросить половину (округляя вниз)",
+    ),
+    "catanTheRobberRolling7Three": MessageLookupByLibrary.simpleMessage(
+      "украдите 1 случайный ресурс у игрока с поселением/городом на этом гексе",
+    ),
+    "catanTheRobberRolling7Two": MessageLookupByLibrary.simpleMessage(
+      "переместите разбойника на любой гекс (кроме пустыни)",
+    ),
+    "catanTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      "catan® является торговой маркой catan gmbh.",
+    ),
+    "catanTradingOne": MessageLookupByLibrary.simpleMessage(
+      "внутренняя торговля: договаривайтесь об обмене с другими игроками в свой ход",
+    ),
+    "catanTradingThree": MessageLookupByLibrary.simpleMessage(
+      "портовая торговля: общие порты 3:1 или специализированные 2:1",
+    ),
+    "catanTradingTwo": MessageLookupByLibrary.simpleMessage(
+      "морская торговля: 4:1 с банком (любые 4 одинаковых ресурса за 1)",
+    ),
+    "catanVictoryRule": MessageLookupByLibrary.simpleMessage(
+      "первый игрок, набравший 10 победных очков в свой ход, выигрывает игру. вы должны объявить о своей победе в свой ход.",
+    ),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
           "меняет цвет и заставляет следующего игрока взять четыре карты.",
@@ -82,6 +250,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "пол персонажа: мужской",
     ),
     "checkMyWebsite": MessageLookupByLibrary.simpleMessage("мой сайт"),
+    "city": MessageLookupByLibrary.simpleMessage("город"),
     "class1": MessageLookupByLibrary.simpleMessage("класс 1"),
     "class2": MessageLookupByLibrary.simpleMessage("класс 2"),
     "clear": MessageLookupByLibrary.simpleMessage("очистить"),
@@ -106,6 +275,10 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "карточки темной стороны заменяться на светлые и наоборот.",
         ),
+    "developmentCardWorth1VictoryPoint": MessageLookupByLibrary.simpleMessage(
+      "карта развития, дающая 1 победное очко",
+    ),
+    "developmentCards": MessageLookupByLibrary.simpleMessage("карты развития:"),
     "didPlayerReachBid": m0,
     "didYouEnter": MessageLookupByLibrary.simpleMessage("набрал ли"),
     "doReturn": MessageLookupByLibrary.simpleMessage("вернуться"),
@@ -254,6 +427,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "king": MessageLookupByLibrary.simpleMessage("король"),
     "king4Points": MessageLookupByLibrary.simpleMessage("король: 4 очка"),
     "languages": MessageLookupByLibrary.simpleMessage("языки"),
+    "largestArmy": MessageLookupByLibrary.simpleMessage("самая большая армия"),
     "leftHand": MessageLookupByLibrary.simpleMessage("левая рука"),
     "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
         MessageLookupByLibrary.simpleMessage(
@@ -261,10 +435,14 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "level": MessageLookupByLibrary.simpleMessage("уровень"),
     "light": MessageLookupByLibrary.simpleMessage("светлая"),
+    "longestRoad": MessageLookupByLibrary.simpleMessage(
+      "самый длинный торговый путь",
+    ),
     "lowestScoreWins": MessageLookupByLibrary.simpleMessage(
       "побеждает низкий счет",
     ),
     "magic": MessageLookupByLibrary.simpleMessage("магия"),
+    "mapGenerator": MessageLookupByLibrary.simpleMessage("генератор карты"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "отмечает мёртвого персонажа",
     ),
@@ -395,6 +573,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pointsConfirmed": MessageLookupByLibrary.simpleMessage(
       "очки подтверждены",
     ),
+    "pointsCount": m1,
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
       "снятие проклятий или дебафов",
     ),
@@ -405,12 +584,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "race1": MessageLookupByLibrary.simpleMessage("раса 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("оцените приложение"),
     "reportABug": MessageLookupByLibrary.simpleMessage("сообщить об ошибке"),
+    "resources": MessageLookupByLibrary.simpleMessage("ресурсы:"),
     "results": MessageLookupByLibrary.simpleMessage("результат"),
     "returnToMenu": MessageLookupByLibrary.simpleMessage("вернуться в меню"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage(
       "карта «смена направления»",
     ),
     "rightHand": MessageLookupByLibrary.simpleMessage("правая рука"),
+    "rollDiceLocale": MessageLookupByLibrary.simpleMessage("бросить кубики"),
     "round": MessageLookupByLibrary.simpleMessage("раунд"),
     "rules": MessageLookupByLibrary.simpleMessage("правила"),
     "russian": MessageLookupByLibrary.simpleMessage("русский"),
@@ -587,6 +768,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "set® является зарегистрированной торговой маркой компании set enterprises, inc.",
     ),
     "settings": MessageLookupByLibrary.simpleMessage("настройки"),
+    "settlement": MessageLookupByLibrary.simpleMessage("поселение"),
     "shareFeedback": MessageLookupByLibrary.simpleMessage("обратная связь"),
     "shareWithFriedns": MessageLookupByLibrary.simpleMessage(
       "поделиться с друзьями",
@@ -614,6 +796,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "следующий игрок пропускает ход.",
     ),
     "spanish": MessageLookupByLibrary.simpleMessage("испанский"),
+    "specialCards2VpEach": MessageLookupByLibrary.simpleMessage(
+      "специальные карты (по 2 каждая):",
+    ),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage("особые карты:"),
     "specialRulesTitle": MessageLookupByLibrary.simpleMessage(
       "особые правила:",
@@ -628,7 +813,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "telegram": MessageLookupByLibrary.simpleMessage("телеграм"),
     "ten10Points": MessageLookupByLibrary.simpleMessage("десятка: 10 очков"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
-      "количество игроков должно быть больше",
+      "количество игроков должно быть",
+    ),
+    "theRobberRolling7": MessageLookupByLibrary.simpleMessage(
+      "разбойник (при выпадении 7):",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("тема"),
     "thief": MessageLookupByLibrary.simpleMessage("вор"),
@@ -703,6 +891,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "total": MessageLookupByLibrary.simpleMessage("всего"),
     "totalStrength": MessageLookupByLibrary.simpleMessage("общая сила: "),
+    "trading": MessageLookupByLibrary.simpleMessage("торговля:"),
     "tripleTheValueOfALetterScrabbleInfo": MessageLookupByLibrary.simpleMessage(
       "утраивает значение буквы",
     ),
@@ -874,6 +1063,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.",
     ),
+    "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
+      "улучшите поселение до города (+1 очко)",
+    ),
+    "victoryPointCard": MessageLookupByLibrary.simpleMessage(
+      "карта победного очка",
+    ),
     "victoryTitle": MessageLookupByLibrary.simpleMessage("победа:"),
     "warrior": MessageLookupByLibrary.simpleMessage("воин"),
     "whoGoesFirst": MessageLookupByLibrary.simpleMessage("кто раздает первым?"),
@@ -895,6 +1090,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "winner": MessageLookupByLibrary.simpleMessage("победитель: "),
     "wizard": MessageLookupByLibrary.simpleMessage("маг"),
+    "wordIsTooLongMaximum15LettersAllowed":
+        MessageLookupByLibrary.simpleMessage(
+          "слово слишком длинное. максимум 15 букв",
+        ),
     "wordModifier": MessageLookupByLibrary.simpleMessage("модификатор: "),
     "x2Word": MessageLookupByLibrary.simpleMessage("x2 слово"),
     "x3Word": MessageLookupByLibrary.simpleMessage("x3 слово"),

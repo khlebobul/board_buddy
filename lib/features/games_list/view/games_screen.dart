@@ -131,6 +131,19 @@ class GamesScreen extends StatelessWidget {
                       );
                     }),
               ),
+              const SizedBox(height: 5),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () => Navigator.pushNamed(context, '/catanStartGame'),
+                child: TextScramble(
+                    text: '08 - ${S.of(context).catan}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
+              ),
               const Spacer(),
               const AddFavouriteGame(),
             ],

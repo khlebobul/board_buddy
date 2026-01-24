@@ -1,15 +1,29 @@
 # Changelog
 
+## [1.2.0]
+
+### New Features
+- Added full **Catan** support: start screen, rules, playable game, map generator (#65), and scoring (#61)
+- Added `upgrader` package for app updates (#67)
+
+### UI Improvements
+- Improved UI interactions and visual consistency
+- All application icons have been replaced with animated ones using [not_static_icons](https://pub.dev/packages/not_static_icons) package (#66)
+
+### Bug Fixes
+- Minor application errors have been fixed
+
+### Chores
+- Updated versions of packages that are used in the application
+
 ## [1.1.0]
 
 ### New Features
-
 - Added Thousand card game with complete gameplay including dealer selection, bidding, scoring phases, and interactive rules screens
 - Improved tap reliability and hit detection across all game interfaces and interactive elements
 
 ### Bug Fixes
-
-- Fixed `_showGameEndModal` game saving bug
+- Fixed `_showGameEndModal` game saving bug (#63)
 
 ## [1.0.12]
 

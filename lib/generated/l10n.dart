@@ -2199,6 +2199,18 @@ class S {
     return Intl.message('points', name: 'points', desc: '', args: []);
   }
 
+  /// `{count, plural, =1{point} other{points}}`
+  String pointsCount(int count) {
+    return Intl.plural(
+      count,
+      one: 'point',
+      other: 'points',
+      name: 'pointsCount',
+      desc: '',
+      args: [count],
+    );
+  }
+
   /// `wild draw two card`
   String get wildDrawTwoCardDosInfo {
     return Intl.message(
@@ -2694,10 +2706,10 @@ class S {
     return Intl.message('player name', name: 'playerName', desc: '', args: []);
   }
 
-  /// `the number of players should be more than`
+  /// `the number of players should be`
   String get theNumberOfPlayersShouldBe {
     return Intl.message(
-      'the number of players should be more than',
+      'the number of players should be',
       name: 'theNumberOfPlayersShouldBe',
       desc: '',
       args: [],
@@ -3354,6 +3366,696 @@ class S {
     return Intl.message(
       'players on barrel:',
       name: 'playersOnBarrel',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `catan`
+  String get catan {
+    return Intl.message('catan', name: 'catan', desc: '', args: []);
+  }
+
+  /// `be the first player to reach 10 victory points by building settlements, cities, roads, and earning special cards.`
+  String get catanGameGoal {
+    return Intl.message(
+      'be the first player to reach 10 victory points by building settlements, cities, roads, and earning special cards.',
+      name: 'catanGameGoal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `19 terrain hexes (4 forest, 4 grain, 4 pasture, 3 mountains, 3 hills, 1 desert)`
+  String get catanComponentsOne {
+    return Intl.message(
+      '19 terrain hexes (4 forest, 4 grain, 4 pasture, 3 mountains, 3 hills, 1 desert)',
+      name: 'catanComponentsOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `6 sea frame pieces`
+  String get catanComponentsTwo {
+    return Intl.message(
+      '6 sea frame pieces',
+      name: 'catanComponentsTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `9 harbor pieces`
+  String get catanComponentsThree {
+    return Intl.message(
+      '9 harbor pieces',
+      name: 'catanComponentsThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `18 number tokens`
+  String get catanComponentsFour {
+    return Intl.message(
+      '18 number tokens',
+      name: 'catanComponentsFour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `95 resource cards (19 each: lumber, brick, wool, grain, ore)`
+  String get catanComponentsFive {
+    return Intl.message(
+      '95 resource cards (19 each: lumber, brick, wool, grain, ore)',
+      name: 'catanComponentsFive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `25 development cards`
+  String get catanComponentsSix {
+    return Intl.message(
+      '25 development cards',
+      name: 'catanComponentsSix',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `player pieces: 5 settlements, 4 cities, 15 roads per player`
+  String get catanComponentsSeven {
+    return Intl.message(
+      'player pieces: 5 settlements, 4 cities, 15 roads per player',
+      name: 'catanComponentsSeven',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `2 special cards: longest road, largest army`
+  String get catanComponentsEight {
+    return Intl.message(
+      '2 special cards: longest road, largest army',
+      name: 'catanComponentsEight',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `1 robber, 2 dice`
+  String get catanComponentsNine {
+    return Intl.message(
+      '1 robber, 2 dice',
+      name: 'catanComponentsNine',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `assemble the board with terrain hexes inside the sea frame`
+  String get catanPreparationOne {
+    return Intl.message(
+      'assemble the board with terrain hexes inside the sea frame',
+      name: 'catanPreparationOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `place number tokens on hexes (except desert)`
+  String get catanPreparationTwo {
+    return Intl.message(
+      'place number tokens on hexes (except desert)',
+      name: 'catanPreparationTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `place the robber on the desert hex`
+  String get catanPreparationThree {
+    return Intl.message(
+      'place the robber on the desert hex',
+      name: 'catanPreparationThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `each player places 2 settlements and 2 roads in reverse turn order`
+  String get catanPreparationFour {
+    return Intl.message(
+      'each player places 2 settlements and 2 roads in reverse turn order',
+      name: 'catanPreparationFour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `resources:`
+  String get resources {
+    return Intl.message('resources:', name: 'resources', desc: '', args: []);
+  }
+
+  /// `forest – lumber (wood)`
+  String get catanResourcesOne {
+    return Intl.message(
+      'forest – lumber (wood)',
+      name: 'catanResourcesOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `hills – brick (clay)`
+  String get catanResourcesTwo {
+    return Intl.message(
+      'hills – brick (clay)',
+      name: 'catanResourcesTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `pasture – wool (sheep)`
+  String get catanResourcesThree {
+    return Intl.message(
+      'pasture – wool (sheep)',
+      name: 'catanResourcesThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `fields – grain (wheat)`
+  String get catanResourcesFour {
+    return Intl.message(
+      'fields – grain (wheat)',
+      name: 'catanResourcesFour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `mountains – ore`
+  String get catanResourcesFive {
+    return Intl.message(
+      'mountains – ore',
+      name: 'catanResourcesFive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `desert – no resources`
+  String get catanResourcesSix {
+    return Intl.message(
+      'desert – no resources',
+      name: 'catanResourcesSix',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `roll dice: all players with settlements/cities on hexes matching the number receive resources`
+  String get catanGameTurnOne {
+    return Intl.message(
+      'roll dice: all players with settlements/cities on hexes matching the number receive resources',
+      name: 'catanGameTurnOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `trade: exchange resources with other players or use harbors (4:1 or special rates)`
+  String get catanGameTurnTwo {
+    return Intl.message(
+      'trade: exchange resources with other players or use harbors (4:1 or special rates)',
+      name: 'catanGameTurnTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `build: spend resources to construct roads, settlements, cities, or buy development cards`
+  String get catanGameTurnThree {
+    return Intl.message(
+      'build: spend resources to construct roads, settlements, cities, or buy development cards',
+      name: 'catanGameTurnThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `building costs:`
+  String get buildingCosts {
+    return Intl.message(
+      'building costs:',
+      name: 'buildingCosts',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `road: 1 lumber + 1 brick`
+  String get catanBuildingCostsOne {
+    return Intl.message(
+      'road: 1 lumber + 1 brick',
+      name: 'catanBuildingCostsOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1)`
+  String get catanBuildingCostsTwo {
+    return Intl.message(
+      'settlement: 1 lumber + 1 brick + 1 wool + 1 grain (1)',
+      name: 'catanBuildingCostsTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `city (upgrade): 2 grain + 3 ore (2)`
+  String get catanBuildingCostsThree {
+    return Intl.message(
+      'city (upgrade): 2 grain + 3 ore (2)',
+      name: 'catanBuildingCostsThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `development card: 1 wool + 1 grain + 1 ore`
+  String get catanBuildingCostsFour {
+    return Intl.message(
+      'development card: 1 wool + 1 grain + 1 ore',
+      name: 'catanBuildingCostsFour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `development cards:`
+  String get developmentCards {
+    return Intl.message(
+      'development cards:',
+      name: 'developmentCards',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `knight (14): move robber, steal 1 resource from adjacent player`
+  String get catanDevelopmentCardsOne {
+    return Intl.message(
+      'knight (14): move robber, steal 1 resource from adjacent player',
+      name: 'catanDevelopmentCardsOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `victory point (5): worth 1, keep hidden until winning`
+  String get catanDevelopmentCardsTwo {
+    return Intl.message(
+      'victory point (5): worth 1, keep hidden until winning',
+      name: 'catanDevelopmentCardsTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `road building (2): build 2 roads for free`
+  String get catanDevelopmentCardsThree {
+    return Intl.message(
+      'road building (2): build 2 roads for free',
+      name: 'catanDevelopmentCardsThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `monopoly (2): name a resource, all players give you theirs`
+  String get catanDevelopmentCardsFour {
+    return Intl.message(
+      'monopoly (2): name a resource, all players give you theirs',
+      name: 'catanDevelopmentCardsFour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the robber (rolling 7):`
+  String get theRobberRolling7 {
+    return Intl.message(
+      'the robber (rolling 7):',
+      name: 'theRobberRolling7',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `any player with more than 7 cards must discard half (rounded down)`
+  String get catanTheRobberRolling7One {
+    return Intl.message(
+      'any player with more than 7 cards must discard half (rounded down)',
+      name: 'catanTheRobberRolling7One',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `move the robber to any hex (except desert)`
+  String get catanTheRobberRolling7Two {
+    return Intl.message(
+      'move the robber to any hex (except desert)',
+      name: 'catanTheRobberRolling7Two',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `steal 1 random resource from a player with a settlement/city on that hex`
+  String get catanTheRobberRolling7Three {
+    return Intl.message(
+      'steal 1 random resource from a player with a settlement/city on that hex',
+      name: 'catanTheRobberRolling7Three',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the blocked hex produces no resources while robber is there`
+  String get catanTheRobberRolling7Four {
+    return Intl.message(
+      'the blocked hex produces no resources while robber is there',
+      name: 'catanTheRobberRolling7Four',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `special cards (2 each):`
+  String get specialCards2VpEach {
+    return Intl.message(
+      'special cards (2 each):',
+      name: 'specialCards2VpEach',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `longest road: first player with 5+ continuous roads (can be stolen)`
+  String get catanSpecialCards2VpEachOne {
+    return Intl.message(
+      'longest road: first player with 5+ continuous roads (can be stolen)',
+      name: 'catanSpecialCards2VpEachOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `largest army: first player with 3+ played knight cards (can be stolen)`
+  String get catanSpecialCards2VpEachTwo {
+    return Intl.message(
+      'largest army: first player with 3+ played knight cards (can be stolen)',
+      name: 'catanSpecialCards2VpEachTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `building rules:`
+  String get buildingRules {
+    return Intl.message(
+      'building rules:',
+      name: 'buildingRules',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `roads must connect to your existing roads, settlements, or cities`
+  String get catanBuildingRulesOne {
+    return Intl.message(
+      'roads must connect to your existing roads, settlements, or cities',
+      name: 'catanBuildingRulesOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `settlements must be at least 2 intersections away from any other settlement/city`
+  String get catanBuildingRulesTwo {
+    return Intl.message(
+      'settlements must be at least 2 intersections away from any other settlement/city',
+      name: 'catanBuildingRulesTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `settlements must connect to your road network`
+  String get catanBuildingRulesThree {
+    return Intl.message(
+      'settlements must connect to your road network',
+      name: 'catanBuildingRulesThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `cities replace existing settlements`
+  String get catanBuildingRulesFour {
+    return Intl.message(
+      'cities replace existing settlements',
+      name: 'catanBuildingRulesFour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `trading:`
+  String get trading {
+    return Intl.message('trading:', name: 'trading', desc: '', args: []);
+  }
+
+  /// `domestic trade: negotiate any exchange with other players on your turn`
+  String get catanTradingOne {
+    return Intl.message(
+      'domestic trade: negotiate any exchange with other players on your turn',
+      name: 'catanTradingOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `maritime trade: 4:1 with bank (any 4 same resources for 1)`
+  String get catanTradingTwo {
+    return Intl.message(
+      'maritime trade: 4:1 with bank (any 4 same resources for 1)',
+      name: 'catanTradingTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `harbor trade: 3:1 generic or 2:1 specific resource harbors`
+  String get catanTradingThree {
+    return Intl.message(
+      'harbor trade: 3:1 generic or 2:1 specific resource harbors',
+      name: 'catanTradingThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `settlement: 1`
+  String get catanScoringOne {
+    return Intl.message(
+      'settlement: 1',
+      name: 'catanScoringOne',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `city: 2`
+  String get catanScoringTwo {
+    return Intl.message('city: 2', name: 'catanScoringTwo', desc: '', args: []);
+  }
+
+  /// `longest road: 2`
+  String get catanScoringThree {
+    return Intl.message(
+      'longest road: 2',
+      name: 'catanScoringThree',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `largest army: 2`
+  String get catanScoringFour {
+    return Intl.message(
+      'largest army: 2',
+      name: 'catanScoringFour',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `victory point cards: 1 each`
+  String get catanScoringFive {
+    return Intl.message(
+      'victory point cards: 1 each',
+      name: 'catanScoringFive',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the first player to reach 10 victory points on their turn wins the game. you must announce your victory on your turn.`
+  String get catanVictoryRule {
+    return Intl.message(
+      'the first player to reach 10 victory points on their turn wins the game. you must announce your victory on your turn.',
+      name: 'catanVictoryRule',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `catan® is a trademark of catan gmbh.`
+  String get catanTrademarkNotice {
+    return Intl.message(
+      'catan® is a trademark of catan gmbh.',
+      name: 'catanTrademarkNotice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `word is too long. maximum 15 letters allowed`
+  String get wordIsTooLongMaximum15LettersAllowed {
+    return Intl.message(
+      'word is too long. maximum 15 letters allowed',
+      name: 'wordIsTooLongMaximum15LettersAllowed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `settlement`
+  String get settlement {
+    return Intl.message('settlement', name: 'settlement', desc: '', args: []);
+  }
+
+  /// `build a new settlement on an intersection`
+  String get buildANewSettlementOnAnIntersection {
+    return Intl.message(
+      'build a new settlement on an intersection',
+      name: 'buildANewSettlementOnAnIntersection',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `city`
+  String get city {
+    return Intl.message('city', name: 'city', desc: '', args: []);
+  }
+
+  /// `upgrade a settlement to a city (+1 point)`
+  String get upgradeASettlementToACity1Point {
+    return Intl.message(
+      'upgrade a settlement to a city (+1 point)',
+      name: 'upgradeASettlementToACity1Point',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `victory point card`
+  String get victoryPointCard {
+    return Intl.message(
+      'victory point card',
+      name: 'victoryPointCard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `development card worth 1 victory point`
+  String get developmentCardWorth1VictoryPoint {
+    return Intl.message(
+      'development card worth 1 victory point',
+      name: 'developmentCardWorth1VictoryPoint',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `longest road`
+  String get longestRoad {
+    return Intl.message(
+      'longest road',
+      name: 'longestRoad',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `awarded to the player with 5+ connected roads`
+  String get awardedToThePlayerWith5ConnectedRoads {
+    return Intl.message(
+      'awarded to the player with 5+ connected roads',
+      name: 'awardedToThePlayerWith5ConnectedRoads',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `largest army`
+  String get largestArmy {
+    return Intl.message(
+      'largest army',
+      name: 'largestArmy',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `awarded to the player with 3+ knight cards played`
+  String get awardedToThePlayerWith3KnightCardsPlayed {
+    return Intl.message(
+      'awarded to the player with 3+ knight cards played',
+      name: 'awardedToThePlayerWith3KnightCardsPlayed',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `map generator`
+  String get mapGenerator {
+    return Intl.message(
+      'map generator',
+      name: 'mapGenerator',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `roll dice`
+  String get rollDiceLocale {
+    return Intl.message(
+      'roll dice',
+      name: 'rollDiceLocale',
       desc: '',
       args: [],
     );

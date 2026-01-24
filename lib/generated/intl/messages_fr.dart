@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(playerName, winningBid) =>
       "${playerName} a-t-il atteint sa mise (${winningBid} points)?";
 
+  static String m1(count) =>
+      "${Intl.plural(count, one: 'point', other: 'points')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("à propos"),
@@ -33,11 +36,175 @@ class MessageLookup extends MessageLookupByLibrary {
     "adding": MessageLookupByLibrary.simpleMessage("ajouter"),
     "appreciation": MessageLookupByLibrary.simpleMessage("crédits"),
     "armour": MessageLookupByLibrary.simpleMessage("armure"),
+    "awardedToThePlayerWith3KnightCardsPlayed":
+        MessageLookupByLibrary.simpleMessage(
+          "attribuée au joueur avec 3+ cartes chevalier jouées",
+        ),
+    "awardedToThePlayerWith5ConnectedRoads":
+        MessageLookupByLibrary.simpleMessage(
+          "attribuée au joueur avec 5+ routes connectées",
+        ),
     "back": MessageLookupByLibrary.simpleMessage("retour"),
     "biddingPhase": MessageLookupByLibrary.simpleMessage("phase d\'enchères:"),
     "bingo": MessageLookupByLibrary.simpleMessage("bingo"),
     "boots": MessageLookupByLibrary.simpleMessage("bottes"),
+    "buildANewSettlementOnAnIntersection": MessageLookupByLibrary.simpleMessage(
+      "construisez une nouvelle colonie sur une intersection",
+    ),
+    "buildingCosts": MessageLookupByLibrary.simpleMessage(
+      "coûts de construction :",
+    ),
+    "buildingRules": MessageLookupByLibrary.simpleMessage(
+      "règles de construction :",
+    ),
     "cancel": MessageLookupByLibrary.simpleMessage("annuler"),
+    "catan": MessageLookupByLibrary.simpleMessage("catan"),
+    "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
+      "carte de développement : 1 laine + 1 blé + 1 minerai",
+    ),
+    "catanBuildingCostsOne": MessageLookupByLibrary.simpleMessage(
+      "route : 1 bois + 1 argile",
+    ),
+    "catanBuildingCostsThree": MessageLookupByLibrary.simpleMessage(
+      "ville (amélioration) : 2 blé + 3 minerai (2)",
+    ),
+    "catanBuildingCostsTwo": MessageLookupByLibrary.simpleMessage(
+      "colonie : 1 bois + 1 argile + 1 laine + 1 blé (1)",
+    ),
+    "catanBuildingRulesFour": MessageLookupByLibrary.simpleMessage(
+      "les villes remplacent les colonies existantes",
+    ),
+    "catanBuildingRulesOne": MessageLookupByLibrary.simpleMessage(
+      "les routes doivent se connecter à vos routes, colonies ou villes existantes",
+    ),
+    "catanBuildingRulesThree": MessageLookupByLibrary.simpleMessage(
+      "les colonies doivent se connecter à votre réseau routier",
+    ),
+    "catanBuildingRulesTwo": MessageLookupByLibrary.simpleMessage(
+      "les colonies doivent être à au moins 2 intersections de toute autre colonie/ville",
+    ),
+    "catanComponentsEight": MessageLookupByLibrary.simpleMessage(
+      "2 cartes spéciales : route la plus longue, armée la plus puissante",
+    ),
+    "catanComponentsFive": MessageLookupByLibrary.simpleMessage(
+      "95 cartes de ressources (19 de chaque : bois, argile, laine, blé, minerai)",
+    ),
+    "catanComponentsFour": MessageLookupByLibrary.simpleMessage(
+      "18 jetons numérotés",
+    ),
+    "catanComponentsNine": MessageLookupByLibrary.simpleMessage(
+      "1 voleur, 2 dés",
+    ),
+    "catanComponentsOne": MessageLookupByLibrary.simpleMessage(
+      "19 hexagones de terrain (4 forêts, 4 champs de blé, 4 pâturages, 3 montagnes, 3 collines, 1 désert)",
+    ),
+    "catanComponentsSeven": MessageLookupByLibrary.simpleMessage(
+      "pièces de joueur : 5 colonies, 4 villes, 15 routes par joueur",
+    ),
+    "catanComponentsSix": MessageLookupByLibrary.simpleMessage(
+      "25 cartes de développement",
+    ),
+    "catanComponentsThree": MessageLookupByLibrary.simpleMessage(
+      "9 pièces de port",
+    ),
+    "catanComponentsTwo": MessageLookupByLibrary.simpleMessage(
+      "6 pièces du cadre maritime",
+    ),
+    "catanDevelopmentCardsFour": MessageLookupByLibrary.simpleMessage(
+      "monopole (2) : nommez une ressource, tous les joueurs vous donnent les leurs",
+    ),
+    "catanDevelopmentCardsOne": MessageLookupByLibrary.simpleMessage(
+      "chevalier (14) : déplacez le voleur, volez 1 ressource à un joueur adjacent",
+    ),
+    "catanDevelopmentCardsThree": MessageLookupByLibrary.simpleMessage(
+      "construction de routes (2) : construisez 2 routes gratuitement",
+    ),
+    "catanDevelopmentCardsTwo": MessageLookupByLibrary.simpleMessage(
+      "point de victoire (5) : vaut 1, gardez caché jusqu\'à la victoire",
+    ),
+    "catanGameGoal": MessageLookupByLibrary.simpleMessage(
+      "soyez le premier joueur à atteindre 10 points de victoire en construisant des colonies, des villes, des routes et en obtenant des cartes spéciales.",
+    ),
+    "catanGameTurnOne": MessageLookupByLibrary.simpleMessage(
+      "lancez les dés : tous les joueurs avec des colonies/villes sur les hexagones correspondant au numéro reçoivent des ressources",
+    ),
+    "catanGameTurnThree": MessageLookupByLibrary.simpleMessage(
+      "construction : dépensez des ressources pour construire des routes, colonies, villes ou acheter des cartes de développement",
+    ),
+    "catanGameTurnTwo": MessageLookupByLibrary.simpleMessage(
+      "commerce : échangez des ressources avec d\'autres joueurs ou utilisez les ports (4:1 ou tarifs spéciaux)",
+    ),
+    "catanPreparationFour": MessageLookupByLibrary.simpleMessage(
+      "chaque joueur place 2 colonies et 2 routes dans l\'ordre inverse des tours",
+    ),
+    "catanPreparationOne": MessageLookupByLibrary.simpleMessage(
+      "assemblez le plateau avec les hexagones de terrain à l\'intérieur du cadre maritime",
+    ),
+    "catanPreparationThree": MessageLookupByLibrary.simpleMessage(
+      "placez le voleur sur l\'hexagone du désert",
+    ),
+    "catanPreparationTwo": MessageLookupByLibrary.simpleMessage(
+      "placez les jetons numérotés sur les hexagones (sauf le désert)",
+    ),
+    "catanResourcesFive": MessageLookupByLibrary.simpleMessage(
+      "montagnes – minerai",
+    ),
+    "catanResourcesFour": MessageLookupByLibrary.simpleMessage("champs – blé"),
+    "catanResourcesOne": MessageLookupByLibrary.simpleMessage("forêt – bois"),
+    "catanResourcesSix": MessageLookupByLibrary.simpleMessage(
+      "désert – pas de ressources",
+    ),
+    "catanResourcesThree": MessageLookupByLibrary.simpleMessage(
+      "pâturage – laine (mouton)",
+    ),
+    "catanResourcesTwo": MessageLookupByLibrary.simpleMessage(
+      "collines – argile (brique)",
+    ),
+    "catanScoringFive": MessageLookupByLibrary.simpleMessage(
+      "cartes point de victoire : 1 chacune",
+    ),
+    "catanScoringFour": MessageLookupByLibrary.simpleMessage(
+      "armée la plus puissante : 2",
+    ),
+    "catanScoringOne": MessageLookupByLibrary.simpleMessage("colonie : 1"),
+    "catanScoringThree": MessageLookupByLibrary.simpleMessage(
+      "route la plus longue : 2",
+    ),
+    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("ville : 2"),
+    "catanSpecialCards2VpEachOne": MessageLookupByLibrary.simpleMessage(
+      "route la plus longue : premier joueur avec 5+ routes continues (peut être volée)",
+    ),
+    "catanSpecialCards2VpEachTwo": MessageLookupByLibrary.simpleMessage(
+      "armée la plus puissante : premier joueur avec 3+ cartes chevalier jouées (peut être volée)",
+    ),
+    "catanTheRobberRolling7Four": MessageLookupByLibrary.simpleMessage(
+      "l\'hexagone bloqué ne produit pas de ressources tant que le voleur y est",
+    ),
+    "catanTheRobberRolling7One": MessageLookupByLibrary.simpleMessage(
+      "tout joueur avec plus de 7 cartes doit en défausser la moitié (arrondi vers le bas)",
+    ),
+    "catanTheRobberRolling7Three": MessageLookupByLibrary.simpleMessage(
+      "volez 1 ressource aléatoire à un joueur avec une colonie/ville sur cet hexagone",
+    ),
+    "catanTheRobberRolling7Two": MessageLookupByLibrary.simpleMessage(
+      "déplacez le voleur sur n\'importe quel hexagone (sauf le désert)",
+    ),
+    "catanTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      "catan® est une marque déposée de catan gmbh.",
+    ),
+    "catanTradingOne": MessageLookupByLibrary.simpleMessage(
+      "commerce domestique : négociez tout échange avec d\'autres joueurs pendant votre tour",
+    ),
+    "catanTradingThree": MessageLookupByLibrary.simpleMessage(
+      "commerce portuaire : ports génériques 3:1 ou spécifiques 2:1",
+    ),
+    "catanTradingTwo": MessageLookupByLibrary.simpleMessage(
+      "commerce maritime : 4:1 avec la banque (4 ressources identiques pour 1)",
+    ),
+    "catanVictoryRule": MessageLookupByLibrary.simpleMessage(
+      "le premier joueur à atteindre 10 points de victoire pendant son tour gagne la partie. vous devez annoncer votre victoire pendant votre tour.",
+    ),
+    "city": MessageLookupByLibrary.simpleMessage("ville"),
     "class1": MessageLookupByLibrary.simpleMessage("classe 1"),
     "class2": MessageLookupByLibrary.simpleMessage("classe 2"),
     "clear": MessageLookupByLibrary.simpleMessage("effacer"),
@@ -53,6 +220,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "currentCount": MessageLookupByLibrary.simpleMessage("compte actuel:"),
     "cursed": MessageLookupByLibrary.simpleMessage("maudit"),
     "dark": MessageLookupByLibrary.simpleMessage("sombre"),
+    "developmentCardWorth1VictoryPoint": MessageLookupByLibrary.simpleMessage(
+      "carte de développement valant 1 point de victoire",
+    ),
+    "developmentCards": MessageLookupByLibrary.simpleMessage(
+      "cartes de développement :",
+    ),
     "didPlayerReachBid": m0,
     "didYouEnter": MessageLookupByLibrary.simpleMessage("a-t-il atteint"),
     "dontHaveYourFavouriteGameEmailMe": MessageLookupByLibrary.simpleMessage(
@@ -76,9 +249,14 @@ class MessageLookup extends MessageLookupByLibrary {
     "king": MessageLookupByLibrary.simpleMessage("roi"),
     "king4Points": MessageLookupByLibrary.simpleMessage("roi: 4 points"),
     "languages": MessageLookupByLibrary.simpleMessage("langues"),
+    "largestArmy": MessageLookupByLibrary.simpleMessage(
+      "armée la plus puissante",
+    ),
     "level": MessageLookupByLibrary.simpleMessage("niveau"),
     "light": MessageLookupByLibrary.simpleMessage("clair"),
+    "longestRoad": MessageLookupByLibrary.simpleMessage("route la plus longue"),
     "magic": MessageLookupByLibrary.simpleMessage("magie"),
+    "mapGenerator": MessageLookupByLibrary.simpleMessage("générateur de carte"),
     "marriage": MessageLookupByLibrary.simpleMessage("mariage:"),
     "menu": MessageLookupByLibrary.simpleMessage("menu"),
     "mode": MessageLookupByLibrary.simpleMessage("mode"),
@@ -103,11 +281,14 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "points": MessageLookupByLibrary.simpleMessage("points"),
     "pointsConfirmed": MessageLookupByLibrary.simpleMessage("points confirmés"),
+    "pointsCount": m1,
     "preparation": MessageLookupByLibrary.simpleMessage("préparation :"),
     "queen": MessageLookupByLibrary.simpleMessage("dame"),
     "queen3Points": MessageLookupByLibrary.simpleMessage("dame: 3 points"),
     "race1": MessageLookupByLibrary.simpleMessage("race 1"),
+    "resources": MessageLookupByLibrary.simpleMessage("ressources :"),
     "results": MessageLookupByLibrary.simpleMessage("résultats"),
+    "rollDiceLocale": MessageLookupByLibrary.simpleMessage("lancer des dés"),
     "round": MessageLookupByLibrary.simpleMessage("manche"),
     "rules": MessageLookupByLibrary.simpleMessage("règles"),
     "russian": MessageLookupByLibrary.simpleMessage("russe"),
@@ -115,13 +296,20 @@ class MessageLookup extends MessageLookupByLibrary {
     "scrabble": MessageLookupByLibrary.simpleMessage("scrabble"),
     "set": MessageLookupByLibrary.simpleMessage("set"),
     "settings": MessageLookupByLibrary.simpleMessage("paramètres"),
+    "settlement": MessageLookupByLibrary.simpleMessage("colonie"),
     "singleplayer": MessageLookupByLibrary.simpleMessage("solo"),
     "skip": MessageLookupByLibrary.simpleMessage("passer"),
     "spanish": MessageLookupByLibrary.simpleMessage("espagnol"),
+    "specialCards2VpEach": MessageLookupByLibrary.simpleMessage(
+      "cartes spéciales (2 chacune) :",
+    ),
     "subtracting": MessageLookupByLibrary.simpleMessage("soustraire"),
     "sword": MessageLookupByLibrary.simpleMessage("épée"),
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
     "ten10Points": MessageLookupByLibrary.simpleMessage("dix: 10 points"),
+    "theRobberRolling7": MessageLookupByLibrary.simpleMessage(
+      "le voleur (en faisant 7) :",
+    ),
     "theme": MessageLookupByLibrary.simpleMessage("thème"),
     "thief": MessageLookupByLibrary.simpleMessage("voleur"),
     "thousandBiddingPhaseOne": MessageLookupByLibrary.simpleMessage(
@@ -188,13 +376,24 @@ class MessageLookup extends MessageLookupByLibrary {
       "le premier joueur à atteindre 1000 points (ou exactement 1000, selon les règles de la maison) remporte la partie.",
     ),
     "total": MessageLookupByLibrary.simpleMessage("total"),
+    "trading": MessageLookupByLibrary.simpleMessage("commerce :"),
     "uno": MessageLookupByLibrary.simpleMessage("uno"),
+    "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
+      "améliorez une colonie en ville (+1 point)",
+    ),
+    "victoryPointCard": MessageLookupByLibrary.simpleMessage(
+      "carte point de victoire",
+    ),
     "warrior": MessageLookupByLibrary.simpleMessage("guerrier"),
     "whoGoesFirst": MessageLookupByLibrary.simpleMessage(
       "qui distribue en premier ?",
     ),
     "winner": MessageLookupByLibrary.simpleMessage("gagnant : "),
     "wizard": MessageLookupByLibrary.simpleMessage("magicien"),
+    "wordIsTooLongMaximum15LettersAllowed":
+        MessageLookupByLibrary.simpleMessage(
+          "le mot est trop long. maximum 15 lettres autorisées",
+        ),
     "yes": MessageLookupByLibrary.simpleMessage("oui"),
     "yourBet": MessageLookupByLibrary.simpleMessage("votre mise"),
   };

@@ -1,6 +1,5 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/dos/bloc/dos_bloc.dart';
 import 'package:board_buddy/generated/l10n.dart';
@@ -14,6 +13,7 @@ import 'package:board_buddy/features/games/dos/widgets/info_dos_dialog_widget.da
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// dos game screen
 class DosGame extends StatefulWidget {
@@ -233,7 +233,10 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
       },
       builder: (context, state) {
         if (state is! DosGameState) {
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         }
 
         final gameState = state;
@@ -431,12 +434,19 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
                                 onPressed: () => _updateScore(10),
                               ),
                               KeyboardButton(
-                                buttonText: UnoLikeGameCardsText.dosWild,
-                                onPressed: () => _updateScore(20),
-                              ),
+                                  icon: HashIcon(
+                                color: theme.textColor,
+                                size: 30,
+                                strokeWidth: 1,
+                                onTap: () => _updateScore(20),
+                              )),
                               KeyboardButton(
-                                buttonIcon: CustomIcons.wildDrawTwoDos,
-                                onPressed: () => _updateScore(40),
+                                icon: GridPlus2Icon(
+                                  color: theme.textColor,
+                                  size: 30,
+                                  strokeWidth: 1,
+                                  onTap: () => _updateScore(40),
+                                ),
                               ),
                             ],
                           ],

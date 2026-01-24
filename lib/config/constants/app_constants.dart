@@ -82,6 +82,10 @@ class RulesConst {
 // thousand
   static const thousandAge = '12+';
   static const thousandPlayers = '2-3';
+
+// catan
+  static const catanAge = '10+';
+  static const catanPlayers = '3-4';
 }
 
 class GameConst {
@@ -113,6 +117,7 @@ class GameMaxPlayers {
   static const munchkin = 6;
   static const commonCounter = 30;
   static const thousand = 3;
+  static const catan = 4;
 }
 
 class GameMinPlayers {
@@ -124,6 +129,7 @@ class GameMinPlayers {
   static const munchkin = 3;
   static const commonCounter = 2;
   static const thousand = 2;
+  static const catan = 3;
 }
 
 class UnoLikeGameCardsText {
@@ -161,4 +167,12 @@ class ThousandCardsPoints {
   static const queen = '3';
   static const jack = '2';
   static const nine = '0';
+}
+
+class CatanCardsPoints {
+  static const settlement = '1';
+  static const city = '2';
+  static const victoryPointCard = '1';
+  static const longestRoad = '2';
+  static const largestArmy = '2';
 }

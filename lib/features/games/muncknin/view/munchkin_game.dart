@@ -11,13 +11,12 @@ import 'package:board_buddy/features/games/muncknin/widgets/munchkin_custom_keyb
 import 'package:board_buddy/features/games/muncknin/bloc/munchkin_bloc.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/features/games/common_counter/widgets/game_end_common_counter_modal.dart';
 import 'package:board_buddy/shared/widgets/ui/add_player_dialog.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 import 'package:gaimon/gaimon.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 import 'package:use_scramble/use_scramble.dart';
 
 /// munchkin game screen
@@ -50,6 +49,13 @@ class _MunchkinGameState extends State<MunchkinGame> {
 
   @override
   void dispose() {
+    if (mounted) {
+      try {
+        context.read<MunchkinBloc>().add(SaveGameSession());
+      } catch (e) {
+        debugPrint('Error saving game on dispose: $e');
+      }
+    }
     _pageController.dispose();
     super.dispose();
   }
@@ -88,8 +94,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         crossAxisAlignment: CrossAxisAlignment.end,
                         mainAxisAlignment: MainAxisAlignment.center,
                         children: [
-                          GestureDetector(
-                            behavior: HitTestBehavior.opaque,
+                          BicepsFlexedIcon(
                             onTap: () {
                               final bloc = context.read<MunchkinBloc>();
                               showModalBottomSheet(
@@ -112,25 +117,16 @@ class _MunchkinGameState extends State<MunchkinGame> {
                                 ),
                               );
                             },
-                            child: SvgPicture.asset(
-                              CustomIcons.modifiers,
-                              width: 27,
-                              height: 27,
-                              colorFilter: ColorFilter.mode(
-                                  theme.textColor, BlendMode.srcIn),
-                            ),
+                            size: 27,
+                            color: theme.textColor,
+                            strokeWidth: 1,
                           ),
                           const Spacer(),
-                          GestureDetector(
-                            behavior: HitTestBehavior.opaque,
+                          BoxIcon(
+                            color: theme.textColor,
+                            strokeWidth: 1,
+                            size: 27,
                             onTap: () => DiceModal.show(context),
-                            child: SvgPicture.asset(
-                              CustomIcons.dice,
-                              width: 27,
-                              height: 27,
-                              colorFilter: ColorFilter.mode(
-                                  theme.textColor, BlendMode.srcIn),
-                            ),
                           ),
                         ],
                       ),
@@ -143,25 +139,33 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         mainAxisAlignment: MainAxisAlignment.center,
                         crossAxisAlignment: CrossAxisAlignment.center,
                         children: [
-                          GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onTap: () {
-                              final currentPlayer = _currentPlayerIndex;
-                              if (currentPlayer >= 0 &&
-                                  currentPlayer < state.players.length) {
-                                context
-                                    .read<MunchkinBloc>()
-                                    .add(TogglePlayerGender(currentPlayer));
-                              }
-                            },
-                            child: SvgPicture.asset(
-                              state.players[_currentPlayerIndex].isMale
-                                  ? CustomIcons.male
-                                  : CustomIcons.female,
-                              colorFilter: ColorFilter.mode(
-                                  theme.textColor, BlendMode.srcIn),
-                            ),
-                          ),
+                          state.players[_currentPlayerIndex].isMale
+                              ? MarsIcon(
+                                  color: theme.textColor,
+                                  strokeWidth: 1,
+                                  size: 28,
+                                  onTap: () {
+                                    final currentPlayer = _currentPlayerIndex;
+                                    if (currentPlayer >= 0 &&
+                                        currentPlayer < state.players.length) {
+                                      context.read<MunchkinBloc>().add(
+                                          TogglePlayerGender(currentPlayer));
+                                    }
+                                  },
+                                )
+                              : VenusIcon(
+                                  color: theme.textColor,
+                                  strokeWidth: 1,
+                                  size: 28,
+                                  onTap: () {
+                                    final currentPlayer = _currentPlayerIndex;
+                                    if (currentPlayer >= 0 &&
+                                        currentPlayer < state.players.length) {
+                                      context.read<MunchkinBloc>().add(
+                                          TogglePlayerGender(currentPlayer));
+                                    }
+                                  },
+                                ),
                           const SizedBox(width: 40),
                           GestureDetector(
                             behavior: HitTestBehavior.opaque,
@@ -189,8 +193,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
                             ),
                           ),
                           const SizedBox(width: 40),
-                          GestureDetector(
-                            behavior: HitTestBehavior.opaque,
+                          BoneIcon(
+                            color: theme.textColor,
+                            strokeWidth: 1,
+                            size: 28,
                             onTap: () {
                               final currentPlayer = _currentPlayerIndex;
                               if (currentPlayer >= 0 &&
@@ -203,11 +209,6 @@ class _MunchkinGameState extends State<MunchkinGame> {
                                     .add(ResetPlayerModifiers(currentPlayer));
                               }
                             },
-                            child: SvgPicture.asset(
-                              CustomIcons.bone,
-                              colorFilter: ColorFilter.mode(
-                                  theme.textColor, BlendMode.srcIn),
-                            ),
                           ),
                         ],
                       ),
@@ -239,9 +240,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                   ],
                 ),
                 bottomNavigationBar: BottomGameBar(
-                  dialogWidget: state.players.length > 1
-                      ? const InfoMunchkinDialogWidget()
-                      : null,
+                  dialogWidget: InfoMunchkinDialogWidget(),
                   isArrow: true,
                   rightButtonText: S.of(context).options,
                   onRightBtnTap: () => _showEndGameModal(context, state),
@@ -287,7 +286,10 @@ class _MunchkinGameState extends State<MunchkinGame> {
               ),
             );
           }
-          return const Center(child: CircularProgressIndicator());
+          return Scaffold(
+            backgroundColor: theme.bgColor,
+            body: const Center(child: CircularProgressIndicator()),
+          );
         },
       ),
     );
@@ -482,18 +484,25 @@ class _MunchkinGameState extends State<MunchkinGame> {
           mainAxisAlignment: MainAxisAlignment.center,
           crossAxisAlignment: CrossAxisAlignment.center,
           children: [
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                context.read<MunchkinBloc>().add(TogglePlayerGender(0));
-                Gaimon.soft();
-              },
-              child: SvgPicture.asset(
-                state.players.first.isMale
-                    ? CustomIcons.male
-                    : CustomIcons.female,
-              ),
-            ),
+            state.players.first.isMale
+                ? MarsIcon(
+                    color: theme.textColor,
+                    strokeWidth: 1,
+                    size: 28,
+                    onTap: () {
+                      context.read<MunchkinBloc>().add(TogglePlayerGender(0));
+                      Gaimon.soft();
+                    },
+                  )
+                : VenusIcon(
+                    color: theme.textColor,
+                    strokeWidth: 1,
+                    size: 28,
+                    onTap: () {
+                      context.read<MunchkinBloc>().add(TogglePlayerGender(0));
+                      Gaimon.soft();
+                    },
+                  ),
             const SizedBox(width: 40),
             GestureDetector(
               behavior: HitTestBehavior.opaque,
@@ -517,14 +526,15 @@ class _MunchkinGameState extends State<MunchkinGame> {
               ),
             ),
             const SizedBox(width: 40),
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
+            BoneIcon(
               onTap: () {
                 // Reset player modifiers according to Munchkin rules
                 context.read<MunchkinBloc>().add(ResetPlayerModifiers(0));
                 Gaimon.soft();
               },
-              child: SvgPicture.asset(CustomIcons.bone),
+              size: 27,
+              color: theme.textColor,
+              strokeWidth: 1,
             ),
           ],
         ),

@@ -2,6 +2,7 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:flutter/material.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// widget that represents a bottom sheet for Munchkin modifiers.
 class MunchkinModifiersBottomSheet extends StatefulWidget {
@@ -70,10 +71,11 @@ class _MunchkinModifiersBottomSheetState
                 S.of(context).modifiers,
                 style: theme.display2.copyWith(color: theme.secondaryTextColor),
               ),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
+              XIcon(
+                color: theme.secondaryTextColor,
+                strokeWidth: 1.5,
+                size: 24,
                 onTap: () => Navigator.pop(context),
-                child: Icon(Icons.close, color: theme.secondaryTextColor),
               ),
             ],
           ),

@@ -1,13 +1,13 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/config/utils/custom_icons.dart';
 import 'package:board_buddy/config/utils/scrabble_letter_values.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
+import 'package:board_buddy/shared/widgets/ui/animated_snackbar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
-import 'package:flutter_svg/svg.dart';
 import 'package:flutter_popup/flutter_popup.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 import 'package:use_scramble/use_scramble.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:board_buddy/features/games/scrabble/bloc/scrabble_bloc.dart';
@@ -218,12 +218,9 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
 
     // Add validation for maximum word length (15 letters for standard Scrabble board)
     if (word.length > 15) {
-      ScaffoldMessenger.of(context).showSnackBar(
-        SnackBar(
-          behavior: SnackBarBehavior.floating,
-          content: Text('Word is too long. Maximum 15 letters allowed'),
-          duration: const Duration(seconds: 3),
-        ),
+      AnimatedSnackBar.show(
+        context,
+        message: S.of(context).wordIsTooLongMaximum15LettersAllowed,
       );
       return;
     }
@@ -315,11 +312,11 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
   // Helper method to render modifier indicator
   Widget _renderModifierIndicator(String modifier, UIThemes theme) {
     if (modifier == 'star') {
-      return SvgPicture.asset(
-        CustomIcons.star,
-        width: 12,
-        height: 12,
-        colorFilter: ColorFilter.mode(theme.redColor, BlendMode.srcIn),
+      return StarIcon(
+        size: 12,
+        color: theme.redColor,
+        strokeWidth: 1,
+        enableTouchInteraction: false,
       );
     } else if (modifier == S.current.blankTile) {
       return Text(
@@ -506,14 +503,13 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
                               () => _applyModifier(
                                   letter, index, GameConst.scrabblex3),
                             ),
-                            _buildModifierButton(
-                              SvgPicture.asset(
-                                CustomIcons.star,
-                                width: 24,
-                                colorFilter: ColorFilter.mode(
-                                    theme.textColor, BlendMode.srcIn),
-                              ),
-                              () => _applyModifier(letter, index, 'star'),
+                            StarIcon(
+                              color: theme.textColor,
+                              size: 24,
+                              strokeWidth: 1,
+                              hoverColor: theme.secondaryTextColor,
+                              onTap: () =>
+                                  _applyModifier(letter, index, 'star'),
                             ),
                             _buildModifierButton(
                               Text('${GameConst.scrabblex2}${S.current.nWord}',

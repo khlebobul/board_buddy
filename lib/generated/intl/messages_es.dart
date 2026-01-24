@@ -23,6 +23,9 @@ class MessageLookup extends MessageLookupByLibrary {
   static String m0(playerName, winningBid) =>
       "¿alcanzó ${playerName} su apuesta (${winningBid} puntos)?";
 
+  static String m1(count) =>
+      "${Intl.plural(count, one: 'punto', other: 'puntos')}";
+
   final messages = _notInlinedMessages(_notInlinedMessages);
   static Map<String, Function> _notInlinedMessages(_) => <String, Function>{
     "about": MessageLookupByLibrary.simpleMessage("acerca de"),
@@ -35,6 +38,14 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage("permite elegir el color."),
     "appreciation": MessageLookupByLibrary.simpleMessage("créditos"),
     "armour": MessageLookupByLibrary.simpleMessage("armadura"),
+    "awardedToThePlayerWith3KnightCardsPlayed":
+        MessageLookupByLibrary.simpleMessage(
+          "otorgada al jugador con 3+ cartas de caballero jugadas",
+        ),
+    "awardedToThePlayerWith5ConnectedRoads":
+        MessageLookupByLibrary.simpleMessage(
+          "otorgada al jugador con 5+ caminos conectados",
+        ),
     "back": MessageLookupByLibrary.simpleMessage("atrás"),
     "biddingPhase": MessageLookupByLibrary.simpleMessage("fase de puja:"),
     "bigArmour": MessageLookupByLibrary.simpleMessage("armadura grande"),
@@ -58,6 +69,15 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "mejoras o debilitamientos que afectan personajes/objetos",
         ),
+    "buildANewSettlementOnAnIntersection": MessageLookupByLibrary.simpleMessage(
+      "construye un nuevo poblado en una intersección",
+    ),
+    "buildingCosts": MessageLookupByLibrary.simpleMessage(
+      "costos de construcción:",
+    ),
+    "buildingRules": MessageLookupByLibrary.simpleMessage(
+      "reglas de construcción:",
+    ),
     "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
         MessageLookupByLibrary.simpleMessage(
           "puede ser cualquier color elegido por el jugador actual. si se roba, el jugador decide el color.",
@@ -68,6 +88,156 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "cancel": MessageLookupByLibrary.simpleMessage("cancelar"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("tipos de cartas:"),
+    "catan": MessageLookupByLibrary.simpleMessage("catan"),
+    "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
+      "carta de desarrollo: 1 lana + 1 trigo + 1 mineral",
+    ),
+    "catanBuildingCostsOne": MessageLookupByLibrary.simpleMessage(
+      "camino: 1 madera + 1 ladrillo",
+    ),
+    "catanBuildingCostsThree": MessageLookupByLibrary.simpleMessage(
+      "ciudad (mejora): 2 trigo + 3 mineral (2)",
+    ),
+    "catanBuildingCostsTwo": MessageLookupByLibrary.simpleMessage(
+      "poblado: 1 madera + 1 ladrillo + 1 lana + 1 trigo (1)",
+    ),
+    "catanBuildingRulesFour": MessageLookupByLibrary.simpleMessage(
+      "las ciudades reemplazan poblados existentes",
+    ),
+    "catanBuildingRulesOne": MessageLookupByLibrary.simpleMessage(
+      "los caminos deben conectar con tus caminos, poblados o ciudades existentes",
+    ),
+    "catanBuildingRulesThree": MessageLookupByLibrary.simpleMessage(
+      "los poblados deben conectar con tu red de caminos",
+    ),
+    "catanBuildingRulesTwo": MessageLookupByLibrary.simpleMessage(
+      "los poblados deben estar al menos a 2 intersecciones de cualquier otro poblado/ciudad",
+    ),
+    "catanComponentsEight": MessageLookupByLibrary.simpleMessage(
+      "2 cartas especiales: ruta comercial más larga, ejército más grande",
+    ),
+    "catanComponentsFive": MessageLookupByLibrary.simpleMessage(
+      "95 cartas de recursos (19 de cada: madera, ladrillo, lana, trigo, mineral)",
+    ),
+    "catanComponentsFour": MessageLookupByLibrary.simpleMessage(
+      "18 fichas de número",
+    ),
+    "catanComponentsNine": MessageLookupByLibrary.simpleMessage(
+      "1 ladrón, 2 dados",
+    ),
+    "catanComponentsOne": MessageLookupByLibrary.simpleMessage(
+      "19 hexágonos de terreno (4 bosques, 4 campos de trigo, 4 pastos, 3 montañas, 3 colinas, 1 desierto)",
+    ),
+    "catanComponentsSeven": MessageLookupByLibrary.simpleMessage(
+      "piezas de jugador: 5 poblados, 4 ciudades, 15 caminos por jugador",
+    ),
+    "catanComponentsSix": MessageLookupByLibrary.simpleMessage(
+      "25 cartas de desarrollo",
+    ),
+    "catanComponentsThree": MessageLookupByLibrary.simpleMessage(
+      "9 piezas de puerto",
+    ),
+    "catanComponentsTwo": MessageLookupByLibrary.simpleMessage(
+      "6 piezas del marco marítimo",
+    ),
+    "catanDevelopmentCardsFour": MessageLookupByLibrary.simpleMessage(
+      "monopolio (2): nombra un recurso, todos los jugadores te dan los suyos",
+    ),
+    "catanDevelopmentCardsOne": MessageLookupByLibrary.simpleMessage(
+      "caballero (14): mueve al ladrón, roba 1 recurso de un jugador adyacente",
+    ),
+    "catanDevelopmentCardsThree": MessageLookupByLibrary.simpleMessage(
+      "construcción de caminos (2): construye 2 caminos gratis",
+    ),
+    "catanDevelopmentCardsTwo": MessageLookupByLibrary.simpleMessage(
+      "punto de victoria (5): vale 1, mantén oculta hasta ganar",
+    ),
+    "catanGameGoal": MessageLookupByLibrary.simpleMessage(
+      "sé el primer jugador en alcanzar 10 puntos de victoria construyendo poblados, ciudades, caminos y obteniendo cartas especiales.",
+    ),
+    "catanGameTurnOne": MessageLookupByLibrary.simpleMessage(
+      "lanza los dados: todos los jugadores con poblados/ciudades en hexágonos que coincidan con el número reciben recursos",
+    ),
+    "catanGameTurnThree": MessageLookupByLibrary.simpleMessage(
+      "construye: gasta recursos para construir caminos, poblados, ciudades o comprar cartas de desarrollo",
+    ),
+    "catanGameTurnTwo": MessageLookupByLibrary.simpleMessage(
+      "comercia: intercambia recursos con otros jugadores o usa puertos (4:1 o tarifas especiales)",
+    ),
+    "catanPreparationFour": MessageLookupByLibrary.simpleMessage(
+      "cada jugador coloca 2 poblados y 2 caminos en orden inverso de turno",
+    ),
+    "catanPreparationOne": MessageLookupByLibrary.simpleMessage(
+      "ensambla el tablero con los hexágonos de terreno dentro del marco marítimo",
+    ),
+    "catanPreparationThree": MessageLookupByLibrary.simpleMessage(
+      "coloca el ladrón en el hexágono del desierto",
+    ),
+    "catanPreparationTwo": MessageLookupByLibrary.simpleMessage(
+      "coloca las fichas de número en los hexágonos (excepto el desierto)",
+    ),
+    "catanResourcesFive": MessageLookupByLibrary.simpleMessage(
+      "montañas – mineral",
+    ),
+    "catanResourcesFour": MessageLookupByLibrary.simpleMessage(
+      "campos – trigo",
+    ),
+    "catanResourcesOne": MessageLookupByLibrary.simpleMessage(
+      "bosque – madera",
+    ),
+    "catanResourcesSix": MessageLookupByLibrary.simpleMessage(
+      "desierto – sin recursos",
+    ),
+    "catanResourcesThree": MessageLookupByLibrary.simpleMessage(
+      "pasto – lana (oveja)",
+    ),
+    "catanResourcesTwo": MessageLookupByLibrary.simpleMessage(
+      "colinas – ladrillo (arcilla)",
+    ),
+    "catanScoringFive": MessageLookupByLibrary.simpleMessage(
+      "cartas de punto de victoria: 1 cada una",
+    ),
+    "catanScoringFour": MessageLookupByLibrary.simpleMessage(
+      "ejército más grande: 2",
+    ),
+    "catanScoringOne": MessageLookupByLibrary.simpleMessage("poblado: 1"),
+    "catanScoringThree": MessageLookupByLibrary.simpleMessage(
+      "ruta comercial más larga: 2",
+    ),
+    "catanScoringTwo": MessageLookupByLibrary.simpleMessage("ciudad: 2"),
+    "catanSpecialCards2VpEachOne": MessageLookupByLibrary.simpleMessage(
+      "ruta comercial más larga: primer jugador con 5+ caminos continuos (puede ser robada)",
+    ),
+    "catanSpecialCards2VpEachTwo": MessageLookupByLibrary.simpleMessage(
+      "ejército más grande: primer jugador con 3+ cartas de caballero jugadas (puede ser robada)",
+    ),
+    "catanTheRobberRolling7Four": MessageLookupByLibrary.simpleMessage(
+      "el hexágono bloqueado no produce recursos mientras el ladrón esté allí",
+    ),
+    "catanTheRobberRolling7One": MessageLookupByLibrary.simpleMessage(
+      "cualquier jugador con más de 7 cartas debe descartar la mitad (redondeando hacia abajo)",
+    ),
+    "catanTheRobberRolling7Three": MessageLookupByLibrary.simpleMessage(
+      "roba 1 recurso aleatorio de un jugador con poblado/ciudad en ese hexágono",
+    ),
+    "catanTheRobberRolling7Two": MessageLookupByLibrary.simpleMessage(
+      "mueve al ladrón a cualquier hexágono (excepto el desierto)",
+    ),
+    "catanTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      "catan® es una marca registrada de catan gmbh.",
+    ),
+    "catanTradingOne": MessageLookupByLibrary.simpleMessage(
+      "comercio doméstico: negocia cualquier intercambio con otros jugadores en tu turno",
+    ),
+    "catanTradingThree": MessageLookupByLibrary.simpleMessage(
+      "comercio portuario: puertos genéricos 3:1 o específicos 2:1",
+    ),
+    "catanTradingTwo": MessageLookupByLibrary.simpleMessage(
+      "comercio marítimo: 4:1 con el banco (cualquier 4 recursos iguales por 1)",
+    ),
+    "catanVictoryRule": MessageLookupByLibrary.simpleMessage(
+      "el primer jugador en alcanzar 10 puntos de victoria en su turno gana el juego. debes anunciar tu victoria en tu turno.",
+    ),
     "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
         MessageLookupByLibrary.simpleMessage(
           "cambia el color y obliga al siguiente a robar cuatro cartas.",
@@ -84,6 +254,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "checkMyWebsite": MessageLookupByLibrary.simpleMessage(
       "visita mi sitio web",
     ),
+    "city": MessageLookupByLibrary.simpleMessage("ciudad"),
     "class1": MessageLookupByLibrary.simpleMessage("clase 1"),
     "class2": MessageLookupByLibrary.simpleMessage("clase 2"),
     "clear": MessageLookupByLibrary.simpleMessage("limpiar"),
@@ -108,6 +279,12 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "las cartas del lado oscuro se reemplazan con las del lado claro y viceversa.",
         ),
+    "developmentCardWorth1VictoryPoint": MessageLookupByLibrary.simpleMessage(
+      "carta de desarrollo que vale 1 punto de victoria",
+    ),
+    "developmentCards": MessageLookupByLibrary.simpleMessage(
+      "cartas de desarrollo:",
+    ),
     "didPlayerReachBid": m0,
     "didYouEnter": MessageLookupByLibrary.simpleMessage("¿alcanzó?"),
     "doReturn": MessageLookupByLibrary.simpleMessage("volver"),
@@ -250,6 +427,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "king": MessageLookupByLibrary.simpleMessage("rey"),
     "king4Points": MessageLookupByLibrary.simpleMessage("rey: 4 puntos"),
     "languages": MessageLookupByLibrary.simpleMessage("idiomas"),
+    "largestArmy": MessageLookupByLibrary.simpleMessage("ejército más grande"),
     "leftHand": MessageLookupByLibrary.simpleMessage("mano izquierda"),
     "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
         MessageLookupByLibrary.simpleMessage(
@@ -257,10 +435,14 @@ class MessageLookup extends MessageLookupByLibrary {
         ),
     "level": MessageLookupByLibrary.simpleMessage("nivel"),
     "light": MessageLookupByLibrary.simpleMessage("claro"),
+    "longestRoad": MessageLookupByLibrary.simpleMessage(
+      "ruta comercial más larga",
+    ),
     "lowestScoreWins": MessageLookupByLibrary.simpleMessage(
       "gana la puntuación más baja",
     ),
     "magic": MessageLookupByLibrary.simpleMessage("magia"),
+    "mapGenerator": MessageLookupByLibrary.simpleMessage("generador de mapas"),
     "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
       "marca un personaje muerto",
     ),
@@ -397,6 +579,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "pointsConfirmed": MessageLookupByLibrary.simpleMessage(
       "puntos confirmados",
     ),
+    "pointsCount": m1,
     "possiblyTheRemovalOfCursesOrDebuffs": MessageLookupByLibrary.simpleMessage(
       "posiblemente la eliminación de maldiciones o debilitamientos",
     ),
@@ -409,10 +592,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "race1": MessageLookupByLibrary.simpleMessage("raza 1"),
     "rateTheApp": MessageLookupByLibrary.simpleMessage("valora la app"),
     "reportABug": MessageLookupByLibrary.simpleMessage("reportar un error"),
+    "resources": MessageLookupByLibrary.simpleMessage("recursos:"),
     "results": MessageLookupByLibrary.simpleMessage("resultados"),
     "returnToMenu": MessageLookupByLibrary.simpleMessage("volver al menú"),
     "reverseCardUnoInfo": MessageLookupByLibrary.simpleMessage("carta reversa"),
     "rightHand": MessageLookupByLibrary.simpleMessage("mano derecha"),
+    "rollDiceLocale": MessageLookupByLibrary.simpleMessage("tira los dados"),
     "round": MessageLookupByLibrary.simpleMessage("ronda"),
     "rules": MessageLookupByLibrary.simpleMessage("reglas"),
     "russian": MessageLookupByLibrary.simpleMessage("ruso"),
@@ -587,6 +772,7 @@ class MessageLookup extends MessageLookupByLibrary {
       "set® es una marca registrada de set enterprises, inc.",
     ),
     "settings": MessageLookupByLibrary.simpleMessage("ajustes"),
+    "settlement": MessageLookupByLibrary.simpleMessage("poblado"),
     "shareFeedback": MessageLookupByLibrary.simpleMessage("enviar opiniones"),
     "shareWithFriedns": MessageLookupByLibrary.simpleMessage(
       "comparte con amigos",
@@ -612,6 +798,9 @@ class MessageLookup extends MessageLookupByLibrary {
       "salta el próximo turno.",
     ),
     "spanish": MessageLookupByLibrary.simpleMessage("español"),
+    "specialCards2VpEach": MessageLookupByLibrary.simpleMessage(
+      "cartas especiales (2 cada una):",
+    ),
     "specialCardsTitle": MessageLookupByLibrary.simpleMessage(
       "cartas especiales:",
     ),
@@ -628,7 +817,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
     "ten10Points": MessageLookupByLibrary.simpleMessage("diez: 10 puntos"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
-      "el número de jugadores debe ser más que",
+      "el número de jugadores debe ser",
+    ),
+    "theRobberRolling7": MessageLookupByLibrary.simpleMessage(
+      "el ladrón (al sacar 7):",
     ),
     "theme": MessageLookupByLibrary.simpleMessage("tema"),
     "thief": MessageLookupByLibrary.simpleMessage("ladrón"),
@@ -703,6 +895,7 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "total": MessageLookupByLibrary.simpleMessage("total"),
     "totalStrength": MessageLookupByLibrary.simpleMessage("fuerza total: "),
+    "trading": MessageLookupByLibrary.simpleMessage("comercio:"),
     "tripleTheValueOfALetterScrabbleInfo": MessageLookupByLibrary.simpleMessage(
       "triplica el valor de una letra",
     ),
@@ -873,6 +1066,12 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "alternativa: gana quien tenga la puntuación más baja al final.",
     ),
+    "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
+      "mejora un poblado a ciudad (+1 punto)",
+    ),
+    "victoryPointCard": MessageLookupByLibrary.simpleMessage(
+      "carta de punto de victoria",
+    ),
     "victoryTitle": MessageLookupByLibrary.simpleMessage("victoria:"),
     "warrior": MessageLookupByLibrary.simpleMessage("guerrero"),
     "whoGoesFirst": MessageLookupByLibrary.simpleMessage(
@@ -896,6 +1095,10 @@ class MessageLookup extends MessageLookupByLibrary {
     ),
     "winner": MessageLookupByLibrary.simpleMessage("ganador: "),
     "wizard": MessageLookupByLibrary.simpleMessage("mago"),
+    "wordIsTooLongMaximum15LettersAllowed":
+        MessageLookupByLibrary.simpleMessage(
+          "la palabra es demasiado larga. máximo 15 letras permitidas",
+        ),
     "wordModifier": MessageLookupByLibrary.simpleMessage(
       "modificador de palabra: ",
     ),

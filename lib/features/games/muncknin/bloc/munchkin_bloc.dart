@@ -85,8 +85,19 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       emit(currentState.copyWith(players: updatedPlayers));
     } else if (state is MunchkinGameState) {
       final currentState = state as MunchkinGameState;
+      final initializedPlayer = Player(
+        name: event.player.name,
+        id: event.player.id,
+        score: 1, // Munchkin starts at level 1
+        gear: 0,
+        level: 1,
+        modifiers: PlayerModifiers(),
+        isMale: event.player.isMale,
+        isCursed: false,
+        temporaryModifier: 0,
+      );
       final updatedPlayers = List<Player>.from(currentState.players)
-        ..add(event.player);
+        ..add(initializedPlayer);
 
       emit(currentState.copyWith(
         players: updatedPlayers,
@@ -115,8 +126,40 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     InitializeGameScreen event,
     Emitter<MunchkinState> emit,
   ) {
+    final initializedPlayers = event.players.map((player) {
+      final hasExistingProgress = player.level != 1 || player.gear != 0;
+
+      if (hasExistingProgress) {
+        return Player(
+          name: player.name,
+          id: player.id,
+          score: player.score,
+          gear: player.gear,
+          level: player.level,
+          modifiers: player.modifiers,
+          isMale: player.isMale,
+          isCursed: player.isCursed,
+          temporaryModifier: player.temporaryModifier,
+        );
+      } else {
+        // This is a new game - set default Munchkin starting values
+        debugPrint('InitializeGameScreen: Setting default values for ${player.name}');
+        return Player(
+          name: player.name,
+          id: player.id,
+          score: 1, // Munchkin starts at level 1
+          gear: 0,
+          level: 1,
+          modifiers: PlayerModifiers(),
+          isMale: player.isMale,
+          isCursed: false,
+          temporaryModifier: 0,
+        );
+      }
+    }).toList();
+
     emit(MunchkinGameState(
-      players: List.from(event.players),
+      players: initializedPlayers,
       isSinglePlayer: event.isSinglePlayer,
       history: [],
       redoHistory: [],
@@ -386,9 +429,10 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
       final updatedPlayers = List<Player>.from(currentState.players);
 
       for (var i = 0; i < updatedPlayers.length; i++) {
-        updatedPlayers[i].score = 0;
         updatedPlayers[i].level = 1;
         updatedPlayers[i].gear = 0;
+        updatedPlayers[i].score =
+            updatedPlayers[i].gear + updatedPlayers[i].level;
         updatedPlayers[i].modifiers = PlayerModifiers();
         updatedPlayers[i].isCursed = false;
       }
@@ -882,7 +926,11 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           players[i].temporaryModifier =
               playerData['temporary_modifier'] as int? ?? 0;
 
+          // Recalculate score based on level and gear for Munchkin
+          players[i].score = players[i].level + players[i].gear;
+
           debugPrint('Restored player $i: ${players[i].name}');
+          debugPrint('  Score recalculated: ${players[i].score} (level: ${players[i].level} + gear: ${players[i].gear})');
           debugPrint('  Level: ${players[i].level}, Gear: ${players[i].gear}');
           debugPrint('  Temporary Modifier: ${players[i].temporaryModifier}');
           debugPrint(
