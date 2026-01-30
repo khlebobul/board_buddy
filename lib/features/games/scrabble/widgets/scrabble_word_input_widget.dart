@@ -119,11 +119,21 @@ class ScrabbleWordInputWidgetState extends State<ScrabbleWordInputWidget> {
     setState(() {
       // Handle word modifiers
       if (modifier.contains('word')) {
-        _wordModifier = modifier;
+        // Toggle off if same modifier is already applied
+        if (_wordModifier == modifier) {
+          _wordModifier = null;
+        } else {
+          _wordModifier = modifier;
+        }
       }
       // Handle letter modifiers
       else {
-        _letterModifiers[letterIndex] = modifier;
+        // Toggle off if same modifier is already applied to this letter
+        if (_letterModifiers[letterIndex] == modifier) {
+          _letterModifiers.remove(letterIndex);
+        } else {
+          _letterModifiers[letterIndex] = modifier;
+        }
       }
     });
   }
