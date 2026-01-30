@@ -1095,8 +1095,8 @@ class MessageLookup extends MessageLookupByLibrary {
           "слово слишком длинное. максимум 15 букв",
         ),
     "wordModifier": MessageLookupByLibrary.simpleMessage("модификатор: "),
-    "x2Word": MessageLookupByLibrary.simpleMessage("x2 слово"),
-    "x3Word": MessageLookupByLibrary.simpleMessage("x3 слово"),
+    "x2Word": MessageLookupByLibrary.simpleMessage("x2 сл."),
+    "x3Word": MessageLookupByLibrary.simpleMessage("x3 сл."),
     "yes": MessageLookupByLibrary.simpleMessage("да"),
     "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
       "игра не завершена",

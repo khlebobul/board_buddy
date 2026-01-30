@@ -2846,14 +2846,14 @@ class S {
     return Intl.message('skip', name: 'skip', desc: '', args: []);
   }
 
-  /// `x2 word`
+  /// `x2 wd`
   String get x2Word {
-    return Intl.message('x2 word', name: 'x2Word', desc: '', args: []);
+    return Intl.message('x2 wd', name: 'x2Word', desc: '', args: []);
   }
 
-  /// `x3 word`
+  /// `x3 wd`
   String get x3Word {
-    return Intl.message('x3 word', name: 'x3Word', desc: '', args: []);
+    return Intl.message('x3 wd', name: 'x3Word', desc: '', args: []);
   }
 
   /// `menu`

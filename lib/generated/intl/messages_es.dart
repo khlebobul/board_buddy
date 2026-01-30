@@ -1102,8 +1102,8 @@ class MessageLookup extends MessageLookupByLibrary {
     "wordModifier": MessageLookupByLibrary.simpleMessage(
       "modificador de palabra: ",
     ),
-    "x2Word": MessageLookupByLibrary.simpleMessage("x2 palabra"),
-    "x3Word": MessageLookupByLibrary.simpleMessage("x3 palabra"),
+    "x2Word": MessageLookupByLibrary.simpleMessage("x2 pal"),
+    "x3Word": MessageLookupByLibrary.simpleMessage("x3 pal"),
     "yes": MessageLookupByLibrary.simpleMessage("sí"),
     "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
       "tienes un juego sin terminar",

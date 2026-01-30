@@ -1075,8 +1075,8 @@ class MessageLookup extends MessageLookupByLibrary {
           "wort ist zu lang. maximal 15 buchstaben erlaubt",
         ),
     "wordModifier": MessageLookupByLibrary.simpleMessage("wortmodifikator: "),
-    "x2Word": MessageLookupByLibrary.simpleMessage("x2 wort"),
-    "x3Word": MessageLookupByLibrary.simpleMessage("x3 wort"),
+    "x2Word": MessageLookupByLibrary.simpleMessage("x2 wt"),
+    "x3Word": MessageLookupByLibrary.simpleMessage("x3 wt"),
     "yes": MessageLookupByLibrary.simpleMessage("ja"),
     "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
       "du hast ein unvollendetes spiel",
