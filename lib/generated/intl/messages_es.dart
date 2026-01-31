@@ -54,7 +54,7 @@ class MessageLookup extends MessageLookupByLibrary {
     "bigMagic": MessageLookupByLibrary.simpleMessage("magia potente"),
     "bigSword": MessageLookupByLibrary.simpleMessage("espada grande"),
     "bingo": MessageLookupByLibrary.simpleMessage("bingo"),
-    "blankTile": MessageLookupByLibrary.simpleMessage("ficha\ncomdón"),
+    "blankTile": MessageLookupByLibrary.simpleMessage("ficha\ncomodín"),
     "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
     "boardBuddyIsYourUltimateBoardGameCompanion":
         MessageLookupByLibrary.simpleMessage(
