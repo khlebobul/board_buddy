@@ -4,7 +4,6 @@ import 'package:gaimon/gaimon.dart';
 import 'package:not_static_icons/not_static_icons.dart';
 
 /// A custom keyboard widget for Munchkin one-time modifiers.
-/// Provides quick access to common modifier values (+2, +3, +5, +10) and a clear button.
 class MunchkinCustomKeyboard extends StatelessWidget {
   /// Callback function when a modifier button is pressed, providing the modifier value.
   final Function(int) onModifierSelected;
@@ -12,13 +11,25 @@ class MunchkinCustomKeyboard extends StatelessWidget {
   /// Callback function when the clear button is pressed.
   final VoidCallback onClear;
 
+  /// Callback function when the gender toggle button is pressed.
+  final VoidCallback onGenderToggle;
+
+  /// Callback function when the reset modifiers (bone) button is pressed.
+  final VoidCallback onResetModifiers;
+
   /// Current accumulated modifier value to display
   final int currentModifier;
+
+  /// Whether the current player is male (to show correct gender icon)
+  final bool isMale;
 
   const MunchkinCustomKeyboard({
     required this.onModifierSelected,
     required this.onClear,
+    required this.onGenderToggle,
+    required this.onResetModifiers,
     this.currentModifier = 0,
+    this.isMale = true,
     super.key,
   });
 
@@ -35,6 +46,7 @@ class MunchkinCustomKeyboard extends StatelessWidget {
       child: Column(
         mainAxisSize: MainAxisSize.min,
         children: [
+          // Top row: modifier buttons (+2, +3, +5, +10) and clear
           SizedBox(
             height: 45,
             child: Row(
@@ -64,6 +76,21 @@ class MunchkinCustomKeyboard extends StatelessWidget {
                   context: context,
                 ),
                 _buildClearButton(theme: theme, context: context),
+              ],
+            ),
+          ),
+          // Bottom row: gender toggle and reset modifiers (bone)
+          Container(
+            decoration: BoxDecoration(
+              border: Border(
+                top: BorderSide(color: theme.borderColor, width: 1),
+              ),
+            ),
+            height: 45,
+            child: Row(
+              children: [
+                _buildGenderButton(theme: theme),
+                _buildBoneButton(theme: theme),
               ],
             ),
           ),
@@ -112,6 +139,64 @@ class MunchkinCustomKeyboard extends StatelessWidget {
           strokeWidth: 1,
           hoverColor: theme.secondaryTextColor,
           onTap: onClear,
+        ),
+      ),
+    );
+  }
+
+  Widget _buildGenderButton({
+    required UIThemes theme,
+  }) {
+    return Expanded(
+      child: Container(
+        decoration: BoxDecoration(
+          border: Border(
+            right: BorderSide(color: theme.borderColor, width: 1),
+          ),
+        ),
+        height: double.infinity,
+        alignment: Alignment.center,
+        child: isMale
+            ? MarsIcon(
+                color: theme.textColor,
+                size: 24,
+                strokeWidth: 1,
+                hoverColor: theme.secondaryTextColor,
+                onTap: () {
+                  onGenderToggle();
+                  Gaimon.soft();
+                },
+              )
+            : VenusIcon(
+                color: theme.textColor,
+                size: 24,
+                strokeWidth: 1,
+                hoverColor: theme.secondaryTextColor,
+                onTap: () {
+                  onGenderToggle();
+                  Gaimon.soft();
+                },
+              ),
+      ),
+    );
+  }
+
+  Widget _buildBoneButton({
+    required UIThemes theme,
+  }) {
+    return Expanded(
+      child: Container(
+        height: double.infinity,
+        alignment: Alignment.center,
+        child: BoneIcon(
+          color: theme.textColor,
+          size: 24,
+          strokeWidth: 1,
+          hoverColor: theme.secondaryTextColor,
+          onTap: () {
+            onResetModifiers();
+            Gaimon.soft();
+          },
         ),
       ),
     );
