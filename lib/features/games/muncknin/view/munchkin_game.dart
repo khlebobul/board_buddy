@@ -134,7 +134,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                     const SizedBox(height: 8),
                     if (state.players.length > 1) ...[
                       _buildMultiPlayerView(context, state),
-                      const SizedBox(height: 8),
+                      const Spacer(),
                       GestureDetector(
                         behavior: HitTestBehavior.opaque,
                         onTap: () {
@@ -150,8 +150,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                           state.players[_currentPlayerIndex].isCursed
                               ? S.of(context).cursed
                               : S.of(context).clearance,
-                          style:
-                              theme.display2.copyWith(color: theme.redColor),
+                          style: theme.display2.copyWith(color: theme.redColor),
                           key: ValueKey(
                               'curse_status_${_currentPlayerIndex}_${state.players[_currentPlayerIndex].isCursed}'),
                         ),
@@ -179,15 +178,18 @@ class _MunchkinGameState extends State<MunchkinGame> {
                                 );
                           },
                           onGenderToggle: () {
-                            context.read<MunchkinBloc>().add(
-                                TogglePlayerGender(_currentPlayerIndex));
+                            context
+                                .read<MunchkinBloc>()
+                                .add(TogglePlayerGender(_currentPlayerIndex));
                           },
                           onResetModifiers: () {
-                            context.read<MunchkinBloc>().add(
-                                ResetPlayerModifiers(_currentPlayerIndex));
+                            context
+                                .read<MunchkinBloc>()
+                                .add(ResetPlayerModifiers(_currentPlayerIndex));
                           },
                         ),
                       ),
+                      const SizedBox(height: 12),
                     ] else
                       _buildSinglePlayerView(context, state),
                   ],
@@ -313,7 +315,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return SizedBox(
-      height: screenHeight * 0.55,
+      height: screenHeight * 0.4,
       child: Column(
         children: [
           Expanded(
@@ -364,7 +366,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
               },
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 4),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: state.players.asMap().entries.map((entry) {
@@ -390,6 +392,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
               );
             }).toList(),
           ),
+          const SizedBox(height: 10),
         ],
       ),
     );
@@ -447,8 +450,8 @@ class _MunchkinGameState extends State<MunchkinGame> {
               scrambledText,
               style: theme.display2.copyWith(color: theme.redColor),
             ),
-            key: ValueKey(
-                'curse_status_single_${state.players.first.isCursed}'),
+            key:
+                ValueKey('curse_status_single_${state.players.first.isCursed}'),
           ),
         ),
         const SizedBox(height: 20),
