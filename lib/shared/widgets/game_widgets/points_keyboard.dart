@@ -1,6 +1,7 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 /// widget that represents a custom keyboard.
 class CustomKeyboard extends StatelessWidget {
@@ -88,6 +89,8 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
       widget.button.onPressed!();
       Gaimon.soft();
       _controller.forward().then((_) => _controller.reverse());
+      // Animate the icon if controller is provided
+      widget.button.iconController?.animate();
     }
   }
 
@@ -155,6 +158,9 @@ class KeyboardButton {
   /// Custom color for the text (if null, uses animated color)
   final Color? textColor;
 
+  /// Controller for animating the icon (from not_static_icons package).
+  final AnimatedIconController? iconController;
+
   KeyboardButton({
     this.icon,
     this.buttonText = '',
@@ -163,5 +169,6 @@ class KeyboardButton {
     this.iconSize = 30.0,
     this.useCompactMargin = false,
     this.textColor,
+    this.iconController,
   });
 }

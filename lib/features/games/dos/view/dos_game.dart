@@ -37,6 +37,10 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
   late final AnimationController _animationController;
   late final Animation<double> _animation;
 
+  // Icon controllers for keyboard buttons
+  final _hashIconController = AnimatedIconController();
+  final _gridPlus2IconController = AnimatedIconController();
+
   // Local state to track current page
   int _currentPageIndex = 0;
   bool _isInitialized = false;
@@ -434,19 +438,26 @@ class _DosGameState extends State<DosGame> with TickerProviderStateMixin {
                                 onPressed: () => _updateScore(10),
                               ),
                               KeyboardButton(
-                                  icon: HashIcon(
-                                color: theme.textColor,
-                                size: 30,
-                                strokeWidth: 1,
-                                onTap: () => _updateScore(20),
-                              )),
+                                icon: HashIcon(
+                                  color: theme.textColor,
+                                  size: 30,
+                                  strokeWidth: 1,
+                                  interactive: false,
+                                  controller: _hashIconController,
+                                ),
+                                onPressed: () => _updateScore(20),
+                                iconController: _hashIconController,
+                              ),
                               KeyboardButton(
                                 icon: GridPlus2Icon(
                                   color: theme.textColor,
                                   size: 30,
                                   strokeWidth: 1,
-                                  onTap: () => _updateScore(40),
+                                  interactive: false,
+                                  controller: _gridPlus2IconController,
                                 ),
+                                onPressed: () => _updateScore(40),
+                                iconController: _gridPlus2IconController,
                               ),
                             ],
                           ],
