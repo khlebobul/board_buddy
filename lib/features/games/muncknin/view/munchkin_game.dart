@@ -315,7 +315,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
     final screenHeight = MediaQuery.of(context).size.height;
 
     return SizedBox(
-      height: screenHeight * 0.4,
+      height: screenHeight * 0.55,
       child: Column(
         children: [
           Expanded(
