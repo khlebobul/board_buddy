@@ -48,6 +48,8 @@ final class CatanGameState extends CatanState {
   final bool isScoreChanging;
   final bool gameEnded;
   final bool hasShownGameEndModal;
+  final int? longestRoadOwnerIndex;
+  final int? largestArmyOwnerIndex;
 
   CatanGameState({
     required this.players,
@@ -60,6 +62,8 @@ final class CatanGameState extends CatanState {
     this.isScoreChanging = false,
     this.gameEnded = false,
     this.hasShownGameEndModal = false,
+    this.longestRoadOwnerIndex,
+    this.largestArmyOwnerIndex,
   })  : playerScoreHistory = playerScoreHistory ?? {},
         playerRedoStack = playerRedoStack ?? {};
 
@@ -74,6 +78,8 @@ final class CatanGameState extends CatanState {
     bool? isScoreChanging,
     bool? gameEnded,
     bool? hasShownGameEndModal,
+    int? Function()? longestRoadOwnerIndex,
+    int? Function()? largestArmyOwnerIndex,
   }) {
     return CatanGameState(
       players: players ?? this.players,
@@ -86,6 +92,12 @@ final class CatanGameState extends CatanState {
       isScoreChanging: isScoreChanging ?? this.isScoreChanging,
       gameEnded: gameEnded ?? this.gameEnded,
       hasShownGameEndModal: hasShownGameEndModal ?? this.hasShownGameEndModal,
+      longestRoadOwnerIndex: longestRoadOwnerIndex != null
+          ? longestRoadOwnerIndex()
+          : this.longestRoadOwnerIndex,
+      largestArmyOwnerIndex: largestArmyOwnerIndex != null
+          ? largestArmyOwnerIndex()
+          : this.largestArmyOwnerIndex,
     );
   }
 

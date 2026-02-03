@@ -31,6 +31,7 @@ class CatanBloc extends Bloc<CatanEvent, CatanState> {
     on<FinishGame>(_onFinishGame);
     on<MarkGameEndModalShown>(_onMarkGameEndModalShown);
     on<SaveGameSession>(_onSaveGameSession);
+    on<ClaimBadge>(_onClaimBadge);
   }
 
   void _onInitializeCatanStartScreen(
@@ -98,12 +99,19 @@ class CatanBloc extends Bloc<CatanEvent, CatanState> {
       for (int i = 0; i < players.length; i++) {
         playerRedoStack[i] = [];
       }
+
+      // Load badge owners from custom data
+      final longestRoadOwnerIndex = session['longestRoadOwnerIndex'] as int?;
+      final largestArmyOwnerIndex = session['largestArmyOwnerIndex'] as int?;
+
       emit(CatanGameState(
         players: players,
         scoreLimit: session['score_limit'] as int,
         gameMode: session['game_mode'] as String,
         playerScoreHistory: playerScoreHistory,
         playerRedoStack: playerRedoStack,
+        longestRoadOwnerIndex: longestRoadOwnerIndex,
+        largestArmyOwnerIndex: largestArmyOwnerIndex,
       ));
     }
   }
@@ -281,6 +289,10 @@ class CatanBloc extends Bloc<CatanEvent, CatanState> {
           gameMode: gameState.gameMode,
           players: gameState.players,
           playerScoreHistory: gameState.playerScoreHistory,
+          customData: {
+            'longestRoadOwnerIndex': gameState.longestRoadOwnerIndex,
+            'largestArmyOwnerIndex': gameState.largestArmyOwnerIndex,
+          },
         );
       } catch (e) {
         debugPrint('Error saving game session: $e');
@@ -313,6 +325,8 @@ class CatanBloc extends Bloc<CatanEvent, CatanState> {
         currentPlayerIndex: 0,
         gameEnded: false,
         hasShownGameEndModal: false,
+        longestRoadOwnerIndex: null,
+        largestArmyOwnerIndex: null,
       ));
       add(DeleteSavedGame());
     }
@@ -360,6 +374,62 @@ class CatanBloc extends Bloc<CatanEvent, CatanState> {
     if (state is CatanGameState) {
       final currentState = state as CatanGameState;
       emit(currentState.copyWith(hasShownGameEndModal: true));
+    }
+  }
+
+  void _onClaimBadge(ClaimBadge event, Emitter<CatanState> emit) {
+    if (state is CatanGameState) {
+      final currentState = state as CatanGameState;
+      final currentPlayerIndex = currentState.currentPlayerIndex;
+      final updatedPlayers = List<Player>.from(currentState.players);
+
+      final currentOwnerIndex = event.badgeType == CatanBadgeType.longestRoad
+          ? currentState.longestRoadOwnerIndex
+          : currentState.largestArmyOwnerIndex;
+
+      int scoreChange = 0;
+
+      if (currentOwnerIndex == null) {
+        // No one owns the badge - current player claims it
+        updatedPlayers[currentPlayerIndex].score += 2;
+        scoreChange = 2;
+      } else if (currentOwnerIndex == currentPlayerIndex) {
+        // Current player owns it - remove badge
+        updatedPlayers[currentPlayerIndex].score -= 2;
+        scoreChange = -2;
+      } else {
+        // Another player owns it - transfer badge
+        updatedPlayers[currentOwnerIndex].score -= 2;
+        updatedPlayers[currentPlayerIndex].score += 2;
+        scoreChange = 2;
+      }
+
+      // Determine new owner
+      int? newOwnerIndex;
+      if (currentOwnerIndex == currentPlayerIndex) {
+        newOwnerIndex = null; // Remove badge
+      } else {
+        newOwnerIndex = currentPlayerIndex; // Claim badge
+      }
+
+      if (event.badgeType == CatanBadgeType.longestRoad) {
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+          longestRoadOwnerIndex: () => newOwnerIndex,
+          lastScoreChange: scoreChange,
+          isScoreChanging: true,
+        ));
+      } else {
+        emit(currentState.copyWith(
+          players: updatedPlayers,
+          largestArmyOwnerIndex: () => newOwnerIndex,
+          lastScoreChange: scoreChange,
+          isScoreChanging: true,
+        ));
+      }
+
+      add(SaveGameSession());
+      add(CheckGameEnd());
     }
   }
 

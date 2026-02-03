@@ -1,4 +1,5 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/features/games/catan/bloc/catan_bloc.dart';
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
 import 'package:not_static_icons/not_static_icons.dart';
@@ -8,8 +9,12 @@ class CatanScoreKeyboard extends StatefulWidget {
   /// Callback function when a button is pressed, providing the score change value.
   final Function(int) onValueSelected;
 
+  /// Callback function when a badge is claimed.
+  final Function(CatanBadgeType) onBadgeClaimed;
+
   const CatanScoreKeyboard({
     required this.onValueSelected,
+    required this.onBadgeClaimed,
     super.key,
   });
 
@@ -86,7 +91,7 @@ class _CatanScoreKeyboardState extends State<CatanScoreKeyboard> {
               ],
             ),
           ),
-          // Full width +2 button with icons
+          // Badge buttons row: Longest Road and Largest Army
           Container(
             decoration: BoxDecoration(
               border: Border(
@@ -94,11 +99,36 @@ class _CatanScoreKeyboardState extends State<CatanScoreKeyboard> {
               ),
             ),
             height: 55,
-            child: _buildRoadArmyButton(
-              value: 2,
-              theme: theme,
-              roadController: _roadController,
-              swordsController: _swordsController,
+            child: Row(
+              children: [
+                _buildBadgeButton(
+                  badgeType: CatanBadgeType.longestRoad,
+                  icon: RoadIcon(
+                    size: 28,
+                    color: theme.textColor,
+                    strokeWidth: 1,
+                    hoverColor: theme.secondaryTextColor,
+                    interactive: false,
+                    controller: _roadController,
+                  ),
+                  controller: _roadController,
+                  theme: theme,
+                ),
+                _buildBadgeButton(
+                  badgeType: CatanBadgeType.largestArmy,
+                  icon: SwordsIcon(
+                    size: 28,
+                    color: theme.textColor,
+                    strokeWidth: 1,
+                    hoverColor: theme.secondaryTextColor,
+                    interactive: false,
+                    controller: _swordsController,
+                  ),
+                  controller: _swordsController,
+                  theme: theme,
+                  isLast: true,
+                ),
+              ],
             ),
           ),
           // Bottom row: -1, -2
@@ -188,50 +218,30 @@ class _CatanScoreKeyboardState extends State<CatanScoreKeyboard> {
     );
   }
 
-  Widget _buildRoadArmyButton({
-    required int value,
+  Widget _buildBadgeButton({
+    required CatanBadgeType badgeType,
+    required Widget icon,
+    required AnimatedIconController controller,
     required UIThemes theme,
-    required AnimatedIconController roadController,
-    required AnimatedIconController swordsController,
+    bool isLast = false,
   }) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: () {
-        roadController.animate();
-        swordsController.animate();
-        widget.onValueSelected(value);
-        Gaimon.soft();
-      },
-      child: Center(
-        child: Row(
-          mainAxisSize: MainAxisSize.min,
-          mainAxisAlignment: MainAxisAlignment.center,
-          children: [
-            RoadIcon(
-              size: 28,
-              color: theme.textColor,
-              strokeWidth: 1,
-              hoverColor: theme.secondaryTextColor,
-              interactive: false,
-              controller: roadController,
-            ),
-            const SizedBox(width: 20),
-            SlashIcon(
-              size: 15,
-              color: theme.textColor,
-              strokeWidth: 1,
-              enableTouchInteraction: false,
-            ),
-            const SizedBox(width: 20),
-            SwordsIcon(
-              size: 28,
-              color: theme.textColor,
-              strokeWidth: 1,
-              hoverColor: theme.secondaryTextColor,
-              interactive: false,
-              controller: swordsController,
-            )
-          ],
+    return Expanded(
+      child: GestureDetector(
+        behavior: HitTestBehavior.opaque,
+        onTap: () {
+          controller.animate();
+          widget.onBadgeClaimed(badgeType);
+          Gaimon.soft();
+        },
+        child: Container(
+          decoration: BoxDecoration(
+            border: isLast
+                ? null
+                : Border(
+                    right: BorderSide(color: theme.borderColor, width: 1),
+                  ),
+          ),
+          child: Center(child: icon),
         ),
       ),
     );

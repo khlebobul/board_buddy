@@ -114,6 +114,49 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
     }
   }
 
+  void _claimBadge(CatanBadgeType badgeType) {
+    final bloc = context.read<CatanBloc>();
+    bloc.add(ClaimBadge(badgeType));
+    _animationController.reset();
+    _animationController.forward().then((_) {
+      bloc.add(ResetScoreAnimation());
+    });
+  }
+
+  List<Widget> _buildBadgesForPlayer(
+    int playerIndex,
+    int? longestRoadOwnerIndex,
+    int? largestArmyOwnerIndex,
+    UIThemes theme,
+  ) {
+    final badges = <Widget>[];
+
+    if (longestRoadOwnerIndex == playerIndex) {
+      badges.add(
+        RoadIcon(
+          size: 20,
+          color: theme.secondaryTextColor,
+          strokeWidth: 1,
+        ),
+      );
+    }
+
+    if (largestArmyOwnerIndex == playerIndex) {
+      badges.add(
+        Padding(
+          padding: EdgeInsets.only(left: badges.isNotEmpty ? 4 : 0),
+          child: SwordsIcon(
+            size: 20,
+            color: theme.secondaryTextColor,
+            strokeWidth: 1,
+          ),
+        ),
+      );
+    }
+
+    return badges;
+  }
+
   void _showGameEndModal(
       List<Player> players, String gameMode, int scoreLimit) {
     if (_isGameEndModalShown) return;
@@ -291,6 +334,12 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
                                         ),
                                         child: PlayerCard(
                                           player: gameState.players[index],
+                                          badges: _buildBadgesForPlayer(
+                                            index,
+                                            gameState.longestRoadOwnerIndex,
+                                            gameState.largestArmyOwnerIndex,
+                                            theme,
+                                          ),
                                         ),
                                       );
                                     },
@@ -374,6 +423,7 @@ class _CatanGameState extends State<CatanGame> with TickerProviderStateMixin {
                             horizontal: GeneralConst.paddingHorizontal),
                         child: CatanScoreKeyboard(
                           onValueSelected: _updateScore,
+                          onBadgeClaimed: _claimBadge,
                         ),
                       ),
                       const SizedBox(height: 12),
