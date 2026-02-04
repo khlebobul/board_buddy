@@ -1,5 +1,16 @@
 # Changelog
 
+## [1.2.1]
+
+### New Features
+- Added Italian language support across the app
+- Catan: Longest Road and Largest Army badges are now awardable and displayed on player cards
+
+### Improvements
+- Scrabble: Word modifiers can now be toggled on and off
+- Munchkin: Redesigned game controls for improved usability
+- Enhanced keyboard button animations across multiple games
+
 ## [1.2.0]
 
 ### New Features
