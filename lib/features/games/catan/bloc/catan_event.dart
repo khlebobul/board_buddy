@@ -1,5 +1,7 @@
 part of 'catan_bloc.dart';
 
+enum CatanBadgeType { longestRoad, largestArmy }
+
 @immutable
 sealed class CatanEvent {}
 
@@ -82,3 +84,9 @@ class ContinueGame extends CatanEvent {}
 class FinishGame extends CatanEvent {}
 
 class MarkGameEndModalShown extends CatanEvent {}
+
+class ClaimBadge extends CatanEvent {
+  final CatanBadgeType badgeType;
+
+  ClaimBadge(this.badgeType);
+}

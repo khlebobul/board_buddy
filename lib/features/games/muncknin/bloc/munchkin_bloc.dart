@@ -127,7 +127,7 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     Emitter<MunchkinState> emit,
   ) {
     final initializedPlayers = event.players.map((player) {
-      final hasExistingProgress = player.level != 1 || player.gear != 0;
+      final hasExistingProgress = player.level != 1 || player.gear != 0 || player.temporaryModifier != 0;
 
       if (hasExistingProgress) {
         return Player(

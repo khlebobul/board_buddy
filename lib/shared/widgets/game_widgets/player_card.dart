@@ -6,8 +6,13 @@ import 'package:flutter/material.dart';
 class PlayerCard extends StatelessWidget {
   /// The player whose information is displayed on the card.
   final Player player;
+
+  /// Optional list of badge widgets to display next to the player name.
+  final List<Widget>? badges;
+
   const PlayerCard({
     required this.player,
+    this.badges,
     super.key,
   });
 
@@ -28,13 +33,25 @@ class PlayerCard extends StatelessWidget {
         children: [
           Padding(
             padding: const EdgeInsets.symmetric(horizontal: 3),
-            child: Text(
-              player.name.toLowerCase(),
-              overflow: TextOverflow.ellipsis,
-              maxLines: 1,
-              style: theme.display2.copyWith(
-                color: theme.secondaryTextColor,
-              ),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.center,
+              mainAxisSize: MainAxisSize.min,
+              children: [
+                Flexible(
+                  child: Text(
+                    player.name.toLowerCase(),
+                    overflow: TextOverflow.ellipsis,
+                    maxLines: 1,
+                    style: theme.display2.copyWith(
+                      color: theme.secondaryTextColor,
+                    ),
+                  ),
+                ),
+                if (badges != null && badges!.isNotEmpty) ...[
+                  const SizedBox(width: 8),
+                  ...badges!,
+                ],
+              ],
             ),
           ),
           const SizedBox(height: 5),

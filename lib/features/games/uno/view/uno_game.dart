@@ -37,6 +37,13 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
   late final AnimationController _animationController;
   late final Animation<double> _animation;
 
+  // Icon controllers for keyboard buttons
+  final _repeatIconController = AnimatedIconController();
+  final _banIconController = AnimatedIconController();
+  final _grid2x2IconController = AnimatedIconController();
+  final _gridPlus4IconController = AnimatedIconController();
+  final _replaceIconController = AnimatedIconController();
+
   // Local state to track current page
   int _currentPageIndex = 0;
   bool _isInitialized = false;
@@ -443,8 +450,11 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
-                                  onTap: () => _updateScore(20),
+                                  interactive: false,
+                                  controller: _repeatIconController,
                                 ),
+                                onPressed: () => _updateScore(20),
+                                iconController: _repeatIconController,
                               ),
                             ],
                             [
@@ -456,8 +466,11 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
-                                  onTap: () => _updateScore(20),
+                                  interactive: false,
+                                  controller: _banIconController,
                                 ),
+                                onPressed: () => _updateScore(20),
+                                iconController: _banIconController,
                               ),
                               KeyboardButton(
                                 icon: Grid2x2Icon(
@@ -465,8 +478,11 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
-                                  onTap: () => _updateScore(50),
+                                  interactive: false,
+                                  controller: _grid2x2IconController,
                                 ),
+                                onPressed: () => _updateScore(50),
+                                iconController: _grid2x2IconController,
                               ),
                               KeyboardButton(
                                 icon: GridPlus4Icon(
@@ -474,8 +490,11 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
-                                  onTap: () => _updateScore(50),
+                                  interactive: false,
+                                  controller: _gridPlus4IconController,
                                 ),
+                                onPressed: () => _updateScore(50),
+                                iconController: _gridPlus4IconController,
                               ),
                               KeyboardButton(
                                 icon: ReplaceIcon(
@@ -483,8 +502,11 @@ class _UnoGameState extends State<UnoGame> with TickerProviderStateMixin {
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
-                                  onTap: () => _updateScore(40),
+                                  interactive: false,
+                                  controller: _replaceIconController,
                                 ),
+                                onPressed: () => _updateScore(40),
+                                iconController: _replaceIconController,
                               ),
                             ],
                           ],

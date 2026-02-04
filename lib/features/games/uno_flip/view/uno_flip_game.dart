@@ -40,6 +40,17 @@ class _UnoFlipGameState extends State<UnoFlipGame>
   late UnoFlipBloc bloc;
   bool _isDarkSide = false;
 
+  // Icon controllers for keyboard buttons
+  final _repeatIconController = AnimatedIconController();
+  final _rotateCwIconController = AnimatedIconController();
+  final _banIconController = AnimatedIconController();
+  final _replace2IconController = AnimatedIconController();
+  final _grid2x2IconController = AnimatedIconController();
+  final _layersIconController = AnimatedIconController();
+  final _gridPlus2IconController = AnimatedIconController();
+  final _sunIconController = AnimatedIconController();
+  final _moonIconController = AnimatedIconController();
+
   // Local state to track current page
   int _currentPageIndex = 0;
   bool _isInitialized = false;
@@ -444,8 +455,11 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
-                                  onTap: () => _updateScore(20),
+                                  interactive: false,
+                                  controller: _repeatIconController,
                                 ),
+                                onPressed: () => _updateScore(20),
+                                iconController: _repeatIconController,
                               ),
                               _isDarkSide
                                   ? KeyboardButton(
@@ -454,8 +468,11 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                         hoverColor: theme.secondaryTextColor,
                                         strokeWidth: 1,
                                         size: 30,
-                                        onTap: () => _updateScore(30),
+                                        interactive: false,
+                                        controller: _rotateCwIconController,
                                       ),
+                                      onPressed: () => _updateScore(30),
+                                      iconController: _rotateCwIconController,
                                     )
                                   : KeyboardButton(
                                       icon: BanIcon(
@@ -465,8 +482,11 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                         hoverColor: theme.secondaryTextColor,
                                         strokeWidth: 1,
                                         size: 30,
-                                        onTap: () => _updateScore(20),
+                                        interactive: false,
+                                        controller: _banIconController,
                                       ),
+                                      onPressed: () => _updateScore(20),
+                                      iconController: _banIconController,
                                     ),
                             ],
                             [
@@ -476,8 +496,11 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
-                                  onTap: () => _updateScore(20),
+                                  interactive: false,
+                                  controller: _replace2IconController,
                                 ),
+                                onPressed: () => _updateScore(20),
+                                iconController: _replace2IconController,
                               ),
                               KeyboardButton(
                                 icon: Grid2x2Icon(
@@ -485,8 +508,11 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                   hoverColor: theme.secondaryTextColor,
                                   strokeWidth: 1,
                                   size: 30,
-                                  onTap: () => _updateScore(40),
+                                  interactive: false,
+                                  controller: _grid2x2IconController,
                                 ),
+                                onPressed: () => _updateScore(40),
+                                iconController: _grid2x2IconController,
                               ),
                               _isDarkSide
                                   ? KeyboardButton(
@@ -495,8 +521,11 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                         hoverColor: theme.secondaryTextColor,
                                         strokeWidth: 1,
                                         size: 30,
-                                        onTap: () => _updateScore(60),
+                                        interactive: false,
+                                        controller: _layersIconController,
                                       ),
+                                      onPressed: () => _updateScore(60),
+                                      iconController: _layersIconController,
                                     )
                                   : KeyboardButton(
                                       icon: GridPlus2Icon(
@@ -504,8 +533,11 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                         hoverColor: theme.secondaryTextColor,
                                         strokeWidth: 1,
                                         size: 30,
-                                        onTap: () => _updateScore(50),
+                                        interactive: false,
+                                        controller: _gridPlus2IconController,
                                       ),
+                                      onPressed: () => _updateScore(50),
+                                      iconController: _gridPlus2IconController,
                                     ),
                               KeyboardButton(
                                 icon: _isDarkSide
@@ -514,15 +546,21 @@ class _UnoFlipGameState extends State<UnoFlipGame>
                                         size: 30,
                                         color: theme.textColor,
                                         hoverColor: theme.secondaryTextColor,
-                                        onTap: _toggleSide,
+                                        interactive: false,
+                                        controller: _sunIconController,
                                       )
                                     : MoonIcon(
                                         strokeWidth: 1,
                                         size: 30,
                                         color: theme.textColor,
                                         hoverColor: theme.secondaryTextColor,
-                                        onTap: _toggleSide,
+                                        interactive: false,
+                                        controller: _moonIconController,
                                       ),
+                                onPressed: _toggleSide,
+                                iconController: _isDarkSide
+                                    ? _sunIconController
+                                    : _moonIconController,
                               ),
                             ],
                           ],

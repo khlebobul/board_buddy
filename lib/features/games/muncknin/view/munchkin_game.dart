@@ -134,83 +134,26 @@ class _MunchkinGameState extends State<MunchkinGame> {
                     const SizedBox(height: 8),
                     if (state.players.length > 1) ...[
                       _buildMultiPlayerView(context, state),
-                      const SizedBox(height: 8),
-                      Row(
-                        mainAxisAlignment: MainAxisAlignment.center,
-                        crossAxisAlignment: CrossAxisAlignment.center,
-                        children: [
-                          state.players[_currentPlayerIndex].isMale
-                              ? MarsIcon(
-                                  color: theme.textColor,
-                                  strokeWidth: 1,
-                                  size: 28,
-                                  onTap: () {
-                                    final currentPlayer = _currentPlayerIndex;
-                                    if (currentPlayer >= 0 &&
-                                        currentPlayer < state.players.length) {
-                                      context.read<MunchkinBloc>().add(
-                                          TogglePlayerGender(currentPlayer));
-                                    }
-                                  },
-                                )
-                              : VenusIcon(
-                                  color: theme.textColor,
-                                  strokeWidth: 1,
-                                  size: 28,
-                                  onTap: () {
-                                    final currentPlayer = _currentPlayerIndex;
-                                    if (currentPlayer >= 0 &&
-                                        currentPlayer < state.players.length) {
-                                      context.read<MunchkinBloc>().add(
-                                          TogglePlayerGender(currentPlayer));
-                                    }
-                                  },
-                                ),
-                          const SizedBox(width: 40),
-                          GestureDetector(
-                            behavior: HitTestBehavior.opaque,
-                            onTap: () {
-                              final currentPlayer = _currentPlayerIndex;
-                              if (currentPlayer >= 0 &&
-                                  currentPlayer < state.players.length) {
-                                debugPrint(
-                                    'Toggling curse button tapped for player $currentPlayer');
-                                debugPrint(
-                                    'Current curse status: ${state.players[currentPlayer].isCursed}');
-                                context
-                                    .read<MunchkinBloc>()
-                                    .add(TogglePlayerCursed(currentPlayer));
-                              }
-                            },
-                            child: Text(
-                              state.players[_currentPlayerIndex].isCursed
-                                  ? S.of(context).cursed
-                                  : S.of(context).clearance,
-                              style: theme.display2
-                                  .copyWith(color: theme.redColor),
-                              key: ValueKey(
-                                  'curse_status_${_currentPlayerIndex}_${state.players[_currentPlayerIndex].isCursed}'),
-                            ),
-                          ),
-                          const SizedBox(width: 40),
-                          BoneIcon(
-                            color: theme.textColor,
-                            strokeWidth: 1,
-                            size: 28,
-                            onTap: () {
-                              final currentPlayer = _currentPlayerIndex;
-                              if (currentPlayer >= 0 &&
-                                  currentPlayer < state.players.length) {
-                                // Print current curse status before change
-                                debugPrint(
-                                    'Before reset - Player $currentPlayer curse status: ${state.players[currentPlayer].isCursed}');
-                                context
-                                    .read<MunchkinBloc>()
-                                    .add(ResetPlayerModifiers(currentPlayer));
-                              }
-                            },
-                          ),
-                        ],
+                      const Spacer(),
+                      GestureDetector(
+                        behavior: HitTestBehavior.opaque,
+                        onTap: () {
+                          final currentPlayer = _currentPlayerIndex;
+                          if (currentPlayer >= 0 &&
+                              currentPlayer < state.players.length) {
+                            context
+                                .read<MunchkinBloc>()
+                                .add(TogglePlayerCursed(currentPlayer));
+                          }
+                        },
+                        child: Text(
+                          state.players[_currentPlayerIndex].isCursed
+                              ? S.of(context).cursed
+                              : S.of(context).clearance,
+                          style: theme.display2.copyWith(color: theme.redColor),
+                          key: ValueKey(
+                              'curse_status_${_currentPlayerIndex}_${state.players[_currentPlayerIndex].isCursed}'),
+                        ),
                       ),
                       const SizedBox(height: 8),
                       // Custom keyboard for temporary modifiers
@@ -220,6 +163,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
                         child: MunchkinCustomKeyboard(
                           currentModifier: state
                               .players[_currentPlayerIndex].temporaryModifier,
+                          isMale: state.players[_currentPlayerIndex].isMale,
                           onModifierSelected: (value) {
                             context.read<MunchkinBloc>().add(
                                   AddTemporaryModifier(
@@ -233,8 +177,19 @@ class _MunchkinGameState extends State<MunchkinGame> {
                                   ClearTemporaryModifiers(_currentPlayerIndex),
                                 );
                           },
+                          onGenderToggle: () {
+                            context
+                                .read<MunchkinBloc>()
+                                .add(TogglePlayerGender(_currentPlayerIndex));
+                          },
+                          onResetModifiers: () {
+                            context
+                                .read<MunchkinBloc>()
+                                .add(ResetPlayerModifiers(_currentPlayerIndex));
+                          },
                         ),
                       ),
+                      const SizedBox(height: 12),
                     ] else
                       _buildSinglePlayerView(context, state),
                   ],
@@ -411,7 +366,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
               },
             ),
           ),
-          const SizedBox(height: 10),
+          const SizedBox(height: 4),
           Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: state.players.asMap().entries.map((entry) {
@@ -437,6 +392,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
               );
             }).toList(),
           ),
+          const SizedBox(height: 10),
         ],
       ),
     );
@@ -480,63 +436,23 @@ class _MunchkinGameState extends State<MunchkinGame> {
           ),
         ),
         const SizedBox(height: 50),
-        Row(
-          mainAxisAlignment: MainAxisAlignment.center,
-          crossAxisAlignment: CrossAxisAlignment.center,
-          children: [
-            state.players.first.isMale
-                ? MarsIcon(
-                    color: theme.textColor,
-                    strokeWidth: 1,
-                    size: 28,
-                    onTap: () {
-                      context.read<MunchkinBloc>().add(TogglePlayerGender(0));
-                      Gaimon.soft();
-                    },
-                  )
-                : VenusIcon(
-                    color: theme.textColor,
-                    strokeWidth: 1,
-                    size: 28,
-                    onTap: () {
-                      context.read<MunchkinBloc>().add(TogglePlayerGender(0));
-                      Gaimon.soft();
-                    },
-                  ),
-            const SizedBox(width: 40),
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                debugPrint('Toggling curse button tapped for single player');
-                debugPrint(
-                    'Current curse status: ${state.players.first.isCursed}');
-                context.read<MunchkinBloc>().add(TogglePlayerCursed(0));
-                Gaimon.soft();
-              },
-              child: TextScramble(
-                text: state.players.first.isCursed
-                    ? S.of(context).cursed
-                    : S.of(context).clearance,
-                builder: (context, scrambledText) => Text(
-                  scrambledText,
-                  style: theme.display2.copyWith(color: theme.redColor),
-                ),
-                key: ValueKey(
-                    'curse_status_single_${state.players.first.isCursed}'),
-              ),
+        GestureDetector(
+          behavior: HitTestBehavior.opaque,
+          onTap: () {
+            context.read<MunchkinBloc>().add(TogglePlayerCursed(0));
+            Gaimon.soft();
+          },
+          child: TextScramble(
+            text: state.players.first.isCursed
+                ? S.of(context).cursed
+                : S.of(context).clearance,
+            builder: (context, scrambledText) => Text(
+              scrambledText,
+              style: theme.display2.copyWith(color: theme.redColor),
             ),
-            const SizedBox(width: 40),
-            BoneIcon(
-              onTap: () {
-                // Reset player modifiers according to Munchkin rules
-                context.read<MunchkinBloc>().add(ResetPlayerModifiers(0));
-                Gaimon.soft();
-              },
-              size: 27,
-              color: theme.textColor,
-              strokeWidth: 1,
-            ),
-          ],
+            key:
+                ValueKey('curse_status_single_${state.players.first.isCursed}'),
+          ),
         ),
         const SizedBox(height: 20),
         // Custom keyboard for temporary modifiers
@@ -545,6 +461,7 @@ class _MunchkinGameState extends State<MunchkinGame> {
               horizontal: GeneralConst.paddingHorizontal),
           child: MunchkinCustomKeyboard(
             currentModifier: state.players.first.temporaryModifier,
+            isMale: state.players.first.isMale,
             onModifierSelected: (value) {
               context.read<MunchkinBloc>().add(
                     AddTemporaryModifier(
@@ -557,6 +474,12 @@ class _MunchkinGameState extends State<MunchkinGame> {
               context.read<MunchkinBloc>().add(
                     ClearTemporaryModifiers(0),
                   );
+            },
+            onGenderToggle: () {
+              context.read<MunchkinBloc>().add(TogglePlayerGender(0));
+            },
+            onResetModifiers: () {
+              context.read<MunchkinBloc>().add(ResetPlayerModifiers(0));
             },
           ),
         ),
