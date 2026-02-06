@@ -685,6 +685,85 @@ class MessageLookup extends MessageLookupByLibrary {
     "scrabbleTurnRulesTitle": MessageLookupByLibrary.simpleMessage(
       "правила хода:",
     ),
+    "seaSaltPaper": MessageLookupByLibrary.simpleMessage("sea salt & paper"),
+    "seaSaltPaperDuoBoat": MessageLookupByLibrary.simpleMessage(
+      "дуо лодок: сделайте ещё один ход.",
+    ),
+    "seaSaltPaperDuoCardsDescription": MessageLookupByLibrary.simpleMessage(
+      "после действия вы можете сыграть пары карт для активации особых эффектов:",
+    ),
+    "seaSaltPaperDuoCardsTitle": MessageLookupByLibrary.simpleMessage(
+      "карты дуо:",
+    ),
+    "seaSaltPaperDuoCrab": MessageLookupByLibrary.simpleMessage(
+      "дуо крабов: просмотрите одну стопку сброса и возьмите любую карту.",
+    ),
+    "seaSaltPaperDuoFish": MessageLookupByLibrary.simpleMessage(
+      "дуо рыб: возьмите верхнюю карту из колоды.",
+    ),
+    "seaSaltPaperDuoShark": MessageLookupByLibrary.simpleMessage(
+      "дуо акула + пловец: украдите одну карту из руки соперника.",
+    ),
+    "seaSaltPaperEndRoundDescription": MessageLookupByLibrary.simpleMessage(
+      "когда у вас 7 или более очков, вы можете завершить раунд, выбрав:",
+    ),
+    "seaSaltPaperEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      "завершение раунда:",
+    ),
+    "seaSaltPaperGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      "собирайте карты для создания комбинаций и набора очков. станьте первым, кто достигнет целевого счёта, стратегически завершая раунды.",
+    ),
+    "seaSaltPaperLastChanceOption": MessageLookupByLibrary.simpleMessage(
+      "последний шанс: каждый соперник делает ещё один ход. если у вас всё ещё больше всего очков, получите бонус равный вашему цветовому большинству. если кто-то обгонит вас, вы получите только очки за цветовое большинство.",
+    ),
+    "seaSaltPaperPreparationDiscard": MessageLookupByLibrary.simpleMessage(
+      "переверните две карты лицом вверх рядом с колодой — это две стопки сброса.",
+    ),
+    "seaSaltPaperPreparationShuffle": MessageLookupByLibrary.simpleMessage(
+      "перемешайте все карты и положите колоду рубашкой вверх в центр.",
+    ),
+    "seaSaltPaperPreparationStartPlayer": MessageLookupByLibrary.simpleMessage(
+      "выберите начинающего игрока.",
+    ),
+    "seaSaltPaperScoringCollections": MessageLookupByLibrary.simpleMessage(
+      "коллекции (ракушки, пингвины, осьминоги) приносят больше очков при большем количестве карт.",
+    ),
+    "seaSaltPaperScoringColorMajority": MessageLookupByLibrary.simpleMessage(
+      "цветовое большинство: 1 бонусное очко за каждую карту самого частого цвета.",
+    ),
+    "seaSaltPaperScoringMermaid": MessageLookupByLibrary.simpleMessage(
+      "русалки: собрав все 4 карты русалок, вы мгновенно выигрываете!",
+    ),
+    "seaSaltPaperScoringPairs": MessageLookupByLibrary.simpleMessage(
+      "пары и комбинации приносят очки в зависимости от их типа.",
+    ),
+    "seaSaltPaperScoringTitle": MessageLookupByLibrary.simpleMessage(
+      "подсчёт очков:",
+    ),
+    "seaSaltPaperStopOption": MessageLookupByLibrary.simpleMessage(
+      "стоп: раунд заканчивается немедленно. все игроки подсчитывают очки за свои карты.",
+    ),
+    "seaSaltPaperTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      "sea salt & paper® является торговой маркой studio bombyx. дизайнеры: bruno cathala и théo rivière.",
+    ),
+    "seaSaltPaperTurnDescription": MessageLookupByLibrary.simpleMessage(
+      "в свой ход выберите одно из двух действий:",
+    ),
+    "seaSaltPaperTurnDrawTwo": MessageLookupByLibrary.simpleMessage(
+      "возьмите две карты из колоды, оставьте одну себе, а другую положите лицом вверх в стопку сброса.",
+    ),
+    "seaSaltPaperTurnTakeDiscard": MessageLookupByLibrary.simpleMessage(
+      "возьмите верхнюю карту из одной из стопок сброса.",
+    ),
+    "seaSaltPaperVictory2Players": MessageLookupByLibrary.simpleMessage(
+      "2 игрока: побеждает первый, набравший 40 очков.",
+    ),
+    "seaSaltPaperVictory3Players": MessageLookupByLibrary.simpleMessage(
+      "3 игрока: побеждает первый, набравший 35 очков.",
+    ),
+    "seaSaltPaperVictory4Players": MessageLookupByLibrary.simpleMessage(
+      "4 игрока: побеждает первый, набравший 30 очков.",
+    ),
     "secondBonus": MessageLookupByLibrary.simpleMessage("второй бонус"),
     "secondRace": MessageLookupByLibrary.simpleMessage("раса 2"),
     "set": MessageLookupByLibrary.simpleMessage("сет"),

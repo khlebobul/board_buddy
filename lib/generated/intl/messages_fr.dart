@@ -687,6 +687,83 @@ class MessageLookup extends MessageLookupByLibrary {
     "scrabbleTurnRulesTitle": MessageLookupByLibrary.simpleMessage(
       "règles de tour :",
     ),
+    "seaSaltPaper": MessageLookupByLibrary.simpleMessage("sea salt & paper"),
+    "seaSaltPaperDuoBoat": MessageLookupByLibrary.simpleMessage(
+      "duo de bateaux : jouez immédiatement un autre tour.",
+    ),
+    "seaSaltPaperDuoCardsDescription": MessageLookupByLibrary.simpleMessage(
+      "après votre action, vous pouvez jouer des paires pour déclencher des effets spéciaux :",
+    ),
+    "seaSaltPaperDuoCardsTitle": MessageLookupByLibrary.simpleMessage(
+      "cartes duo :",
+    ),
+    "seaSaltPaperDuoCrab": MessageLookupByLibrary.simpleMessage(
+      "duo de crabes : regardez une pile de défausse et prenez n\'importe quelle carte.",
+    ),
+    "seaSaltPaperDuoFish": MessageLookupByLibrary.simpleMessage(
+      "duo de poissons : piochez la carte du dessus du paquet.",
+    ),
+    "seaSaltPaperDuoShark": MessageLookupByLibrary.simpleMessage(
+      "duo requin + nageur : volez une carte de la main d\'un adversaire.",
+    ),
+    "seaSaltPaperEndRoundDescription": MessageLookupByLibrary.simpleMessage(
+      "quand vous avez 7 points ou plus, vous pouvez terminer la manche en choisissant :",
+    ),
+    "seaSaltPaperEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      "fin de manche :",
+    ),
+    "seaSaltPaperGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      "collectionnez des cartes pour former des combinaisons et marquer des points. soyez le premier à atteindre le score cible en terminant les manches stratégiquement.",
+    ),
+    "seaSaltPaperLastChanceOption": MessageLookupByLibrary.simpleMessage(
+      "dernière chance : chaque adversaire joue un dernier tour. si vous avez toujours le meilleur score, gagnez des points bonus égaux à votre majorité de couleur. si quelqu\'un vous dépasse, vous ne marquez que votre majorité de couleur.",
+    ),
+    "seaSaltPaperPreparationDiscard": MessageLookupByLibrary.simpleMessage(
+      "retournez deux cartes face visible à côté du paquet pour former deux piles de défausse.",
+    ),
+    "seaSaltPaperPreparationShuffle": MessageLookupByLibrary.simpleMessage(
+      "mélangez toutes les cartes et placez le paquet face cachée au centre.",
+    ),
+    "seaSaltPaperPreparationStartPlayer": MessageLookupByLibrary.simpleMessage(
+      "choisissez un joueur de départ.",
+    ),
+    "seaSaltPaperScoringCollections": MessageLookupByLibrary.simpleMessage(
+      "les collections (coquillages, pingouins, pieuvres) rapportent plus avec plus de cartes.",
+    ),
+    "seaSaltPaperScoringColorMajority": MessageLookupByLibrary.simpleMessage(
+      "majorité de couleur : 1 point bonus par carte de votre couleur la plus fréquente.",
+    ),
+    "seaSaltPaperScoringMermaid": MessageLookupByLibrary.simpleMessage(
+      "sirène : collecter les 4 cartes sirène fait gagner la partie instantanément !",
+    ),
+    "seaSaltPaperScoringPairs": MessageLookupByLibrary.simpleMessage(
+      "les paires et combinaisons rapportent des points selon leur type.",
+    ),
+    "seaSaltPaperScoringTitle": MessageLookupByLibrary.simpleMessage("score :"),
+    "seaSaltPaperStopOption": MessageLookupByLibrary.simpleMessage(
+      "stop : la manche se termine immédiatement. tous les joueurs comptent leurs cartes.",
+    ),
+    "seaSaltPaperTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      "sea salt & paper® est une marque de studio bombyx. conçu par bruno cathala et théo rivière.",
+    ),
+    "seaSaltPaperTurnDescription": MessageLookupByLibrary.simpleMessage(
+      "à votre tour, choisissez l\'une des deux actions :",
+    ),
+    "seaSaltPaperTurnDrawTwo": MessageLookupByLibrary.simpleMessage(
+      "piochez deux cartes du paquet, gardez-en une et placez l\'autre face visible sur une pile de défausse.",
+    ),
+    "seaSaltPaperTurnTakeDiscard": MessageLookupByLibrary.simpleMessage(
+      "prenez la carte du dessus d\'une des piles de défausse.",
+    ),
+    "seaSaltPaperVictory2Players": MessageLookupByLibrary.simpleMessage(
+      "2 joueurs : le premier à 40 points gagne.",
+    ),
+    "seaSaltPaperVictory3Players": MessageLookupByLibrary.simpleMessage(
+      "3 joueurs : le premier à 35 points gagne.",
+    ),
+    "seaSaltPaperVictory4Players": MessageLookupByLibrary.simpleMessage(
+      "4 joueurs : le premier à 30 points gagne.",
+    ),
     "secondBonus": MessageLookupByLibrary.simpleMessage("deuxième bonus"),
     "secondRace": MessageLookupByLibrary.simpleMessage("race 2"),
     "set": MessageLookupByLibrary.simpleMessage("set"),

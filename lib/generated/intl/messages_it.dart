@@ -684,6 +684,85 @@ class MessageLookup extends MessageLookupByLibrary {
     "scrabbleTurnRulesTitle": MessageLookupByLibrary.simpleMessage(
       "regole del turno:",
     ),
+    "seaSaltPaper": MessageLookupByLibrary.simpleMessage("sea salt & paper"),
+    "seaSaltPaperDuoBoat": MessageLookupByLibrary.simpleMessage(
+      "duo barche: fai immediatamente un altro turno.",
+    ),
+    "seaSaltPaperDuoCardsDescription": MessageLookupByLibrary.simpleMessage(
+      "dopo la tua azione, puoi giocare coppie per attivare effetti speciali:",
+    ),
+    "seaSaltPaperDuoCardsTitle": MessageLookupByLibrary.simpleMessage(
+      "carte duo:",
+    ),
+    "seaSaltPaperDuoCrab": MessageLookupByLibrary.simpleMessage(
+      "duo granchi: guarda una pila degli scarti e prendi qualsiasi carta.",
+    ),
+    "seaSaltPaperDuoFish": MessageLookupByLibrary.simpleMessage(
+      "duo pesci: pesca la carta in cima al mazzo.",
+    ),
+    "seaSaltPaperDuoShark": MessageLookupByLibrary.simpleMessage(
+      "duo squalo + nuotatore: ruba una carta dalla mano di un avversario.",
+    ),
+    "seaSaltPaperEndRoundDescription": MessageLookupByLibrary.simpleMessage(
+      "quando hai 7 o più punti, puoi terminare il round scegliendo:",
+    ),
+    "seaSaltPaperEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      "fine del round:",
+    ),
+    "seaSaltPaperGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      "colleziona carte per formare combinazioni e segnare punti. sii il primo a raggiungere il punteggio obiettivo terminando i round strategicamente.",
+    ),
+    "seaSaltPaperLastChanceOption": MessageLookupByLibrary.simpleMessage(
+      "ultima chance: ogni avversario fa un altro turno. se hai ancora il punteggio più alto, guadagni punti bonus pari alla tua maggioranza di colore. se qualcuno ti supera, ottieni solo i punti della maggioranza di colore.",
+    ),
+    "seaSaltPaperPreparationDiscard": MessageLookupByLibrary.simpleMessage(
+      "gira due carte a faccia in su accanto al mazzo per formare due pile degli scarti.",
+    ),
+    "seaSaltPaperPreparationShuffle": MessageLookupByLibrary.simpleMessage(
+      "mescola tutte le carte e posiziona il mazzo a faccia in giù al centro.",
+    ),
+    "seaSaltPaperPreparationStartPlayer": MessageLookupByLibrary.simpleMessage(
+      "scegli un giocatore iniziale.",
+    ),
+    "seaSaltPaperScoringCollections": MessageLookupByLibrary.simpleMessage(
+      "le collezioni (conchiglie, pinguini, polpi) danno più punti con più carte.",
+    ),
+    "seaSaltPaperScoringColorMajority": MessageLookupByLibrary.simpleMessage(
+      "maggioranza di colore: 1 punto bonus per carta del tuo colore più comune.",
+    ),
+    "seaSaltPaperScoringMermaid": MessageLookupByLibrary.simpleMessage(
+      "sirena: collezionare tutte e 4 le carte sirena fa vincere la partita istantaneamente!",
+    ),
+    "seaSaltPaperScoringPairs": MessageLookupByLibrary.simpleMessage(
+      "le coppie e le combinazioni danno punti in base al tipo.",
+    ),
+    "seaSaltPaperScoringTitle": MessageLookupByLibrary.simpleMessage(
+      "punteggio:",
+    ),
+    "seaSaltPaperStopOption": MessageLookupByLibrary.simpleMessage(
+      "stop: il round termina immediatamente. tutti i giocatori contano le loro carte.",
+    ),
+    "seaSaltPaperTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      "sea salt & paper® è un marchio di studio bombyx. progettato da bruno cathala e théo rivière.",
+    ),
+    "seaSaltPaperTurnDescription": MessageLookupByLibrary.simpleMessage(
+      "nel tuo turno, scegli una delle due azioni:",
+    ),
+    "seaSaltPaperTurnDrawTwo": MessageLookupByLibrary.simpleMessage(
+      "pesca due carte dal mazzo, tienine una e metti l\'altra a faccia in su su una pila degli scarti.",
+    ),
+    "seaSaltPaperTurnTakeDiscard": MessageLookupByLibrary.simpleMessage(
+      "prendi la carta in cima a una delle pile degli scarti.",
+    ),
+    "seaSaltPaperVictory2Players": MessageLookupByLibrary.simpleMessage(
+      "2 giocatori: il primo a 40 punti vince.",
+    ),
+    "seaSaltPaperVictory3Players": MessageLookupByLibrary.simpleMessage(
+      "3 giocatori: il primo a 35 punti vince.",
+    ),
+    "seaSaltPaperVictory4Players": MessageLookupByLibrary.simpleMessage(
+      "4 giocatori: il primo a 30 punti vince.",
+    ),
     "secondBonus": MessageLookupByLibrary.simpleMessage("secondo bonus"),
     "secondRace": MessageLookupByLibrary.simpleMessage("razza 2"),
     "set": MessageLookupByLibrary.simpleMessage("set"),

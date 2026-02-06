@@ -4060,6 +4060,276 @@ class S {
       args: [],
     );
   }
+
+  /// `sea salt & paper`
+  String get seaSaltPaper {
+    return Intl.message(
+      'sea salt & paper',
+      name: 'seaSaltPaper',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `collect cards to form combinations and score points. be the first to reach the target score by strategically ending rounds.`
+  String get seaSaltPaperGameObjectiveDescription {
+    return Intl.message(
+      'collect cards to form combinations and score points. be the first to reach the target score by strategically ending rounds.',
+      name: 'seaSaltPaperGameObjectiveDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `shuffle all cards and place the deck face down in the center.`
+  String get seaSaltPaperPreparationShuffle {
+    return Intl.message(
+      'shuffle all cards and place the deck face down in the center.',
+      name: 'seaSaltPaperPreparationShuffle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `flip two cards face-up next to the deck to form two discard piles.`
+  String get seaSaltPaperPreparationDiscard {
+    return Intl.message(
+      'flip two cards face-up next to the deck to form two discard piles.',
+      name: 'seaSaltPaperPreparationDiscard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `choose a starting player.`
+  String get seaSaltPaperPreparationStartPlayer {
+    return Intl.message(
+      'choose a starting player.',
+      name: 'seaSaltPaperPreparationStartPlayer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `on your turn, choose one of two actions:`
+  String get seaSaltPaperTurnDescription {
+    return Intl.message(
+      'on your turn, choose one of two actions:',
+      name: 'seaSaltPaperTurnDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `draw two cards from the deck, keep one, and place the other face-up on a discard pile.`
+  String get seaSaltPaperTurnDrawTwo {
+    return Intl.message(
+      'draw two cards from the deck, keep one, and place the other face-up on a discard pile.',
+      name: 'seaSaltPaperTurnDrawTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `take the top card from one of the discard piles.`
+  String get seaSaltPaperTurnTakeDiscard {
+    return Intl.message(
+      'take the top card from one of the discard piles.',
+      name: 'seaSaltPaperTurnTakeDiscard',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `duo cards:`
+  String get seaSaltPaperDuoCardsTitle {
+    return Intl.message(
+      'duo cards:',
+      name: 'seaSaltPaperDuoCardsTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `after your action, you may play matching pairs to trigger special effects:`
+  String get seaSaltPaperDuoCardsDescription {
+    return Intl.message(
+      'after your action, you may play matching pairs to trigger special effects:',
+      name: 'seaSaltPaperDuoCardsDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `crab duo: look through one discard pile and take any card.`
+  String get seaSaltPaperDuoCrab {
+    return Intl.message(
+      'crab duo: look through one discard pile and take any card.',
+      name: 'seaSaltPaperDuoCrab',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `boat duo: take another turn immediately.`
+  String get seaSaltPaperDuoBoat {
+    return Intl.message(
+      'boat duo: take another turn immediately.',
+      name: 'seaSaltPaperDuoBoat',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `fish duo: draw the top card from the deck.`
+  String get seaSaltPaperDuoFish {
+    return Intl.message(
+      'fish duo: draw the top card from the deck.',
+      name: 'seaSaltPaperDuoFish',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `shark + swimmer duo: steal one card from an opponent's hand.`
+  String get seaSaltPaperDuoShark {
+    return Intl.message(
+      'shark + swimmer duo: steal one card from an opponent\'s hand.',
+      name: 'seaSaltPaperDuoShark',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ending the round:`
+  String get seaSaltPaperEndRoundTitle {
+    return Intl.message(
+      'ending the round:',
+      name: 'seaSaltPaperEndRoundTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `when you have 7 or more points, you may end the round by choosing:`
+  String get seaSaltPaperEndRoundDescription {
+    return Intl.message(
+      'when you have 7 or more points, you may end the round by choosing:',
+      name: 'seaSaltPaperEndRoundDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `stop: the round ends immediately. all players score their cards.`
+  String get seaSaltPaperStopOption {
+    return Intl.message(
+      'stop: the round ends immediately. all players score their cards.',
+      name: 'seaSaltPaperStopOption',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `last chance: each opponent gets one more turn. if you still have the highest score, gain bonus points equal to your color majority. if someone beats you, you only score your color majority.`
+  String get seaSaltPaperLastChanceOption {
+    return Intl.message(
+      'last chance: each opponent gets one more turn. if you still have the highest score, gain bonus points equal to your color majority. if someone beats you, you only score your color majority.',
+      name: 'seaSaltPaperLastChanceOption',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `scoring:`
+  String get seaSaltPaperScoringTitle {
+    return Intl.message(
+      'scoring:',
+      name: 'seaSaltPaperScoringTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `pairs and combinations score points based on their type.`
+  String get seaSaltPaperScoringPairs {
+    return Intl.message(
+      'pairs and combinations score points based on their type.',
+      name: 'seaSaltPaperScoringPairs',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `collections (shells, penguins, octopuses) score more with more cards.`
+  String get seaSaltPaperScoringCollections {
+    return Intl.message(
+      'collections (shells, penguins, octopuses) score more with more cards.',
+      name: 'seaSaltPaperScoringCollections',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `color majority: 1 bonus point per card of your most common color.`
+  String get seaSaltPaperScoringColorMajority {
+    return Intl.message(
+      'color majority: 1 bonus point per card of your most common color.',
+      name: 'seaSaltPaperScoringColorMajority',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `mermaid: collecting all 4 mermaid cards wins the game instantly!`
+  String get seaSaltPaperScoringMermaid {
+    return Intl.message(
+      'mermaid: collecting all 4 mermaid cards wins the game instantly!',
+      name: 'seaSaltPaperScoringMermaid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `2 players: first to 40 points wins.`
+  String get seaSaltPaperVictory2Players {
+    return Intl.message(
+      '2 players: first to 40 points wins.',
+      name: 'seaSaltPaperVictory2Players',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `3 players: first to 35 points wins.`
+  String get seaSaltPaperVictory3Players {
+    return Intl.message(
+      '3 players: first to 35 points wins.',
+      name: 'seaSaltPaperVictory3Players',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `4 players: first to 30 points wins.`
+  String get seaSaltPaperVictory4Players {
+    return Intl.message(
+      '4 players: first to 30 points wins.',
+      name: 'seaSaltPaperVictory4Players',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `sea salt & paper® is a trademark of studio bombyx. designed by bruno cathala and théo rivière.`
+  String get seaSaltPaperTrademarkNotice {
+    return Intl.message(
+      'sea salt & paper® is a trademark of studio bombyx. designed by bruno cathala and théo rivière.',
+      name: 'seaSaltPaperTrademarkNotice',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

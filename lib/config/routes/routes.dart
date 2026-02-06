@@ -33,6 +33,7 @@ import 'package:board_buddy/features/games/catan/bloc/catan_bloc.dart';
 import 'package:board_buddy/features/games/catan/view/catan_game.dart';
 import 'package:board_buddy/features/games/catan/view/catan_start_screen.dart';
 import 'package:board_buddy/features/games/catan/view/catan_rules.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/view/sea_salt_paper_rules.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_start_screen.dart';
@@ -55,6 +56,7 @@ class AppRoutes {
   static const String munchkinRules = '/munchkinRules';
   static const String thousandRules = '/thousandRules';
   static const String catanRules = '/catanRules';
+  static const String seaSaltPaperRules = '/seaSaltPaperRules';
 
   // games
   static const String unoGame = '/unoGame';
@@ -93,6 +95,7 @@ class AppRoutes {
         munchkinRules: (context) => const MunchkinRulesScreen(),
         thousandRules: (context) => const ThousandRulesScreen(),
         catanRules: (context) => const CatanRulesScreen(),
+        seaSaltPaperRules: (context) => const SeaSaltPaperRulesScreen(),
 
         // games
         unoStartGame: (context) => const UnoStartScreen(),

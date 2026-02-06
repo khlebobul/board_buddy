@@ -86,6 +86,10 @@ class RulesConst {
 // catan
   static const catanAge = '10+';
   static const catanPlayers = '3-4';
+
+// sea salt & paper
+  static const seaSaltPaperAge = '8+';
+  static const seaSaltPaperPlayers = '2-4';
 }
 
 class GameConst {
