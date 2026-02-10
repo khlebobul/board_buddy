@@ -89,7 +89,9 @@ class MessageLookup extends MessageLookupByLibrary {
           "può rappresentare qualsiasi numero per il suo colore particolare.",
         ),
     "cancel": MessageLookupByLibrary.simpleMessage("annulla"),
+    "card": MessageLookupByLibrary.simpleMessage("carta"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("tipi di carte:"),
+    "cards": MessageLookupByLibrary.simpleMessage("carte"),
     "catan": MessageLookupByLibrary.simpleMessage("catan"),
     "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
       "carta sviluppo: 1 lana + 1 grano + 1 minerale",
@@ -261,6 +263,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "clearance": MessageLookupByLibrary.simpleMessage("purificazione"),
     "cleric": MessageLookupByLibrary.simpleMessage("chierico"),
     "close": MessageLookupByLibrary.simpleMessage("chiudi"),
+    "collection": MessageLookupByLibrary.simpleMessage("collezione"),
+    "collectsFourMermaids": MessageLookupByLibrary.simpleMessage(
+      "colleziona 4 sirene e vince!",
+    ),
+    "colorMajority": MessageLookupByLibrary.simpleMessage(
+      "maggioranza di colore",
+    ),
     "common": MessageLookupByLibrary.simpleMessage("contatore"),
     "confirm": MessageLookupByLibrary.simpleMessage("conferma"),
     "continueGame": MessageLookupByLibrary.simpleMessage("continua partita"),
@@ -279,6 +288,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "le carte del lato scuro vengono sostituite da quelle del lato chiaro e viceversa.",
         ),
+    "declareVictory": MessageLookupByLibrary.simpleMessage("dichiara vittoria"),
     "developmentCardWorth1VictoryPoint": MessageLookupByLibrary.simpleMessage(
       "carta sviluppo del valore di 1 punto vittoria",
     ),
@@ -382,6 +392,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "endGameTitle": MessageLookupByLibrary.simpleMessage("fine del gioco:"),
     "english": MessageLookupByLibrary.simpleMessage("inglese"),
     "enterAWord": MessageLookupByLibrary.simpleMessage("inserisci una parola"),
+    "enterNumberOfCards": MessageLookupByLibrary.simpleMessage(
+      "inserisci il numero di carte del tuo colore più comune",
+    ),
     "featureRequest": MessageLookupByLibrary.simpleMessage(
       "richiedi una funzionalità",
     ),

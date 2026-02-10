@@ -85,7 +85,9 @@ class MessageLookup extends MessageLookupByLibrary {
           "kann jede zahl in ihrer eigenen farbe darstellen.",
         ),
     "cancel": MessageLookupByLibrary.simpleMessage("abbrechen"),
+    "card": MessageLookupByLibrary.simpleMessage("karte"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("kartentypen:"),
+    "cards": MessageLookupByLibrary.simpleMessage("karten"),
     "catan": MessageLookupByLibrary.simpleMessage("catan"),
     "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
       "entwicklungskarte: 1 wolle + 1 getreide + 1 erz",
@@ -255,6 +257,11 @@ class MessageLookup extends MessageLookupByLibrary {
     "clearance": MessageLookupByLibrary.simpleMessage("befreiung"),
     "cleric": MessageLookupByLibrary.simpleMessage("kleriker"),
     "close": MessageLookupByLibrary.simpleMessage("schließen"),
+    "collection": MessageLookupByLibrary.simpleMessage("sammlung"),
+    "collectsFourMermaids": MessageLookupByLibrary.simpleMessage(
+      "sammelt 4 meerjungfrauen und gewinnt!",
+    ),
+    "colorMajority": MessageLookupByLibrary.simpleMessage("farbmehrheit"),
     "common": MessageLookupByLibrary.simpleMessage("zähler"),
     "confirm": MessageLookupByLibrary.simpleMessage("bestätigen"),
     "continueGame": MessageLookupByLibrary.simpleMessage("spiel fortsetzen"),
@@ -273,6 +280,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "dunkle karten werden durch helle ersetzt und umgekehrt.",
         ),
+    "declareVictory": MessageLookupByLibrary.simpleMessage("sieg erklären"),
     "developmentCardWorth1VictoryPoint": MessageLookupByLibrary.simpleMessage(
       "entwicklungskarte mit 1 siegpunkt",
     ),
@@ -376,6 +384,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "endGameTitle": MessageLookupByLibrary.simpleMessage("spielende:"),
     "english": MessageLookupByLibrary.simpleMessage("englisch"),
     "enterAWord": MessageLookupByLibrary.simpleMessage("gib ein wort ein"),
+    "enterNumberOfCards": MessageLookupByLibrary.simpleMessage(
+      "gib die anzahl der karten deiner häufigsten farbe ein",
+    ),
     "featureRequest": MessageLookupByLibrary.simpleMessage("funktionswunsch"),
     "finish": MessageLookupByLibrary.simpleMessage("beenden"),
     "firstBonus": MessageLookupByLibrary.simpleMessage("erster bonus"),

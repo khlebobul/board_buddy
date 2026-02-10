@@ -197,3 +197,21 @@ class CatanCardsPoints {
   static const longestRoad = '2';
   static const largestArmy = '2';
 }
+
+class SeaSaltPaperEmoji {
+  static const crab = '\u{1F980}'; // crab
+  static const boat = '\u{26F5}'; // sailboat
+  static const fish = '\u{1F41F}'; // fish
+  static const shark = '\u{1F988}'; // shark
+  static const swimmer = '\u{1F3CA}'; // swimmer
+  static const sailor = '\u{2693}'; // anchor (sailor)
+  static const captain = '\u{1F396}'; // medal (captain)
+  static const lighthouse = '\u{1F4A1}'; // light bulb (lighthouse)
+  static const collection = '\u{1F41A}'; // shell (collection)
+  static const palette = '\u{1F3A8}'; // palette (color majority)
+  static const mermaid = '\u{1F9DC}'; // merperson (mermaid)
+}
+
+class SeaSaltPaperCollectionPoints {
+  static const List<int> points = [1, 3, 5, 7, 9, 11];
+}

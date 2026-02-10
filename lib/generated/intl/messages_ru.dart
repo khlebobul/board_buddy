@@ -87,7 +87,9 @@ class MessageLookup extends MessageLookupByLibrary {
           "может представлять любое число своего цвета.",
         ),
     "cancel": MessageLookupByLibrary.simpleMessage("отмена"),
+    "card": MessageLookupByLibrary.simpleMessage("карта"),
     "cardTypesTitle": MessageLookupByLibrary.simpleMessage("типы карт:"),
+    "cards": MessageLookupByLibrary.simpleMessage("карт"),
     "catan": MessageLookupByLibrary.simpleMessage("колонизаторы"),
     "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
       "карта развития: 1 шерсть + 1 зерно + 1 руда",
@@ -257,6 +259,13 @@ class MessageLookup extends MessageLookupByLibrary {
     "clearance": MessageLookupByLibrary.simpleMessage("очистка"),
     "cleric": MessageLookupByLibrary.simpleMessage("клирик"),
     "close": MessageLookupByLibrary.simpleMessage("закрыть"),
+    "collection": MessageLookupByLibrary.simpleMessage("коллекция"),
+    "collectsFourMermaids": MessageLookupByLibrary.simpleMessage(
+      "собирает 4 русалки и побеждает!",
+    ),
+    "colorMajority": MessageLookupByLibrary.simpleMessage(
+      "цветовое большинство",
+    ),
     "common": MessageLookupByLibrary.simpleMessage("счетчик"),
     "confirm": MessageLookupByLibrary.simpleMessage("подтвердить"),
     "continueGame": MessageLookupByLibrary.simpleMessage("продолжить игру"),
@@ -275,6 +284,7 @@ class MessageLookup extends MessageLookupByLibrary {
         MessageLookupByLibrary.simpleMessage(
           "карточки темной стороны заменяться на светлые и наоборот.",
         ),
+    "declareVictory": MessageLookupByLibrary.simpleMessage("объявить победу"),
     "developmentCardWorth1VictoryPoint": MessageLookupByLibrary.simpleMessage(
       "карта развития, дающая 1 победное очко",
     ),
@@ -380,6 +390,9 @@ class MessageLookup extends MessageLookupByLibrary {
     "endGameTitle": MessageLookupByLibrary.simpleMessage("конец игры:"),
     "english": MessageLookupByLibrary.simpleMessage("английский"),
     "enterAWord": MessageLookupByLibrary.simpleMessage("введите слово"),
+    "enterNumberOfCards": MessageLookupByLibrary.simpleMessage(
+      "введите количество карт самого частого цвета",
+    ),
     "featureRequest": MessageLookupByLibrary.simpleMessage("новый функционал"),
     "finish": MessageLookupByLibrary.simpleMessage("завершить"),
     "firstBonus": MessageLookupByLibrary.simpleMessage("первый бонус"),

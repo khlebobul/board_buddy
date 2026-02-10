@@ -504,5 +504,12 @@
   "seaSaltPaperVictory2Players": "2 joueurs : le premier à 40 points gagne.",
   "seaSaltPaperVictory3Players": "3 joueurs : le premier à 35 points gagne.",
   "seaSaltPaperVictory4Players": "4 joueurs : le premier à 30 points gagne.",
-  "seaSaltPaperTrademarkNotice": "sea salt & paper® est une marque de studio bombyx. conçu par bruno cathala et théo rivière."
+  "seaSaltPaperTrademarkNotice": "sea salt & paper® est une marque de studio bombyx. conçu par bruno cathala et théo rivière.",
+  "collection": "collection",
+  "colorMajority": "majorité de couleur",
+  "enterNumberOfCards": "entrez le nombre de cartes de votre couleur la plus fréquente",
+  "card": "carte",
+  "cards": "cartes",
+  "collectsFourMermaids": "collecte 4 sirènes et gagne !",
+  "declareVictory": "déclarer la victoire"
 }

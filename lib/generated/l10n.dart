@@ -4330,6 +4330,61 @@ class S {
       args: [],
     );
   }
+
+  /// `collection`
+  String get collection {
+    return Intl.message('collection', name: 'collection', desc: '', args: []);
+  }
+
+  /// `color majority`
+  String get colorMajority {
+    return Intl.message(
+      'color majority',
+      name: 'colorMajority',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `enter the number of cards of your most common color`
+  String get enterNumberOfCards {
+    return Intl.message(
+      'enter the number of cards of your most common color',
+      name: 'enterNumberOfCards',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `card`
+  String get card {
+    return Intl.message('card', name: 'card', desc: '', args: []);
+  }
+
+  /// `cards`
+  String get cards {
+    return Intl.message('cards', name: 'cards', desc: '', args: []);
+  }
+
+  /// `collects 4 mermaids and wins!`
+  String get collectsFourMermaids {
+    return Intl.message(
+      'collects 4 mermaids and wins!',
+      name: 'collectsFourMermaids',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `declare victory`
+  String get declareVictory {
+    return Intl.message(
+      'declare victory',
+      name: 'declareVictory',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

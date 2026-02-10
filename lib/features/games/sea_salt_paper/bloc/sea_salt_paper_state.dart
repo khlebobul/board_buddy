@@ -39,3 +39,66 @@ final class SeaSaltPaperStartScreenState extends SeaSaltPaperState {
     );
   }
 }
+
+final class SeaSaltPaperGameState extends SeaSaltPaperState {
+  final List<Player> players;
+  final int scoreLimit;
+  final int currentPlayerIndex;
+  final Map<int, List<int>> playerScoreHistory;
+  final Map<int, List<int>> playerRedoStack;
+  final int lastScoreChange;
+  final bool isScoreChanging;
+  final bool gameEnded;
+  final bool hasShownGameEndModal;
+  final bool mermaidVictory;
+
+  SeaSaltPaperGameState({
+    required this.players,
+    required this.scoreLimit,
+    this.currentPlayerIndex = 0,
+    Map<int, List<int>>? playerScoreHistory,
+    Map<int, List<int>>? playerRedoStack,
+    this.lastScoreChange = 0,
+    this.isScoreChanging = false,
+    this.gameEnded = false,
+    this.hasShownGameEndModal = false,
+    this.mermaidVictory = false,
+  })  : playerScoreHistory = playerScoreHistory ?? {},
+        playerRedoStack = playerRedoStack ?? {};
+
+  SeaSaltPaperGameState copyWith({
+    List<Player>? players,
+    int? scoreLimit,
+    int? currentPlayerIndex,
+    Map<int, List<int>>? playerScoreHistory,
+    Map<int, List<int>>? playerRedoStack,
+    int? lastScoreChange,
+    bool? isScoreChanging,
+    bool? gameEnded,
+    bool? hasShownGameEndModal,
+    bool? mermaidVictory,
+  }) {
+    return SeaSaltPaperGameState(
+      players: players ?? this.players,
+      scoreLimit: scoreLimit ?? this.scoreLimit,
+      currentPlayerIndex: currentPlayerIndex ?? this.currentPlayerIndex,
+      playerScoreHistory: playerScoreHistory ?? this.playerScoreHistory,
+      playerRedoStack: playerRedoStack ?? this.playerRedoStack,
+      lastScoreChange: lastScoreChange ?? this.lastScoreChange,
+      isScoreChanging: isScoreChanging ?? this.isScoreChanging,
+      gameEnded: gameEnded ?? this.gameEnded,
+      hasShownGameEndModal: hasShownGameEndModal ?? this.hasShownGameEndModal,
+      mermaidVictory: mermaidVictory ?? this.mermaidVictory,
+    );
+  }
+
+  bool canUndo() {
+    final currentPlayerHistory = playerScoreHistory[currentPlayerIndex];
+    return currentPlayerHistory != null && currentPlayerHistory.isNotEmpty;
+  }
+
+  bool canRedo() {
+    final currentPlayerRedoStack = playerRedoStack[currentPlayerIndex];
+    return currentPlayerRedoStack != null && currentPlayerRedoStack.isNotEmpty;
+  }
+}

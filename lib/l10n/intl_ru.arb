@@ -504,5 +504,12 @@
   "seaSaltPaperVictory2Players": "2 игрока: побеждает первый, набравший 40 очков.",
   "seaSaltPaperVictory3Players": "3 игрока: побеждает первый, набравший 35 очков.",
   "seaSaltPaperVictory4Players": "4 игрока: побеждает первый, набравший 30 очков.",
-  "seaSaltPaperTrademarkNotice": "sea salt & paper® является торговой маркой studio bombyx. дизайнеры: bruno cathala и théo rivière."
+  "seaSaltPaperTrademarkNotice": "sea salt & paper® является торговой маркой studio bombyx. дизайнеры: bruno cathala и théo rivière.",
+  "collection": "коллекция",
+  "colorMajority": "цветовое большинство",
+  "enterNumberOfCards": "введите количество карт самого частого цвета",
+  "card": "карта",
+  "cards": "карт",
+  "collectsFourMermaids": "собирает 4 русалки и побеждает!",
+  "declareVictory": "объявить победу"
 }
