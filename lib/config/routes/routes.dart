@@ -34,6 +34,7 @@ import 'package:board_buddy/features/games/catan/view/catan_game.dart';
 import 'package:board_buddy/features/games/catan/view/catan_start_screen.dart';
 import 'package:board_buddy/features/games/catan/view/catan_rules.dart';
 import 'package:board_buddy/features/games/sea_salt_paper/view/sea_salt_paper_rules.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/view/sea_salt_paper_start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_start_screen.dart';
@@ -77,6 +78,8 @@ class AppRoutes {
   static const String thousandStartGame = '/thousandStartGame';
   static const String catanGame = '/catanGame';
   static const String catanStartGame = '/catanStartGame';
+  static const String seaSaltPaperGame = '/seaSaltPaperGame';
+  static const String seaSaltPaperStartGame = '/seaSaltPaperStartGame';
 
   static Map<String, WidgetBuilder> get routes => {
         // main
@@ -109,6 +112,7 @@ class AppRoutes {
         commonGameStartScreen: (context) => const CommonGameStartScreen(),
         thousandStartGame: (context) => const ThousandStartScreen(),
         catanStartGame: (context) => const CatanStartScreen(),
+        seaSaltPaperStartGame: (context) => const SeaSaltPaperStartScreen(),
       };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {

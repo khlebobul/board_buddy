@@ -122,6 +122,7 @@ class GameMaxPlayers {
   static const commonCounter = 30;
   static const thousand = 3;
   static const catan = 4;
+  static const seaSaltPaper = 4;
 }
 
 class GameMinPlayers {
@@ -134,6 +135,22 @@ class GameMinPlayers {
   static const commonCounter = 2;
   static const thousand = 2;
   static const catan = 3;
+  static const seaSaltPaper = 2;
+}
+
+class SeaSaltPaperScoreLimit {
+  static int getScoreLimit(int playerCount) {
+    switch (playerCount) {
+      case 2:
+        return 40;
+      case 3:
+        return 35;
+      case 4:
+        return 30;
+      default:
+        return 40;
+    }
+  }
 }
 
 class UnoLikeGameCardsText {

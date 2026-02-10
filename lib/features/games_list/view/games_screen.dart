@@ -144,6 +144,20 @@ class GamesScreen extends StatelessWidget {
                       );
                     }),
               ),
+              const SizedBox(height: 5),
+              GestureDetector(
+                behavior: HitTestBehavior.opaque,
+                onTap: () =>
+                    Navigator.pushNamed(context, '/seaSaltPaperStartGame'),
+                child: TextScramble(
+                    text: '09 - ${S.of(context).seaSaltPaper}',
+                    builder: (context, scrambledText) {
+                      return Text(
+                        scrambledText,
+                        style: theme.display3,
+                      );
+                    }),
+              ),
               const Spacer(),
               const AddFavouriteGame(),
             ],
