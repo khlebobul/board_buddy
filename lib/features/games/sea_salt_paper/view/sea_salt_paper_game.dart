@@ -211,7 +211,7 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
   }
 
   void _showMermaidVictoryDialog() {
-    final theme = UIThemes.of(context);
+    UIThemes.of(context);
     final bloc = context.read<SeaSaltPaperBloc>();
     final currentState = bloc.state;
 
