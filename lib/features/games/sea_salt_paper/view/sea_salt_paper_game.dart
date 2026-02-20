@@ -2,6 +2,7 @@ import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/sea_salt_paper/bloc/sea_salt_paper_bloc.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/widgets/info_sea_salt_paper_dialog.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
@@ -578,6 +579,7 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
               ),
             ),
             bottomNavigationBar: BottomGameBar(
+              dialogWidget: const InfoSeaSaltPaperDialog(),
               isArrow: true,
               rightButtonText: S.of(context).options,
               onLeftArrowTap: _undo,
