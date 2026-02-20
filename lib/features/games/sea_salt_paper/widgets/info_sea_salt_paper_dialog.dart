@@ -15,62 +15,13 @@ class InfoSeaSaltPaperDialog extends StatelessWidget {
     return BlurredDialog(
       backgroundColor: theme.bgColor,
       children: [
-        // Base cards (1 point each)
+        // Number buttons explanation
         InfoRowWidget(
           context: context,
-          cardName: SeaSaltPaperEmoji.crab,
-          title: 'Crab',
-          points: '1',
-          description: S.of(context).seaSaltPaperDuoCrab,
-        ),
-        InfoRowWidget(
-          context: context,
-          cardName: SeaSaltPaperEmoji.boat,
-          title: 'Boat',
-          points: '1',
-          description: S.of(context).seaSaltPaperDuoBoat,
-        ),
-        InfoRowWidget(
-          context: context,
-          cardName: SeaSaltPaperEmoji.fish,
-          title: 'Fish',
-          points: '1',
-          description: S.of(context).seaSaltPaperDuoFish,
-        ),
-        InfoRowWidget(
-          context: context,
-          cardName: SeaSaltPaperEmoji.shark,
-          title: 'Shark + Swimmer',
-          points: '1',
-          description: S.of(context).seaSaltPaperDuoShark,
-        ),
-        InfoRowWidget(
-          context: context,
-          cardName: SeaSaltPaperEmoji.swimmer,
-          title: 'Swimmer',
-          points: '1',
-          description: 'Works with Shark for duo effect',
-        ),
-        InfoRowWidget(
-          context: context,
-          cardName: SeaSaltPaperEmoji.sailor,
-          title: 'Sailor',
-          points: '1',
-          description: '+1 point for each Sailor when you have a Captain',
-        ),
-        InfoRowWidget(
-          context: context,
-          cardName: SeaSaltPaperEmoji.captain,
-          title: 'Captain',
-          points: '1',
-          description: 'Combo with Sailors: +1 per Sailor',
-        ),
-        InfoRowWidget(
-          context: context,
-          cardName: SeaSaltPaperEmoji.lighthouse,
-          title: 'Lighthouse',
-          points: '1',
-          description: 'Combo with Boats: +1 per Boat',
+          cardName: '1-7',
+          title: 'Number Buttons',
+          points: '+N',
+          description: 'Use for base cards (Crab, Boat, Fish, Shark, Swimmer, Sailor, Captain, Lighthouse) and their combinations. Press the button matching your total points.',
         ),
         // Collections
         InfoRowWidget(
@@ -78,7 +29,7 @@ class InfoSeaSaltPaperDialog extends StatelessWidget {
           cardName: SeaSaltPaperEmoji.collection,
           title: S.of(context).collection,
           points: '1-3-5-7-9-11',
-          description: S.of(context).seaSaltPaperScoringCollections,
+          description: '${S.of(context).seaSaltPaperScoringCollections} Opens dialog to select: 1 card=1pt, 2=3pts, 3=5pts, 4=7pts, 5=9pts, 6=11pts.',
         ),
         // Color Majority
         InfoRowWidget(
@@ -86,15 +37,22 @@ class InfoSeaSaltPaperDialog extends StatelessWidget {
           cardName: SeaSaltPaperEmoji.palette,
           title: S.of(context).colorMajority,
           points: '+N',
-          description: S.of(context).seaSaltPaperScoringColorMajority,
+          description: '${S.of(context).seaSaltPaperScoringColorMajority} Opens dialog to enter the number of cards of your most common color.',
         ),
         // Mermaid
         InfoRowWidget(
           context: context,
           cardName: SeaSaltPaperEmoji.mermaid,
-          title: 'Mermaid',
+          title: 'Mermaid Victory',
           points: 'WIN',
           description: S.of(context).seaSaltPaperScoringMermaid,
+        ),
+        // Duo cards info
+        InfoRowWidget(
+          context: context,
+          cardName: '${SeaSaltPaperEmoji.crab}${SeaSaltPaperEmoji.boat}',
+          title: 'Duo Cards',
+          description: '${S.of(context).seaSaltPaperDuoCardsDescription}\n\n${SeaSaltPaperEmoji.crab} Crab: ${S.of(context).seaSaltPaperDuoCrab}\n\n${SeaSaltPaperEmoji.boat} Boat: ${S.of(context).seaSaltPaperDuoBoat}\n\n${SeaSaltPaperEmoji.fish} Fish: ${S.of(context).seaSaltPaperDuoFish}\n\n${SeaSaltPaperEmoji.shark}${SeaSaltPaperEmoji.swimmer} Shark+Swimmer: ${S.of(context).seaSaltPaperDuoShark}',
         ),
       ],
     );

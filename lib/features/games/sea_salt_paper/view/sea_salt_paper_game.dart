@@ -498,70 +498,34 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
                           buttons: [
                             [
                               KeyboardButton(
-                                buttonText: '1',
+                                buttonText: '+1',
                                 onPressed: () => _updateScore(1),
                               ),
                               KeyboardButton(
-                                buttonText: '2',
+                                buttonText: '+2',
                                 onPressed: () => _updateScore(2),
                               ),
                               KeyboardButton(
-                                buttonText: '3',
+                                buttonText: '+3',
                                 onPressed: () => _updateScore(3),
                               ),
                               KeyboardButton(
-                                buttonText: '5',
+                                buttonText: '+5',
                                 onPressed: () => _updateScore(5),
                               ),
                             ],
                             [
                               KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.crab,
-                                onPressed: () => _updateScore(1),
-                              ),
-                              KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.boat,
-                                onPressed: () => _updateScore(1),
-                              ),
-                              KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.fish,
-                                onPressed: () => _updateScore(1),
-                              ),
-                              KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.shark,
-                                onPressed: () => _updateScore(1),
-                              ),
-                            ],
-                            [
-                              KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.sailor,
-                                onPressed: () => _updateScore(1),
-                              ),
-                              KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.captain,
-                                onPressed: () => _updateScore(1),
-                              ),
-                              KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.lighthouse,
-                                onPressed: () => _updateScore(1),
+                                buttonText: '+7',
+                                onPressed: () => _updateScore(7),
                               ),
                               KeyboardButton(
                                 buttonText: SeaSaltPaperEmoji.collection,
                                 onPressed: _showCollectionDialog,
                               ),
-                            ],
-                            [
-                              KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.swimmer,
-                                onPressed: () => _updateScore(1),
-                              ),
                               KeyboardButton(
                                 buttonText: SeaSaltPaperEmoji.palette,
                                 onPressed: _showColorMajorityDialog,
-                              ),
-                              KeyboardButton(
-                                buttonText: '7',
-                                onPressed: () => _updateScore(7),
                               ),
                               KeyboardButton(
                                 buttonText: SeaSaltPaperEmoji.mermaid,
