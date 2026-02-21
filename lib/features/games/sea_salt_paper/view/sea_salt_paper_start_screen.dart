@@ -88,7 +88,7 @@ class _SeaSaltPaperStartScreenViewState
                           if (seaSaltPaperState.isCustomScoreLimit) ...[
                             const SizedBox(width: 8),
                             Text(
-                              '(custom)',
+                              S.of(context).custom,
                               style: theme.display2
                                   .copyWith(color: theme.redColor),
                             ),

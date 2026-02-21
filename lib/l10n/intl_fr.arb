@@ -513,5 +513,6 @@
   "collectsFourMermaids": "collecte 4 sirènes et gagne !",
   "numberButtons": "boutons numériques",
   "numberButtonsDescription": "utiliser pour les cartes de base (crabe, bateau, poisson, requin, nageur, marin, capitaine, phare) et leurs combinaisons. appuyez sur le bouton correspondant à votre total de points.",
-  "mermaidVictory": "victoire de sirène"
+  "mermaidVictory": "victoire de sirène",
+  "custom": "(personnalisé)"
 }

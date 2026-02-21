@@ -221,6 +221,7 @@ class MessageLookup extends MessageLookupByLibrary {
             MessageLookupByLibrary.simpleMessage("enchère actuelle :"),
         "currentCount": MessageLookupByLibrary.simpleMessage("compte actuel :"),
         "cursed": MessageLookupByLibrary.simpleMessage("maudit"),
+        "custom": MessageLookupByLibrary.simpleMessage("(personnalisé)"),
         "dark": MessageLookupByLibrary.simpleMessage("sombre"),
         "darkSideCardsAreReplacedWithLightOnesAndVice":
             MessageLookupByLibrary.simpleMessage(

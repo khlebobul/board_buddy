@@ -216,6 +216,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentBet": MessageLookupByLibrary.simpleMessage("текущая ставка:"),
         "currentCount": MessageLookupByLibrary.simpleMessage("текущий счет:"),
         "cursed": MessageLookupByLibrary.simpleMessage("проклятие"),
+        "custom": MessageLookupByLibrary.simpleMessage("(свой)"),
         "dark": MessageLookupByLibrary.simpleMessage("темная"),
         "darkSideCardsAreReplacedWithLightOnesAndVice":
             MessageLookupByLibrary.simpleMessage(

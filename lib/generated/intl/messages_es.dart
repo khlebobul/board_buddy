@@ -218,6 +218,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentBet": MessageLookupByLibrary.simpleMessage("apuesta actual:"),
         "currentCount": MessageLookupByLibrary.simpleMessage("cuenta actual:"),
         "cursed": MessageLookupByLibrary.simpleMessage("maldito"),
+        "custom": MessageLookupByLibrary.simpleMessage("(personalizado)"),
         "dark": MessageLookupByLibrary.simpleMessage("oscuro"),
         "darkSideCardsAreReplacedWithLightOnesAndVice":
             MessageLookupByLibrary.simpleMessage(

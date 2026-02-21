@@ -216,6 +216,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "currentCount":
             MessageLookupByLibrary.simpleMessage("aktueller Stand:"),
         "cursed": MessageLookupByLibrary.simpleMessage("verflucht"),
+        "custom": MessageLookupByLibrary.simpleMessage("(benutzerdefiniert)"),
         "dark": MessageLookupByLibrary.simpleMessage("dunkel"),
         "darkSideCardsAreReplacedWithLightOnesAndVice":
             MessageLookupByLibrary.simpleMessage(

@@ -511,6 +511,7 @@
   "cards": "karten",
   "collectsFourMermaids": "sammelt 4 meerjungfrauen und gewinnt!",
   "numberButtons": "zahlentasten",
-  "numberButtonsDescription": "verwenden für basiskarten (krabbe, boot, fisch, hai, schwimmer, matrose, kapitän, leuchtturm) und ihre kombinationen. drücken sie die taste, die ihrer gesamtpunktzahl entspricht.",
-  "mermaidVictory": "meerjungfrau-sieg"
+  "numberButtonsDescription": "verwenden für basiskarten (krabbe, boot, fisch, hai, schwimmer, matrose, kapitän, leuchtturm) und ihre kombinationen. drücke die taste, die deiner gesamtpunktzahl entspricht.",
+  "mermaidVictory": "meerjungfrau-sieg",
+  "custom": "(benutzerdefiniert)"
 }

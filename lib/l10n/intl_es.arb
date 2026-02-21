@@ -511,5 +511,6 @@
   "collectsFourMermaids": "¡colecciona 4 sirenas y gana!",
   "numberButtons": "botones numéricos",
   "numberButtonsDescription": "usar para cartas base (cangrejo, barco, pez, tiburón, nadador, marinero, capitán, faro) y sus combinaciones. presiona el botón que coincida con tu puntuación total.",
-  "mermaidVictory": "victoria de sirena"
+  "mermaidVictory": "victoria de sirena",
+  "custom": "(personalizado)"
 }

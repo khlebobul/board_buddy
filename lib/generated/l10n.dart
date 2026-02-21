@@ -5031,6 +5031,16 @@ class S {
       args: [],
     );
   }
+
+  /// `(custom)`
+  String get custom {
+    return Intl.message(
+      '(custom)',
+      name: 'custom',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

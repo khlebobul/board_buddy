@@ -114,7 +114,7 @@ class SeaSaltPaperBloc extends Bloc<SeaSaltPaperEvent, SeaSaltPaperState> {
     }
   }
 
-  void _onCheckSavedGame(
+  Future<void> _onCheckSavedGame(
     CheckSavedSeaSaltPaperGame event,
     Emitter<SeaSaltPaperState> emit,
   ) async {
@@ -126,7 +126,7 @@ class SeaSaltPaperBloc extends Bloc<SeaSaltPaperEvent, SeaSaltPaperState> {
     }
   }
 
-  void _onLoadSavedGame(
+  Future<void> _onLoadSavedGame(
     LoadSavedSeaSaltPaperGame event,
     Emitter<SeaSaltPaperState> emit,
   ) async {
@@ -153,7 +153,7 @@ class SeaSaltPaperBloc extends Bloc<SeaSaltPaperEvent, SeaSaltPaperState> {
     }
   }
 
-  void _onDeleteSavedGame(
+  Future<void> _onDeleteSavedGame(
     DeleteSavedSeaSaltPaperGame event,
     Emitter<SeaSaltPaperState> emit,
   ) async {
@@ -359,7 +359,7 @@ class SeaSaltPaperBloc extends Bloc<SeaSaltPaperEvent, SeaSaltPaperState> {
     }
   }
 
-  void _onSaveGameSession(
+  Future<void> _onSaveGameSession(
     SaveSeaSaltPaperGameSession event,
     Emitter<SeaSaltPaperState> emit,
   ) async {
