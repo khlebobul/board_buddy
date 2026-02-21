@@ -2,18 +2,20 @@ import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/sea_salt_paper/bloc/sea_salt_paper_bloc.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/widgets/collection_dialog.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/widgets/color_majority_dialog.dart';
 import 'package:board_buddy/features/games/sea_salt_paper/widgets/info_sea_salt_paper_dialog.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/widgets/mermaid_victory_dialog.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/widgets/sea_salt_paper_score_keyboard.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
-import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import 'package:not_static_icons/not_static_icons.dart';
 
 class SeaSaltPaperGame extends StatefulWidget {
   final List<Player> players;
@@ -93,128 +95,24 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
   }
 
   void _showCollectionDialog() {
-    final theme = UIThemes.of(context);
     showDialog(
       context: context,
-      builder: (dialogContext) => AlertDialog(
-        backgroundColor: theme.fgColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: theme.borderColor),
-        ),
-        title: Text(
-          S.of(context).collection,
-          style: theme.display2.copyWith(color: theme.textColor),
-          textAlign: TextAlign.center,
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children:
-              SeaSaltPaperCollectionPoints.points.asMap().entries.map((entry) {
-            final count = entry.key + 1;
-            final points = entry.value;
-            return GestureDetector(
-              behavior: HitTestBehavior.opaque,
-              onTap: () {
-                Navigator.pop(dialogContext);
-                _updateScore(points);
-              },
-              child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 8),
-                child: Row(
-                  mainAxisAlignment: MainAxisAlignment.spaceBetween,
-                  children: [
-                    Text(
-                      '$count ${count == 1 ? S.of(context).card : S.of(context).cards}',
-                      style: theme.display3.copyWith(color: theme.textColor),
-                    ),
-                    Text(
-                      '+$points',
-                      style: theme.display3.copyWith(color: theme.redColor),
-                    ),
-                  ],
-                ),
-              ),
-            );
-          }).toList(),
-        ),
+      builder: (dialogContext) => CollectionDialog(
+        onPointsSelected: _updateScore,
       ),
     );
   }
 
   void _showColorMajorityDialog() {
-    final theme = UIThemes.of(context);
-    final TextEditingController controller = TextEditingController();
-
     showDialog(
       context: context,
-      builder: (dialogContext) => AlertDialog(
-        backgroundColor: theme.fgColor,
-        shape: RoundedRectangleBorder(
-          borderRadius: BorderRadius.circular(16),
-          side: BorderSide(color: theme.borderColor),
-        ),
-        title: Text(
-          S.of(context).colorMajority,
-          style: theme.display2.copyWith(color: theme.textColor),
-          textAlign: TextAlign.center,
-        ),
-        content: Column(
-          mainAxisSize: MainAxisSize.min,
-          children: [
-            Text(
-              S.of(context).enterNumberOfCards,
-              style: theme.display3.copyWith(color: theme.secondaryTextColor),
-              textAlign: TextAlign.center,
-            ),
-            const SizedBox(height: 16),
-            TextField(
-              controller: controller,
-              keyboardType: TextInputType.number,
-              textAlign: TextAlign.center,
-              style: theme.display3.copyWith(color: theme.textColor),
-              decoration: InputDecoration(
-                hintText: '0',
-                hintStyle:
-                    theme.display3.copyWith(color: theme.secondaryTextColor),
-                enabledBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: theme.borderColor),
-                ),
-                focusedBorder: UnderlineInputBorder(
-                  borderSide: BorderSide(color: theme.textColor),
-                ),
-              ),
-            ),
-          ],
-        ),
-        actions: [
-          TextButton(
-            onPressed: () => Navigator.pop(dialogContext),
-            child: Text(
-              S.of(context).cancel,
-              style: theme.display3.copyWith(color: theme.secondaryTextColor),
-            ),
-          ),
-          TextButton(
-            onPressed: () {
-              final value = int.tryParse(controller.text) ?? 0;
-              Navigator.pop(dialogContext);
-              if (value > 0) {
-                _updateScore(value);
-              }
-            },
-            child: Text(
-              S.of(context).add,
-              style: theme.display3.copyWith(color: theme.redColor),
-            ),
-          ),
-        ],
+      builder: (dialogContext) => ColorMajorityDialog(
+        onPointsSelected: _updateScore,
       ),
     );
   }
 
   void _showMermaidVictoryDialog() {
-    UIThemes.of(context);
     final bloc = context.read<SeaSaltPaperBloc>();
     final currentState = bloc.state;
 
@@ -222,16 +120,10 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
 
     final currentPlayer = currentState.players[currentState.currentPlayerIndex];
 
-    ModalWindowWidget.show(
-      context,
-      mainText: '${currentPlayer.name} ${S.of(context).collectsFourMermaids}',
-      button1Text: S.of(context).cancel,
-      button2Text: S.of(context).declareVictory,
-      button1Action: () => Navigator.pop(context),
-      button2Action: () {
-        Navigator.pop(context);
-        bloc.add(DeclareMermaidVictory());
-      },
+    MermaidVictoryDialog.show(
+      context: context,
+      currentPlayer: currentPlayer,
+      onConfirm: () => bloc.add(DeclareMermaidVictory()),
     );
   }
 
@@ -498,46 +390,11 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
                       Padding(
                         padding: const EdgeInsets.symmetric(
                             horizontal: GeneralConst.paddingHorizontal),
-                        child: CustomKeyboard(
-                          buttons: [
-                            [
-                              KeyboardButton(
-                                buttonText: GameConst.plusOne,
-                                onPressed: () => _updateScore(1),
-                              ),
-                              KeyboardButton(
-                                buttonText: GameConst.plusTwo,
-                                onPressed: () => _updateScore(2),
-                              ),
-                              KeyboardButton(
-                                buttonText: GameConst.plusThree,
-                                onPressed: () => _updateScore(3),
-                              ),
-                              KeyboardButton(
-                                buttonText: GameConst.plusFive,
-                                onPressed: () => _updateScore(5),
-                              ),
-                            ],
-                            [
-                              KeyboardButton(
-                                buttonText: GameConst.plusSeven,
-                                onPressed: () => _updateScore(7),
-                              ),
-                              KeyboardButton(
-                                icon: ShellIcon(),
-                                onPressed: _showCollectionDialog,
-                              ),
-                              KeyboardButton(
-                                icon: PaletteIcon(),
-                                onPressed: _showColorMajorityDialog,
-                              ),
-                              KeyboardButton(
-                                icon: CrownIcon(),
-                                onPressed: _showMermaidVictoryDialog,
-                                textColor: theme.redColor,
-                              ),
-                            ],
-                          ],
+                        child: SeaSaltPaperScoreKeyboard(
+                          onScoreUpdate: _updateScore,
+                          onCollectionPressed: _showCollectionDialog,
+                          onColorMajorityPressed: _showColorMajorityDialog,
+                          onMermaidPressed: _showMermaidVictoryDialog,
                         ),
                       ),
                       const SizedBox(height: 12),
