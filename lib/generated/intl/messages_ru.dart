@@ -364,7 +364,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "marriage": MessageLookupByLibrary.simpleMessage("марьяж:"),
         "menu": MessageLookupByLibrary.simpleMessage("меню"),
         "mermaidVictory":
-            MessageLookupByLibrary.simpleMessage("победа русалок"),
+            MessageLookupByLibrary.simpleMessage("мгновенная победа"),
         "mode": MessageLookupByLibrary.simpleMessage("режим"),
         "modifiers": MessageLookupByLibrary.simpleMessage("модификаторы"),
         "moveHistory": MessageLookupByLibrary.simpleMessage("история ходов"),
