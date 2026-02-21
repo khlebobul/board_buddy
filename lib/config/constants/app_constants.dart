@@ -109,9 +109,11 @@ class GameConst {
   static const oneToNine = '2-9';
   static const plusOne = '+1';
   static const plusTwo = '+2';
-  static const plusThree = '+3';
   static const plusFive = '+5';
+  // sea salt & paper
+  static const plusThree = '+3';
   static const plusSeven = '+7';
+  static const oneToSeven = '1-7';
 }
 
 class GameMaxPlayers {
