@@ -13,7 +13,7 @@ class MermaidVictoryDialog {
       context,
       mainText: '${currentPlayer.name} ${S.of(context).collectsFourMermaids}',
       button1Text: S.of(context).cancel,
-      button2Text: S.of(context).declareVictory,
+      button2Text: S.of(context).confirm,
       button1Action: () => Navigator.pop(context),
       button2Action: () {
         Navigator.pop(context);

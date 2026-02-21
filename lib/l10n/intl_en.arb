@@ -511,5 +511,7 @@
   "card": "card",
   "cards": "cards",
   "collectsFourMermaids": "collects 4 mermaids and wins!",
-  "declareVictory": "declare victory"
+  "numberButtons": "number buttons",
+  "numberButtonsDescription": "use for base cards (crab, boat, fish, shark, swimmer, sailor, captain, lighthouse) and their combinations. press the button matching your total points.",
+  "mermaidVictory": "mermaid victory"
 }

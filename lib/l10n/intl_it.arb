@@ -511,5 +511,7 @@
   "card": "carta",
   "cards": "carte",
   "collectsFourMermaids": "colleziona 4 sirene e vince!",
-  "declareVictory": "dichiara vittoria"
+  "numberButtons": "pulsanti numerici",
+  "numberButtonsDescription": "usa per le carte base (granchio, barca, pesce, squalo, nuotatore, marinaio, capitano, faro) e le loro combinazioni. premi il pulsante corrispondente al tuo punteggio totale.",
+  "mermaidVictory": "vittoria della sirena"
 }

@@ -19,8 +19,7 @@ class InfoSeaSaltPaperDialog extends StatelessWidget {
         InfoRowWidget(
           context: context,
           title: GameConst.oneToSeven,
-          description:
-              'use for base cards (crab, boat, fish, shark, swimmer, sailor, captain, lighthouse) and their combinations.',
+          description: S.of(context).numberButtonsDescription,
         ),
         InfoRowWidget(
           context: context,
@@ -52,7 +51,7 @@ class InfoSeaSaltPaperDialog extends StatelessWidget {
             enableTouchInteraction: false,
             color: theme.textColor,
           ),
-          title: 'mermaid victory',
+          title: S.of(context).mermaidVictory,
           description: S.of(context).seaSaltPaperScoringMermaid,
         ),
       ],

@@ -40,12 +40,10 @@ class MessageLookup extends MessageLookupByLibrary {
         "armour": MessageLookupByLibrary.simpleMessage("armadura"),
         "awardedToThePlayerWith3KnightCardsPlayed":
             MessageLookupByLibrary.simpleMessage(
-          "otorgada al jugador con 3+ cartas de caballero jugadas",
-        ),
+                "otorgada al jugador con 3+ cartas de caballero jugadas"),
         "awardedToThePlayerWith5ConnectedRoads":
             MessageLookupByLibrary.simpleMessage(
-          "otorgada al jugador con 5+ caminos conectados",
-        ),
+                "otorgada al jugador con 5+ caminos conectados"),
         "back": MessageLookupByLibrary.simpleMessage("atrás"),
         "biddingPhase": MessageLookupByLibrary.simpleMessage("fase de puja:"),
         "bigArmour": MessageLookupByLibrary.simpleMessage("armadura grande"),
@@ -58,35 +56,27 @@ class MessageLookup extends MessageLookupByLibrary {
         "boardBuddy": MessageLookupByLibrary.simpleMessage("board buddy"),
         "boardBuddyIsYourUltimateBoardGameCompanion":
             MessageLookupByLibrary.simpleMessage(
-          "board buddy es tu compañero definitivo de juegos de mesa",
-        ),
+                "board buddy es tu compañero definitivo de juegos de mesa"),
         "bonusTileOrSpecialMarkerScrabbleInfo":
             MessageLookupByLibrary.simpleMessage(
-          "ficha de bono o marcador especial",
-        ),
+                "ficha de bono o marcador especial"),
         "boots": MessageLookupByLibrary.simpleMessage("botas"),
         "buffsOrDebuffsAffectingCharactersitemsInfo":
             MessageLookupByLibrary.simpleMessage(
-          "mejoras o debilitamientos que afectan personajes/objetos",
-        ),
+                "mejoras o debilitamientos que afectan personajes/objetos"),
         "buildANewSettlementOnAnIntersection":
             MessageLookupByLibrary.simpleMessage(
-          "construye un nuevo poblado en una intersección",
-        ),
-        "buildingCosts": MessageLookupByLibrary.simpleMessage(
-          "costos de construcción:",
-        ),
-        "buildingRules": MessageLookupByLibrary.simpleMessage(
-          "reglas de construcción:",
-        ),
+                "construye un nuevo poblado en una intersección"),
+        "buildingCosts":
+            MessageLookupByLibrary.simpleMessage("costos de construcción:"),
+        "buildingRules":
+            MessageLookupByLibrary.simpleMessage("reglas de construcción:"),
         "canBeAnyColorChosenByTheCurrentPlayerIfDosInfo":
             MessageLookupByLibrary.simpleMessage(
-          "puede ser cualquier color elegido por el jugador actual. si se roba, el jugador decide el color.",
-        ),
+                "puede ser cualquier color elegido por el jugador actual. si se roba, el jugador decide el color."),
         "canRepresentAnyNumberForItsOwnParticularColorDosInfo":
             MessageLookupByLibrary.simpleMessage(
-          "puede representar cualquier número de su color.",
-        ),
+                "puede representar cualquier número de su color."),
         "cancel": MessageLookupByLibrary.simpleMessage("cancelar"),
         "card": MessageLookupByLibrary.simpleMessage("carta"),
         "cardTypesTitle":
@@ -94,171 +84,117 @@ class MessageLookup extends MessageLookupByLibrary {
         "cards": MessageLookupByLibrary.simpleMessage("cartas"),
         "catan": MessageLookupByLibrary.simpleMessage("catan"),
         "catanBuildingCostsFour": MessageLookupByLibrary.simpleMessage(
-          "carta de desarrollo: 1 lana + 1 trigo + 1 mineral",
-        ),
+            "carta de desarrollo: 1 lana + 1 trigo + 1 mineral"),
         "catanBuildingCostsOne": MessageLookupByLibrary.simpleMessage(
-          "camino: 1 madera + 1 ladrillo",
-        ),
+            "camino: 1 madera + 1 ladrillo"),
         "catanBuildingCostsThree": MessageLookupByLibrary.simpleMessage(
-          "ciudad (mejora): 2 trigo + 3 mineral (2)",
-        ),
+            "ciudad (mejora): 2 trigo + 3 mineral (2)"),
         "catanBuildingCostsTwo": MessageLookupByLibrary.simpleMessage(
-          "poblado: 1 madera + 1 ladrillo + 1 lana + 1 trigo (1)",
-        ),
+            "poblado: 1 madera + 1 ladrillo + 1 lana + 1 trigo (1)"),
         "catanBuildingRulesFour": MessageLookupByLibrary.simpleMessage(
-          "las ciudades reemplazan poblados existentes",
-        ),
+            "las ciudades reemplazan poblados existentes"),
         "catanBuildingRulesOne": MessageLookupByLibrary.simpleMessage(
-          "los caminos deben conectar con tus caminos, poblados o ciudades existentes",
-        ),
+            "los caminos deben conectar con tus caminos, poblados o ciudades existentes"),
         "catanBuildingRulesThree": MessageLookupByLibrary.simpleMessage(
-          "los poblados deben conectar con tu red de caminos",
-        ),
+            "los poblados deben conectar con tu red de caminos"),
         "catanBuildingRulesTwo": MessageLookupByLibrary.simpleMessage(
-          "los poblados deben estar al menos a 2 intersecciones de cualquier otro poblado/ciudad",
-        ),
+            "los poblados deben estar al menos a 2 intersecciones de cualquier otro poblado/ciudad"),
         "catanComponentsEight": MessageLookupByLibrary.simpleMessage(
-          "2 cartas especiales: ruta comercial más larga, ejército más grande",
-        ),
+            "2 cartas especiales: ruta comercial más larga, ejército más grande"),
         "catanComponentsFive": MessageLookupByLibrary.simpleMessage(
-          "95 cartas de recursos (19 de cada: madera, ladrillo, lana, trigo, mineral)",
-        ),
-        "catanComponentsFour": MessageLookupByLibrary.simpleMessage(
-          "18 fichas de número",
-        ),
-        "catanComponentsNine": MessageLookupByLibrary.simpleMessage(
-          "1 ladrón, 2 dados",
-        ),
+            "95 cartas de recursos (19 de cada: madera, ladrillo, lana, trigo, mineral)"),
+        "catanComponentsFour":
+            MessageLookupByLibrary.simpleMessage("18 fichas de número"),
+        "catanComponentsNine":
+            MessageLookupByLibrary.simpleMessage("1 ladrón, 2 dados"),
         "catanComponentsOne": MessageLookupByLibrary.simpleMessage(
-          "19 hexágonos de terreno (4 bosques, 4 campos de trigo, 4 pastos, 3 montañas, 3 colinas, 1 desierto)",
-        ),
+            "19 hexágonos de terreno (4 bosques, 4 campos de trigo, 4 pastos, 3 montañas, 3 colinas, 1 desierto)"),
         "catanComponentsSeven": MessageLookupByLibrary.simpleMessage(
-          "piezas de jugador: 5 poblados, 4 ciudades, 15 caminos por jugador",
-        ),
-        "catanComponentsSix": MessageLookupByLibrary.simpleMessage(
-          "25 cartas de desarrollo",
-        ),
-        "catanComponentsThree": MessageLookupByLibrary.simpleMessage(
-          "9 piezas de puerto",
-        ),
-        "catanComponentsTwo": MessageLookupByLibrary.simpleMessage(
-          "6 piezas del marco marítimo",
-        ),
+            "piezas de jugador: 5 poblados, 4 ciudades, 15 caminos por jugador"),
+        "catanComponentsSix":
+            MessageLookupByLibrary.simpleMessage("25 cartas de desarrollo"),
+        "catanComponentsThree":
+            MessageLookupByLibrary.simpleMessage("9 piezas de puerto"),
+        "catanComponentsTwo":
+            MessageLookupByLibrary.simpleMessage("6 piezas del marco marítimo"),
         "catanDevelopmentCardsFour": MessageLookupByLibrary.simpleMessage(
-          "monopolio (2): nombra un recurso, todos los jugadores te dan los suyos",
-        ),
+            "monopolio (2): nombra un recurso, todos los jugadores te dan los suyos"),
         "catanDevelopmentCardsOne": MessageLookupByLibrary.simpleMessage(
-          "caballero (14): mueve al ladrón, roba 1 recurso de un jugador adyacente",
-        ),
+            "caballero (14): mueve al ladrón, roba 1 recurso de un jugador adyacente"),
         "catanDevelopmentCardsThree": MessageLookupByLibrary.simpleMessage(
-          "construcción de caminos (2): construye 2 caminos gratis",
-        ),
+            "construcción de caminos (2): construye 2 caminos gratis"),
         "catanDevelopmentCardsTwo": MessageLookupByLibrary.simpleMessage(
-          "punto de victoria (5): vale 1, mantén oculta hasta ganar",
-        ),
+            "punto de victoria (5): vale 1, mantén oculta hasta ganar"),
         "catanGameGoal": MessageLookupByLibrary.simpleMessage(
-          "sé el primer jugador en alcanzar 10 puntos de victoria construyendo poblados, ciudades, caminos y obteniendo cartas especiales.",
-        ),
+            "sé el primer jugador en alcanzar 10 puntos de victoria construyendo poblados, ciudades, caminos y obteniendo cartas especiales."),
         "catanGameTurnOne": MessageLookupByLibrary.simpleMessage(
-          "lanza los dados: todos los jugadores con poblados/ciudades en hexágonos que coincidan con el número reciben recursos",
-        ),
+            "lanza los dados: todos los jugadores con poblados/ciudades en hexágonos que coincidan con el número reciben recursos"),
         "catanGameTurnThree": MessageLookupByLibrary.simpleMessage(
-          "construye: gasta recursos para construir caminos, poblados, ciudades o comprar cartas de desarrollo",
-        ),
+            "construye: gasta recursos para construir caminos, poblados, ciudades o comprar cartas de desarrollo"),
         "catanGameTurnTwo": MessageLookupByLibrary.simpleMessage(
-          "comercia: intercambia recursos con otros jugadores o usa puertos (4:1 o tarifas especiales)",
-        ),
+            "comercia: intercambia recursos con otros jugadores o usa puertos (4:1 o tarifas especiales)"),
         "catanPreparationFour": MessageLookupByLibrary.simpleMessage(
-          "cada jugador coloca 2 poblados y 2 caminos en orden inverso de turno",
-        ),
+            "cada jugador coloca 2 poblados y 2 caminos en orden inverso de turno"),
         "catanPreparationOne": MessageLookupByLibrary.simpleMessage(
-          "ensambla el tablero con los hexágonos de terreno dentro del marco marítimo",
-        ),
+            "ensambla el tablero con los hexágonos de terreno dentro del marco marítimo"),
         "catanPreparationThree": MessageLookupByLibrary.simpleMessage(
-          "coloca el ladrón en el hexágono del desierto",
-        ),
+            "coloca el ladrón en el hexágono del desierto"),
         "catanPreparationTwo": MessageLookupByLibrary.simpleMessage(
-          "coloca las fichas de número en los hexágonos (excepto el desierto)",
-        ),
-        "catanResourcesFive": MessageLookupByLibrary.simpleMessage(
-          "montañas – mineral",
-        ),
-        "catanResourcesFour": MessageLookupByLibrary.simpleMessage(
-          "campos – trigo",
-        ),
-        "catanResourcesOne": MessageLookupByLibrary.simpleMessage(
-          "bosque – madera",
-        ),
-        "catanResourcesSix": MessageLookupByLibrary.simpleMessage(
-          "desierto – sin recursos",
-        ),
-        "catanResourcesThree": MessageLookupByLibrary.simpleMessage(
-          "pasto – lana (oveja)",
-        ),
+            "coloca las fichas de número en los hexágonos (excepto el desierto)"),
+        "catanResourcesFive":
+            MessageLookupByLibrary.simpleMessage("montañas – mineral"),
+        "catanResourcesFour":
+            MessageLookupByLibrary.simpleMessage("campos – trigo"),
+        "catanResourcesOne":
+            MessageLookupByLibrary.simpleMessage("bosque – madera"),
+        "catanResourcesSix":
+            MessageLookupByLibrary.simpleMessage("desierto – sin recursos"),
+        "catanResourcesThree":
+            MessageLookupByLibrary.simpleMessage("pasto – lana (oveja)"),
         "catanResourcesTwo": MessageLookupByLibrary.simpleMessage(
-          "colinas – ladrillo (arcilla)",
-        ),
+            "colinas – ladrillo (arcilla)"),
         "catanScoringFive": MessageLookupByLibrary.simpleMessage(
-          "cartas de punto de victoria: 1 cada una",
-        ),
-        "catanScoringFour": MessageLookupByLibrary.simpleMessage(
-          "ejército más grande: 2",
-        ),
+            "cartas de punto de victoria: 1 cada una"),
+        "catanScoringFour":
+            MessageLookupByLibrary.simpleMessage("ejército más grande: 2"),
         "catanScoringOne": MessageLookupByLibrary.simpleMessage("poblado: 1"),
-        "catanScoringThree": MessageLookupByLibrary.simpleMessage(
-          "ruta comercial más larga: 2",
-        ),
+        "catanScoringThree":
+            MessageLookupByLibrary.simpleMessage("ruta comercial más larga: 2"),
         "catanScoringTwo": MessageLookupByLibrary.simpleMessage("ciudad: 2"),
         "catanSpecialCards2VpEachOne": MessageLookupByLibrary.simpleMessage(
-          "ruta comercial más larga: primer jugador con 5+ caminos continuos (puede ser robada)",
-        ),
+            "ruta comercial más larga: primer jugador con 5+ caminos continuos (puede ser robada)"),
         "catanSpecialCards2VpEachTwo": MessageLookupByLibrary.simpleMessage(
-          "ejército más grande: primer jugador con 3+ cartas de caballero jugadas (puede ser robada)",
-        ),
+            "ejército más grande: primer jugador con 3+ cartas de caballero jugadas (puede ser robada)"),
         "catanTheRobberRolling7Four": MessageLookupByLibrary.simpleMessage(
-          "el hexágono bloqueado no produce recursos mientras el ladrón esté allí",
-        ),
+            "el hexágono bloqueado no produce recursos mientras el ladrón esté allí"),
         "catanTheRobberRolling7One": MessageLookupByLibrary.simpleMessage(
-          "cualquier jugador con más de 7 cartas debe descartar la mitad (redondeando hacia abajo)",
-        ),
+            "cualquier jugador con más de 7 cartas debe descartar la mitad (redondeando hacia abajo)"),
         "catanTheRobberRolling7Three": MessageLookupByLibrary.simpleMessage(
-          "roba 1 recurso aleatorio de un jugador con poblado/ciudad en ese hexágono",
-        ),
+            "roba 1 recurso aleatorio de un jugador con poblado/ciudad en ese hexágono"),
         "catanTheRobberRolling7Two": MessageLookupByLibrary.simpleMessage(
-          "mueve al ladrón a cualquier hexágono (excepto el desierto)",
-        ),
+            "mueve al ladrón a cualquier hexágono (excepto el desierto)"),
         "catanTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "catan® es una marca registrada de catan gmbh.",
-        ),
+            "catan® es una marca registrada de catan gmbh."),
         "catanTradingOne": MessageLookupByLibrary.simpleMessage(
-          "comercio doméstico: negocia cualquier intercambio con otros jugadores en tu turno",
-        ),
+            "comercio doméstico: negocia cualquier intercambio con otros jugadores en tu turno"),
         "catanTradingThree": MessageLookupByLibrary.simpleMessage(
-          "comercio portuario: puertos genéricos 3:1 o específicos 2:1",
-        ),
+            "comercio portuario: puertos genéricos 3:1 o específicos 2:1"),
         "catanTradingTwo": MessageLookupByLibrary.simpleMessage(
-          "comercio marítimo: 4:1 con el banco (cualquier 4 recursos iguales por 1)",
-        ),
+            "comercio marítimo: 4:1 con el banco (cualquier 4 recursos iguales por 1)"),
         "catanVictoryRule": MessageLookupByLibrary.simpleMessage(
-          "el primer jugador en alcanzar 10 puntos de victoria en su turno gana el juego. debes anunciar tu victoria en tu turno.",
-        ),
+            "el primer jugador en alcanzar 10 puntos de victoria en su turno gana el juego. debes anunciar tu victoria en tu turno."),
         "changesTheColorAndForcesTheNextPlayerToDrawUnoInfo":
             MessageLookupByLibrary.simpleMessage(
-          "cambia el color y obliga al siguiente a robar cuatro cartas.",
-        ),
+                "cambia el color y obliga al siguiente a robar cuatro cartas."),
         "changesTheDirectionOfPlayUnoInfo":
             MessageLookupByLibrary.simpleMessage(
-          "cambia la dirección de juego.",
-        ),
+                "cambia la dirección de juego."),
         "charactersGenderFemaleInfo": MessageLookupByLibrary.simpleMessage(
-          "género del personaje: femenino",
-        ),
+            "género del personaje: femenino"),
         "charactersGenderMaleInfo": MessageLookupByLibrary.simpleMessage(
-          "género del personaje: masculino",
-        ),
-        "checkMyWebsite": MessageLookupByLibrary.simpleMessage(
-          "visita mi sitio web",
-        ),
+            "género del personaje: masculino"),
+        "checkMyWebsite":
+            MessageLookupByLibrary.simpleMessage("visita mi sitio web"),
         "city": MessageLookupByLibrary.simpleMessage("ciudad"),
         "class1": MessageLookupByLibrary.simpleMessage("clase 1"),
         "class2": MessageLookupByLibrary.simpleMessage("clase 2"),
@@ -268,106 +204,77 @@ class MessageLookup extends MessageLookupByLibrary {
         "close": MessageLookupByLibrary.simpleMessage("cerrar"),
         "collection": MessageLookupByLibrary.simpleMessage("colección"),
         "collectsFourMermaids": MessageLookupByLibrary.simpleMessage(
-          "¡colecciona 4 sirenas y gana!",
-        ),
+            "¡colecciona 4 sirenas y gana!"),
         "colorMajority":
             MessageLookupByLibrary.simpleMessage("mayoría de color"),
         "common": MessageLookupByLibrary.simpleMessage("contador"),
         "confirm": MessageLookupByLibrary.simpleMessage("confirmar"),
         "continueGame": MessageLookupByLibrary.simpleMessage("continuar juego"),
         "continueTitle": MessageLookupByLibrary.simpleMessage("continuar"),
-        "contractResolution": MessageLookupByLibrary.simpleMessage(
-          "resolución del contrato:",
-        ),
-        "couldNotLaunch": MessageLookupByLibrary.simpleMessage(
-          "no se pudo iniciar",
-        ),
+        "contractResolution":
+            MessageLookupByLibrary.simpleMessage("resolución del contrato:"),
+        "couldNotLaunch":
+            MessageLookupByLibrary.simpleMessage("no se pudo iniciar"),
         "currentBet": MessageLookupByLibrary.simpleMessage("apuesta actual:"),
         "currentCount": MessageLookupByLibrary.simpleMessage("cuenta actual:"),
         "cursed": MessageLookupByLibrary.simpleMessage("maldito"),
         "dark": MessageLookupByLibrary.simpleMessage("oscuro"),
         "darkSideCardsAreReplacedWithLightOnesAndVice":
             MessageLookupByLibrary.simpleMessage(
-          "las cartas del lado oscuro se reemplazan con las del lado claro y viceversa.",
-        ),
-        "declareVictory":
-            MessageLookupByLibrary.simpleMessage("declarar victoria"),
+                "las cartas del lado oscuro se reemplazan con las del lado claro y viceversa."),
         "developmentCardWorth1VictoryPoint":
             MessageLookupByLibrary.simpleMessage(
-          "carta de desarrollo que vale 1 punto de victoria",
-        ),
-        "developmentCards": MessageLookupByLibrary.simpleMessage(
-          "cartas de desarrollo:",
-        ),
+                "carta de desarrollo que vale 1 punto de victoria"),
+        "developmentCards":
+            MessageLookupByLibrary.simpleMessage("cartas de desarrollo:"),
         "didPlayerReachBid": m0,
         "didYouEnter": MessageLookupByLibrary.simpleMessage("¿alcanzó?"),
         "doReturn": MessageLookupByLibrary.simpleMessage("volver"),
         "dontHaveYourFavouriteGameEmailMe":
             MessageLookupByLibrary.simpleMessage(
-          "¿no está tu juego favorito? ¡envíame un correo!",
-        ),
+                "¿no está tu juego favorito? ¡envíame un correo!"),
         "dos": MessageLookupByLibrary.simpleMessage("dos"),
         "dosBonus": MessageLookupByLibrary.simpleMessage("bonos:"),
-        "dosBonusDoubleColorMatchDrawCard":
-            MessageLookupByLibrary.simpleMessage(
-          "emparejamiento doble de color: todos los demás roban 1 carta.",
-        ),
-        "dosBonusNumberColorMatchAddCard": MessageLookupByLibrary.simpleMessage(
-          "bonos:",
-        ),
+        "dosBonusDoubleColorMatchDrawCard": MessageLookupByLibrary.simpleMessage(
+            "emparejamiento doble de color: todos los demás roban 1 carta."),
+        "dosBonusNumberColorMatchAddCard":
+            MessageLookupByLibrary.simpleMessage("bonos:"),
         "dosGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-          "juega todas tus cartas y gana puntos por las cartas que queden. el primero en llegar a 200 puntos gana.",
-        ),
+            "juega todas tus cartas y gana puntos por las cartas que queden. el primero en llegar a 200 puntos gana."),
         "dosGameObjectiveTitle":
             MessageLookupByLibrary.simpleMessage("objetivo:"),
         "dosPreparationCentralRow": MessageLookupByLibrary.simpleMessage(
-          "coloca 2 cartas en la \'fila central\'",
-        ),
+            "coloca 2 cartas en la \'fila central\'"),
         "dosPreparationDealCards": MessageLookupByLibrary.simpleMessage(
-          "reparte 7 cartas a cada jugador.",
-        ),
+            "reparte 7 cartas a cada jugador."),
         "dosPreparationDrawPile": MessageLookupByLibrary.simpleMessage(
-          "pon el resto del mazo al lado como pila de robo.",
-        ),
+            "pon el resto del mazo al lado como pila de robo."),
         "dosScoringNumberCards": MessageLookupByLibrary.simpleMessage(
-          "cartas numéricas: valor facial.",
-        ),
-        "dosScoringWildDos": MessageLookupByLibrary.simpleMessage(
-          "\'comodín dos\': 20 puntos.",
-        ),
-        "dosScoringWildNumber": MessageLookupByLibrary.simpleMessage(
-          "\'comodín #\': 40 puntos.",
-        ),
+            "cartas numéricas: valor facial."),
+        "dosScoringWildDos":
+            MessageLookupByLibrary.simpleMessage("\'comodín dos\': 20 puntos."),
+        "dosScoringWildNumber":
+            MessageLookupByLibrary.simpleMessage("\'comodín #\': 40 puntos."),
         "dosSpecialCardWildDos": MessageLookupByLibrary.simpleMessage(
-          "\'comodín dos\': sustituye dos cartas de cualquier color.",
-        ),
+            "\'comodín dos\': sustituye dos cartas de cualquier color."),
         "dosSpecialCardWildNumber": MessageLookupByLibrary.simpleMessage(
-          "\'comodín #: sustituye cualquier número (1–10) de su color.",
-        ),
+            "\'comodín #: sustituye cualquier número (1–10) de su color."),
         "dosSpecialRuleDosCall": MessageLookupByLibrary.simpleMessage(
-          "cuando te queden 2 cartas, di \'dos!\' si olvidas y te descubren, roba 2 cartas.",
-        ),
+            "cuando te queden 2 cartas, di \'dos!\' si olvidas y te descubren, roba 2 cartas."),
         "dosTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "dos® es una marca registrada de mattel.",
-        ),
+            "dos® es una marca registrada de mattel."),
         "dosTurnRuleDoubleMatch": MessageLookupByLibrary.simpleMessage(
-          "emparejamiento doble: dos cartas suman el número de una de la fila central.",
-        ),
+            "emparejamiento doble: dos cartas suman el número de una de la fila central."),
         "dosTurnRuleDrawCard": MessageLookupByLibrary.simpleMessage(
-          "si no se puede emparejar, roba una carta. si coincide, puedes jugarla.",
-        ),
+            "si no se puede emparejar, roba una carta. si coincide, puedes jugarla."),
         "dosTurnRuleEndTurn": MessageLookupByLibrary.simpleMessage(
-          "al final del turno, repón la fila central a 2 cartas.",
-        ),
+            "al final del turno, repón la fila central a 2 cartas."),
         "dosTurnRulePickCards": MessageLookupByLibrary.simpleMessage(
-          "los jugadores emparejan cartas de su mano con las de la fila central:",
-        ),
+            "los jugadores emparejan cartas de su mano con las de la fila central:"),
         "dosTurnRuleSingleMatch": MessageLookupByLibrary.simpleMessage(
-          "emparejamiento simple: una carta coincide en número.",
-        ),
+            "emparejamiento simple: una carta coincide en número."),
         "dosVictory200Points": MessageLookupByLibrary.simpleMessage(
-          "el primero en alcanzar 200 puntos gana.",
-        ),
+            "el primero en alcanzar 200 puntos gana."),
         "doublesTheValueOfALetterScrabbleInfo":
             MessageLookupByLibrary.simpleMessage(
                 "duplica el valor de una letra"),
@@ -377,21 +284,17 @@ class MessageLookup extends MessageLookupByLibrary {
         "drawFiveUnoFlipInfo":
             MessageLookupByLibrary.simpleMessage("roba cinco"),
         "drawOneUnoFlipInfo": MessageLookupByLibrary.simpleMessage("roba uno"),
-        "drawTwoCardUnoInfo": MessageLookupByLibrary.simpleMessage(
-          "carta roba dos",
-        ),
+        "drawTwoCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("carta roba dos"),
         "dwarf": MessageLookupByLibrary.simpleMessage("enano"),
         "eachCardHasANumberDeterminingItsValue":
             MessageLookupByLibrary.simpleMessage(
-          "cada carta tiene un número que determina su valor.",
-        ),
+                "cada carta tiene un número que determina su valor."),
         "eachCardHasANumberFrom0To9WhichUnoInfo":
             MessageLookupByLibrary.simpleMessage(
-          "cada carta tiene un número del 0 al 9 que determina su valor.",
-        ),
+                "cada carta tiene un número del 0 al 9 que determina su valor."),
         "eachCardHasANumberFrom1To9Which": MessageLookupByLibrary.simpleMessage(
-          "cada carta tiene un número del 1 al 9 que determina su valor.",
-        ),
+            "cada carta tiene un número del 1 al 9 que determina su valor."),
         "edit": MessageLookupByLibrary.simpleMessage("editar"),
         "elf": MessageLookupByLibrary.simpleMessage("elfo"),
         "emailCopied": MessageLookupByLibrary.simpleMessage("correo copiado"),
@@ -400,24 +303,19 @@ class MessageLookup extends MessageLookupByLibrary {
         "enterAWord":
             MessageLookupByLibrary.simpleMessage("ingresa una palabra"),
         "enterNumberOfCards": MessageLookupByLibrary.simpleMessage(
-          "introduce el número de cartas de tu color más común",
-        ),
-        "featureRequest": MessageLookupByLibrary.simpleMessage(
-          "solicitud de característica",
-        ),
+            "introduce el número de cartas de tu color más común"),
+        "featureRequest":
+            MessageLookupByLibrary.simpleMessage("solicitud de característica"),
         "finish": MessageLookupByLibrary.simpleMessage("finalizar"),
         "firstBonus": MessageLookupByLibrary.simpleMessage("primer bono"),
-        "flipCardUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
-          "carta voltear",
-        ),
+        "flipCardUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("carta voltear"),
         "flipSide": MessageLookupByLibrary.simpleMessage("lado volteado"),
         "flipsAllCardsToTheOppositeSideUnoFlipInfo":
             MessageLookupByLibrary.simpleMessage(
-          "voltea todas las cartas al lado opuesto.",
-        ),
-        "followMeOnXTwitter": MessageLookupByLibrary.simpleMessage(
-          "sígueme en x (twitter)",
-        ),
+                "voltea todas las cartas al lado opuesto."),
+        "followMeOnXTwitter":
+            MessageLookupByLibrary.simpleMessage("sígueme en x (twitter)"),
         "french": MessageLookupByLibrary.simpleMessage("francés"),
         "gameGoal": MessageLookupByLibrary.simpleMessage("objetivo del juego:"),
         "gameOver": MessageLookupByLibrary.simpleMessage("fin del juego"),
@@ -427,29 +325,24 @@ class MessageLookup extends MessageLookupByLibrary {
         "games": MessageLookupByLibrary.simpleMessage("juegos"),
         "gear": MessageLookupByLibrary.simpleMessage("equipo"),
         "german": MessageLookupByLibrary.simpleMessage("alemán"),
-        "githubRepository": MessageLookupByLibrary.simpleMessage(
-          "repositorio github",
-        ),
+        "githubRepository":
+            MessageLookupByLibrary.simpleMessage("repositorio github"),
         "halfBreed": MessageLookupByLibrary.simpleMessage("mestizo"),
         "halfling": MessageLookupByLibrary.simpleMessage("mediano"),
         "headGear":
             MessageLookupByLibrary.simpleMessage("protectores de cabeza"),
         "helmet": MessageLookupByLibrary.simpleMessage("casco"),
-        "heyMyNameIsGleb": MessageLookupByLibrary.simpleMessage(
-          "¡hola! me llamo gleb",
-        ),
-        "highestScoreWins": MessageLookupByLibrary.simpleMessage(
-          "gana la puntuación más alta",
-        ),
+        "heyMyNameIsGleb":
+            MessageLookupByLibrary.simpleMessage("¡hola! me llamo gleb"),
+        "highestScoreWins":
+            MessageLookupByLibrary.simpleMessage("gana la puntuación más alta"),
         "human": MessageLookupByLibrary.simpleMessage("humano"),
-        "indicatesAnActiveCurse": MessageLookupByLibrary.simpleMessage(
-          "indica una maldición activa",
-        ),
+        "indicatesAnActiveCurse":
+            MessageLookupByLibrary.simpleMessage("indica una maldición activa"),
         "jack": MessageLookupByLibrary.simpleMessage("jota"),
         "jack2Points": MessageLookupByLibrary.simpleMessage("jota: 2 puntos"),
-        "keepAwakeMode": MessageLookupByLibrary.simpleMessage(
-          "modo mantener encendido",
-        ),
+        "keepAwakeMode":
+            MessageLookupByLibrary.simpleMessage("modo mantener encendido"),
         "king": MessageLookupByLibrary.simpleMessage("rey"),
         "king4Points": MessageLookupByLibrary.simpleMessage("rey: 4 puntos"),
         "languages": MessageLookupByLibrary.simpleMessage("idiomas"),
@@ -458,139 +351,107 @@ class MessageLookup extends MessageLookupByLibrary {
         "leftHand": MessageLookupByLibrary.simpleMessage("mano izquierda"),
         "letsYouTrackScoresAndKeyMomentsEffortlesslyKeepingYour":
             MessageLookupByLibrary.simpleMessage(
-          " te permite seguir puntuaciones y momentos clave sin esfuerzo, manteniendo tu enfoque en el juego",
-        ),
+                " te permite seguir puntuaciones y momentos clave sin esfuerzo, manteniendo tu enfoque en el juego"),
         "level": MessageLookupByLibrary.simpleMessage("nivel"),
         "light": MessageLookupByLibrary.simpleMessage("claro"),
-        "longestRoad": MessageLookupByLibrary.simpleMessage(
-          "ruta comercial más larga",
-        ),
-        "lowestScoreWins": MessageLookupByLibrary.simpleMessage(
-          "gana la puntuación más baja",
-        ),
+        "longestRoad":
+            MessageLookupByLibrary.simpleMessage("ruta comercial más larga"),
+        "lowestScoreWins":
+            MessageLookupByLibrary.simpleMessage("gana la puntuación más baja"),
         "magic": MessageLookupByLibrary.simpleMessage("magia"),
         "mapGenerator":
             MessageLookupByLibrary.simpleMessage("generador de mapas"),
-        "marksADeadCharacterInfo": MessageLookupByLibrary.simpleMessage(
-          "marca un personaje muerto",
-        ),
+        "marksADeadCharacterInfo":
+            MessageLookupByLibrary.simpleMessage("marca un personaje muerto"),
         "marriage": MessageLookupByLibrary.simpleMessage("matrimonio:"),
         "menu": MessageLookupByLibrary.simpleMessage("menú"),
+        "mermaidVictory":
+            MessageLookupByLibrary.simpleMessage("victoria de sirena"),
         "mode": MessageLookupByLibrary.simpleMessage("modo"),
         "modifiers": MessageLookupByLibrary.simpleMessage("modificadores"),
-        "moveHistory": MessageLookupByLibrary.simpleMessage(
-          "historial de movimientos",
-        ),
+        "moveHistory":
+            MessageLookupByLibrary.simpleMessage("historial de movimientos"),
         "multiplayer": MessageLookupByLibrary.simpleMessage("multijugador"),
         "munchkin": MessageLookupByLibrary.simpleMessage("munchkin"),
         "munchkinCombatCompareLevels": MessageLookupByLibrary.simpleMessage(
-          "compara el nivel de tu personaje (incluyendo bonificadores) con el nivel del monstruo.",
-        ),
+            "compara el nivel de tu personaje (incluyendo bonificadores) con el nivel del monstruo."),
         "munchkinCombatEscapeRules": MessageLookupByLibrary.simpleMessage(
-          "si no ganas, intenta escapar (lanza un dado). un 5 o 6 tiene éxito. si fallas, aplica las consecuencias de la carta del monstruo.",
-        ),
+            "si no ganas, intenta escapar (lanza un dado). un 5 o 6 tiene éxito. si fallas, aplica las consecuencias de la carta del monstruo."),
         "munchkinCombatHelpOrBoost": MessageLookupByLibrary.simpleMessage(
-          "si tu nivel es inferior, puedes: pedir ayuda a otro jugador (negociando) o usar cartas de tu mano para potenciarte.",
-        ),
+            "si tu nivel es inferior, puedes: pedir ayuda a otro jugador (negociando) o usar cartas de tu mano para potenciarte."),
         "munchkinCombatTitle": MessageLookupByLibrary.simpleMessage(
-          "combate (si hay un monstruo):",
-        ),
+            "combate (si hay un monstruo):"),
         "munchkinCombatWinCondition": MessageLookupByLibrary.simpleMessage(
-          "si tu nivel es igual o superior, ganas y obtienes tesoros y un nivel.",
-        ),
+            "si tu nivel es igual o superior, ganas y obtienes tesoros y un nivel."),
         "munchkinCurseEncounter": MessageLookupByLibrary.simpleMessage(
-          "maldición: aplícala inmediatamente sobre ti.",
-        ),
+            "maldición: aplícala inmediatamente sobre ti."),
         "munchkinCursesCardType": MessageLookupByLibrary.simpleMessage(
-          "maldiciones — obstaculizan a tu personaje u otros jugadores.",
-        ),
+            "maldiciones — obstaculizan a tu personaje u otros jugadores."),
         "munchkinDeathRules": MessageLookupByLibrary.simpleMessage(
-          "muerte: pierdes todas las cartas excepto tu nivel y razas (o clases).",
-        ),
+            "muerte: pierdes todas las cartas excepto tu nivel y razas (o clases)."),
         "munchkinEndTurnDiscardRules": MessageLookupByLibrary.simpleMessage(
-          "al final de tu turno, descarta el exceso si tienes más de 5. dáselas al jugador con el nivel más bajo.",
-        ),
+            "al final de tu turno, descarta el exceso si tienes más de 5. dáselas al jugador con el nivel más bajo."),
         "munchkinEquipmentCardType": MessageLookupByLibrary.simpleMessage(
-          "equipo — proporciona bonificadores de nivel en combate.",
-        ),
-        "munchkinGameObjectiveDescription":
-            MessageLookupByLibrary.simpleMessage(
-          "sé el primero en alcanzar el nivel 10 enfrentándote a monstruos, usando equipo, maldiciones y cartas de habilidades.",
-        ),
+            "equipo — proporciona bonificadores de nivel en combate."),
+        "munchkinGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+            "sé el primero en alcanzar el nivel 10 enfrentándote a monstruos, usando equipo, maldiciones y cartas de habilidades."),
         "munchkinInitialCardsInstruction": MessageLookupByLibrary.simpleMessage(
-          "cada jugador toma: 4 cartas del montón de puerta y 4 del montón de tesoro.",
-        ),
+            "cada jugador toma: 4 cartas del montón de puerta y 4 del montón de tesoro."),
         "munchkinLevel10Condition": MessageLookupByLibrary.simpleMessage(
-          "nivel 10: solo se alcanza venciendo a un monstruo.",
-        ),
+            "nivel 10: solo se alcanza venciendo a un monstruo."),
         "munchkinMonsterEncounter": MessageLookupByLibrary.simpleMessage(
-          "monstruo: enfréntalo (ver \'combate\').",
-        ),
+            "monstruo: enfréntalo (ver \'combate\')."),
         "munchkinMonsterEnhancersCardType":
             MessageLookupByLibrary.simpleMessage(
-          "potenciadores de monstruo — aumentan la fuerza del monstruo.",
-        ),
+                "potenciadores de monstruo — aumentan la fuerza del monstruo."),
         "munchkinMonsterVictoryReward": MessageLookupByLibrary.simpleMessage(
-          "victoria sobre monstruo: derrotarlo te da un nivel y tesoros.",
-        ),
+            "victoria sobre monstruo: derrotarlo te da un nivel y tesoros."),
         "munchkinMonstersCardType": MessageLookupByLibrary.simpleMessage(
-          "monstruos — enfréntalos para subir de nivel.",
-        ),
-        "munchkinNoMonsterActionsDescription":
-            MessageLookupByLibrary.simpleMessage(
-          "jugar un monstruo de su mano para pelear (opcional) o buscar problemas (robar una carta del montón de puerta a su mano).",
-        ),
+            "monstruos — enfréntalos para subir de nivel."),
+        "munchkinNoMonsterActionsDescription": MessageLookupByLibrary.simpleMessage(
+            "jugar un monstruo de su mano para pelear (opcional) o buscar problemas (robar una carta del montón de puerta a su mano)."),
         "munchkinNoMonsterActionsTitle": MessageLookupByLibrary.simpleMessage(
-          "si no hay monstruo, el jugador puede:",
-        ),
+            "si no hay monstruo, el jugador puede:"),
         "munchkinOneTimeItemsCardType": MessageLookupByLibrary.simpleMessage(
-          "objetos de un solo uso — se usan en combate o para otros efectos.",
-        ),
+            "objetos de un solo uso — se usan en combate o para otros efectos."),
         "munchkinOtherCardEncounter": MessageLookupByLibrary.simpleMessage(
-          "cualquier otra carta: guárdala en tu mano.",
-        ),
+            "cualquier otra carta: guárdala en tu mano."),
         "munchkinShuffleCardsInstruction": MessageLookupByLibrary.simpleMessage(
-          "baraja las cartas de puerta y tesoro y sepáralas en dos montones.",
-        ),
+            "baraja las cartas de puerta y tesoro y sepáralas en dos montones."),
         "munchkinStartingGearInstruction": MessageLookupByLibrary.simpleMessage(
-          "los jugadores colocan en la mesa su equipo inicial, si tienen.",
-        ),
+            "los jugadores colocan en la mesa su equipo inicial, si tienen."),
         "munchkinTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "munchkin® es una marca registrada de steve jackson games.",
-        ),
+            "munchkin® es una marca registrada de steve jackson games."),
         "munchkinTurnDescription": MessageLookupByLibrary.simpleMessage(
-          "el jugador roba la carta superior del montón de puerta. resultados posibles:",
-        ),
+            "el jugador roba la carta superior del montón de puerta. resultados posibles:"),
         "munchkinVictoryCondition": MessageLookupByLibrary.simpleMessage(
-          "el primer jugador en alcanzar el nivel 10 gana!",
-        ),
+            "el primer jugador en alcanzar el nivel 10 gana!"),
         "myOtherApps": MessageLookupByLibrary.simpleMessage("mis otras apps"),
         "nWord": MessageLookupByLibrary.simpleMessage("\npalabra"),
         "name": MessageLookupByLibrary.simpleMessage("nombre"),
         "newGame": MessageLookupByLibrary.simpleMessage("nuevo juego"),
-        "newGameWithSamePlayers": MessageLookupByLibrary.simpleMessage(
-          "otra ronda",
-        ),
+        "newGameWithSamePlayers":
+            MessageLookupByLibrary.simpleMessage("otra ronda"),
         "nextPlayerDraws1CardAndSkipsTurnUnoFlipInfo":
             MessageLookupByLibrary.simpleMessage(
-          "el siguiente roba 1 carta y salta turno.",
-        ),
+                "el siguiente roba 1 carta y salta turno."),
         "nextPlayerDraws5CardsAndSkipsTurnUnoFlipInfo":
             MessageLookupByLibrary.simpleMessage(
-          "el siguiente roba 5 cartas y salta turno.",
-        ),
+                "el siguiente roba 5 cartas y salta turno."),
         "nextPlayerDrawsTwoCardsAndLosesTheirTurnUnoInfo":
             MessageLookupByLibrary.simpleMessage(
-          "el siguiente roba dos cartas y pierde turno.",
-        ),
+                "el siguiente roba dos cartas y pierde turno."),
         "nextPlayerDrawsUntilTheyGetTheChosenColorUnoFlipInfo":
             MessageLookupByLibrary.simpleMessage(
-          "el siguiente roba hasta obtener el color elegido.",
-        ),
+                "el siguiente roba hasta obtener el color elegido."),
         "nine0Points": MessageLookupByLibrary.simpleMessage("nueve: 0 puntos"),
         "no": MessageLookupByLibrary.simpleMessage("no"),
         "noClass": MessageLookupByLibrary.simpleMessage("sin clase"),
         "noItem": MessageLookupByLibrary.simpleMessage("sin objeto"),
+        "numberButtons":
+            MessageLookupByLibrary.simpleMessage("botones numéricos"),
+        "numberButtonsDescription": MessageLookupByLibrary.simpleMessage(
+            "usar para cartas base (cangrejo, barco, pez, tiburón, nadador, marinero, capitán, faro) y sus combinaciones. presiona el botón que coincida con tu puntuación total."),
         "numberCards": MessageLookupByLibrary.simpleMessage("cartas numéricas"),
         "off": MessageLookupByLibrary.simpleMessage("apagado"),
         "on": MessageLookupByLibrary.simpleMessage("encendido"),
@@ -600,26 +461,21 @@ class MessageLookup extends MessageLookupByLibrary {
         "play": MessageLookupByLibrary.simpleMessage("jugar"),
         "playerName":
             MessageLookupByLibrary.simpleMessage("nombre del jugador"),
-        "playerOnBarrel": MessageLookupByLibrary.simpleMessage(
-          "jugador en el barril:",
-        ),
+        "playerOnBarrel":
+            MessageLookupByLibrary.simpleMessage("jugador en el barril:"),
         "players": MessageLookupByLibrary.simpleMessage("jugadores"),
-        "playersOnBarrel": MessageLookupByLibrary.simpleMessage(
-          "jugadores en el barril:",
-        ),
+        "playersOnBarrel":
+            MessageLookupByLibrary.simpleMessage("jugadores en el barril:"),
         "points": MessageLookupByLibrary.simpleMessage("puntos"),
-        "pointsConfirmed": MessageLookupByLibrary.simpleMessage(
-          "puntos confirmados",
-        ),
+        "pointsConfirmed":
+            MessageLookupByLibrary.simpleMessage("puntos confirmados"),
         "pointsCount": m1,
         "possiblyTheRemovalOfCursesOrDebuffs":
             MessageLookupByLibrary.simpleMessage(
-          "posiblemente la eliminación de maldiciones o debilitamientos",
-        ),
+                "posiblemente la eliminación de maldiciones o debilitamientos"),
         "preparation": MessageLookupByLibrary.simpleMessage("preparación:"),
-        "projectWebsite": MessageLookupByLibrary.simpleMessage(
-          "sitio web del proyecto",
-        ),
+        "projectWebsite":
+            MessageLookupByLibrary.simpleMessage("sitio web del proyecto"),
         "queen": MessageLookupByLibrary.simpleMessage("reina"),
         "queen3Points": MessageLookupByLibrary.simpleMessage("reina: 3 puntos"),
         "race1": MessageLookupByLibrary.simpleMessage("raza 1"),
@@ -639,603 +495,418 @@ class MessageLookup extends MessageLookupByLibrary {
         "score": MessageLookupByLibrary.simpleMessage("puntuación"),
         "score50ExtraPointsForUsingAll7Tiles":
             MessageLookupByLibrary.simpleMessage(
-          "obtén 50 puntos extra por usar las 7 fichas",
-        ),
+                "obtén 50 puntos extra por usar las 7 fichas"),
         "scrabble": MessageLookupByLibrary.simpleMessage("scrabble"),
         "scrabbleAdditionalDisputedWords": MessageLookupByLibrary.simpleMessage(
-          "las palabras impugnadas se comprueban en un diccionario acordado.",
-        ),
-        "scrabbleAdditionalPointsTitle": MessageLookupByLibrary.simpleMessage(
-          "reglas adicionales:",
-        ),
+            "las palabras impugnadas se comprueban en un diccionario acordado."),
+        "scrabbleAdditionalPointsTitle":
+            MessageLookupByLibrary.simpleMessage("reglas adicionales:"),
         "scrabbleAdditionalReplaceTiles": MessageLookupByLibrary.simpleMessage(
-          "los jugadores pueden cambiar fichas y pasar turno.",
-        ),
+            "los jugadores pueden cambiar fichas y pasar turno."),
         "scrabbleAdditionalWordRules": MessageLookupByLibrary.simpleMessage(
-          "todas las palabras deben ser completas y seguir las reglas del idioma.",
-        ),
+            "todas las palabras deben ser completas y seguir las reglas del idioma."),
         "scrabbleEndGameNoTiles": MessageLookupByLibrary.simpleMessage(
-          "el juego termina cuando no quedan fichas y no se puede jugar.",
-        ),
+            "el juego termina cuando no quedan fichas y no se puede jugar."),
         "scrabbleEndGameRemainingTilesPenalty":
             MessageLookupByLibrary.simpleMessage(
-          "las fichas sin jugar se descuentan del marcador.",
-        ),
+                "las fichas sin jugar se descuentan del marcador."),
         "scrabbleEndGameSkippedTurns": MessageLookupByLibrary.simpleMessage(
-          "termina si todos pasan dos turnos seguidos.",
-        ),
+            "termina si todos pasan dos turnos seguidos."),
         "scrabbleFeatureBlankTile": MessageLookupByLibrary.simpleMessage(
-          "los comodines representan cualquier letra y no suman puntos.",
-        ),
+            "los comodines representan cualquier letra y no suman puntos."),
         "scrabbleFeatureRefillTiles": MessageLookupByLibrary.simpleMessage(
-          "los jugadores rellenan su atril tras cada turno.",
-        ),
+            "los jugadores rellenan su atril tras cada turno."),
         "scrabbleFeatureSevenTileBonus": MessageLookupByLibrary.simpleMessage(
-          "usar las 7 fichas en un turno da 50 puntos de bono.",
-        ),
-        "scrabbleFeaturesTitle": MessageLookupByLibrary.simpleMessage(
-          "características:",
-        ),
-        "scrabbleGameObjectiveDescription":
-            MessageLookupByLibrary.simpleMessage(
-          "forma palabras en el tablero tipo crucigrama. anota más puntos que tus oponentes.",
-        ),
-        "scrabbleGameSetAccessories": MessageLookupByLibrary.simpleMessage(
-          "4 atriles, bolsa de fichas.",
-        ),
-        "scrabbleGameSetBoard": MessageLookupByLibrary.simpleMessage(
-          "tablero 15x15.",
-        ),
+            "usar las 7 fichas en un turno da 50 puntos de bono."),
+        "scrabbleFeaturesTitle":
+            MessageLookupByLibrary.simpleMessage("características:"),
+        "scrabbleGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+            "forma palabras en el tablero tipo crucigrama. anota más puntos que tus oponentes."),
+        "scrabbleGameSetAccessories":
+            MessageLookupByLibrary.simpleMessage("4 atriles, bolsa de fichas."),
+        "scrabbleGameSetBoard":
+            MessageLookupByLibrary.simpleMessage("tablero 15x15."),
         "scrabbleGameSetLetters": MessageLookupByLibrary.simpleMessage(
-          "104 fichas (incluyendo 2 comodines).",
-        ),
-        "scrabbleGameSetTitle": MessageLookupByLibrary.simpleMessage(
-          "composición del juego:",
-        ),
-        "scrabblePreparationDrawTiles": MessageLookupByLibrary.simpleMessage(
-          "cada jugador toma 7 fichas.",
-        ),
-        "scrabblePreparationFirstTurnRule":
-            MessageLookupByLibrary.simpleMessage(
-          "el primer turno es para quien saque la ficha más cercana al inicio del alfabeto.",
-        ),
+            "104 fichas (incluyendo 2 comodines)."),
+        "scrabbleGameSetTitle":
+            MessageLookupByLibrary.simpleMessage("composición del juego:"),
+        "scrabblePreparationDrawTiles":
+            MessageLookupByLibrary.simpleMessage("cada jugador toma 7 fichas."),
+        "scrabblePreparationFirstTurnRule": MessageLookupByLibrary.simpleMessage(
+            "el primer turno es para quien saque la ficha más cercana al inicio del alfabeto."),
         "scrabblePreparationShuffle": MessageLookupByLibrary.simpleMessage(
-          "baraja las fichas en la bolsa.",
-        ),
+            "baraja las fichas en la bolsa."),
         "scrabbleScoringBlueBonus": MessageLookupByLibrary.simpleMessage(
-          "casillas azules duplican/triplan el valor de la letra.",
-        ),
+            "casillas azules duplican/triplan el valor de la letra."),
         "scrabbleScoringRedBonus": MessageLookupByLibrary.simpleMessage(
-          "casillas rojas duplican/triplan el valor de la palabra.",
-        ),
+            "casillas rojas duplican/triplan el valor de la palabra."),
         "scrabbleScoringTitle":
             MessageLookupByLibrary.simpleMessage("puntuación:"),
         "scrabbleScoringWordPoints": MessageLookupByLibrary.simpleMessage(
-          "puntos por palabra: suma de fichas + bonus del tablero.",
-        ),
+            "puntos por palabra: suma de fichas + bonus del tablero."),
         "scrabbleTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "scrabble® es una marca registrada de hasbro, inc.",
-        ),
+            "scrabble® es una marca registrada de hasbro, inc."),
         "scrabbleTurnRuleFirstWord": MessageLookupByLibrary.simpleMessage(
-          "primera palabra: debe pasar por la casilla central (estrella).",
-        ),
+            "primera palabra: debe pasar por la casilla central (estrella)."),
         "scrabbleTurnRuleLetterPlacement": MessageLookupByLibrary.simpleMessage(
-          "cada ficha debe formar parte de una palabra nueva o existente.",
-        ),
+            "cada ficha debe formar parte de una palabra nueva o existente."),
         "scrabbleTurnRuleWordDirection": MessageLookupByLibrary.simpleMessage(
-          "todas las palabras se colocan horizontal o verticalmente.",
-        ),
-        "scrabbleTurnRulesTitle": MessageLookupByLibrary.simpleMessage(
-          "reglas de turno:",
-        ),
+            "todas las palabras se colocan horizontal o verticalmente."),
+        "scrabbleTurnRulesTitle":
+            MessageLookupByLibrary.simpleMessage("reglas de turno:"),
         "seaSaltPaper":
             MessageLookupByLibrary.simpleMessage("sea salt & paper"),
         "seaSaltPaperDuoBoat": MessageLookupByLibrary.simpleMessage(
-          "dúo de barcos: toma otro turno inmediatamente.",
-        ),
+            "dúo de barcos: toma otro turno inmediatamente."),
         "seaSaltPaperDuoCardsDescription": MessageLookupByLibrary.simpleMessage(
-          "después de tu acción, puedes jugar parejas para activar efectos especiales:",
-        ),
-        "seaSaltPaperDuoCardsTitle": MessageLookupByLibrary.simpleMessage(
-          "cartas dúo:",
-        ),
+            "después de tu acción, puedes jugar parejas para activar efectos especiales:"),
+        "seaSaltPaperDuoCardsTitle":
+            MessageLookupByLibrary.simpleMessage("cartas dúo:"),
         "seaSaltPaperDuoCrab": MessageLookupByLibrary.simpleMessage(
-          "dúo de cangrejos: mira una pila de descarte y toma cualquier carta.",
-        ),
+            "dúo de cangrejos: mira una pila de descarte y toma cualquier carta."),
         "seaSaltPaperDuoFish": MessageLookupByLibrary.simpleMessage(
-          "dúo de peces: roba la carta superior del mazo.",
-        ),
+            "dúo de peces: roba la carta superior del mazo."),
         "seaSaltPaperDuoShark": MessageLookupByLibrary.simpleMessage(
-          "dúo tiburón + nadador: roba una carta de la mano de un oponente.",
-        ),
+            "dúo tiburón + nadador: roba una carta de la mano de un oponente."),
         "seaSaltPaperEndRoundDescription": MessageLookupByLibrary.simpleMessage(
-          "cuando tengas 7 o más puntos, puedes terminar la ronda eligiendo:",
-        ),
-        "seaSaltPaperEndRoundTitle": MessageLookupByLibrary.simpleMessage(
-          "terminar la ronda:",
-        ),
+            "cuando tengas 7 o más puntos, puedes terminar la ronda eligiendo:"),
+        "seaSaltPaperEndRoundTitle":
+            MessageLookupByLibrary.simpleMessage("terminar la ronda:"),
         "seaSaltPaperGameObjectiveDescription":
             MessageLookupByLibrary.simpleMessage(
-          "colecciona cartas para formar combinaciones y sumar puntos. sé el primero en alcanzar la puntuación objetivo terminando las rondas estratégicamente.",
-        ),
+                "colecciona cartas para formar combinaciones y sumar puntos. sé el primero en alcanzar la puntuación objetivo terminando las rondas estratégicamente."),
         "seaSaltPaperLastChanceOption": MessageLookupByLibrary.simpleMessage(
-          "última oportunidad: cada oponente hace un turno más. si sigues teniendo la puntuación más alta, ganas puntos de bonificación iguales a tu mayoría de color. si alguien te supera, solo obtienes puntos por tu mayoría de color.",
-        ),
+            "última oportunidad: cada oponente hace un turno más. si sigues teniendo la puntuación más alta, ganas puntos de bonificación iguales a tu mayoría de color. si alguien te supera, solo obtienes puntos por tu mayoría de color."),
         "seaSaltPaperPreparationDiscard": MessageLookupByLibrary.simpleMessage(
-          "voltea dos cartas boca arriba junto al mazo para formar dos pilas de descarte.",
-        ),
+            "voltea dos cartas boca arriba junto al mazo para formar dos pilas de descarte."),
         "seaSaltPaperPreparationShuffle": MessageLookupByLibrary.simpleMessage(
-          "baraja todas las cartas y coloca el mazo boca abajo en el centro.",
-        ),
+            "baraja todas las cartas y coloca el mazo boca abajo en el centro."),
         "seaSaltPaperPreparationStartPlayer":
-            MessageLookupByLibrary.simpleMessage(
-          "elige un jugador inicial.",
-        ),
+            MessageLookupByLibrary.simpleMessage("elige un jugador inicial."),
         "seaSaltPaperScoringCollections": MessageLookupByLibrary.simpleMessage(
-          "las colecciones (conchas, pingüinos, pulpos) dan más puntos con más cartas.",
-        ),
-        "seaSaltPaperScoringColorMajority":
-            MessageLookupByLibrary.simpleMessage(
-          "mayoría de color: 1 punto de bonificación por carta de tu color más común.",
-        ),
+            "las colecciones (conchas, pingüinos, pulpos) dan más puntos con más cartas."),
+        "seaSaltPaperScoringColorMajority": MessageLookupByLibrary.simpleMessage(
+            "mayoría de color: 1 punto de bonificación por carta de tu color más común."),
         "seaSaltPaperScoringMermaid": MessageLookupByLibrary.simpleMessage(
-          "sirena: ¡coleccionar las 4 cartas de sirena gana el juego instantáneamente!",
-        ),
+            "sirena: ¡coleccionar las 4 cartas de sirena gana el juego instantáneamente!"),
         "seaSaltPaperScoringPairs": MessageLookupByLibrary.simpleMessage(
-          "las parejas y combinaciones dan puntos según su tipo.",
-        ),
-        "seaSaltPaperScoringTitle": MessageLookupByLibrary.simpleMessage(
-          "puntuación:",
-        ),
+            "las parejas y combinaciones dan puntos según su tipo."),
+        "seaSaltPaperScoringTitle":
+            MessageLookupByLibrary.simpleMessage("puntuación:"),
         "seaSaltPaperStopOption": MessageLookupByLibrary.simpleMessage(
-          "parar: la ronda termina inmediatamente. todos los jugadores cuentan sus cartas.",
-        ),
+            "parar: la ronda termina inmediatamente. todos los jugadores cuentan sus cartas."),
         "seaSaltPaperTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "sea salt & paper® es una marca de studio bombyx. diseñado por bruno cathala y théo rivière.",
-        ),
+            "sea salt & paper® es una marca de studio bombyx. diseñado por bruno cathala y théo rivière."),
         "seaSaltPaperTurnDescription": MessageLookupByLibrary.simpleMessage(
-          "en tu turno, elige una de dos acciones:",
-        ),
+            "en tu turno, elige una de dos acciones:"),
         "seaSaltPaperTurnDrawTwo": MessageLookupByLibrary.simpleMessage(
-          "roba dos cartas del mazo, quédate con una y coloca la otra boca arriba en una pila de descarte.",
-        ),
+            "roba dos cartas del mazo, quédate con una y coloca la otra boca arriba en una pila de descarte."),
         "seaSaltPaperTurnTakeDiscard": MessageLookupByLibrary.simpleMessage(
-          "toma la carta superior de una de las pilas de descarte.",
-        ),
+            "toma la carta superior de una de las pilas de descarte."),
         "seaSaltPaperVictory2Players": MessageLookupByLibrary.simpleMessage(
-          "2 jugadores: el primero en llegar a 40 puntos gana.",
-        ),
+            "2 jugadores: el primero en llegar a 40 puntos gana."),
         "seaSaltPaperVictory3Players": MessageLookupByLibrary.simpleMessage(
-          "3 jugadores: el primero en llegar a 35 puntos gana.",
-        ),
+            "3 jugadores: el primero en llegar a 35 puntos gana."),
         "seaSaltPaperVictory4Players": MessageLookupByLibrary.simpleMessage(
-          "4 jugadores: el primero en llegar a 30 puntos gana.",
-        ),
+            "4 jugadores: el primero en llegar a 30 puntos gana."),
         "secondBonus": MessageLookupByLibrary.simpleMessage("segundo bono"),
         "secondRace": MessageLookupByLibrary.simpleMessage("raza 2"),
         "set": MessageLookupByLibrary.simpleMessage("set"),
         "setCardAttributeFillType": MessageLookupByLibrary.simpleMessage(
-          "tipo de relleno: vacío, rayado, sólido.",
-        ),
+            "tipo de relleno: vacío, rayado, sólido."),
         "setCardAttributeNumberOfSymbols": MessageLookupByLibrary.simpleMessage(
-          "número de símbolos: 1, 2 o 3.",
-        ),
+            "número de símbolos: 1, 2 o 3."),
         "setCardAttributeSymbolColor": MessageLookupByLibrary.simpleMessage(
-          "color del símbolo: rojo, verde, morado.",
-        ),
+            "color del símbolo: rojo, verde, morado."),
         "setCardAttributeSymbolType": MessageLookupByLibrary.simpleMessage(
-          "tipo de símbolo: óvalo, diamante, ondulado.",
-        ),
+            "tipo de símbolo: óvalo, diamante, ondulado."),
         "setCardAttributesDescription": MessageLookupByLibrary.simpleMessage(
-          "cada carta es única y tiene 4 atributos:",
-        ),
-        "setCardAttributesTitle": MessageLookupByLibrary.simpleMessage(
-          "atributos de las cartas:",
-        ),
+            "cada carta es única y tiene 4 atributos:"),
+        "setCardAttributesTitle":
+            MessageLookupByLibrary.simpleMessage("atributos de las cartas:"),
         "setExampleOfValidSetColor": MessageLookupByLibrary.simpleMessage(
-          "atributo \'número\': igual (dos).",
-        ),
+            "atributo \'número\': igual (dos)."),
         "setExampleOfValidSetFill": MessageLookupByLibrary.simpleMessage(
-          "qué hacer si no se encuentra un set:",
-        ),
+            "qué hacer si no se encuentra un set:"),
         "setExampleOfValidSetNumber": MessageLookupByLibrary.simpleMessage(
-          "atributo \'tipo\': diferente (óvalo, diamante, ondulado).",
-        ),
+            "atributo \'tipo\': diferente (óvalo, diamante, ondulado)."),
         "setExampleOfValidSetTitle": MessageLookupByLibrary.simpleMessage(
-          "atributo \'color\': diferente (rojo, verde, morado).",
-        ),
+            "atributo \'color\': diferente (rojo, verde, morado)."),
         "setExampleOfValidSetType": MessageLookupByLibrary.simpleMessage(
-          "atributo \'relleno\': igual (rayado).",
-        ),
+            "atributo \'relleno\': igual (rayado)."),
         "setGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-          "encuentra un set (un grupo de 3 cartas) donde cada atributo sea igual en todas las cartas o diferente en todas.",
-        ),
-        "setGameTurnStepContinue": MessageLookupByLibrary.simpleMessage(
-          "ejemplo de un set correcto:",
-        ),
+            "encuentra un set (un grupo de 3 cartas) donde cada atributo sea igual en todas las cartas o diferente en todas."),
+        "setGameTurnStepContinue":
+            MessageLookupByLibrary.simpleMessage("ejemplo de un set correcto:"),
         "setGameTurnStepDealerSetup": MessageLookupByLibrary.simpleMessage(
-          "el repartidor coloca 12 cartas.",
-        ),
+            "el repartidor coloca 12 cartas."),
         "setGameTurnStepFindingSet": MessageLookupByLibrary.simpleMessage(
-          "los jugadores buscan simultáneamente un set. el primero en encontrarlo grita: \'¡set!\'",
-        ),
-        "setGameTurnStepFour": MessageLookupByLibrary.simpleMessage(
-          "el juego continúa.",
-        ),
+            "los jugadores buscan simultáneamente un set. el primero en encontrarlo grita: \'¡set!\'"),
+        "setGameTurnStepFour":
+            MessageLookupByLibrary.simpleMessage("el juego continúa."),
         "setGameTurnStepValidation": MessageLookupByLibrary.simpleMessage(
-          "valida: si es correcto, el jugador toma las cartas y el repartidor las reemplaza con 3 nuevas. si es incorrecto, pierde 1 punto o salta turno (según acuerden).",
-        ),
+            "valida: si es correcto, el jugador toma las cartas y el repartidor las reemplaza con 3 nuevas. si es incorrecto, pierde 1 punto o salta turno (según acuerden)."),
         "setImportantRuleCardPosition": MessageLookupByLibrary.simpleMessage(
-          "las cartas de un set se pueden poner en cualquier orden.",
-        ),
+            "las cartas de un set se pueden poner en cualquier orden."),
         "setImportantRuleConfirmation": MessageLookupByLibrary.simpleMessage(
-          "no se puede declarar un nuevo set hasta confirmar el anterior.",
-        ),
+            "no se puede declarar un nuevo set hasta confirmar el anterior."),
         "setImportantRuleSimplifiedMode": MessageLookupByLibrary.simpleMessage(
-          "para aprender, se puede simplificar usando solo 3 atributos.",
-        ),
-        "setImportantRulesTitle": MessageLookupByLibrary.simpleMessage(
-          "reglas importantes:",
-        ),
+            "para aprender, se puede simplificar usando solo 3 atributos."),
+        "setImportantRulesTitle":
+            MessageLookupByLibrary.simpleMessage("reglas importantes:"),
         "setNoSetFoundDescription": MessageLookupByLibrary.simpleMessage(
-          "si no hay set entre las 12 cartas, el repartidor añade 3 (hasta 21). entre 21 siempre hay un set.",
-        ),
-        "setNoSetFoundTitle": MessageLookupByLibrary.simpleMessage(
-          "qué hacer si no hay set:",
-        ),
+            "si no hay set entre las 12 cartas, el repartidor añade 3 (hasta 21). entre 21 siempre hay un set."),
+        "setNoSetFoundTitle":
+            MessageLookupByLibrary.simpleMessage("qué hacer si no hay set:"),
         "setScoringGameEnd": MessageLookupByLibrary.simpleMessage(
-          "el juego termina cuando se acabe el mazo o se alcance una puntuación predeterminada.",
-        ),
-        "setScoringPointPerSet": MessageLookupByLibrary.simpleMessage(
-          "1 punto por set encontrado.",
-        ),
+            "el juego termina cuando se acabe el mazo o se alcance una puntuación predeterminada."),
+        "setScoringPointPerSet":
+            MessageLookupByLibrary.simpleMessage("1 punto por set encontrado."),
         "setScoringTitle": MessageLookupByLibrary.simpleMessage("puntuación:"),
         "setTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "set® es una marca registrada de set enterprises, inc.",
-        ),
+            "set® es una marca registrada de set enterprises, inc."),
         "settings": MessageLookupByLibrary.simpleMessage("ajustes"),
         "settlement": MessageLookupByLibrary.simpleMessage("poblado"),
         "shareFeedback":
             MessageLookupByLibrary.simpleMessage("enviar opiniones"),
-        "shareWithFriedns": MessageLookupByLibrary.simpleMessage(
-          "comparte con amigos",
-        ),
-        "shareWithFriends": MessageLookupByLibrary.simpleMessage(
-          "comparte con amigos",
-        ),
+        "shareWithFriedns":
+            MessageLookupByLibrary.simpleMessage("comparte con amigos"),
+        "shareWithFriends":
+            MessageLookupByLibrary.simpleMessage("comparte con amigos"),
         "sinceThisIsAnOpenSourceProjectYouCanLeave":
             MessageLookupByLibrary.simpleMessage(
-          "ya que es un proyecto de código abierto, siéntete libre de contribuir",
-        ),
+                "ya que es un proyecto de código abierto, siéntete libre de contribuir"),
         "singleplayer": MessageLookupByLibrary.simpleMessage("un solo jugador"),
         "skip": MessageLookupByLibrary.simpleMessage("saltar"),
         "skipCardUnoInfo": MessageLookupByLibrary.simpleMessage("carta salta"),
-        "skipEveryoneCardUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
-          "carta salta todos",
-        ),
+        "skipEveryoneCardUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("carta salta todos"),
         "skipsAllPlayersAndReturnsTurnToTheOriginalPlayerUnoFlipInfo":
             MessageLookupByLibrary.simpleMessage(
-          "salta a todos los jugadores y devuelve el turno al jugador original.",
-        ),
-        "skipsTheNextPlayersTurnUnoInfo": MessageLookupByLibrary.simpleMessage(
-          "salta el próximo turno.",
-        ),
+                "salta a todos los jugadores y devuelve el turno al jugador original."),
+        "skipsTheNextPlayersTurnUnoInfo":
+            MessageLookupByLibrary.simpleMessage("salta el próximo turno."),
         "spanish": MessageLookupByLibrary.simpleMessage("español"),
         "specialCards2VpEach": MessageLookupByLibrary.simpleMessage(
-          "cartas especiales (2 cada una):",
-        ),
-        "specialCardsTitle": MessageLookupByLibrary.simpleMessage(
-          "cartas especiales:",
-        ),
-        "specialRulesTitle": MessageLookupByLibrary.simpleMessage(
-          "reglas especiales:",
-        ),
+            "cartas especiales (2 cada una):"),
+        "specialCardsTitle":
+            MessageLookupByLibrary.simpleMessage("cartas especiales:"),
+        "specialRulesTitle":
+            MessageLookupByLibrary.simpleMessage("reglas especiales:"),
         "subtracting": MessageLookupByLibrary.simpleMessage("restando"),
         "superMunch": MessageLookupByLibrary.simpleMessage("super munch."),
         "swapHandsWithAnyPlayerAndChooseTheColorUnoInfo":
             MessageLookupByLibrary.simpleMessage(
-          "intercambia manos con un jugador y elige color.",
-        ),
+                "intercambia manos con un jugador y elige color."),
         "sword": MessageLookupByLibrary.simpleMessage("espada"),
         "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
         "ten10Points": MessageLookupByLibrary.simpleMessage("diez: 10 puntos"),
         "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
-          "el número de jugadores debe ser",
-        ),
-        "theRobberRolling7": MessageLookupByLibrary.simpleMessage(
-          "el ladrón (al sacar 7):",
-        ),
+            "el número de jugadores debe ser"),
+        "theRobberRolling7":
+            MessageLookupByLibrary.simpleMessage("el ladrón (al sacar 7):"),
         "theme": MessageLookupByLibrary.simpleMessage("tema"),
         "thief": MessageLookupByLibrary.simpleMessage("ladrón"),
         "thousandBiddingPhaseOne": MessageLookupByLibrary.simpleMessage(
-          "empezando por el jugador después del repartidor, los jugadores pujan sobre cuántos puntos creen que pueden anotar (puja mínima de 100). cada puja debe ser mayor que la anterior (en incrementos de 5 o 10).",
-        ),
+            "empezando por el jugador después del repartidor, los jugadores pujan sobre cuántos puntos creen que pueden anotar (puja mínima de 100). cada puja debe ser mayor que la anterior (en incrementos de 5 o 10)."),
         "thousandBiddingPhaseThree": MessageLookupByLibrary.simpleMessage(
-          "el jugador con la puja más alta gana la subasta, toma el talón y declara el palo de triunfo. el pujador descarta 3 cartas boca abajo (pero mantiene su valor en puntos).",
-        ),
+            "el jugador con la puja más alta gana la subasta, toma el talón y declara el palo de triunfo. el pujador descarta 3 cartas boca abajo (pero mantiene su valor en puntos)."),
         "thousandBiddingPhaseTwo": MessageLookupByLibrary.simpleMessage(
-          "los jugadores pueden pasar si no quieren pujar más alto.",
-        ),
+            "los jugadores pueden pasar si no quieren pujar más alto."),
         "thousandContractResolutionOne": MessageLookupByLibrary.simpleMessage(
-          "si el pujador anota al menos su cantidad de puja: añade su puntuación real a su total.",
-        ),
+            "si el pujador anota al menos su cantidad de puja: añade su puntuación real a su total."),
         "thousandContractResolutionThree": MessageLookupByLibrary.simpleMessage(
-          "los otros jugadores añaden los puntos de las bazas que ganaron a sus totales.",
-        ),
+            "los otros jugadores añaden los puntos de las bazas que ganaron a sus totales."),
         "thousandContractResolutionTwo": MessageLookupByLibrary.simpleMessage(
-          "si el pujador no cumple su puja: su cantidad de puja se resta de su total (puede volverse negativo).",
-        ),
+            "si el pujador no cumple su puja: su cantidad de puja se resta de su total (puede volverse negativo)."),
         "thousandGameTurnTitleOne": MessageLookupByLibrary.simpleMessage(
-          "el pujador inicia la primera baza jugando cualquier carta. los otros jugadores deben seguir el palo si es posible. si no pueden, deben jugar una carta de triunfo si tienen una.",
-        ),
+            "el pujador inicia la primera baza jugando cualquier carta. los otros jugadores deben seguir el palo si es posible. si no pueden, deben jugar una carta de triunfo si tienen una."),
         "thousandGameTurnTitleThree": MessageLookupByLibrary.simpleMessage(
-          "el ganador de la baza inicia la siguiente baza. continúa hasta que todas las cartas sean jugadas.",
-        ),
+            "el ganador de la baza inicia la siguiente baza. continúa hasta que todas las cartas sean jugadas."),
         "thousandGameTurnTitleTwo": MessageLookupByLibrary.simpleMessage(
-          "la carta más alta del palo jugado gana, a menos que se juegue un triunfo. el triunfo más alto gana.",
-        ),
+            "la carta más alta del palo jugado gana, a menos que se juegue un triunfo. el triunfo más alto gana."),
         "thousandGoal": MessageLookupByLibrary.simpleMessage(
-          "el objetivo es ser el primer jugador en alcanzar 1000 puntos ganando bazas en un juego de pujas. los jugadores pujan sobre cuántos puntos pueden anotar, luego intentan cumplir su contrato.",
-        ),
+            "el objetivo es ser el primer jugador en alcanzar 1000 puntos ganando bazas en un juego de pujas. los jugadores pujan sobre cuántos puntos pueden anotar, luego intentan cumplir su contrato."),
         "thousandMarriageFour": MessageLookupByLibrary.simpleMessage(
-          "solo puedes anotar matrimonios si ganas al menos una baza.",
-        ),
+            "solo puedes anotar matrimonios si ganas al menos una baza."),
         "thousandMarriageOne": MessageLookupByLibrary.simpleMessage(
-          "un matrimonio es un rey y una reina del mismo palo en tu mano.",
-        ),
+            "un matrimonio es un rey y una reina del mismo palo en tu mano."),
         "thousandMarriageThree": MessageLookupByLibrary.simpleMessage(
-          "matrimonio no de triunfo: 80 puntos (se aplica la misma regla).",
-        ),
+            "matrimonio no de triunfo: 80 puntos (se aplica la misma regla)."),
         "thousandMarriageTwo": MessageLookupByLibrary.simpleMessage(
-          "matrimonio de triunfo: 100 puntos (debe declararse al jugar la primera carta del par).",
-        ),
+            "matrimonio de triunfo: 100 puntos (debe declararse al jugar la primera carta del par)."),
         "thousandPreparationOne": MessageLookupByLibrary.simpleMessage(
-          "usa una baraja de 24 cartas: 9, 10, jota, reina, rey, as de los cuatro palos.",
-        ),
+            "usa una baraja de 24 cartas: 9, 10, jota, reina, rey, as de los cuatro palos."),
         "thousandPreparationThree": MessageLookupByLibrary.simpleMessage(
-          "coloca 3 cartas boca abajo en el centro como el talón (viuda).",
-        ),
+            "coloca 3 cartas boca abajo en el centro como el talón (viuda)."),
         "thousandPreparationTwo": MessageLookupByLibrary.simpleMessage(
-          "reparte 7 cartas a cada jugador (para 3 jugadores), o 8 cartas (para 2 jugadores).",
-        ),
+            "reparte 7 cartas a cada jugador (para 3 jugadores), o 8 cartas (para 2 jugadores)."),
         "thousandSpecialRulesTitleOne": MessageLookupByLibrary.simpleMessage(
-          "regla del barril: si un jugador alcanza 880+ puntos, está «en el barril» y debe anotar exactamente 1000, de lo contrario vuelve a 880.",
-        ),
+            "regla del barril: si un jugador alcanza 880+ puntos, está «en el barril» y debe anotar exactamente 1000, de lo contrario vuelve a 880."),
         "thousandSpecialRulesTitleTwo": MessageLookupByLibrary.simpleMessage(
-          "algunas variantes requieren exactamente 1000 puntos para ganar. superar te devuelve a 880 o a la puntuación anterior.",
-        ),
+            "algunas variantes requieren exactamente 1000 puntos para ganar. superar te devuelve a 880 o a la puntuación anterior."),
         "thousandTotalPoints": MessageLookupByLibrary.simpleMessage(
-          "puntos totales en la baraja: 120. añade bonos de matrimonio si aplica.",
-        ),
+            "puntos totales en la baraja: 120. añade bonos de matrimonio si aplica."),
         "thousandVictoryRule": MessageLookupByLibrary.simpleMessage(
-          "el primer jugador en alcanzar 1000 puntos (o exactamente 1000, según las reglas de la casa) gana la partida.",
-        ),
+            "el primer jugador en alcanzar 1000 puntos (o exactamente 1000, según las reglas de la casa) gana la partida."),
         "toAllWhoCreatedThe": MessageLookupByLibrary.simpleMessage(
-          "gracias a todos los que crearon",
-        ),
+            "gracias a todos los que crearon"),
         "toBoardBuddysContributors": MessageLookupByLibrary.simpleMessage(
-          "colaboradores de board buddy",
-        ),
+            "colaboradores de board buddy"),
         "total": MessageLookupByLibrary.simpleMessage("total"),
         "totalStrength": MessageLookupByLibrary.simpleMessage("fuerza total: "),
         "trading": MessageLookupByLibrary.simpleMessage("comercio:"),
         "tripleTheValueOfALetterScrabbleInfo":
             MessageLookupByLibrary.simpleMessage(
-          "triplica el valor de una letra",
-        ),
+                "triplica el valor de una letra"),
         "tripleTheValueOfAnEntireWordScrabbleInfo":
             MessageLookupByLibrary.simpleMessage(
-          "triplica el valor de una palabra",
-        ),
+                "triplica el valor de una palabra"),
         "twoHanded": MessageLookupByLibrary.simpleMessage("a dos manos"),
         "uno": MessageLookupByLibrary.simpleMessage("uno"),
         "unoActiveCardDrawTwo": MessageLookupByLibrary.simpleMessage(
-          "\'roba dos\': el siguiente roba 2 cartas y pierde turno.",
-        ),
+            "\'roba dos\': el siguiente roba 2 cartas y pierde turno."),
         "unoActiveCardReverse": MessageLookupByLibrary.simpleMessage(
-          "\'reversa\': invierte el sentido de juego.",
-        ),
+            "\'reversa\': invierte el sentido de juego."),
         "unoActiveCardSkipTurn": MessageLookupByLibrary.simpleMessage(
-          "\'salta\': el siguiente jugador pierde su turno.",
-        ),
+            "\'salta\': el siguiente jugador pierde su turno."),
         "unoActiveCardWild": MessageLookupByLibrary.simpleMessage(
-          "\'comodín\': permite elegir el color de juego.",
-        ),
+            "\'comodín\': permite elegir el color de juego."),
         "unoActiveCardWildDrawFour": MessageLookupByLibrary.simpleMessage(
-          "\'comodín+4\': elige color y el siguiente roba 4. solo se puede jugar sin cartas coincidentes.",
-        ),
-        "unoActiveCardsTitle": MessageLookupByLibrary.simpleMessage(
-          "cartas de acción:",
-        ),
+            "\'comodín+4\': elige color y el siguiente roba 4. solo se puede jugar sin cartas coincidentes."),
+        "unoActiveCardsTitle":
+            MessageLookupByLibrary.simpleMessage("cartas de acción:"),
         "unoFlip": MessageLookupByLibrary.simpleMessage("uno flip"),
-        "unoFlipDarkSideCardsTitle": MessageLookupByLibrary.simpleMessage(
-          "lado oscuro:",
-        ),
-        "unoFlipDarkSideDrawFive": MessageLookupByLibrary.simpleMessage(
-          "\'roba cinco\'",
-        ),
+        "unoFlipDarkSideCardsTitle":
+            MessageLookupByLibrary.simpleMessage("lado oscuro:"),
+        "unoFlipDarkSideDrawFive":
+            MessageLookupByLibrary.simpleMessage("\'roba cinco\'"),
         "unoFlipDarkSideDrawUntilColor": MessageLookupByLibrary.simpleMessage(
-          "\'roba hasta color coincidente\'",
-        ),
-        "unoFlipDarkSideReverse": MessageLookupByLibrary.simpleMessage(
-          "\'reversa\'",
-        ),
-        "unoFlipDarkSideSkipAll": MessageLookupByLibrary.simpleMessage(
-          "\'salta todos\'",
-        ),
-        "unoFlipDarkSideWildCard": MessageLookupByLibrary.simpleMessage(
-          "\'comodín\'",
-        ),
+            "\'roba hasta color coincidente\'"),
+        "unoFlipDarkSideReverse":
+            MessageLookupByLibrary.simpleMessage("\'reversa\'"),
+        "unoFlipDarkSideSkipAll":
+            MessageLookupByLibrary.simpleMessage("\'salta todos\'"),
+        "unoFlipDarkSideWildCard":
+            MessageLookupByLibrary.simpleMessage("\'comodín\'"),
         "unoFlipGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-          "juega todas tus cartas y gana puntos por las que queden en los oponentes. quien llegue a 500 puntos gana.",
-        ),
+            "juega todas tus cartas y gana puntos por las que queden en los oponentes. quien llegue a 500 puntos gana."),
         "unoFlipGameStartDealCards": MessageLookupByLibrary.simpleMessage(
-          "cada jugador recibe 7 cartas.",
-        ),
+            "cada jugador recibe 7 cartas."),
         "unoFlipGameStartLightSide": MessageLookupByLibrary.simpleMessage(
-          "empieza por el lado claro del mazo.",
-        ),
-        "unoFlipGameStartTitle": MessageLookupByLibrary.simpleMessage(
-          "inicio del juego:",
-        ),
+            "empieza por el lado claro del mazo."),
+        "unoFlipGameStartTitle":
+            MessageLookupByLibrary.simpleMessage("inicio del juego:"),
         "unoFlipKeyMoment":
             MessageLookupByLibrary.simpleMessage("momentos clave:"),
         "unoFlipKeyMomentFlipCardEffect": MessageLookupByLibrary.simpleMessage(
-          "tras una carta \'voltear\', todo el juego cambia de lado.",
-        ),
+            "tras una carta \'voltear\', todo el juego cambia de lado."),
         "unoFlipKeyMomentUnoCall": MessageLookupByLibrary.simpleMessage(
-          "al jugar la penúltima carta, di \'¡uno!\' si olvidas y te descubren, roba 2 cartas.",
-        ),
-        "unoFlipLightSideCardsTitle": MessageLookupByLibrary.simpleMessage(
-          "lado claro:",
-        ),
-        "unoFlipLightSideDrawOne": MessageLookupByLibrary.simpleMessage(
-          "\'roba uno\'",
-        ),
-        "unoFlipLightSideReverse": MessageLookupByLibrary.simpleMessage(
-          "\'reversa\'",
-        ),
-        "unoFlipLightSideSkipTurn": MessageLookupByLibrary.simpleMessage(
-          "\'salta turno\'",
-        ),
-        "unoFlipLightSideWildCard": MessageLookupByLibrary.simpleMessage(
-          "\'comodín\'",
-        ),
-        "unoFlipLightSideWildDrawTwo": MessageLookupByLibrary.simpleMessage(
-          "\'comodín+2\'",
-        ),
+            "al jugar la penúltima carta, di \'¡uno!\' si olvidas y te descubren, roba 2 cartas."),
+        "unoFlipLightSideCardsTitle":
+            MessageLookupByLibrary.simpleMessage("lado claro:"),
+        "unoFlipLightSideDrawOne":
+            MessageLookupByLibrary.simpleMessage("\'roba uno\'"),
+        "unoFlipLightSideReverse":
+            MessageLookupByLibrary.simpleMessage("\'reversa\'"),
+        "unoFlipLightSideSkipTurn":
+            MessageLookupByLibrary.simpleMessage("\'salta turno\'"),
+        "unoFlipLightSideWildCard":
+            MessageLookupByLibrary.simpleMessage("\'comodín\'"),
+        "unoFlipLightSideWildDrawTwo":
+            MessageLookupByLibrary.simpleMessage("\'comodín+2\'"),
         "unoFlipScoringActiveCards": MessageLookupByLibrary.simpleMessage(
-          "cartas de acción: 20–60 puntos según tipo.",
-        ),
+            "cartas de acción: 20–60 puntos según tipo."),
         "unoFlipScoringNumberCards": MessageLookupByLibrary.simpleMessage(
-          "cartas numéricas: valor facial.",
-        ),
+            "cartas numéricas: valor facial."),
         "unoFlipScoringRoundWinnerPoints": MessageLookupByLibrary.simpleMessage(
-          "el ganador de la ronda obtiene puntos por las cartas restantes de los oponentes:",
-        ),
+            "el ganador de la ronda obtiene puntos por las cartas restantes de los oponentes:"),
         "unoFlipScoringTitle":
             MessageLookupByLibrary.simpleMessage("puntuación:"),
         "unoFlipTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "uno flip® es una marca registrada de mattel.",
-        ),
+            "uno flip® es una marca registrada de mattel."),
         "unoFlipTurnRuleDrawCard": MessageLookupByLibrary.simpleMessage(
-          "si no hay coincidencia, roba del montón.",
-        ),
+            "si no hay coincidencia, roba del montón."),
         "unoFlipTurnRuleFlipCard": MessageLookupByLibrary.simpleMessage(
-          "\'voltear\' cambia el juego al otro lado del mazo.",
-        ),
+            "\'voltear\' cambia el juego al otro lado del mazo."),
         "unoFlipTurnRuleMatchCard": MessageLookupByLibrary.simpleMessage(
-          "juega una carta que coincida en color, número o símbolo con la superior.",
-        ),
+            "juega una carta que coincida en color, número o símbolo con la superior."),
         "unoFlipVictory500Points": MessageLookupByLibrary.simpleMessage(
-          "quien alcance 500 puntos gana.",
-        ),
+            "quien alcance 500 puntos gana."),
         "unoFlipVictoryLowestScoreAlternative":
             MessageLookupByLibrary.simpleMessage(
-          "alternativa: quien tenga la puntuación más baja tras el juego gana.",
-        ),
+                "alternativa: quien tenga la puntuación más baja tras el juego gana."),
         "unoGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-          "sé el primero en jugar todas tus cartas y obtén puntos por las cartas que queden en manos de los oponentes. quien llegue a 500 puntos gana.",
-        ),
+            "sé el primero en jugar todas tus cartas y obtén puntos por las cartas que queden en manos de los oponentes. quien llegue a 500 puntos gana."),
         "unoGameTurnTitle": MessageLookupByLibrary.simpleMessage(
-          "los jugadores juegan una carta que coincida en color, número o símbolo con la superior.",
-        ),
+            "los jugadores juegan una carta que coincida en color, número o símbolo con la superior."),
         "unoPreparationDeckInCenter": MessageLookupByLibrary.simpleMessage(
-          "coloca el mazo restante en el centro como montón de robo.",
-        ),
+            "coloca el mazo restante en el centro como montón de robo."),
         "unoPreparationDistributeCards": MessageLookupByLibrary.simpleMessage(
-          "reparte 7 cartas a cada jugador.",
-        ),
+            "reparte 7 cartas a cada jugador."),
         "unoPreparationFlipFirstCard": MessageLookupByLibrary.simpleMessage(
-          "voltea la carta superior para iniciar el montón de descarte.",
-        ),
+            "voltea la carta superior para iniciar el montón de descarte."),
         "unoScoring20PointsCards": MessageLookupByLibrary.simpleMessage(
-          "\'salta\', \'roba dos\', \'reversa\': 20 puntos.",
-        ),
+            "\'salta\', \'roba dos\', \'reversa\': 20 puntos."),
         "unoScoring40PointsCards": MessageLookupByLibrary.simpleMessage(
-          "\'intercambio\', \'carta blanca\': 40 puntos.",
-        ),
+            "\'intercambio\', \'carta blanca\': 40 puntos."),
         "unoScoring50PointsCards": MessageLookupByLibrary.simpleMessage(
-          "\'comodín\', \'comodín+4\': 50 puntos.",
-        ),
+            "\'comodín\', \'comodín+4\': 50 puntos."),
         "unoScoringNumberCards": MessageLookupByLibrary.simpleMessage(
-          "cartas numéricas: valor facial.",
-        ),
+            "cartas numéricas: valor facial."),
         "unoScoringTitle": MessageLookupByLibrary.simpleMessage("puntuación:"),
         "unoSpecialCardBlank": MessageLookupByLibrary.simpleMessage(
-          "\'carta blanca\': crea una regla antes de empezar.",
-        ),
+            "\'carta blanca\': crea una regla antes de empezar."),
         "unoSpecialCardSwap": MessageLookupByLibrary.simpleMessage(
-          "\'intercambio de manos\': intercambias manos con otro jugador y eliges color.",
-        ),
+            "\'intercambio de manos\': intercambias manos con otro jugador y eliges color."),
         "unoSpecialRuleReshuffle": MessageLookupByLibrary.simpleMessage(
-          "si se acaba el mazo de robo, baraja la pila de descarte.",
-        ),
+            "si se acaba el mazo de robo, baraja la pila de descarte."),
         "unoSpecialRuleUnoCall": MessageLookupByLibrary.simpleMessage(
-          "¿olvidaste decir \'uno\'? roba 2 cartas si te descubren antes del siguiente turno.",
-        ),
+            "¿olvidaste decir \'uno\'? roba 2 cartas si te descubren antes del siguiente turno."),
         "unoTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-          "uno® es una marca registrada de mattel.",
-        ),
+            "uno® es una marca registrada de mattel."),
         "unoTurnRuleDrawCard": MessageLookupByLibrary.simpleMessage(
-          "si no puedes jugar, roba una carta. si es jugable, puedes jugarla inmediatamente.",
-        ),
+            "si no puedes jugar, roba una carta. si es jugable, puedes jugarla inmediatamente."),
         "unoTurnRuleMatchCard": MessageLookupByLibrary.simpleMessage(
-          "los jugadores juegan una carta que coincide en color, número o símbolo con la superior.",
-        ),
+            "los jugadores juegan una carta que coincide en color, número o símbolo con la superior."),
         "unoTurnRuleOptionalDraw": MessageLookupByLibrary.simpleMessage(
-          "los jugadores pueden robar incluso si tienen jugable, pero no jugarla ese turno.",
-        ),
+            "los jugadores pueden robar incluso si tienen jugable, pero no jugarla ese turno."),
         "unoVictory500Points": MessageLookupByLibrary.simpleMessage(
-          "quien alcance 500 puntos gana.",
-        ),
-        "unoVictoryLowestScoreAlternative":
-            MessageLookupByLibrary.simpleMessage(
-          "alternativa: gana quien tenga la puntuación más baja al final.",
-        ),
+            "quien alcance 500 puntos gana."),
+        "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
+            "alternativa: gana quien tenga la puntuación más baja al final."),
         "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
-          "mejora un poblado a ciudad (+1 punto)",
-        ),
-        "victoryPointCard": MessageLookupByLibrary.simpleMessage(
-          "carta de punto de victoria",
-        ),
+            "mejora un poblado a ciudad (+1 punto)"),
+        "victoryPointCard":
+            MessageLookupByLibrary.simpleMessage("carta de punto de victoria"),
         "victoryTitle": MessageLookupByLibrary.simpleMessage("victoria:"),
         "warrior": MessageLookupByLibrary.simpleMessage("guerrero"),
-        "whoGoesFirst": MessageLookupByLibrary.simpleMessage(
-          "¿quién reparte primero?",
-        ),
-        "wildCardOneDosInfo": MessageLookupByLibrary.simpleMessage(
-          "carta comodín #",
-        ),
+        "whoGoesFirst":
+            MessageLookupByLibrary.simpleMessage("¿quién reparte primero?"),
+        "wildCardOneDosInfo":
+            MessageLookupByLibrary.simpleMessage("carta comodín #"),
         "wildCardUnoInfo":
             MessageLookupByLibrary.simpleMessage("carta comodín"),
-        "wildDrawColorUnoFlipInfo": MessageLookupByLibrary.simpleMessage(
-          "comodín roba color",
-        ),
-        "wildDrawFourCardUnoInfo": MessageLookupByLibrary.simpleMessage(
-          "carta comodín+4",
-        ),
-        "wildDrawTwoCardDosInfo": MessageLookupByLibrary.simpleMessage(
-          "carta comodín roba dos",
-        ),
-        "wildShuffleHandsCardUnoInfo": MessageLookupByLibrary.simpleMessage(
-          "carta comodín baraja manos",
-        ),
+        "wildDrawColorUnoFlipInfo":
+            MessageLookupByLibrary.simpleMessage("comodín roba color"),
+        "wildDrawFourCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("carta comodín+4"),
+        "wildDrawTwoCardDosInfo":
+            MessageLookupByLibrary.simpleMessage("carta comodín roba dos"),
+        "wildShuffleHandsCardUnoInfo":
+            MessageLookupByLibrary.simpleMessage("carta comodín baraja manos"),
         "winner": MessageLookupByLibrary.simpleMessage("ganador: "),
         "wizard": MessageLookupByLibrary.simpleMessage("mago"),
         "wordIsTooLongMaximum15LettersAllowed":
             MessageLookupByLibrary.simpleMessage(
-          "la palabra es demasiado larga. máximo 15 letras permitidas",
-        ),
-        "wordModifier": MessageLookupByLibrary.simpleMessage(
-          "modificador de palabra: ",
-        ),
+                "la palabra es demasiado larga. máximo 15 letras permitidas"),
+        "wordModifier":
+            MessageLookupByLibrary.simpleMessage("modificador de palabra: "),
         "x2Word": MessageLookupByLibrary.simpleMessage("x2 pal"),
         "x3Word": MessageLookupByLibrary.simpleMessage("x3 pal"),
         "yes": MessageLookupByLibrary.simpleMessage("sí"),
         "youHaveAnUnfinishedGame": MessageLookupByLibrary.simpleMessage(
-          "tienes un juego sin terminar",
-        ),
-        "yourBet": MessageLookupByLibrary.simpleMessage("tu apuesta"),
+            "tienes un juego sin terminar"),
+        "yourBet": MessageLookupByLibrary.simpleMessage("tu apuesta")
       };
 }
