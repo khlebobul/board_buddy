@@ -222,7 +222,6 @@ class _MunchkinCustomKeyboardState extends State<MunchkinCustomKeyboard> {
       ),
     );
   }
-
 }
 
 /// Animated text button with color animation

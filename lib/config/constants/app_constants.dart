@@ -86,6 +86,10 @@ class RulesConst {
 // catan
   static const catanAge = '10+';
   static const catanPlayers = '3-4';
+
+// sea salt & paper
+  static const seaSaltPaperAge = '8+';
+  static const seaSaltPaperPlayers = '2-4';
 }
 
 class GameConst {
@@ -103,9 +107,13 @@ class GameConst {
   static const oneToTen = '1-10';
   static const zeroToNine = '0-9';
   static const oneToNine = '2-9';
-  static const plusTwo = '+2';
   static const plusOne = '+1';
+  static const plusTwo = '+2';
   static const plusFive = '+5';
+  // sea salt & paper
+  static const plusThree = '+3';
+  static const plusSeven = '+7';
+  static const oneToSeven = '1-7';
 }
 
 class GameMaxPlayers {
@@ -118,6 +126,7 @@ class GameMaxPlayers {
   static const commonCounter = 30;
   static const thousand = 3;
   static const catan = 4;
+  static const seaSaltPaper = 4;
 }
 
 class GameMinPlayers {
@@ -130,6 +139,22 @@ class GameMinPlayers {
   static const commonCounter = 2;
   static const thousand = 2;
   static const catan = 3;
+  static const seaSaltPaper = 2;
+}
+
+class SeaSaltPaperScoreLimit {
+  static int getScoreLimit(int playerCount) {
+    switch (playerCount) {
+      case 2:
+        return 40;
+      case 3:
+        return 35;
+      case 4:
+        return 30;
+      default:
+        return 40;
+    }
+  }
 }
 
 class UnoLikeGameCardsText {
@@ -175,4 +200,8 @@ class CatanCardsPoints {
   static const victoryPointCard = '1';
   static const longestRoad = '2';
   static const largestArmy = '2';
+}
+
+class SeaSaltPaperCollectionPoints {
+  static const List<int> points = [1, 3, 5, 7, 9, 11];
 }

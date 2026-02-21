@@ -127,7 +127,9 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
     Emitter<MunchkinState> emit,
   ) {
     final initializedPlayers = event.players.map((player) {
-      final hasExistingProgress = player.level != 1 || player.gear != 0 || player.temporaryModifier != 0;
+      final hasExistingProgress = player.level != 1 ||
+          player.gear != 0 ||
+          player.temporaryModifier != 0;
 
       if (hasExistingProgress) {
         return Player(
@@ -143,7 +145,8 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
         );
       } else {
         // This is a new game - set default Munchkin starting values
-        debugPrint('InitializeGameScreen: Setting default values for ${player.name}');
+        debugPrint(
+            'InitializeGameScreen: Setting default values for ${player.name}');
         return Player(
           name: player.name,
           id: player.id,
@@ -930,7 +933,8 @@ class MunchkinBloc extends Bloc<MunchkinEvent, MunchkinState> {
           players[i].score = players[i].level + players[i].gear;
 
           debugPrint('Restored player $i: ${players[i].name}');
-          debugPrint('  Score recalculated: ${players[i].score} (level: ${players[i].level} + gear: ${players[i].gear})');
+          debugPrint(
+              '  Score recalculated: ${players[i].score} (level: ${players[i].level} + gear: ${players[i].gear})');
           debugPrint('  Level: ${players[i].level}, Gear: ${players[i].gear}');
           debugPrint('  Temporary Modifier: ${players[i].temporaryModifier}');
           debugPrint(

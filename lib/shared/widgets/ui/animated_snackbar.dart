@@ -101,12 +101,12 @@ class _AnimatedSnackBarWidgetState extends State<_AnimatedSnackBarWidget>
             child: Container(
               padding: const EdgeInsets.symmetric(horizontal: 16, vertical: 14),
               decoration: BoxDecoration(
-                color: theme.fgColor,
+                color: theme.textColor,
                 borderRadius: BorderRadius.circular(8),
               ),
               child: Text(
                 widget.message,
-                style: theme.display6.copyWith(color: theme.textColor),
+                style: theme.display6.copyWith(color: theme.fgColor),
               ),
             ),
           ),

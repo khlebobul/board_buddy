@@ -33,6 +33,10 @@ import 'package:board_buddy/features/games/catan/bloc/catan_bloc.dart';
 import 'package:board_buddy/features/games/catan/view/catan_game.dart';
 import 'package:board_buddy/features/games/catan/view/catan_start_screen.dart';
 import 'package:board_buddy/features/games/catan/view/catan_rules.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/bloc/sea_salt_paper_bloc.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/view/sea_salt_paper_game.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/view/sea_salt_paper_rules.dart';
+import 'package:board_buddy/features/games/sea_salt_paper/view/sea_salt_paper_start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_start_screen.dart';
@@ -55,6 +59,7 @@ class AppRoutes {
   static const String munchkinRules = '/munchkinRules';
   static const String thousandRules = '/thousandRules';
   static const String catanRules = '/catanRules';
+  static const String seaSaltPaperRules = '/seaSaltPaperRules';
 
   // games
   static const String unoGame = '/unoGame';
@@ -75,6 +80,8 @@ class AppRoutes {
   static const String thousandStartGame = '/thousandStartGame';
   static const String catanGame = '/catanGame';
   static const String catanStartGame = '/catanStartGame';
+  static const String seaSaltPaperGame = '/seaSaltPaperGame';
+  static const String seaSaltPaperStartGame = '/seaSaltPaperStartGame';
 
   static Map<String, WidgetBuilder> get routes => {
         // main
@@ -93,6 +100,7 @@ class AppRoutes {
         munchkinRules: (context) => const MunchkinRulesScreen(),
         thousandRules: (context) => const ThousandRulesScreen(),
         catanRules: (context) => const CatanRulesScreen(),
+        seaSaltPaperRules: (context) => const SeaSaltPaperRulesScreen(),
 
         // games
         unoStartGame: (context) => const UnoStartScreen(),
@@ -106,6 +114,7 @@ class AppRoutes {
         commonGameStartScreen: (context) => const CommonGameStartScreen(),
         thousandStartGame: (context) => const ThousandStartScreen(),
         catanStartGame: (context) => const CatanStartScreen(),
+        seaSaltPaperStartGame: (context) => const SeaSaltPaperStartScreen(),
       };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
@@ -289,6 +298,32 @@ class AppRoutes {
               players: const [],
               scoreLimit: 10,
               gameMode: '',
+            ),
+          ),
+        );
+      }
+    }
+
+    // sea salt & paper game
+    if (settings.name == seaSaltPaperGame) {
+      if (settings.arguments != null) {
+        final args = settings.arguments as Map<String, dynamic>;
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => SeaSaltPaperBloc(),
+            child: SeaSaltPaperGame(
+              players: args['players'],
+              scoreLimit: args['scoreLimit'],
+            ),
+          ),
+        );
+      } else {
+        return MaterialPageRoute(
+          builder: (context) => BlocProvider(
+            create: (context) => SeaSaltPaperBloc(),
+            child: SeaSaltPaperGame(
+              players: const [],
+              scoreLimit: 40,
             ),
           ),
         );
