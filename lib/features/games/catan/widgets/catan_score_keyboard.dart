@@ -314,4 +314,3 @@ class _AnimatedTextButtonState extends State<_AnimatedTextButton>
     );
   }
 }
-

@@ -372,8 +372,9 @@ class _AnimatedBidTextButtonState extends State<_AnimatedBidTextButton>
 
   void _updateColorAnimation() {
     _colorAnimation = ColorTween(
-      begin:
-          widget.isEnabled ? widget.theme.textColor : widget.theme.secondaryTextColor,
+      begin: widget.isEnabled
+          ? widget.theme.textColor
+          : widget.theme.secondaryTextColor,
       end: widget.theme.secondaryTextColor,
     ).animate(_controller);
   }

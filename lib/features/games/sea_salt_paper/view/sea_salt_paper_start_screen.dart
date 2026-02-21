@@ -78,7 +78,6 @@ class _SeaSaltPaperStartScreenViewState
                     mainAxisAlignment: MainAxisAlignment.start,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
-                      // score limit info
                       Row(
                         children: [
                           Text(
@@ -118,8 +117,6 @@ class _SeaSaltPaperStartScreenViewState
                         ),
                       ),
                       const SizedBox(height: 12),
-
-                      // players list
                       Text(
                         S.of(context).players,
                         style: theme.display2
@@ -185,8 +182,6 @@ class _SeaSaltPaperStartScreenViewState
                                         .copyWith(color: theme.redColor),
                                   )),
                         ),
-
-                      // bottom padding for keyboard
                       SizedBox(
                           height: MediaQuery.of(context).viewInsets.bottom > 0
                               ? 300

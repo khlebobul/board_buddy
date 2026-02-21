@@ -20,8 +20,8 @@ final class SeaSaltPaperStartScreenState extends SeaSaltPaperState {
     this.hasSavedGame = false,
   });
 
-  int get defaultScoreLimit =>
-      SeaSaltPaperScoreLimit.getScoreLimit(players.isEmpty ? 2 : players.length);
+  int get defaultScoreLimit => SeaSaltPaperScoreLimit.getScoreLimit(
+      players.isEmpty ? 2 : players.length);
 
   SeaSaltPaperStartScreenState copyWith({
     List<Player>? players,

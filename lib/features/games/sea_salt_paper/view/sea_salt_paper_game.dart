@@ -13,6 +13,7 @@ import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/shared/widgets/ui/modal_window_widget.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
+import 'package:not_static_icons/not_static_icons.dart';
 
 class SeaSaltPaperGame extends StatefulWidget {
   final List<Player> players;
@@ -108,7 +109,8 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
         ),
         content: Column(
           mainAxisSize: MainAxisSize.min,
-          children: SeaSaltPaperCollectionPoints.points.asMap().entries.map((entry) {
+          children:
+              SeaSaltPaperCollectionPoints.points.asMap().entries.map((entry) {
             final count = entry.key + 1;
             final points = entry.value;
             return GestureDetector(
@@ -323,7 +325,8 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
 
     return BlocConsumer<SeaSaltPaperBloc, SeaSaltPaperState>(
       listenWhen: (previous, current) {
-        if (current is SeaSaltPaperGameState && previous is SeaSaltPaperGameState) {
+        if (current is SeaSaltPaperGameState &&
+            previous is SeaSaltPaperGameState) {
           if (previous.gameEnded && current.gameEnded) {
             return false;
           }
@@ -402,14 +405,15 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
                                     padEnds: true,
                                     onPageChanged: (index) {
                                       _currentPageIndex = index;
-                                      bloc.add(
-                                          ChangeSeaSaltPaperCurrentPlayer(index));
+                                      bloc.add(ChangeSeaSaltPaperCurrentPlayer(
+                                          index));
                                     },
                                     itemBuilder: (context, index) {
                                       return Padding(
                                         padding: EdgeInsets.symmetric(
                                           horizontal:
-                                              GeneralConst.paddingHorizontal / 2,
+                                              GeneralConst.paddingHorizontal /
+                                                  2,
                                         ),
                                         child: PlayerCard(
                                           player: gameState.players[index],
@@ -498,37 +502,37 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
                           buttons: [
                             [
                               KeyboardButton(
-                                buttonText: '+1',
+                                buttonText: GameConst.plusOne,
                                 onPressed: () => _updateScore(1),
                               ),
                               KeyboardButton(
-                                buttonText: '+2',
+                                buttonText: GameConst.plusTwo,
                                 onPressed: () => _updateScore(2),
                               ),
                               KeyboardButton(
-                                buttonText: '+3',
+                                buttonText: GameConst.plusThree,
                                 onPressed: () => _updateScore(3),
                               ),
                               KeyboardButton(
-                                buttonText: '+5',
+                                buttonText: GameConst.plusFive,
                                 onPressed: () => _updateScore(5),
                               ),
                             ],
                             [
                               KeyboardButton(
-                                buttonText: '+7',
+                                buttonText: GameConst.plusSeven,
                                 onPressed: () => _updateScore(7),
                               ),
                               KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.collection,
+                                icon: ShellIcon(),
                                 onPressed: _showCollectionDialog,
                               ),
                               KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.palette,
+                                icon: PaletteIcon(),
                                 onPressed: _showColorMajorityDialog,
                               ),
                               KeyboardButton(
-                                buttonText: SeaSaltPaperEmoji.mermaid,
+                                icon: CrownIcon(),
                                 onPressed: _showMermaidVictoryDialog,
                                 textColor: theme.redColor,
                               ),
