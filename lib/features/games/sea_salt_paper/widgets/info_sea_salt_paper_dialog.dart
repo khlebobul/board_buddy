@@ -17,10 +17,12 @@ class InfoSeaSaltPaperDialog extends StatelessWidget {
       backgroundColor: theme.bgColor,
       children: [
         InfoRowWidget(
+          context: context,
           title: GameConst.oneToSeven,
           description: S.of(context).numberButtonsDescription,
         ),
         InfoRowWidget(
+          context: context,
           icon: ShellIcon(
             strokeWidth: 1,
             size: 30,
@@ -31,6 +33,7 @@ class InfoSeaSaltPaperDialog extends StatelessWidget {
           description: S.of(context).seaSaltPaperScoringCollections,
         ),
         InfoRowWidget(
+          context: context,
           icon: PaletteIcon(
             strokeWidth: 1,
             size: 30,
@@ -41,6 +44,7 @@ class InfoSeaSaltPaperDialog extends StatelessWidget {
           description: S.of(context).seaSaltPaperScoringColorMajority,
         ),
         InfoRowWidget(
+          context: context,
           icon: CrownIcon(
             strokeWidth: 1,
             size: 30,
