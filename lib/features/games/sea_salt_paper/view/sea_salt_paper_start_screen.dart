@@ -235,7 +235,16 @@ class _SeaSaltPaperStartScreenViewState
     ModalWindowWidget.showContinueGameDialog(
       context,
       onNewGame: () => bloc.add(DeleteSavedSeaSaltPaperGame()),
-      onContinue: () => bloc.add(LoadSavedSeaSaltPaperGame()),
+      onContinue: () {
+        Navigator.pushNamed(
+          context,
+          AppRoutes.seaSaltPaperGame,
+          arguments: {
+            'players': <Player>[],
+            'scoreLimit': 0,
+          },
+        );
+      },
     );
   }
 }
