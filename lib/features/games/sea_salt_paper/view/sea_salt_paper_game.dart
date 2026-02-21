@@ -255,6 +255,7 @@ class _SeaSaltPaperGameState extends State<SeaSaltPaperGame>
         return PopScope(
           canPop: false,
           child: Scaffold(
+            resizeToAvoidBottomInset: false,
             appBar: CustomAppBar(
               leftButtonText: S.of(context).menu,
               onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
