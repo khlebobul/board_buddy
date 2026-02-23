@@ -16,7 +16,7 @@ class ScrabbleRulesScreen extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: S.of(context).scrabble,
+        rightButtonText: GameNames.scrabble,
         onRightButtonPressed: () {},
       ),
       body: SafeArea(

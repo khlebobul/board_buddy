@@ -65,7 +65,7 @@ class _SeaSaltPaperStartScreenViewState
             appBar: CustomAppBar(
               leftButtonText: S.of(context).back,
               onLeftButtonPressed: () => Navigator.pop(context),
-              rightButtonText: S.of(context).seaSaltPaper,
+              rightButtonText: GameNames.seaSaltPaper,
               onRightButtonPressed: () {},
             ),
             body: SafeArea(

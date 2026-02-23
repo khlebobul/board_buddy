@@ -18,7 +18,7 @@ class CatanRulesScreen extends StatelessWidget {
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
         onLeftButtonPressed: () => Navigator.pop(context),
-        rightButtonText: S.of(context).catan,
+        rightButtonText: GameNames.catan,
         onRightButtonPressed: () {},
       ),
       body: SafeArea(

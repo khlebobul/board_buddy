@@ -51,7 +51,7 @@ class DosStartScreenView extends StatelessWidget {
             appBar: CustomAppBar(
               leftButtonText: S.of(context).back,
               onLeftButtonPressed: () => Navigator.pop(context),
-              rightButtonText: S.of(context).dos,
+              rightButtonText: GameNames.dos,
               onRightButtonPressed: () {},
             ),
             body: SafeArea(

@@ -445,7 +445,7 @@ class MessageLookup extends MessageLookupByLibrary {
         "noItem": MessageLookupByLibrary.simpleMessage("kein gegenstand"),
         "numberButtons": MessageLookupByLibrary.simpleMessage("zahlentasten"),
         "numberButtonsDescription": MessageLookupByLibrary.simpleMessage(
-            "verwenden für basiskarten (krabbe, boot, fisch, hai, schwimmer, matrose, kapitän, leuchtturm) und ihre kombinationen. drücken sie die taste, die ihrer gesamtpunktzahl entspricht."),
+            "verwenden für basiskarten (krabbe, boot, fisch, hai, schwimmer, matrose, kapitän, leuchtturm) und ihre kombinationen. drücke die taste, die deiner gesamtpunktzahl entspricht."),
         "numberCards": MessageLookupByLibrary.simpleMessage("zahlenkarten"),
         "off": MessageLookupByLibrary.simpleMessage("aus"),
         "on": MessageLookupByLibrary.simpleMessage("an"),
