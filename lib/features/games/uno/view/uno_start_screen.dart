@@ -51,7 +51,7 @@ class UnoStartScreenView extends StatelessWidget {
             appBar: CustomAppBar(
               leftButtonText: S.of(context).back,
               onLeftButtonPressed: () => Navigator.pop(context),
-              rightButtonText: S.of(context).uno,
+              rightButtonText: GameNames.uno,
               onRightButtonPressed: () {},
             ),
             body: SafeArea(

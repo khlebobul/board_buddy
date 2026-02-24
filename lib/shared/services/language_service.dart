@@ -14,6 +14,7 @@ class LanguageService {
     'fr',
     'es',
     'it',
+    'zh',
   ];
 
   static Future<String> getInitialLanguage() async {

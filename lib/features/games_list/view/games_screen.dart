@@ -45,7 +45,7 @@ class GamesScreen extends StatelessWidget {
                 behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/unoStartGame'),
                 child: TextScramble(
-                    text: '01 - ${S.of(context).uno}',
+                    text: '01 - ${GameNames.uno}',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,
@@ -58,7 +58,7 @@ class GamesScreen extends StatelessWidget {
                 behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/scrabbleStartGame'),
                 child: TextScramble(
-                    text: '02 - ${S.of(context).scrabble}',
+                    text: '02 - ${GameNames.scrabble}',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,
@@ -71,7 +71,7 @@ class GamesScreen extends StatelessWidget {
                 behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/unoFlipStartGame'),
                 child: TextScramble(
-                    text: '03 - ${S.of(context).unoFlip}',
+                    text: '03 - ${GameNames.unoFlip}',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,
@@ -84,7 +84,7 @@ class GamesScreen extends StatelessWidget {
                 behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/dosStartGame'),
                 child: TextScramble(
-                    text: '04 - ${S.of(context).dos}',
+                    text: '04 - ${GameNames.dos}',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,
@@ -97,7 +97,7 @@ class GamesScreen extends StatelessWidget {
                 behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/setStartGame'),
                 child: TextScramble(
-                    text: '05 - ${S.of(context).set}',
+                    text: '05 - ${GameNames.set}',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,
@@ -110,7 +110,7 @@ class GamesScreen extends StatelessWidget {
                 behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/munchkinStartGame'),
                 child: TextScramble(
-                    text: '06 - ${S.of(context).munchkin}',
+                    text: '06 - ${GameNames.munchkin}',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,
@@ -136,7 +136,7 @@ class GamesScreen extends StatelessWidget {
                 behavior: HitTestBehavior.opaque,
                 onTap: () => Navigator.pushNamed(context, '/catanStartGame'),
                 child: TextScramble(
-                    text: '08 - ${S.of(context).catan}',
+                    text: '08 - ${GameNames.catan}',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,
@@ -150,7 +150,7 @@ class GamesScreen extends StatelessWidget {
                 onTap: () =>
                     Navigator.pushNamed(context, '/seaSaltPaperStartGame'),
                 child: TextScramble(
-                    text: '09 - ${S.of(context).seaSaltPaper}',
+                    text: '09 - ${GameNames.seaSaltPaper}',
                     builder: (context, scrambledText) {
                       return Text(
                         scrambledText,

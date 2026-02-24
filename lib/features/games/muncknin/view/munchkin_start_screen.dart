@@ -70,7 +70,7 @@ class _MunchkinStartScreenViewState extends State<MunchkinStartScreenView> {
             appBar: CustomAppBar(
               leftButtonText: S.of(context).back,
               onLeftButtonPressed: () => Navigator.pop(context),
-              rightButtonText: S.of(context).munchkin,
+              rightButtonText: GameNames.munchkin,
               onRightButtonPressed: () {},
             ),
             body: SafeArea(

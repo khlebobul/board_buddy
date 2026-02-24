@@ -205,3 +205,14 @@ class CatanCardsPoints {
 class SeaSaltPaperCollectionPoints {
   static const List<int> points = [1, 3, 5, 7, 9, 11];
 }
+
+class GameNames {
+  static const uno = 'uno';
+  static const dos = 'dos';
+  static const scrabble = 'scrabble';
+  static const set = 'set';
+  static const unoFlip = 'uno flip';
+  static const munchkin = 'munchkin';
+  static const catan = 'catan';
+  static const seaSaltPaper = 'sea salt & paper';
+}
