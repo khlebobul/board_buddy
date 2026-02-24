@@ -46,7 +46,7 @@ your ultimate board game companion
 - munchkin® _(registered trademark of steve jackson games)_ ➭ [post](https://x.com/khlebobul/status/1922513917374353692)
 - thousand ("tysyacha") / 1000 card ➭ [post](https://x.com/khlebobul/status/2018709190529761487?s=20)
 - catan®  _(registered trademark of catan gmbh)_ ➭ [post](https://x.com/khlebobul/status/2019078495922528285?s=20)
-- sea salt & paper® _(registered trademark of studio bombyx. designed by bruno cathala and théo rivière.)_
+- sea salt & paper® _(registered trademark of studio bombyx. designed by bruno cathala and théo rivière.)_ ➭ [post](https://x.com/khlebobul/status/2026341594887074176?s=20)
 - universal counter ➭ [post](https://x.com/khlebobul/status/1922881738553905177)
 
 ## how to help
