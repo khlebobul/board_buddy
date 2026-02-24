@@ -1,15 +1,21 @@
 # Changelog
 
+## [1.3.1]
+
+### New Features
+- Added Chinese language support
+
+### Fixes
+- Centralized game name identifiers across the application for improved consistency.
+
 ## [1.3.0]
 
 ### New Features
-
 - Added Sea Salt & Paper board game with complete gameplay, including player management, score tracking, undo/redo functionality, and saved game support.
 - Added game rules screen and interactive start screen for Sea Salt & Paper.
 - Added specialized scoring dialogs for collections, color majority, and Mermaid victory conditions.
 
 ### Fixes
-
 - Fixed snackbar styling for improved readability.
 - Corrected minor formatting issues in existing games.
 
