@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.2]
+
+### New Features
+- Added Japanese language support
+
 ## [1.3.1]
 
 ### New Features
