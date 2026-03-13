@@ -7,6 +7,7 @@ import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/utils/useful_methods.dart';
 import 'package:board_buddy/features/home/widgets/add_new_game.dart';
+import 'package:board_buddy/shared/widgets/ui/blurred_scroll_view.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
@@ -48,73 +49,78 @@ class SettingsScreenView extends StatelessWidget {
             onRightButtonPressed: () {},
           ),
           body: SafeArea(
-            child: SingleChildScrollView(
-              child: Padding(
-                padding: const EdgeInsets.symmetric(
-                        horizontal: GeneralConst.paddingHorizontal) +
-                    const EdgeInsets.only(top: GeneralConst.paddingVertical),
-                child: Column(
-                  crossAxisAlignment: CrossAxisAlignment.start,
-                  mainAxisAlignment: MainAxisAlignment.start,
-                  children: [
-                    Text(
-                      S.of(context).languages,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    _buildLanguageOption(context, 'english', 'en', state),
-                    _buildLanguageOption(context, 'русский', 'ru', state),
-                    _buildLanguageOption(context, 'deutsch', 'de', state),
-                    _buildLanguageOption(context, 'français', 'fr', state),
-                    _buildLanguageOption(context, 'español', 'es', state),
-                    _buildLanguageOption(context, 'italiano', 'it', state),
-                    _buildLanguageOption(context, '中文', 'zh', state),
-                    const SizedBox(height: 12),
-                    Text(
-                      S.of(context).theme,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    _buildThemeOption(
-                        context, S.of(context).light, false, state),
-                    _buildThemeOption(context, S.of(context).dark, true, state),
-                    const SizedBox(height: 12),
-                    Text(
-                      S.of(context).keepAwakeMode,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    _buildKeepScreenOnOption(
-                        context, S.of(context).on, true, state),
-                    _buildKeepScreenOnOption(
-                        context, S.of(context).off, false, state),
-                    const SizedBox(height: 12),
-                    Text(
-                      S.of(context).others,
-                      style: theme.display2
-                          .copyWith(color: theme.secondaryTextColor),
-                    ),
-                    _buildMailOption(
-                      context,
-                      S.of(context).reportABug,
-                      MailSubjectConst.bug,
-                    ),
-                    _buildMailOption(
-                      context,
-                      S.of(context).shareFeedback,
-                      MailSubjectConst.feedback,
-                    ),
-                    _buildMailOption(
-                      context,
-                      S.of(context).featureRequest,
-                      MailSubjectConst.feature,
-                    ),
-                    const SizedBox(height: 30),
-                    const AddFavouriteGame(),
-                    const SizedBox(height: 30),
-                  ],
+            child: BlurredScrollView(
+              maskColor: theme.bgColor,
+              children: [
+                Padding(
+                  padding: const EdgeInsets.symmetric(
+                          horizontal: GeneralConst.paddingHorizontal) +
+                      const EdgeInsets.only(top: GeneralConst.paddingVertical),
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    mainAxisAlignment: MainAxisAlignment.start,
+                    children: [
+                      Text(
+                        S.of(context).languages,
+                        style: theme.display2
+                            .copyWith(color: theme.secondaryTextColor),
+                      ),
+                      _buildLanguageOption(context, 'english', 'en', state),
+                      _buildLanguageOption(context, 'русский', 'ru', state),
+                      _buildLanguageOption(context, 'deutsch', 'de', state),
+                      _buildLanguageOption(context, 'français', 'fr', state),
+                      _buildLanguageOption(context, 'español', 'es', state),
+                      _buildLanguageOption(context, 'italiano', 'it', state),
+                      _buildLanguageOption(context, '中文', 'zh', state),
+                      _buildLanguageOption(context, '日本語', 'ja', state),
+                      const SizedBox(height: 12),
+                      Text(
+                        S.of(context).theme,
+                        style: theme.display2
+                            .copyWith(color: theme.secondaryTextColor),
+                      ),
+                      _buildThemeOption(
+                          context, S.of(context).light, false, state),
+                      _buildThemeOption(
+                          context, S.of(context).dark, true, state),
+                      const SizedBox(height: 12),
+                      Text(
+                        S.of(context).keepAwakeMode,
+                        style: theme.display2
+                            .copyWith(color: theme.secondaryTextColor),
+                      ),
+                      _buildKeepScreenOnOption(
+                          context, S.of(context).on, true, state),
+                      _buildKeepScreenOnOption(
+                          context, S.of(context).off, false, state),
+                      const SizedBox(height: 12),
+                      Text(
+                        S.of(context).others,
+                        style: theme.display2
+                            .copyWith(color: theme.secondaryTextColor),
+                      ),
+                      _buildMailOption(
+                        context,
+                        S.of(context).reportABug,
+                        MailSubjectConst.bug,
+                      ),
+                      _buildMailOption(
+                        context,
+                        S.of(context).shareFeedback,
+                        MailSubjectConst.feedback,
+                      ),
+                      _buildMailOption(
+                        context,
+                        S.of(context).featureRequest,
+                        MailSubjectConst.feature,
+                      ),
+                      const SizedBox(height: 30),
+                      const AddFavouriteGame(),
+                      const SizedBox(height: 30),
+                    ],
+                  ),
                 ),
-              ),
+              ],
             ),
           ),
         );

@@ -514,6 +514,5 @@
   "numberButtons": "数字按钮",
   "numberButtonsDescription": "用于基础卡牌（螃蟹、船、鱼、鲨鱼、游泳者、水手、船长、灯塔）及其组合。按下与你总分匹配的按钮。",
   "mermaidVictory": "美人鱼胜利",
-  "custom": "（自定义）",
-  "chinese": "中文"
+  "custom": "（自定义）"
 }

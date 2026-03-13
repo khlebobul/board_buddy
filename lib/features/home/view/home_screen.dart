@@ -64,7 +64,7 @@ class _HomeScreenState extends State<HomeScreen> {
                   children: [
                     const SizedBox(height: 12),
                     TextScramble(
-                        text: S.of(context).boardBuddy,
+                        text: 'board buddy',
                         builder: (context, scrambledText) {
                           return Text(
                             scrambledText,
