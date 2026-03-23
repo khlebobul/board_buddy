@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.3]
+
+### New Features
+- Added Korean language support
+
 ## [1.3.2]
 
 ### New Features
