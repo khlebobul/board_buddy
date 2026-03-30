@@ -74,6 +74,7 @@ class SettingsScreenView extends StatelessWidget {
                       _buildLanguageOption(context, '中文', 'zh', state),
                       _buildLanguageOption(context, '日本語', 'ja', state),
                       _buildLanguageOption(context, '한국어', 'ko', state),
+                      _buildLanguageOption(context, 'हिन्दी', 'hi', state),
                       const SizedBox(height: 12),
                       Text(
                         S.of(context).theme,
