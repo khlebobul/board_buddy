@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.4]
+
+### New Features
+- Added Hindi language support
+
 ## [1.3.3]
 
 ### New Features
