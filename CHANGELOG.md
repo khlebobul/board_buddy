@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.5]
+
+### Technical updates
+- Updated packages versions
+
 ## [1.3.4]
 
 ### New Features
