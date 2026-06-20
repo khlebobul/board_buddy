@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.3.6]
+
+### Improvements
+- Add support multi-digit score input
+
 ## [1.3.5]
 
 ### Technical updates

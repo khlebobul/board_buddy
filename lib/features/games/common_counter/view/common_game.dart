@@ -70,6 +70,7 @@ class _CommonGameViewState extends State<CommonGameView>
   int _currentPageIndex = 0;
   bool _isNumericKeyboard = false;
   bool _isAddOperation = true;
+  String _scoreInput = '';
 
   @override
   void initState() {
@@ -168,6 +169,28 @@ class _CommonGameViewState extends State<CommonGameView>
     _animationController.forward().then((_) {
       bloc.add(ResetScoreAnimation());
     });
+  }
+
+  void _appendScoreDigit(int digit) {
+    setState(() {
+      _scoreInput = _scoreInput == '0' ? '$digit' : '$_scoreInput$digit';
+    });
+  }
+
+  void _toggleScoreOperation() {
+    setState(() => _isAddOperation = !_isAddOperation);
+  }
+
+  void _submitScore(BuildContext context) {
+    final amount = int.tryParse(_scoreInput);
+    if (amount == null || amount == 0) return;
+
+    _updateScore(
+      context,
+      _currentPageIndex,
+      _isAddOperation ? amount : -amount,
+    );
+    setState(() => _scoreInput = '');
   }
 
   @override
@@ -272,6 +295,7 @@ class _CommonGameViewState extends State<CommonGameView>
               onKeyboardBtnTap: () {
                 setState(() {
                   _isNumericKeyboard = !_isNumericKeyboard;
+                  _scoreInput = '';
                 });
               },
               isKeyboardActive: gameState.isSinglePlayer ? false : true,
@@ -318,6 +342,7 @@ class _CommonGameViewState extends State<CommonGameView>
                       onPageChanged: (index) {
                         setState(() {
                           _currentPageIndex = index;
+                          _scoreInput = '';
                         });
                         WidgetsBinding.instance.addPostFrameCallback((_) {
                           _scrollToActiveIndicator();
@@ -414,14 +439,37 @@ class _CommonGameViewState extends State<CommonGameView>
               ? Column(
                   children: [
                     Container(
+                      width: double.infinity,
                       padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: Text(
-                        _isAddOperation
-                            ? S.of(context).adding
-                            : S.of(context).subtracting,
-                        style: theme.display7.copyWith(
-                          color: theme.secondaryTextColor,
-                        ),
+                      child: Stack(
+                        alignment: Alignment.center,
+                        children: [
+                          Padding(
+                            padding: const EdgeInsets.symmetric(horizontal: 48),
+                            child: Text(
+                              '${_isAddOperation ? '+' : '−'}${_scoreInput.isEmpty ? '0' : _scoreInput}',
+                              textAlign: TextAlign.center,
+                              style: theme.display7.copyWith(
+                                color: theme.secondaryTextColor,
+                              ),
+                              maxLines: 1,
+                              overflow: TextOverflow.ellipsis,
+                            ),
+                          ),
+                          Positioned(
+                            right: 12,
+                            child: Semantics(
+                              button: true,
+                              label: S.of(context).clear,
+                              child: BrushCleaningIcon(
+                                color: theme.secondaryTextColor,
+                                strokeWidth: 1,
+                                size: 15,
+                                onTap: () => setState(() => _scoreInput = ''),
+                              ),
+                            ),
+                          ),
+                        ],
                       ),
                     ),
                     CustomKeyboard(
@@ -430,93 +478,82 @@ class _CommonGameViewState extends State<CommonGameView>
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.one,
-                            onPressed: () => _updateScore(context,
-                                _currentPageIndex, _isAddOperation ? 1 : -1),
+                            onPressed: () => _appendScoreDigit(1),
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.two,
-                            onPressed: () => _updateScore(context,
-                                _currentPageIndex, _isAddOperation ? 2 : -2),
+                            onPressed: () => _appendScoreDigit(2),
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.three,
-                            onPressed: () => _updateScore(context,
-                                _currentPageIndex, _isAddOperation ? 3 : -3),
+                            onPressed: () => _appendScoreDigit(3),
                           ),
                         ],
                         [
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.four,
-                            onPressed: () => _updateScore(context,
-                                _currentPageIndex, _isAddOperation ? 4 : -4),
+                            onPressed: () => _appendScoreDigit(4),
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.five,
-                            onPressed: () => _updateScore(context,
-                                _currentPageIndex, _isAddOperation ? 5 : -5),
+                            onPressed: () => _appendScoreDigit(5),
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.six,
-                            onPressed: () => _updateScore(context,
-                                _currentPageIndex, _isAddOperation ? 6 : -6),
+                            onPressed: () => _appendScoreDigit(6),
                           ),
                         ],
                         [
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.seven,
-                            onPressed: () => _updateScore(context,
-                                _currentPageIndex, _isAddOperation ? 7 : -7),
+                            onPressed: () => _appendScoreDigit(7),
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.eight,
-                            onPressed: () => _updateScore(context,
-                                _currentPageIndex, _isAddOperation ? 8 : -8),
+                            onPressed: () => _appendScoreDigit(8),
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.nine,
-                            onPressed: () => _updateScore(context,
-                                _currentPageIndex, _isAddOperation ? 9 : -9),
+                            onPressed: () => _appendScoreDigit(9),
                           ),
                         ],
                         [
                           KeyboardButton(
                             useCompactMargin: true,
-                            icon: MinusIcon(
-                              color: theme.textColor,
-                              strokeWidth: 1,
-                              size: 30,
-                              onTap: () {
-                                setState(() {
-                                  _isAddOperation = false;
-                                });
-                              },
-                            ),
+                            icon: _isAddOperation
+                                ? PlusIcon(
+                                    color: theme.textColor,
+                                    strokeWidth: 1,
+                                    size: 30,
+                                    onTap: _toggleScoreOperation,
+                                  )
+                                : MinusIcon(
+                                    color: theme.textColor,
+                                    strokeWidth: 1,
+                                    size: 30,
+                                    onTap: _toggleScoreOperation,
+                                  ),
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
                             buttonText: UnoLikeGameCardsText.zero,
-                            onPressed: () =>
-                                _updateScore(context, _currentPageIndex, 0),
+                            onPressed: () => _appendScoreDigit(0),
                           ),
                           KeyboardButton(
                             useCompactMargin: true,
-                            icon: PlusIcon(
+                            icon: CornerDownLeftIcon(
                               color: theme.textColor,
-                              strokeWidth: 1,
                               size: 30,
-                              onTap: () {
-                                setState(() {
-                                  _isAddOperation = true;
-                                });
-                              },
+                              strokeWidth: 1,
+                              onTap: () => _submitScore(context),
                             ),
                           ),
                         ],
