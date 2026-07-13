@@ -7,9 +7,63 @@ class UIThemes {
 
   UIThemes({this.brightness = Brightness.light});
 
+  static final ButtonStyle _noSplash = ButtonStyle(
+    overlayColor: WidgetStateProperty.all(Colors.transparent),
+    splashFactory: NoSplash.splashFactory,
+  );
+
+  static ThemeData _withoutTapEffects(ThemeData theme) {
+    return theme.copyWith(
+      splashColor: Colors.transparent,
+      splashFactory: NoSplash.splashFactory,
+      highlightColor: Colors.transparent,
+      hoverColor: Colors.transparent,
+      focusColor: Colors.transparent,
+      iconButtonTheme: IconButtonThemeData(style: _noSplash),
+      floatingActionButtonTheme: const FloatingActionButtonThemeData(
+        splashColor: Colors.transparent,
+      ),
+      textButtonTheme: TextButtonThemeData(style: _noSplash),
+      elevatedButtonTheme: ElevatedButtonThemeData(style: _noSplash),
+      outlinedButtonTheme: OutlinedButtonThemeData(style: _noSplash),
+      filledButtonTheme: FilledButtonThemeData(style: _noSplash),
+      navigationBarTheme: NavigationBarThemeData(
+        overlayColor: WidgetStateProperty.all(Colors.transparent),
+      ),
+      tabBarTheme: TabBarThemeData(
+        overlayColor: WidgetStateProperty.all(Colors.transparent),
+        splashFactory: NoSplash.splashFactory,
+      ),
+      checkboxTheme: CheckboxThemeData(
+        overlayColor: WidgetStateProperty.all(Colors.transparent),
+        splashRadius: 0,
+      ),
+      radioTheme: RadioThemeData(
+        overlayColor: WidgetStateProperty.all(Colors.transparent),
+        splashRadius: 0,
+      ),
+      switchTheme: SwitchThemeData(
+        overlayColor: WidgetStateProperty.all(Colors.transparent),
+      ),
+      sliderTheme: SliderThemeData(
+        overlayColor: Colors.transparent,
+        overlayShape: SliderComponentShape.noOverlay,
+      ),
+      menuButtonTheme: MenuButtonThemeData(style: _noSplash),
+      segmentedButtonTheme: SegmentedButtonThemeData(style: _noSplash),
+      toggleButtonsTheme: const ToggleButtonsThemeData(
+        splashColor: Colors.transparent,
+        highlightColor: Colors.transparent,
+      ),
+      searchBarTheme: SearchBarThemeData(
+        overlayColor: WidgetStateProperty.all(Colors.transparent),
+      ),
+    );
+  }
+
   // Light mode
   static ThemeData lightTheme() {
-    return ThemeData(
+    return _withoutTapEffects(ThemeData(
       useMaterial3: true,
       brightness: Brightness.light,
       fontFamily: 'RobotoMono',
@@ -29,12 +83,12 @@ class UIThemes {
         primary: Colors.transparent,
         surface: LightModeColors.background,
       ),
-    );
+    ));
   }
 
   // Dark mode
   static ThemeData darkTheme() {
-    return ThemeData(
+    return _withoutTapEffects(ThemeData(
       useMaterial3: true,
       brightness: Brightness.dark,
       fontFamily: 'RobotoMono',
@@ -54,7 +108,7 @@ class UIThemes {
         primary: Colors.transparent,
         surface: DarkModeColors.background,
       ),
-    );
+    ));
   }
 
   static UIThemes of(BuildContext context) {

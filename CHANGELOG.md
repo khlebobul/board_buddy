@@ -1,5 +1,21 @@
 # Changelog
 
+## [Unreleased]
+
+### Improvements
+- Disabled Material tap ripple, highlight, hover, focus, and overlay effects across the app theme.
+- Added spring-based press animations to shared buttons and main menu actions.
+- Simplified games and rules menu rendering while keeping navigation behavior unchanged.
+- Email subjects now use spaces without plus signs or dash separators.
+- Removed favorite game request and contributors blocks from app screens.
+
+### Technical updates
+- Updated Flutter package constraints to the latest resolvable versions.
+- Updated Android Gradle wrapper to 8.14 and Kotlin Gradle plugin to 2.2.20.
+- Removed CocoaPods integration from the iOS project and switched plugin integration to Swift Package Manager.
+- Raised the iOS deployment target to 15.0.
+- Excluded generated localization files from analyzer lint checks.
+
 ## [1.3.6]
 
 ### Improvements

@@ -1,8 +1,3 @@
-// TODO: add your github username here (without @, example: 'khlebobul')
-class ContributorsConst {
-  static const List<String> contributors = ['khlebobul'];
-}
-
 class AppLnksConst {
   static const myWebSitelink = 'https://khlebobul.github.io';
   static const telegramLink = 'https://t.me/khlebobul_dev';
@@ -42,7 +37,6 @@ class SplashScreenConst {
 }
 
 class MailSubjectConst {
-  static const gameRequest = 'game request';
   static const bug = 'bug';
   static const feature = 'feature';
   static const feedback = 'feedback';

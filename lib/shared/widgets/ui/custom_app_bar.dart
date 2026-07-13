@@ -1,4 +1,5 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/shared/widgets/ui/pressable.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
@@ -41,8 +42,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
           children: [
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
+            Pressable(
               onTap: onLeftButtonPressed,
               child: TextScramble(
                   text: leftButtonText,
@@ -53,8 +53,7 @@ class CustomAppBar extends StatelessWidget implements PreferredSizeWidget {
                     );
                   }),
             ),
-            GestureDetector(
-              behavior: HitTestBehavior.opaque,
+            Pressable(
               onTap: onRightButtonPressed,
               child: isRules
                   ? TextScramble(

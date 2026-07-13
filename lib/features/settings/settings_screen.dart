@@ -6,7 +6,6 @@ import 'package:board_buddy/shared/services/theme_service.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/utils/useful_methods.dart';
-import 'package:board_buddy/features/home/widgets/add_new_game.dart';
 import 'package:board_buddy/shared/widgets/ui/blurred_scroll_view.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:flutter/material.dart';
@@ -116,8 +115,6 @@ class SettingsScreenView extends StatelessWidget {
                         S.of(context).featureRequest,
                         MailSubjectConst.feature,
                       ),
-                      const SizedBox(height: 30),
-                      const AddFavouriteGame(),
                       const SizedBox(height: 30),
                     ],
                   ),

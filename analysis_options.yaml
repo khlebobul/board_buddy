@@ -4,6 +4,7 @@ analyzer:
   exclude:
     - build/**
     - .dart_tool/**
+    - lib/generated/**
   errors:
     avoid_print: warning # Avoid using the print function
 

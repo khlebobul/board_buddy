@@ -1,8 +1,8 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/features/home/widgets/add_new_game.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
+import 'package:board_buddy/shared/widgets/ui/pressable.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
@@ -12,6 +12,19 @@ class GamesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
+    final games = [
+      ('00 - ${S.of(context).common}', '/commonStartGame'),
+      ('01 - ${GameNames.uno}', '/unoStartGame'),
+      ('02 - ${GameNames.scrabble}', '/scrabbleStartGame'),
+      ('03 - ${GameNames.unoFlip}', '/unoFlipStartGame'),
+      ('04 - ${GameNames.dos}', '/dosStartGame'),
+      ('05 - ${GameNames.set}', '/setStartGame'),
+      ('06 - ${GameNames.munchkin}', '/munchkinStartGame'),
+      ('07 - 1000', '/thousandStartGame'),
+      ('08 - ${GameNames.catan}', '/catanStartGame'),
+      ('09 - ${GameNames.seaSaltPaper}', '/seaSaltPaperStartGame'),
+    ];
+
     return Scaffold(
       appBar: CustomAppBar(
         leftButtonText: S.of(context).back,
@@ -28,138 +41,19 @@ class GamesScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/commonStartGame'),
-                child: TextScramble(
-                    text: '00 - ${S.of(context).common}',
+              for (final game in games) ...[
+                Pressable(
+                  onTap: () => Navigator.pushNamed(context, game.$2),
+                  child: TextScramble(
+                    text: game.$1,
                     builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/unoStartGame'),
-                child: TextScramble(
-                    text: '01 - ${GameNames.uno}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/scrabbleStartGame'),
-                child: TextScramble(
-                    text: '02 - ${GameNames.scrabble}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/unoFlipStartGame'),
-                child: TextScramble(
-                    text: '03 - ${GameNames.unoFlip}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/dosStartGame'),
-                child: TextScramble(
-                    text: '04 - ${GameNames.dos}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/setStartGame'),
-                child: TextScramble(
-                    text: '05 - ${GameNames.set}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/munchkinStartGame'),
-                child: TextScramble(
-                    text: '06 - ${GameNames.munchkin}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/thousandStartGame'),
-                child: TextScramble(
-                    text: '07 - 1000',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/catanStartGame'),
-                child: TextScramble(
-                    text: '08 - ${GameNames.catan}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () =>
-                    Navigator.pushNamed(context, '/seaSaltPaperStartGame'),
-                child: TextScramble(
-                    text: '09 - ${GameNames.seaSaltPaper}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
+                      return Text(scrambledText, style: theme.display3);
+                    },
+                  ),
+                ),
+                const SizedBox(height: 5),
+              ],
               const Spacer(),
-              const AddFavouriteGame(),
             ],
           ),
         ),
