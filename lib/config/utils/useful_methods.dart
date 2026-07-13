@@ -7,13 +7,7 @@ import 'package:url_launcher/url_launcher.dart';
 // send email
 Future<void> sendEmail(
     BuildContext context, String email, String subject) async {
-  final Uri emailLaunchUri = Uri(
-    scheme: 'mailto',
-    path: email,
-    queryParameters: {
-      'subject': '$subject - Board Buddy',
-    },
-  );
+  final emailLaunchUri = emailUri(email, subject);
 
   final message = S.of(context).emailCopied;
 
@@ -27,6 +21,14 @@ Future<void> sendEmail(
       message: message,
     );
   }
+}
+
+Uri emailUri(String email, String subject) {
+  return Uri(
+    scheme: 'mailto',
+    path: email,
+    query: 'subject=${Uri.encodeComponent('$subject Board Buddy')}',
+  );
 }
 
 // players number format

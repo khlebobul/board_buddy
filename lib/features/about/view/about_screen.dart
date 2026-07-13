@@ -4,8 +4,6 @@ import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/utils/market_helper.dart';
-import 'package:board_buddy/features/home/widgets/add_new_game.dart';
-import 'package:board_buddy/features/about/widgets/contributors_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
 import 'package:board_buddy/features/about/widgets/link_btn.dart';
 import 'package:board_buddy/shared/services/review_service.dart';
@@ -104,9 +102,6 @@ class _AboutScreenState extends State<AboutScreen> {
               text: S.of(context).githubRepository,
               url: AppLnksConst.githubLink,
             ),
-            const SizedBox(height: 10),
-            const AddFavouriteGame(),
-            const SizedBox(height: 10),
             LinkBtnWidget(
               text: S.of(context).followMeOnXTwitter,
               url: AppLnksConst.xLink,
@@ -143,14 +138,6 @@ class _AboutScreenState extends State<AboutScreen> {
             const LinkBtnWidget(
               text: GeneralConst.lucideIcons,
               url: AppLnksConst.lucideIconsLink,
-            ),
-            const SizedBox(height: 15),
-            Text(
-              S.of(context).toBoardBuddysContributors,
-              style: theme.display2.copyWith(color: theme.secondaryTextColor),
-            ),
-            const ContributorsWidget(
-              contributors: ContributorsConst.contributors,
             ),
             const SizedBox(height: 50),
           ],

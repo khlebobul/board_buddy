@@ -124,16 +124,6 @@ class S {
     );
   }
 
-  /// `don't have your favourite game? email me!`
-  String get dontHaveYourFavouriteGameEmailMe {
-    return Intl.message(
-      'don\'t have your favourite game? email me!',
-      name: 'dontHaveYourFavouriteGameEmailMe',
-      desc: '',
-      args: [],
-    );
-  }
-
   /// `telegram`
   String get telegram {
     return Intl.message('telegram', name: 'telegram', desc: '', args: []);
@@ -2624,16 +2614,6 @@ class S {
   /// `credits`
   String get appreciation {
     return Intl.message('credits', name: 'appreciation', desc: '', args: []);
-  }
-
-  /// `board buddy's contributors`
-  String get toBoardBuddysContributors {
-    return Intl.message(
-      'board buddy\'s contributors',
-      name: 'toBoardBuddysContributors',
-      desc: '',
-      args: [],
-    );
   }
 
   /// `play`

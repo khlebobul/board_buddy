@@ -3,6 +3,7 @@ import 'dart:io';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
+import 'package:board_buddy/shared/widgets/ui/pressable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gen_art_bg/gen_art_bg.dart';
@@ -76,8 +77,7 @@ class _HomeScreenState extends State<HomeScreen> {
                     ...menuItems.map(
                       (item) => Padding(
                         padding: const EdgeInsets.only(bottom: 25),
-                        child: GestureDetector(
-                          behavior: HitTestBehavior.opaque,
+                        child: Pressable(
                           onTap: () => _navigateTo(context, item['route']!),
                           child: TextScramble(
                               text: item['title']!,
@@ -115,8 +115,8 @@ class _HomeScreenState extends State<HomeScreen> {
     if (!Platform.isIOS) {
       return Theme(
         data: Theme.of(context).brightness == Brightness.dark
-            ? ThemeData.dark(useMaterial3: true)
-            : ThemeData.light(useMaterial3: true),
+            ? UIThemes.darkTheme()
+            : UIThemes.lightTheme(),
         child: upgradeAlert,
       );
     }

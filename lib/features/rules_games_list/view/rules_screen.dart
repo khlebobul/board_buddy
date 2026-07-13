@@ -1,8 +1,8 @@
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/constants/app_constants.dart';
-import 'package:board_buddy/features/home/widgets/add_new_game.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
+import 'package:board_buddy/shared/widgets/ui/pressable.dart';
 import 'package:flutter/material.dart';
 import 'package:use_scramble/use_scramble.dart';
 
@@ -12,6 +12,17 @@ class RulesScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     final theme = UIThemes.of(context);
+    final rules = [
+      ('01 - ${GameNames.uno}', '/unoRules'),
+      ('02 - ${GameNames.scrabble}', '/scrabbleRules'),
+      ('03 - ${GameNames.unoFlip}', '/unoFlipRules'),
+      ('04 - ${GameNames.dos}', '/dosRules'),
+      ('05 - ${GameNames.set}', '/setRules'),
+      ('06 - ${GameNames.munchkin}', '/munchkinRules'),
+      ('07 - 1000', '/thousandRules'),
+      ('08 - ${GameNames.catan}', '/catanRules'),
+      ('09 - ${GameNames.seaSaltPaper}', '/seaSaltPaperRules'),
+    ];
 
     return Scaffold(
       appBar: CustomAppBar(
@@ -29,124 +40,19 @@ class RulesScreen extends StatelessWidget {
             mainAxisAlignment: MainAxisAlignment.start,
             crossAxisAlignment: CrossAxisAlignment.start,
             children: [
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/unoRules'),
-                child: TextScramble(
-                    text: '01 - ${GameNames.uno}',
+              for (final rule in rules) ...[
+                Pressable(
+                  onTap: () => Navigator.pushNamed(context, rule.$2),
+                  child: TextScramble(
+                    text: rule.$1,
                     builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/scrabbleRules'),
-                child: TextScramble(
-                    text: '02 - ${GameNames.scrabble}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/unoFlipRules'),
-                child: TextScramble(
-                    text: '03 - ${GameNames.unoFlip}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/dosRules'),
-                child: TextScramble(
-                    text: '04 - ${GameNames.dos}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/setRules'),
-                child: TextScramble(
-                    text: '05 - ${GameNames.set}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/munchkinRules'),
-                child: TextScramble(
-                    text: '06 - ${GameNames.munchkin}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/thousandRules'),
-                child: TextScramble(
-                    text: '07 - 1000',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/catanRules'),
-                child: TextScramble(
-                    text: '08 - ${GameNames.catan}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
-              const SizedBox(height: 5),
-              GestureDetector(
-                behavior: HitTestBehavior.opaque,
-                onTap: () => Navigator.pushNamed(context, '/seaSaltPaperRules'),
-                child: TextScramble(
-                    text: '09 - ${GameNames.seaSaltPaper}',
-                    builder: (context, scrambledText) {
-                      return Text(
-                        scrambledText,
-                        style: theme.display3,
-                      );
-                    }),
-              ),
+                      return Text(scrambledText, style: theme.display3);
+                    },
+                  ),
+                ),
+                const SizedBox(height: 5),
+              ],
               const Spacer(),
-              const AddFavouriteGame(),
             ],
           ),
         ),

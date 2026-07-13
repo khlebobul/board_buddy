@@ -1,4 +1,5 @@
 import 'package:board_buddy/config/theme/app_theme.dart';
+import 'package:board_buddy/shared/widgets/ui/pressable.dart';
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
 import 'package:not_static_icons/not_static_icons.dart';
@@ -96,9 +97,8 @@ class __AnimatedButtonCellState extends State<_AnimatedButtonCell>
 
   @override
   Widget build(BuildContext context) {
-    return GestureDetector(
-      behavior: HitTestBehavior.opaque,
-      onTap: _onTap,
+    return Pressable(
+      onTap: widget.button.onPressed == null ? null : _onTap,
       child: Container(
         margin: widget.button.useCompactMargin
             ? const EdgeInsets.all(7.0)
