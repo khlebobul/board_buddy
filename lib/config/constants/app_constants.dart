@@ -197,7 +197,12 @@ class CatanCardsPoints {
 }
 
 class SeaSaltPaperCollectionPoints {
-  static const List<int> points = [1, 3, 5, 7, 9, 11];
+  static const collections = [
+    (name: 'shells', points: [0, 2, 4, 6, 8, 10]),
+    (name: 'octopuses', points: [0, 3, 6, 9, 12]),
+    (name: 'penguins', points: [1, 3, 5]),
+    (name: 'sailors', points: [0, 5]),
+  ];
 }
 
 class GameNames {
