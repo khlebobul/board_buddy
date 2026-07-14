@@ -2,18 +2,18 @@ import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/common/utils/game_end_modal_helper.dart';
 import 'package:board_buddy/features/games/common_counter/bloc/common_counter_bloc.dart';
-import 'package:board_buddy/features/games/common_counter/widgets/custom_score_keyboard.dart';
 import 'package:board_buddy/generated/l10n.dart';
 import 'package:board_buddy/shared/models/player_model.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/dice_modal.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/player_card.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_indicator.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/players_score_widget.dart';
-import 'package:board_buddy/shared/widgets/game_widgets/points_keyboard.dart';
 import 'package:board_buddy/shared/widgets/game_widgets/timer.dart';
 import 'package:board_buddy/shared/widgets/ui/bottom_game_widget.dart';
 import 'package:board_buddy/shared/widgets/ui/custom_app_bar.dart';
+import 'package:board_buddy/shared/widgets/ui/pressable.dart';
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:not_static_icons/not_static_icons.dart';
 
@@ -65,12 +65,12 @@ class _CommonGameViewState extends State<CommonGameView>
   late final AnimationController _animationController;
   late final Animation<double> _animation;
   late final ScrollController _indicatorScrollController;
+  late final TextEditingController _scoreController;
+  late final FocusNode _scoreFocusNode;
   final _timerKey = GlobalKey<TimerWidgetState>();
 
   int _currentPageIndex = 0;
-  bool _isNumericKeyboard = false;
   bool _isAddOperation = true;
-  String _scoreInput = '';
 
   @override
   void initState() {
@@ -83,6 +83,9 @@ class _CommonGameViewState extends State<CommonGameView>
     );
 
     _indicatorScrollController = ScrollController();
+    _scoreController = TextEditingController();
+    _scoreFocusNode = FocusNode();
+    _scoreFocusNode.addListener(_onScoreFocusChanged);
 
     // Initialize animation controller
     _animationController = AnimationController(
@@ -103,6 +106,9 @@ class _CommonGameViewState extends State<CommonGameView>
     _pageController.dispose();
     _animationController.dispose();
     _indicatorScrollController.dispose();
+    _scoreController.dispose();
+    _scoreFocusNode.removeListener(_onScoreFocusChanged);
+    _scoreFocusNode.dispose();
     super.dispose();
   }
 
@@ -171,18 +177,17 @@ class _CommonGameViewState extends State<CommonGameView>
     });
   }
 
-  void _appendScoreDigit(int digit) {
-    setState(() {
-      _scoreInput = _scoreInput == '0' ? '$digit' : '$_scoreInput$digit';
-    });
-  }
-
   void _toggleScoreOperation() {
     setState(() => _isAddOperation = !_isAddOperation);
+    _scoreFocusNode.requestFocus();
+  }
+
+  void _onScoreFocusChanged() {
+    setState(() {});
   }
 
   void _submitScore(BuildContext context) {
-    final amount = int.tryParse(_scoreInput);
+    final amount = int.tryParse(_scoreController.text.trim());
     if (amount == null || amount == 0) return;
 
     _updateScore(
@@ -190,7 +195,8 @@ class _CommonGameViewState extends State<CommonGameView>
       _currentPageIndex,
       _isAddOperation ? amount : -amount,
     );
-    setState(() => _scoreInput = '');
+    _scoreController.clear();
+    _scoreFocusNode.requestFocus();
   }
 
   @override
@@ -292,13 +298,6 @@ class _CommonGameViewState extends State<CommonGameView>
                       context.read<CommonCounterBloc>().add(RedoAction());
                     }
                   : null,
-              onKeyboardBtnTap: () {
-                setState(() {
-                  _isNumericKeyboard = !_isNumericKeyboard;
-                  _scoreInput = '';
-                });
-              },
-              isKeyboardActive: gameState.isSinglePlayer ? false : true,
             ),
           ),
         );
@@ -342,8 +341,8 @@ class _CommonGameViewState extends State<CommonGameView>
                       onPageChanged: (index) {
                         setState(() {
                           _currentPageIndex = index;
-                          _scoreInput = '';
                         });
+                        _scoreController.clear();
                         WidgetsBinding.instance.addPostFrameCallback((_) {
                           _scrollToActiveIndicator();
                         });
@@ -435,139 +434,88 @@ class _CommonGameViewState extends State<CommonGameView>
         Padding(
           padding: const EdgeInsets.symmetric(
               horizontal: GeneralConst.paddingHorizontal),
-          child: _isNumericKeyboard
-              ? Column(
-                  children: [
-                    Container(
-                      width: double.infinity,
-                      padding: const EdgeInsets.symmetric(vertical: 4),
-                      child: Stack(
-                        alignment: Alignment.center,
-                        children: [
-                          Padding(
-                            padding: const EdgeInsets.symmetric(horizontal: 48),
-                            child: Text(
-                              '${_isAddOperation ? '+' : '−'}${_scoreInput.isEmpty ? '0' : _scoreInput}',
-                              textAlign: TextAlign.center,
-                              style: theme.display7.copyWith(
-                                color: theme.secondaryTextColor,
-                              ),
-                              maxLines: 1,
-                              overflow: TextOverflow.ellipsis,
-                            ),
-                          ),
-                          Positioned(
-                            right: 12,
-                            child: Semantics(
-                              button: true,
-                              label: S.of(context).clear,
-                              child: BrushCleaningIcon(
-                                color: theme.secondaryTextColor,
-                                strokeWidth: 1,
-                                size: 15,
-                                onTap: () => setState(() => _scoreInput = ''),
-                              ),
-                            ),
-                          ),
-                        ],
-                      ),
-                    ),
-                    CustomKeyboard(
-                      buttons: [
-                        [
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.one,
-                            onPressed: () => _appendScoreDigit(1),
-                          ),
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.two,
-                            onPressed: () => _appendScoreDigit(2),
-                          ),
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.three,
-                            onPressed: () => _appendScoreDigit(3),
-                          ),
-                        ],
-                        [
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.four,
-                            onPressed: () => _appendScoreDigit(4),
-                          ),
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.five,
-                            onPressed: () => _appendScoreDigit(5),
-                          ),
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.six,
-                            onPressed: () => _appendScoreDigit(6),
-                          ),
-                        ],
-                        [
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.seven,
-                            onPressed: () => _appendScoreDigit(7),
-                          ),
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.eight,
-                            onPressed: () => _appendScoreDigit(8),
-                          ),
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.nine,
-                            onPressed: () => _appendScoreDigit(9),
-                          ),
-                        ],
-                        [
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            icon: _isAddOperation
-                                ? PlusIcon(
-                                    color: theme.textColor,
-                                    strokeWidth: 1,
-                                    size: 30,
-                                    onTap: _toggleScoreOperation,
-                                  )
-                                : MinusIcon(
-                                    color: theme.textColor,
-                                    strokeWidth: 1,
-                                    size: 30,
-                                    onTap: _toggleScoreOperation,
-                                  ),
-                          ),
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            buttonText: UnoLikeGameCardsText.zero,
-                            onPressed: () => _appendScoreDigit(0),
-                          ),
-                          KeyboardButton(
-                            useCompactMargin: true,
-                            icon: CornerDownLeftIcon(
-                              color: theme.textColor,
-                              size: 30,
-                              strokeWidth: 1,
-                              onTap: () => _submitScore(context),
-                            ),
-                          ),
-                        ],
-                      ],
-                    ),
-                  ],
-                )
-              : CustomScoreKeyboard(
-                  onValueSelected: (value) {
-                    _updateScore(context, _currentPageIndex, value);
-                  },
-                ),
+          child: _buildScoreInput(context, theme),
         ),
         const SizedBox(height: 12),
+      ],
+    );
+  }
+
+  Widget _buildScoreInput(BuildContext context, UIThemes theme) {
+    const inputHeight = 50.0;
+
+    return Row(
+      children: [
+        Pressable(
+          onTap: _toggleScoreOperation,
+          child: Container(
+            width: 56,
+            height: inputHeight,
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: theme.fgColor,
+              border: Border.all(color: theme.borderColor),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              _isAddOperation ? '+' : '−',
+              style: theme.display2.copyWith(color: theme.textColor),
+            ),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Expanded(
+          child: Container(
+            height: inputHeight,
+            decoration: BoxDecoration(
+              color: theme.bgColor,
+              borderRadius: BorderRadius.circular(8.0),
+              border: Border.all(color: theme.secondaryTextColor),
+            ),
+            child: Stack(
+              alignment: Alignment.center,
+              children: [
+                if (_scoreController.text.isEmpty && !_scoreFocusNode.hasFocus)
+                  Text(
+                    '0',
+                    style: theme.display2
+                        .copyWith(color: theme.secondaryTextColor),
+                  ),
+                EditableText(
+                  controller: _scoreController,
+                  focusNode: _scoreFocusNode,
+                  keyboardType: TextInputType.number,
+                  inputFormatters: [FilteringTextInputFormatter.digitsOnly],
+                  textInputAction: TextInputAction.done,
+                  onSubmitted: (_) => _submitScore(context),
+                  textAlign: TextAlign.center,
+                  style: theme.display2.copyWith(color: theme.textColor),
+                  cursorHeight: 22,
+                  cursorColor: theme.secondaryTextColor,
+                  backgroundCursorColor: theme.secondaryTextColor,
+                ),
+              ],
+            ),
+          ),
+        ),
+        const SizedBox(width: 8),
+        Pressable(
+          onTap: () => _submitScore(context),
+          child: Container(
+            height: inputHeight,
+            padding: const EdgeInsets.symmetric(horizontal: 16),
+            alignment: Alignment.center,
+            decoration: BoxDecoration(
+              color: theme.fgColor,
+              border: Border.all(color: theme.borderColor),
+              borderRadius: BorderRadius.circular(8),
+            ),
+            child: Text(
+              S.of(context).add,
+              style: theme.display2.copyWith(color: theme.redColor),
+            ),
+          ),
+        ),
       ],
     );
   }

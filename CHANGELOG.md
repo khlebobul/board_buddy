@@ -3,6 +3,12 @@
 ## [Unreleased]
 
 ### Improvements
+- Replaced the Common Counter multiplayer custom score keyboard with native phone keyboard input.
+- Increased BottomGameBar arrow hit areas for easier undo/redo taps.
+
+## [1.3.7]
+
+### Improvements
 - Disabled Material tap ripple, highlight, hover, focus, and overlay effects across the app theme.
 - Added spring-based press animations to shared buttons and main menu actions.
 - Simplified games and rules menu rendering while keeping navigation behavior unchanged.
