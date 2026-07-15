@@ -27,26 +27,69 @@ class CollectionDialog extends StatelessWidget {
         style: theme.display2.copyWith(color: theme.textColor),
         textAlign: TextAlign.center,
       ),
-      content: Wrap(
-        spacing: 8,
-        runSpacing: 8,
-        alignment: WrapAlignment.center,
-        children:
-            SeaSaltPaperCollectionPoints.points.asMap().entries.map((entry) {
-          final count = entry.key + 1;
-          final points = entry.value;
-          return _CollectionButton(
-            count: count,
-            points: points,
-            theme: theme,
-            onTap: () {
-              Gaimon.soft();
-              Navigator.pop(context);
-              onPointsSelected(points);
-            },
-          );
-        }).toList(),
+      content: SingleChildScrollView(
+        child: Column(
+          mainAxisSize: MainAxisSize.min,
+          crossAxisAlignment: CrossAxisAlignment.stretch,
+          children: SeaSaltPaperCollectionPoints.collections.map((collection) {
+            return Padding(
+              padding: const EdgeInsets.only(bottom: 12),
+              child: _CollectionRow(
+                name: collection.name,
+                points: collection.points,
+                theme: theme,
+                onPointsSelected: (points) {
+                  Gaimon.soft();
+                  Navigator.pop(context);
+                  onPointsSelected(points);
+                },
+              ),
+            );
+          }).toList(),
+        ),
       ),
+    );
+  }
+}
+
+class _CollectionRow extends StatelessWidget {
+  final String name;
+  final List<int> points;
+  final UIThemes theme;
+  final Function(int) onPointsSelected;
+
+  const _CollectionRow({
+    required this.name,
+    required this.points,
+    required this.theme,
+    required this.onPointsSelected,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Column(
+      crossAxisAlignment: CrossAxisAlignment.start,
+      children: [
+        Padding(
+          padding: const EdgeInsets.only(bottom: 6),
+          child: Text(
+            name,
+            style: theme.display6.copyWith(color: theme.secondaryTextColor),
+          ),
+        ),
+        Wrap(
+          spacing: 8,
+          runSpacing: 8,
+          children: points.asMap().entries.map((entry) {
+            return _CollectionButton(
+              count: entry.key + 1,
+              points: entry.value,
+              theme: theme,
+              onTap: () => onPointsSelected(entry.value),
+            );
+          }).toList(),
+        ),
+      ],
     );
   }
 }

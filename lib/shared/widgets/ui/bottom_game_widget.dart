@@ -1,6 +1,7 @@
 import 'package:board_buddy/config/constants/app_constants.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/uno/widgets/info_uno_dialog_widget.dart';
+import 'package:board_buddy/shared/widgets/ui/pressable.dart';
 import 'package:flutter/material.dart';
 import 'package:gaimon/gaimon.dart';
 import 'package:not_static_icons/not_static_icons.dart';
@@ -41,12 +42,6 @@ class BottomGameBar extends StatelessWidget {
   /// Flag to determine if the right arrow is active.
   final bool isRightArrowActive;
 
-  /// Callback for keyboard button tap
-  final VoidCallback? onKeyboardBtnTap;
-
-  /// Flag to determine if the keyboard is active
-  final bool isKeyboardActive;
-
   const BottomGameBar({
     super.key,
     this.leftButtonText = '',
@@ -60,8 +55,6 @@ class BottomGameBar extends StatelessWidget {
     this.isRightBtnRed = false,
     this.isLeftArrowActive = true,
     this.isRightArrowActive = true,
-    this.onKeyboardBtnTap,
-    this.isKeyboardActive = false,
   });
 
   @override
@@ -114,30 +107,21 @@ class BottomGameBar extends StatelessWidget {
               Row(
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
-                  Undo2Icon(
-                    size: 20,
-                    strokeWidth: 1,
-                    color: isLeftArrowActive
-                        ? theme.textColor
-                        : theme.secondaryTextColor,
-                    hoverColor: theme.secondaryTextColor,
-                    onTap: isLeftArrowActive
-                        ? () {
-                            if (onLeftArrowTap != null) {
-                              onLeftArrowTap!();
-                              Gaimon.soft();
-                            }
-                          }
-                        : null,
+                  _BottomBarIconButton(
+                    onTap: isLeftArrowActive ? onLeftArrowTap : null,
+                    child: Undo2Icon(
+                      size: 20,
+                      strokeWidth: 1,
+                      color: isLeftArrowActive
+                          ? theme.textColor
+                          : theme.secondaryTextColor,
+                      hoverColor: theme.secondaryTextColor,
+                    ),
                   ),
-                  const SizedBox(width: 20),
+                  const SizedBox(width: 4),
                   dialogWidget == null
                       ? const SizedBox()
-                      : CircleQuestionMarkIcon(
-                          size: 20,
-                          strokeWidth: 1,
-                          color: theme.textColor,
-                          hoverColor: theme.secondaryTextColor,
+                      : _BottomBarIconButton(
                           onTap: () {
                             showDialog(
                               context: context,
@@ -145,44 +129,59 @@ class BottomGameBar extends StatelessWidget {
                                 return dialogWidget ?? const InfoUnoDialog();
                               },
                             );
-                            Gaimon.soft();
                           },
+                          child: CircleQuestionMarkIcon(
+                            size: 20,
+                            strokeWidth: 1,
+                            color: theme.textColor,
+                            hoverColor: theme.secondaryTextColor,
+                          ),
                         ),
-                  isKeyboardActive == false
-                      ? const SizedBox()
-                      : KeyboardIcon(
-                          size: 20,
-                          strokeWidth: 1,
-                          color: theme.textColor,
-                          hoverColor: theme.secondaryTextColor,
-                          onTap: () {
-                            if (onKeyboardBtnTap != null) {
-                              onKeyboardBtnTap!();
-                              Gaimon.soft();
-                            }
-                          },
-                        ),
-                  const SizedBox(width: 20),
-                  Redo2Icon(
-                    size: 20,
-                    strokeWidth: 1,
-                    color: isRightArrowActive
-                        ? theme.textColor
-                        : theme.secondaryTextColor,
-                    hoverColor: theme.secondaryTextColor,
-                    onTap: isRightArrowActive
-                        ? () {
-                            if (onRightArrowTap != null) {
-                              onRightArrowTap!();
-                              Gaimon.soft();
-                            }
-                          }
-                        : null,
+                  const SizedBox(width: 4),
+                  _BottomBarIconButton(
+                    onTap: isRightArrowActive ? onRightArrowTap : null,
+                    child: Redo2Icon(
+                      size: 20,
+                      strokeWidth: 1,
+                      color: isRightArrowActive
+                          ? theme.textColor
+                          : theme.secondaryTextColor,
+                      hoverColor: theme.secondaryTextColor,
+                    ),
                   ),
                 ],
               ),
             ],
           ],
+        ),
+      ),
+    );
+  }
+}
+
+class _BottomBarIconButton extends StatelessWidget {
+  final VoidCallback? onTap;
+  final Widget child;
+
+  const _BottomBarIconButton({
+    required this.onTap,
+    required this.child,
+  });
+
+  @override
+  Widget build(BuildContext context) {
+    return Pressable(
+      onTap: onTap == null
+          ? null
+          : () {
+              onTap!();
+              Gaimon.soft();
+            },
+      child: SizedBox(
+        width: 44,
+        height: 44,
+        child: Center(
+          child: IgnorePointer(child: child),
         ),
       ),
     );

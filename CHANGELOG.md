@@ -2,6 +2,18 @@
 
 ## [Unreleased]
 
+## [1.3.8]
+
+### Improvements
+- Replaced the Common Counter multiplayer custom score keyboard with native phone keyboard input.
+- Centered Common Counter score input text and cursor.
+- Increased BottomGameBar arrow hit areas for easier undo/redo taps.
+
+### Fixes
+- Corrected Sea Salt & Paper collection scoring for shells, octopuses, penguins, and sailors.
+
+## [1.3.7]
+
 ### Improvements
 - Disabled Material tap ripple, highlight, hover, focus, and overlay effects across the app theme.
 - Added spring-based press animations to shared buttons and main menu actions.
