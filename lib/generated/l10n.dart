@@ -124,11 +124,6 @@ class S {
     );
   }
 
-  /// `telegram`
-  String get telegram {
-    return Intl.message('telegram', name: 'telegram', desc: '', args: []);
-  }
-
   /// `project website`
   String get projectWebsite {
     return Intl.message(

@@ -910,7 +910,6 @@ class MessageLookup extends MessageLookupByLibrary {
           "échangez vos mains avec n\'importe quel joueur et choisissez la couleur.",
         ),
     "sword": MessageLookupByLibrary.simpleMessage("épée"),
-    "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
     "ten10Points": MessageLookupByLibrary.simpleMessage("dix : 10 points"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "le nombre de joueurs doit être",

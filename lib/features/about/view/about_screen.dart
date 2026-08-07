@@ -89,10 +89,6 @@ class _AboutScreenState extends State<AboutScreen> {
               text: S.of(context).projectWebsite,
               url: AppLnksConst.webSitelink,
             ),
-            LinkBtnWidget(
-              text: S.of(context).telegram,
-              url: AppLnksConst.telegramLink,
-            ),
             const SizedBox(height: 10),
             Text(
               S.of(context).sinceThisIsAnOpenSourceProjectYouCanLeave,

@@ -742,7 +742,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "swapHandsWithAnyPlayerAndChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage("与任何玩家交换手牌并选择颜色。"),
     "sword": MessageLookupByLibrary.simpleMessage("剑"),
-    "telegram": MessageLookupByLibrary.simpleMessage("Telegram"),
     "ten10Points": MessageLookupByLibrary.simpleMessage("10：10分"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "玩家数量应为",

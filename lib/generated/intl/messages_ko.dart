@@ -780,7 +780,6 @@ class MessageLookup extends MessageLookupByLibrary {
     "swapHandsWithAnyPlayerAndChooseTheColorUnoInfo":
         MessageLookupByLibrary.simpleMessage("아무 플레이어와 손패를 교환하고 색상을 선택합니다."),
     "sword": MessageLookupByLibrary.simpleMessage("검"),
-    "telegram": MessageLookupByLibrary.simpleMessage("telegram"),
     "ten10Points": MessageLookupByLibrary.simpleMessage("10: 10점"),
     "theNumberOfPlayersShouldBe": MessageLookupByLibrary.simpleMessage(
       "플레이어 수는 다음이어야 합니다",
