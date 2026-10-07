@@ -1,6 +1,9 @@
 # Changelog
 
-## [Unreleased]
+## [1.3.10]
+
+### Technical updates
+- Updated Flutter packages to the latest versions resolvable with the current SDK.
 
 ## [1.3.9]
 
