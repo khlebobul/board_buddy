@@ -1,0 +1,3260 @@
+{
+  "schemaVersion": 2,
+  "appName": "board buddy",
+  "themeId": "board-buddy",
+  "connectedCanvas": false,
+  "locales": [
+    "en",
+    "ru",
+    "de",
+    "fr",
+    "es",
+    "it",
+    "zh",
+    "ja",
+    "ko",
+    "hi"
+  ],
+  "locale": "en",
+  "device": "iphone",
+  "orientation": "portrait",
+  "appIcon": "/app-icon.png",
+  "slidesByDevice": {
+    "iphone": [
+      {
+        "id": "iphone-1",
+        "layout": "device-bottom",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Score",
+          "ru": "Счёт",
+          "de": "Punkte",
+          "fr": "Score",
+          "es": "Puntos",
+          "it": "Punti",
+          "zh": "计分",
+          "ja": "スコア",
+          "ko": "점수",
+          "hi": "अंक"
+        },
+        "headline": {
+          "en": "Every point.\nIn one place.",
+          "ru": "Все очки.\nВ одном месте.",
+          "de": "Alle Punkte.\nEin Ort.",
+          "fr": "Tous les points.\nAu même endroit.",
+          "es": "Todos los puntos.\nEn un lugar.",
+          "it": "Tutti i punti.\nIn un posto.",
+          "zh": "所有得分。\n记在一处。",
+          "ja": "みんなの得点。\nひとつの場所に。",
+          "ko": "모두의 점수.\n한곳에.",
+          "hi": "सभी के अंक।\nएक जगह।"
+        },
+        "highlight": {
+          "en": "In one place.",
+          "ru": "В одном месте.",
+          "de": "Ein Ort.",
+          "fr": "Au même endroit.",
+          "es": "En un lugar.",
+          "it": "In un posto.",
+          "zh": "记在一处。",
+          "ja": "ひとつの場所に。",
+          "ko": "한곳에.",
+          "hi": "एक जगह।"
+        },
+        "screenshot": "/screenshots/apple/iphone/{locale}/05-counter-light.png",
+        "transforms": {
+          "caption": {
+            "x": 72,
+            "y": 200,
+            "width": 1176,
+            "height": 420
+          },
+          "device": {
+            "x": 268,
+            "y": 1061.16,
+            "width": 980,
+            "height": 1996.4383561643835,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Add points. See who leads. →",
+              "ru": "Добавьте очки — видно, кто ведёт. →",
+              "de": "Punkte eintragen. Führung sehen. →",
+              "fr": "Ajoutez des points. Voyez qui mène. →",
+              "es": "Suma puntos. Mira quién gana. →",
+              "it": "Aggiungi punti. Vedi chi vince. →",
+              "zh": "加分，一眼看清谁领先。→",
+              "ja": "得点を足して、首位がすぐわかる。→",
+              "ko": "점수를 더하고 선두를 확인하세요. →",
+              "hi": "अंक जोड़ें। देखें कौन आगे है। →"
+            },
+            "transform": {
+              "x": 72,
+              "y": 720.0,
+              "width": 1176,
+              "height": 61.199999999999996,
+              "zIndex": 6
+            },
+            "fontSize": 36,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 1 — Score",
+              "ru": "FIG. 1 — Счёт",
+              "de": "FIG. 1 — Punkte",
+              "fr": "FIG. 1 — Score",
+              "es": "FIG. 1 — Puntos",
+              "it": "FIG. 1 — Punti",
+              "zh": "FIG. 1 — 计分",
+              "ja": "FIG. 1 — スコア",
+              "ko": "FIG. 1 — 점수",
+              "hi": "FIG. 1 — अंक"
+            },
+            "transform": {
+              "x": -288,
+              "y": 1421.16,
+              "width": 760,
+              "height": 40,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 23,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "bl"
+        ]
+      },
+      {
+        "id": "iphone-2",
+        "layout": "device-top",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Undo",
+          "ru": "Отмена",
+          "de": "Rückgängig",
+          "fr": "Annuler",
+          "es": "Deshacer",
+          "it": "Annulla",
+          "zh": "撤销",
+          "ja": "取り消し",
+          "ko": "실행 취소",
+          "hi": "वापस लें"
+        },
+        "headline": {
+          "en": "Wrong tap?\nTake it back.",
+          "ru": "Ошиблись?\nОтмените.",
+          "de": "Vertippt?\nZurück damit.",
+          "fr": "Une erreur ?\nAnnulez.",
+          "es": "¿Te equivocaste?\nDeshazlo.",
+          "it": "Un errore?\nAnnullalo.",
+          "zh": "输错了？\n撤销即可。",
+          "ja": "入力ミス？\n元に戻そう。",
+          "ko": "잘못 입력했나요?\n취소하세요.",
+          "hi": "गलत दबाया?\nवापस लें।"
+        },
+        "highlight": {
+          "en": "back.",
+          "ru": "Отмените.",
+          "de": "Zurück",
+          "fr": "Annulez.",
+          "es": "Deshazlo.",
+          "it": "Annullalo.",
+          "zh": "撤销即可。",
+          "ja": "元に戻そう。",
+          "ko": "취소하세요.",
+          "hi": "वापस लें।"
+        },
+        "screenshot": "/screenshots/apple/iphone/{locale}/03-counter-dark.png",
+        "transforms": {
+          "caption": {
+            "x": 72,
+            "y": 1879.008219178082,
+            "width": 1176,
+            "height": 420
+          },
+          "device": {
+            "x": 268,
+            "y": -319.43013698630136,
+            "width": 980,
+            "height": 1996.4383561643835,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Undo and redo any move. →",
+              "ru": "Отмена и повтор любого хода. →",
+              "de": "Jeden Zug rückgängig machen. →",
+              "fr": "Annulez et rétablissez chaque coup. →",
+              "es": "Deshaz y rehaz cualquier jugada. →",
+              "it": "Annulla e ripristina ogni mossa. →",
+              "zh": "每一步都能撤销和重做。→",
+              "ja": "どの操作も取り消し・やり直し。→",
+              "ko": "모든 동작을 취소하고 다시 실행. →",
+              "hi": "हर चाल को वापस लें या दोहराएँ। →"
+            },
+            "transform": {
+              "x": 72,
+              "y": 2297.008219178082,
+              "width": 1176,
+              "height": 61.199999999999996,
+              "zIndex": 6
+            },
+            "fontSize": 36,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 2 — Undo",
+              "ru": "FIG. 2 — Отмена",
+              "de": "FIG. 2 — Rückgängig",
+              "fr": "FIG. 2 — Annuler",
+              "es": "FIG. 2 — Deshacer",
+              "it": "FIG. 2 — Annulla",
+              "zh": "FIG. 2 — 撤销",
+              "ja": "FIG. 2 — 取り消し",
+              "ko": "FIG. 2 — 실행 취소",
+              "hi": "FIG. 2 — वापस लें"
+            },
+            "transform": {
+              "x": -288,
+              "y": 560,
+              "width": 760,
+              "height": 40,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 23,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "indexY": 1767.008219178082,
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "iphone-3",
+        "layout": "hero",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Games",
+          "ru": "Игры",
+          "de": "Spiele",
+          "fr": "Jeux",
+          "es": "Juegos",
+          "it": "Giochi",
+          "zh": "游戏",
+          "ja": "ゲーム",
+          "ko": "게임",
+          "hi": "खेल"
+        },
+        "headline": {
+          "en": "games.\nBuilt in.",
+          "ru": "игр.\nУже внутри.",
+          "de": "Spiele.\nSchon dabei.",
+          "fr": "jeux.\nDéjà inclus.",
+          "es": "juegos.\nYa incluidos.",
+          "it": "giochi.\nGià inclusi.",
+          "zh": "款游戏。\n内置可用。",
+          "ja": "種類のゲーム。\nすぐ遊べる。",
+          "ko": "가지 게임.\n바로 플레이.",
+          "hi": "खेल।\nऐप में शामिल।"
+        },
+        "highlight": {
+          "en": "",
+          "ru": "",
+          "de": "",
+          "fr": "",
+          "es": "",
+          "it": "",
+          "zh": "",
+          "ja": "",
+          "ko": "",
+          "hi": ""
+        },
+        "screenshot": "/screenshots/apple/iphone/{locale}/01-games.png",
+        "transforms": {
+          "caption": {
+            "x": 758,
+            "y": 530,
+            "width": 490,
+            "height": 300
+          },
+          "device": {
+            "x": 72,
+            "y": 1204.56,
+            "width": 980,
+            "height": 1996.4383561643835,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "block",
+            "text": {},
+            "transform": {
+              "x": -4,
+              "y": 200,
+              "width": 1328,
+              "height": 760,
+              "zIndex": 1
+            },
+            "background": "#F73A3A",
+            "variant": "block"
+          },
+          {
+            "id": "numeral",
+            "text": {
+              "en": "10"
+            },
+            "transform": {
+              "x": 42,
+              "y": 260,
+              "width": 686,
+              "height": 560,
+              "zIndex": 3
+            },
+            "fontSize": 600,
+            "fontWeight": 800,
+            "color": "#202020",
+            "align": "left",
+            "font": "display",
+            "lineHeight": 0.8,
+            "letterSpacing": "-0.06em"
+          },
+          {
+            "id": "games",
+            "text": {
+              "en": "UNO · Catan · Scrabble · Munchkin · Set →"
+            },
+            "transform": {
+              "x": 72,
+              "y": 868,
+              "width": 1176,
+              "height": 51,
+              "zIndex": 6
+            },
+            "fontSize": 30,
+            "fontWeight": 400,
+            "color": "#202020",
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 3 — Games",
+              "ru": "FIG. 3 — Игры",
+              "de": "FIG. 3 — Spiele",
+              "fr": "FIG. 3 — Jeux",
+              "es": "FIG. 3 — Juegos",
+              "it": "FIG. 3 — Giochi",
+              "zh": "FIG. 3 — 游戏",
+              "ja": "FIG. 3 — ゲーム",
+              "ko": "FIG. 3 — 게임",
+              "hi": "FIG. 3 — खेल"
+            },
+            "transform": {
+              "x": 848,
+              "y": 1564.56,
+              "width": 760,
+              "height": 40,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 23,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "iphone-4",
+        "layout": "device-bottom",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Dice",
+          "ru": "Кубик",
+          "de": "Würfel",
+          "fr": "Dé",
+          "es": "Dado",
+          "it": "Dado",
+          "zh": "骰子",
+          "ja": "サイコロ",
+          "ko": "주사위",
+          "hi": "पासा"
+        },
+        "headline": {
+          "en": "Your turn.\nRoll it.",
+          "ru": "Ваш ход.\nБросайте.",
+          "de": "Du bist dran.\nWürfle.",
+          "fr": "À vous.\nLancez le dé.",
+          "es": "Tu turno.\nLanza el dado.",
+          "it": "Tocca a te.\nLancia il dado.",
+          "zh": "轮到你了。\n掷骰子吧。",
+          "ja": "あなたの番。\nサイコロを振ろう。",
+          "ko": "당신의 차례.\n주사위를 던져요.",
+          "hi": "आपकी बारी।\nपासा फेंकें।"
+        },
+        "highlight": {
+          "en": "Roll it.",
+          "ru": "Бросайте.",
+          "de": "Würfle.",
+          "fr": "Lancez",
+          "es": "Lanza",
+          "it": "Lancia",
+          "zh": "掷骰子吧。",
+          "ja": "サイコロを振ろう。",
+          "ko": "주사위를 던져요.",
+          "hi": "पासा फेंकें।"
+        },
+        "screenshot": "/screenshots/apple/iphone/{locale}/06-dice.png",
+        "transforms": {
+          "caption": {
+            "x": 72,
+            "y": 200,
+            "width": 1176,
+            "height": 420
+          },
+          "device": {
+            "x": -124,
+            "y": 971.3835616438357,
+            "width": 980,
+            "height": 1996.4383561643835,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "A die in your pocket. →",
+              "ru": "Кубик всегда под рукой. →",
+              "de": "Ein Würfel für unterwegs. →",
+              "fr": "Un dé à portée de main. →",
+              "es": "Un dado siempre a mano. →",
+              "it": "Un dado sempre a portata. →",
+              "zh": "骰子随手可用。→",
+              "ja": "サイコロをいつも手元に。→",
+              "ko": "손안의 주사위. →",
+              "hi": "पासा हमेशा साथ। →"
+            },
+            "transform": {
+              "x": 72,
+              "y": 620,
+              "width": 1176,
+              "height": 61.199999999999996,
+              "zIndex": 6
+            },
+            "fontSize": 36,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 4 — Dice",
+              "ru": "FIG. 4 — Кубик",
+              "de": "FIG. 4 — Würfel",
+              "fr": "FIG. 4 — Dé",
+              "es": "FIG. 4 — Dado",
+              "it": "FIG. 4 — Dado",
+              "zh": "FIG. 4 — 骰子",
+              "ja": "FIG. 4 — サイコロ",
+              "ko": "FIG. 4 — 주사위",
+              "hi": "FIG. 4 — पासा"
+            },
+            "transform": {
+              "x": 848,
+              "y": 1331.3835616438357,
+              "width": 760,
+              "height": 40,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 23,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "iphone-5",
+        "layout": "device-top",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Stopwatch",
+          "ru": "Секундомер",
+          "de": "Stoppuhr",
+          "fr": "Chrono",
+          "es": "Cronómetro",
+          "it": "Cronometro",
+          "zh": "秒表",
+          "ja": "タイマー",
+          "ko": "스톱워치",
+          "hi": "स्टॉपवॉच"
+        },
+        "headline": {
+          "en": "Every second\ncounts.",
+          "ru": "Каждая секунда\nна счету.",
+          "de": "Jede Sekunde\nzählt.",
+          "fr": "Chaque seconde\ncompte.",
+          "es": "Cada segundo\ncuenta.",
+          "it": "Ogni secondo\nconta.",
+          "zh": "每一秒\n都算数。",
+          "ja": "一秒ずつ\nしっかり計測。",
+          "ko": "매초를\n기록하세요.",
+          "hi": "हर सेकंड\nगिनें।"
+        },
+        "screenshot": "/screenshots/apple/iphone/{locale}/07-timer.png",
+        "transforms": {
+          "caption": {
+            "x": 72,
+            "y": 200,
+            "width": 1176,
+            "height": 420
+          },
+          "device": {
+            "x": 464,
+            "y": 1150,
+            "width": 980,
+            "height": 1996.4383561643835,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "block",
+            "text": {},
+            "transform": {
+              "x": -4,
+              "y": 650,
+              "width": 1154,
+              "height": 430,
+              "zIndex": 1
+            },
+            "background": "#F73A3A",
+            "variant": "block"
+          },
+          {
+            "id": "numeral",
+            "text": {
+              "en": "01:23"
+            },
+            "transform": {
+              "x": 54,
+              "y": 670,
+              "width": 1038.8,
+              "height": 390,
+              "zIndex": 3
+            },
+            "fontSize": 400,
+            "fontWeight": 800,
+            "color": "#202020",
+            "align": "left",
+            "font": "display",
+            "lineHeight": 1,
+            "letterSpacing": "-0.05em"
+          },
+          {
+            "id": "sub",
+            "text": {
+              "en": "Stopwatch\nin every\ngame. →",
+              "ru": "Секундомер\nв каждой\nигре. →",
+              "de": "Stoppuhr\nin jedem\nSpiel. →",
+              "fr": "Chrono\ndans chaque\njeu. →",
+              "es": "Cronómetro\nen cada\njuego. →",
+              "it": "Cronometro\nin ogni\ngioco. →",
+              "zh": "每款游戏\n都有秒表。→",
+              "ja": "どのゲームにも\nストップ\nウォッチ。→",
+              "ko": "모든 게임에\n스톱워치. →",
+              "hi": "हर खेल में\nस्टॉपवॉच। →"
+            },
+            "transform": {
+              "x": 72,
+              "y": 1190,
+              "width": 352.8,
+              "height": 260,
+              "zIndex": 6
+            },
+            "fontSize": 36,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "lineHeight": 1.35,
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 5 — Stopwatch",
+              "ru": "FIG. 5 — Секундомер",
+              "de": "FIG. 5 — Stoppuhr",
+              "fr": "FIG. 5 — Chrono",
+              "es": "FIG. 5 — Cronómetro",
+              "it": "FIG. 5 — Cronometro",
+              "zh": "FIG. 5 — 秒表",
+              "ja": "FIG. 5 — タイマー",
+              "ko": "FIG. 5 — 스톱워치",
+              "hi": "FIG. 5 — स्टॉपवॉच"
+            },
+            "transform": {
+              "x": 72,
+              "y": 1570,
+              "width": 352.8,
+              "height": 39.1,
+              "zIndex": 6
+            },
+            "fontSize": 23,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "bl"
+        ]
+      },
+      {
+        "id": "iphone-6",
+        "layout": "hero",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Saves",
+          "ru": "Сохранение",
+          "de": "Speichern",
+          "fr": "Sauvegarde",
+          "es": "Guardado",
+          "it": "Salvataggi",
+          "zh": "存档",
+          "ja": "保存",
+          "ko": "저장",
+          "hi": "सेव"
+        },
+        "headline": {
+          "en": "Pause tonight.\nPlay tomorrow.",
+          "ru": "Пауза сегодня.\nИгра завтра.",
+          "de": "Heute Pause.\nMorgen weiter.",
+          "fr": "Pause ce soir.\nReprise demain.",
+          "es": "Pausa hoy.\nSigue mañana.",
+          "it": "Pausa oggi.\nRiprendi domani.",
+          "zh": "今天暂停。\n明天继续。",
+          "ja": "今日はひと休み。\n続きは明日。",
+          "ko": "오늘은 쉬고.\n내일 이어서.",
+          "hi": "आज विराम।\nकल फिर खेलें।"
+        },
+        "highlight": {
+          "en": "tomorrow.",
+          "ru": "завтра.",
+          "de": "Morgen",
+          "fr": "demain.",
+          "es": "mañana.",
+          "it": "domani.",
+          "zh": "明天继续。",
+          "ja": "続きは明日。",
+          "ko": "내일 이어서.",
+          "hi": "कल फिर खेलें।"
+        },
+        "screenshot": "/screenshots/apple/iphone/{locale}/09-saved.png",
+        "transforms": {
+          "caption": {
+            "x": 72,
+            "y": 200,
+            "width": 1176,
+            "height": 420
+          },
+          "device": {
+            "x": 72,
+            "y": 1204.56,
+            "width": 980,
+            "height": 1996.4383561643835,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Resume any saved game. →",
+              "ru": "Продолжайте сохранённые партии. →",
+              "de": "Gespeicherte Partien fortsetzen. →",
+              "fr": "Reprenez vos parties sauvegardées. →",
+              "es": "Retoma partidas guardadas. →",
+              "it": "Riprendi le partite salvate. →",
+              "zh": "继续保存的对局。→",
+              "ja": "保存した対局を再開。→",
+              "ko": "저장한 게임 이어 하기. →",
+              "hi": "सेव किया खेल जारी रखें। →"
+            },
+            "transform": {
+              "x": 72,
+              "y": 620,
+              "width": 1176,
+              "height": 61.199999999999996,
+              "zIndex": 6
+            },
+            "fontSize": 36,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 6 — Saves",
+              "ru": "FIG. 6 — Сохранение",
+              "de": "FIG. 6 — Speichern",
+              "fr": "FIG. 6 — Sauvegarde",
+              "es": "FIG. 6 — Guardado",
+              "it": "FIG. 6 — Salvataggi",
+              "zh": "FIG. 6 — 存档",
+              "ja": "FIG. 6 — 保存",
+              "ko": "FIG. 6 — 저장",
+              "hi": "FIG. 6 — सेव"
+            },
+            "transform": {
+              "x": 848,
+              "y": 1564.56,
+              "width": 760,
+              "height": 40,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 23,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "iphone-7",
+        "layout": "device-top",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Catan",
+          "ru": "Catan",
+          "de": "Catan",
+          "fr": "Catan",
+          "es": "Catan",
+          "it": "Catan",
+          "zh": "Catan",
+          "ja": "Catan",
+          "ko": "Catan",
+          "hi": "Catan"
+        },
+        "headline": {
+          "en": "New board.\nEvery game.",
+          "ru": "Новое поле.\nКаждую партию.",
+          "de": "Neues Feld.\nJedes Spiel.",
+          "fr": "Nouveau plateau.\nÀ chaque partie.",
+          "es": "Nuevo tablero.\nCada partida.",
+          "it": "Nuovo tabellone.\nOgni partita.",
+          "zh": "新棋盘。\n每局都新。",
+          "ja": "新しい盤面。\n毎回のゲームに。",
+          "ko": "새로운 보드.\n매 게임마다.",
+          "hi": "नया बोर्ड।\nहर खेल में।"
+        },
+        "highlight": {
+          "en": "Every game.",
+          "ru": "Каждую партию.",
+          "de": "Jedes Spiel.",
+          "fr": "À chaque partie.",
+          "es": "Cada partida.",
+          "it": "Ogni partita.",
+          "zh": "每局都新。",
+          "ja": "毎回のゲームに。",
+          "ko": "매 게임마다.",
+          "hi": "हर खेल में।"
+        },
+        "screenshot": "/screenshots/apple/iphone/{locale}/11-map-light.png",
+        "transforms": {
+          "caption": {
+            "x": 72,
+            "y": 1879.008219178082,
+            "width": 1176,
+            "height": 420
+          },
+          "device": {
+            "x": 72,
+            "y": -319.43013698630136,
+            "width": 980,
+            "height": 1996.4383561643835,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Catan maps in one tap. →",
+              "ru": "Карта Catan в одно касание. →",
+              "de": "Catan-Karte mit einem Tipp. →",
+              "fr": "Carte Catan en un geste. →",
+              "es": "Mapa de Catan con un toque. →",
+              "it": "Mappa di Catan con un tocco. →",
+              "zh": "一键生成 Catan 地图。→",
+              "ja": "ワンタップで Catan のマップ。→",
+              "ko": "탭 한 번으로 Catan 맵. →",
+              "hi": "एक टैप में Catan मैप। →"
+            },
+            "transform": {
+              "x": 72,
+              "y": 2407.008219178082,
+              "width": 1176,
+              "height": 61.199999999999996,
+              "zIndex": 6
+            },
+            "fontSize": 36,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 7 — Catan",
+              "ru": "FIG. 7 — Catan",
+              "de": "FIG. 7 — Catan",
+              "fr": "FIG. 7 — Catan",
+              "es": "FIG. 7 — Catan",
+              "it": "FIG. 7 — Catan",
+              "zh": "FIG. 7 — Catan",
+              "ja": "FIG. 7 — Catan",
+              "ko": "FIG. 7 — Catan",
+              "hi": "FIG. 7 — Catan"
+            },
+            "transform": {
+              "x": 848,
+              "y": 560,
+              "width": 760,
+              "height": 40,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 23,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "indexY": 1767.008219178082,
+        "marks": [
+          "bl"
+        ]
+      },
+      {
+        "id": "iphone-8",
+        "layout": "no-device",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Index",
+          "ru": "Обзор",
+          "de": "Übersicht",
+          "fr": "Index",
+          "es": "Índice",
+          "it": "Indice",
+          "zh": "总览",
+          "ja": "一覧",
+          "ko": "목록",
+          "hi": "सूची"
+        },
+        "headline": {
+          "en": "Everything\nfor game night.",
+          "ru": "Всё для\nигрового вечера.",
+          "de": "Alles für den\nSpieleabend.",
+          "fr": "Tout pour\nla soirée jeux.",
+          "es": "Todo para la\nnoche de juegos.",
+          "it": "Tutto per\nla serata giochi.",
+          "zh": "游戏之夜\n一应俱全。",
+          "ja": "ゲームの夜に\n必要なすべて。",
+          "ko": "게임의 밤에\n필요한 모든 것.",
+          "hi": "गेम नाइट के लिए\nसब कुछ।"
+        },
+        "highlight": {
+          "en": "game night.",
+          "ru": "игрового вечера.",
+          "de": "Spieleabend.",
+          "fr": "soirée jeux.",
+          "es": "noche de juegos.",
+          "it": "serata giochi.",
+          "zh": "一应俱全。",
+          "ja": "必要なすべて。",
+          "ko": "필요한 모든 것.",
+          "hi": "सब कुछ।"
+        },
+        "screenshot": "",
+        "transforms": {
+          "caption": {
+            "x": 72,
+            "y": 200,
+            "width": 1176,
+            "height": 420
+          }
+        },
+        "textElements": [
+          {
+            "id": "numbers",
+            "text": {
+              "en": "01\n02\n03\n04\n05\n06\n07\n08"
+            },
+            "transform": {
+              "x": 72,
+              "y": 720,
+              "width": 117.6,
+              "height": 1760,
+              "zIndex": 6
+            },
+            "fontSize": 28,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "lineHeight": "220px",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "names",
+            "text": {
+              "en": "Scores\nUndo\n10 games\nDice\nStopwatch\nSaves\nRules\nCatan maps",
+              "ru": "Счёт\nОтмена\n10 игр\nКубик\nСекундомер\nСохранения\nПравила\nКарты Catan",
+              "de": "Punkte\nRückgängig\n10 Spiele\nWürfel\nStoppuhr\nSpielstände\nRegeln\nCatan-Karten",
+              "fr": "Scores\nAnnuler\n10 jeux\nDé\nChrono\nSauvegardes\nRègles\nCartes Catan",
+              "es": "Puntos\nDeshacer\n10 juegos\nDado\nCronómetro\nPartidas\nReglas\nMapas Catan",
+              "it": "Punti\nAnnulla\n10 giochi\nDado\nCronometro\nSalvataggi\nRegole\nMappe Catan",
+              "zh": "计分\n撤销\n10 款游戏\n骰子\n秒表\n存档\n规则\nCatan 地图",
+              "ja": "スコア\n取り消し\n10 ゲーム\nサイコロ\nタイマー\n保存\nルール\nCatan マップ",
+              "ko": "점수\n실행 취소\n10가지 게임\n주사위\n스톱워치\n저장\n규칙\nCatan 맵",
+              "hi": "अंक\nवापस लें\n10 खेल\nपासा\nस्टॉपवॉच\nसेव\nनियम\nCatan मैप"
+            },
+            "transform": {
+              "x": 209.2,
+              "y": 720,
+              "width": 627.2,
+              "height": 1760,
+              "zIndex": 6
+            },
+            "fontSize": 100,
+            "fontWeight": 800,
+            "align": "left",
+            "font": "display",
+            "lineHeight": "220px",
+            "letterSpacing": "-0.035em"
+          },
+          {
+            "id": "descriptors",
+            "text": {
+              "en": "Every player\nEvery move\nBuilt in\nOne tap\nEvery game\nResume later\nIn the app\nBalanced",
+              "ru": "Все игроки\nЛюбой ход\nВнутри\nОдно касание\nКаждая игра\nПродолжить позже\nВ приложении\nБаланс",
+              "de": "Jeder Spieler\nJeder Zug\nIntegriert\nEin Tipp\nJedes Spiel\nSpäter weiter\nIn der App\nAusgewogen",
+              "fr": "Chaque joueur\nChaque coup\nInclus\nUn geste\nChaque jeu\nReprendre\nDans l'app\nÉquilibrées",
+              "es": "Cada jugador\nCada jugada\nIncluidos\nUn toque\nCada juego\nSigue luego\nEn la app\nEquilibrados",
+              "it": "Ogni giocatore\nOgni mossa\nInclusi\nUn tocco\nOgni gioco\nRiprendi dopo\nNell'app\nEquilibrate",
+              "zh": "每位玩家\n每一步\n内置\n一键\n每款游戏\n稍后继续\n应用内\n均衡",
+              "ja": "全プレイヤー\nすべての操作\n内蔵\nワンタップ\n各ゲーム\nあとで再開\nアプリ内\nバランス",
+              "ko": "모든 플레이어\n모든 동작\n내장\n탭 한 번\n모든 게임\n나중에 계속\n앱 안에서\n균형",
+              "hi": "हर खिलाड़ी\nहर चाल\nशामिल\nएक टैप\nहर खेल\nबाद में जारी\nऐप में\nसंतुलित"
+            },
+            "transform": {
+              "x": 846.2,
+              "y": 720,
+              "width": 401.79999999999995,
+              "height": 1760,
+              "zIndex": 6
+            },
+            "fontSize": 24,
+            "fontWeight": 400,
+            "align": "right",
+            "font": "mono",
+            "lineHeight": "220px",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          }
+        ],
+        "rules": [
+          720,
+          940,
+          1160,
+          1380,
+          1600,
+          1820,
+          2040,
+          2260,
+          2480
+        ],
+        "marks": [
+          "bl"
+        ]
+      }
+    ],
+    "ipad": [
+      {
+        "id": "ipad-1",
+        "layout": "device-bottom",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Score",
+          "ru": "Счёт",
+          "de": "Punkte",
+          "fr": "Score",
+          "es": "Puntos",
+          "it": "Punti",
+          "zh": "计分",
+          "ja": "スコア",
+          "ko": "점수",
+          "hi": "अंक"
+        },
+        "headline": {
+          "en": "Every point.\nIn one place.",
+          "ru": "Все очки.\nВ одном месте.",
+          "de": "Alle Punkte.\nEin Ort.",
+          "fr": "Tous les points.\nAu même endroit.",
+          "es": "Todos los puntos.\nEn un lugar.",
+          "it": "Tutti i punti.\nIn un posto.",
+          "zh": "所有得分。\n记在一处。",
+          "ja": "みんなの得点。\nひとつの場所に。",
+          "ko": "모두의 점수.\n한곳에.",
+          "hi": "सभी के अंक।\nएक जगह।"
+        },
+        "highlight": {
+          "en": "In one place.",
+          "ru": "В одном месте.",
+          "de": "Ein Ort.",
+          "fr": "Au même endroit.",
+          "es": "En un lugar.",
+          "it": "In un posto.",
+          "zh": "记在一处。",
+          "ja": "ひとつの場所に。",
+          "ko": "한곳에.",
+          "hi": "एक जगह।"
+        },
+        "screenshot": "/screenshots/apple/ipad/{locale}/05-counter-light.png",
+        "transforms": {
+          "caption": {
+            "x": 112.58181818181819,
+            "y": 239.8884239888424,
+            "width": 1838.8363636363633,
+            "height": 503.76569037656907
+          },
+          "device": {
+            "x": 419.0545454545454,
+            "y": 1018.24,
+            "width": 1532.3636363636363,
+            "height": 1990.082644628099,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Add points. See who leads. →",
+              "ru": "Добавьте очки — видно, кто ведёт. →",
+              "de": "Punkte eintragen. Führung sehen. →",
+              "fr": "Ajoutez des points. Voyez qui mène. →",
+              "es": "Suma puntos. Mira quién gana. →",
+              "it": "Aggiungi punti. Vedi chi vince. →",
+              "zh": "加分，一眼看清谁领先。→",
+              "ja": "得点を足して、首位がすぐわかる。→",
+              "ko": "점수를 더하고 선두를 확인하세요. →",
+              "hi": "अंक जोड़ें। देखें कौन आगे है। →"
+            },
+            "transform": {
+              "x": 112.58181818181819,
+              "y": 900.0177507290477,
+              "width": 1838.8363636363633,
+              "height": 73.40585774058577,
+              "zIndex": 6
+            },
+            "fontSize": 43.17991631799163,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 1 — Score",
+              "ru": "FIG. 1 — Счёт",
+              "de": "FIG. 1 — Punkte",
+              "fr": "FIG. 1 — Score",
+              "es": "FIG. 1 — Puntos",
+              "it": "FIG. 1 — Punti",
+              "zh": "FIG. 1 — 计分",
+              "ja": "FIG. 1 — スコア",
+              "ko": "FIG. 1 — 점수",
+              "hi": "FIG. 1 — अंक"
+            },
+            "transform": {
+              "x": -319.21734499809816,
+              "y": 1450.0391631799162,
+              "width": 911.5760111576011,
+              "height": 47.97768479776848,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 27.587168758716878,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "bl"
+        ]
+      },
+      {
+        "id": "ipad-2",
+        "layout": "device-top",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Undo",
+          "ru": "Отмена",
+          "de": "Rückgängig",
+          "fr": "Annuler",
+          "es": "Deshacer",
+          "it": "Annulla",
+          "zh": "撤销",
+          "ja": "取り消し",
+          "ko": "실행 취소",
+          "hi": "वापस लें"
+        },
+        "headline": {
+          "en": "Wrong tap?\nTake it back.",
+          "ru": "Ошиблись?\nОтмените.",
+          "de": "Vertippt?\nZurück damit.",
+          "fr": "Une erreur ?\nAnnulez.",
+          "es": "¿Te equivocaste?\nDeshazlo.",
+          "it": "Un errore?\nAnnullalo.",
+          "zh": "输错了？\n撤销即可。",
+          "ja": "入力ミス？\n元に戻そう。",
+          "ko": "잘못 입력했나요?\n취소하세요.",
+          "hi": "गलत दबाया?\nवापस लें।"
+        },
+        "highlight": {
+          "en": "back.",
+          "ru": "Отмените.",
+          "de": "Zurück",
+          "fr": "Annulez.",
+          "es": "Deshazlo.",
+          "it": "Annullalo.",
+          "zh": "撤销即可。",
+          "ja": "元に戻そう。",
+          "ko": "취소하세요.",
+          "hi": "वापस लें।"
+        },
+        "screenshot": "/screenshots/apple/ipad/{locale}/03-counter-dark.png",
+        "transforms": {
+          "caption": {
+            "x": 112.58181818181819,
+            "y": 1913.956729716334,
+            "width": 1838.8363636363633,
+            "height": 503.76569037656907
+          },
+          "device": {
+            "x": 419.0545454545454,
+            "y": -318.41322314049586,
+            "width": 1532.3636363636363,
+            "height": 1990.082644628099,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Undo and redo any move. →",
+              "ru": "Отмена и повтор любого хода. →",
+              "de": "Jeden Zug rückgängig machen. →",
+              "fr": "Annulez et rétablissez chaque coup. →",
+              "es": "Deshaz y rehaz cualquier jugada. →",
+              "it": "Annulla e ripristina ogni mossa. →",
+              "zh": "每一步都能撤销和重做。→",
+              "ja": "どの操作も取り消し・やり直し。→",
+              "ko": "모든 동작을 취소하고 다시 실행. →",
+              "hi": "हर चाल को वापस लें या दोहराएँ। →"
+            },
+            "transform": {
+              "x": 112.58181818181819,
+              "y": 2415.3235358530146,
+              "width": 1838.8363636363633,
+              "height": 73.40585774058577,
+              "zIndex": 6
+            },
+            "fontSize": 43.17991631799163,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 2 — Undo",
+              "ru": "FIG. 2 — Отмена",
+              "de": "FIG. 2 — Rückgängig",
+              "fr": "FIG. 2 — Annuler",
+              "es": "FIG. 2 — Deshacer",
+              "it": "FIG. 2 — Annulla",
+              "zh": "FIG. 2 — 撤销",
+              "ja": "FIG. 2 — 取り消し",
+              "ko": "FIG. 2 — 실행 취소",
+              "hi": "FIG. 2 — वापस लें"
+            },
+            "transform": {
+              "x": -319.21734499809816,
+              "y": 671.6875871687587,
+              "width": 911.5760111576011,
+              "height": 47.97768479776848,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 27.587168758716878,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "indexY": 1779.619212282582,
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "ipad-3",
+        "layout": "hero",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Games",
+          "ru": "Игры",
+          "de": "Spiele",
+          "fr": "Jeux",
+          "es": "Juegos",
+          "it": "Giochi",
+          "zh": "游戏",
+          "ja": "ゲーム",
+          "ko": "게임",
+          "hi": "खेल"
+        },
+        "headline": {
+          "en": "games.\nBuilt in.",
+          "ru": "игр.\nУже внутри.",
+          "de": "Spiele.\nSchon dabei.",
+          "fr": "jeux.\nDéjà inclus.",
+          "es": "juegos.\nYa incluidos.",
+          "it": "giochi.\nGià inclusi.",
+          "zh": "款游戏。\n内置可用。",
+          "ja": "種類のゲーム。\nすぐ遊べる。",
+          "ko": "가지 게임.\n바로 플레이.",
+          "hi": "खेल।\nऐप में शामिल।"
+        },
+        "highlight": {
+          "en": "",
+          "ru": "",
+          "de": "",
+          "fr": "",
+          "es": "",
+          "it": "",
+          "zh": "",
+          "ja": "",
+          "ko": "",
+          "hi": ""
+        },
+        "screenshot": "/screenshots/apple/ipad/{locale}/01-games.png",
+        "transforms": {
+          "caption": {
+            "x": 1185.2363636363634,
+            "y": 635.7043235704324,
+            "width": 766.1818181818181,
+            "height": 359.83263598326363
+          },
+          "device": {
+            "x": 112.58181818181819,
+            "y": 1259.4142259414225,
+            "width": 1532.3636363636363,
+            "height": 1990.082644628099,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "block",
+            "text": {},
+            "transform": {
+              "x": -4,
+              "y": 239.8884239888424,
+              "width": 2072,
+              "height": 911.5760111576011,
+              "zIndex": 1
+            },
+            "background": "#F73A3A",
+            "variant": "block"
+          },
+          {
+            "id": "numeral",
+            "text": {
+              "en": "10"
+            },
+            "transform": {
+              "x": 76.59855458349183,
+              "y": 311.8549511854951,
+              "width": 1072.6545454545453,
+              "height": 671.6875871687587,
+              "zIndex": 3
+            },
+            "fontSize": 719.6652719665273,
+            "fontWeight": 800,
+            "color": "#202020",
+            "align": "left",
+            "font": "display",
+            "lineHeight": 0.8,
+            "letterSpacing": "-0.06em"
+          },
+          {
+            "id": "games",
+            "text": {
+              "en": "UNO · Catan · Scrabble · Munchkin · Set →"
+            },
+            "transform": {
+              "x": 112.58181818181819,
+              "y": 1041.115760111576,
+              "width": 1838.8363636363633,
+              "height": 61.17154811715481,
+              "zIndex": 6
+            },
+            "fontSize": 35.98326359832636,
+            "fontWeight": 400,
+            "color": "#202020",
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 3 — Games",
+              "ru": "FIG. 3 — Игры",
+              "de": "FIG. 3 — Spiele",
+              "fr": "FIG. 3 — Jeux",
+              "es": "FIG. 3 — Juegos",
+              "it": "FIG. 3 — Giochi",
+              "zh": "FIG. 3 — 游戏",
+              "ja": "FIG. 3 — ゲーム",
+              "ko": "FIG. 3 — 게임",
+              "hi": "FIG. 3 — खेल"
+            },
+            "transform": {
+              "x": 1471.641333840497,
+              "y": 1691.2133891213387,
+              "width": 911.5760111576011,
+              "height": 47.97768479776848,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 27.587168758716878,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "ipad-4",
+        "layout": "device-bottom",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Dice",
+          "ru": "Кубик",
+          "de": "Würfel",
+          "fr": "Dé",
+          "es": "Dado",
+          "it": "Dado",
+          "zh": "骰子",
+          "ja": "サイコロ",
+          "ko": "주사위",
+          "hi": "पासा"
+        },
+        "headline": {
+          "en": "Your turn.\nRoll it.",
+          "ru": "Ваш ход.\nБросайте.",
+          "de": "Du bist dran.\nWürfle.",
+          "fr": "À vous.\nLancez le dé.",
+          "es": "Tu turno.\nLanza el dado.",
+          "it": "Tocca a te.\nLancia il dado.",
+          "zh": "轮到你了。\n掷骰子吧。",
+          "ja": "あなたの番。\nサイコロを振ろう。",
+          "ko": "당신의 차례.\n주사위를 던져요.",
+          "hi": "आपकी बारी।\nपासा फेंकें।"
+        },
+        "highlight": {
+          "en": "Roll it.",
+          "ru": "Бросайте.",
+          "de": "Würfle.",
+          "fr": "Lancez",
+          "es": "Lanza",
+          "it": "Lancia",
+          "zh": "掷骰子吧。",
+          "ja": "サイコロを振ろう。",
+          "ko": "주사위를 던져요.",
+          "hi": "पासा फेंकें।"
+        },
+        "screenshot": "/screenshots/apple/ipad/{locale}/06-dice.png",
+        "transforms": {
+          "caption": {
+            "x": 112.58181818181819,
+            "y": 239.8884239888424,
+            "width": 1838.8363636363633,
+            "height": 503.76569037656907
+          },
+          "device": {
+            "x": -193.8909090909092,
+            "y": 863.5983263598326,
+            "width": 1532.3636363636363,
+            "height": 1990.082644628099,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "A die in your pocket. →",
+              "ru": "Кубик всегда под рукой. →",
+              "de": "Ein Würfel für unterwegs. →",
+              "fr": "Un dé à portée de main. →",
+              "es": "Un dado siempre a mano. →",
+              "it": "Un dado sempre a portata. →",
+              "zh": "骰子随手可用。→",
+              "ja": "サイコロをいつも手元に。→",
+              "ko": "손안의 주사위. →",
+              "hi": "पासा हमेशा साथ। →"
+            },
+            "transform": {
+              "x": 112.58181818181819,
+              "y": 743.6541143654115,
+              "width": 1838.8363636363633,
+              "height": 73.40585774058577,
+              "zIndex": 6
+            },
+            "fontSize": 43.17991631799163,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 4 — Dice",
+              "ru": "FIG. 4 — Кубик",
+              "de": "FIG. 4 — Würfel",
+              "fr": "FIG. 4 — Dé",
+              "es": "FIG. 4 — Dado",
+              "it": "FIG. 4 — Dado",
+              "zh": "FIG. 4 — 骰子",
+              "ja": "FIG. 4 — サイコロ",
+              "ko": "FIG. 4 — 주사위",
+              "hi": "FIG. 4 — पासा"
+            },
+            "transform": {
+              "x": 1471.641333840497,
+              "y": 1295.397489539749,
+              "width": 911.5760111576011,
+              "height": 47.97768479776848,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 27.587168758716878,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "ipad-5",
+        "layout": "device-top",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Stopwatch",
+          "ru": "Секундомер",
+          "de": "Stoppuhr",
+          "fr": "Chrono",
+          "es": "Cronómetro",
+          "it": "Cronometro",
+          "zh": "秒表",
+          "ja": "タイマー",
+          "ko": "스톱워치",
+          "hi": "स्टॉपवॉच"
+        },
+        "headline": {
+          "en": "Every second\ncounts.",
+          "ru": "Каждая секунда\nна счету.",
+          "de": "Jede Sekunde\nzählt.",
+          "fr": "Chaque seconde\ncompte.",
+          "es": "Cada segundo\ncuenta.",
+          "it": "Ogni secondo\nconta.",
+          "zh": "每一秒\n都算数。",
+          "ja": "一秒ずつ\nしっかり計測。",
+          "ko": "매초를\n기록하세요.",
+          "hi": "हर सेकंड\nगिनें।"
+        },
+        "screenshot": "/screenshots/apple/ipad/{locale}/07-timer.png",
+        "transforms": {
+          "caption": {
+            "x": 112.58181818181819,
+            "y": 239.8884239888424,
+            "width": 1838.8363636363633,
+            "height": 503.76569037656907
+          },
+          "device": {
+            "x": 725.5272727272727,
+            "y": 1379.3584379358438,
+            "width": 1379.1272727272726,
+            "height": 1791.074380165289,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "block",
+            "text": {},
+            "transform": {
+              "x": -4,
+              "y": 779.6373779637378,
+              "width": 1802.181818181818,
+              "height": 515.7601115760111,
+              "zIndex": 1
+            },
+            "background": "#F73A3A",
+            "variant": "block"
+          },
+          {
+            "id": "numeral",
+            "text": {
+              "en": "01:23"
+            },
+            "transform": {
+              "x": 90.99186002282238,
+              "y": 803.626220362622,
+              "width": 1624.3054545454543,
+              "height": 467.78242677824267,
+              "zIndex": 3
+            },
+            "fontSize": 479.7768479776848,
+            "fontWeight": 800,
+            "color": "#202020",
+            "align": "left",
+            "font": "display",
+            "lineHeight": 1,
+            "letterSpacing": "-0.05em"
+          },
+          {
+            "id": "sub",
+            "text": {
+              "en": "Stopwatch\nin every\ngame. →",
+              "ru": "Секундомер\nв каждой\nигре. →",
+              "de": "Stoppuhr\nin jedem\nSpiel. →",
+              "fr": "Chrono\ndans chaque\njeu. →",
+              "es": "Cronómetro\nen cada\njuego. →",
+              "it": "Cronometro\nin ogni\ngioco. →",
+              "zh": "每款游戏\n都有秒表。→",
+              "ja": "どのゲームにも\nストップ\nウォッチ。→",
+              "ko": "모든 게임에\n스톱워치. →",
+              "hi": "हर खेल में\nस्टॉपवॉच। →"
+            },
+            "transform": {
+              "x": 112.58181818181819,
+              "y": 1427.3361227336122,
+              "width": 551.6509090909091,
+              "height": 311.8549511854951,
+              "zIndex": 6
+            },
+            "fontSize": 43.17991631799163,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "lineHeight": 1.35,
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 5 — Stopwatch",
+              "ru": "FIG. 5 — Секундомер",
+              "de": "FIG. 5 — Stoppuhr",
+              "fr": "FIG. 5 — Chrono",
+              "es": "FIG. 5 — Cronómetro",
+              "it": "FIG. 5 — Cronometro",
+              "zh": "FIG. 5 — 秒表",
+              "ja": "FIG. 5 — タイマー",
+              "ko": "FIG. 5 — 스톱워치",
+              "hi": "FIG. 5 — स्टॉपवॉच"
+            },
+            "transform": {
+              "x": 112.58181818181819,
+              "y": 1883.1241283124127,
+              "width": 551.6509090909091,
+              "height": 46.89818688981869,
+              "zIndex": 6
+            },
+            "fontSize": 27.587168758716878,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "bl"
+        ]
+      },
+      {
+        "id": "ipad-6",
+        "layout": "hero",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Saves",
+          "ru": "Сохранение",
+          "de": "Speichern",
+          "fr": "Sauvegarde",
+          "es": "Guardado",
+          "it": "Salvataggi",
+          "zh": "存档",
+          "ja": "保存",
+          "ko": "저장",
+          "hi": "सेव"
+        },
+        "headline": {
+          "en": "Pause tonight.\nPlay tomorrow.",
+          "ru": "Пауза сегодня.\nИгра завтра.",
+          "de": "Heute Pause.\nMorgen weiter.",
+          "fr": "Pause ce soir.\nReprise demain.",
+          "es": "Pausa hoy.\nSigue mañana.",
+          "it": "Pausa oggi.\nRiprendi domani.",
+          "zh": "今天暂停。\n明天继续。",
+          "ja": "今日はひと休み。\n続きは明日。",
+          "ko": "오늘은 쉬고.\n내일 이어서.",
+          "hi": "आज विराम।\nकल फिर खेलें।"
+        },
+        "highlight": {
+          "en": "tomorrow.",
+          "ru": "завтра.",
+          "de": "Morgen",
+          "fr": "demain.",
+          "es": "mañana.",
+          "it": "domani.",
+          "zh": "明天继续。",
+          "ja": "続きは明日。",
+          "ko": "내일 이어서.",
+          "hi": "कल फिर खेलें।"
+        },
+        "screenshot": "/screenshots/apple/ipad/{locale}/09-saved.png",
+        "transforms": {
+          "caption": {
+            "x": 112.58181818181819,
+            "y": 239.8884239888424,
+            "width": 1838.8363636363633,
+            "height": 503.76569037656907
+          },
+          "device": {
+            "x": 112.58181818181819,
+            "y": 1155.84,
+            "width": 1532.3636363636363,
+            "height": 1990.082644628099,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Resume any saved game. →",
+              "ru": "Продолжайте сохранённые партии. →",
+              "de": "Gespeicherte Partien fortsetzen. →",
+              "fr": "Reprenez vos parties sauvegardées. →",
+              "es": "Retoma partidas guardadas. →",
+              "it": "Riprendi le partite salvate. →",
+              "zh": "继续保存的对局。→",
+              "ja": "保存した対局を再開。→",
+              "ko": "저장한 게임 이어 하기. →",
+              "hi": "सेव किया खेल जारी रखें। →"
+            },
+            "transform": {
+              "x": 112.58181818181819,
+              "y": 743.6541143654115,
+              "width": 1838.8363636363633,
+              "height": 73.40585774058577,
+              "zIndex": 6
+            },
+            "fontSize": 43.17991631799163,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 6 — Saves",
+              "ru": "FIG. 6 — Сохранение",
+              "de": "FIG. 6 — Speichern",
+              "fr": "FIG. 6 — Sauvegarde",
+              "es": "FIG. 6 — Guardado",
+              "it": "FIG. 6 — Salvataggi",
+              "zh": "FIG. 6 — 存档",
+              "ja": "FIG. 6 — 保存",
+              "ko": "FIG. 6 — 저장",
+              "hi": "FIG. 6 — सेव"
+            },
+            "transform": {
+              "x": 1471.641333840497,
+              "y": 1587.639163179916,
+              "width": 911.5760111576011,
+              "height": 47.97768479776848,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 27.587168758716878,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "ipad-7",
+        "layout": "device-top",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Catan",
+          "ru": "Catan",
+          "de": "Catan",
+          "fr": "Catan",
+          "es": "Catan",
+          "it": "Catan",
+          "zh": "Catan",
+          "ja": "Catan",
+          "ko": "Catan",
+          "hi": "Catan"
+        },
+        "headline": {
+          "en": "New board.\nEvery game.",
+          "ru": "Новое поле.\nКаждую партию.",
+          "de": "Neues Feld.\nJedes Spiel.",
+          "fr": "Nouveau plateau.\nÀ chaque partie.",
+          "es": "Nuevo tablero.\nCada partida.",
+          "it": "Nuovo tabellone.\nOgni partita.",
+          "zh": "新棋盘。\n每局都新。",
+          "ja": "新しい盤面。\n毎回のゲームに。",
+          "ko": "새로운 보드.\n매 게임마다.",
+          "hi": "नया बोर्ड।\nहर खेल में।"
+        },
+        "highlight": {
+          "en": "Every game.",
+          "ru": "Каждую партию.",
+          "de": "Jedes Spiel.",
+          "fr": "À chaque partie.",
+          "es": "Cada partida.",
+          "it": "Ogni partita.",
+          "zh": "每局都新。",
+          "ja": "毎回のゲームに。",
+          "ko": "매 게임마다.",
+          "hi": "हर खेल में।"
+        },
+        "screenshot": "/screenshots/apple/ipad/{locale}/11-map-light.png",
+        "transforms": {
+          "caption": {
+            "x": 112.58181818181819,
+            "y": 1913.956729716334,
+            "width": 1838.8363636363633,
+            "height": 503.76569037656907
+          },
+          "device": {
+            "x": 112.58181818181819,
+            "y": -318.41322314049586,
+            "width": 1532.3636363636363,
+            "height": 1990.082644628099,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Catan maps in one tap. →",
+              "ru": "Карта Catan в одно касание. →",
+              "de": "Catan-Karte mit einem Tipp. →",
+              "fr": "Carte Catan en un geste. →",
+              "es": "Mapa de Catan con un toque. →",
+              "it": "Mappa di Catan con un tocco. →",
+              "zh": "一键生成 Catan 地图。→",
+              "ja": "ワンタップで Catan のマップ。→",
+              "ko": "탭 한 번으로 Catan 맵. →",
+              "hi": "एक टैप में Catan मैप। →"
+            },
+            "transform": {
+              "x": 112.58181818181819,
+              "y": 2583.681593416093,
+              "width": 1838.8363636363633,
+              "height": 73.40585774058577,
+              "zIndex": 6
+            },
+            "fontSize": 43.17991631799163,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 7 — Catan",
+              "ru": "FIG. 7 — Catan",
+              "de": "FIG. 7 — Catan",
+              "fr": "FIG. 7 — Catan",
+              "es": "FIG. 7 — Catan",
+              "it": "FIG. 7 — Catan",
+              "zh": "FIG. 7 — Catan",
+              "ja": "FIG. 7 — Catan",
+              "ko": "FIG. 7 — Catan",
+              "hi": "FIG. 7 — Catan"
+            },
+            "transform": {
+              "x": 1471.641333840497,
+              "y": 671.6875871687587,
+              "width": 911.5760111576011,
+              "height": 47.97768479776848,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 27.587168758716878,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "indexY": 1779.619212282582,
+        "marks": [
+          "bl"
+        ]
+      },
+      {
+        "id": "ipad-8",
+        "layout": "no-device",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Index",
+          "ru": "Обзор",
+          "de": "Übersicht",
+          "fr": "Index",
+          "es": "Índice",
+          "it": "Indice",
+          "zh": "总览",
+          "ja": "一覧",
+          "ko": "목록",
+          "hi": "सूची"
+        },
+        "headline": {
+          "en": "Everything\nfor game night.",
+          "ru": "Всё для\nигрового вечера.",
+          "de": "Alles für den\nSpieleabend.",
+          "fr": "Tout pour\nla soirée jeux.",
+          "es": "Todo para la\nnoche de juegos.",
+          "it": "Tutto per\nla serata giochi.",
+          "zh": "游戏之夜\n一应俱全。",
+          "ja": "ゲームの夜に\n必要なすべて。",
+          "ko": "게임의 밤에\n필요한 모든 것.",
+          "hi": "गेम नाइट के लिए\nसब कुछ।"
+        },
+        "highlight": {
+          "en": "game night.",
+          "ru": "игрового вечера.",
+          "de": "Spieleabend.",
+          "fr": "soirée jeux.",
+          "es": "noche de juegos.",
+          "it": "serata giochi.",
+          "zh": "一应俱全。",
+          "ja": "必要なすべて。",
+          "ko": "필요한 모든 것.",
+          "hi": "सब कुछ।"
+        },
+        "screenshot": "",
+        "transforms": {
+          "caption": {
+            "x": 112.58181818181819,
+            "y": 239.8884239888424,
+            "width": 1838.8363636363633,
+            "height": 503.76569037656907
+          }
+        },
+        "textElements": [
+          {
+            "id": "numbers",
+            "text": {
+              "en": "01\n02\n03\n04\n05\n06\n07\n08"
+            },
+            "transform": {
+              "x": 112.58181818181819,
+              "y": 863.5983263598326,
+              "width": 183.88363636363633,
+              "height": 1708.4853556485355,
+              "zIndex": 6
+            },
+            "fontSize": 33.584379358437936,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "lineHeight": "213.56066945606693px",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "names",
+            "text": {
+              "en": "Scores\nUndo\n10 games\nDice\nStopwatch\nSaves\nRules\nCatan maps",
+              "ru": "Счёт\nОтмена\n10 игр\nКубик\nСекундомер\nСохранения\nПравила\nКарты Catan",
+              "de": "Punkte\nRückgängig\n10 Spiele\nWürfel\nStoppuhr\nSpielstände\nRegeln\nCatan-Karten",
+              "fr": "Scores\nAnnuler\n10 jeux\nDé\nChrono\nSauvegardes\nRègles\nCartes Catan",
+              "es": "Puntos\nDeshacer\n10 juegos\nDado\nCronómetro\nPartidas\nReglas\nMapas Catan",
+              "it": "Punti\nAnnulla\n10 giochi\nDado\nCronometro\nSalvataggi\nRegole\nMappe Catan",
+              "zh": "计分\n撤销\n10 款游戏\n骰子\n秒表\n存档\n规则\nCatan 地图",
+              "ja": "スコア\n取り消し\n10 ゲーム\nサイコロ\nタイマー\n保存\nルール\nCatan マップ",
+              "ko": "점수\n실행 취소\n10가지 게임\n주사위\n스톱워치\n저장\n규칙\nCatan 맵",
+              "hi": "अंक\nवापस लें\n10 खेल\nपासा\nस्टॉपवॉच\nसेव\nनियम\nCatan मैप"
+            },
+            "transform": {
+              "x": 327.1127272727273,
+              "y": 863.5983263598326,
+              "width": 980.7127272727272,
+              "height": 1708.4853556485355,
+              "zIndex": 6
+            },
+            "fontSize": 106.78033472803347,
+            "fontWeight": 800,
+            "align": "left",
+            "font": "display",
+            "lineHeight": "213.56066945606693px",
+            "letterSpacing": "-0.035em"
+          },
+          {
+            "id": "descriptors",
+            "text": {
+              "en": "Every player\nEvery move\nBuilt in\nOne tap\nEvery game\nResume later\nIn the app\nBalanced",
+              "ru": "Все игроки\nЛюбой ход\nВнутри\nОдно касание\nКаждая игра\nПродолжить позже\nВ приложении\nБаланс",
+              "de": "Jeder Spieler\nJeder Zug\nIntegriert\nEin Tipp\nJedes Spiel\nSpäter weiter\nIn der App\nAusgewogen",
+              "fr": "Chaque joueur\nChaque coup\nInclus\nUn geste\nChaque jeu\nReprendre\nDans l'app\nÉquilibrées",
+              "es": "Cada jugador\nCada jugada\nIncluidos\nUn toque\nCada juego\nSigue luego\nEn la app\nEquilibrados",
+              "it": "Ogni giocatore\nOgni mossa\nInclusi\nUn tocco\nOgni gioco\nRiprendi dopo\nNell'app\nEquilibrate",
+              "zh": "每位玩家\n每一步\n内置\n一键\n每款游戏\n稍后继续\n应用内\n均衡",
+              "ja": "全プレイヤー\nすべての操作\n内蔵\nワンタップ\n各ゲーム\nあとで再開\nアプリ内\nバランス",
+              "ko": "모든 플레이어\n모든 동작\n내장\n탭 한 번\n모든 게임\n나중에 계속\n앱 안에서\n균형",
+              "hi": "हर खिलाड़ी\nहर चाल\nशामिल\nएक टैप\nहर खेल\nबाद में जारी\nऐप में\nसंतुलित"
+            },
+            "transform": {
+              "x": 1323.1490909090908,
+              "y": 863.5983263598326,
+              "width": 628.2690909090908,
+              "height": 1708.4853556485355,
+              "zIndex": 6
+            },
+            "fontSize": 28.786610878661087,
+            "fontWeight": 400,
+            "align": "right",
+            "font": "mono",
+            "lineHeight": "213.56066945606693px",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          }
+        ],
+        "rules": [
+          863.5983263598326,
+          1077.1589958158995,
+          1290.7196652719665,
+          1504.2803347280333,
+          1717.8410041841003,
+          1931.4016736401672,
+          2144.9623430962342,
+          2358.523012552301,
+          2572.083682008368
+        ],
+        "marks": [
+          "bl"
+        ]
+      }
+    ],
+    "android": [
+      {
+        "id": "android-1",
+        "layout": "device-bottom",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Score",
+          "ru": "Счёт",
+          "de": "Punkte",
+          "fr": "Score",
+          "es": "Puntos",
+          "it": "Punti",
+          "zh": "计分",
+          "ja": "スコア",
+          "ko": "점수",
+          "hi": "अंक"
+        },
+        "headline": {
+          "en": "Every point.\nIn one place.",
+          "ru": "Все очки.\nВ одном месте.",
+          "de": "Alle Punkte.\nEin Ort.",
+          "fr": "Tous les points.\nAu même endroit.",
+          "es": "Todos los puntos.\nEn un lugar.",
+          "it": "Tutti i punti.\nIn un posto.",
+          "zh": "所有得分。\n记在一处。",
+          "ja": "みんなの得点。\nひとつの場所に。",
+          "ko": "모두의 점수.\n한곳에.",
+          "hi": "सभी के अंक।\nएक जगह।"
+        },
+        "highlight": {
+          "en": "In one place.",
+          "ru": "В одном месте.",
+          "de": "Ein Ort.",
+          "fr": "Au même endroit.",
+          "es": "En un lugar.",
+          "it": "In un posto.",
+          "zh": "记在一处。",
+          "ja": "ひとつの場所に。",
+          "ko": "한곳에.",
+          "hi": "एक जगह।"
+        },
+        "screenshot": "/screenshots/android/phone/{locale}/05-counter-light.png",
+        "transforms": {
+          "caption": {
+            "x": 58.909090909090914,
+            "y": 163.63636363636365,
+            "width": 962.181818181818,
+            "height": 343.6363636363637
+          },
+          "device": {
+            "x": 379.6363636363636,
+            "y": 710.4,
+            "width": 641.4545454545454,
+            "height": 1389.8181818181815,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Add points. See who leads. →",
+              "ru": "Добавьте очки — видно, кто ведёт. →",
+              "de": "Punkte eintragen. Führung sehen. →",
+              "fr": "Ajoutez des points. Voyez qui mène. →",
+              "es": "Suma puntos. Mira quién gana. →",
+              "it": "Aggiungi punti. Vedi chi vince. →",
+              "zh": "加分，一眼看清谁领先。→",
+              "ja": "得点を足して、首位がすぐわかる。→",
+              "ko": "점수를 더하고 선두를 확인하세요. →",
+              "hi": "अंक जोड़ें। देखें कौन आगे है। →"
+            },
+            "transform": {
+              "x": 58.909090909090914,
+              "y": 589.0909090909091,
+              "width": 962.181818181818,
+              "height": 50.07272727272728,
+              "zIndex": 6
+            },
+            "fontSize": 29.454545454545457,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 1 — Score",
+              "ru": "FIG. 1 — Счёт",
+              "de": "FIG. 1 — Punkte",
+              "fr": "FIG. 1 — Score",
+              "es": "FIG. 1 — Puntos",
+              "it": "FIG. 1 — Punti",
+              "zh": "FIG. 1 — 计分",
+              "ja": "FIG. 1 — スコア",
+              "ko": "FIG. 1 — 점수",
+              "hi": "FIG. 1 — अंक"
+            },
+            "transform": {
+              "x": -235.63636363636365,
+              "y": 1004.9454545454545,
+              "width": 621.8181818181819,
+              "height": 32.72727272727273,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 18.81818181818182,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "bl"
+        ]
+      },
+      {
+        "id": "android-2",
+        "layout": "device-top",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Undo",
+          "ru": "Отмена",
+          "de": "Rückgängig",
+          "fr": "Annuler",
+          "es": "Deshacer",
+          "it": "Annulla",
+          "zh": "撤销",
+          "ja": "取り消し",
+          "ko": "실행 취소",
+          "hi": "वापस लें"
+        },
+        "headline": {
+          "en": "Wrong tap?\nTake it back.",
+          "ru": "Ошиблись?\nОтмените.",
+          "de": "Vertippt?\nZurück damit.",
+          "fr": "Une erreur ?\nAnnulez.",
+          "es": "¿Te equivocaste?\nDeshazlo.",
+          "it": "Un errore?\nAnnullalo.",
+          "zh": "输错了？\n撤销即可。",
+          "ja": "入力ミス？\n元に戻そう。",
+          "ko": "잘못 입력했나요?\n취소하세요.",
+          "hi": "गलत दबाया?\nवापस लें।"
+        },
+        "highlight": {
+          "en": "back.",
+          "ru": "Отмените.",
+          "de": "Zurück",
+          "fr": "Annulez.",
+          "es": "Deshazlo.",
+          "it": "Annullalo.",
+          "zh": "撤销即可。",
+          "ja": "元に戻そう。",
+          "ko": "취소하세요.",
+          "hi": "वापस लें।"
+        },
+        "screenshot": "/screenshots/android/phone/{locale}/03-counter-dark.png",
+        "transforms": {
+          "caption": {
+            "x": 58.909090909090914,
+            "y": 1332.72,
+            "width": 962.181818181818,
+            "height": 343.6363636363637
+          },
+          "device": {
+            "x": 379.6363636363636,
+            "y": -222.37090909090904,
+            "width": 641.4545454545454,
+            "height": 1389.8181818181815,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Undo and redo any move. →",
+              "ru": "Отмена и повтор любого хода. →",
+              "de": "Jeden Zug rückgängig machen. →",
+              "fr": "Annulez et rétablissez chaque coup. →",
+              "es": "Deshaz y rehaz cualquier jugada. →",
+              "it": "Annulla e ripristina ogni mossa. →",
+              "zh": "每一步都能撤销和重做。→",
+              "ja": "どの操作も取り消し・やり直し。→",
+              "ko": "모든 동작을 취소하고 다시 실행. →",
+              "hi": "हर चाल को वापस लें या दोहराएँ। →"
+            },
+            "transform": {
+              "x": 58.909090909090914,
+              "y": 1674.72,
+              "width": 962.181818181818,
+              "height": 50.07272727272728,
+              "zIndex": 6
+            },
+            "fontSize": 29.454545454545457,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 2 — Undo",
+              "ru": "FIG. 2 — Отмена",
+              "de": "FIG. 2 — Rückgängig",
+              "fr": "FIG. 2 — Annuler",
+              "es": "FIG. 2 — Deshacer",
+              "it": "FIG. 2 — Annulla",
+              "zh": "FIG. 2 — 撤销",
+              "ja": "FIG. 2 — 取り消し",
+              "ko": "FIG. 2 — 실행 취소",
+              "hi": "FIG. 2 — वापस लें"
+            },
+            "transform": {
+              "x": -235.63636363636365,
+              "y": 458.18181818181824,
+              "width": 621.8181818181819,
+              "height": 32.72727272727273,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 18.81818181818182,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "indexY": 1241.0836363636363,
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "android-3",
+        "layout": "hero",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Games",
+          "ru": "Игры",
+          "de": "Spiele",
+          "fr": "Jeux",
+          "es": "Juegos",
+          "it": "Giochi",
+          "zh": "游戏",
+          "ja": "ゲーム",
+          "ko": "게임",
+          "hi": "खेल"
+        },
+        "headline": {
+          "en": "games.\nBuilt in.",
+          "ru": "игр.\nУже внутри.",
+          "de": "Spiele.\nSchon dabei.",
+          "fr": "jeux.\nDéjà inclus.",
+          "es": "juegos.\nYa incluidos.",
+          "it": "giochi.\nGià inclusi.",
+          "zh": "款游戏。\n内置可用。",
+          "ja": "種類のゲーム。\nすぐ遊べる。",
+          "ko": "가지 게임.\n바로 플레이.",
+          "hi": "खेल।\nऐप में शामिल।"
+        },
+        "highlight": {
+          "en": "",
+          "ru": "",
+          "de": "",
+          "fr": "",
+          "es": "",
+          "it": "",
+          "zh": "",
+          "ja": "",
+          "ko": "",
+          "hi": ""
+        },
+        "screenshot": "/screenshots/android/phone/{locale}/01-games.png",
+        "transforms": {
+          "caption": {
+            "x": 620.1818181818181,
+            "y": 433.6363636363636,
+            "width": 400.9090909090909,
+            "height": 245.45454545454547
+          },
+          "device": {
+            "x": 58.909090909090914,
+            "y": 859.0909090909091,
+            "width": 641.4545454545454,
+            "height": 1389.8181818181815,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "block",
+            "text": {},
+            "transform": {
+              "x": -4,
+              "y": 163.63636363636365,
+              "width": 1088,
+              "height": 621.8181818181819,
+              "zIndex": 1
+            },
+            "background": "#F73A3A",
+            "variant": "block"
+          },
+          {
+            "id": "numeral",
+            "text": {
+              "en": "10"
+            },
+            "transform": {
+              "x": 34.36363636363637,
+              "y": 212.72727272727275,
+              "width": 561.2727272727273,
+              "height": 458.1818181818182,
+              "zIndex": 3
+            },
+            "fontSize": 490.90909090909093,
+            "fontWeight": 800,
+            "color": "#202020",
+            "align": "left",
+            "font": "display",
+            "lineHeight": 0.8,
+            "letterSpacing": "-0.06em"
+          },
+          {
+            "id": "games",
+            "text": {
+              "en": "UNO · Catan · Scrabble · Munchkin · Set →"
+            },
+            "transform": {
+              "x": 58.909090909090914,
+              "y": 710.1818181818182,
+              "width": 962.181818181818,
+              "height": 41.72727272727273,
+              "zIndex": 6
+            },
+            "fontSize": 24.545454545454547,
+            "fontWeight": 400,
+            "color": "#202020",
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 3 — Games",
+              "ru": "FIG. 3 — Игры",
+              "de": "FIG. 3 — Spiele",
+              "fr": "FIG. 3 — Jeux",
+              "es": "FIG. 3 — Juegos",
+              "it": "FIG. 3 — Giochi",
+              "zh": "FIG. 3 — 游戏",
+              "ja": "FIG. 3 — ゲーム",
+              "ko": "FIG. 3 — 게임",
+              "hi": "FIG. 3 — खेल"
+            },
+            "transform": {
+              "x": 693.8181818181818,
+              "y": 1153.6363636363637,
+              "width": 621.8181818181819,
+              "height": 32.72727272727273,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 18.81818181818182,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "android-4",
+        "layout": "device-bottom",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Dice",
+          "ru": "Кубик",
+          "de": "Würfel",
+          "fr": "Dé",
+          "es": "Dado",
+          "it": "Dado",
+          "zh": "骰子",
+          "ja": "サイコロ",
+          "ko": "주사위",
+          "hi": "पासा"
+        },
+        "headline": {
+          "en": "Your turn.\nRoll it.",
+          "ru": "Ваш ход.\nБросайте.",
+          "de": "Du bist dran.\nWürfle.",
+          "fr": "À vous.\nLancez le dé.",
+          "es": "Tu turno.\nLanza el dado.",
+          "it": "Tocca a te.\nLancia il dado.",
+          "zh": "轮到你了。\n掷骰子吧。",
+          "ja": "あなたの番。\nサイコロを振ろう。",
+          "ko": "당신의 차례.\n주사위를 던져요.",
+          "hi": "आपकी बारी।\nपासा फेंकें।"
+        },
+        "highlight": {
+          "en": "Roll it.",
+          "ru": "Бросайте.",
+          "de": "Würfle.",
+          "fr": "Lancez",
+          "es": "Lanza",
+          "it": "Lancia",
+          "zh": "掷骰子吧。",
+          "ja": "サイコロを振ろう。",
+          "ko": "주사위를 던져요.",
+          "hi": "पासा फेंकें।"
+        },
+        "screenshot": "/screenshots/android/phone/{locale}/06-dice.png",
+        "transforms": {
+          "caption": {
+            "x": 58.909090909090914,
+            "y": 163.63636363636365,
+            "width": 962.181818181818,
+            "height": 343.6363636363637
+          },
+          "device": {
+            "x": -101.4545454545455,
+            "y": 599.6727272727276,
+            "width": 641.4545454545454,
+            "height": 1389.8181818181815,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "A die in your pocket. →",
+              "ru": "Кубик всегда под рукой. →",
+              "de": "Ein Würfel für unterwegs. →",
+              "fr": "Un dé à portée de main. →",
+              "es": "Un dado siempre a mano. →",
+              "it": "Un dado sempre a portata. →",
+              "zh": "骰子随手可用。→",
+              "ja": "サイコロをいつも手元に。→",
+              "ko": "손안의 주사위. →",
+              "hi": "पासा हमेशा साथ। →"
+            },
+            "transform": {
+              "x": 58.909090909090914,
+              "y": 507.2727272727273,
+              "width": 962.181818181818,
+              "height": 50.07272727272728,
+              "zIndex": 6
+            },
+            "fontSize": 29.454545454545457,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 4 — Dice",
+              "ru": "FIG. 4 — Кубик",
+              "de": "FIG. 4 — Würfel",
+              "fr": "FIG. 4 — Dé",
+              "es": "FIG. 4 — Dado",
+              "it": "FIG. 4 — Dado",
+              "zh": "FIG. 4 — 骰子",
+              "ja": "FIG. 4 — サイコロ",
+              "ko": "FIG. 4 — 주사위",
+              "hi": "FIG. 4 — पासा"
+            },
+            "transform": {
+              "x": 693.8181818181818,
+              "y": 894.2181818181822,
+              "width": 621.8181818181819,
+              "height": 32.72727272727273,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 18.81818181818182,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "android-5",
+        "layout": "device-top",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Stopwatch",
+          "ru": "Секундомер",
+          "de": "Stoppuhr",
+          "fr": "Chrono",
+          "es": "Cronómetro",
+          "it": "Cronometro",
+          "zh": "秒表",
+          "ja": "タイマー",
+          "ko": "스톱워치",
+          "hi": "स्टॉपवॉच"
+        },
+        "headline": {
+          "en": "Every second\ncounts.",
+          "ru": "Каждая секунда\nна счету.",
+          "de": "Jede Sekunde\nzählt.",
+          "fr": "Chaque seconde\ncompte.",
+          "es": "Cada segundo\ncuenta.",
+          "it": "Ogni secondo\nconta.",
+          "zh": "每一秒\n都算数。",
+          "ja": "一秒ずつ\nしっかり計測。",
+          "ko": "매초를\n기록하세요.",
+          "hi": "हर सेकंड\nगिनें।"
+        },
+        "screenshot": "/screenshots/android/phone/{locale}/07-timer.png",
+        "transforms": {
+          "caption": {
+            "x": 58.909090909090914,
+            "y": 163.63636363636365,
+            "width": 962.181818181818,
+            "height": 343.6363636363637
+          },
+          "device": {
+            "x": 539.9999999999999,
+            "y": 940.909090909091,
+            "width": 561.2727272727273,
+            "height": 1216.090909090909,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "block",
+            "text": {},
+            "transform": {
+              "x": -4,
+              "y": 531.8181818181819,
+              "width": 944.9090909090908,
+              "height": 351.8181818181818,
+              "zIndex": 1
+            },
+            "background": "#F73A3A",
+            "variant": "block"
+          },
+          {
+            "id": "numeral",
+            "text": {
+              "en": "01:23"
+            },
+            "transform": {
+              "x": 44.18181818181819,
+              "y": 548.1818181818182,
+              "width": 849.9272727272726,
+              "height": 319.09090909090907,
+              "zIndex": 3
+            },
+            "fontSize": 327.2727272727273,
+            "fontWeight": 800,
+            "color": "#202020",
+            "align": "left",
+            "font": "display",
+            "lineHeight": 1,
+            "letterSpacing": "-0.05em"
+          },
+          {
+            "id": "sub",
+            "text": {
+              "en": "Stopwatch\nin every\ngame. →",
+              "ru": "Секундомер\nв каждой\nигре. →",
+              "de": "Stoppuhr\nin jedem\nSpiel. →",
+              "fr": "Chrono\ndans chaque\njeu. →",
+              "es": "Cronómetro\nen cada\njuego. →",
+              "it": "Cronometro\nin ogni\ngioco. →",
+              "zh": "每款游戏\n都有秒表。→",
+              "ja": "どのゲームにも\nストップ\nウォッチ。→",
+              "ko": "모든 게임에\n스톱워치. →",
+              "hi": "हर खेल में\nस्टॉपवॉच। →"
+            },
+            "transform": {
+              "x": 58.909090909090914,
+              "y": 973.6363636363637,
+              "width": 288.6545454545454,
+              "height": 212.72727272727275,
+              "zIndex": 6
+            },
+            "fontSize": 29.454545454545457,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "lineHeight": 1.35,
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 5 — Stopwatch",
+              "ru": "FIG. 5 — Секундомер",
+              "de": "FIG. 5 — Stoppuhr",
+              "fr": "FIG. 5 — Chrono",
+              "es": "FIG. 5 — Cronómetro",
+              "it": "FIG. 5 — Cronometro",
+              "zh": "FIG. 5 — 秒表",
+              "ja": "FIG. 5 — タイマー",
+              "ko": "FIG. 5 — 스톱워치",
+              "hi": "FIG. 5 — स्टॉपवॉच"
+            },
+            "transform": {
+              "x": 58.909090909090914,
+              "y": 1284.5454545454547,
+              "width": 288.6545454545454,
+              "height": 31.990909090909092,
+              "zIndex": 6
+            },
+            "fontSize": 18.81818181818182,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "bl"
+        ]
+      },
+      {
+        "id": "android-6",
+        "layout": "hero",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Saves",
+          "ru": "Сохранение",
+          "de": "Speichern",
+          "fr": "Sauvegarde",
+          "es": "Guardado",
+          "it": "Salvataggi",
+          "zh": "存档",
+          "ja": "保存",
+          "ko": "저장",
+          "hi": "सेव"
+        },
+        "headline": {
+          "en": "Pause tonight.\nPlay tomorrow.",
+          "ru": "Пауза сегодня.\nИгра завтра.",
+          "de": "Heute Pause.\nMorgen weiter.",
+          "fr": "Pause ce soir.\nReprise demain.",
+          "es": "Pausa hoy.\nSigue mañana.",
+          "it": "Pausa oggi.\nRiprendi domani.",
+          "zh": "今天暂停。\n明天继续。",
+          "ja": "今日はひと休み。\n続きは明日。",
+          "ko": "오늘은 쉬고.\n내일 이어서.",
+          "hi": "आज विराम।\nकल फिर खेलें।"
+        },
+        "highlight": {
+          "en": "tomorrow.",
+          "ru": "завтра.",
+          "de": "Morgen",
+          "fr": "demain.",
+          "es": "mañana.",
+          "it": "domani.",
+          "zh": "明天继续。",
+          "ja": "続きは明日。",
+          "ko": "내일 이어서.",
+          "hi": "कल फिर खेलें।"
+        },
+        "screenshot": "/screenshots/android/phone/{locale}/09-saved.png",
+        "transforms": {
+          "caption": {
+            "x": 58.909090909090914,
+            "y": 163.63636363636365,
+            "width": 962.181818181818,
+            "height": 343.6363636363637
+          },
+          "device": {
+            "x": 58.909090909090914,
+            "y": 806.4,
+            "width": 641.4545454545454,
+            "height": 1389.8181818181815,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Resume any saved game. →",
+              "ru": "Продолжайте сохранённые партии. →",
+              "de": "Gespeicherte Partien fortsetzen. →",
+              "fr": "Reprenez vos parties sauvegardées. →",
+              "es": "Retoma partidas guardadas. →",
+              "it": "Riprendi le partite salvate. →",
+              "zh": "继续保存的对局。→",
+              "ja": "保存した対局を再開。→",
+              "ko": "저장한 게임 이어 하기. →",
+              "hi": "सेव किया खेल जारी रखें। →"
+            },
+            "transform": {
+              "x": 58.909090909090914,
+              "y": 507.2727272727273,
+              "width": 962.181818181818,
+              "height": 50.07272727272728,
+              "zIndex": 6
+            },
+            "fontSize": 29.454545454545457,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 6 — Saves",
+              "ru": "FIG. 6 — Сохранение",
+              "de": "FIG. 6 — Speichern",
+              "fr": "FIG. 6 — Sauvegarde",
+              "es": "FIG. 6 — Guardado",
+              "it": "FIG. 6 — Salvataggi",
+              "zh": "FIG. 6 — 存档",
+              "ja": "FIG. 6 — 保存",
+              "ko": "FIG. 6 — 저장",
+              "hi": "FIG. 6 — सेव"
+            },
+            "transform": {
+              "x": 693.8181818181818,
+              "y": 1100.9454545454546,
+              "width": 621.8181818181819,
+              "height": 32.72727272727273,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 18.81818181818182,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "marks": [
+          "br"
+        ]
+      },
+      {
+        "id": "android-7",
+        "layout": "device-top",
+        "inverted": false,
+        "background": "none",
+        "label": {
+          "en": "Catan",
+          "ru": "Catan",
+          "de": "Catan",
+          "fr": "Catan",
+          "es": "Catan",
+          "it": "Catan",
+          "zh": "Catan",
+          "ja": "Catan",
+          "ko": "Catan",
+          "hi": "Catan"
+        },
+        "headline": {
+          "en": "New board.\nEvery game.",
+          "ru": "Новое поле.\nКаждую партию.",
+          "de": "Neues Feld.\nJedes Spiel.",
+          "fr": "Nouveau plateau.\nÀ chaque partie.",
+          "es": "Nuevo tablero.\nCada partida.",
+          "it": "Nuovo tabellone.\nOgni partita.",
+          "zh": "新棋盘。\n每局都新。",
+          "ja": "新しい盤面。\n毎回のゲームに。",
+          "ko": "새로운 보드.\n매 게임마다.",
+          "hi": "नया बोर्ड।\nहर खेल में।"
+        },
+        "highlight": {
+          "en": "Every game.",
+          "ru": "Каждую партию.",
+          "de": "Jedes Spiel.",
+          "fr": "À chaque partie.",
+          "es": "Cada partida.",
+          "it": "Ogni partita.",
+          "zh": "每局都新。",
+          "ja": "毎回のゲームに。",
+          "ko": "매 게임마다.",
+          "hi": "हर खेल में।"
+        },
+        "screenshot": "/screenshots/android/phone/{locale}/11-map-light.png",
+        "transforms": {
+          "caption": {
+            "x": 58.909090909090914,
+            "y": 1332.72,
+            "width": 962.181818181818,
+            "height": 343.6363636363637
+          },
+          "device": {
+            "x": 58.909090909090914,
+            "y": -222.37090909090904,
+            "width": 641.4545454545454,
+            "height": 1389.8181818181815,
+            "rotation": 0
+          }
+        },
+        "textElements": [
+          {
+            "id": "sub",
+            "text": {
+              "en": "Catan maps in one tap. →",
+              "ru": "Карта Catan в одно касание. →",
+              "de": "Catan-Karte mit einem Tipp. →",
+              "fr": "Carte Catan en un geste. →",
+              "es": "Mapa de Catan con un toque. →",
+              "it": "Mappa di Catan con un tocco. →",
+              "zh": "一键生成 Catan 地图。→",
+              "ja": "ワンタップで Catan のマップ。→",
+              "ko": "탭 한 번으로 Catan 맵. →",
+              "hi": "एक टैप में Catan मैप। →"
+            },
+            "transform": {
+              "x": 58.909090909090914,
+              "y": 1764.72,
+              "width": 962.181818181818,
+              "height": 50.07272727272728,
+              "zIndex": 6
+            },
+            "fontSize": 29.454545454545457,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "fig",
+            "text": {
+              "en": "FIG. 7 — Catan",
+              "ru": "FIG. 7 — Catan",
+              "de": "FIG. 7 — Catan",
+              "fr": "FIG. 7 — Catan",
+              "es": "FIG. 7 — Catan",
+              "it": "FIG. 7 — Catan",
+              "zh": "FIG. 7 — Catan",
+              "ja": "FIG. 7 — Catan",
+              "ko": "FIG. 7 — Catan",
+              "hi": "FIG. 7 — Catan"
+            },
+            "transform": {
+              "x": 693.8181818181818,
+              "y": 458.18181818181824,
+              "width": 621.8181818181819,
+              "height": 32.72727272727273,
+              "rotation": -90,
+              "zIndex": 6
+            },
+            "fontSize": 18.81818181818182,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "letterSpacing": "0.12em",
+            "uppercase": true
+          }
+        ],
+        "indexY": 1241.0836363636363,
+        "marks": [
+          "bl"
+        ]
+      },
+      {
+        "id": "android-8",
+        "layout": "no-device",
+        "inverted": true,
+        "background": "none",
+        "label": {
+          "en": "Index",
+          "ru": "Обзор",
+          "de": "Übersicht",
+          "fr": "Index",
+          "es": "Índice",
+          "it": "Indice",
+          "zh": "总览",
+          "ja": "一覧",
+          "ko": "목록",
+          "hi": "सूची"
+        },
+        "headline": {
+          "en": "Everything\nfor game night.",
+          "ru": "Всё для\nигрового вечера.",
+          "de": "Alles für den\nSpieleabend.",
+          "fr": "Tout pour\nla soirée jeux.",
+          "es": "Todo para la\nnoche de juegos.",
+          "it": "Tutto per\nla serata giochi.",
+          "zh": "游戏之夜\n一应俱全。",
+          "ja": "ゲームの夜に\n必要なすべて。",
+          "ko": "게임의 밤에\n필요한 모든 것.",
+          "hi": "गेम नाइट के लिए\nसब कुछ।"
+        },
+        "highlight": {
+          "en": "game night.",
+          "ru": "игрового вечера.",
+          "de": "Spieleabend.",
+          "fr": "soirée jeux.",
+          "es": "noche de juegos.",
+          "it": "serata giochi.",
+          "zh": "一应俱全。",
+          "ja": "必要なすべて。",
+          "ko": "필요한 모든 것.",
+          "hi": "सब कुछ।"
+        },
+        "screenshot": "",
+        "transforms": {
+          "caption": {
+            "x": 58.909090909090914,
+            "y": 163.63636363636365,
+            "width": 962.181818181818,
+            "height": 343.6363636363637
+          }
+        },
+        "textElements": [
+          {
+            "id": "numbers",
+            "text": {
+              "en": "01\n02\n03\n04\n05\n06\n07\n08"
+            },
+            "transform": {
+              "x": 58.909090909090914,
+              "y": 589.0909090909091,
+              "width": 96.2181818181818,
+              "height": 1208.1818181818182,
+              "zIndex": 6
+            },
+            "fontSize": 22.90909090909091,
+            "fontWeight": 400,
+            "align": "left",
+            "font": "mono",
+            "lineHeight": "151.02272727272728px",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          },
+          {
+            "id": "names",
+            "text": {
+              "en": "Scores\nUndo\n10 games\nDice\nStopwatch\nSaves\nRules\nCatan maps",
+              "ru": "Счёт\nОтмена\n10 игр\nКубик\nСекундомер\nСохранения\nПравила\nКарты Catan",
+              "de": "Punkte\nRückgängig\n10 Spiele\nWürfel\nStoppuhr\nSpielstände\nRegeln\nCatan-Karten",
+              "fr": "Scores\nAnnuler\n10 jeux\nDé\nChrono\nSauvegardes\nRègles\nCartes Catan",
+              "es": "Puntos\nDeshacer\n10 juegos\nDado\nCronómetro\nPartidas\nReglas\nMapas Catan",
+              "it": "Punti\nAnnulla\n10 giochi\nDado\nCronometro\nSalvataggi\nRegole\nMappe Catan",
+              "zh": "计分\n撤销\n10 款游戏\n骰子\n秒表\n存档\n规则\nCatan 地图",
+              "ja": "スコア\n取り消し\n10 ゲーム\nサイコロ\nタイマー\n保存\nルール\nCatan マップ",
+              "ko": "점수\n실행 취소\n10가지 게임\n주사위\n스톱워치\n저장\n규칙\nCatan 맵",
+              "hi": "अंक\nवापस लें\n10 खेल\nपासा\nस्टॉपवॉच\nसेव\nनियम\nCatan मैप"
+            },
+            "transform": {
+              "x": 171.16363636363636,
+              "y": 589.0909090909091,
+              "width": 513.1636363636363,
+              "height": 1208.1818181818182,
+              "zIndex": 6
+            },
+            "fontSize": 75.51136363636364,
+            "fontWeight": 800,
+            "align": "left",
+            "font": "display",
+            "lineHeight": "151.02272727272728px",
+            "letterSpacing": "-0.035em"
+          },
+          {
+            "id": "descriptors",
+            "text": {
+              "en": "Every player\nEvery move\nBuilt in\nOne tap\nEvery game\nResume later\nIn the app\nBalanced",
+              "ru": "Все игроки\nЛюбой ход\nВнутри\nОдно касание\nКаждая игра\nПродолжить позже\nВ приложении\nБаланс",
+              "de": "Jeder Spieler\nJeder Zug\nIntegriert\nEin Tipp\nJedes Spiel\nSpäter weiter\nIn der App\nAusgewogen",
+              "fr": "Chaque joueur\nChaque coup\nInclus\nUn geste\nChaque jeu\nReprendre\nDans l'app\nÉquilibrées",
+              "es": "Cada jugador\nCada jugada\nIncluidos\nUn toque\nCada juego\nSigue luego\nEn la app\nEquilibrados",
+              "it": "Ogni giocatore\nOgni mossa\nInclusi\nUn tocco\nOgni gioco\nRiprendi dopo\nNell'app\nEquilibrate",
+              "zh": "每位玩家\n每一步\n内置\n一键\n每款游戏\n稍后继续\n应用内\n均衡",
+              "ja": "全プレイヤー\nすべての操作\n内蔵\nワンタップ\n各ゲーム\nあとで再開\nアプリ内\nバランス",
+              "ko": "모든 플레이어\n모든 동작\n내장\n탭 한 번\n모든 게임\n나중에 계속\n앱 안에서\n균형",
+              "hi": "हर खिलाड़ी\nहर चाल\nशामिल\nएक टैप\nहर खेल\nबाद में जारी\nऐप में\nसंतुलित"
+            },
+            "transform": {
+              "x": 692.3454545454545,
+              "y": 589.0909090909091,
+              "width": 328.7454545454545,
+              "height": 1208.1818181818182,
+              "zIndex": 6
+            },
+            "fontSize": 19.636363636363637,
+            "fontWeight": 400,
+            "align": "right",
+            "font": "mono",
+            "lineHeight": "151.02272727272728px",
+            "letterSpacing": "0.06em",
+            "uppercase": true
+          }
+        ],
+        "rules": [
+          589.0909090909091,
+          740.1136363636364,
+          891.1363636363637,
+          1042.159090909091,
+          1193.1818181818182,
+          1344.2045454545455,
+          1495.227272727273,
+          1646.25,
+          1797.2727272727275
+        ],
+        "marks": [
+          "bl"
+        ]
+      }
+    ],
+    "feature-graphic": [
+      {
+        "id": "feature-graphic",
+        "layout": "feature-graphic",
+        "label": {
+          "en": "Add points. See who leads. →",
+          "ru": "Добавьте очки — видно, кто ведёт. →",
+          "de": "Punkte eintragen. Führung sehen. →",
+          "fr": "Ajoutez des points. Voyez qui mène. →",
+          "es": "Suma puntos. Mira quién gana. →",
+          "it": "Aggiungi punti. Vedi chi vince. →",
+          "zh": "加分，一眼看清谁领先。→",
+          "ja": "得点を足して、首位がすぐわかる。→",
+          "ko": "점수를 더하고 선두를 확인하세요. →",
+          "hi": "अंक जोड़ें। देखें कौन आगे है। →"
+        },
+        "headline": {
+          "en": "Every point.\nIn one place.",
+          "ru": "Все очки.\nВ одном месте.",
+          "de": "Alle Punkte.\nEin Ort.",
+          "fr": "Tous les points.\nAu même endroit.",
+          "es": "Todos los puntos.\nEn un lugar.",
+          "it": "Tutti i punti.\nIn un posto.",
+          "zh": "所有得分。\n记在一处。",
+          "ja": "みんなの得点。\nひとつの場所に。",
+          "ko": "모두의 점수.\n한곳에.",
+          "hi": "सभी के अंक।\nएक जगह।"
+        },
+        "highlight": {
+          "en": "In one place.",
+          "ru": "В одном месте.",
+          "de": "Ein Ort.",
+          "fr": "Au même endroit.",
+          "es": "En un lugar.",
+          "it": "In un posto.",
+          "zh": "记在一处。",
+          "ja": "ひとつの場所に。",
+          "ko": "한곳에.",
+          "hi": "एक जगह।"
+        },
+        "screenshot": "/screenshots/android/phone/{locale}/05-counter-light.png",
+        "screenshotSecondary": "/screenshots/android/phone/{locale}/02-uno.png"
+      }
+    ],
+    "apple-header": [
+      {
+        "id": "apple-header",
+        "layout": "feature-graphic",
+        "label": {
+          "en": "Add points. See who leads. →",
+          "ru": "Добавьте очки — видно, кто ведёт. →",
+          "de": "Punkte eintragen. Führung sehen. →",
+          "fr": "Ajoutez des points. Voyez qui mène. →",
+          "es": "Suma puntos. Mira quién gana. →",
+          "it": "Aggiungi punti. Vedi chi vince. →",
+          "zh": "加分，一眼看清谁领先。→",
+          "ja": "得点を足して、首位がすぐわかる。→",
+          "ko": "점수를 더하고 선두를 확인하세요. →",
+          "hi": "अंक जोड़ें। देखें कौन आगे है। →"
+        },
+        "headline": {
+          "en": "Every point.\nIn one place.",
+          "ru": "Все очки.\nВ одном месте.",
+          "de": "Alle Punkte.\nEin Ort.",
+          "fr": "Tous les points.\nAu même endroit.",
+          "es": "Todos los puntos.\nEn un lugar.",
+          "it": "Tutti i punti.\nIn un posto.",
+          "zh": "所有得分。\n记在一处。",
+          "ja": "みんなの得点。\nひとつの場所に。",
+          "ko": "모두의 점수.\n한곳에.",
+          "hi": "सभी के अंक।\nएक जगह।"
+        },
+        "highlight": {
+          "en": "In one place.",
+          "ru": "В одном месте.",
+          "de": "Ein Ort.",
+          "fr": "Au même endroit.",
+          "es": "En un lugar.",
+          "it": "In un posto.",
+          "zh": "记在一处。",
+          "ja": "ひとつの場所に。",
+          "ko": "한곳에.",
+          "hi": "एक जगह।"
+        },
+        "screenshot": "/screenshots/apple/iphone/{locale}/05-counter-light.png",
+        "screenshotSecondary": "/screenshots/apple/iphone/{locale}/02-uno.png"
+      }
+    ],
+    "apple-search": [
+      {
+        "id": "apple-search",
+        "layout": "feature-graphic",
+        "label": {
+          "en": "Add points. See who leads. →",
+          "ru": "Добавьте очки — видно, кто ведёт. →",
+          "de": "Punkte eintragen. Führung sehen. →",
+          "fr": "Ajoutez des points. Voyez qui mène. →",
+          "es": "Suma puntos. Mira quién gana. →",
+          "it": "Aggiungi punti. Vedi chi vince. →",
+          "zh": "加分，一眼看清谁领先。→",
+          "ja": "得点を足して、首位がすぐわかる。→",
+          "ko": "점수를 더하고 선두를 확인하세요. →",
+          "hi": "अंक जोड़ें। देखें कौन आगे है। →"
+        },
+        "headline": {
+          "en": "Every point.\nIn one place.",
+          "ru": "Все очки.\nВ одном месте.",
+          "de": "Alle Punkte.\nEin Ort.",
+          "fr": "Tous les points.\nAu même endroit.",
+          "es": "Todos los puntos.\nEn un lugar.",
+          "it": "Tutti i punti.\nIn un posto.",
+          "zh": "所有得分。\n记在一处。",
+          "ja": "みんなの得点。\nひとつの場所に。",
+          "ko": "모두의 점수.\n한곳에.",
+          "hi": "सभी के अंक।\nएक जगह।"
+        },
+        "highlight": {
+          "en": "In one place.",
+          "ru": "В одном месте.",
+          "de": "Ein Ort.",
+          "fr": "Au même endroit.",
+          "es": "En un lugar.",
+          "it": "In un posto.",
+          "zh": "记在一处。",
+          "ja": "ひとつの場所に。",
+          "ko": "한곳에.",
+          "hi": "एक जगह।"
+        },
+        "screenshot": "/screenshots/apple/iphone/{locale}/05-counter-light.png",
+        "screenshotSecondary": "/screenshots/apple/iphone/{locale}/02-uno.png"
+      }
+    ],
+    "android-7": [],
+    "android-10": []
+  }
+}
