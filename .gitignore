@@ -45,3 +45,27 @@ app.*.map.json
 /android/app/debug
 /android/app/profile
 /android/app/release
+
+# Store tooling: generated/local assets and private store metadata
+/store_screenshots/node_modules/
+/store_screenshots/.next/
+/store_screenshots/next-env.d.ts
+/store_screenshots/*.tsbuildinfo
+/store_screenshots/public/**/*.png
+/store_screenshots/public/**/*.jpg
+/store_screenshots/public/fonts/
+/store_screenshots/export/
+/store_screenshots/reports/
+/store_screenshots/.env*
+/metadata/
+/docs/store/store-content.md
+/.asc/snapshots/
+/.asc/reports/
+/.asc/metadata/
+*.p8
+*.zip
+/store_screenshots/.venv/
+**/__pycache__/
+
+# Explicit public README image exception
+!docs/store-preview.png

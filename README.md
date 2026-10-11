@@ -4,7 +4,7 @@
 
 [![App Store](https://img.shields.io/badge/App_Store-414141?style=for-the-badge&logo=App+Store&logoColor=F1F1F1)](https://apps.apple.com/ru/app/board-buddy-score-counter/id6743980638?) [![Google Play](https://img.shields.io/badge/Google_Play-414141?style=for-the-badge&logo=Google+Play&logoColor=F1F1F1)](https://play.google.com/store/apps/details?id=com.khlebobul.board_buddy) [![RuStore](https://img.shields.io/badge/RuStore-414141?style=for-the-badge&logo=RuSrore&logoColor=F1F1F1)](https://www.rustore.ru/catalog/app/com.khlebobul.board_buddy)
 
-<img width="1000" alt="Frame 2" src="https://github.com/user-attachments/assets/2db1490f-4568-4bf1-9f2d-274dfd62bd0b" />
+<img width="1200" alt="Board Buddy: game list, scoring, universal counter and rules" src="docs/store-preview.png" />
 
 a free cross-platform mobile app for tracking scores and rules in board games. board buddy simplifies gameplay by helping you keep track of scores and key points, so you can focus on the game itself and socializing with friends
 
@@ -62,8 +62,6 @@ your ultimate board game companion
 
 [![CONTRIBUTING.md](https://img.shields.io/badge/CONTRIBUTING.md-414141?style=for-the-badge&logo=md&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/CONTRIBUTING.md) [![CODE_OF_CONDUCT.md](https://img.shields.io/badge/CODE_OF_CONDUCT.md-414141?style=for-the-badge&logo=md&logoColor=F1F1F1)](https://github.com/khlebobul/board_buddy/blob/main/CODE_OF_CONDUCT.md)
 
-<img width="500" alt="931_1x_shots_so" src="https://github.com/user-attachments/assets/d9e1e312-216c-4b7f-b767-021cce638d85" />
-<br><br>
 
 > [!NOTE]
 > **this app was created with two main goals in mind:**
@@ -71,10 +69,16 @@ your ultimate board game companion
 > - **learning and growth** – i wanted to explore new practices and improve my skills through this project. if you're an experienced developer and would like to contribute, your insights and feedback would be greatly appreciated.
 > - **enhancing board game experiences** – board buddy is designed to make playing board games smoother and more enjoyable by eliminating common distractions like lost scores, forgotten rules, and missed turns.
 
+## store tooling
+
+[Editor, capture and export instructions](store_screenshots/README.md) · [App Store Connect setup](ASC.md). Generated images, store metadata and archives stay local; the clean preview above is the explicit public image exception.
+
 ## credits
 
 - [lucide icons](https://lucide.dev)
 - [coderabbit](https://www.coderabbit.ai)
+- Store screenshots use [app-store-screenshots](https://github.com/ParthJadhav/app-store-screenshots) by [Parth Jadhav](https://x.com/parthjadhav8). Thanks for the editor template. [Showcase](https://www.parthjadhav.com/products/app-store-screenshots).
+- Local App Store metadata uses [asc-metadata-sync](https://github.com/rorkai/app-store-connect-cli-skills/tree/main/skills/asc-metadata-sync) and [App Store Connect CLI](https://github.com/rorkai/App-Store-Connect-CLI) by [Rudrank Riyam](https://x.com/rudrank). Thanks to the author, maintainers and contributors.
 
 ### packages
 
@@ -83,11 +87,6 @@ your ultimate board game companion
 ## contacts
 
 [![@khlebobul](https://img.shields.io/badge/@khlebobul-414141?style=for-the-badge&logo=X&logoColor=F1F1F1)](https://x.com/khlebobul) [![Email - khlebobul@gmail.com](https://img.shields.io/badge/Email-khlebobul%40gmail.com-414141?style=for-the-badge&logo=Email&logoColor=F1F1F1)](mailto:khlebobul@gmail.com) [![@khlebobul](https://img.shields.io/badge/%40khlebobul-414141?style=for-the-badge&logo=Telegram&logoColor=F1F1F1)](https://t.me/khlebobul) [![Personal - Website](https://img.shields.io/badge/Personal-Website-414141?style=for-the-badge&logo=Personal&logoColor=F1F1F1)](https://khlebobul.github.io/)
-
-<!-- ## star history -->
-
-<!-- ## repository activity
-- repobeats -->
 
 ## license
 
