@@ -1,6 +1,7 @@
 // Real screens, real score events; isolated preferences and temporary SQLite.
 import 'dart:io';
 import 'dart:ui' as ui;
+import 'duo_system_bars.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/features/games/common_counter/bloc/common_counter_bloc.dart'
     as common;
@@ -35,6 +36,18 @@ import 'package:sqflite_common_ffi/sqflite_ffi.dart';
 
 const root = 'store_screenshots/public';
 const devices = [
+  (
+    name: 'apple/iphone-duo-outer',
+    size: Size(1398, 2034),
+    ratio: 3.0,
+    platform: TargetPlatform.iOS
+  ),
+  (
+    name: 'apple/iphone-duo-inner',
+    size: Size(2007, 2853),
+    ratio: 3.0,
+    platform: TargetPlatform.iOS
+  ),
   (
     name: 'apple/iphone',
     size: Size(918, 1990),
@@ -128,8 +141,13 @@ void main() {
           (tester) async {
         tester.view.physicalSize = device.size;
         tester.view.devicePixelRatio = device.ratio;
-        tester.view.padding =
-            FakeViewPadding(top: 48 * device.ratio, bottom: 28 * device.ratio);
+        final outer = device.name.endsWith('duo-outer');
+        final duo = device.name.contains('duo');
+        tester.view.padding = FakeViewPadding(
+            top: (outer ? 24 : 48) * device.ratio,
+            right: (outer ? 84 : 0) * device.ratio,
+            bottom: (duo ? 24 : 28) * device.ratio);
+        if (duo) tester.view.viewPadding = tester.view.padding;
         debugDefaultTargetPlatformOverride = device.platform;
         addTearDown(() {
           tester.view.reset();
@@ -166,16 +184,20 @@ void main() {
                     fontFamilyFallback: ['StoreCJK', 'StoreHindi']),
                 child: Stack(children: [
                   child!,
-                  Positioned(
-                      top: 12,
-                      left: 26,
-                      child: Material(
-                          type: MaterialType.transparency,
-                          child: Text('9:41',
-                              style: TextStyle(
-                                  fontFamily: 'RobotoMono',
-                                  fontSize: 13,
-                                  color: dark ? Colors.white : Colors.black))))
+                  if (duo)
+                    DuoSystemBars(outer: outer, dark: dark)
+                  else
+                    Positioned(
+                        top: 12,
+                        left: 26,
+                        child: Material(
+                            type: MaterialType.transparency,
+                            child: Text('9:41',
+                                style: TextStyle(
+                                    fontFamily: 'RobotoMono',
+                                    fontSize: 13,
+                                    color:
+                                        dark ? Colors.white : Colors.black))))
                 ]),
               ),
               home: screen,
@@ -247,33 +269,36 @@ void main() {
             ];
         await shoot('01-games', const GamesScreen());
         final unoBloc = uno.UnoBloc();
-        await shoot(
-            '02-uno',
-            BlocProvider.value(
-                value: unoBloc,
-                child: UnoGame(
-                    players: players(),
-                    scoreLimit: 500,
-                    gameMode: S.current.highestScoreWins)), interact: () async {
-          // Two valid rounds: 18+12+20 and 7+9+20+20+20; below the 500-point limit.
-          unoBloc.add(uno.UpdatePlayerScore(50));
-          await settle(tester);
-          unoBloc.add(uno.ChangeCurrentPlayer(1));
-          await settle(tester);
-          unoBloc.add(uno.UpdatePlayerScore(76));
-          await settle(tester);
-          unoBloc.add(uno.ChangeCurrentPlayer(2));
-          await settle(tester);
-          unoBloc.add(uno.UpdatePlayerScore(24));
-          await settle(tester);
-          unoBloc.add(uno.ChangeCurrentPlayer(0));
-          await settle(tester);
-          unoBloc.add(uno.ResetScoreAnimation());
-          await tester.pump();
-          expect(
-              (unoBloc.state as uno.UnoGameState).players.map((p) => p.score),
-              [50, 76, 24]);
-        });
+        // Duo decks use the common counter; UNO is only captured for older decks.
+        if (!duo)
+          await shoot(
+              '02-uno',
+              BlocProvider.value(
+                  value: unoBloc,
+                  child: UnoGame(
+                      players: players(),
+                      scoreLimit: 500,
+                      gameMode: S.current.highestScoreWins)),
+              interact: () async {
+            // Two valid rounds: 18+12+20 and 7+9+20+20+20; below the 500-point limit.
+            unoBloc.add(uno.UpdatePlayerScore(50));
+            await settle(tester);
+            unoBloc.add(uno.ChangeCurrentPlayer(1));
+            await settle(tester);
+            unoBloc.add(uno.UpdatePlayerScore(76));
+            await settle(tester);
+            unoBloc.add(uno.ChangeCurrentPlayer(2));
+            await settle(tester);
+            unoBloc.add(uno.UpdatePlayerScore(24));
+            await settle(tester);
+            unoBloc.add(uno.ChangeCurrentPlayer(0));
+            await settle(tester);
+            unoBloc.add(uno.ResetScoreAnimation());
+            await tester.pump();
+            expect(
+                (unoBloc.state as uno.UnoGameState).players.map((p) => p.score),
+                [50, 76, 24]);
+          });
         unoBloc.close();
         await settle(tester);
         final commonBloc = common.CommonCounterBloc();
@@ -415,7 +440,7 @@ void main() {
         }
         catanBloc.close();
         await settle(tester);
-        await shoot('04-rules', const UnoRulesScreen());
+        if (!duo) await shoot('04-rules', const UnoRulesScreen());
         debugDefaultTargetPlatformOverride = null;
       });
     }

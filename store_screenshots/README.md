@@ -63,12 +63,14 @@ With the editor running in another terminal:
 
 `BASE` can select another localhost server. `CHROME` can select an installed Chrome/Chromium executable; on macOS the default is Google Chrome. The browser check temporarily edits a headline and view selection, tests reload/stale-cache behavior and restores the saved project. Run it with the editor idle so another person's simultaneous edits are not overwritten.
 
-Generation reads saved settings, waits for fonts/images, checks JS errors/text overflow, saves RGB PNGs, regenerates contacts and every archive. It creates **350 PNGs**, ten language ZIPs and the complete ZIP. There are eight screenshots per device and three banners per language, with a second iPhone size.
+Generation reads saved settings, waits for fonts/images, checks JS errors/text overflow, saves RGB PNGs, regenerates contacts and every archive. It creates **510 PNGs**, ten language ZIPs and the complete ZIP. There are eight screenshots per device and three banners per language, with a second iPhone size.
 
 | Asset | Dimensions | Directory inside export/ |
 |---|---|---|
 | iPhone large | 1320×2868 | apple/iphone-6.9/LANG/ |
 | iPhone medium | 1206×2622 | apple/iphone-6.3/LANG/ |
+| iPhone Duo outer | 1398×2034 | apple/iphone-duo-outer/LANG/ |
+| iPhone Duo inner | 2007×2853 | apple/iphone-duo-inner/LANG/ |
 | iPad 13 | 2064×2752 | apple/ipad-13/LANG/ |
 | Android phone | 1080×1920 | android/phone/LANG/ |
 | Android Feature Graphic | 1024×500 | android/feature-graphic/LANG/ |
@@ -78,6 +80,8 @@ Generation reads saved settings, waits for fonts/images, checks JS errors/text o
 Read-only previews:
 
 - `/preview?device=iphone&locale=en`
+- `/preview?device=iphone-duo-outer&locale=en`
+- `/preview?device=iphone-duo-inner&locale=en`
 - `/preview?device=ipad&locale=en`
 - `/preview?device=android&locale=en`
 - `/preview?device=feature-graphic&locale=en&h=500`
@@ -85,6 +89,19 @@ Read-only previews:
 - `/preview?device=apple-search&locale=en&h=640`
 
 Archives: `export/archives/LANG.zip`, `export/board-buddy-all.zip`. Contacts: `export/previews/` (devices, locales and banners). The public README uses only `../docs/store-preview.png`, with no service labels, numbers or editor chrome. Browser download receipts/checks live in ignored `reports/`.
+
+Duo is added alongside the existing iPhone decks. Both Duo decks support the same ten UI languages as the existing decks: en, ru, de, fr, es, it, zh, ja, ko, hi. Frames reuse the calibrated Duo implementation from `minimo_video`: star white body, asymmetric outer corners, no visible inner camera and a subtle horizontal crease. Capture renders production Flutter widgets at 466×678 / 669×951 logical points, 3×, with outer safe padding 24/84/24 pt (top/right/bottom) and inner 48/0/24 pt. System chrome is drawn by the capture fixture, not supplied by an iOS simulator or imported UI kit. Duo captures omit the unused UNO and rules screens; the deck uses the production common counter and Catan map dialog.
+
+To regenerate only Duo while rebuilding all contact sheets and archives from saved exports:
+
+```bash
+flutter test test/store_screenshots/capture_test.dart --plain-name 'apple/iphone-duo'
+# Start/restart the editor after capture, then:
+store_screenshots/.venv/bin/python store_screenshots/scripts/export_locales.py --devices iphone-duo-outer iphone-duo-inner
+store_screenshots/.venv/bin/python store_screenshots/scripts/check-editor.py --devices iphone-duo-outer iphone-duo-inner
+```
+
+Device-only export requires the other saved exports to exist; run the full export command after a fresh asset restore. Duo contact sheets are saved per language as `export/previews/iphone-duo-{outer,inner}-LANG.jpg`; `iphone-duo-{outer,inner}-locales.jpg` compares the first slide across all ten languages. Both Duo decks keep the iPhone stories and copy, including the final feature index without a device. Screenshot sizes follow [Apple's specifications](https://developer.apple.com/help/app-store-connect/reference/app-information/screenshot-specifications/); the marketing frame's outer screen aperture is 2032 px high, separate from the 2034 px capture/export canvas.
 
 QA checks exact dimensions, RGB color mode, opacity before flattening, nonblank content, localized differences, fonts/text bounds and ZIP CRC/manifests. `check-editor.py` exercises actual selectors, saving and **Export bundle**, then checks PNGs from the downloaded archives for every device/banner and language. Font fitting measures real glyphs including tracking; headlines never wrap. Display tracking is -0.045em (leading 0.9) for Latin/Cyrillic and relaxed for CJK and Devanagari. The overflow check measures text glyphs only, so edge-bleeding accent blocks are allowed. Eight-slide decks stay isolated: each asset communicates a complete benefit without hiding essential interface content across store swipes. The eight stories are scores, undo/redo, "10 games" (giant numeral over the real games list), dice, stopwatch ("01:23" numeral), saved sessions, Catan map generation and a closing feature index without a device. Every phone shows a localized production capture, including the Catan map dialog in each locale.
 

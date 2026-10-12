@@ -19,5 +19,5 @@ export function newSlide(layout: Slide["layout"] = "device-bottom"): Slide {
 }
 
 export function detectPlatform(device: Device): "ios" | "android" {
-  return device === "iphone" || device === "ipad" || device.startsWith("apple-") ? "ios" : "android";
+  return device.startsWith("iphone") || device === "ipad" || device.startsWith("apple-") ? "ios" : "android";
 }

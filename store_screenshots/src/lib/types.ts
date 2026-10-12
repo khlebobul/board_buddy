@@ -1,5 +1,7 @@
 export type Device =
   | "iphone"
+  | "iphone-duo-outer"
+  | "iphone-duo-inner"
   | "ipad"
   | "android"
   | "android-7"
@@ -133,6 +135,7 @@ export type ProjectState = {
   // Locales this project targets. Drives the toolbar dropdown and bulk export.
   // Single-locale projects ship as ["en"] and hide the locale UI.
   locales: string[];
+  localesByDevice?: Partial<Record<Device, string[]>>;
   locale: string;
   device: Device;
   orientation: Orientation;

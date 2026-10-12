@@ -35,6 +35,8 @@ import {
   AndroidTabletL,
   AndroidTabletP,
   IPad,
+  DuoOuter,
+  DuoInner,
   Phone,
 } from "./device-frames";
 
@@ -56,6 +58,8 @@ export function getCanvas(device: Device, orientation: Orientation) {
 // Aspect ratio (w/h) of each device frame — must match device-frames.tsx
 function getFrameAspect(device: Device, orientation: Orientation) {
   switch (device) {
+    case "iphone-duo-outer": return 1574 / 2194;
+    case "iphone-duo-inner": return 2247 / 3093;
     case "iphone":      return MK_RATIO;
     case "android":     return 9 / 19.5;
     case "ipad":        return IPAD_RATIO;
@@ -71,6 +75,10 @@ export function getFrameForDevice(device: Device, orientation: Orientation): {
   smallWidthFn: (cW: number, cH: number) => number;
 } {
   switch (device) {
+    case "iphone-duo-outer":
+      return { Comp: DuoOuter, widthFn: () => 0.70, smallWidthFn: () => 0.62 };
+    case "iphone-duo-inner":
+      return { Comp: DuoInner, widthFn: () => 0.70, smallWidthFn: () => 0.62 };
     case "iphone":
       return { Comp: Phone, widthFn: phoneW, smallWidthFn: phoneWSmall };
     case "ipad":

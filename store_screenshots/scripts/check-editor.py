@@ -39,24 +39,30 @@ async def check(devices=None):
             await page.locator('textarea').first.fill(text)
             await page.wait_for_timeout(1200)
             await page.screenshot(path=str(reports/'editor.png'))
-            for device,label in [('iphone','iPhone'),('ipad','iPad'),('apple-header','Apple Header'),('apple-search','Apple Search Results'),('android','Android Phone'),('feature-graphic','Feature Graphic')]:
+            for device,label in [('iphone','iPhone'),('iphone-duo-outer','iPhone Duo (outer)'),('iphone-duo-inner','iPhone Duo (inner)'),('ipad','iPad'),('apple-header','Apple Header'),('apple-search','Apple Search Results'),('android','Android Phone'),('feature-graphic','Feature Graphic')]:
                 if devices and device not in devices: continue
+                if device=='iphone-duo-outer' and 'ru' in state['locales']:
+                    await page.get_by_role('combobox').nth(1).click()
+                    await page.get_by_role('option',name='RU',exact=True).click()
                 if device in ('android','feature-graphic'):await page.get_by_role('tab',name='Android',exact=True).click()
                 await page.get_by_role('combobox').nth(0).click()
                 await page.get_by_role('option',name=label,exact=True).click()
                 await page.wait_for_timeout(1000)
+                if device.startswith('iphone-duo'):
+                    assert json.loads((ROOT/'app-store-screenshots.json').read_text())['locale']==('ru' if 'ru' in state.get('localesByDevice',{}).get(device,state['locales']) else 'en')
                 async with page.expect_download(timeout=600000) as download_info:
                     await page.get_by_role('button',name='Export bundle',exact=True).click()
                 download=await download_info.value
                 path=reports/f'{device}-browser-export.zip'
                 await download.save_as(str(path))
-                expected=sum(1 for d,*_ in SIZES if d==device)*len(state['locales'])*len(state['slidesByDevice'][device])
+                locales=state.get('localesByDevice',{}).get(device,state['locales'])
+                expected=sum(1 for d,*_ in SIZES if d==device)*len(locales)*len(state['slidesByDevice'][device])
                 with ZipFile(path) as z:
                     assert z.testzip() is None
                     names=[n for n in z.namelist() if n.endswith('.png')]
                     assert len(names)==expected,(device,len(names),expected)
                     platform='android' if device in ('android','feature-graphic') else 'ios'
-                    manifest={f'{platform}/{device}/{w}x{h}/{locale}/{i+1:02d}-{slide["layout"]}.png' for d,w,h,_ in SIZES if d==device for locale in state['locales'] for i,slide in enumerate(state['slidesByDevice'][device])}
+                    manifest={f'{platform}/{device}/{w}x{h}/{locale}/{i+1:02d}-{slide["layout"]}.png' for d,w,h,_ in SIZES if d==device for locale in locales for i,slide in enumerate(state['slidesByDevice'][device])}
                     assert set(names)==manifest,(device,'Unexpected ZIP manifest')
                     for name in names:
                         _,_,dims,locale,file=name.split('/')
@@ -68,7 +74,7 @@ async def check(devices=None):
                     # A contact sheet from actual downloaded PNGs, one per locale.
                     from PIL import Image
                     contact=Image.new('RGB',(150*5,340*2),'#dedede')
-                    for i,locale in enumerate(state['locales']):
+                    for i,locale in enumerate(locales):
                         name=next(n for n in names if f'/{locale}/01-' in n)
                         im=Image.open(io.BytesIO(z.read(name))).convert('RGB');im.thumbnail((146,336))
                         contact.paste(im,((i%5)*150,(i//5)*340))
@@ -83,5 +89,5 @@ async def check(devices=None):
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
-    parser.add_argument('--devices',nargs='+',choices=['iphone','ipad','android','feature-graphic','apple-header','apple-search'])
+    parser.add_argument('--devices',nargs='+',choices=['iphone-duo-outer','iphone-duo-inner','iphone','ipad','android','feature-graphic','apple-header','apple-search'])
     asyncio.run(check(parser.parse_args().devices))

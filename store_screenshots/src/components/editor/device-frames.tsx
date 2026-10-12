@@ -275,6 +275,93 @@ export function IPad({ src, alt = "", style, hideEmpty }: FrameProps) {
   );
 }
 
+// iPhone Duo geometry from Apple's product bezels: outer 1398 × 2032 screen in a
+// 1574 × 2194 frame, inner 2007 × 2853 upright with a 120 px border. The outer
+// display has 12 pt corners on the hinge side and 48 pt corners elsewhere.
+type DuoGeometry = {
+  aspect: string;
+  screen: { L: number; T: number; W: number; H: number; R: string };
+  frameR: string;
+  crease?: boolean;
+};
+
+const DUO_OUTER: DuoGeometry = {
+  aspect: "1574 / 2194",
+  screen: { L: 5.59, T: 3.69, W: 88.82, H: 92.62, R: "2.58% 10.3% 10.3% 2.58% / 1.77% 7.09% 7.09% 1.77%" },
+  frameR: "7.9% 14.7% 14.7% 7.9% / 5.65% 10.6% 10.6% 5.65%",
+};
+
+const DUO_INNER: DuoGeometry = {
+  aspect: "2247 / 3093",
+  screen: { L: 5.34, T: 3.88, W: 89.32, H: 92.24, R: "7.17% / 5.05%" },
+  frameR: "11.75% / 8.54%",
+  crease: true,
+};
+
+function DuoFrame({ src, alt = "", style, hideEmpty, geometry }: FrameProps & { geometry: DuoGeometry }) {
+  const resolved = img(src);
+  const { screen } = geometry;
+  return (
+    <div style={{ position: "relative", aspectRatio: geometry.aspect, ...style }}>
+      <div
+        style={{
+          position: "absolute",
+          inset: 0,
+          borderRadius: geometry.frameR,
+          background: "linear-gradient(140deg, #F4F3F0 0%, #CFCDC8 30%, #F7F6F3 55%, #BDBBB6 80%, #E9E7E3 100%)",
+          boxShadow: "inset 0 0 0 1px rgba(0,0,0,0.12), 0 8px 40px rgba(0,0,0,0.35)",
+        }}
+      />
+      <div style={{ position: "absolute", inset: "1.4% 2%", borderRadius: geometry.frameR, background: "#0B0B0C" }} />
+      <div
+        style={{
+          position: "absolute",
+          left: `${screen.L}%`,
+          top: `${screen.T}%`,
+          width: `${screen.W}%`,
+          height: `${screen.H}%`,
+          borderRadius: screen.R,
+          overflow: "hidden",
+          background: "#000",
+        }}
+      >
+        {resolved ? (
+          <img
+            src={resolved}
+            alt={alt}
+            style={{ display: "block", width: "100%", height: "100%", objectFit: "cover", objectPosition: "top" }}
+            draggable={false}
+          />
+        ) : hideEmpty ? null : (
+          <EmptySlot />
+        )}
+        {geometry.crease && (
+          <div
+            style={{
+              position: "absolute",
+              left: 0,
+              right: 0,
+              top: "49.6%",
+              height: "0.8%",
+              background:
+                "linear-gradient(180deg, rgba(0,0,0,0) 0%, rgba(0,0,0,0.035) 45%, rgba(255,255,255,0.05) 55%, rgba(0,0,0,0) 100%)",
+              pointerEvents: "none",
+            }}
+          />
+        )}
+      </div>
+    </div>
+  );
+}
+
+export function DuoOuter(props: FrameProps) {
+  return <DuoFrame {...props} geometry={DUO_OUTER} />;
+}
+
+export function DuoInner(props: FrameProps) {
+  return <DuoFrame {...props} geometry={DUO_INNER} />;
+}
+
 function EmptySlot() {
   return (
     <div

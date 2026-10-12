@@ -16,6 +16,8 @@ ROOT = Path(__file__).resolve().parents[1]
 OUT = ROOT / 'export'
 # Exactly the sizes selected in the editor. Keep this list in sync with constants.ts.
 SIZES = [
+    ('iphone-duo-outer',1398,2034,'apple/iphone-duo-outer'),
+    ('iphone-duo-inner',2007,2853,'apple/iphone-duo-inner'),
     ('iphone',1320,2868,'apple/iphone-6.9'),
     ('iphone',1206,2622,'apple/iphone-6.3'),
     ('ipad',2064,2752,'apple/ipad-13'),
@@ -28,6 +30,7 @@ SIZES = [
 def jobs(state):
     for locale in state['locales']:
         for device,w,h,folder in SIZES:
+            if locale not in state.get('localesByDevice',{}).get(device,state['locales']): continue
             for index,_ in enumerate(state['slidesByDevice'][device]):
                 url=f'/preview?device={device}&locale={locale}&bare&from={index}&n=1&width={w}&height={h}'
                 yield url,w,h,OUT/folder/locale/f'{index+1:02d}.png'
@@ -48,7 +51,7 @@ def check(state):
         assert Image.open(path).mode=='RGB',(path,'Expected 24-bit PNG')
     # Each localization must differ from English (both captions and actual UI).
     for device,_,_,folder in SIZES:
-        hashes=[(OUT/folder/loc/'01.png').read_bytes() for loc in state['locales']]
+        hashes=[(OUT/folder/loc/'01.png').read_bytes() for loc in state.get('localesByDevice',{}).get(device,state['locales'])]
         assert len(set(hashes))==len(hashes),(device,'Duplicate locale PNGs')
     expected={str(path.relative_to(OUT)) for *_,path in jobs(state)}
     with ZipFile(OUT/'board-buddy-all.zip') as z:
@@ -61,7 +64,9 @@ def check(state):
     print(f'QA passed: {len(expected)} RGB PNGs, unique localizations, exact ZIP manifests',flush=True)
 
 def sheet(paths,dest,columns=4,labels=True):
-    width,height=300,680
+    width=300
+    with Image.open(paths[0]) as first:
+        height=round(284*first.height/first.width)+48 if "iphone-duo" in str(paths[0]) else 680
     thumb_height=height-32 if labels else height
     rows=(len(paths)+columns-1)//columns
     out=Image.new('RGB',(width*columns,height*rows),'#dedede')
@@ -83,8 +88,12 @@ def package(state):
         sheet([p for p in selected if 'iphone-6.9' in str(p)],OUT/'previews'/f'locale-{locale}.jpg')
     with ZipFile(OUT/'board-buddy-all.zip','w',ZIP_DEFLATED) as z:
         for p in paths:z.write(p,str(p.relative_to(OUT)))
-    for device in ['iphone-6.9','ipad-13','phone']:
+    for device in ['iphone-6.9','ipad-13','phone','iphone-duo-outer','iphone-duo-inner']:
         sheet([p for p in paths if device in p.parts and p.parent.name=='en'],OUT/'previews'/f'{device}.jpg')
+        if device.startswith('iphone-duo'):
+            for locale in state['locales']:
+                sheet([p for p in paths if device in p.parts and p.parent.name==locale],OUT/'previews'/f'{device}-{locale}.jpg')
+            sheet([OUT/'apple'/device/locale/'01.png' for locale in state['locales']],OUT/'previews'/f'{device}-locales.jpg',columns=5)
     sheet([OUT/folder/loc/'01.png' for dev,_,_,folder in SIZES if dev=='iphone' and '6.9' in folder for loc in state['locales']],OUT/'previews/locales.jpg',columns=5)
     banner_paths=[p for p in paths if any(x in p.parts for x in ['header','search-results','feature-graphic'])]
     # Banners have separate, readable landscape contact sheets.
@@ -98,7 +107,7 @@ def package(state):
         contact.save(OUT/'previews'/f'banners-{locale}.jpg')
     sheet([p for p in paths if 'iphone-6.9' in p.parts and p.parent.name=='en'],ROOT.parent/'docs/store-preview.png',labels=False)
 
-async def export(state,base):
+async def export(state,base,devices=None):
     gaps=missing_cjk_glyphs(state)
     assert not gaps,f'CJK subset lacks {"".join(sorted(gaps))}; run scripts/subset_fonts.py'
     semaphore=asyncio.Semaphore(2)
@@ -138,14 +147,15 @@ async def export(state,base):
                     Image.open(io.BytesIO(data)).convert('RGB').save(path)
                     print(path.relative_to(ROOT),flush=True)
                 finally:await page.close()
-        try:await asyncio.gather(*(render(job) for job in jobs(state)))
+        try:await asyncio.gather(*(render(job) for job in jobs(state) if not devices or any(f"device={d}&" in job[0] for d in devices)))
         finally:await browser.close()
     package(state);check(state)
 
 if __name__=='__main__':
     parser=argparse.ArgumentParser(description=__doc__)
     parser.add_argument('--check',action='store_true')
+    parser.add_argument('--devices',nargs='+',choices=sorted({s[0] for s in SIZES}))
     args=parser.parse_args()
     state=json.loads((ROOT/'app-store-screenshots.json').read_text())
     if args.check:check(state)
-    else:asyncio.run(export(state,os.environ.get('BASE','http://127.0.0.1:3002')))
+    else:asyncio.run(export(state,os.environ.get('BASE','http://127.0.0.1:3002'),args.devices))

@@ -87,23 +87,25 @@ export function ScreenshotEditor() {
     if (theme.bgImage) paths.add(theme.bgImage);
     if (theme.bgImageAlt) paths.add(theme.bgImageAlt);
     // Preload every locale variant so bulk export doesn't race image loads.
-    const allSlides: Slide[] = Object.values(state.slidesByDevice).flat();
-    for (const s of allSlides) {
-      if (s.background && s.background !== "none") paths.add(s.background);
-      for (const element of s.imageElements || []) {
-        for (const loc of state.locales) paths.add(resolveScreenshot(element.src, loc));
-      }
-      for (const raw of [s.screenshot, s.screenshotSecondary]) {
-        if (!raw || raw.startsWith("data:")) continue;
-        if (raw.includes("{locale}")) {
-          for (const loc of state.locales) paths.add(resolveScreenshot(raw, loc));
-        } else {
-          paths.add(raw);
+    for (const [device, allSlides] of Object.entries(state.slidesByDevice)) {
+      const locales = state.localesByDevice?.[device as Device] || state.locales;
+      for (const s of allSlides) {
+        if (s.background && s.background !== "none") paths.add(s.background);
+        for (const element of s.imageElements || []) {
+          for (const loc of locales) paths.add(resolveScreenshot(element.src, loc));
+        }
+        for (const raw of [s.screenshot, s.screenshotSecondary]) {
+          if (!raw || raw.startsWith("data:")) continue;
+          if (raw.includes("{locale}")) {
+            for (const loc of locales) paths.add(resolveScreenshot(raw, loc));
+          } else {
+            paths.add(raw);
+          }
         }
       }
     }
     return Array.from(paths).sort();
-  }, [state.slidesByDevice, state.appIcon, state.locales, state.themeId]);
+  }, [state.slidesByDevice, state.appIcon, state.locales, state.localesByDevice, state.themeId]);
   const assetSig = assetPaths.join("|");
 
   React.useEffect(() => {
@@ -397,7 +399,7 @@ export function ScreenshotEditor() {
       return;
     }
     setExporting("Preparing");
-    const locales = state.locales;
+    const locales = state.localesByDevice?.[state.device] || state.locales;
     await preloadImages(assetPaths, { retryFailed: true });
     await waitForPaint();
 
@@ -588,9 +590,12 @@ export function ScreenshotEditor() {
         setConnectedCanvas={(v) => setState((p) => ({ ...p, connectedCanvas: v }))}
         locale={state.locale}
         setLocale={(v) => setState((p) => ({ ...p, locale: v }))}
-        locales={state.locales}
+        locales={state.localesByDevice?.[state.device] || state.locales}
         device={state.device}
-        setDevice={(v) => setState((p) => ({ ...p, device: v }))}
+        setDevice={(v) => setState((p) => {
+          const locales = p.localesByDevice?.[v] || p.locales;
+          return { ...p, device: v, locale: locales.includes(p.locale) ? p.locale : locales[0] };
+        })}
         orientation={state.orientation}
         setOrientation={(v) => setState((p) => ({ ...p, orientation: v }))}
         onExport={exportAll}
