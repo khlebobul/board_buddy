@@ -5,121 +5,121 @@ const file = new URL('../app-store-screenshots.json', import.meta.url);
 if (existsSync(file) && !process.argv.includes('--replace')) throw new Error('Project exists; edit it in the editor or pass --replace.');
 
 // Per slide: [section, headline, highlight, sub]. Slide 2 headline sits beside
-// the giant "10"; slide 7 lists the features below.
+// the giant "3"; slide 7 lists the features below.
 const copy = {
   en: [
     ['Score', 'Every point.\nIn one place.', 'In one place.', 'Add points. See who leads. →'],
     ['Undo', 'Wrong tap?\nTake it back.', 'back.', 'Undo and redo any move. →'],
-    ['Games', 'games.\nBuilt in.', '', ''],
+    ["Players", "players.\nOne counter.", "", "Track every player. →"],
     ['Dice', 'Your turn.\nRoll it.', 'Roll it.', 'A die in your pocket. →'],
     ['Stopwatch', 'Every second\ncounts.', '', 'Stopwatch\nin every\ngame. →'],
     ['Saves', 'Pause tonight.\nPlay tomorrow.', 'tomorrow.', 'Resume any saved game. →'],
-    ['Catan', 'New board.\nEvery game.', 'Every game.', 'Catan maps in one tap. →'],
+    ["Theme", "Light or dark.\nYour choice.", "Your choice.", "A theme for every game night. →"],
     ['Index', 'Everything\nfor game night.', 'game night.', ''],
   ],
   ru: [
     ['Счёт', 'Все очки.\nВ одном месте.', 'В одном месте.', 'Добавьте очки — видно, кто ведёт. →'],
     ['Отмена', 'Ошиблись?\nОтмените.', 'Отмените.', 'Отмена и повтор любого хода. →'],
-    ['Игры', 'игр.\nУже внутри.', '', ''],
+    ["Игроки", "игрока.\nОдин счётчик.", "", "Счёт каждого — перед глазами. →"],
     ['Кубик', 'Ваш ход.\nБросайте.', 'Бросайте.', 'Кубик всегда под рукой. →'],
     ['Секундомер', 'Каждая секунда\nна счету.', '', 'Секундомер\nв каждой\nигре. →'],
     ['Сохранение', 'Пауза сегодня.\nИгра завтра.', 'завтра.', 'Продолжайте сохранённые партии. →'],
-    ['Catan', 'Новое поле.\nКаждую партию.', 'Каждую партию.', 'Карта Catan в одно касание. →'],
+    ["Тема", "Светлая, тёмная.\nВыбирать вам.", "Выбирать вам.", "Тема для игрового вечера. →"],
     ['Обзор', 'Всё для\nигрового вечера.', 'игрового вечера.', ''],
   ],
   de: [
     ['Punkte', 'Alle Punkte.\nEin Ort.', 'Ein Ort.', 'Punkte eintragen. Führung sehen. →'],
     ['Rückgängig', 'Vertippt?\nZurück damit.', 'Zurück', 'Jeden Zug rückgängig machen. →'],
-    ['Spiele', 'Spiele.\nSchon dabei.', '', ''],
+    ["Spieler", "Spieler.\nEin Zähler.", "", "Punkte für jeden Spieler. →"],
     ['Würfel', 'Du bist dran.\nWürfle.', 'Würfle.', 'Ein Würfel für unterwegs. →'],
     ['Stoppuhr', 'Jede Sekunde\nzählt.', '', 'Stoppuhr\nin jedem\nSpiel. →'],
     ['Speichern', 'Heute Pause.\nMorgen weiter.', 'Morgen', 'Gespeicherte Partien fortsetzen. →'],
-    ['Catan', 'Neues Feld.\nJedes Spiel.', 'Jedes Spiel.', 'Catan-Karte mit einem Tipp. →'],
+    ["Design", "Hell oder dunkel.\nDeine Wahl.", "Deine Wahl.", "Ein Design für jeden Spieleabend. →"],
     ['Übersicht', 'Alles für den\nSpieleabend.', 'Spieleabend.', ''],
   ],
   fr: [
     ['Score', 'Tous les points.\nAu même endroit.', 'Au même endroit.', 'Ajoutez des points. Voyez qui mène. →'],
     ['Annuler', 'Une erreur ?\nAnnulez.', 'Annulez.', 'Annulez et rétablissez chaque coup. →'],
-    ['Jeux', 'jeux.\nDéjà inclus.', '', ''],
+    ["Joueurs", "joueurs.\nUn compteur.", "", "Le score de chaque joueur. →"],
     ['Dé', 'À vous.\nLancez le dé.', 'Lancez', 'Un dé à portée de main. →'],
     ['Chrono', 'Chaque seconde\ncompte.', '', 'Chrono\ndans chaque\njeu. →'],
     ['Sauvegarde', 'Pause ce soir.\nReprise demain.', 'demain.', 'Reprenez vos parties sauvegardées. →'],
-    ['Catan', 'Nouveau plateau.\nÀ chaque partie.', 'À chaque partie.', 'Carte Catan en un geste. →'],
+    ["Thème", "Clair ou sombre.\nÀ vous de choisir.", "À vous de choisir.", "Un thème pour vos soirées jeux. →"],
     ['Index', 'Tout pour\nla soirée jeux.', 'soirée jeux.', ''],
   ],
   es: [
     ['Puntos', 'Todos los puntos.\nEn un lugar.', 'En un lugar.', 'Suma puntos. Mira quién gana. →'],
     ['Deshacer', '¿Te equivocaste?\nDeshazlo.', 'Deshazlo.', 'Deshaz y rehaz cualquier jugada. →'],
-    ['Juegos', 'juegos.\nYa incluidos.', '', ''],
+    ["Jugadores", "jugadores.\nUn contador.", "", "Puntos de cada jugador. →"],
     ['Dado', 'Tu turno.\nLanza el dado.', 'Lanza', 'Un dado siempre a mano. →'],
     ['Cronómetro', 'Cada segundo\ncuenta.', '', 'Cronómetro\nen cada\njuego. →'],
     ['Guardado', 'Pausa hoy.\nSigue mañana.', 'mañana.', 'Retoma partidas guardadas. →'],
-    ['Catan', 'Nuevo tablero.\nCada partida.', 'Cada partida.', 'Mapa de Catan con un toque. →'],
+    ["Tema", "Claro u oscuro.\nTú eliges.", "Tú eliges.", "Un tema para tus noches de juegos. →"],
     ['Índice', 'Todo para la\nnoche de juegos.', 'noche de juegos.', ''],
   ],
   it: [
     ['Punti', 'Tutti i punti.\nIn un posto.', 'In un posto.', 'Aggiungi punti. Vedi chi vince. →'],
     ['Annulla', 'Un errore?\nAnnullalo.', 'Annullalo.', 'Annulla e ripristina ogni mossa. →'],
-    ['Giochi', 'giochi.\nGià inclusi.', '', ''],
+    ["Giocatori", "giocatori.\nUn contatore.", "", "I punti di ogni giocatore. →"],
     ['Dado', 'Tocca a te.\nLancia il dado.', 'Lancia', 'Un dado sempre a portata. →'],
     ['Cronometro', 'Ogni secondo\nconta.', '', 'Cronometro\nin ogni\ngioco. →'],
     ['Salvataggi', 'Pausa oggi.\nRiprendi domani.', 'domani.', 'Riprendi le partite salvate. →'],
-    ['Catan', 'Nuovo tabellone.\nOgni partita.', 'Ogni partita.', 'Mappa di Catan con un tocco. →'],
+    ["Tema", "Chiaro o scuro.\nScegli tu.", "Scegli tu.", "Un tema per ogni serata giochi. →"],
     ['Indice', 'Tutto per\nla serata giochi.', 'serata giochi.', ''],
   ],
   zh: [
     ['计分', '所有得分。\n记在一处。', '记在一处。', '加分，一眼看清谁领先。→'],
     ['撤销', '输错了？\n撤销即可。', '撤销即可。', '每一步都能撤销和重做。→'],
-    ['游戏', '款游戏。\n内置可用。', '', ''],
+    ["玩家", "位玩家。\n一个计分器。", "", "每位玩家的得分一目了然。→"],
     ['骰子', '轮到你了。\n掷骰子吧。', '掷骰子吧。', '骰子随手可用。→'],
     ['秒表', '每一秒\n都算数。', '', '每款游戏\n都有秒表。→'],
     ['存档', '今天暂停。\n明天继续。', '明天继续。', '继续保存的对局。→'],
-    ['Catan', '新棋盘。\n每局都新。', '每局都新。', '一键生成 Catan 地图。→'],
+    ["主题", "浅色或深色。\n由你选择。", "由你选择。", "游戏之夜，选择喜欢的主题。→"],
     ['总览', '游戏之夜\n一应俱全。', '一应俱全。', ''],
   ],
   ja: [
     ['スコア', 'みんなの得点。\nひとつの場所に。', 'ひとつの場所に。', '得点を足して、首位がすぐわかる。→'],
     ['取り消し', '入力ミス？\n元に戻そう。', '元に戻そう。', 'どの操作も取り消し・やり直し。→'],
-    ['ゲーム', '種類のゲーム。\nすぐ遊べる。', '', ''],
+    ["プレイヤー", "人の得点。\nまとめて。", "", "全員の得点を記録。→"],
     ['サイコロ', 'あなたの番。\nサイコロを振ろう。', 'サイコロを振ろう。', 'サイコロをいつも手元に。→'],
     ['タイマー', '一秒ずつ\nしっかり計測。', '', 'どのゲームにも\nストップ\nウォッチ。→'],
     ['保存', '今日はひと休み。\n続きは明日。', '続きは明日。', '保存した対局を再開。→'],
-    ['Catan', '新しい盤面。\n毎回のゲームに。', '毎回のゲームに。', 'ワンタップで Catan のマップ。→'],
+    ["テーマ", "ライトもダークも。\nあなた好みに。", "あなた好みに。", "ゲームの夜に合うテーマ。→"],
     ['一覧', 'ゲームの夜に\n必要なすべて。', '必要なすべて。', ''],
   ],
   ko: [
     ['점수', '모두의 점수.\n한곳에.', '한곳에.', '점수를 더하고 선두를 확인하세요. →'],
     ['실행 취소', '잘못 입력했나요?\n취소하세요.', '취소하세요.', '모든 동작을 취소하고 다시 실행. →'],
-    ['게임', '가지 게임.\n바로 플레이.', '', ''],
+    ["플레이어", "명의 점수.\n한곳에.", "", "모든 플레이어의 점수를 기록해요. →"],
     ['주사위', '당신의 차례.\n주사위를 던져요.', '주사위를 던져요.', '손안의 주사위. →'],
     ['스톱워치', '매초를\n기록하세요.', '', '모든 게임에\n스톱워치. →'],
     ['저장', '오늘은 쉬고.\n내일 이어서.', '내일 이어서.', '저장한 게임 이어 하기. →'],
-    ['Catan', '새로운 보드.\n매 게임마다.', '매 게임마다.', '탭 한 번으로 Catan 맵. →'],
+    ["테마", "밝게 또는 어둡게.\n원하는 대로.", "원하는 대로.", "게임의 밤에 어울리는 테마. →"],
     ['목록', '게임의 밤에\n필요한 모든 것.', '필요한 모든 것.', ''],
   ],
   hi: [
     ['अंक', 'सभी के अंक।\nएक जगह।', 'एक जगह।', 'अंक जोड़ें। देखें कौन आगे है। →'],
     ['वापस लें', 'गलत दबाया?\nवापस लें।', 'वापस लें।', 'हर चाल को वापस लें या दोहराएँ। →'],
-    ['खेल', 'खेल।\nऐप में शामिल।', '', ''],
+    ["खिलाड़ी", "खिलाड़ी।\nएक काउंटर।", "", "हर खिलाड़ी के अंक देखें। →"],
     ['पासा', 'आपकी बारी।\nपासा फेंकें।', 'पासा फेंकें।', 'पासा हमेशा साथ। →'],
     ['स्टॉपवॉच', 'हर सेकंड\nगिनें।', '', 'हर खेल में\nस्टॉपवॉच। →'],
     ['सेव', 'आज विराम।\nकल फिर खेलें।', 'कल फिर खेलें।', 'सेव किया खेल जारी रखें। →'],
-    ['Catan', 'नया बोर्ड।\nहर खेल में।', 'हर खेल में।', 'एक टैप में Catan मैप। →'],
+    ["थीम", "हल्की या गहरी।\nआपकी पसंद।", "आपकी पसंद।", "गेम नाइट के लिए अपनी थीम चुनें। →"],
     ['सूची', 'गेम नाइट के लिए\nसब कुछ।', 'सब कुछ।', ''],
   ],
 };
 // Feature wall: [name, descriptor] in slide order.
 const index = {
-  en: [['Scores', 'Every player'], ['Undo', 'Every move'], ['10 games', 'Built in'], ['Dice', 'One tap'], ['Stopwatch', 'Every game'], ['Saves', 'Resume later'], ['Rules', 'In the app'], ['Catan maps', 'Balanced']],
-  ru: [['Счёт', 'Все игроки'], ['Отмена', 'Любой ход'], ['10 игр', 'Внутри'], ['Кубик', 'Одно касание'], ['Секундомер', 'Каждая игра'], ['Сохранения', 'Продолжить позже'], ['Правила', 'В приложении'], ['Карты Catan', 'Баланс']],
-  de: [['Punkte', 'Jeder Spieler'], ['Rückgängig', 'Jeder Zug'], ['10 Spiele', 'Integriert'], ['Würfel', 'Ein Tipp'], ['Stoppuhr', 'Jedes Spiel'], ['Spielstände', 'Später weiter'], ['Regeln', 'In der App'], ['Catan-Karten', 'Ausgewogen']],
-  fr: [['Scores', 'Chaque joueur'], ['Annuler', 'Chaque coup'], ['10 jeux', 'Inclus'], ['Dé', 'Un geste'], ['Chrono', 'Chaque jeu'], ['Sauvegardes', 'Reprendre'], ['Règles', "Dans l'app"], ['Cartes Catan', 'Équilibrées']],
-  es: [['Puntos', 'Cada jugador'], ['Deshacer', 'Cada jugada'], ['10 juegos', 'Incluidos'], ['Dado', 'Un toque'], ['Cronómetro', 'Cada juego'], ['Partidas', 'Sigue luego'], ['Reglas', 'En la app'], ['Mapas Catan', 'Equilibrados']],
-  it: [['Punti', 'Ogni giocatore'], ['Annulla', 'Ogni mossa'], ['10 giochi', 'Inclusi'], ['Dado', 'Un tocco'], ['Cronometro', 'Ogni gioco'], ['Salvataggi', 'Riprendi dopo'], ['Regole', "Nell'app"], ['Mappe Catan', 'Equilibrate']],
-  zh: [['计分', '每位玩家'], ['撤销', '每一步'], ['10 款游戏', '内置'], ['骰子', '一键'], ['秒表', '每款游戏'], ['存档', '稍后继续'], ['规则', '应用内'], ['Catan 地图', '均衡']],
-  ja: [['スコア', '全プレイヤー'], ['取り消し', 'すべての操作'], ['10 ゲーム', '内蔵'], ['サイコロ', 'ワンタップ'], ['タイマー', '各ゲーム'], ['保存', 'あとで再開'], ['ルール', 'アプリ内'], ['Catan マップ', 'バランス']],
-  ko: [['점수', '모든 플레이어'], ['실행 취소', '모든 동작'], ['10가지 게임', '내장'], ['주사위', '탭 한 번'], ['스톱워치', '모든 게임'], ['저장', '나중에 계속'], ['규칙', '앱 안에서'], ['Catan 맵', '균형']],
-  hi: [['अंक', 'हर खिलाड़ी'], ['वापस लें', 'हर चाल'], ['10 खेल', 'शामिल'], ['पासा', 'एक टैप'], ['स्टॉपवॉच', 'हर खेल'], ['सेव', 'बाद में जारी'], ['नियम', 'ऐप में'], ['Catan मैप', 'संतुलित']],
+  en: [["Scores", "Every player"], ["Undo", "Every move"], ["Players", "At the table"], ["Dice", "One tap"], ["Stopwatch", "Every game"], ["Saves", "Resume later"], ["Redo", "Every move"], ["Dark mode", "Your choice"]],
+  ru: [["Счёт", "Все игроки"], ["Отмена", "Любой ход"], ["Игроки", "За столом"], ["Кубик", "Одно касание"], ["Секундомер", "Каждая игра"], ["Сохранения", "Продолжить позже"], ["Повтор", "Любой ход"], ["Тёмная тема", "Ваш выбор"]],
+  de: [["Punkte", "Jeder Spieler"], ["Rückgängig", "Jeder Zug"], ["Spieler", "Am Tisch"], ["Würfel", "Ein Tipp"], ["Stoppuhr", "Jedes Spiel"], ["Spielstände", "Später weiter"], ["Wiederholen", "Jeder Zug"], ["Dunkelmodus", "Deine Wahl"]],
+  fr: [["Scores", "Chaque joueur"], ["Annuler", "Chaque coup"], ["Joueurs", "À table"], ["Dé", "Un geste"], ["Chrono", "Chaque jeu"], ["Sauvegardes", "Reprendre"], ["Rétablir", "Chaque coup"], ["Mode sombre", "Votre choix"]],
+  es: [["Puntos", "Cada jugador"], ["Deshacer", "Cada jugada"], ["Jugadores", "En la mesa"], ["Dado", "Un toque"], ["Cronómetro", "Cada juego"], ["Partidas", "Sigue luego"], ["Rehacer", "Cada jugada"], ["Modo oscuro", "Tú eliges"]],
+  it: [["Punti", "Ogni giocatore"], ["Annulla", "Ogni mossa"], ["Giocatori", "Al tavolo"], ["Dado", "Un tocco"], ["Cronometro", "Ogni gioco"], ["Salvataggi", "Riprendi dopo"], ["Ripristina", "Ogni mossa"], ["Tema scuro", "Scegli tu"]],
+  zh: [["计分", "每位玩家"], ["撤销", "每一步"], ["玩家", "同桌游戏"], ["骰子", "一键"], ["秒表", "每款游戏"], ["存档", "稍后继续"], ["重做", "每一步"], ["深色模式", "自由选择"]],
+  ja: [["スコア", "全プレイヤー"], ["取り消し", "すべての操作"], ["プレイヤー", "みんなで"], ["サイコロ", "ワンタップ"], ["タイマー", "各ゲーム"], ["保存", "あとで再開"], ["やり直し", "すべての操作"], ["ダークモード", "好みに合わせて"]],
+  ko: [["점수", "모든 플레이어"], ["실행 취소", "모든 동작"], ["플레이어", "함께 게임"], ["주사위", "탭 한 번"], ["스톱워치", "모든 게임"], ["저장", "나중에 계속"], ["다시 실행", "모든 동작"], ["다크 모드", "원하는 대로"]],
+  hi: [["अंक", "हर खिलाड़ी"], ["वापस लें", "हर चाल"], ["खिलाड़ी", "एक साथ"], ["पासा", "एक टैप"], ["स्टॉपवॉच", "हर खेल"], ["सेव", "बाद में जारी"], ["दोहराएँ", "हर चाल"], ["डार्क मोड", "आपकी पसंद"]],
 };
 const locales = Object.keys(copy);
 const field = (i, k) => Object.fromEntries(locales.map(l => [l, copy[l][i][k]]));
@@ -183,16 +183,16 @@ for (const [device, [cW, cH, aspect, folder]] of Object.entries(devices)) {
     sl.marks = ['br'];
     slides.push(sl);
   }
-  // 03 Games — paper, proof numeral in a full-bleed red block, games list phone.
+  // 03 Players — real multiplayer counter, full-bleed proof numeral.
   {
     const blockTop = 200 * s, blockH = 760 * s, top = Math.max(0.42 * cH, blockTop + blockH + 90 * s);
-    const sl = base(2, 'hero', false, '01-games');
+    const sl = base(2, 'hero', false, '05-counter-light');
     sl.transforms = { caption: caption(blockTop + 330 * s, 7, 5, 300 * s), device: phone(0, top) };
     sl.textElements = [
       { id: 'block', text: {}, variant: 'block', background: RED, transform: { x: -4, y: blockTop, width: cW + 8, height: blockH, zIndex: 1 } },
-      { id: 'numeral', text: { en: '10' }, font: 'display', fontSize: 600 * s, fontWeight: 800, lineHeight: 0.8, letterSpacing: '-0.06em', color: INK, align: 'left',
+      { id: 'numeral', text: { en: '3' }, font: 'display', fontSize: 600 * s, fontWeight: 800, lineHeight: 0.8, letterSpacing: '-0.06em', color: INK, align: 'left',
         transform: { x: X(0) - 30 * s, y: blockTop + 60 * s, width: 7 * col, height: 560 * s, zIndex: 3 } },
-      mono('games', { en: 'UNO · Catan · Scrabble · Munchkin · Set →' }, X(0), blockTop + blockH - 92 * s, 12 * col, 30, { color: INK }),
+      mono('games', field(2, 3), X(0), blockTop + blockH - 92 * s, 12 * col, 30, { color: INK }),
       figV(2, figRight, top),
     ];
     sl.marks = ['br'];
@@ -232,11 +232,11 @@ for (const [device, [cW, cH, aspect, folder]] of Object.entries(devices)) {
     sl.marks = ['br'];
     slides.push(sl);
   }
-  // 07 Catan — paper, phone cropped by the top edge, red block below.
+  // 07 Theme — dark counter, red block below.
   {
     const h = (pc * col) / aspect, d = phone(0, -0.16 * h);
     const indexY = d.y + d.height + 90 * s;
-    const sl = base(6, 'device-top', false, '11-map-light');
+    const sl = base(6, 'device-top', false, '03-counter-dark');
     sl.indexY = indexY;
     sl.transforms = { caption: caption(indexY + 112 * s), device: d };
     sl.textElements = [sub(6, X(0), indexY + 540 * s, 12 * col), figV(6, figRight, 200 * s)];
@@ -267,7 +267,7 @@ for (const [device, [cW, cH, aspect, folder]] of Object.entries(devices)) {
 for (const device of ['feature-graphic', 'apple-header', 'apple-search']) {
   const folder = device === 'feature-graphic' ? 'android/phone' : 'apple/iphone';
   state.slidesByDevice[device] = [{ id: device, layout: 'feature-graphic', label: field(0, 3), headline: field(0, 1), highlight: field(0, 2),
-    screenshot: `/screenshots/${folder}/{locale}/05-counter-light.png`, screenshotSecondary: `/screenshots/${folder}/{locale}/02-uno.png` }];
+    screenshot: `/screenshots/${folder}/{locale}/05-counter-light.png`, screenshotSecondary: `/screenshots/${folder}/{locale}/03-counter-dark.png` }];
 }
 state.slidesByDevice['android-7'] = [];
 state.slidesByDevice['android-10'] = [];

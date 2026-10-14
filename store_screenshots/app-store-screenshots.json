@@ -268,28 +268,28 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Games",
-          "ru": "Игры",
-          "de": "Spiele",
-          "fr": "Jeux",
-          "es": "Juegos",
-          "it": "Giochi",
-          "zh": "游戏",
-          "ja": "ゲーム",
-          "ko": "게임",
-          "hi": "खेल"
+          "en": "Players",
+          "ru": "Игроки",
+          "de": "Spieler",
+          "fr": "Joueurs",
+          "es": "Jugadores",
+          "it": "Giocatori",
+          "zh": "玩家",
+          "ja": "プレイヤー",
+          "ko": "플레이어",
+          "hi": "खिलाड़ी"
         },
         "headline": {
-          "en": "games.\nBuilt in.",
-          "ru": "игр.\nУже внутри.",
-          "de": "Spiele.\nSchon dabei.",
-          "fr": "jeux.\nDéjà inclus.",
-          "es": "juegos.\nYa incluidos.",
-          "it": "giochi.\nGià inclusi.",
-          "zh": "款游戏。\n内置可用。",
-          "ja": "種類のゲーム。\nすぐ遊べる。",
-          "ko": "가지 게임.\n바로 플레이.",
-          "hi": "खेल।\nऐप में शामिल।"
+          "en": "players.\nOne counter.",
+          "ru": "игрока.\nОдин счётчик.",
+          "de": "Spieler.\nEin Zähler.",
+          "fr": "joueurs.\nUn compteur.",
+          "es": "jugadores.\nUn contador.",
+          "it": "giocatori.\nUn contatore.",
+          "zh": "位玩家。\n一个计分器。",
+          "ja": "人の得点。\nまとめて。",
+          "ko": "명의 점수.\n한곳에.",
+          "hi": "खिलाड़ी।\nएक काउंटर।"
         },
         "highlight": {
           "en": "",
@@ -303,7 +303,7 @@
           "ko": "",
           "hi": ""
         },
-        "screenshot": "/screenshots/apple/iphone/{locale}/01-games.png",
+        "screenshot": "/screenshots/apple/iphone/{locale}/05-counter-light.png",
         "transforms": {
           "caption": {
             "x": 758,
@@ -336,7 +336,7 @@
           {
             "id": "numeral",
             "text": {
-              "en": "10"
+              "en": "3"
             },
             "transform": {
               "x": 42,
@@ -356,7 +356,16 @@
           {
             "id": "games",
             "text": {
-              "en": "UNO · Catan · Scrabble · Munchkin · Set →"
+              "en": "Track every player. →",
+              "ru": "Счёт каждого — перед глазами. →",
+              "de": "Punkte für jeden Spieler. →",
+              "fr": "Le score de chaque joueur. →",
+              "es": "Puntos de cada jugador. →",
+              "it": "I punti di ogni giocatore. →",
+              "zh": "每位玩家的得分一目了然。→",
+              "ja": "全員の得点を記録。→",
+              "ko": "모든 플레이어의 점수를 기록해요. →",
+              "hi": "हर खिलाड़ी के अंक देखें। →"
             },
             "transform": {
               "x": 72,
@@ -376,16 +385,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 3 — Games",
-              "ru": "FIG. 3 — Игры",
-              "de": "FIG. 3 — Spiele",
-              "fr": "FIG. 3 — Jeux",
-              "es": "FIG. 3 — Juegos",
-              "it": "FIG. 3 — Giochi",
-              "zh": "FIG. 3 — 游戏",
-              "ja": "FIG. 3 — ゲーム",
-              "ko": "FIG. 3 — 게임",
-              "hi": "FIG. 3 — खेल"
+              "en": "FIG. 3 — Players",
+              "ru": "FIG. 3 — Игроки",
+              "de": "FIG. 3 — Spieler",
+              "fr": "FIG. 3 — Joueurs",
+              "es": "FIG. 3 — Jugadores",
+              "it": "FIG. 3 — Giocatori",
+              "zh": "FIG. 3 — 玩家",
+              "ja": "FIG. 3 — プレイヤー",
+              "ko": "FIG. 3 — 플레이어",
+              "hi": "FIG. 3 — खिलाड़ी"
             },
             "transform": {
               "x": 848,
@@ -794,42 +803,42 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Catan",
-          "ru": "Catan",
-          "de": "Catan",
-          "fr": "Catan",
-          "es": "Catan",
-          "it": "Catan",
-          "zh": "Catan",
-          "ja": "Catan",
-          "ko": "Catan",
-          "hi": "Catan"
+          "en": "Theme",
+          "ru": "Тема",
+          "de": "Design",
+          "fr": "Thème",
+          "es": "Tema",
+          "it": "Tema",
+          "zh": "主题",
+          "ja": "テーマ",
+          "ko": "테마",
+          "hi": "थीम"
         },
         "headline": {
-          "en": "New board.\nEvery game.",
-          "ru": "Новое поле.\nКаждую партию.",
-          "de": "Neues Feld.\nJedes Spiel.",
-          "fr": "Nouveau plateau.\nÀ chaque partie.",
-          "es": "Nuevo tablero.\nCada partida.",
-          "it": "Nuovo tabellone.\nOgni partita.",
-          "zh": "新棋盘。\n每局都新。",
-          "ja": "新しい盤面。\n毎回のゲームに。",
-          "ko": "새로운 보드.\n매 게임마다.",
-          "hi": "नया बोर्ड।\nहर खेल में।"
+          "en": "Light or dark.\nYour choice.",
+          "ru": "Светлая, тёмная.\nВыбирать вам.",
+          "de": "Hell oder dunkel.\nDeine Wahl.",
+          "fr": "Clair ou sombre.\nÀ vous de choisir.",
+          "es": "Claro u oscuro.\nTú eliges.",
+          "it": "Chiaro o scuro.\nScegli tu.",
+          "zh": "浅色或深色。\n由你选择。",
+          "ja": "ライトもダークも。\nあなた好みに。",
+          "ko": "밝게 또는 어둡게.\n원하는 대로.",
+          "hi": "हल्की या गहरी।\nआपकी पसंद।"
         },
         "highlight": {
-          "en": "Every game.",
-          "ru": "Каждую партию.",
-          "de": "Jedes Spiel.",
-          "fr": "À chaque partie.",
-          "es": "Cada partida.",
-          "it": "Ogni partita.",
-          "zh": "每局都新。",
-          "ja": "毎回のゲームに。",
-          "ko": "매 게임마다.",
-          "hi": "हर खेल में।"
+          "en": "Your choice.",
+          "ru": "Выбирать вам.",
+          "de": "Deine Wahl.",
+          "fr": "À vous de choisir.",
+          "es": "Tú eliges.",
+          "it": "Scegli tu.",
+          "zh": "由你选择。",
+          "ja": "あなた好みに。",
+          "ko": "원하는 대로.",
+          "hi": "आपकी पसंद।"
         },
-        "screenshot": "/screenshots/apple/iphone/{locale}/11-map-light.png",
+        "screenshot": "/screenshots/apple/iphone/{locale}/03-counter-dark.png",
         "transforms": {
           "caption": {
             "x": 72,
@@ -849,16 +858,16 @@
           {
             "id": "sub",
             "text": {
-              "en": "Catan maps in one tap. →",
-              "ru": "Карта Catan в одно касание. →",
-              "de": "Catan-Karte mit einem Tipp. →",
-              "fr": "Carte Catan en un geste. →",
-              "es": "Mapa de Catan con un toque. →",
-              "it": "Mappa di Catan con un tocco. →",
-              "zh": "一键生成 Catan 地图。→",
-              "ja": "ワンタップで Catan のマップ。→",
-              "ko": "탭 한 번으로 Catan 맵. →",
-              "hi": "एक टैप में Catan मैप। →"
+              "en": "A theme for every game night. →",
+              "ru": "Тема для игрового вечера. →",
+              "de": "Ein Design für jeden Spieleabend. →",
+              "fr": "Un thème pour vos soirées jeux. →",
+              "es": "Un tema para tus noches de juegos. →",
+              "it": "Un tema per ogni serata giochi. →",
+              "zh": "游戏之夜，选择喜欢的主题。→",
+              "ja": "ゲームの夜に合うテーマ。→",
+              "ko": "게임의 밤에 어울리는 테마. →",
+              "hi": "गेम नाइट के लिए अपनी थीम चुनें। →"
             },
             "transform": {
               "x": 72,
@@ -877,16 +886,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 7 — Catan",
-              "ru": "FIG. 7 — Catan",
-              "de": "FIG. 7 — Catan",
-              "fr": "FIG. 7 — Catan",
-              "es": "FIG. 7 — Catan",
-              "it": "FIG. 7 — Catan",
-              "zh": "FIG. 7 — Catan",
-              "ja": "FIG. 7 — Catan",
-              "ko": "FIG. 7 — Catan",
-              "hi": "FIG. 7 — Catan"
+              "en": "FIG. 7 — Theme",
+              "ru": "FIG. 7 — Тема",
+              "de": "FIG. 7 — Design",
+              "fr": "FIG. 7 — Thème",
+              "es": "FIG. 7 — Tema",
+              "it": "FIG. 7 — Tema",
+              "zh": "FIG. 7 — 主题",
+              "ja": "FIG. 7 — テーマ",
+              "ko": "FIG. 7 — 테마",
+              "hi": "FIG. 7 — थीम"
             },
             "transform": {
               "x": 848,
@@ -983,16 +992,16 @@
           {
             "id": "names",
             "text": {
-              "en": "Scores\nUndo\n10 games\nDice\nStopwatch\nSaves\nRules\nCatan maps",
-              "ru": "Счёт\nОтмена\n10 игр\nКубик\nСекундомер\nСохранения\nПравила\nКарты Catan",
-              "de": "Punkte\nRückgängig\n10 Spiele\nWürfel\nStoppuhr\nSpielstände\nRegeln\nCatan-Karten",
-              "fr": "Scores\nAnnuler\n10 jeux\nDé\nChrono\nSauvegardes\nRègles\nCartes Catan",
-              "es": "Puntos\nDeshacer\n10 juegos\nDado\nCronómetro\nPartidas\nReglas\nMapas Catan",
-              "it": "Punti\nAnnulla\n10 giochi\nDado\nCronometro\nSalvataggi\nRegole\nMappe Catan",
-              "zh": "计分\n撤销\n10 款游戏\n骰子\n秒表\n存档\n规则\nCatan 地图",
-              "ja": "スコア\n取り消し\n10 ゲーム\nサイコロ\nタイマー\n保存\nルール\nCatan マップ",
-              "ko": "점수\n실행 취소\n10가지 게임\n주사위\n스톱워치\n저장\n규칙\nCatan 맵",
-              "hi": "अंक\nवापस लें\n10 खेल\nपासा\nस्टॉपवॉच\nसेव\nनियम\nCatan मैप"
+              "en": "Scores\nUndo\nPlayers\nDice\nStopwatch\nSaves\nRedo\nDark mode",
+              "ru": "Счёт\nОтмена\nИгроки\nКубик\nСекундомер\nСохранения\nПовтор\nТёмная тема",
+              "de": "Punkte\nRückgängig\nSpieler\nWürfel\nStoppuhr\nSpielstände\nWiederholen\nDunkelmodus",
+              "fr": "Scores\nAnnuler\nJoueurs\nDé\nChrono\nSauvegardes\nRétablir\nMode sombre",
+              "es": "Puntos\nDeshacer\nJugadores\nDado\nCronómetro\nPartidas\nRehacer\nModo oscuro",
+              "it": "Punti\nAnnulla\nGiocatori\nDado\nCronometro\nSalvataggi\nRipristina\nTema scuro",
+              "zh": "计分\n撤销\n玩家\n骰子\n秒表\n存档\n重做\n深色模式",
+              "ja": "スコア\n取り消し\nプレイヤー\nサイコロ\nタイマー\n保存\nやり直し\nダークモード",
+              "ko": "점수\n실행 취소\n플레이어\n주사위\n스톱워치\n저장\n다시 실행\n다크 모드",
+              "hi": "अंक\nवापस लें\nखिलाड़ी\nपासा\nस्टॉपवॉच\nसेव\nदोहराएँ\nडार्क मोड"
             },
             "transform": {
               "x": 209.2,
@@ -1011,16 +1020,16 @@
           {
             "id": "descriptors",
             "text": {
-              "en": "Every player\nEvery move\nBuilt in\nOne tap\nEvery game\nResume later\nIn the app\nBalanced",
-              "ru": "Все игроки\nЛюбой ход\nВнутри\nОдно касание\nКаждая игра\nПродолжить позже\nВ приложении\nБаланс",
-              "de": "Jeder Spieler\nJeder Zug\nIntegriert\nEin Tipp\nJedes Spiel\nSpäter weiter\nIn der App\nAusgewogen",
-              "fr": "Chaque joueur\nChaque coup\nInclus\nUn geste\nChaque jeu\nReprendre\nDans l'app\nÉquilibrées",
-              "es": "Cada jugador\nCada jugada\nIncluidos\nUn toque\nCada juego\nSigue luego\nEn la app\nEquilibrados",
-              "it": "Ogni giocatore\nOgni mossa\nInclusi\nUn tocco\nOgni gioco\nRiprendi dopo\nNell'app\nEquilibrate",
-              "zh": "每位玩家\n每一步\n内置\n一键\n每款游戏\n稍后继续\n应用内\n均衡",
-              "ja": "全プレイヤー\nすべての操作\n内蔵\nワンタップ\n各ゲーム\nあとで再開\nアプリ内\nバランス",
-              "ko": "모든 플레이어\n모든 동작\n내장\n탭 한 번\n모든 게임\n나중에 계속\n앱 안에서\n균형",
-              "hi": "हर खिलाड़ी\nहर चाल\nशामिल\nएक टैप\nहर खेल\nबाद में जारी\nऐप में\nसंतुलित"
+              "en": "Every player\nEvery move\nAt the table\nOne tap\nEvery game\nResume later\nEvery move\nYour choice",
+              "ru": "Все игроки\nЛюбой ход\nЗа столом\nОдно касание\nКаждая игра\nПродолжить позже\nЛюбой ход\nВаш выбор",
+              "de": "Jeder Spieler\nJeder Zug\nAm Tisch\nEin Tipp\nJedes Spiel\nSpäter weiter\nJeder Zug\nDeine Wahl",
+              "fr": "Chaque joueur\nChaque coup\nÀ table\nUn geste\nChaque jeu\nReprendre\nChaque coup\nVotre choix",
+              "es": "Cada jugador\nCada jugada\nEn la mesa\nUn toque\nCada juego\nSigue luego\nCada jugada\nTú eliges",
+              "it": "Ogni giocatore\nOgni mossa\nAl tavolo\nUn tocco\nOgni gioco\nRiprendi dopo\nOgni mossa\nScegli tu",
+              "zh": "每位玩家\n每一步\n同桌游戏\n一键\n每款游戏\n稍后继续\n每一步\n自由选择",
+              "ja": "全プレイヤー\nすべての操作\nみんなで\nワンタップ\n各ゲーム\nあとで再開\nすべての操作\n好みに合わせて",
+              "ko": "모든 플레이어\n모든 동작\n함께 게임\n탭 한 번\n모든 게임\n나중에 계속\n모든 동작\n원하는 대로",
+              "hi": "हर खिलाड़ी\nहर चाल\nएक साथ\nएक टैप\nहर खेल\nबाद में जारी\nहर चाल\nआपकी पसंद"
             },
             "transform": {
               "x": 846.2,
@@ -1302,28 +1311,28 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Games",
-          "ru": "Игры",
-          "de": "Spiele",
-          "fr": "Jeux",
-          "es": "Juegos",
-          "it": "Giochi",
-          "zh": "游戏",
-          "ja": "ゲーム",
-          "ko": "게임",
-          "hi": "खेल"
+          "en": "Players",
+          "ru": "Игроки",
+          "de": "Spieler",
+          "fr": "Joueurs",
+          "es": "Jugadores",
+          "it": "Giocatori",
+          "zh": "玩家",
+          "ja": "プレイヤー",
+          "ko": "플레이어",
+          "hi": "खिलाड़ी"
         },
         "headline": {
-          "en": "games.\nBuilt in.",
-          "ru": "игр.\nУже внутри.",
-          "de": "Spiele.\nSchon dabei.",
-          "fr": "jeux.\nDéjà inclus.",
-          "es": "juegos.\nYa incluidos.",
-          "it": "giochi.\nGià inclusi.",
-          "zh": "款游戏。\n内置可用。",
-          "ja": "種類のゲーム。\nすぐ遊べる。",
-          "ko": "가지 게임.\n바로 플레이.",
-          "hi": "खेल।\nऐप में शामिल।"
+          "en": "players.\nOne counter.",
+          "ru": "игрока.\nОдин счётчик.",
+          "de": "Spieler.\nEin Zähler.",
+          "fr": "joueurs.\nUn compteur.",
+          "es": "jugadores.\nUn contador.",
+          "it": "giocatori.\nUn contatore.",
+          "zh": "位玩家。\n一个计分器。",
+          "ja": "人の得点。\nまとめて。",
+          "ko": "명의 점수.\n한곳에.",
+          "hi": "खिलाड़ी।\nएक काउंटर।"
         },
         "highlight": {
           "en": "",
@@ -1337,7 +1346,7 @@
           "ko": "",
           "hi": ""
         },
-        "screenshot": "/screenshots/apple/ipad/{locale}/01-games.png",
+        "screenshot": "/screenshots/apple/ipad/{locale}/05-counter-light.png",
         "transforms": {
           "caption": {
             "x": 1185.2363636363634,
@@ -1370,7 +1379,7 @@
           {
             "id": "numeral",
             "text": {
-              "en": "10"
+              "en": "3"
             },
             "transform": {
               "x": 76.59855458349183,
@@ -1390,7 +1399,16 @@
           {
             "id": "games",
             "text": {
-              "en": "UNO · Catan · Scrabble · Munchkin · Set →"
+              "en": "Track every player. →",
+              "ru": "Счёт каждого — перед глазами. →",
+              "de": "Punkte für jeden Spieler. →",
+              "fr": "Le score de chaque joueur. →",
+              "es": "Puntos de cada jugador. →",
+              "it": "I punti di ogni giocatore. →",
+              "zh": "每位玩家的得分一目了然。→",
+              "ja": "全員の得点を記録。→",
+              "ko": "모든 플레이어의 점수를 기록해요. →",
+              "hi": "हर खिलाड़ी के अंक देखें। →"
             },
             "transform": {
               "x": 112.58181818181819,
@@ -1410,16 +1428,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 3 — Games",
-              "ru": "FIG. 3 — Игры",
-              "de": "FIG. 3 — Spiele",
-              "fr": "FIG. 3 — Jeux",
-              "es": "FIG. 3 — Juegos",
-              "it": "FIG. 3 — Giochi",
-              "zh": "FIG. 3 — 游戏",
-              "ja": "FIG. 3 — ゲーム",
-              "ko": "FIG. 3 — 게임",
-              "hi": "FIG. 3 — खेल"
+              "en": "FIG. 3 — Players",
+              "ru": "FIG. 3 — Игроки",
+              "de": "FIG. 3 — Spieler",
+              "fr": "FIG. 3 — Joueurs",
+              "es": "FIG. 3 — Jugadores",
+              "it": "FIG. 3 — Giocatori",
+              "zh": "FIG. 3 — 玩家",
+              "ja": "FIG. 3 — プレイヤー",
+              "ko": "FIG. 3 — 플레이어",
+              "hi": "FIG. 3 — खिलाड़ी"
             },
             "transform": {
               "x": 1471.641333840497,
@@ -1828,42 +1846,42 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Catan",
-          "ru": "Catan",
-          "de": "Catan",
-          "fr": "Catan",
-          "es": "Catan",
-          "it": "Catan",
-          "zh": "Catan",
-          "ja": "Catan",
-          "ko": "Catan",
-          "hi": "Catan"
+          "en": "Theme",
+          "ru": "Тема",
+          "de": "Design",
+          "fr": "Thème",
+          "es": "Tema",
+          "it": "Tema",
+          "zh": "主题",
+          "ja": "テーマ",
+          "ko": "테마",
+          "hi": "थीम"
         },
         "headline": {
-          "en": "New board.\nEvery game.",
-          "ru": "Новое поле.\nКаждую партию.",
-          "de": "Neues Feld.\nJedes Spiel.",
-          "fr": "Nouveau plateau.\nÀ chaque partie.",
-          "es": "Nuevo tablero.\nCada partida.",
-          "it": "Nuovo tabellone.\nOgni partita.",
-          "zh": "新棋盘。\n每局都新。",
-          "ja": "新しい盤面。\n毎回のゲームに。",
-          "ko": "새로운 보드.\n매 게임마다.",
-          "hi": "नया बोर्ड।\nहर खेल में।"
+          "en": "Light or dark.\nYour choice.",
+          "ru": "Светлая, тёмная.\nВыбирать вам.",
+          "de": "Hell oder dunkel.\nDeine Wahl.",
+          "fr": "Clair ou sombre.\nÀ vous de choisir.",
+          "es": "Claro u oscuro.\nTú eliges.",
+          "it": "Chiaro o scuro.\nScegli tu.",
+          "zh": "浅色或深色。\n由你选择。",
+          "ja": "ライトもダークも。\nあなた好みに。",
+          "ko": "밝게 또는 어둡게.\n원하는 대로.",
+          "hi": "हल्की या गहरी।\nआपकी पसंद।"
         },
         "highlight": {
-          "en": "Every game.",
-          "ru": "Каждую партию.",
-          "de": "Jedes Spiel.",
-          "fr": "À chaque partie.",
-          "es": "Cada partida.",
-          "it": "Ogni partita.",
-          "zh": "每局都新。",
-          "ja": "毎回のゲームに。",
-          "ko": "매 게임마다.",
-          "hi": "हर खेल में।"
+          "en": "Your choice.",
+          "ru": "Выбирать вам.",
+          "de": "Deine Wahl.",
+          "fr": "À vous de choisir.",
+          "es": "Tú eliges.",
+          "it": "Scegli tu.",
+          "zh": "由你选择。",
+          "ja": "あなた好みに。",
+          "ko": "원하는 대로.",
+          "hi": "आपकी पसंद।"
         },
-        "screenshot": "/screenshots/apple/ipad/{locale}/11-map-light.png",
+        "screenshot": "/screenshots/apple/ipad/{locale}/03-counter-dark.png",
         "transforms": {
           "caption": {
             "x": 112.58181818181819,
@@ -1883,16 +1901,16 @@
           {
             "id": "sub",
             "text": {
-              "en": "Catan maps in one tap. →",
-              "ru": "Карта Catan в одно касание. →",
-              "de": "Catan-Karte mit einem Tipp. →",
-              "fr": "Carte Catan en un geste. →",
-              "es": "Mapa de Catan con un toque. →",
-              "it": "Mappa di Catan con un tocco. →",
-              "zh": "一键生成 Catan 地图。→",
-              "ja": "ワンタップで Catan のマップ。→",
-              "ko": "탭 한 번으로 Catan 맵. →",
-              "hi": "एक टैप में Catan मैप। →"
+              "en": "A theme for every game night. →",
+              "ru": "Тема для игрового вечера. →",
+              "de": "Ein Design für jeden Spieleabend. →",
+              "fr": "Un thème pour vos soirées jeux. →",
+              "es": "Un tema para tus noches de juegos. →",
+              "it": "Un tema per ogni serata giochi. →",
+              "zh": "游戏之夜，选择喜欢的主题。→",
+              "ja": "ゲームの夜に合うテーマ。→",
+              "ko": "게임의 밤에 어울리는 테마. →",
+              "hi": "गेम नाइट के लिए अपनी थीम चुनें। →"
             },
             "transform": {
               "x": 112.58181818181819,
@@ -1911,16 +1929,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 7 — Catan",
-              "ru": "FIG. 7 — Catan",
-              "de": "FIG. 7 — Catan",
-              "fr": "FIG. 7 — Catan",
-              "es": "FIG. 7 — Catan",
-              "it": "FIG. 7 — Catan",
-              "zh": "FIG. 7 — Catan",
-              "ja": "FIG. 7 — Catan",
-              "ko": "FIG. 7 — Catan",
-              "hi": "FIG. 7 — Catan"
+              "en": "FIG. 7 — Theme",
+              "ru": "FIG. 7 — Тема",
+              "de": "FIG. 7 — Design",
+              "fr": "FIG. 7 — Thème",
+              "es": "FIG. 7 — Tema",
+              "it": "FIG. 7 — Tema",
+              "zh": "FIG. 7 — 主题",
+              "ja": "FIG. 7 — テーマ",
+              "ko": "FIG. 7 — 테마",
+              "hi": "FIG. 7 — थीम"
             },
             "transform": {
               "x": 1471.641333840497,
@@ -2017,16 +2035,16 @@
           {
             "id": "names",
             "text": {
-              "en": "Scores\nUndo\n10 games\nDice\nStopwatch\nSaves\nRules\nCatan maps",
-              "ru": "Счёт\nОтмена\n10 игр\nКубик\nСекундомер\nСохранения\nПравила\nКарты Catan",
-              "de": "Punkte\nRückgängig\n10 Spiele\nWürfel\nStoppuhr\nSpielstände\nRegeln\nCatan-Karten",
-              "fr": "Scores\nAnnuler\n10 jeux\nDé\nChrono\nSauvegardes\nRègles\nCartes Catan",
-              "es": "Puntos\nDeshacer\n10 juegos\nDado\nCronómetro\nPartidas\nReglas\nMapas Catan",
-              "it": "Punti\nAnnulla\n10 giochi\nDado\nCronometro\nSalvataggi\nRegole\nMappe Catan",
-              "zh": "计分\n撤销\n10 款游戏\n骰子\n秒表\n存档\n规则\nCatan 地图",
-              "ja": "スコア\n取り消し\n10 ゲーム\nサイコロ\nタイマー\n保存\nルール\nCatan マップ",
-              "ko": "점수\n실행 취소\n10가지 게임\n주사위\n스톱워치\n저장\n규칙\nCatan 맵",
-              "hi": "अंक\nवापस लें\n10 खेल\nपासा\nस्टॉपवॉच\nसेव\nनियम\nCatan मैप"
+              "en": "Scores\nUndo\nPlayers\nDice\nStopwatch\nSaves\nRedo\nDark mode",
+              "ru": "Счёт\nОтмена\nИгроки\nКубик\nСекундомер\nСохранения\nПовтор\nТёмная тема",
+              "de": "Punkte\nRückgängig\nSpieler\nWürfel\nStoppuhr\nSpielstände\nWiederholen\nDunkelmodus",
+              "fr": "Scores\nAnnuler\nJoueurs\nDé\nChrono\nSauvegardes\nRétablir\nMode sombre",
+              "es": "Puntos\nDeshacer\nJugadores\nDado\nCronómetro\nPartidas\nRehacer\nModo oscuro",
+              "it": "Punti\nAnnulla\nGiocatori\nDado\nCronometro\nSalvataggi\nRipristina\nTema scuro",
+              "zh": "计分\n撤销\n玩家\n骰子\n秒表\n存档\n重做\n深色模式",
+              "ja": "スコア\n取り消し\nプレイヤー\nサイコロ\nタイマー\n保存\nやり直し\nダークモード",
+              "ko": "점수\n실행 취소\n플레이어\n주사위\n스톱워치\n저장\n다시 실행\n다크 모드",
+              "hi": "अंक\nवापस लें\nखिलाड़ी\nपासा\nस्टॉपवॉच\nसेव\nदोहराएँ\nडार्क मोड"
             },
             "transform": {
               "x": 327.1127272727273,
@@ -2045,16 +2063,16 @@
           {
             "id": "descriptors",
             "text": {
-              "en": "Every player\nEvery move\nBuilt in\nOne tap\nEvery game\nResume later\nIn the app\nBalanced",
-              "ru": "Все игроки\nЛюбой ход\nВнутри\nОдно касание\nКаждая игра\nПродолжить позже\nВ приложении\nБаланс",
-              "de": "Jeder Spieler\nJeder Zug\nIntegriert\nEin Tipp\nJedes Spiel\nSpäter weiter\nIn der App\nAusgewogen",
-              "fr": "Chaque joueur\nChaque coup\nInclus\nUn geste\nChaque jeu\nReprendre\nDans l'app\nÉquilibrées",
-              "es": "Cada jugador\nCada jugada\nIncluidos\nUn toque\nCada juego\nSigue luego\nEn la app\nEquilibrados",
-              "it": "Ogni giocatore\nOgni mossa\nInclusi\nUn tocco\nOgni gioco\nRiprendi dopo\nNell'app\nEquilibrate",
-              "zh": "每位玩家\n每一步\n内置\n一键\n每款游戏\n稍后继续\n应用内\n均衡",
-              "ja": "全プレイヤー\nすべての操作\n内蔵\nワンタップ\n各ゲーム\nあとで再開\nアプリ内\nバランス",
-              "ko": "모든 플레이어\n모든 동작\n내장\n탭 한 번\n모든 게임\n나중에 계속\n앱 안에서\n균형",
-              "hi": "हर खिलाड़ी\nहर चाल\nशामिल\nएक टैप\nहर खेल\nबाद में जारी\nऐप में\nसंतुलित"
+              "en": "Every player\nEvery move\nAt the table\nOne tap\nEvery game\nResume later\nEvery move\nYour choice",
+              "ru": "Все игроки\nЛюбой ход\nЗа столом\nОдно касание\nКаждая игра\nПродолжить позже\nЛюбой ход\nВаш выбор",
+              "de": "Jeder Spieler\nJeder Zug\nAm Tisch\nEin Tipp\nJedes Spiel\nSpäter weiter\nJeder Zug\nDeine Wahl",
+              "fr": "Chaque joueur\nChaque coup\nÀ table\nUn geste\nChaque jeu\nReprendre\nChaque coup\nVotre choix",
+              "es": "Cada jugador\nCada jugada\nEn la mesa\nUn toque\nCada juego\nSigue luego\nCada jugada\nTú eliges",
+              "it": "Ogni giocatore\nOgni mossa\nAl tavolo\nUn tocco\nOgni gioco\nRiprendi dopo\nOgni mossa\nScegli tu",
+              "zh": "每位玩家\n每一步\n同桌游戏\n一键\n每款游戏\n稍后继续\n每一步\n自由选择",
+              "ja": "全プレイヤー\nすべての操作\nみんなで\nワンタップ\n各ゲーム\nあとで再開\nすべての操作\n好みに合わせて",
+              "ko": "모든 플레이어\n모든 동작\n함께 게임\n탭 한 번\n모든 게임\n나중에 계속\n모든 동작\n원하는 대로",
+              "hi": "हर खिलाड़ी\nहर चाल\nएक साथ\nएक टैप\nहर खेल\nबाद में जारी\nहर चाल\nआपकी पसंद"
             },
             "transform": {
               "x": 1323.1490909090908,
@@ -2336,28 +2354,28 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Games",
-          "ru": "Игры",
-          "de": "Spiele",
-          "fr": "Jeux",
-          "es": "Juegos",
-          "it": "Giochi",
-          "zh": "游戏",
-          "ja": "ゲーム",
-          "ko": "게임",
-          "hi": "खेल"
+          "en": "Players",
+          "ru": "Игроки",
+          "de": "Spieler",
+          "fr": "Joueurs",
+          "es": "Jugadores",
+          "it": "Giocatori",
+          "zh": "玩家",
+          "ja": "プレイヤー",
+          "ko": "플레이어",
+          "hi": "खिलाड़ी"
         },
         "headline": {
-          "en": "games.\nBuilt in.",
-          "ru": "игр.\nУже внутри.",
-          "de": "Spiele.\nSchon dabei.",
-          "fr": "jeux.\nDéjà inclus.",
-          "es": "juegos.\nYa incluidos.",
-          "it": "giochi.\nGià inclusi.",
-          "zh": "款游戏。\n内置可用。",
-          "ja": "種類のゲーム。\nすぐ遊べる。",
-          "ko": "가지 게임.\n바로 플레이.",
-          "hi": "खेल।\nऐप में शामिल।"
+          "en": "players.\nOne counter.",
+          "ru": "игрока.\nОдин счётчик.",
+          "de": "Spieler.\nEin Zähler.",
+          "fr": "joueurs.\nUn compteur.",
+          "es": "jugadores.\nUn contador.",
+          "it": "giocatori.\nUn contatore.",
+          "zh": "位玩家。\n一个计分器。",
+          "ja": "人の得点。\nまとめて。",
+          "ko": "명의 점수.\n한곳에.",
+          "hi": "खिलाड़ी।\nएक काउंटर।"
         },
         "highlight": {
           "en": "",
@@ -2371,7 +2389,7 @@
           "ko": "",
           "hi": ""
         },
-        "screenshot": "/screenshots/android/phone/{locale}/01-games.png",
+        "screenshot": "/screenshots/android/phone/{locale}/05-counter-light.png",
         "transforms": {
           "caption": {
             "x": 620.1818181818181,
@@ -2404,7 +2422,7 @@
           {
             "id": "numeral",
             "text": {
-              "en": "10"
+              "en": "3"
             },
             "transform": {
               "x": 34.36363636363637,
@@ -2424,7 +2442,16 @@
           {
             "id": "games",
             "text": {
-              "en": "UNO · Catan · Scrabble · Munchkin · Set →"
+              "en": "Track every player. →",
+              "ru": "Счёт каждого — перед глазами. →",
+              "de": "Punkte für jeden Spieler. →",
+              "fr": "Le score de chaque joueur. →",
+              "es": "Puntos de cada jugador. →",
+              "it": "I punti di ogni giocatore. →",
+              "zh": "每位玩家的得分一目了然。→",
+              "ja": "全員の得点を記録。→",
+              "ko": "모든 플레이어의 점수를 기록해요. →",
+              "hi": "हर खिलाड़ी के अंक देखें। →"
             },
             "transform": {
               "x": 58.909090909090914,
@@ -2444,16 +2471,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 3 — Games",
-              "ru": "FIG. 3 — Игры",
-              "de": "FIG. 3 — Spiele",
-              "fr": "FIG. 3 — Jeux",
-              "es": "FIG. 3 — Juegos",
-              "it": "FIG. 3 — Giochi",
-              "zh": "FIG. 3 — 游戏",
-              "ja": "FIG. 3 — ゲーム",
-              "ko": "FIG. 3 — 게임",
-              "hi": "FIG. 3 — खेल"
+              "en": "FIG. 3 — Players",
+              "ru": "FIG. 3 — Игроки",
+              "de": "FIG. 3 — Spieler",
+              "fr": "FIG. 3 — Joueurs",
+              "es": "FIG. 3 — Jugadores",
+              "it": "FIG. 3 — Giocatori",
+              "zh": "FIG. 3 — 玩家",
+              "ja": "FIG. 3 — プレイヤー",
+              "ko": "FIG. 3 — 플레이어",
+              "hi": "FIG. 3 — खिलाड़ी"
             },
             "transform": {
               "x": 693.8181818181818,
@@ -2862,42 +2889,42 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Catan",
-          "ru": "Catan",
-          "de": "Catan",
-          "fr": "Catan",
-          "es": "Catan",
-          "it": "Catan",
-          "zh": "Catan",
-          "ja": "Catan",
-          "ko": "Catan",
-          "hi": "Catan"
+          "en": "Theme",
+          "ru": "Тема",
+          "de": "Design",
+          "fr": "Thème",
+          "es": "Tema",
+          "it": "Tema",
+          "zh": "主题",
+          "ja": "テーマ",
+          "ko": "테마",
+          "hi": "थीम"
         },
         "headline": {
-          "en": "New board.\nEvery game.",
-          "ru": "Новое поле.\nКаждую партию.",
-          "de": "Neues Feld.\nJedes Spiel.",
-          "fr": "Nouveau plateau.\nÀ chaque partie.",
-          "es": "Nuevo tablero.\nCada partida.",
-          "it": "Nuovo tabellone.\nOgni partita.",
-          "zh": "新棋盘。\n每局都新。",
-          "ja": "新しい盤面。\n毎回のゲームに。",
-          "ko": "새로운 보드.\n매 게임마다.",
-          "hi": "नया बोर्ड।\nहर खेल में।"
+          "en": "Light or dark.\nYour choice.",
+          "ru": "Светлая, тёмная.\nВыбирать вам.",
+          "de": "Hell oder dunkel.\nDeine Wahl.",
+          "fr": "Clair ou sombre.\nÀ vous de choisir.",
+          "es": "Claro u oscuro.\nTú eliges.",
+          "it": "Chiaro o scuro.\nScegli tu.",
+          "zh": "浅色或深色。\n由你选择。",
+          "ja": "ライトもダークも。\nあなた好みに。",
+          "ko": "밝게 또는 어둡게.\n원하는 대로.",
+          "hi": "हल्की या गहरी।\nआपकी पसंद।"
         },
         "highlight": {
-          "en": "Every game.",
-          "ru": "Каждую партию.",
-          "de": "Jedes Spiel.",
-          "fr": "À chaque partie.",
-          "es": "Cada partida.",
-          "it": "Ogni partita.",
-          "zh": "每局都新。",
-          "ja": "毎回のゲームに。",
-          "ko": "매 게임마다.",
-          "hi": "हर खेल में।"
+          "en": "Your choice.",
+          "ru": "Выбирать вам.",
+          "de": "Deine Wahl.",
+          "fr": "À vous de choisir.",
+          "es": "Tú eliges.",
+          "it": "Scegli tu.",
+          "zh": "由你选择。",
+          "ja": "あなた好みに。",
+          "ko": "원하는 대로.",
+          "hi": "आपकी पसंद।"
         },
-        "screenshot": "/screenshots/android/phone/{locale}/11-map-light.png",
+        "screenshot": "/screenshots/android/phone/{locale}/03-counter-dark.png",
         "transforms": {
           "caption": {
             "x": 58.909090909090914,
@@ -2917,16 +2944,16 @@
           {
             "id": "sub",
             "text": {
-              "en": "Catan maps in one tap. →",
-              "ru": "Карта Catan в одно касание. →",
-              "de": "Catan-Karte mit einem Tipp. →",
-              "fr": "Carte Catan en un geste. →",
-              "es": "Mapa de Catan con un toque. →",
-              "it": "Mappa di Catan con un tocco. →",
-              "zh": "一键生成 Catan 地图。→",
-              "ja": "ワンタップで Catan のマップ。→",
-              "ko": "탭 한 번으로 Catan 맵. →",
-              "hi": "एक टैप में Catan मैप। →"
+              "en": "A theme for every game night. →",
+              "ru": "Тема для игрового вечера. →",
+              "de": "Ein Design für jeden Spieleabend. →",
+              "fr": "Un thème pour vos soirées jeux. →",
+              "es": "Un tema para tus noches de juegos. →",
+              "it": "Un tema per ogni serata giochi. →",
+              "zh": "游戏之夜，选择喜欢的主题。→",
+              "ja": "ゲームの夜に合うテーマ。→",
+              "ko": "게임의 밤에 어울리는 테마. →",
+              "hi": "गेम नाइट के लिए अपनी थीम चुनें। →"
             },
             "transform": {
               "x": 58.909090909090914,
@@ -2945,16 +2972,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 7 — Catan",
-              "ru": "FIG. 7 — Catan",
-              "de": "FIG. 7 — Catan",
-              "fr": "FIG. 7 — Catan",
-              "es": "FIG. 7 — Catan",
-              "it": "FIG. 7 — Catan",
-              "zh": "FIG. 7 — Catan",
-              "ja": "FIG. 7 — Catan",
-              "ko": "FIG. 7 — Catan",
-              "hi": "FIG. 7 — Catan"
+              "en": "FIG. 7 — Theme",
+              "ru": "FIG. 7 — Тема",
+              "de": "FIG. 7 — Design",
+              "fr": "FIG. 7 — Thème",
+              "es": "FIG. 7 — Tema",
+              "it": "FIG. 7 — Tema",
+              "zh": "FIG. 7 — 主题",
+              "ja": "FIG. 7 — テーマ",
+              "ko": "FIG. 7 — 테마",
+              "hi": "FIG. 7 — थीम"
             },
             "transform": {
               "x": 693.8181818181818,
@@ -3051,16 +3078,16 @@
           {
             "id": "names",
             "text": {
-              "en": "Scores\nUndo\n10 games\nDice\nStopwatch\nSaves\nRules\nCatan maps",
-              "ru": "Счёт\nОтмена\n10 игр\nКубик\nСекундомер\nСохранения\nПравила\nКарты Catan",
-              "de": "Punkte\nRückgängig\n10 Spiele\nWürfel\nStoppuhr\nSpielstände\nRegeln\nCatan-Karten",
-              "fr": "Scores\nAnnuler\n10 jeux\nDé\nChrono\nSauvegardes\nRègles\nCartes Catan",
-              "es": "Puntos\nDeshacer\n10 juegos\nDado\nCronómetro\nPartidas\nReglas\nMapas Catan",
-              "it": "Punti\nAnnulla\n10 giochi\nDado\nCronometro\nSalvataggi\nRegole\nMappe Catan",
-              "zh": "计分\n撤销\n10 款游戏\n骰子\n秒表\n存档\n规则\nCatan 地图",
-              "ja": "スコア\n取り消し\n10 ゲーム\nサイコロ\nタイマー\n保存\nルール\nCatan マップ",
-              "ko": "점수\n실행 취소\n10가지 게임\n주사위\n스톱워치\n저장\n규칙\nCatan 맵",
-              "hi": "अंक\nवापस लें\n10 खेल\nपासा\nस्टॉपवॉच\nसेव\nनियम\nCatan मैप"
+              "en": "Scores\nUndo\nPlayers\nDice\nStopwatch\nSaves\nRedo\nDark mode",
+              "ru": "Счёт\nОтмена\nИгроки\nКубик\nСекундомер\nСохранения\nПовтор\nТёмная тема",
+              "de": "Punkte\nRückgängig\nSpieler\nWürfel\nStoppuhr\nSpielstände\nWiederholen\nDunkelmodus",
+              "fr": "Scores\nAnnuler\nJoueurs\nDé\nChrono\nSauvegardes\nRétablir\nMode sombre",
+              "es": "Puntos\nDeshacer\nJugadores\nDado\nCronómetro\nPartidas\nRehacer\nModo oscuro",
+              "it": "Punti\nAnnulla\nGiocatori\nDado\nCronometro\nSalvataggi\nRipristina\nTema scuro",
+              "zh": "计分\n撤销\n玩家\n骰子\n秒表\n存档\n重做\n深色模式",
+              "ja": "スコア\n取り消し\nプレイヤー\nサイコロ\nタイマー\n保存\nやり直し\nダークモード",
+              "ko": "점수\n실행 취소\n플레이어\n주사위\n스톱워치\n저장\n다시 실행\n다크 모드",
+              "hi": "अंक\nवापस लें\nखिलाड़ी\nपासा\nस्टॉपवॉच\nसेव\nदोहराएँ\nडार्क मोड"
             },
             "transform": {
               "x": 171.16363636363636,
@@ -3079,16 +3106,16 @@
           {
             "id": "descriptors",
             "text": {
-              "en": "Every player\nEvery move\nBuilt in\nOne tap\nEvery game\nResume later\nIn the app\nBalanced",
-              "ru": "Все игроки\nЛюбой ход\nВнутри\nОдно касание\nКаждая игра\nПродолжить позже\nВ приложении\nБаланс",
-              "de": "Jeder Spieler\nJeder Zug\nIntegriert\nEin Tipp\nJedes Spiel\nSpäter weiter\nIn der App\nAusgewogen",
-              "fr": "Chaque joueur\nChaque coup\nInclus\nUn geste\nChaque jeu\nReprendre\nDans l'app\nÉquilibrées",
-              "es": "Cada jugador\nCada jugada\nIncluidos\nUn toque\nCada juego\nSigue luego\nEn la app\nEquilibrados",
-              "it": "Ogni giocatore\nOgni mossa\nInclusi\nUn tocco\nOgni gioco\nRiprendi dopo\nNell'app\nEquilibrate",
-              "zh": "每位玩家\n每一步\n内置\n一键\n每款游戏\n稍后继续\n应用内\n均衡",
-              "ja": "全プレイヤー\nすべての操作\n内蔵\nワンタップ\n各ゲーム\nあとで再開\nアプリ内\nバランス",
-              "ko": "모든 플레이어\n모든 동작\n내장\n탭 한 번\n모든 게임\n나중에 계속\n앱 안에서\n균형",
-              "hi": "हर खिलाड़ी\nहर चाल\nशामिल\nएक टैप\nहर खेल\nबाद में जारी\nऐप में\nसंतुलित"
+              "en": "Every player\nEvery move\nAt the table\nOne tap\nEvery game\nResume later\nEvery move\nYour choice",
+              "ru": "Все игроки\nЛюбой ход\nЗа столом\nОдно касание\nКаждая игра\nПродолжить позже\nЛюбой ход\nВаш выбор",
+              "de": "Jeder Spieler\nJeder Zug\nAm Tisch\nEin Tipp\nJedes Spiel\nSpäter weiter\nJeder Zug\nDeine Wahl",
+              "fr": "Chaque joueur\nChaque coup\nÀ table\nUn geste\nChaque jeu\nReprendre\nChaque coup\nVotre choix",
+              "es": "Cada jugador\nCada jugada\nEn la mesa\nUn toque\nCada juego\nSigue luego\nCada jugada\nTú eliges",
+              "it": "Ogni giocatore\nOgni mossa\nAl tavolo\nUn tocco\nOgni gioco\nRiprendi dopo\nOgni mossa\nScegli tu",
+              "zh": "每位玩家\n每一步\n同桌游戏\n一键\n每款游戏\n稍后继续\n每一步\n自由选择",
+              "ja": "全プレイヤー\nすべての操作\nみんなで\nワンタップ\n各ゲーム\nあとで再開\nすべての操作\n好みに合わせて",
+              "ko": "모든 플레이어\n모든 동작\n함께 게임\n탭 한 번\n모든 게임\n나중에 계속\n모든 동작\n원하는 대로",
+              "hi": "हर खिलाड़ी\nहर चाल\nएक साथ\nएक टैप\nहर खेल\nबाद में जारी\nहर चाल\nआपकी पसंद"
             },
             "transform": {
               "x": 692.3454545454545,
@@ -3163,7 +3190,7 @@
           "hi": "एक जगह।"
         },
         "screenshot": "/screenshots/android/phone/{locale}/05-counter-light.png",
-        "screenshotSecondary": "/screenshots/android/phone/{locale}/02-uno.png"
+        "screenshotSecondary": "/screenshots/android/phone/{locale}/03-counter-dark.png"
       }
     ],
     "apple-header": [
@@ -3207,7 +3234,7 @@
           "hi": "एक जगह।"
         },
         "screenshot": "/screenshots/apple/iphone/{locale}/05-counter-light.png",
-        "screenshotSecondary": "/screenshots/apple/iphone/{locale}/02-uno.png"
+        "screenshotSecondary": "/screenshots/apple/iphone/{locale}/03-counter-dark.png"
       }
     ],
     "apple-search": [
@@ -3251,7 +3278,7 @@
           "hi": "एक जगह।"
         },
         "screenshot": "/screenshots/apple/iphone/{locale}/05-counter-light.png",
-        "screenshotSecondary": "/screenshots/apple/iphone/{locale}/02-uno.png"
+        "screenshotSecondary": "/screenshots/apple/iphone/{locale}/03-counter-dark.png"
       }
     ],
     "android-7": [],
@@ -3503,28 +3530,28 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Games",
-          "ru": "Игры",
-          "de": "Spiele",
-          "fr": "Jeux",
-          "es": "Juegos",
-          "it": "Giochi",
-          "zh": "游戏",
-          "ja": "ゲーム",
-          "ko": "게임",
-          "hi": "खेल"
+          "en": "Players",
+          "ru": "Игроки",
+          "de": "Spieler",
+          "fr": "Joueurs",
+          "es": "Jugadores",
+          "it": "Giocatori",
+          "zh": "玩家",
+          "ja": "プレイヤー",
+          "ko": "플레이어",
+          "hi": "खिलाड़ी"
         },
         "headline": {
-          "en": "games.\nBuilt in.",
-          "ru": "игр.\nУже внутри.",
-          "de": "Spiele.\nSchon dabei.",
-          "fr": "jeux.\nDéjà inclus.",
-          "es": "juegos.\nYa incluidos.",
-          "it": "giochi.\nGià inclusi.",
-          "zh": "款游戏。\n内置可用。",
-          "ja": "種類のゲーム。\nすぐ遊べる。",
-          "ko": "가지 게임.\n바로 플레이.",
-          "hi": "खेल।\nऐप में शामिल।"
+          "en": "players.\nOne counter.",
+          "ru": "игрока.\nОдин счётчик.",
+          "de": "Spieler.\nEin Zähler.",
+          "fr": "joueurs.\nUn compteur.",
+          "es": "jugadores.\nUn contador.",
+          "it": "giocatori.\nUn contatore.",
+          "zh": "位玩家。\n一个计分器。",
+          "ja": "人の得点。\nまとめて。",
+          "ko": "명의 점수.\n한곳에.",
+          "hi": "खिलाड़ी।\nएक काउंटर।"
         },
         "highlight": {
           "en": "",
@@ -3538,7 +3565,7 @@
           "ko": "",
           "hi": ""
         },
-        "screenshot": "/screenshots/apple/iphone-duo-outer/{locale}/01-games.png",
+        "screenshot": "/screenshots/apple/iphone-duo-outer/{locale}/05-counter-light.png",
         "transforms": {
           "caption": {
             "x": 559.2,
@@ -3571,7 +3598,7 @@
           {
             "id": "numeral",
             "text": {
-              "en": "10"
+              "en": "3"
             },
             "transform": {
               "x": 76.89,
@@ -3591,7 +3618,16 @@
           {
             "id": "games",
             "text": {
-              "en": "UNO · Catan · Scrabble · Munchkin · Set →"
+              "en": "Track every player. →",
+              "ru": "Счёт каждого — перед глазами. →",
+              "de": "Punkte für jeden Spieler. →",
+              "fr": "Le score de chaque joueur. →",
+              "es": "Puntos de cada jugador. →",
+              "it": "I punti di ogni giocatore. →",
+              "zh": "每位玩家的得分一目了然。→",
+              "ja": "全員の得点を記録。→",
+              "ko": "모든 플레이어의 점수를 기록해요. →",
+              "hi": "हर खिलाड़ी के अंक देखें। →"
             },
             "transform": {
               "x": 76.25454545454546,
@@ -3611,16 +3647,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 3 — Games",
-              "ru": "FIG. 3 — Игры",
-              "de": "FIG. 3 — Spiele",
-              "fr": "FIG. 3 — Jeux",
-              "es": "FIG. 3 — Juegos",
-              "it": "FIG. 3 — Giochi",
-              "zh": "FIG. 3 — 游戏",
-              "ja": "FIG. 3 — ゲーム",
-              "ko": "FIG. 3 — 게임",
-              "hi": "FIG. 3 — खेल"
+              "en": "FIG. 3 — Players",
+              "ru": "FIG. 3 — Игроки",
+              "de": "FIG. 3 — Spieler",
+              "fr": "FIG. 3 — Joueurs",
+              "es": "FIG. 3 — Jugadores",
+              "it": "FIG. 3 — Giocatori",
+              "zh": "FIG. 3 — 玩家",
+              "ja": "FIG. 3 — プレイヤー",
+              "ko": "FIG. 3 — 플레이어",
+              "hi": "FIG. 3 — खिलाड़ी"
             },
             "transform": {
               "x": -167.76,
@@ -4030,42 +4066,42 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Catan",
-          "ru": "Catan",
-          "de": "Catan",
-          "fr": "Catan",
-          "es": "Catan",
-          "it": "Catan",
-          "zh": "Catan",
-          "ja": "Catan",
-          "ko": "Catan",
-          "hi": "Catan"
+          "en": "Theme",
+          "ru": "Тема",
+          "de": "Design",
+          "fr": "Thème",
+          "es": "Tema",
+          "it": "Tema",
+          "zh": "主题",
+          "ja": "テーマ",
+          "ko": "테마",
+          "hi": "थीम"
         },
         "headline": {
-          "en": "New board.\nEvery game.",
-          "ru": "Новое поле.\nКаждую партию.",
-          "de": "Neues Feld.\nJedes Spiel.",
-          "fr": "Nouveau plateau.\nÀ chaque partie.",
-          "es": "Nuevo tablero.\nCada partida.",
-          "it": "Nuovo tabellone.\nOgni partita.",
-          "zh": "新棋盘。\n每局都新。",
-          "ja": "新しい盤面。\n毎回のゲームに。",
-          "ko": "새로운 보드.\n매 게임마다.",
-          "hi": "नया बोर्ड।\nहर खेल में।"
+          "en": "Light or dark.\nYour choice.",
+          "ru": "Светлая, тёмная.\nВыбирать вам.",
+          "de": "Hell oder dunkel.\nDeine Wahl.",
+          "fr": "Clair ou sombre.\nÀ vous de choisir.",
+          "es": "Claro u oscuro.\nTú eliges.",
+          "it": "Chiaro o scuro.\nScegli tu.",
+          "zh": "浅色或深色。\n由你选择。",
+          "ja": "ライトもダークも。\nあなた好みに。",
+          "ko": "밝게 또는 어둡게.\n원하는 대로.",
+          "hi": "हल्की या गहरी।\nआपकी पसंद।"
         },
         "highlight": {
-          "en": "Every game.",
-          "ru": "Каждую партию.",
-          "de": "Jedes Spiel.",
-          "fr": "À chaque partie.",
-          "es": "Cada partida.",
-          "it": "Ogni partita.",
-          "zh": "每局都新。",
-          "ja": "毎回のゲームに。",
-          "ko": "매 게임마다.",
-          "hi": "हर खेल में।"
+          "en": "Your choice.",
+          "ru": "Выбирать вам.",
+          "de": "Deine Wahl.",
+          "fr": "À vous de choisir.",
+          "es": "Tú eliges.",
+          "it": "Scegli tu.",
+          "zh": "由你选择。",
+          "ja": "あなた好みに。",
+          "ko": "원하는 대로.",
+          "hi": "आपकी पसंद।"
         },
-        "screenshot": "/screenshots/apple/iphone-duo-outer/{locale}/11-map-light.png",
+        "screenshot": "/screenshots/apple/iphone-duo-outer/{locale}/03-counter-dark.png",
         "transforms": {
           "caption": {
             "x": 76.89,
@@ -4085,16 +4121,16 @@
           {
             "id": "sub",
             "text": {
-              "en": "Catan maps in one tap. →",
-              "ru": "Карта Catan в одно касание. →",
-              "de": "Catan-Karte mit einem Tipp. →",
-              "fr": "Carte Catan en un geste. →",
-              "es": "Mapa de Catan con un toque. →",
-              "it": "Mappa di Catan con un tocco. →",
-              "zh": "一键生成 Catan 地图。→",
-              "ja": "ワンタップで Catan のマップ。→",
-              "ko": "탭 한 번으로 Catan 맵. →",
-              "hi": "एक टैप में Catan मैप। →"
+              "en": "A theme for every game night. →",
+              "ru": "Тема для игрового вечера. →",
+              "de": "Ein Design für jeden Spieleabend. →",
+              "fr": "Un thème pour vos soirées jeux. →",
+              "es": "Un tema para tus noches de juegos. →",
+              "it": "Un tema per ogni serata giochi. →",
+              "zh": "游戏之夜，选择喜欢的主题。→",
+              "ja": "ゲームの夜に合うテーマ。→",
+              "ko": "게임의 밤에 어울리는 테마. →",
+              "hi": "गेम नाइट के लिए अपनी थीम चुनें। →"
             },
             "transform": {
               "x": 76.89,
@@ -4113,16 +4149,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 7 — Catan",
-              "ru": "FIG. 7 — Catan",
-              "de": "FIG. 7 — Catan",
-              "fr": "FIG. 7 — Catan",
-              "es": "FIG. 7 — Catan",
-              "it": "FIG. 7 — Catan",
-              "zh": "FIG. 7 — Catan",
-              "ja": "FIG. 7 — Catan",
-              "ko": "FIG. 7 — Catan",
-              "hi": "FIG. 7 — Catan"
+              "en": "FIG. 7 — Theme",
+              "ru": "FIG. 7 — Тема",
+              "de": "FIG. 7 — Design",
+              "fr": "FIG. 7 — Thème",
+              "es": "FIG. 7 — Tema",
+              "it": "FIG. 7 — Tema",
+              "zh": "FIG. 7 — 主题",
+              "ja": "FIG. 7 — テーマ",
+              "ko": "FIG. 7 — 테마",
+              "hi": "FIG. 7 — थीम"
             },
             "transform": {
               "x": -167.76,
@@ -4218,16 +4254,16 @@
           {
             "id": "names",
             "text": {
-              "en": "Scores\nUndo\n10 games\nDice\nStopwatch\nSaves\nRules\nCatan maps",
-              "ru": "Счёт\nОтмена\n10 игр\nКубик\nСекундомер\nСохранения\nПравила\nКарты Catan",
-              "de": "Punkte\nRückgängig\n10 Spiele\nWürfel\nStoppuhr\nSpielstände\nRegeln\nCatan-Karten",
-              "fr": "Scores\nAnnuler\n10 jeux\nDé\nChrono\nSauvegardes\nRègles\nCartes Catan",
-              "es": "Puntos\nDeshacer\n10 juegos\nDado\nCronómetro\nPartidas\nReglas\nMapas Catan",
-              "it": "Punti\nAnnulla\n10 giochi\nDado\nCronometro\nSalvataggi\nRegole\nMappe Catan",
-              "zh": "计分\n撤销\n10 款游戏\n骰子\n秒表\n存档\n规则\nCatan 地图",
-              "ja": "スコア\n取り消し\n10 ゲーム\nサイコロ\nタイマー\n保存\nルール\nCatan マップ",
-              "ko": "점수\n실행 취소\n10가지 게임\n주사위\n스톱워치\n저장\n규칙\nCatan 맵",
-              "hi": "अंक\nवापस लें\n10 खेल\nपासा\nस्टॉपवॉच\nसेव\nनियम\nCatan मैप"
+              "en": "Scores\nUndo\nPlayers\nDice\nStopwatch\nSaves\nRedo\nDark mode",
+              "ru": "Счёт\nОтмена\nИгроки\nКубик\nСекундомер\nСохранения\nПовтор\nТёмная тема",
+              "de": "Punkte\nRückgängig\nSpieler\nWürfel\nStoppuhr\nSpielstände\nWiederholen\nDunkelmodus",
+              "fr": "Scores\nAnnuler\nJoueurs\nDé\nChrono\nSauvegardes\nRétablir\nMode sombre",
+              "es": "Puntos\nDeshacer\nJugadores\nDado\nCronómetro\nPartidas\nRehacer\nModo oscuro",
+              "it": "Punti\nAnnulla\nGiocatori\nDado\nCronometro\nSalvataggi\nRipristina\nTema scuro",
+              "zh": "计分\n撤销\n玩家\n骰子\n秒表\n存档\n重做\n深色模式",
+              "ja": "スコア\n取り消し\nプレイヤー\nサイコロ\nタイマー\n保存\nやり直し\nダークモード",
+              "ko": "점수\n실행 취소\n플레이어\n주사위\n스톱워치\n저장\n다시 실행\n다크 모드",
+              "hi": "अंक\nवापस लें\nखिलाड़ी\nपासा\nस्टॉपवॉच\nसेव\nदोहराएँ\nडार्क मोड"
             },
             "transform": {
               "x": 221.56181818181818,
@@ -4246,16 +4282,16 @@
           {
             "id": "descriptors",
             "text": {
-              "en": "Every player\nEvery move\nBuilt in\nOne tap\nEvery game\nResume later\nIn the app\nBalanced",
-              "ru": "Все игроки\nЛюбой ход\nВнутри\nОдно касание\nКаждая игра\nПродолжить позже\nВ приложении\nБаланс",
-              "de": "Jeder Spieler\nJeder Zug\nIntegriert\nEin Tipp\nJedes Spiel\nSpäter weiter\nIn der App\nAusgewogen",
-              "fr": "Chaque joueur\nChaque coup\nInclus\nUn geste\nChaque jeu\nReprendre\nDans l'app\nÉquilibrées",
-              "es": "Cada jugador\nCada jugada\nIncluidos\nUn toque\nCada juego\nSigue luego\nEn la app\nEquilibrados",
-              "it": "Ogni giocatore\nOgni mossa\nInclusi\nUn tocco\nOgni gioco\nRiprendi dopo\nNell'app\nEquilibrate",
-              "zh": "每位玩家\n每一步\n内置\n一键\n每款游戏\n稍后继续\n应用内\n均衡",
-              "ja": "全プレイヤー\nすべての操作\n内蔵\nワンタップ\n各ゲーム\nあとで再開\nアプリ内\nバランス",
-              "ko": "모든 플레이어\n모든 동작\n내장\n탭 한 번\n모든 게임\n나중에 계속\n앱 안에서\n균형",
-              "hi": "हर खिलाड़ी\nहर चाल\nशामिल\nएक टैप\nहर खेल\nबाद में जारी\nऐप में\nसंतुलित"
+              "en": "Every player\nEvery move\nAt the table\nOne tap\nEvery game\nResume later\nEvery move\nYour choice",
+              "ru": "Все игроки\nЛюбой ход\nЗа столом\nОдно касание\nКаждая игра\nПродолжить позже\nЛюбой ход\nВаш выбор",
+              "de": "Jeder Spieler\nJeder Zug\nAm Tisch\nEin Tipp\nJedes Spiel\nSpäter weiter\nJeder Zug\nDeine Wahl",
+              "fr": "Chaque joueur\nChaque coup\nÀ table\nUn geste\nChaque jeu\nReprendre\nChaque coup\nVotre choix",
+              "es": "Cada jugador\nCada jugada\nEn la mesa\nUn toque\nCada juego\nSigue luego\nCada jugada\nTú eliges",
+              "it": "Ogni giocatore\nOgni mossa\nAl tavolo\nUn tocco\nOgni gioco\nRiprendi dopo\nOgni mossa\nScegli tu",
+              "zh": "每位玩家\n每一步\n同桌游戏\n一键\n每款游戏\n稍后继续\n每一步\n自由选择",
+              "ja": "全プレイヤー\nすべての操作\nみんなで\nワンタップ\n各ゲーム\nあとで再開\nすべての操作\n好みに合わせて",
+              "ko": "모든 플레이어\n모든 동작\n함께 게임\n탭 한 번\n모든 게임\n나중에 계속\n모든 동작\n원하는 대로",
+              "hi": "हर खिलाड़ी\nहर चाल\nएक साथ\nएक टैप\nहर खेल\nबाद में जारी\nहर चाल\nआपकी पसंद"
             },
             "transform": {
               "x": 896.2027272727272,
@@ -4535,28 +4571,28 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Games",
-          "ru": "Игры",
-          "de": "Spiele",
-          "fr": "Jeux",
-          "es": "Juegos",
-          "it": "Giochi",
-          "zh": "游戏",
-          "ja": "ゲーム",
-          "ko": "게임",
-          "hi": "खेल"
+          "en": "Players",
+          "ru": "Игроки",
+          "de": "Spieler",
+          "fr": "Joueurs",
+          "es": "Jugadores",
+          "it": "Giocatori",
+          "zh": "玩家",
+          "ja": "プレイヤー",
+          "ko": "플레이어",
+          "hi": "खिलाड़ी"
         },
         "headline": {
-          "en": "games.\nBuilt in.",
-          "ru": "игр.\nУже внутри.",
-          "de": "Spiele.\nSchon dabei.",
-          "fr": "jeux.\nDéjà inclus.",
-          "es": "juegos.\nYa incluidos.",
-          "it": "giochi.\nGià inclusi.",
-          "zh": "款游戏。\n内置可用。",
-          "ja": "種類のゲーム。\nすぐ遊べる。",
-          "ko": "가지 게임.\n바로 플레이.",
-          "hi": "खेल।\nऐप में शामिल।"
+          "en": "players.\nOne counter.",
+          "ru": "игрока.\nОдин счётчик.",
+          "de": "Spieler.\nEin Zähler.",
+          "fr": "joueurs.\nUn compteur.",
+          "es": "jugadores.\nUn contador.",
+          "it": "giocatori.\nUn contatore.",
+          "zh": "位玩家。\n一个计分器。",
+          "ja": "人の得点。\nまとめて。",
+          "ko": "명의 점수.\n한곳에.",
+          "hi": "खिलाड़ी।\nएक काउंटर।"
         },
         "highlight": {
           "en": "",
@@ -4570,7 +4606,7 @@
           "ko": "",
           "hi": ""
         },
-        "screenshot": "/screenshots/apple/iphone-duo-inner/{locale}/01-games.png",
+        "screenshot": "/screenshots/apple/iphone-duo-inner/{locale}/05-counter-light.png",
         "transforms": {
           "caption": {
             "x": 802.8000000000001,
@@ -4603,7 +4639,7 @@
           {
             "id": "numeral",
             "text": {
-              "en": "10"
+              "en": "3"
             },
             "transform": {
               "x": 110.385,
@@ -4623,7 +4659,16 @@
           {
             "id": "games",
             "text": {
-              "en": "UNO · Catan · Scrabble · Munchkin · Set →"
+              "en": "Track every player. →",
+              "ru": "Счёт каждого — перед глазами. →",
+              "de": "Punkte für jeden Spieler. →",
+              "fr": "Le score de chaque joueur. →",
+              "es": "Puntos de cada jugador. →",
+              "it": "I punti di ogni giocatore. →",
+              "zh": "每位玩家的得分一目了然。→",
+              "ja": "全員の得点を記録。→",
+              "ko": "모든 플레이어의 점수를 기록해요. →",
+              "hi": "हर खिलाड़ी के अंक देखें। →"
             },
             "transform": {
               "x": 109.47272727272728,
@@ -4643,16 +4688,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 3 — Games",
-              "ru": "FIG. 3 — Игры",
-              "de": "FIG. 3 — Spiele",
-              "fr": "FIG. 3 — Jeux",
-              "es": "FIG. 3 — Juegos",
-              "it": "FIG. 3 — Giochi",
-              "zh": "FIG. 3 — 游戏",
-              "ja": "FIG. 3 — ゲーム",
-              "ko": "FIG. 3 — 게임",
-              "hi": "FIG. 3 — खेल"
+              "en": "FIG. 3 — Players",
+              "ru": "FIG. 3 — Игроки",
+              "de": "FIG. 3 — Spieler",
+              "fr": "FIG. 3 — Joueurs",
+              "es": "FIG. 3 — Jugadores",
+              "it": "FIG. 3 — Giocatori",
+              "zh": "FIG. 3 — 玩家",
+              "ja": "FIG. 3 — プレイヤー",
+              "ko": "FIG. 3 — 플레이어",
+              "hi": "FIG. 3 — खिलाड़ी"
             },
             "transform": {
               "x": -240.84,
@@ -5062,42 +5107,42 @@
         "inverted": false,
         "background": "none",
         "label": {
-          "en": "Catan",
-          "ru": "Catan",
-          "de": "Catan",
-          "fr": "Catan",
-          "es": "Catan",
-          "it": "Catan",
-          "zh": "Catan",
-          "ja": "Catan",
-          "ko": "Catan",
-          "hi": "Catan"
+          "en": "Theme",
+          "ru": "Тема",
+          "de": "Design",
+          "fr": "Thème",
+          "es": "Tema",
+          "it": "Tema",
+          "zh": "主题",
+          "ja": "テーマ",
+          "ko": "테마",
+          "hi": "थीम"
         },
         "headline": {
-          "en": "New board.\nEvery game.",
-          "ru": "Новое поле.\nКаждую партию.",
-          "de": "Neues Feld.\nJedes Spiel.",
-          "fr": "Nouveau plateau.\nÀ chaque partie.",
-          "es": "Nuevo tablero.\nCada partida.",
-          "it": "Nuovo tabellone.\nOgni partita.",
-          "zh": "新棋盘。\n每局都新。",
-          "ja": "新しい盤面。\n毎回のゲームに。",
-          "ko": "새로운 보드.\n매 게임마다.",
-          "hi": "नया बोर्ड।\nहर खेल में।"
+          "en": "Light or dark.\nYour choice.",
+          "ru": "Светлая, тёмная.\nВыбирать вам.",
+          "de": "Hell oder dunkel.\nDeine Wahl.",
+          "fr": "Clair ou sombre.\nÀ vous de choisir.",
+          "es": "Claro u oscuro.\nTú eliges.",
+          "it": "Chiaro o scuro.\nScegli tu.",
+          "zh": "浅色或深色。\n由你选择。",
+          "ja": "ライトもダークも。\nあなた好みに。",
+          "ko": "밝게 또는 어둡게.\n원하는 대로.",
+          "hi": "हल्की या गहरी।\nआपकी पसंद।"
         },
         "highlight": {
-          "en": "Every game.",
-          "ru": "Каждую партию.",
-          "de": "Jedes Spiel.",
-          "fr": "À chaque partie.",
-          "es": "Cada partida.",
-          "it": "Ogni partita.",
-          "zh": "每局都新。",
-          "ja": "毎回のゲームに。",
-          "ko": "매 게임마다.",
-          "hi": "हर खेल में।"
+          "en": "Your choice.",
+          "ru": "Выбирать вам.",
+          "de": "Deine Wahl.",
+          "fr": "À vous de choisir.",
+          "es": "Tú eliges.",
+          "it": "Scegli tu.",
+          "zh": "由你选择。",
+          "ja": "あなた好みに。",
+          "ko": "원하는 대로.",
+          "hi": "आपकी पसंद।"
         },
-        "screenshot": "/screenshots/apple/iphone-duo-inner/{locale}/11-map-light.png",
+        "screenshot": "/screenshots/apple/iphone-duo-inner/{locale}/03-counter-dark.png",
         "transforms": {
           "caption": {
             "x": 110.385,
@@ -5117,16 +5162,16 @@
           {
             "id": "sub",
             "text": {
-              "en": "Catan maps in one tap. →",
-              "ru": "Карта Catan в одно касание. →",
-              "de": "Catan-Karte mit einem Tipp. →",
-              "fr": "Carte Catan en un geste. →",
-              "es": "Mapa de Catan con un toque. →",
-              "it": "Mappa di Catan con un tocco. →",
-              "zh": "一键生成 Catan 地图。→",
-              "ja": "ワンタップで Catan のマップ。→",
-              "ko": "탭 한 번으로 Catan 맵. →",
-              "hi": "एक टैप में Catan मैप। →"
+              "en": "A theme for every game night. →",
+              "ru": "Тема для игрового вечера. →",
+              "de": "Ein Design für jeden Spieleabend. →",
+              "fr": "Un thème pour vos soirées jeux. →",
+              "es": "Un tema para tus noches de juegos. →",
+              "it": "Un tema per ogni serata giochi. →",
+              "zh": "游戏之夜，选择喜欢的主题。→",
+              "ja": "ゲームの夜に合うテーマ。→",
+              "ko": "게임의 밤에 어울리는 테마. →",
+              "hi": "गेम नाइट के लिए अपनी थीम चुनें। →"
             },
             "transform": {
               "x": 110.385,
@@ -5145,16 +5190,16 @@
           {
             "id": "fig",
             "text": {
-              "en": "FIG. 7 — Catan",
-              "ru": "FIG. 7 — Catan",
-              "de": "FIG. 7 — Catan",
-              "fr": "FIG. 7 — Catan",
-              "es": "FIG. 7 — Catan",
-              "it": "FIG. 7 — Catan",
-              "zh": "FIG. 7 — Catan",
-              "ja": "FIG. 7 — Catan",
-              "ko": "FIG. 7 — Catan",
-              "hi": "FIG. 7 — Catan"
+              "en": "FIG. 7 — Theme",
+              "ru": "FIG. 7 — Тема",
+              "de": "FIG. 7 — Design",
+              "fr": "FIG. 7 — Thème",
+              "es": "FIG. 7 — Tema",
+              "it": "FIG. 7 — Tema",
+              "zh": "FIG. 7 — 主题",
+              "ja": "FIG. 7 — テーマ",
+              "ko": "FIG. 7 — 테마",
+              "hi": "FIG. 7 — थीम"
             },
             "transform": {
               "x": -240.84,
@@ -5250,16 +5295,16 @@
           {
             "id": "names",
             "text": {
-              "en": "Scores\nUndo\n10 games\nDice\nStopwatch\nSaves\nRules\nCatan maps",
-              "ru": "Счёт\nОтмена\n10 игр\nКубик\nСекундомер\nСохранения\nПравила\nКарты Catan",
-              "de": "Punkte\nRückgängig\n10 Spiele\nWürfel\nStoppuhr\nSpielstände\nRegeln\nCatan-Karten",
-              "fr": "Scores\nAnnuler\n10 jeux\nDé\nChrono\nSauvegardes\nRègles\nCartes Catan",
-              "es": "Puntos\nDeshacer\n10 juegos\nDado\nCronómetro\nPartidas\nReglas\nMapas Catan",
-              "it": "Punti\nAnnulla\n10 giochi\nDado\nCronometro\nSalvataggi\nRegole\nMappe Catan",
-              "zh": "计分\n撤销\n10 款游戏\n骰子\n秒表\n存档\n规则\nCatan 地图",
-              "ja": "スコア\n取り消し\n10 ゲーム\nサイコロ\nタイマー\n保存\nルール\nCatan マップ",
-              "ko": "점수\n실행 취소\n10가지 게임\n주사위\n스톱워치\n저장\n규칙\nCatan 맵",
-              "hi": "अंक\nवापस लें\n10 खेल\nपासा\nस्टॉपवॉच\nसेव\nनियम\nCatan मैप"
+              "en": "Scores\nUndo\nPlayers\nDice\nStopwatch\nSaves\nRedo\nDark mode",
+              "ru": "Счёт\nОтмена\nИгроки\nКубик\nСекундомер\nСохранения\nПовтор\nТёмная тема",
+              "de": "Punkte\nRückgängig\nSpieler\nWürfel\nStoppuhr\nSpielstände\nWiederholen\nDunkelmodus",
+              "fr": "Scores\nAnnuler\nJoueurs\nDé\nChrono\nSauvegardes\nRétablir\nMode sombre",
+              "es": "Puntos\nDeshacer\nJugadores\nDado\nCronómetro\nPartidas\nRehacer\nModo oscuro",
+              "it": "Punti\nAnnulla\nGiocatori\nDado\nCronometro\nSalvataggi\nRipristina\nTema scuro",
+              "zh": "计分\n撤销\n玩家\n骰子\n秒表\n存档\n重做\n深色模式",
+              "ja": "スコア\n取り消し\nプレイヤー\nサイコロ\nタイマー\n保存\nやり直し\nダークモード",
+              "ko": "점수\n실행 취소\n플레이어\n주사위\n스톱워치\n저장\n다시 실행\n다크 모드",
+              "hi": "अंक\nवापस लें\nखिलाड़ी\nपासा\nस्टॉपवॉच\nसेव\nदोहराएँ\nडार्क मोड"
             },
             "transform": {
               "x": 318.0790909090909,
@@ -5278,16 +5323,16 @@
           {
             "id": "descriptors",
             "text": {
-              "en": "Every player\nEvery move\nBuilt in\nOne tap\nEvery game\nResume later\nIn the app\nBalanced",
-              "ru": "Все игроки\nЛюбой ход\nВнутри\nОдно касание\nКаждая игра\nПродолжить позже\nВ приложении\nБаланс",
-              "de": "Jeder Spieler\nJeder Zug\nIntegriert\nEin Tipp\nJedes Spiel\nSpäter weiter\nIn der App\nAusgewogen",
-              "fr": "Chaque joueur\nChaque coup\nInclus\nUn geste\nChaque jeu\nReprendre\nDans l'app\nÉquilibrées",
-              "es": "Cada jugador\nCada jugada\nIncluidos\nUn toque\nCada juego\nSigue luego\nEn la app\nEquilibrados",
-              "it": "Ogni giocatore\nOgni mossa\nInclusi\nUn tocco\nOgni gioco\nRiprendi dopo\nNell'app\nEquilibrate",
-              "zh": "每位玩家\n每一步\n内置\n一键\n每款游戏\n稍后继续\n应用内\n均衡",
-              "ja": "全プレイヤー\nすべての操作\n内蔵\nワンタップ\n各ゲーム\nあとで再開\nアプリ内\nバランス",
-              "ko": "모든 플레이어\n모든 동작\n내장\n탭 한 번\n모든 게임\n나중에 계속\n앱 안에서\n균형",
-              "hi": "हर खिलाड़ी\nहर चाल\nशामिल\nएक टैप\nहर खेल\nबाद में जारी\nऐप में\nसंतुलित"
+              "en": "Every player\nEvery move\nAt the table\nOne tap\nEvery game\nResume later\nEvery move\nYour choice",
+              "ru": "Все игроки\nЛюбой ход\nЗа столом\nОдно касание\nКаждая игра\nПродолжить позже\nЛюбой ход\nВаш выбор",
+              "de": "Jeder Spieler\nJeder Zug\nAm Tisch\nEin Tipp\nJedes Spiel\nSpäter weiter\nJeder Zug\nDeine Wahl",
+              "fr": "Chaque joueur\nChaque coup\nÀ table\nUn geste\nChaque jeu\nReprendre\nChaque coup\nVotre choix",
+              "es": "Cada jugador\nCada jugada\nEn la mesa\nUn toque\nCada juego\nSigue luego\nCada jugada\nTú eliges",
+              "it": "Ogni giocatore\nOgni mossa\nAl tavolo\nUn tocco\nOgni gioco\nRiprendi dopo\nOgni mossa\nScegli tu",
+              "zh": "每位玩家\n每一步\n同桌游戏\n一键\n每款游戏\n稍后继续\n每一步\n自由选择",
+              "ja": "全プレイヤー\nすべての操作\nみんなで\nワンタップ\n各ゲーム\nあとで再開\nすべての操作\n好みに合わせて",
+              "ko": "모든 플레이어\n모든 동작\n함께 게임\n탭 한 번\n모든 게임\n나중에 계속\n모든 동작\n원하는 대로",
+              "hi": "हर खिलाड़ी\nहर चाल\nएक साथ\nएक टैप\nहर खेल\nबाद में जारी\nहर चाल\nआपकी पसंद"
             },
             "transform": {
               "x": 1286.6086363636362,
