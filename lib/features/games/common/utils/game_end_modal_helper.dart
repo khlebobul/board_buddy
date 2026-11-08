@@ -23,13 +23,15 @@ class GameEndModalHelper {
     required VoidCallback onReturnToMenu,
     required void Function(Player player) onAddPlayerToBloc,
     required Function(List<Player> players, String gameMode, int scoreLimit)
-        onReopenModal,
+    onReopenModal,
+    bool highlightTies = false,
   }) {
     GameEndUnoModalWidget.show(
       context,
       players: players,
       gameMode: gameMode,
       scoreLimit: scoreLimit,
+      highlightTies: highlightTies,
       onContinueGame: () {
         onContinueGame();
         Navigator.pop(context);
@@ -49,17 +51,20 @@ class GameEndModalHelper {
       },
       onAddPlayer: players.length < maxPlayers
           ? () {
-              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
-                onAddPlayerToBloc(newPlayer);
-                Navigator.pop(context);
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  onReopenModal(
-                    List<Player>.from(players)..add(newPlayer),
-                    gameMode,
-                    scoreLimit,
-                  );
-                });
-              });
+              AddPlayerDialog.show(
+                context,
+                onPlayerAdded: (newPlayer) {
+                  onAddPlayerToBloc(newPlayer);
+                  Navigator.pop(context);
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    onReopenModal(
+                      List<Player>.from(players)..add(newPlayer),
+                      gameMode,
+                      scoreLimit,
+                    );
+                  });
+                },
+              );
             }
           : null,
     );
@@ -100,15 +105,18 @@ class GameEndModalHelper {
       },
       onAddPlayer: !isSinglePlayer && players.length < maxPlayers
           ? () {
-              AddPlayerDialog.show(context, onPlayerAdded: (newPlayer) {
-                onAddPlayerToBloc(newPlayer);
-                Navigator.of(context).pop();
-                WidgetsBinding.instance.addPostFrameCallback((_) {
-                  final updatedPlayers = List<Player>.from(players)
-                    ..add(newPlayer);
-                  onReopenModal(context, updatedPlayers);
-                });
-              });
+              AddPlayerDialog.show(
+                context,
+                onPlayerAdded: (newPlayer) {
+                  onAddPlayerToBloc(newPlayer);
+                  Navigator.of(context).pop();
+                  WidgetsBinding.instance.addPostFrameCallback((_) {
+                    final updatedPlayers = List<Player>.from(players)
+                      ..add(newPlayer);
+                    onReopenModal(context, updatedPlayers);
+                  });
+                },
+              );
             }
           : null,
     );

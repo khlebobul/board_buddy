@@ -5,6 +5,8 @@ analyzer:
     - build/**
     - .dart_tool/**
     - lib/generated/**
+    - android/**
+    - ios/**
   errors:
     avoid_print: warning # Avoid using the print function
 

@@ -1008,6 +1008,96 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "대안: 게임 종료 후 가장 낮은 점수의 플레이어가 승리합니다.",
     ),
+    "unoZero": MessageLookupByLibrary.simpleMessage(
+      'uno zero',
+    ),
+    "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'double draw 2: 두 사람에게 2장짜리 열을 하나씩 넣게 하거나, 한 사람에게 두 열을 넣게 합니다. 차례를 쉬는 사람은 없습니다.',
+    ),
+    "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'draw 2: 다음 사람은 뒷면 2장을 새 열로 넣고 차례를 쉽니다.',
+    ),
+    "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
+      '액션 카드는 버린 카드 더미의 맨 위일 때만 효과가 있습니다. 격자에서는 카드에 적힌 점수입니다.',
+    ),
+    "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
+      'reverse: 진행 방향을 바꿉니다.',
+    ),
+    "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
+      'skip: 다음 사람은 차례를 쉽니다.',
+    ),
+    "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
+      '세로 열의 두 카드가 색이나 숫자가 같으면 그 열을 버릴 수 있습니다.',
+    ),
+    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
+      '열:',
+    ),
+    "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
+      '한 사람의 카드가 모두 앞면이 되면 라운드가 끝납니다. 모두 나머지를 뒤집고, 맞는 열을 치운 뒤 남은 카드를 더합니다. 빈 격자는 0점입니다. 그 라운드에서 가장 낮은 점수가 다음 라운드를 시작합니다.',
+    ),
+    "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      '라운드 종료:',
+    ),
+    "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      '점수를 최대한 낮게 유지합니다. 9라운드 후 총점이 가장 낮은 사람이 이깁니다.',
+    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
+      '기록',
+    ),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
+      '선두',
+    ),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
+      '확인',
+    ),
+    "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
+      '각 플레이어에게 뒷면으로 6장씩 나눕니다. 나머지는 드로우 더미입니다. 맨 위 카드를 뒤집어 버린 카드 더미를 만듭니다. 액션 카드면 무시하고 다음 카드를 뒤집습니다.',
+    ),
+    "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
+      '딜러의 왼쪽 사람부터 시작합니다. 진행은 시계 방향입니다.',
+    ),
+    "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
+      '6장을 뒷면의 2×3 격자로 놓습니다. 각자 카드 한 장을 앞면으로 뒤집습니다.',
+    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
+      '남음',
+    ),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
+      '라운드',
+    ),
+    "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
+      '숫자 카드 0–6은 적힌 숫자만큼입니다.',
+    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
+      '점수:',
+    ),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
+      '이번 라운드',
+    ),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
+      '무승부',
+    ),
+    "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      'uno zero® / uno golf®는 mattel의 등록 상표입니다.',
+    ),
+    "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
+      '버린 카드 더미에서 가져온 카드는 반드시 격자에 놓습니다.',
+    ),
+    "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
+      '자기 차례에는 드로우 더미나 버린 카드 더미의 맨 위 카드를 가져옵니다.',
+    ),
+    "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
+      '드로우 더미에서 가져온 카드는 남기고 격자의 아무 카드와 바꾸거나, 버리고 뒷면 카드 한 장을 뒤집습니다.',
+    ),
+    "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
+      '뒷면 카드가 한 장 남으면 uno라고 말합니다. 다음 차례 전에 걸리면 뒷면 2장을 새 열로 넣습니다.',
+    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
+      'uno:',
+    ),
+    "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
+      '9라운드 후 총점이 가장 낮은 사람이 이깁니다. 같은 총점이 여러 명이면 무승부입니다.',
+    ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "정착지를 도시로 업그레이드 (+1점)",
     ),

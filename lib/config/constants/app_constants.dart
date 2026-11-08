@@ -51,39 +51,43 @@ class BulletPointsConst {
 }
 
 class RulesConst {
-// uno
+  // uno
   static const unoAge = '7+';
   static const unoPlayers = '2-10';
-// dos
+  // dos
   static const dosAge = '7+';
   static const dosPlayers = '2-4';
-// scrabble
+  // scrabble
   static const scrabbleAge = '10+';
   static const scrabblePlayers = '2-4';
-// set
+  // set
   static const setAge = '8+';
   static const setPlayers = '2-10';
-// uno flip
+  // uno flip
   static const unoFlipAge = '7+';
   static const unoFlipPlayers = '2-10';
-// munchkin
+  // munchkin
   static const munchkinAge = '12+';
   static const munchkinPlayers = '3-6';
-// common counter
+  // common counter
   static const commonCounterAge = '6+';
   static const commonCounterPlayers = '2-10';
 
-// thousand
+  // thousand
   static const thousandAge = '12+';
   static const thousandPlayers = '2-3';
 
-// catan
+  // catan
   static const catanAge = '10+';
   static const catanPlayers = '3-4';
 
-// sea salt & paper
+  // sea salt & paper
   static const seaSaltPaperAge = '8+';
   static const seaSaltPaperPlayers = '2-4';
+
+  // uno zero / uno golf
+  static const unoZeroAge = '7+';
+  static const unoZeroPlayers = '2-8';
 }
 
 class GameConst {
@@ -121,6 +125,7 @@ class GameMaxPlayers {
   static const thousand = 3;
   static const catan = 4;
   static const seaSaltPaper = 4;
+  static const unoZero = 8;
 }
 
 class GameMinPlayers {
@@ -134,6 +139,7 @@ class GameMinPlayers {
   static const thousand = 2;
   static const catan = 3;
   static const seaSaltPaper = 2;
+  static const unoZero = 2;
 }
 
 class SeaSaltPaperScoreLimit {
@@ -214,4 +220,5 @@ class GameNames {
   static const munchkin = 'munchkin';
   static const catan = 'catan';
   static const seaSaltPaper = 'sea salt & paper';
+  static const unoZero = 'uno zero';
 }

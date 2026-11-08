@@ -1156,6 +1156,96 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "alternativa: gana quien tenga la puntuación más baja al final.",
     ),
+    "unoZero": MessageLookupByLibrary.simpleMessage(
+      'uno zero',
+    ),
+    "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'double draw 2: elige dos jugadores para que añadan una columna de 2 cartas cada uno, o uno que añada dos columnas. nadie pierde el turno.',
+    ),
+    "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'draw 2: el siguiente jugador añade 2 cartas boca abajo como columna nueva y pierde el turno.',
+    ),
+    "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
+      'las cartas de acción solo actúan como carta superior del descarte. en la cuadrícula valen los puntos impresos.',
+    ),
+    "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
+      'reverse: invierte el sentido del juego.',
+    ),
+    "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
+      'skip: el siguiente jugador pierde el turno.',
+    ),
+    "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
+      'si las dos cartas de una columna coinciden en color o número, puedes descartar la columna.',
+    ),
+    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
+      'columnas:',
+    ),
+    "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
+      'la ronda termina cuando un jugador tiene todas las cartas boca arriba. todos voltean el resto, quitan columnas iguales y suman las cartas que quedan. una cuadrícula vacía vale 0. la puntuación más baja empieza la siguiente ronda.',
+    ),
+    "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      'fin de la ronda:',
+    ),
+    "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      'consigue la menor puntuación. tras 9 rondas, gana el total más bajo.',
+    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
+      'historial',
+    ),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
+      'lidera',
+    ),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
+      'ok',
+    ),
+    "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
+      'reparte 6 cartas boca abajo a cada jugador. el resto es el mazo. voltea la primera carta para el descarte. si es una carta de acción, ignórala y voltea otra.',
+    ),
+    "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
+      'empieza quien está a la izquierda del repartidor. el juego sigue en sentido horario.',
+    ),
+    "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
+      'coloca las 6 cartas en una cuadrícula 2×3 boca abajo. cada jugador voltea una carta.',
+    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
+      'quedan',
+    ),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
+      'rondas',
+    ),
+    "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
+      'las cartas del 0 al 6 valen su número.',
+    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
+      'puntuación:',
+    ),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
+      'esta ronda',
+    ),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
+      'empate',
+    ),
+    "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      'uno zero® / uno golf® es una marca registrada de mattel.',
+    ),
+    "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
+      'del descarte debes colocar la carta en la cuadrícula.',
+    ),
+    "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
+      'en tu turno, toma la carta superior del mazo o del descarte.',
+    ),
+    "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
+      'del mazo puedes quedarte la carta y cambiarla por cualquiera de la cuadrícula, o descartarla y voltear una carta boca abajo.',
+    ),
+    "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
+      'cuando queda una carta boca abajo, di uno. si te pillan antes del siguiente turno, añade 2 cartas boca abajo como columna nueva.',
+    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
+      'uno:',
+    ),
+    "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
+      'tras 9 rondas, gana el total más bajo. si varios empatan, es un empate.',
+    ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "mejora un poblado a ciudad (+1 punto)",
     ),

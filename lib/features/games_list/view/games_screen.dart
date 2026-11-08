@@ -23,6 +23,7 @@ class GamesScreen extends StatelessWidget {
       ('07 - 1000', '/thousandStartGame'),
       ('08 - ${GameNames.catan}', '/catanStartGame'),
       ('09 - ${GameNames.seaSaltPaper}', '/seaSaltPaperStartGame'),
+      ('10 - ${GameNames.unoZero}', '/unoZeroStartGame'),
     ];
 
     return Scaffold(
@@ -34,8 +35,10 @@ class GamesScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-                  horizontal: GeneralConst.paddingHorizontal) +
+          padding:
+              const EdgeInsets.symmetric(
+                horizontal: GeneralConst.paddingHorizontal,
+              ) +
               const EdgeInsets.only(top: GeneralConst.paddingVertical),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

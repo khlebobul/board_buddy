@@ -1133,6 +1133,96 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "alternative: der spieler mit der niedrigsten punktzahl gewinnt.",
     ),
+    "unoZero": MessageLookupByLibrary.simpleMessage(
+      'uno zero',
+    ),
+    "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'double draw 2: wähle zwei spieler für je eine spalte aus 2 karten oder einen spieler für zwei spalten. niemand setzt aus.',
+    ),
+    "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'draw 2: der nächste spieler legt 2 verdeckte karten als neue spalte und setzt aus.',
+    ),
+    "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
+      'aktionskarten wirken nur als oberste karte des ablagestapels. im raster zählen die aufgedruckten punkte.',
+    ),
+    "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
+      'reverse: dreht die spielrichtung um.',
+    ),
+    "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
+      'skip: der nächste spieler setzt aus.',
+    ),
+    "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
+      'haben beide karten einer senkrechten spalte dieselbe farbe oder zahl, darfst du die spalte ablegen.',
+    ),
+    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
+      'spalten:',
+    ),
+    "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
+      'eine runde endet, wenn ein spieler alle karten offen hat. alle decken auf, entfernen passende spalten und zählen die restkarten. ein leeres raster gibt 0. der niedrigste wert beginnt die nächste runde.',
+    ),
+    "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      'ende der runde:',
+    ),
+    "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      'sammle so wenige punkte wie möglich. nach 9 runden gewinnt die niedrigste summe.',
+    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
+      'verlauf',
+    ),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
+      'führt',
+    ),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
+      'ok',
+    ),
+    "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
+      'jeder spieler erhält 6 verdeckte karten. der rest ist der nachziehstapel. die oberste karte startet den ablagestapel. eine aktionskarte wird ignoriert, die nächste aufgedeckt.',
+    ),
+    "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
+      'der spieler links vom geber beginnt. gespielt wird im uhrzeigersinn.',
+    ),
+    "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
+      'lege die 6 karten verdeckt in ein 2×3-raster. jeder spieler deckt eine karte auf.',
+    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
+      'übrig',
+    ),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
+      'runden',
+    ),
+    "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
+      'zahlenkarten 0–6 zählen ihren aufdruck.',
+    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
+      'wertung:',
+    ),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
+      'diese runde',
+    ),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
+      'unentschieden',
+    ),
+    "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      'uno zero® / uno golf® ist eine eingetragene marke von mattel.',
+    ),
+    "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
+      'vom ablagestapel muss die karte ins raster.',
+    ),
+    "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
+      'nimm in deinem zug die oberste karte vom nachzieh- oder ablagestapel.',
+    ),
+    "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
+      'vom nachziehstapel kannst du die karte behalten und gegen eine karte im raster tauschen oder ablegen und eine verdeckte karte aufdecken.',
+    ),
+    "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
+      'liegt nur noch eine verdeckte karte, rufe uno. wirst du vor dem nächsten zug erwischt, legst du 2 verdeckte karten als neue spalte.',
+    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
+      'uno:',
+    ),
+    "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
+      'nach 9 runden gewinnt die niedrigste summe. gleiche summen bleiben unentschieden.',
+    ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "werte eine siedlung zu einer stadt auf (+1 punkt)",
     ),

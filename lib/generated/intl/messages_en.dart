@@ -1119,6 +1119,96 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "alternative: the player with the lowest score wins after the game ends.",
     ),
+    "unoZero": MessageLookupByLibrary.simpleMessage(
+      'uno zero',
+    ),
+    "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'double draw 2: choose two players to add one column of 2 cards each, or one player to add two columns. nobody loses a turn.',
+    ),
+    "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'draw 2: the next player adds 2 face-down cards as a new column and loses a turn.',
+    ),
+    "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
+      'action cards take effect only as the top card of the discard pile. in a grid they count the points printed on the card.',
+    ),
+    "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
+      'reverse: reverse the direction of play.',
+    ),
+    "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
+      'skip: the next player loses a turn.',
+    ),
+    "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
+      'if both cards in a vertical column match by colour or number, you may discard that column.',
+    ),
+    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
+      'columns:',
+    ),
+    "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
+      'a round ends when one player has every card face up. everyone flips the rest, clears matching columns, and adds up the cards left. a cleared grid scores 0. the lowest score starts the next round.',
+    ),
+    "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      'end of the round:',
+    ),
+    "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      'score as few points as you can. after 9 rounds, the lowest total wins.',
+    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
+      'history',
+    ),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
+      'leading',
+    ),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
+      'ok',
+    ),
+    "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
+      'deal 6 cards face down to each player. the rest are the draw pile. flip the top card to start the discard pile. if it is an action card, ignore it and flip another.',
+    ),
+    "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
+      'the player to the left of the dealer starts. play begins clockwise.',
+    ),
+    "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
+      'arrange the 6 cards in a 2×3 grid, face down. each player flips one card face up.',
+    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
+      'left',
+    ),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
+      'rounds',
+    ),
+    "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
+      'number cards 0–6 score their face value.',
+    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
+      'scoring:',
+    ),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
+      'this round',
+    ),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
+      'tied',
+    ),
+    "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      'uno zero® / uno golf® is a registered trademark of mattel.',
+    ),
+    "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
+      'from the discard pile, you must place the card into your grid.',
+    ),
+    "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
+      'on your turn, take the top card of the draw pile or the discard pile.',
+    ),
+    "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
+      'from the draw pile, keep the card and swap it with any card in your grid, or discard it and flip one face-down card.',
+    ),
+    "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
+      'with one face-down card left, call uno. if you are caught before the next turn, add 2 face-down cards as a new column.',
+    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
+      'uno:',
+    ),
+    "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
+      'after 9 rounds, the lowest total wins. if several players share that total, the game is a tie.',
+    ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "upgrade a settlement to a city (+1 point)",
     ),

@@ -956,6 +956,96 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "备选规则：游戏结束后分数最低的玩家获胜。",
     ),
+    "unoZero": MessageLookupByLibrary.simpleMessage(
+      'uno zero',
+    ),
+    "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'double draw 2：指定两位玩家各加一列 2 张牌，或指定一位玩家加两列。没有人跳过回合。',
+    ),
+    "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'draw 2：下一位玩家把 2 张背面朝上的牌作为新的一列，并跳过回合。',
+    ),
+    "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
+      '行动牌只有作为弃牌堆顶牌时才生效。在网格里只计算牌面印出的分数。',
+    ),
+    "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
+      'reverse：反转出牌方向。',
+    ),
+    "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
+      'skip：下一位玩家跳过回合。',
+    ),
+    "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
+      '如果同一竖列的两张牌颜色或数字相同，可以弃掉这一列。',
+    ),
+    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
+      '列：',
+    ),
+    "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
+      '当一位玩家的牌全部正面朝上时，本轮结束。其余玩家翻开剩余的牌，清掉相符的列，再把留下的牌加总。空网格记 0 分。本轮分数最低的人开始下一轮。',
+    ),
+    "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      '本轮结束：',
+    ),
+    "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      '尽量得到更少的分数。9 轮之后，总分最低的人获胜。',
+    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
+      '记录',
+    ),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
+      '领先',
+    ),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
+      '确定',
+    ),
+    "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
+      '每位玩家发 6 张背面朝上的牌。其余为抽牌堆。翻开顶牌作为弃牌堆。如果是行动牌，忽略并再翻一张。',
+    ),
+    "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
+      '发牌者左侧的玩家先手。游戏按顺时针进行。',
+    ),
+    "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
+      '把 6 张牌背面朝上排成 2×3。每位玩家翻开一张牌。',
+    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
+      '剩余',
+    ),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
+      '轮数',
+    ),
+    "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
+      '数字牌 0–6 按牌面计分。',
+    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
+      '计分：',
+    ),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
+      '本轮',
+    ),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
+      '平局',
+    ),
+    "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      'uno zero® / uno golf® 是 mattel 的注册商标。',
+    ),
+    "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
+      '从弃牌堆拿到的牌必须放进网格。',
+    ),
+    "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
+      '轮到你时，从抽牌堆或弃牌堆拿最上面的一张。',
+    ),
+    "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
+      '从抽牌堆拿到的牌可以留下，并换掉网格中的任意一张；也可以弃掉，再翻开一张背面朝上的牌。',
+    ),
+    "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
+      '只剩一张背面朝上的牌时要喊 uno。如果在下一回合开始前被指出，就把 2 张背面朝上的牌加为一列。',
+    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
+      'uno：',
+    ),
+    "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
+      '9 轮之后，总分最低的人获胜。如果几人总分相同，就是平局。',
+    ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "将定居点升级为城市（+1分）",
     ),
