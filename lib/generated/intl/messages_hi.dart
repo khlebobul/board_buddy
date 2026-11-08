@@ -1117,6 +1117,96 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "विकल्प: खेल समाप्त होने के बाद सबसे कम स्कोर वाला खिलाड़ी जीतता है।",
     ),
+    "unoZero": MessageLookupByLibrary.simpleMessage(
+      'uno zero',
+    ),
+    "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'double draw 2: दो खिलाड़ियों को 2 पत्तों का एक कॉलम जोड़ने को कहें, या एक को दो कॉलम। कोई बारी नहीं छोड़ता।',
+    ),
+    "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'draw 2: अगला खिलाड़ी 2 उल्टे पत्ते नए कॉलम में जोड़ता है और बारी छोड़ता है।',
+    ),
+    "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
+      'एक्शन पत्ते तभी काम करते हैं जब वे फेंके हुए ढेर के ऊपर हों। ग्रिड में उन पर छपे अंक गिने जाते हैं।',
+    ),
+    "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
+      'reverse: खेल की दिशा पलटता है।',
+    ),
+    "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
+      'skip: अगला खिलाड़ी बारी छोड़ता है।',
+    ),
+    "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
+      'अगर एक खड़े कॉलम के दोनों पत्ते रंग या संख्या में मिलते हैं, तो वह कॉलम फेंक सकते हैं।',
+    ),
+    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
+      'कॉलम:',
+    ),
+    "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
+      'राउंड तब खत्म होता है जब किसी के सारे पत्ते खुले हों। सब बाकी पत्ते खोलें, मेल खाते कॉलम हटाएँ और बचे पत्ते जोड़ें। खाली ग्रिड 0 है। सबसे कम अंक अगला राउंड शुरू करता है।',
+    ),
+    "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      'राउंड का अंत:',
+    ),
+    "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      'जितने हो सकें उतने कम अंक लें। आम खेल 9 राउंड का होता है और शुरुआत में चुनी राउंड संख्या पर खत्म होता है। सबसे कम कुल जीतता है।',
+    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
+      'इतिहास',
+    ),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
+      'आगे',
+    ),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
+      'ठीक',
+    ),
+    "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
+      'हर खिलाड़ी को 6 पत्ते उल्टे बाँटें। बाकी ड्रॉ का ढेर है। ऊपर का पत्ता फेंके हुए पत्तों के लिए खोलें। अगर वह एक्शन पत्ता है, तो उसे छोड़कर अगला खोलें।',
+    ),
+    "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
+      'डीलर के बाएँ वाला खिलाड़ी शुरू करता है। खेल दक्षिणावर्त चलता है।',
+    ),
+    "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
+      '6 पत्तों को 2×3 ग्रिड में उल्टा रखें। हर खिलाड़ी एक पत्ता खोले।',
+    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
+      'बचे',
+    ),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
+      'राउंड',
+    ),
+    "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
+      'अंक वाले पत्ते 0–6 अपने अंक के बराबर हैं।',
+    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
+      'अंक:',
+    ),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
+      'यह राउंड',
+    ),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
+      'टाई',
+    ),
+    "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      'uno zero® / uno golf® mattel का पंजीकृत ट्रेडमार्क है।',
+    ),
+    "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
+      'फेंके हुए ढेर से लिया पत्ता ग्रिड में रखना ज़रूरी है।',
+    ),
+    "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
+      'अपनी बारी में ड्रॉ या फेंके हुए पत्तों का ऊपर वाला पत्ता लें।',
+    ),
+    "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
+      'ड्रॉ से लिया पत्ता रख कर ग्रिड के किसी पत्ते से बदल सकते हैं, या फेंक कर एक उल्टा पत्ता खोल सकते हैं।',
+    ),
+    "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
+      'जब एक उल्टा पत्ता बचे, uno कहें। अगली बारी से पहले पकड़े जाएँ तो 2 उल्टे पत्ते नए कॉलम में जोड़ें।',
+    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
+      'uno:',
+    ),
+    "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
+      'चुनी हुई राउंड संख्या के बाद सबसे कम कुल जीतता है। आमतौर पर 9 राउंड होते हैं। टाई तभी है जब कई खिलाड़ी वही सबसे कम कुल साझा करें।',
+    ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "बस्ती को शहर में अपग्रेड करें (+1 अंक)",
     ),

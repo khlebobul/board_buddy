@@ -17,6 +17,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
   final VoidCallback onReturnToMenu;
   final VoidCallback onContinueGame;
   final VoidCallback? onAddPlayer;
+  final bool highlightTies;
 
   const GameEndUnoModalWidget({
     super.key,
@@ -28,6 +29,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
     required this.onReturnToMenu,
     required this.onContinueGame,
     this.onAddPlayer,
+    this.highlightTies = false,
   });
 
   @override
@@ -44,8 +46,12 @@ class GameEndUnoModalWidget extends StatelessWidget {
       sortedPlayers.sort((a, b) => a.score.compareTo(b.score));
     }
 
-    // Determine the winner (first player after sorting)
+    // The first player after sorting is the best score. Ties share that place.
     final Player winner = sortedPlayers.first;
+    final highlightedPlayers = highlightTies
+        ? sortedPlayers.where((player) => player.score == winner.score).toList()
+        : <Player>[winner];
+    final isTie = highlightedPlayers.length > 1;
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
@@ -59,6 +65,14 @@ class GameEndUnoModalWidget extends StatelessWidget {
         child: Column(
           mainAxisSize: MainAxisSize.min,
           children: [
+            if (isTie)
+              Padding(
+                padding: const EdgeInsets.only(top: 16),
+                child: Text(
+                  S.of(context).unoZeroTied,
+                  style: theme.display2.copyWith(color: theme.redColor),
+                ),
+              ),
             // Padding(
             //   padding: const EdgeInsets.all(16.0),
             //   child: Text(
@@ -91,10 +105,11 @@ class GameEndUnoModalWidget extends StatelessWidget {
                 child: SingleChildScrollView(
                   child: Padding(
                     padding: const EdgeInsets.symmetric(
-                        horizontal: GeneralConst.paddingHorizontal),
+                      horizontal: GeneralConst.paddingHorizontal,
+                    ),
                     child: Column(
                       children: sortedPlayers.map((player) {
-                        final isWinner = player.id == winner.id;
+                        final isWinner = highlightedPlayers.contains(player);
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
                           child: Row(
@@ -136,7 +151,8 @@ class GameEndUnoModalWidget extends StatelessWidget {
             // Button section
             Padding(
               padding: const EdgeInsets.symmetric(
-                  horizontal: GeneralConst.paddingHorizontal),
+                horizontal: GeneralConst.paddingHorizontal,
+              ),
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.stretch,
                 mainAxisAlignment: MainAxisAlignment.center,
@@ -147,16 +163,17 @@ class GameEndUnoModalWidget extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextScramble(
-                          text: S.of(context).continueGame,
-                          builder: (context, scrambledText) {
-                            return Text(
-                              scrambledText,
-                              style: theme.display2.copyWith(
-                                color: theme.redColor,
-                              ),
-                              textAlign: TextAlign.center,
-                            );
-                          }),
+                        text: S.of(context).continueGame,
+                        builder: (context, scrambledText) {
+                          return Text(
+                            scrambledText,
+                            style: theme.display2.copyWith(
+                              color: theme.redColor,
+                            ),
+                            textAlign: TextAlign.center,
+                          );
+                        },
+                      ),
                     ),
                   ),
                   if (onAddPlayer != null)
@@ -166,14 +183,15 @@ class GameEndUnoModalWidget extends StatelessWidget {
                       child: Padding(
                         padding: const EdgeInsets.symmetric(vertical: 8.0),
                         child: TextScramble(
-                            text: S.of(context).addPlayer,
-                            builder: (context, scrambledText) {
-                              return Text(
-                                scrambledText,
-                                style: theme.display2,
-                                textAlign: TextAlign.center,
-                              );
-                            }),
+                          text: S.of(context).addPlayer,
+                          builder: (context, scrambledText) {
+                            return Text(
+                              scrambledText,
+                              style: theme.display2,
+                              textAlign: TextAlign.center,
+                            );
+                          },
+                        ),
                       ),
                     ),
                   GestureDetector(
@@ -182,14 +200,15 @@ class GameEndUnoModalWidget extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextScramble(
-                          text: S.of(context).newGameWithSamePlayers,
-                          builder: (context, scrambledText) {
-                            return Text(
-                              scrambledText,
-                              style: theme.display2,
-                              textAlign: TextAlign.center,
-                            );
-                          }),
+                        text: S.of(context).newGameWithSamePlayers,
+                        builder: (context, scrambledText) {
+                          return Text(
+                            scrambledText,
+                            style: theme.display2,
+                            textAlign: TextAlign.center,
+                          );
+                        },
+                      ),
                     ),
                   ),
                   GestureDetector(
@@ -198,14 +217,15 @@ class GameEndUnoModalWidget extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextScramble(
-                          text: S.of(context).newGame,
-                          builder: (context, scrambledText) {
-                            return Text(
-                              scrambledText,
-                              style: theme.display2,
-                              textAlign: TextAlign.center,
-                            );
-                          }),
+                        text: S.of(context).newGame,
+                        builder: (context, scrambledText) {
+                          return Text(
+                            scrambledText,
+                            style: theme.display2,
+                            textAlign: TextAlign.center,
+                          );
+                        },
+                      ),
                     ),
                   ),
                   GestureDetector(
@@ -214,14 +234,15 @@ class GameEndUnoModalWidget extends StatelessWidget {
                     child: Padding(
                       padding: const EdgeInsets.symmetric(vertical: 8.0),
                       child: TextScramble(
-                          text: S.of(context).returnToMenu,
-                          builder: (context, scrambledText) {
-                            return Text(
-                              scrambledText,
-                              style: theme.display2,
-                              textAlign: TextAlign.center,
-                            );
-                          }),
+                        text: S.of(context).returnToMenu,
+                        builder: (context, scrambledText) {
+                          return Text(
+                            scrambledText,
+                            style: theme.display2,
+                            textAlign: TextAlign.center,
+                          );
+                        },
+                      ),
                     ),
                   ),
                 ],
@@ -244,6 +265,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
     required VoidCallback onReturnToMenu,
     required VoidCallback onContinueGame,
     VoidCallback? onAddPlayer,
+    bool highlightTies = false,
   }) {
     HapticFeedback.selectionClick();
 
@@ -257,9 +279,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
           children: [
             BackdropFilter(
               filter: ImageFilter.blur(sigmaX: 8.0, sigmaY: 8.0),
-              child: Container(
-                color: Colors.black.withValues(alpha: 0),
-              ),
+              child: Container(color: Colors.black.withValues(alpha: 0)),
             ),
             Center(
               child: GameEndUnoModalWidget(
@@ -271,16 +291,14 @@ class GameEndUnoModalWidget extends StatelessWidget {
                 onReturnToMenu: onReturnToMenu,
                 onContinueGame: onContinueGame,
                 onAddPlayer: onAddPlayer,
+                highlightTies: highlightTies,
               ),
             ),
           ],
         );
       },
       transitionBuilder: (context, anim1, anim2, child) {
-        return FadeTransition(
-          opacity: anim1,
-          child: child,
-        );
+        return FadeTransition(opacity: anim1, child: child);
       },
     );
   }

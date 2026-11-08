@@ -995,6 +995,96 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "代替ルール：ゲーム終了後、最も低いスコアのプレイヤーが勝利。",
     ),
+    "unoZero": MessageLookupByLibrary.simpleMessage(
+      'uno zero',
+    ),
+    "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'double draw 2：2人に2枚ずつの列を足すか、1人に2列足します。順番を飛ばす人はいません。',
+    ),
+    "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
+      'draw 2：次の人は裏向き2枚を新しい列として加え、順番を飛ばします。',
+    ),
+    "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
+      'アクションカードが効果を持つのは捨て札の一番上のときだけです。グリッドでは印刷された点数です。',
+    ),
+    "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
+      'reverse：進行方向を逆にします。',
+    ),
+    "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
+      'skip：次の人は順番を飛ばします。',
+    ),
+    "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
+      '縦1列の2枚が色か数字で揃ったら、その列を捨てられます。',
+    ),
+    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
+      '列：',
+    ),
+    "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
+      'だれか1人のカードがすべて表になったらラウンド終了です。残りをめくり、揃った列を除き、残ったカードを合計します。空のグリッドは0点です。そのラウンドで一番低い人が次を始めます。',
+    ),
+    "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
+      'ラウンドの終わり：',
+    ),
+    "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
+      'できるだけ少ない点数を目指します。標準は9ラウンドで、開始時に選んだラウンド数で終わります。合計が一番低い人が勝ちです。',
+    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
+      '履歴',
+    ),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
+      '先頭',
+    ),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
+      'ok',
+    ),
+    "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
+      '各プレイヤーに裏向きで6枚配ります。残りは山札です。一番上をめくって捨て札にします。アクションカードなら無視して次をめくります。',
+    ),
+    "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
+      'ディーラーの左の人から始めます。進行は時計回りです。',
+    ),
+    "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
+      '6枚を裏向きの2×3に並べます。各自1枚を表にします。',
+    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
+      '残り',
+    ),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
+      'ラウンド',
+    ),
+    "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
+      '数字カード0–6は書かれた数字の点数です。',
+    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
+      '得点：',
+    ),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
+      'このラウンド',
+    ),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
+      '引き分け',
+    ),
+    "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
+      'uno zero® / uno golf® は mattel の登録商標です。',
+    ),
+    "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
+      '捨て札から取ったカードは必ずグリッドに置きます。',
+    ),
+    "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
+      '自分の番には、山札か捨て札の一番上を取ります。',
+    ),
+    "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
+      '山札から取ったカードは残してグリッドのどれかと入れ替えるか、捨てて裏向きのカードを1枚めくります。',
+    ),
+    "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
+      '裏向きが1枚になったら uno と呼びます。次の番が始まる前に指摘されたら、裏向き2枚を新しい列として加えます。',
+    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
+      'uno：',
+    ),
+    "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
+      '選んだラウンド数のあと、合計が一番低い人が勝ちです。標準は9ラウンドです。その一番低い合計を共有するときだけ引き分けです。',
+    ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "集落を都市にアップグレード（+1ポイント）",
     ),

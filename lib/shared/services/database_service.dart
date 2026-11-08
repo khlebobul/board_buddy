@@ -230,24 +230,124 @@ class DatabaseService {
     };
   }
 
-  // Delete a game session
+  /// Deletes the previous checkpoint and writes the replacement together.
+  /// A failed insert keeps the last saved session.
+  static Future<int> replaceGameSession({
+    required String gameType,
+    required int scoreLimit,
+    required String gameMode,
+    required List<Player> players,
+    required Map<int, List<int>> playerScoreHistory,
+    Map<String, dynamic>? customData,
+  }) async {
+    final db = await database;
+    return db.transaction((txn) async {
+      final existing = await txn.query(
+        'game_sessions',
+        columns: ['id'],
+        where: 'game_type = ?',
+        whereArgs: [gameType],
+      );
+      for (final session in existing) {
+        final sessionId = session['id'] as int;
+        await txn.delete(
+          'player_score_history',
+          where: 'session_id = ?',
+          whereArgs: [sessionId],
+        );
+        await txn.delete(
+          'players',
+          where: 'session_id = ?',
+          whereArgs: [sessionId],
+        );
+        await txn.delete(
+          'game_sessions',
+          where: 'id = ?',
+          whereArgs: [sessionId],
+        );
+      }
+
+      final sessionData = <String, dynamic>{
+        'game_type': gameType,
+        'score_limit': scoreLimit,
+        'game_mode': gameMode,
+        'created_at': DateTime.now().millisecondsSinceEpoch,
+      };
+      if (customData != null) {
+        sessionData['custom_data'] = jsonEncode(customData);
+      }
+      final sessionId = await txn.insert('game_sessions', sessionData);
+
+      for (var i = 0; i < players.length; i++) {
+        final player = players[i];
+        await txn.insert('players', {
+          'session_id': sessionId,
+          'name': player.name,
+          'score': player.score,
+          'player_index': i,
+        });
+      }
+
+      for (final entry in playerScoreHistory.entries) {
+        for (var i = 0; i < entry.value.length; i++) {
+          await txn.insert('player_score_history', {
+            'session_id': sessionId,
+            'player_index': entry.key,
+            'score_change': entry.value[i],
+            'history_index': i,
+          });
+        }
+      }
+      return sessionId;
+    });
+  }
+
+  // Delete a game session and its player rows in one transaction.
   static Future<void> deleteGameSession(String gameType) async {
     final db = await database;
 
-    final sessions = await db.query(
-      'game_sessions',
-      where: 'game_type = ?',
-      whereArgs: [gameType],
-    );
-
-    for (final session in sessions) {
-      final sessionId = session['id'] as int;
-      await db.delete(
+    await db.transaction((txn) async {
+      final sessions = await txn.query(
         'game_sessions',
-        where: 'id = ?',
-        whereArgs: [sessionId],
+        columns: ['id'],
+        where: 'game_type = ?',
+        whereArgs: [gameType],
       );
-    }
+
+      for (final session in sessions) {
+        final sessionId = session['id'] as int;
+        await _deleteSessionChildren(txn, sessionId);
+        await txn.delete(
+          'game_sessions',
+          where: 'id = ?',
+          whereArgs: [sessionId],
+        );
+      }
+
+      await _deleteOrphanSessionChildren(txn);
+    });
+  }
+
+  static Future<void> _deleteSessionChildren(
+    Transaction txn,
+    int sessionId,
+  ) async {
+    await txn.delete(
+      'player_score_history',
+      where: 'session_id = ?',
+      whereArgs: [sessionId],
+    );
+    await txn.delete(
+      'players',
+      where: 'session_id = ?',
+      whereArgs: [sessionId],
+    );
+  }
+
+  static Future<void> _deleteOrphanSessionChildren(Transaction txn) async {
+    const orphanSessions = 'session_id NOT IN (SELECT id FROM game_sessions)';
+    await txn.delete('player_score_history', where: orphanSessions);
+    await txn.delete('players', where: orphanSessions);
   }
 
   // Save a game session with custom data

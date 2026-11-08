@@ -22,6 +22,7 @@ class RulesScreen extends StatelessWidget {
       ('07 - 1000', '/thousandRules'),
       ('08 - ${GameNames.catan}', '/catanRules'),
       ('09 - ${GameNames.seaSaltPaper}', '/seaSaltPaperRules'),
+      ('10 - ${GameNames.unoZero}', '/unoZeroRules'),
     ];
 
     return Scaffold(
@@ -33,8 +34,10 @@ class RulesScreen extends StatelessWidget {
       ),
       body: SafeArea(
         child: Padding(
-          padding: const EdgeInsets.symmetric(
-                  horizontal: GeneralConst.paddingHorizontal) +
+          padding:
+              const EdgeInsets.symmetric(
+                horizontal: GeneralConst.paddingHorizontal,
+              ) +
               const EdgeInsets.only(top: GeneralConst.paddingVertical),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.start,

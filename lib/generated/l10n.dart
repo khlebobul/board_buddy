@@ -4385,6 +4385,306 @@ class S {
   String get custom {
     return Intl.message('(custom)', name: 'custom', desc: '', args: []);
   }
+
+  /// `uno zero`
+  String get unoZero {
+    return Intl.message(
+      'uno zero',
+      name: 'unoZero',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `double draw 2: choose two players to add one column of 2 cards each, or one player to add two columns. nobody loses a turn.`
+  String get unoZeroActionDoubleDrawTwo {
+    return Intl.message(
+      'double draw 2: choose two players to add one column of 2 cards each, or one player to add two columns. nobody loses a turn.',
+      name: 'unoZeroActionDoubleDrawTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `draw 2: the next player adds 2 face-down cards as a new column and loses a turn.`
+  String get unoZeroActionDrawTwo {
+    return Intl.message(
+      'draw 2: the next player adds 2 face-down cards as a new column and loses a turn.',
+      name: 'unoZeroActionDrawTwo',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `action cards take effect only as the top card of the discard pile. in a grid they count the points printed on the card.`
+  String get unoZeroActionInGrid {
+    return Intl.message(
+      'action cards take effect only as the top card of the discard pile. in a grid they count the points printed on the card.',
+      name: 'unoZeroActionInGrid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `reverse: reverse the direction of play.`
+  String get unoZeroActionReverse {
+    return Intl.message(
+      'reverse: reverse the direction of play.',
+      name: 'unoZeroActionReverse',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `skip: the next player loses a turn.`
+  String get unoZeroActionSkip {
+    return Intl.message(
+      'skip: the next player loses a turn.',
+      name: 'unoZeroActionSkip',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `if both cards in a vertical column match by colour or number, you may discard that column.`
+  String get unoZeroClearColumn {
+    return Intl.message(
+      'if both cards in a vertical column match by colour or number, you may discard that column.',
+      name: 'unoZeroClearColumn',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `columns:`
+  String get unoZeroClearColumnTitle {
+    return Intl.message(
+      'columns:',
+      name: 'unoZeroClearColumnTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `a round ends when one player has every card face up. everyone flips the rest, clears matching columns, and adds up the cards left. a cleared grid scores 0. the lowest score starts the next round.`
+  String get unoZeroEndRound {
+    return Intl.message(
+      'a round ends when one player has every card face up. everyone flips the rest, clears matching columns, and adds up the cards left. a cleared grid scores 0. the lowest score starts the next round.',
+      name: 'unoZeroEndRound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `end of the round:`
+  String get unoZeroEndRoundTitle {
+    return Intl.message(
+      'end of the round:',
+      name: 'unoZeroEndRoundTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `score as few points as you can. a standard match lasts 9 rounds, and the match ends after the number of rounds chosen at the start. the lowest total wins.`
+  String get unoZeroGameObjectiveDescription {
+    return Intl.message(
+      'score as few points as you can. a standard match lasts 9 rounds, and the match ends after the number of rounds chosen at the start. the lowest total wins.',
+      name: 'unoZeroGameObjectiveDescription',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `history`
+  String get unoZeroHistory {
+    return Intl.message(
+      'history',
+      name: 'unoZeroHistory',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `leading`
+  String get unoZeroLeading {
+    return Intl.message(
+      'leading',
+      name: 'unoZeroLeading',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `ok`
+  String get unoZeroOk {
+    return Intl.message(
+      'ok',
+      name: 'unoZeroOk',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `deal 6 cards face down to each player. the rest are the draw pile. flip the top card to start the discard pile. if it is an action card, ignore it and flip another.`
+  String get unoZeroPreparationDeal {
+    return Intl.message(
+      'deal 6 cards face down to each player. the rest are the draw pile. flip the top card to start the discard pile. if it is an action card, ignore it and flip another.',
+      name: 'unoZeroPreparationDeal',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the player to the left of the dealer starts. play begins clockwise.`
+  String get unoZeroPreparationFirstPlayer {
+    return Intl.message(
+      'the player to the left of the dealer starts. play begins clockwise.',
+      name: 'unoZeroPreparationFirstPlayer',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `arrange the 6 cards in a 2×3 grid, face down. each player flips one card face up.`
+  String get unoZeroPreparationGrid {
+    return Intl.message(
+      'arrange the 6 cards in a 2×3 grid, face down. each player flips one card face up.',
+      name: 'unoZeroPreparationGrid',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `left`
+  String get unoZeroRoundLeft {
+    return Intl.message(
+      'left',
+      name: 'unoZeroRoundLeft',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `rounds`
+  String get unoZeroRounds {
+    return Intl.message(
+      'rounds',
+      name: 'unoZeroRounds',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `number cards 0–6 score their face value.`
+  String get unoZeroScoringNumbers {
+    return Intl.message(
+      'number cards 0–6 score their face value.',
+      name: 'unoZeroScoringNumbers',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `scoring:`
+  String get unoZeroScoringTitle {
+    return Intl.message(
+      'scoring:',
+      name: 'unoZeroScoringTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `this round`
+  String get unoZeroThisRound {
+    return Intl.message(
+      'this round',
+      name: 'unoZeroThisRound',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `tied`
+  String get unoZeroTied {
+    return Intl.message(
+      'tied',
+      name: 'unoZeroTied',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `uno zero® / uno golf® is a registered trademark of mattel.`
+  String get unoZeroTrademarkNotice {
+    return Intl.message(
+      'uno zero® / uno golf® is a registered trademark of mattel.',
+      name: 'unoZeroTrademarkNotice',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `from the discard pile, you must place the card into your grid.`
+  String get unoZeroTurnDiscardPile {
+    return Intl.message(
+      'from the discard pile, you must place the card into your grid.',
+      name: 'unoZeroTurnDiscardPile',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `on your turn, take the top card of the draw pile or the discard pile.`
+  String get unoZeroTurnDraw {
+    return Intl.message(
+      'on your turn, take the top card of the draw pile or the discard pile.',
+      name: 'unoZeroTurnDraw',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `from the draw pile, keep the card and swap it with any card in your grid, or discard it and flip one face-down card.`
+  String get unoZeroTurnKeep {
+    return Intl.message(
+      'from the draw pile, keep the card and swap it with any card in your grid, or discard it and flip one face-down card.',
+      name: 'unoZeroTurnKeep',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `with one face-down card left, call uno. if you are caught before the next turn, add 2 face-down cards as a new column.`
+  String get unoZeroUnoCall {
+    return Intl.message(
+      'with one face-down card left, call uno. if you are caught before the next turn, add 2 face-down cards as a new column.',
+      name: 'unoZeroUnoCall',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `uno:`
+  String get unoZeroUnoCallTitle {
+    return Intl.message(
+      'uno:',
+      name: 'unoZeroUnoCallTitle',
+      desc: '',
+      args: [],
+    );
+  }
+
+  /// `the lowest total wins after the chosen number of rounds. the usual length is 9. if several players share that lowest total, the game is a tie.`
+  String get unoZeroVictory {
+    return Intl.message(
+      'the lowest total wins after the chosen number of rounds. the usual length is 9. if several players share that lowest total, the game is a tie.',
+      name: 'unoZeroVictory',
+      desc: '',
+      args: [],
+    );
+  }
 }
 
 class AppLocalizationDelegate extends LocalizationsDelegate<S> {

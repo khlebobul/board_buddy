@@ -41,6 +41,7 @@ your ultimate board game companion
 ## supported games
 
 - uno® / uno flip® / dos® _(registered trademarks of mattel)_ ➭ [post](https://x.com/khlebobul/status/1921528422079107475)
+- uno zero® / uno golf® _(registered trademarks of mattel)_
 - scrabble® _(registered trademark of hasbro, inc.)_ ➭ [post](https://x.com/khlebobul/status/1921881428293263490)
 - set® _(registered trademark of set enterprises, inc.)_ ➭ [post](https://x.com/khlebobul/status/1922156520579461502)
 - munchkin® _(registered trademark of steve jackson games)_ ➭ [post](https://x.com/khlebobul/status/1922513917374353692)

@@ -270,7 +270,7 @@ void main() {
         await shoot('01-games', const GamesScreen());
         final unoBloc = uno.UnoBloc();
         // Duo decks use the common counter; UNO is only captured for older decks.
-        if (!duo)
+        if (!duo) {
           await shoot(
               '02-uno',
               BlocProvider.value(
@@ -299,6 +299,7 @@ void main() {
                 (unoBloc.state as uno.UnoGameState).players.map((p) => p.score),
                 [50, 76, 24]);
           });
+        }
         unoBloc.close();
         await settle(tester);
         final commonBloc = common.CommonCounterBloc();

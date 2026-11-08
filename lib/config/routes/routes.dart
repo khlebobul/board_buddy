@@ -37,6 +37,12 @@ import 'package:board_buddy/features/games/sea_salt_paper/bloc/sea_salt_paper_bl
 import 'package:board_buddy/features/games/sea_salt_paper/view/sea_salt_paper_game.dart';
 import 'package:board_buddy/features/games/sea_salt_paper/view/sea_salt_paper_rules.dart';
 import 'package:board_buddy/features/games/sea_salt_paper/view/sea_salt_paper_start_screen.dart';
+import 'package:board_buddy/shared/models/player_model.dart';
+import 'package:board_buddy/features/games/uno_zero/bloc/uno_zero_bloc.dart';
+import 'package:board_buddy/features/games/uno_zero/models/uno_zero_scoreboard.dart';
+import 'package:board_buddy/features/games/uno_zero/view/uno_zero_game.dart';
+import 'package:board_buddy/features/games/uno_zero/view/uno_zero_rules.dart';
+import 'package:board_buddy/features/games/uno_zero/view/uno_zero_start_screen.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:board_buddy/features/games/scrabble/view/scrabble_start_screen.dart';
@@ -60,6 +66,7 @@ class AppRoutes {
   static const String thousandRules = '/thousandRules';
   static const String catanRules = '/catanRules';
   static const String seaSaltPaperRules = '/seaSaltPaperRules';
+  static const String unoZeroRules = '/unoZeroRules';
 
   // games
   static const String unoGame = '/unoGame';
@@ -82,40 +89,44 @@ class AppRoutes {
   static const String catanStartGame = '/catanStartGame';
   static const String seaSaltPaperGame = '/seaSaltPaperGame';
   static const String seaSaltPaperStartGame = '/seaSaltPaperStartGame';
+  static const String unoZeroGame = '/unoZeroGame';
+  static const String unoZeroStartGame = '/unoZeroStartGame';
 
   static Map<String, WidgetBuilder> get routes => {
-        // main
-        about: (context) => const AboutScreen(),
-        games: (context) => const GamesScreen(),
-        rules: (context) => const RulesScreen(),
-        settings: (context) => const SettingsScreen(),
-        home: (context) => const HomeScreen(),
+    // main
+    about: (context) => const AboutScreen(),
+    games: (context) => const GamesScreen(),
+    rules: (context) => const RulesScreen(),
+    settings: (context) => const SettingsScreen(),
+    home: (context) => const HomeScreen(),
 
-        // rules
-        unoRules: (context) => const UnoRulesScreen(),
-        scrabbleRules: (context) => const ScrabbleRulesScreen(),
-        unoFlipRules: (context) => const UnoFlipRulesScreen(),
-        dosRules: (context) => const DosRulesScreen(),
-        setRules: (context) => const SetRulesScreen(),
-        munchkinRules: (context) => const MunchkinRulesScreen(),
-        thousandRules: (context) => const ThousandRulesScreen(),
-        catanRules: (context) => const CatanRulesScreen(),
-        seaSaltPaperRules: (context) => const SeaSaltPaperRulesScreen(),
+    // rules
+    unoRules: (context) => const UnoRulesScreen(),
+    scrabbleRules: (context) => const ScrabbleRulesScreen(),
+    unoFlipRules: (context) => const UnoFlipRulesScreen(),
+    dosRules: (context) => const DosRulesScreen(),
+    setRules: (context) => const SetRulesScreen(),
+    munchkinRules: (context) => const MunchkinRulesScreen(),
+    thousandRules: (context) => const ThousandRulesScreen(),
+    catanRules: (context) => const CatanRulesScreen(),
+    seaSaltPaperRules: (context) => const SeaSaltPaperRulesScreen(),
+    unoZeroRules: (context) => const UnoZeroRulesScreen(),
 
-        // games
-        unoStartGame: (context) => const UnoStartScreen(),
-        dosStartGame: (context) => const DosStartScreen(),
-        scrabbleGame: (context) => const ScrabbleGame(),
-        scrabbleStartGame: (context) => const ScrabbleStartScreen(),
-        unoFlipStartGame: (context) => const UnoFlipStartScreen(),
-        setStartGame: (context) => const SetGameStartScreen(),
-        munchkinStartGame: (context) => const MunchkinStartScreen(),
-        munchkinGame: (context) => const MunchkinGameWrapper(),
-        commonGameStartScreen: (context) => const CommonGameStartScreen(),
-        thousandStartGame: (context) => const ThousandStartScreen(),
-        catanStartGame: (context) => const CatanStartScreen(),
-        seaSaltPaperStartGame: (context) => const SeaSaltPaperStartScreen(),
-      };
+    // games
+    unoStartGame: (context) => const UnoStartScreen(),
+    dosStartGame: (context) => const DosStartScreen(),
+    scrabbleGame: (context) => const ScrabbleGame(),
+    scrabbleStartGame: (context) => const ScrabbleStartScreen(),
+    unoFlipStartGame: (context) => const UnoFlipStartScreen(),
+    setStartGame: (context) => const SetGameStartScreen(),
+    munchkinStartGame: (context) => const MunchkinStartScreen(),
+    munchkinGame: (context) => const MunchkinGameWrapper(),
+    commonGameStartScreen: (context) => const CommonGameStartScreen(),
+    thousandStartGame: (context) => const ThousandStartScreen(),
+    catanStartGame: (context) => const CatanStartScreen(),
+    seaSaltPaperStartGame: (context) => const SeaSaltPaperStartScreen(),
+    unoZeroStartGame: (context) => const UnoZeroStartScreen(),
+  };
 
   static Route<dynamic>? onGenerateRoute(RouteSettings settings) {
     // uno game
@@ -136,11 +147,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => UnoBloc(),
-            child: UnoGame(
-              players: const [],
-              scoreLimit: 500,
-              gameMode: '',
-            ),
+            child: UnoGame(players: const [], scoreLimit: 500, gameMode: ''),
           ),
         );
       }
@@ -164,11 +171,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => DosBloc(),
-            child: DosGame(
-              players: const [],
-              scoreLimit: 200,
-              gameMode: '',
-            ),
+            child: DosGame(players: const [], scoreLimit: 200, gameMode: ''),
           ),
         );
       }
@@ -213,9 +216,7 @@ class AppRoutes {
           ),
         );
       } else {
-        return MaterialPageRoute(
-          builder: (context) => const CommonGame(),
-        );
+        return MaterialPageRoute(builder: (context) => const CommonGame());
       }
     }
 
@@ -258,14 +259,10 @@ class AppRoutes {
       if (settings.arguments != null) {
         final args = settings.arguments as Map<String, dynamic>;
         return MaterialPageRoute(
-          builder: (context) => ScrabbleGame(
-            players: args['players'],
-          ),
+          builder: (context) => ScrabbleGame(players: args['players']),
         );
       } else {
-        return MaterialPageRoute(
-          builder: (context) => const ScrabbleGame(),
-        );
+        return MaterialPageRoute(builder: (context) => const ScrabbleGame());
       }
     }
 
@@ -294,11 +291,7 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => CatanBloc(),
-            child: CatanGame(
-              players: const [],
-              scoreLimit: 10,
-              gameMode: '',
-            ),
+            child: CatanGame(players: const [], scoreLimit: 10, gameMode: ''),
           ),
         );
       }
@@ -321,13 +314,25 @@ class AppRoutes {
         return MaterialPageRoute(
           builder: (context) => BlocProvider(
             create: (context) => SeaSaltPaperBloc(),
-            child: SeaSaltPaperGame(
-              players: const [],
-              scoreLimit: 40,
-            ),
+            child: SeaSaltPaperGame(players: const [], scoreLimit: 40),
           ),
         );
       }
+    }
+
+    // uno zero / uno golf
+    if (settings.name == unoZeroGame) {
+      final args = settings.arguments as Map<String, dynamic>?;
+      return MaterialPageRoute(
+        builder: (context) => BlocProvider(
+          create: (context) => UnoZeroBloc(),
+          child: UnoZeroGame(
+            players: args?['players'] as List<Player>? ?? const <Player>[],
+            totalRounds:
+                args?['totalRounds'] as int? ?? UnoZeroScoreboard.defaultRounds,
+          ),
+        ),
+      );
     }
 
     final builder = routes[settings.name];

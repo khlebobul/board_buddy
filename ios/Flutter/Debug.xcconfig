@@ -1,1 +1,3 @@
+// Refresh Generated.xcconfig before an Xcode archive:
+// flutter build ios --config-only
 #include "Generated.xcconfig"
