@@ -1,5 +1,10 @@
 # Changelog
 
+## [1.4.0]
+
+### New Features
+- Added UNO Zero (UNO Golf) with round scoring for 2–8 players, lowest-total wins, ties, undo/redo, saved games, and rules in every supported language.
+
 ## [1.3.10]
 
 ### Technical updates
