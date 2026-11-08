@@ -1192,7 +1192,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'fin de la manche :',
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'marquez le moins de points possible. après 9 manches, le total le plus bas gagne.',
+      'marquez le moins de points possible. une partie habituelle dure 9 manches et se termine après le nombre de manches choisi au départ. le total le plus bas gagne.',
     ),
     "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
       'historique',
@@ -1249,7 +1249,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'uno :',
     ),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      'après 9 manches, le total le plus bas gagne. un total partagé reste une égalité.',
+      'le total le plus bas gagne après le nombre de manches choisi. la durée habituelle est de 9 manches. il n\'y a égalité que si plusieurs joueurs partagent ce total le plus bas.',
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "améliorez une colonie en ville (+1 point)",

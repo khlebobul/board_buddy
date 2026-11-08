@@ -230,6 +230,78 @@ class DatabaseService {
     };
   }
 
+  /// Deletes the previous checkpoint and writes the replacement together.
+  /// A failed insert keeps the last saved session.
+  static Future<int> replaceGameSession({
+    required String gameType,
+    required int scoreLimit,
+    required String gameMode,
+    required List<Player> players,
+    required Map<int, List<int>> playerScoreHistory,
+    Map<String, dynamic>? customData,
+  }) async {
+    final db = await database;
+    return db.transaction((txn) async {
+      final existing = await txn.query(
+        'game_sessions',
+        columns: ['id'],
+        where: 'game_type = ?',
+        whereArgs: [gameType],
+      );
+      for (final session in existing) {
+        final sessionId = session['id'] as int;
+        await txn.delete(
+          'player_score_history',
+          where: 'session_id = ?',
+          whereArgs: [sessionId],
+        );
+        await txn.delete(
+          'players',
+          where: 'session_id = ?',
+          whereArgs: [sessionId],
+        );
+        await txn.delete(
+          'game_sessions',
+          where: 'id = ?',
+          whereArgs: [sessionId],
+        );
+      }
+
+      final sessionData = <String, dynamic>{
+        'game_type': gameType,
+        'score_limit': scoreLimit,
+        'game_mode': gameMode,
+        'created_at': DateTime.now().millisecondsSinceEpoch,
+      };
+      if (customData != null) {
+        sessionData['custom_data'] = jsonEncode(customData);
+      }
+      final sessionId = await txn.insert('game_sessions', sessionData);
+
+      for (var i = 0; i < players.length; i++) {
+        final player = players[i];
+        await txn.insert('players', {
+          'session_id': sessionId,
+          'name': player.name,
+          'score': player.score,
+          'player_index': i,
+        });
+      }
+
+      for (final entry in playerScoreHistory.entries) {
+        for (var i = 0; i < entry.value.length; i++) {
+          await txn.insert('player_score_history', {
+            'session_id': sessionId,
+            'player_index': entry.key,
+            'score_change': entry.value[i],
+            'history_index': i,
+          });
+        }
+      }
+      return sessionId;
+    });
+  }
+
   // Delete a game session
   static Future<void> deleteGameSession(String gameType) async {
     final db = await database;

@@ -1164,7 +1164,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'ende der runde:',
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'sammle so wenige punkte wie möglich. nach 9 runden gewinnt die niedrigste summe.',
+      'sammle so wenige punkte wie möglich. ein übliches spiel dauert 9 runden und endet nach der zu beginn gewählten rundenzahl. die niedrigste summe gewinnt.',
     ),
     "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
       'verlauf',
@@ -1221,7 +1221,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'uno:',
     ),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      'nach 9 runden gewinnt die niedrigste summe. gleiche summen bleiben unentschieden.',
+      'die niedrigste summe gewinnt nach der gewählten rundenzahl. üblich sind 9 runden. unentschieden ist es nur, wenn mehrere spieler diese niedrigste summe teilen.',
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "werte eine siedlung zu einer stadt auf (+1 punkt)",

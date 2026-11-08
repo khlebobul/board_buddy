@@ -31,8 +31,11 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
   late final PageController _pageController;
   final Map<int, String> _buffers = {};
   int _currentPageIndex = 0;
+  int? _trackedRound;
   bool _isInitialized = false;
   bool _isGameEndModalShown = false;
+  bool _scoreEntryLocked = false;
+  bool _ignorePageChanges = false;
 
   @override
   void initState() {
@@ -62,7 +65,46 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
     super.dispose();
   }
 
+  void _rememberRound(int round) {
+    final roundChanged = _trackedRound != null && _trackedRound != round;
+    _trackedRound = round;
+    if (!roundChanged) return;
+    setState(() => _buffers.clear());
+  }
+
+  void _leaveToHome() {
+    Navigator.of(
+      context,
+    ).popUntil((route) => route.settings.name == '/home' || route.isFirst);
+  }
+
+  Future<bool> _animateToPlayer(int index) async {
+    if (_scoreEntryLocked || !_pageController.hasClients) return false;
+    if (_currentPageIndex == index) return true;
+    setState(() {
+      _scoreEntryLocked = true;
+      _ignorePageChanges = true;
+    });
+    try {
+      await _pageController.animateToPage(
+        index,
+        duration: const Duration(milliseconds: 300),
+        curve: Curves.easeInOut,
+      );
+    } finally {
+      if (mounted) {
+        setState(() {
+          _currentPageIndex = index;
+          _scoreEntryLocked = false;
+          _ignorePageChanges = false;
+        });
+      }
+    }
+    return true;
+  }
+
   void _pushDigit(String digit) {
+    if (_scoreEntryLocked) return;
     setState(() {
       final current = _buffers[_currentPageIndex] ?? '';
       if (current == '0') {
@@ -74,6 +116,7 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
   }
 
   void _backspace() {
+    if (_scoreEntryLocked) return;
     setState(() {
       final current = _buffers[_currentPageIndex] ?? '';
       if (current.isEmpty) return;
@@ -82,11 +125,12 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
   }
 
   void _confirmScore() {
+    if (_scoreEntryLocked) return;
     final raw = _buffers[_currentPageIndex] ?? '';
     if (raw.isEmpty) return;
     context.read<UnoZeroBloc>().add(
-      EnterUnoZeroScore(_currentPageIndex, int.parse(raw)),
-    );
+          EnterUnoZeroScore(_currentPageIndex, int.parse(raw)),
+        );
     setState(() => _buffers[_currentPageIndex] = '');
   }
 
@@ -120,6 +164,7 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
         _isGameEndModalShown = false;
       },
       onReturnToMenu: () => _isGameEndModalShown = false,
+      popHomeOnReturn: true,
       onAddPlayerToBloc: (_) {},
       onReopenModal: (_, __, ___) {},
     );
@@ -139,13 +184,9 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
         }
         if (state is! UnoZeroGameState) return;
 
-        if (state.currentPlayerIndex != _currentPageIndex &&
-            _pageController.hasClients) {
-          _pageController.animateToPage(
-            state.currentPlayerIndex,
-            duration: const Duration(milliseconds: 300),
-            curve: Curves.easeInOut,
-          );
+        _rememberRound(state.scoreboard.currentRoundNumber);
+        if (state.currentPlayerIndex != _currentPageIndex) {
+          _animateToPlayer(state.currentPlayerIndex);
         }
 
         if (state.gameEnded &&
@@ -172,7 +213,7 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
             resizeToAvoidBottomInset: false,
             appBar: CustomAppBar(
               leftButtonText: S.of(context).menu,
-              onLeftButtonPressed: () => Navigator.pushNamed(context, '/home'),
+              onLeftButtonPressed: _leaveToHome,
               isRules: true,
               rightButtonText: S.of(context).rules,
               onRightButtonPressed: () =>
@@ -213,9 +254,9 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
                         child: Text(
                           leaders.length > 1
                               ? '${S.of(context).unoZeroTied}: ${leaders.map((index) => gameState.players[index].name).join(', ')}'
-                                    .toLowerCase()
+                                  .toLowerCase()
                               : '${S.of(context).unoZeroLeading}: ${gameState.players[leaders.first].name}'
-                                    .toLowerCase(),
+                                  .toLowerCase(),
                           style: theme.display2.copyWith(color: theme.redColor),
                         ),
                       ),
@@ -229,10 +270,11 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
                             controller: _pageController,
                             itemCount: gameState.players.length,
                             onPageChanged: (index) {
+                              if (_ignorePageChanges) return;
                               _currentPageIndex = index;
                               context.read<UnoZeroBloc>().add(
-                                ChangeUnoZeroCurrentPlayer(index),
-                              );
+                                    ChangeUnoZeroCurrentPlayer(index),
+                                  );
                             },
                             itemBuilder: (context, index) {
                               final player = gameState.players[index];
@@ -294,12 +336,11 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
                                 : entry.value.name.substring(0, 1);
                             return GestureDetector(
                               behavior: HitTestBehavior.opaque,
-                              onTap: () {
-                                _pageController.animateToPage(
-                                  index,
-                                  duration: const Duration(milliseconds: 300),
-                                  curve: Curves.easeInOut,
-                                );
+                              onTap: () async {
+                                final bloc = context.read<UnoZeroBloc>();
+                                final moved = await _animateToPlayer(index);
+                                if (!mounted || !moved) return;
+                                bloc.add(ChangeUnoZeroCurrentPlayer(index));
                               },
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
@@ -326,6 +367,7 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
                       onDigit: _pushDigit,
                       onBackspace: _backspace,
                       onConfirm: _confirmScore,
+                      enabled: !_scoreEntryLocked,
                     ),
                   ),
                   const SizedBox(height: 12),
@@ -333,7 +375,9 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
               ),
             ),
             bottomNavigationBar: BottomGameBar(
-              dialogWidget: const InfoUnoZeroDialog(),
+              dialogWidget: InfoUnoZeroDialog(
+                totalRounds: board.totalRounds,
+              ),
               isArrow: true,
               rightButtonText: S.of(context).options,
               onLeftArrowTap: () =>

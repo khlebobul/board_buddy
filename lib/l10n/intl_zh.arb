@@ -522,7 +522,7 @@
   "unoZeroClearColumnTitle": "列：",
   "unoZeroEndRound": "当一位玩家的牌全部正面朝上时，本轮结束。其余玩家翻开剩余的牌，清掉相符的列，再把留下的牌加总。空网格记 0 分。本轮分数最低的人开始下一轮。",
   "unoZeroEndRoundTitle": "本轮结束：",
-  "unoZeroGameObjectiveDescription": "尽量得到更少的分数。9 轮之后，总分最低的人获胜。",
+  "unoZeroGameObjectiveDescription": "尽量得到更少的分数。标准对局是 9 轮，并在开局选定的轮数后结束。总分最低的人获胜。",
   "unoZeroHistory": "记录",
   "unoZeroLeading": "领先",
   "unoZeroOk": "确定",
@@ -541,5 +541,5 @@
   "unoZeroTurnKeep": "从抽牌堆拿到的牌可以留下，并换掉网格中的任意一张；也可以弃掉，再翻开一张背面朝上的牌。",
   "unoZeroUnoCall": "只剩一张背面朝上的牌时要喊 uno。如果在下一回合开始前被指出，就把 2 张背面朝上的牌加为一列。",
   "unoZeroUnoCallTitle": "uno：",
-  "unoZeroVictory": "9 轮之后，总分最低的人获胜。如果几人总分相同，就是平局。"
+  "unoZeroVictory": "按开局选定的轮数结束后，总分最低的人获胜。通常是 9 轮。只有几人共享这个最低总分时才是平局。"
 }

@@ -1039,7 +1039,7 @@ class MessageLookup extends MessageLookupByLibrary {
       '라운드 종료:',
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      '점수를 최대한 낮게 유지합니다. 9라운드 후 총점이 가장 낮은 사람이 이깁니다.',
+      '점수를 최대한 낮게 유지합니다. 표준은 9라운드이며, 시작할 때 고른 라운드 수에서 끝납니다. 총점이 가장 낮은 사람이 이깁니다.',
     ),
     "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
       '기록',
@@ -1096,7 +1096,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'uno:',
     ),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      '9라운드 후 총점이 가장 낮은 사람이 이깁니다. 같은 총점이 여러 명이면 무승부입니다.',
+      '고른 라운드 수 뒤에 총점이 가장 낮은 사람이 이깁니다. 기본은 9라운드입니다. 그 가장 낮은 총점을 함께 가진 경우에만 무승부입니다.',
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "정착지를 도시로 업그레이드 (+1점)",

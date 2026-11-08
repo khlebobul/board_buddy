@@ -1183,7 +1183,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'fine del round:',
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'fai meno punti possibile. dopo 9 round vince il totale più basso.',
+      'fai meno punti possibile. una partita normale dura 9 round e finisce dopo il numero di round scelto all\'inizio. vince il totale più basso.',
     ),
     "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
       'storico',
@@ -1240,7 +1240,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'uno:',
     ),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      'dopo 9 round vince il totale più basso. totali uguali restano un pareggio.',
+      'il totale più basso vince dopo i round scelti. di solito sono 9. è pareggio solo se più giocatori condividono quel totale più basso.',
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "potenzia un insediamento a città (+1 punto)",

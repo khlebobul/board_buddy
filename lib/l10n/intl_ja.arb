@@ -522,7 +522,7 @@
   "unoZeroClearColumnTitle": "列：",
   "unoZeroEndRound": "だれか1人のカードがすべて表になったらラウンド終了です。残りをめくり、揃った列を除き、残ったカードを合計します。空のグリッドは0点です。そのラウンドで一番低い人が次を始めます。",
   "unoZeroEndRoundTitle": "ラウンドの終わり：",
-  "unoZeroGameObjectiveDescription": "できるだけ少ない点数を目指します。9ラウンド後、合計が一番低い人が勝ちです。",
+  "unoZeroGameObjectiveDescription": "できるだけ少ない点数を目指します。標準は9ラウンドで、開始時に選んだラウンド数で終わります。合計が一番低い人が勝ちです。",
   "unoZeroHistory": "履歴",
   "unoZeroLeading": "先頭",
   "unoZeroOk": "ok",
@@ -541,5 +541,5 @@
   "unoZeroTurnKeep": "山札から取ったカードは残してグリッドのどれかと入れ替えるか、捨てて裏向きのカードを1枚めくります。",
   "unoZeroUnoCall": "裏向きが1枚になったら uno と呼びます。次の番が始まる前に指摘されたら、裏向き2枚を新しい列として加えます。",
   "unoZeroUnoCallTitle": "uno：",
-  "unoZeroVictory": "9ラウンド後、合計が一番低い人が勝ちです。同じ合計が複数いるときは引き分けです。"
+  "unoZeroVictory": "選んだラウンド数のあと、合計が一番低い人が勝ちです。標準は9ラウンドです。その一番低い合計を共有するときだけ引き分けです。"
 }

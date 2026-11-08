@@ -6,12 +6,14 @@ class UnoZeroKeyboard extends StatelessWidget {
   final ValueChanged<String> onDigit;
   final VoidCallback onBackspace;
   final VoidCallback onConfirm;
+  final bool enabled;
 
   const UnoZeroKeyboard({
     super.key,
     required this.onDigit,
     required this.onBackspace,
     required this.onConfirm,
+    this.enabled = true,
   });
 
   @override
@@ -20,7 +22,7 @@ class UnoZeroKeyboard extends StatelessWidget {
       return KeyboardButton(
         buttonText: value,
         useCompactMargin: true,
-        onPressed: () => onDigit(value),
+        onPressed: enabled ? () => onDigit(value) : null,
       );
     }
 
@@ -34,12 +36,12 @@ class UnoZeroKeyboard extends StatelessWidget {
           KeyboardButton(
             buttonText: '←',
             useCompactMargin: true,
-            onPressed: onBackspace,
+            onPressed: enabled ? onBackspace : null,
           ),
           KeyboardButton(
             buttonText: S.of(context).unoZeroOk,
             useCompactMargin: true,
-            onPressed: onConfirm,
+            onPressed: enabled ? onConfirm : null,
           ),
         ],
       ],

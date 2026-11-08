@@ -8,6 +8,8 @@ part 'uno_zero_event.dart';
 part 'uno_zero_state.dart';
 
 class UnoZeroBloc extends Bloc<UnoZeroEvent, UnoZeroState> {
+  Future<void> _sessionWrites = Future<void>.value();
+
   UnoZeroBloc() : super(UnoZeroInitial()) {
     on<InitializeUnoZeroStartScreen>(_onInitializeStartScreen);
     on<AddUnoZeroPlayer>(_onAddPlayer);
@@ -65,10 +67,11 @@ class UnoZeroBloc extends Bloc<UnoZeroEvent, UnoZeroState> {
     Emitter<UnoZeroState> emit,
   ) async {
     if (state is! UnoZeroStartScreenState) return;
-    final current = state as UnoZeroStartScreenState;
     final hasSavedGame = await DatabaseService.hasGameSession(
       UnoZeroScoreboard.gameType,
     );
+    if (state is! UnoZeroStartScreenState) return;
+    final current = state as UnoZeroStartScreenState;
     emit(current.copyWith(hasSavedGame: hasSavedGame));
   }
 
@@ -76,35 +79,47 @@ class UnoZeroBloc extends Bloc<UnoZeroEvent, UnoZeroState> {
     LoadSavedUnoZeroGame event,
     Emitter<UnoZeroState> emit,
   ) async {
-    final gameData = await DatabaseService.getLatestGameSession(
-      UnoZeroScoreboard.gameType,
-    );
-    if (gameData == null) {
-      emit(UnoZeroLoadFailed());
-      return;
-    }
+    try {
+      final gameData = await DatabaseService.getLatestGameSession(
+        UnoZeroScoreboard.gameType,
+      );
+      if (gameData == null) {
+        emit(UnoZeroLoadFailed());
+        return;
+      }
 
-    final session = Map<String, dynamic>.from(gameData['session'] as Map);
-    final players = List<Player>.from(gameData['players'] as List<Player>);
-    final scoreboard = UnoZeroScoreboard.fromJson(session);
-    emit(
-      UnoZeroGameState(
-        players: _withTotals(players, scoreboard),
-        scoreboard: scoreboard,
-        gameEnded: scoreboard.isComplete,
-      ),
-    );
+      final session = Map<String, dynamic>.from(gameData['session'] as Map);
+      final players = List<Player>.from(gameData['players'] as List<Player>);
+      final scoreboard = UnoZeroScoreboard.fromJson(session);
+      if (players.length != scoreboard.playerCount) {
+        emit(UnoZeroLoadFailed());
+        return;
+      }
+      emit(
+        UnoZeroGameState(
+          players: _withTotals(players, scoreboard),
+          scoreboard: scoreboard,
+          gameEnded: scoreboard.isComplete,
+        ),
+      );
+    } catch (error) {
+      debugPrint('Error loading uno zero session: $error');
+      emit(UnoZeroLoadFailed());
+    }
   }
 
   Future<void> _onDeleteSavedGame(
     DeleteSavedUnoZeroGame event,
     Emitter<UnoZeroState> emit,
   ) async {
-    await DatabaseService.deleteGameSession(UnoZeroScoreboard.gameType);
-    if (state is UnoZeroStartScreenState) {
-      final current = state as UnoZeroStartScreenState;
-      emit(current.copyWith(hasSavedGame: false));
-    }
+    await _enqueueSessionWrite(() async {
+      await DatabaseService.deleteGameSession(UnoZeroScoreboard.gameType);
+      if (isClosed || emit.isDone) return;
+      if (state is UnoZeroStartScreenState) {
+        final current = state as UnoZeroStartScreenState;
+        emit(current.copyWith(hasSavedGame: false));
+      }
+    });
   }
 
   void _onInitializeGame(
@@ -238,24 +253,32 @@ class UnoZeroBloc extends Bloc<UnoZeroEvent, UnoZeroState> {
     SaveUnoZeroGameSession event,
     Emitter<UnoZeroState> emit,
   ) async {
-    if (state is! UnoZeroGameState) return;
-    final current = state as UnoZeroGameState;
-    try {
-      await DatabaseService.deleteGameSession(UnoZeroScoreboard.gameType);
-      await DatabaseService.saveGameSession(
-        gameType: UnoZeroScoreboard.gameType,
-        scoreLimit: current.scoreboard.totalRounds,
-        gameMode: 'lowest_score',
-        players: current.players,
-        playerScoreHistory: {
-          for (var i = 0; i < current.players.length; i++)
-            i: current.scoreboard.previousScores(i),
-        },
-        customData: current.scoreboard.toJson(),
-      );
-    } catch (error) {
-      debugPrint('Error saving uno zero session: $error');
-    }
+    await _enqueueSessionWrite(() async {
+      if (state is! UnoZeroGameState) return;
+      final current = state as UnoZeroGameState;
+      if (current.scoreboard.isComplete) return;
+      try {
+        await DatabaseService.replaceGameSession(
+          gameType: UnoZeroScoreboard.gameType,
+          scoreLimit: current.scoreboard.totalRounds,
+          gameMode: 'lowest_score',
+          players: current.players,
+          playerScoreHistory: {
+            for (var i = 0; i < current.players.length; i++)
+              i: current.scoreboard.previousScores(i),
+          },
+          customData: current.scoreboard.toJson(),
+        );
+      } catch (error) {
+        debugPrint('Error saving uno zero session: $error');
+      }
+    });
+  }
+
+  Future<void> _enqueueSessionWrite(Future<void> Function() action) {
+    final operation = _sessionWrites.catchError((_) {}).then((_) => action());
+    _sessionWrites = operation;
+    return operation;
   }
 
   List<Player> _withTotals(List<Player> players, UnoZeroScoreboard scoreboard) {

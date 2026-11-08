@@ -521,7 +521,7 @@
   "unoZeroClearColumnTitle": "spalten:",
   "unoZeroEndRound": "eine runde endet, wenn ein spieler alle karten offen hat. alle decken auf, entfernen passende spalten und zählen die restkarten. ein leeres raster gibt 0. der niedrigste wert beginnt die nächste runde.",
   "unoZeroEndRoundTitle": "ende der runde:",
-  "unoZeroGameObjectiveDescription": "sammle so wenige punkte wie möglich. nach 9 runden gewinnt die niedrigste summe.",
+  "unoZeroGameObjectiveDescription": "sammle so wenige punkte wie möglich. ein übliches spiel dauert 9 runden und endet nach der zu beginn gewählten rundenzahl. die niedrigste summe gewinnt.",
   "unoZeroHistory": "verlauf",
   "unoZeroLeading": "führt",
   "unoZeroOk": "ok",
@@ -540,5 +540,5 @@
   "unoZeroTurnKeep": "vom nachziehstapel kannst du die karte behalten und gegen eine karte im raster tauschen oder ablegen und eine verdeckte karte aufdecken.",
   "unoZeroUnoCall": "liegt nur noch eine verdeckte karte, rufe uno. wirst du vor dem nächsten zug erwischt, legst du 2 verdeckte karten als neue spalte.",
   "unoZeroUnoCallTitle": "uno:",
-  "unoZeroVictory": "nach 9 runden gewinnt die niedrigste summe. gleiche summen bleiben unentschieden."
+  "unoZeroVictory": "die niedrigste summe gewinnt nach der gewählten rundenzahl. üblich sind 9 runden. unentschieden ist es nur, wenn mehrere spieler diese niedrigste summe teilen."
 }

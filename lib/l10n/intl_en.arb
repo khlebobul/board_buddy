@@ -522,7 +522,7 @@
   "unoZeroClearColumnTitle": "columns:",
   "unoZeroEndRound": "a round ends when one player has every card face up. everyone flips the rest, clears matching columns, and adds up the cards left. a cleared grid scores 0. the lowest score starts the next round.",
   "unoZeroEndRoundTitle": "end of the round:",
-  "unoZeroGameObjectiveDescription": "score as few points as you can. after 9 rounds, the lowest total wins.",
+  "unoZeroGameObjectiveDescription": "score as few points as you can. a standard match lasts 9 rounds, and the match ends after the number of rounds chosen at the start. the lowest total wins.",
   "unoZeroHistory": "history",
   "unoZeroLeading": "leading",
   "unoZeroOk": "ok",
@@ -541,5 +541,5 @@
   "unoZeroTurnKeep": "from the draw pile, keep the card and swap it with any card in your grid, or discard it and flip one face-down card.",
   "unoZeroUnoCall": "with one face-down card left, call uno. if you are caught before the next turn, add 2 face-down cards as a new column.",
   "unoZeroUnoCallTitle": "uno:",
-  "unoZeroVictory": "after 9 rounds, the lowest total wins. if several players share that total, the game is a tie."
+  "unoZeroVictory": "the lowest total wins after the chosen number of rounds. the usual length is 9. if several players share that lowest total, the game is a tie."
 }

@@ -1026,7 +1026,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'ラウンドの終わり：',
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'できるだけ少ない点数を目指します。9ラウンド後、合計が一番低い人が勝ちです。',
+      'できるだけ少ない点数を目指します。標準は9ラウンドで、開始時に選んだラウンド数で終わります。合計が一番低い人が勝ちです。',
     ),
     "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
       '履歴',
@@ -1083,7 +1083,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'uno：',
     ),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      '9ラウンド後、合計が一番低い人が勝ちです。同じ合計が複数いるときは引き分けです。',
+      '選んだラウンド数のあと、合計が一番低い人が勝ちです。標準は9ラウンドです。その一番低い合計を共有するときだけ引き分けです。',
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "集落を都市にアップグレード（+1ポイント）",

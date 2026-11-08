@@ -1187,7 +1187,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'fin de la ronda:',
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'consigue la menor puntuación. tras 9 rondas, gana el total más bajo.',
+      'consigue la menor puntuación. una partida habitual dura 9 rondas y termina tras el número de rondas elegido al empezar. gana el total más bajo.',
     ),
     "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
       'historial',
@@ -1244,7 +1244,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'uno:',
     ),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      'tras 9 rondas, gana el total más bajo. si varios empatan, es un empate.',
+      'gana el total más bajo tras las rondas elegidas. lo habitual son 9. solo hay empate si varios jugadores comparten ese total más bajo.',
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "mejora un poblado a ciudad (+1 punto)",

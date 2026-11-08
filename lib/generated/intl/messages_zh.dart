@@ -987,7 +987,7 @@ class MessageLookup extends MessageLookupByLibrary {
       '本轮结束：',
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      '尽量得到更少的分数。9 轮之后，总分最低的人获胜。',
+      '尽量得到更少的分数。标准对局是 9 轮，并在开局选定的轮数后结束。总分最低的人获胜。',
     ),
     "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
       '记录',
@@ -1044,7 +1044,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'uno：',
     ),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      '9 轮之后，总分最低的人获胜。如果几人总分相同，就是平局。',
+      '按开局选定的轮数结束后，总分最低的人获胜。通常是 9 轮。只有几人共享这个最低总分时才是平局。',
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "将定居点升级为城市（+1分）",

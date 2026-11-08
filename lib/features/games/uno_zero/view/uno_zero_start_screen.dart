@@ -58,7 +58,7 @@ class _UnoZeroStartScreenViewState extends State<UnoZeroStartScreenView> {
         final theme = UIThemes.of(context);
 
         return PopScope(
-          canPop: false,
+          canPop: true,
           child: Scaffold(
             appBar: CustomAppBar(
               leftButtonText: S.of(context).back,
@@ -68,8 +68,7 @@ class _UnoZeroStartScreenViewState extends State<UnoZeroStartScreenView> {
             ),
             body: SafeArea(
               child: Padding(
-                padding:
-                    const EdgeInsets.symmetric(
+                padding: const EdgeInsets.symmetric(
                       horizontal: GeneralConst.paddingHorizontal,
                     ) +
                     const EdgeInsets.only(top: GeneralConst.paddingVertical),
@@ -128,9 +127,9 @@ class _UnoZeroStartScreenViewState extends State<UnoZeroStartScreenView> {
                           final index = entry.key + 1;
                           final player = entry.value;
                           final formattedIndex = index.toString().padLeft(
-                            2,
-                            '0',
-                          );
+                                2,
+                                '0',
+                              );
                           return Row(
                             mainAxisAlignment: MainAxisAlignment.spaceBetween,
                             children: [
@@ -150,8 +149,8 @@ class _UnoZeroStartScreenViewState extends State<UnoZeroStartScreenView> {
                                 strokeWidth: 1.5,
                                 onTap: () {
                                   context.read<UnoZeroBloc>().add(
-                                    RemoveUnoZeroPlayer(entry.key),
-                                  );
+                                        RemoveUnoZeroPlayer(entry.key),
+                                      );
                                 },
                               ),
                             ],

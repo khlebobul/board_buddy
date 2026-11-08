@@ -1148,7 +1148,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'राउंड का अंत:',
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'जितने हो सकें उतने कम अंक लें। 9 राउंड के बाद सबसे कम कुल जीतता है।',
+      'जितने हो सकें उतने कम अंक लें। आम खेल 9 राउंड का होता है और शुरुआत में चुनी राउंड संख्या पर खत्म होता है। सबसे कम कुल जीतता है।',
     ),
     "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
       'इतिहास',
@@ -1205,7 +1205,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'uno:',
     ),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      '9 राउंड के बाद सबसे कम कुल जीतता है। एक जैसा कुल टाई रहता है।',
+      'चुनी हुई राउंड संख्या के बाद सबसे कम कुल जीतता है। आमतौर पर 9 राउंड होते हैं। टाई तभी है जब कई खिलाड़ी वही सबसे कम कुल साझा करें।',
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "बस्ती को शहर में अपग्रेड करें (+1 अंक)",

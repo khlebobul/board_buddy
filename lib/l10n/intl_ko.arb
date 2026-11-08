@@ -522,7 +522,7 @@
   "unoZeroClearColumnTitle": "열:",
   "unoZeroEndRound": "한 사람의 카드가 모두 앞면이 되면 라운드가 끝납니다. 모두 나머지를 뒤집고, 맞는 열을 치운 뒤 남은 카드를 더합니다. 빈 격자는 0점입니다. 그 라운드에서 가장 낮은 점수가 다음 라운드를 시작합니다.",
   "unoZeroEndRoundTitle": "라운드 종료:",
-  "unoZeroGameObjectiveDescription": "점수를 최대한 낮게 유지합니다. 9라운드 후 총점이 가장 낮은 사람이 이깁니다.",
+  "unoZeroGameObjectiveDescription": "점수를 최대한 낮게 유지합니다. 표준은 9라운드이며, 시작할 때 고른 라운드 수에서 끝납니다. 총점이 가장 낮은 사람이 이깁니다.",
   "unoZeroHistory": "기록",
   "unoZeroLeading": "선두",
   "unoZeroOk": "확인",
@@ -541,5 +541,5 @@
   "unoZeroTurnKeep": "드로우 더미에서 가져온 카드는 남기고 격자의 아무 카드와 바꾸거나, 버리고 뒷면 카드 한 장을 뒤집습니다.",
   "unoZeroUnoCall": "뒷면 카드가 한 장 남으면 uno라고 말합니다. 다음 차례 전에 걸리면 뒷면 2장을 새 열로 넣습니다.",
   "unoZeroUnoCallTitle": "uno:",
-  "unoZeroVictory": "9라운드 후 총점이 가장 낮은 사람이 이깁니다. 같은 총점이 여러 명이면 무승부입니다."
+  "unoZeroVictory": "고른 라운드 수 뒤에 총점이 가장 낮은 사람이 이깁니다. 기본은 9라운드입니다. 그 가장 낮은 총점을 함께 가진 경우에만 무승부입니다."
 }

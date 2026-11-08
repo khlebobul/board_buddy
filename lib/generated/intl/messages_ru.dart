@@ -1184,7 +1184,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'конец раунда:',
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'набирайте как можно меньше очков. после 9 раундов побеждает наименьшая сумма.',
+      'набирайте как можно меньше очков. обычная партия длится 9 раундов, а заканчивается после числа раундов, выбранного в начале. побеждает наименьшая сумма.',
     ),
     "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
       'история',
@@ -1241,7 +1241,7 @@ class MessageLookup extends MessageLookupByLibrary {
       'uno:',
     ),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      'после 9 раундов побеждает наименьшая сумма. если она одинаковая у нескольких игроков, это ничья.',
+      'после выбранного числа раундов побеждает наименьшая сумма. обычно их 9. ничья только если эту наименьшую сумму набрали несколько игроков.',
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "улучшите поселение до города (+1 очко)",

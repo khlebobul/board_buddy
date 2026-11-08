@@ -23,8 +23,9 @@ class GameEndModalHelper {
     required VoidCallback onReturnToMenu,
     required void Function(Player player) onAddPlayerToBloc,
     required Function(List<Player> players, String gameMode, int scoreLimit)
-    onReopenModal,
+        onReopenModal,
     bool highlightTies = false,
+    bool popHomeOnReturn = false,
   }) {
     GameEndUnoModalWidget.show(
       context,
@@ -47,6 +48,12 @@ class GameEndModalHelper {
       },
       onReturnToMenu: () {
         onReturnToMenu();
+        if (popHomeOnReturn) {
+          Navigator.of(context).popUntil(
+            (route) => route.settings.name == '/home' || route.isFirst,
+          );
+          return;
+        }
         Navigator.pushNamed(context, '/home');
       },
       onAddPlayer: players.length < maxPlayers

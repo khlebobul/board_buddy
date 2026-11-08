@@ -522,7 +522,7 @@
   "unoZeroClearColumnTitle": "colonnes :",
   "unoZeroEndRound": "la manche se termine quand un joueur a toutes ses cartes face visible. chacun retourne le reste, retire les colonnes identiques et additionne les cartes restantes. une grille vide vaut 0. le score le plus bas commence la manche suivante.",
   "unoZeroEndRoundTitle": "fin de la manche :",
-  "unoZeroGameObjectiveDescription": "marquez le moins de points possible. après 9 manches, le total le plus bas gagne.",
+  "unoZeroGameObjectiveDescription": "marquez le moins de points possible. une partie habituelle dure 9 manches et se termine après le nombre de manches choisi au départ. le total le plus bas gagne.",
   "unoZeroHistory": "historique",
   "unoZeroLeading": "en tête",
   "unoZeroOk": "ok",
@@ -541,5 +541,5 @@
   "unoZeroTurnKeep": "depuis la pioche, gardez la carte et échangez-la avec une carte de la grille, ou défaussez-la et retournez une carte face cachée.",
   "unoZeroUnoCall": "s'il ne reste qu'une carte face cachée, dites uno. si l'on vous prend avant le tour suivant, ajoutez 2 cartes face cachée en nouvelle colonne.",
   "unoZeroUnoCallTitle": "uno :",
-  "unoZeroVictory": "après 9 manches, le total le plus bas gagne. un total partagé reste une égalité."
+  "unoZeroVictory": "le total le plus bas gagne après le nombre de manches choisi. la durée habituelle est de 9 manches. il n'y a égalité que si plusieurs joueurs partagent ce total le plus bas."
 }

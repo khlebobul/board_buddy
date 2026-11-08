@@ -117,6 +117,26 @@ void main() {
     expect(continued.totalRounds, 2);
     expect(continued.currentRoundNumber, 2);
     expect(continued.total(0), 2);
+    expect(continued.canUndo, isTrue);
+
+    final returned = continued.undo();
+    expect(returned.isComplete, isTrue);
+    expect(returned.totalRounds, 1);
+    expect(returned.canUndo, isTrue);
+
+    final redone = returned.redo();
+    expect(redone.isComplete, isFalse);
+    expect(redone.totalRounds, 2);
+    expect(redone.currentRoundNumber, 2);
+
+    final reopened = returned.undo();
+    expect(reopened.isComplete, isFalse);
+    expect(reopened.currentRoundScore(0), 2);
+    expect(reopened.currentRoundScore(1), isNull);
+
+    final restored = UnoZeroScoreboard.fromJson(continued.toJson());
+    expect(restored.undo().isComplete, isTrue);
+    expect(restored.undo().undo().currentRoundScore(1), isNull);
   });
 
   test('a saved scoreboard restores rounds, totals and undo', () {

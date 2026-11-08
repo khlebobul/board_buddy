@@ -520,7 +520,7 @@
   "unoZeroClearColumnTitle": "columnas:",
   "unoZeroEndRound": "la ronda termina cuando un jugador tiene todas las cartas boca arriba. todos voltean el resto, quitan columnas iguales y suman las cartas que quedan. una cuadrícula vacía vale 0. la puntuación más baja empieza la siguiente ronda.",
   "unoZeroEndRoundTitle": "fin de la ronda:",
-  "unoZeroGameObjectiveDescription": "consigue la menor puntuación. tras 9 rondas, gana el total más bajo.",
+  "unoZeroGameObjectiveDescription": "consigue la menor puntuación. una partida habitual dura 9 rondas y termina tras el número de rondas elegido al empezar. gana el total más bajo.",
   "unoZeroHistory": "historial",
   "unoZeroLeading": "lidera",
   "unoZeroOk": "ok",
@@ -539,5 +539,5 @@
   "unoZeroTurnKeep": "del mazo puedes quedarte la carta y cambiarla por cualquiera de la cuadrícula, o descartarla y voltear una carta boca abajo.",
   "unoZeroUnoCall": "cuando queda una carta boca abajo, di uno. si te pillan antes del siguiente turno, añade 2 cartas boca abajo como columna nueva.",
   "unoZeroUnoCallTitle": "uno:",
-  "unoZeroVictory": "tras 9 rondas, gana el total más bajo. si varios empatan, es un empate."
+  "unoZeroVictory": "gana el total más bajo tras las rondas elegidas. lo habitual son 9. solo hay empate si varios jugadores comparten ese total más bajo."
 }

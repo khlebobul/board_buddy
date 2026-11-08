@@ -4486,10 +4486,10 @@ class S {
     );
   }
 
-  /// `score as few points as you can. after 9 rounds, the lowest total wins.`
+  /// `score as few points as you can. a standard match lasts 9 rounds, and the match ends after the number of rounds chosen at the start. the lowest total wins.`
   String get unoZeroGameObjectiveDescription {
     return Intl.message(
-      'score as few points as you can. after 9 rounds, the lowest total wins.',
+      'score as few points as you can. a standard match lasts 9 rounds, and the match ends after the number of rounds chosen at the start. the lowest total wins.',
       name: 'unoZeroGameObjectiveDescription',
       desc: '',
       args: [],
@@ -4676,10 +4676,10 @@ class S {
     );
   }
 
-  /// `after 9 rounds, the lowest total wins. if several players share that total, the game is a tie.`
+  /// `the lowest total wins after the chosen number of rounds. the usual length is 9. if several players share that lowest total, the game is a tie.`
   String get unoZeroVictory {
     return Intl.message(
-      'after 9 rounds, the lowest total wins. if several players share that total, the game is a tie.',
+      'the lowest total wins after the chosen number of rounds. the usual length is 9. if several players share that lowest total, the game is a tie.',
       name: 'unoZeroVictory',
       desc: '',
       args: [],

@@ -8,6 +8,7 @@ class UnoZeroEdit {
   final int? previous;
   final int next;
   final bool openedRound;
+  final bool continuedMatch;
 
   const UnoZeroEdit({
     required this.roundIndex,
@@ -15,25 +16,27 @@ class UnoZeroEdit {
     required this.previous,
     required this.next,
     required this.openedRound,
+    this.continuedMatch = false,
   });
 
   Map<String, dynamic> toJson() => {
-    'roundIndex': roundIndex,
-    'playerIndex': playerIndex,
-    'previous': previous,
-    'next': next,
-    'openedRound': openedRound,
-  };
+        'roundIndex': roundIndex,
+        'playerIndex': playerIndex,
+        'previous': previous,
+        'next': next,
+        'openedRound': openedRound,
+        'continuedMatch': continuedMatch,
+      };
 
   factory UnoZeroEdit.fromJson(Map<String, dynamic> json) {
     return UnoZeroEdit(
       roundIndex: (json['roundIndex'] as num).toInt(),
       playerIndex: (json['playerIndex'] as num).toInt(),
-      previous: json['previous'] == null
-          ? null
-          : (json['previous'] as num).toInt(),
+      previous:
+          json['previous'] == null ? null : (json['previous'] as num).toInt(),
       next: (json['next'] as num).toInt(),
       openedRound: json['openedRound'] == true,
+      continuedMatch: json['continuedMatch'] == true,
     );
   }
 }
@@ -170,7 +173,7 @@ class UnoZeroScoreboard {
     nextRounds[roundIndex][playerIndex] = score;
     final openedRound =
         nextRounds[roundIndex].every((value) => value != null) &&
-        nextRounds.length < totalRounds;
+            nextRounds.length < totalRounds;
     if (openedRound) {
       nextRounds.add(List<int?>.filled(playerCount, null));
     }
@@ -194,9 +197,12 @@ class UnoZeroScoreboard {
   UnoZeroScoreboard undo() {
     if (!canUndo) return this;
     final edit = undoStack.last;
+    final nextRounds = _apply(edit, forward: false);
+    final droppedContinuation =
+        edit.continuedMatch && nextRounds.length < rounds.length;
     return UnoZeroScoreboard(
-      totalRounds: totalRounds,
-      rounds: _apply(edit, forward: false),
+      totalRounds: droppedContinuation ? totalRounds - 1 : totalRounds,
+      rounds: nextRounds,
       undoStack: undoStack.sublist(0, undoStack.length - 1),
       redoStack: [...redoStack, edit],
     );
@@ -205,21 +211,38 @@ class UnoZeroScoreboard {
   UnoZeroScoreboard redo() {
     if (!canRedo) return this;
     final edit = redoStack.last;
+    final nextRounds = _apply(edit, forward: true);
+    final addedContinuation =
+        edit.continuedMatch && nextRounds.length > rounds.length;
     return UnoZeroScoreboard(
-      totalRounds: totalRounds,
-      rounds: _apply(edit, forward: true),
+      totalRounds: addedContinuation ? totalRounds + 1 : totalRounds,
+      rounds: nextRounds,
       undoStack: [...undoStack, edit],
       redoStack: redoStack.sublist(0, redoStack.length - 1),
     );
   }
 
   /// Keeps the finished rounds and opens one more, so a completed match can
-  /// continue without inventing a winner.
+  /// continue without inventing a winner. The extra round is an undo step, so
+  /// earlier scores can still be corrected.
   UnoZeroScoreboard continuePastEnd() {
     if (!isComplete) return this;
+    final lastRound = rounds.length - 1;
+    final keptScore = rounds[lastRound][0] ?? 0;
     return UnoZeroScoreboard(
       totalRounds: totalRounds + 1,
       rounds: [..._copyRounds(), List<int?>.filled(playerCount, null)],
+      undoStack: [
+        ...undoStack,
+        UnoZeroEdit(
+          roundIndex: lastRound,
+          playerIndex: 0,
+          previous: keptScore,
+          next: keptScore,
+          openedRound: false,
+          continuedMatch: true,
+        ),
+      ],
     );
   }
 
@@ -231,11 +254,11 @@ class UnoZeroScoreboard {
   }
 
   Map<String, dynamic> toJson() => {
-    'totalRounds': totalRounds,
-    'rounds': rounds,
-    'undo': undoStack.map((edit) => edit.toJson()).toList(),
-    'redo': redoStack.map((edit) => edit.toJson()).toList(),
-  };
+        'totalRounds': totalRounds,
+        'rounds': rounds,
+        'undo': undoStack.map((edit) => edit.toJson()).toList(),
+        'redo': redoStack.map((edit) => edit.toJson()).toList(),
+      };
 
   factory UnoZeroScoreboard.fromJson(Map<String, dynamic> json) {
     final rawRounds = json['rounds'] as List<dynamic>;
@@ -274,6 +297,18 @@ class UnoZeroScoreboard {
 
   List<List<int?>> _apply(UnoZeroEdit edit, {required bool forward}) {
     final nextRounds = _copyRounds();
+    if (edit.continuedMatch) {
+      if (forward) {
+        if (nextRounds.length == edit.roundIndex + 1) {
+          nextRounds.add(List<int?>.filled(playerCount, null));
+        }
+        return nextRounds;
+      }
+      final canDrop = nextRounds.length == edit.roundIndex + 2 &&
+          nextRounds.last.every((score) => score == null);
+      if (canDrop) nextRounds.removeLast();
+      return nextRounds;
+    }
     if (forward) {
       nextRounds[edit.roundIndex][edit.playerIndex] = edit.next;
       final shouldOpenRound =
@@ -284,8 +319,7 @@ class UnoZeroScoreboard {
       return nextRounds;
     }
 
-    final extraRound =
-        edit.openedRound &&
+    final extraRound = edit.openedRound &&
         nextRounds.length == edit.roundIndex + 2 &&
         nextRounds.last.every((score) => score == null);
     if (extraRound) nextRounds.removeLast();

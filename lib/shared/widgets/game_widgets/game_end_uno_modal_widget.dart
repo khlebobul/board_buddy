@@ -48,13 +48,10 @@ class GameEndUnoModalWidget extends StatelessWidget {
 
     // The first player after sorting is the best score. Ties share that place.
     final Player winner = sortedPlayers.first;
-    final highlightedIds = highlightTies
-        ? sortedPlayers
-              .where((player) => player.score == winner.score)
-              .map((player) => player.id)
-              .toSet()
-        : {winner.id};
-    final isTie = highlightedIds.length > 1;
+    final highlightedPlayers = highlightTies
+        ? sortedPlayers.where((player) => player.score == winner.score).toList()
+        : <Player>[winner];
+    final isTie = highlightedPlayers.length > 1;
 
     return Dialog(
       shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(12.0)),
@@ -112,7 +109,7 @@ class GameEndUnoModalWidget extends StatelessWidget {
                     ),
                     child: Column(
                       children: sortedPlayers.map((player) {
-                        final isWinner = highlightedIds.contains(player.id);
+                        final isWinner = highlightedPlayers.contains(player);
                         return Padding(
                           padding: const EdgeInsets.symmetric(vertical: 8.0),
                           child: Row(

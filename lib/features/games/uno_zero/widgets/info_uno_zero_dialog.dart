@@ -5,7 +5,9 @@ import 'package:board_buddy/shared/widgets/ui/info_row_widget.dart';
 import 'package:flutter/material.dart';
 
 class InfoUnoZeroDialog extends StatelessWidget {
-  const InfoUnoZeroDialog({super.key});
+  final int totalRounds;
+
+  const InfoUnoZeroDialog({super.key, required this.totalRounds});
 
   @override
   Widget build(BuildContext context) {
@@ -28,7 +30,7 @@ class InfoUnoZeroDialog extends StatelessWidget {
         ),
         InfoRowWidget(
           context: context,
-          cardName: '9',
+          cardName: '$totalRounds',
           title: S.of(context).victoryTitle,
           description: S.of(context).unoZeroVictory,
         ),
