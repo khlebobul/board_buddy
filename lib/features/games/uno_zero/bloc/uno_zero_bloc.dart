@@ -8,7 +8,9 @@ part 'uno_zero_event.dart';
 part 'uno_zero_state.dart';
 
 class UnoZeroBloc extends Bloc<UnoZeroEvent, UnoZeroState> {
-  Future<void> _sessionWrites = Future<void>.value();
+  /// One queue for every UNO Zero bloc, so a disposed game cannot delete a
+  /// newer game's checkpoint.
+  static Future<void> _sessionWrites = Future<void>.value();
 
   UnoZeroBloc() : super(UnoZeroInitial()) {
     on<InitializeUnoZeroStartScreen>(_onInitializeStartScreen);

@@ -78,9 +78,9 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
     ).popUntil((route) => route.settings.name == '/home' || route.isFirst);
   }
 
-  Future<bool> _animateToPlayer(int index) async {
-    if (_scoreEntryLocked || !_pageController.hasClients) return false;
-    if (_currentPageIndex == index) return true;
+  Future<void> _animateToPlayer(int index) async {
+    if (_scoreEntryLocked || !_pageController.hasClients) return;
+    if (_currentPageIndex == index) return;
     setState(() {
       _scoreEntryLocked = true;
       _ignorePageChanges = true;
@@ -91,16 +91,29 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
         duration: const Duration(milliseconds: 300),
         curve: Curves.easeInOut,
       );
-    } finally {
-      if (mounted) {
-        setState(() {
-          _currentPageIndex = index;
-          _scoreEntryLocked = false;
-          _ignorePageChanges = false;
-        });
-      }
+    } catch (_) {
+      // A drag can cancel the animation before the page settles.
     }
-    return true;
+    _settleVisiblePage();
+  }
+
+  void _settleVisiblePage() {
+    if (!_scoreEntryLocked || !mounted || !_pageController.hasClients) return;
+    final page = _pageController.page;
+    if (page == null) return;
+    final settled = page.round();
+    if ((page - settled).abs() > 0.01) return;
+
+    final bloc = context.read<UnoZeroBloc>();
+    final state = bloc.state;
+    setState(() {
+      _currentPageIndex = settled;
+      _scoreEntryLocked = false;
+      _ignorePageChanges = false;
+    });
+    if (state is UnoZeroGameState && state.currentPlayerIndex != settled) {
+      bloc.add(ChangeUnoZeroCurrentPlayer(settled));
+    }
   }
 
   void _pushDigit(String digit) {
@@ -266,63 +279,72 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
                     child: Column(
                       children: [
                         Expanded(
-                          child: PageView.builder(
-                            controller: _pageController,
-                            itemCount: gameState.players.length,
-                            onPageChanged: (index) {
-                              if (_ignorePageChanges) return;
-                              _currentPageIndex = index;
-                              context.read<UnoZeroBloc>().add(
-                                    ChangeUnoZeroCurrentPlayer(index),
-                                  );
+                          child: NotificationListener<ScrollNotification>(
+                            onNotification: (notification) {
+                              if (notification is ScrollEndNotification) {
+                                _settleVisiblePage();
+                              }
+                              return false;
                             },
-                            itemBuilder: (context, index) {
-                              final player = gameState.players[index];
-                              final place = board
-                                  .standings()
-                                  .firstWhere(
-                                    (standing) => standing.playerIndex == index,
-                                  )
-                                  .place
-                                  .toString()
-                                  .padLeft(2, '0');
-                              final buffer = _buffers[index] ?? '';
-                              final stored = board.currentRoundScore(index);
-                              final roundText = buffer.isNotEmpty
-                                  ? buffer
-                                  : stored?.toString() ?? '—';
-                              final history = board.previousScores(index);
+                            child: PageView.builder(
+                              controller: _pageController,
+                              itemCount: gameState.players.length,
+                              onPageChanged: (index) {
+                                if (_ignorePageChanges) return;
+                                _currentPageIndex = index;
+                                context.read<UnoZeroBloc>().add(
+                                      ChangeUnoZeroCurrentPlayer(index),
+                                    );
+                              },
+                              itemBuilder: (context, index) {
+                                final player = gameState.players[index];
+                                final place = board
+                                    .standings()
+                                    .firstWhere(
+                                      (standing) =>
+                                          standing.playerIndex == index,
+                                    )
+                                    .place
+                                    .toString()
+                                    .padLeft(2, '0');
+                                final buffer = _buffers[index] ?? '';
+                                final stored = board.currentRoundScore(index);
+                                final roundText = buffer.isNotEmpty
+                                    ? buffer
+                                    : stored?.toString() ?? '—';
+                                final history = board.previousScores(index);
 
-                              return Padding(
-                                padding: const EdgeInsets.symmetric(
-                                  horizontal:
-                                      GeneralConst.paddingHorizontal / 2,
-                                ),
-                                child: Column(
-                                  mainAxisAlignment: MainAxisAlignment.center,
-                                  children: [
-                                    PlayerCard(player: player),
-                                    const SizedBox(height: 8),
-                                    Text(
-                                      '#$place  ${S.of(context).unoZeroThisRound} $roundText',
-                                      style: theme.display2.copyWith(
-                                        color: buffer.isNotEmpty
-                                            ? theme.redColor
-                                            : theme.secondaryTextColor,
-                                      ),
-                                    ),
-                                    if (history.isNotEmpty)
+                                return Padding(
+                                  padding: const EdgeInsets.symmetric(
+                                    horizontal:
+                                        GeneralConst.paddingHorizontal / 2,
+                                  ),
+                                  child: Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: [
+                                      PlayerCard(player: player),
+                                      const SizedBox(height: 8),
                                       Text(
-                                        '${S.of(context).unoZeroHistory} ${history.join(' ')}',
+                                        '#$place  ${S.of(context).unoZeroThisRound} $roundText',
                                         style: theme.display2.copyWith(
-                                          color: theme.secondaryTextColor,
+                                          color: buffer.isNotEmpty
+                                              ? theme.redColor
+                                              : theme.secondaryTextColor,
                                         ),
-                                        textAlign: TextAlign.center,
                                       ),
-                                  ],
-                                ),
-                              );
-                            },
+                                      if (history.isNotEmpty)
+                                        Text(
+                                          '${S.of(context).unoZeroHistory} ${history.join(' ')}',
+                                          style: theme.display2.copyWith(
+                                            color: theme.secondaryTextColor,
+                                          ),
+                                          textAlign: TextAlign.center,
+                                        ),
+                                    ],
+                                  ),
+                                );
+                              },
+                            ),
                           ),
                         ),
                         Row(
@@ -336,12 +358,7 @@ class _UnoZeroGameState extends State<UnoZeroGame> {
                                 : entry.value.name.substring(0, 1);
                             return GestureDetector(
                               behavior: HitTestBehavior.opaque,
-                              onTap: () async {
-                                final bloc = context.read<UnoZeroBloc>();
-                                final moved = await _animateToPlayer(index);
-                                if (!mounted || !moved) return;
-                                bloc.add(ChangeUnoZeroCurrentPlayer(index));
-                              },
+                              onTap: () => _animateToPlayer(index),
                               child: Padding(
                                 padding: const EdgeInsets.symmetric(
                                   horizontal: 4,

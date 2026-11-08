@@ -302,24 +302,52 @@ class DatabaseService {
     });
   }
 
-  // Delete a game session
+  // Delete a game session and its player rows in one transaction.
   static Future<void> deleteGameSession(String gameType) async {
     final db = await database;
 
-    final sessions = await db.query(
-      'game_sessions',
-      where: 'game_type = ?',
-      whereArgs: [gameType],
-    );
-
-    for (final session in sessions) {
-      final sessionId = session['id'] as int;
-      await db.delete(
+    await db.transaction((txn) async {
+      final sessions = await txn.query(
         'game_sessions',
-        where: 'id = ?',
-        whereArgs: [sessionId],
+        columns: ['id'],
+        where: 'game_type = ?',
+        whereArgs: [gameType],
       );
-    }
+
+      for (final session in sessions) {
+        final sessionId = session['id'] as int;
+        await _deleteSessionChildren(txn, sessionId);
+        await txn.delete(
+          'game_sessions',
+          where: 'id = ?',
+          whereArgs: [sessionId],
+        );
+      }
+
+      await _deleteOrphanSessionChildren(txn);
+    });
+  }
+
+  static Future<void> _deleteSessionChildren(
+    Transaction txn,
+    int sessionId,
+  ) async {
+    await txn.delete(
+      'player_score_history',
+      where: 'session_id = ?',
+      whereArgs: [sessionId],
+    );
+    await txn.delete(
+      'players',
+      where: 'session_id = ?',
+      whereArgs: [sessionId],
+    );
+  }
+
+  static Future<void> _deleteOrphanSessionChildren(Transaction txn) async {
+    const orphanSessions = 'session_id NOT IN (SELECT id FROM game_sessions)';
+    await txn.delete('player_score_history', where: orphanSessions);
+    await txn.delete('players', where: orphanSessions);
   }
 
   // Save a game session with custom data
