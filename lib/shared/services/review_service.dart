@@ -1,5 +1,4 @@
-import 'package:in_app_review/in_app_review.dart';
-import 'package:shared_preferences/shared_preferences.dart';
+import 'package:rate_my_app/rate_my_app.dart';
 
 /// Service for handling app reviews
 class ReviewService {
@@ -9,6 +8,13 @@ class ReviewService {
       2; // Minimum times count to request a review
   static const int _daysBeforeNextRequest =
       120; // ~4 months before next request
+
+  /// Play application id and App Store id from the existing store links.
+  static final RateMyApp _rateMyApp = RateMyApp.customConditions(
+    googlePlayIdentifier: 'com.khlebobul.board_buddy',
+    appStoreIdentifier: '6743980638',
+    conditions: const <Condition>[],
+  );
 
   static Future<void> incrementTimesCount() async {
     final prefs = await SharedPreferences.getInstance();
@@ -38,14 +44,12 @@ class ReviewService {
   }
 
   static Future<void> requestReview() async {
-    final InAppReview inAppReview = InAppReview.instance;
-
     if (await shouldRequestReview()) {
-      if (await inAppReview.isAvailable()) {
+      if (await _rateMyApp.isNativeReviewDialogSupported ?? false) {
         final prefs = await SharedPreferences.getInstance();
         await prefs.setInt(
             _lastReviewRequestKey, DateTime.now().millisecondsSinceEpoch);
-        await inAppReview.requestReview();
+        await _rateMyApp.launchNativeReviewDialog();
       }
     }
   }

@@ -1,6 +1,7 @@
 // GENERATED CODE - DO NOT MODIFY BY HAND
 import 'package:flutter/material.dart';
 import 'package:intl/intl.dart';
+
 import 'intl/messages_all.dart';
 
 // **************************************************************************
@@ -4388,12 +4389,7 @@ class S {
 
   /// `uno zero`
   String get unoZero {
-    return Intl.message(
-      'uno zero',
-      name: 'unoZero',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('uno zero', name: 'unoZero', desc: '', args: []);
   }
 
   /// `double draw 2: choose two players to add one column of 2 cards each, or one player to add two columns. nobody loses a turn.`
@@ -4498,32 +4494,17 @@ class S {
 
   /// `history`
   String get unoZeroHistory {
-    return Intl.message(
-      'history',
-      name: 'unoZeroHistory',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('history', name: 'unoZeroHistory', desc: '', args: []);
   }
 
   /// `leading`
   String get unoZeroLeading {
-    return Intl.message(
-      'leading',
-      name: 'unoZeroLeading',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('leading', name: 'unoZeroLeading', desc: '', args: []);
   }
 
   /// `ok`
   String get unoZeroOk {
-    return Intl.message(
-      'ok',
-      name: 'unoZeroOk',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('ok', name: 'unoZeroOk', desc: '', args: []);
   }
 
   /// `deal 6 cards face down to each player. the rest are the draw pile. flip the top card to start the discard pile. if it is an action card, ignore it and flip another.`
@@ -4558,22 +4539,12 @@ class S {
 
   /// `left`
   String get unoZeroRoundLeft {
-    return Intl.message(
-      'left',
-      name: 'unoZeroRoundLeft',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('left', name: 'unoZeroRoundLeft', desc: '', args: []);
   }
 
   /// `rounds`
   String get unoZeroRounds {
-    return Intl.message(
-      'rounds',
-      name: 'unoZeroRounds',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('rounds', name: 'unoZeroRounds', desc: '', args: []);
   }
 
   /// `number cards 0–6 score their face value.`
@@ -4608,12 +4579,7 @@ class S {
 
   /// `tied`
   String get unoZeroTied {
-    return Intl.message(
-      'tied',
-      name: 'unoZeroTied',
-      desc: '',
-      args: [],
-    );
+    return Intl.message('tied', name: 'unoZeroTied', desc: '', args: []);
   }
 
   /// `uno zero® / uno golf® is a registered trademark of mattel.`

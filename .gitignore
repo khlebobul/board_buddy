@@ -59,9 +59,8 @@ app.*.map.json
 /store_screenshots/.env*
 /metadata/
 /docs/store/store-content.md
-/.asc/snapshots/
-/.asc/reports/
-/.asc/metadata/
+/.asc/*
+!/.asc/project.json
 *.p8
 *.zip
 /store_screenshots/.venv/

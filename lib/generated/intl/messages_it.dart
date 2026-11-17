@@ -726,9 +726,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "seaSaltPaperEndRoundTitle": MessageLookupByLibrary.simpleMessage(
       "fine del round:",
     ),
-    "seaSaltPaperGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      "colleziona carte per formare combinazioni e segnare punti. sii il primo a raggiungere il punteggio obiettivo terminando i round strategicamente.",
-    ),
+    "seaSaltPaperGameObjectiveDescription":
+        MessageLookupByLibrary.simpleMessage(
+          "colleziona carte per formare combinazioni e segnare punti. sii il primo a raggiungere il punteggio obiettivo terminando i round strategicamente.",
+        ),
     "seaSaltPaperLastChanceOption": MessageLookupByLibrary.simpleMessage(
       "ultima chance: ogni avversario fa un altro turno. se hai ancora il punteggio più alto, guadagni punti bonus pari alla tua maggioranza di colore. se qualcuno ti supera, ottieni solo i punti della maggioranza di colore.",
     ),
@@ -1091,9 +1092,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoFlipVictory500Points": MessageLookupByLibrary.simpleMessage(
       "il primo giocatore a raggiungere 500 punti vince.",
     ),
-    "unoFlipVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
-      "alternativa: il giocatore con il punteggio più basso vince alla fine della partita.",
-    ),
+    "unoFlipVictoryLowestScoreAlternative":
+        MessageLookupByLibrary.simpleMessage(
+          "alternativa: il giocatore con il punteggio più basso vince alla fine della partita.",
+        ),
     "unoGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
       "sii il primo a giocare tutte le tue carte e segna punti dalle carte rimanenti degli avversari. il primo giocatore a raggiungere 500 punti vince.",
     ),
@@ -1152,95 +1154,73 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "alternativa: il giocatore con il punteggio più basso vince alla fine della partita.",
     ),
-    "unoZero": MessageLookupByLibrary.simpleMessage(
-      'uno zero',
-    ),
+    "unoZero": MessageLookupByLibrary.simpleMessage("uno zero"),
     "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
-      'double draw 2: scegli due giocatori che aggiungono una colonna da 2 carte, oppure uno che ne aggiunge due. nessuno salta il turno.',
+      "double draw 2: scegli due giocatori che aggiungono una colonna da 2 carte, oppure uno che ne aggiunge due. nessuno salta il turno.",
     ),
     "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
-      'draw 2: il giocatore successivo aggiunge 2 carte coperte come nuova colonna e salta il turno.',
+      "draw 2: il giocatore successivo aggiunge 2 carte coperte come nuova colonna e salta il turno.",
     ),
     "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
-      'le carte azione hanno effetto solo in cima agli scarti. nella griglia valgono i punti stampati.',
+      "le carte azione hanno effetto solo in cima agli scarti. nella griglia valgono i punti stampati.",
     ),
     "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
-      'reverse: inverte il senso di gioco.',
+      "reverse: inverte il senso di gioco.",
     ),
     "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
-      'skip: il giocatore successivo salta il turno.',
+      "skip: il giocatore successivo salta il turno.",
     ),
     "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
-      'se le due carte di una colonna hanno lo stesso colore o numero, puoi scartare la colonna.',
+      "se le due carte di una colonna hanno lo stesso colore o numero, puoi scartare la colonna.",
     ),
-    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
-      'colonne:',
-    ),
+    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage("colonne:"),
     "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
-      'il round finisce quando un giocatore ha tutte le carte scoperte. tutti girano il resto, tolgono le colonne uguali e sommano le carte rimaste. una griglia vuota vale 0. il punteggio più basso inizia il round successivo.',
+      "il round finisce quando un giocatore ha tutte le carte scoperte. tutti girano il resto, tolgono le colonne uguali e sommano le carte rimaste. una griglia vuota vale 0. il punteggio più basso inizia il round successivo.",
     ),
     "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
-      'fine del round:',
+      "fine del round:",
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'fai meno punti possibile. una partita normale dura 9 round e finisce dopo il numero di round scelto all\'inizio. vince il totale più basso.',
+      "fai meno punti possibile. una partita normale dura 9 round e finisce dopo il numero di round scelto all\'inizio. vince il totale più basso.",
     ),
-    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
-      'storico',
-    ),
-    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
-      'in testa',
-    ),
-    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
-      'ok',
-    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage("storico"),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage("in testa"),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage("ok"),
     "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
-      'distribuisci 6 carte coperte a ogni giocatore. il resto è il mazzo. gira la prima carta per gli scarti. se è una carta azione, ignorala e girane un\'altra.',
+      "distribuisci 6 carte coperte a ogni giocatore. il resto è il mazzo. gira la prima carta per gli scarti. se è una carta azione, ignorala e girane un\'altra.",
     ),
     "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
-      'inizia il giocatore a sinistra del mazziere. si gioca in senso orario.',
+      "inizia il giocatore a sinistra del mazziere. si gioca in senso orario.",
     ),
     "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
-      'disponi le 6 carte in una griglia 2×3 coperta. ogni giocatore gira una carta.',
+      "disponi le 6 carte in una griglia 2×3 coperta. ogni giocatore gira una carta.",
     ),
-    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
-      'restano',
-    ),
-    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
-      'round',
-    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage("restano"),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage("round"),
     "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
-      'le carte da 0 a 6 valgono il numero stampato.',
+      "le carte da 0 a 6 valgono il numero stampato.",
     ),
-    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
-      'punteggio:',
-    ),
-    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
-      'questo round',
-    ),
-    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
-      'pareggio',
-    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage("punteggio:"),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage("questo round"),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage("pareggio"),
     "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-      'uno zero® / uno golf® è un marchio registrato di mattel.',
+      "uno zero® / uno golf® è un marchio registrato di mattel.",
     ),
     "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
-      'dagli scarti devi mettere la carta nella griglia.',
+      "dagli scarti devi mettere la carta nella griglia.",
     ),
     "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
-      'nel tuo turno prendi la carta in cima al mazzo o agli scarti.',
+      "nel tuo turno prendi la carta in cima al mazzo o agli scarti.",
     ),
     "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
-      'dal mazzo puoi tenere la carta e scambiarla con una della griglia, oppure scartarla e girare una carta coperta.',
+      "dal mazzo puoi tenere la carta e scambiarla con una della griglia, oppure scartarla e girare una carta coperta.",
     ),
     "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
-      'con una sola carta coperta, di\' uno. se ti scoprono prima del turno successivo, aggiungi 2 carte coperte come nuova colonna.',
+      "con una sola carta coperta, di\' uno. se ti scoprono prima del turno successivo, aggiungi 2 carte coperte come nuova colonna.",
     ),
-    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
-      'uno:',
-    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage("uno:"),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      'il totale più basso vince dopo i round scelti. di solito sono 9. è pareggio solo se più giocatori condividono quel totale più basso.',
+      "il totale più basso vince dopo i round scelti. di solito sono 9. è pareggio solo se più giocatori condividono quel totale più basso.",
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "potenzia un insediamento a città (+1 punto)",

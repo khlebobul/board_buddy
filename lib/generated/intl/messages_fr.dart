@@ -729,9 +729,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "seaSaltPaperEndRoundTitle": MessageLookupByLibrary.simpleMessage(
       "fin de manche :",
     ),
-    "seaSaltPaperGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      "collectionnez des cartes pour former des combinaisons et marquer des points. soyez le premier à atteindre le score cible en terminant les manches stratégiquement.",
-    ),
+    "seaSaltPaperGameObjectiveDescription":
+        MessageLookupByLibrary.simpleMessage(
+          "collectionnez des cartes pour former des combinaisons et marquer des points. soyez le premier à atteindre le score cible en terminant les manches stratégiquement.",
+        ),
     "seaSaltPaperLastChanceOption": MessageLookupByLibrary.simpleMessage(
       "dernière chance : chaque adversaire joue un dernier tour. si vous avez toujours le meilleur score, gagnez des points bonus égaux à votre majorité de couleur. si quelqu\'un vous dépasse, vous ne marquez que votre majorité de couleur.",
     ),
@@ -1098,9 +1099,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoFlipVictory500Points": MessageLookupByLibrary.simpleMessage(
       "le premier joueur à atteindre 500 points gagne.",
     ),
-    "unoFlipVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
-      "alternative : le joueur avec le score le plus bas gagne à la fin de la partie.",
-    ),
+    "unoFlipVictoryLowestScoreAlternative":
+        MessageLookupByLibrary.simpleMessage(
+          "alternative : le joueur avec le score le plus bas gagne à la fin de la partie.",
+        ),
     "unoGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
       "soyez le premier à jouer toutes vos cartes et marquez des points grâce aux cartes restantes de vos adversaires. le premier joueur à atteindre 500 points gagne.",
     ),
@@ -1161,95 +1163,75 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "alternative : le joueur avec le score le plus bas gagne à la fin de la partie.",
     ),
-    "unoZero": MessageLookupByLibrary.simpleMessage(
-      'uno zero',
-    ),
+    "unoZero": MessageLookupByLibrary.simpleMessage("uno zero"),
     "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
-      'double draw 2 : choisissez deux joueurs qui ajoutent chacun une colonne de 2 cartes, ou un joueur qui en ajoute deux. personne ne passe.',
+      "double draw 2 : choisissez deux joueurs qui ajoutent chacun une colonne de 2 cartes, ou un joueur qui en ajoute deux. personne ne passe.",
     ),
     "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
-      'draw 2 : le joueur suivant ajoute 2 cartes face cachée en nouvelle colonne et passe son tour.',
+      "draw 2 : le joueur suivant ajoute 2 cartes face cachée en nouvelle colonne et passe son tour.",
     ),
     "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
-      'les cartes action n\'agissent qu\'au sommet du talon. dans la grille, elles valent les points imprimés.',
+      "les cartes action n\'agissent qu\'au sommet du talon. dans la grille, elles valent les points imprimés.",
     ),
     "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
-      'reverse : inverse le sens du jeu.',
+      "reverse : inverse le sens du jeu.",
     ),
     "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
-      'skip : le joueur suivant passe son tour.',
+      "skip : le joueur suivant passe son tour.",
     ),
     "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
-      'si les deux cartes d\'une colonne ont la même couleur ou le même nombre, vous pouvez défausser la colonne.',
+      "si les deux cartes d\'une colonne ont la même couleur ou le même nombre, vous pouvez défausser la colonne.",
     ),
     "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
-      'colonnes :',
+      "colonnes :",
     ),
     "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
-      'la manche se termine quand un joueur a toutes ses cartes face visible. chacun retourne le reste, retire les colonnes identiques et additionne les cartes restantes. une grille vide vaut 0. le score le plus bas commence la manche suivante.',
+      "la manche se termine quand un joueur a toutes ses cartes face visible. chacun retourne le reste, retire les colonnes identiques et additionne les cartes restantes. une grille vide vaut 0. le score le plus bas commence la manche suivante.",
     ),
     "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
-      'fin de la manche :',
+      "fin de la manche :",
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'marquez le moins de points possible. une partie habituelle dure 9 manches et se termine après le nombre de manches choisi au départ. le total le plus bas gagne.',
+      "marquez le moins de points possible. une partie habituelle dure 9 manches et se termine après le nombre de manches choisi au départ. le total le plus bas gagne.",
     ),
-    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
-      'historique',
-    ),
-    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
-      'en tête',
-    ),
-    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
-      'ok',
-    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage("historique"),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage("en tête"),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage("ok"),
     "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
-      'distribuez 6 cartes face cachée à chaque joueur. le reste forme la pioche. retournez la première carte pour le talon. si c\'est une carte action, ignorez-la et retournez la suivante.',
+      "distribuez 6 cartes face cachée à chaque joueur. le reste forme la pioche. retournez la première carte pour le talon. si c\'est une carte action, ignorez-la et retournez la suivante.",
     ),
     "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
-      'le joueur à gauche du donneur commence. le jeu tourne dans le sens horaire.',
+      "le joueur à gauche du donneur commence. le jeu tourne dans le sens horaire.",
     ),
     "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
-      'disposez les 6 cartes en grille 2×3, face cachée. chaque joueur retourne une carte.',
+      "disposez les 6 cartes en grille 2×3, face cachée. chaque joueur retourne une carte.",
     ),
-    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
-      'reste',
-    ),
-    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
-      'manches',
-    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage("reste"),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage("manches"),
     "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
-      'les cartes 0–6 valent leur chiffre.',
+      "les cartes 0–6 valent leur chiffre.",
     ),
-    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
-      'score :',
-    ),
-    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
-      'cette manche',
-    ),
-    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
-      'égalité',
-    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage("score :"),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage("cette manche"),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage("égalité"),
     "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-      'uno zero® / uno golf® est une marque déposée de mattel.',
+      "uno zero® / uno golf® est une marque déposée de mattel.",
     ),
     "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
-      'depuis le talon, vous devez placer la carte dans la grille.',
+      "depuis le talon, vous devez placer la carte dans la grille.",
     ),
     "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
-      'à votre tour, prenez la carte du dessus de la pioche ou du talon.',
+      "à votre tour, prenez la carte du dessus de la pioche ou du talon.",
     ),
     "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
-      'depuis la pioche, gardez la carte et échangez-la avec une carte de la grille, ou défaussez-la et retournez une carte face cachée.',
+      "depuis la pioche, gardez la carte et échangez-la avec une carte de la grille, ou défaussez-la et retournez une carte face cachée.",
     ),
     "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
-      's\'il ne reste qu\'une carte face cachée, dites uno. si l\'on vous prend avant le tour suivant, ajoutez 2 cartes face cachée en nouvelle colonne.',
+      "s\'il ne reste qu\'une carte face cachée, dites uno. si l\'on vous prend avant le tour suivant, ajoutez 2 cartes face cachée en nouvelle colonne.",
     ),
-    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
-      'uno :',
-    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage("uno :"),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      'le total le plus bas gagne après le nombre de manches choisi. la durée habituelle est de 9 manches. il n\'y a égalité que si plusieurs joueurs partagent ce total le plus bas.',
+      "le total le plus bas gagne après le nombre de manches choisi. la durée habituelle est de 9 manches. il n\'y a égalité que si plusieurs joueurs partagent ce total le plus bas.",
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "améliorez une colonie en ville (+1 point)",

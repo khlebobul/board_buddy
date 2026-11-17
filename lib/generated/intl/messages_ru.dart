@@ -725,9 +725,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "seaSaltPaperEndRoundTitle": MessageLookupByLibrary.simpleMessage(
       "завершение раунда:",
     ),
-    "seaSaltPaperGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      "собирайте карты для создания комбинаций и набора очков. станьте первым, кто достигнет целевого счёта, стратегически завершая раунды.",
-    ),
+    "seaSaltPaperGameObjectiveDescription":
+        MessageLookupByLibrary.simpleMessage(
+          "собирайте карты для создания комбинаций и набора очков. станьте первым, кто достигнет целевого счёта, стратегически завершая раунды.",
+        ),
     "seaSaltPaperLastChanceOption": MessageLookupByLibrary.simpleMessage(
       "последний шанс: каждый соперник делает ещё один ход. если у вас всё ещё больше всего очков, получите бонус равный вашему цветовому большинству. если кто-то обгонит вас, вы получите только очки за цветовое большинство.",
     ),
@@ -1092,9 +1093,10 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoFlipVictory500Points": MessageLookupByLibrary.simpleMessage(
       "игрок, набравший 500 очков, выигрывает игру.",
     ),
-    "unoFlipVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
-      "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.",
-    ),
+    "unoFlipVictoryLowestScoreAlternative":
+        MessageLookupByLibrary.simpleMessage(
+          "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.",
+        ),
     "unoGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
       "первым избавиться от всех своих карт и набрать очки за карты, оставшиеся у соперников. побеждает игрок, набравший 500 очков.",
     ),
@@ -1153,95 +1155,73 @@ class MessageLookup extends MessageLookupByLibrary {
     "unoVictoryLowestScoreAlternative": MessageLookupByLibrary.simpleMessage(
       "альтернатива: выигрывает игрок с наименьшим количеством очков после окончания игры.",
     ),
-    "unoZero": MessageLookupByLibrary.simpleMessage(
-      'uno zero',
-    ),
+    "unoZero": MessageLookupByLibrary.simpleMessage("uno zero"),
     "unoZeroActionDoubleDrawTwo": MessageLookupByLibrary.simpleMessage(
-      'двойное возьми 2: выберите двух игроков, которые добавят по столбцу из 2 карт, или одного, который добавит два столбца. ходы не пропускаются.',
+      "двойное возьми 2: выберите двух игроков, которые добавят по столбцу из 2 карт, или одного, который добавит два столбца. ходы не пропускаются.",
     ),
     "unoZeroActionDrawTwo": MessageLookupByLibrary.simpleMessage(
-      'возьми 2: следующий игрок добавляет 2 закрытые карты новым столбцом и пропускает ход.',
+      "возьми 2: следующий игрок добавляет 2 закрытые карты новым столбцом и пропускает ход.",
     ),
     "unoZeroActionInGrid": MessageLookupByLibrary.simpleMessage(
-      'карты действия срабатывают только верхней картой сброса. в сетке они стоят столько очков, сколько напечатано на карте.',
+      "карты действия срабатывают только верхней картой сброса. в сетке они стоят столько очков, сколько напечатано на карте.",
     ),
     "unoZeroActionReverse": MessageLookupByLibrary.simpleMessage(
-      'реверс: меняет направление хода.',
+      "реверс: меняет направление хода.",
     ),
     "unoZeroActionSkip": MessageLookupByLibrary.simpleMessage(
-      'пропуск: следующий игрок пропускает ход.',
+      "пропуск: следующий игрок пропускает ход.",
     ),
     "unoZeroClearColumn": MessageLookupByLibrary.simpleMessage(
-      'если обе карты в вертикальном столбце совпадают по цвету или числу, столбец можно сбросить.',
+      "если обе карты в вертикальном столбце совпадают по цвету или числу, столбец можно сбросить.",
     ),
-    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage(
-      'столбцы:',
-    ),
+    "unoZeroClearColumnTitle": MessageLookupByLibrary.simpleMessage("столбцы:"),
     "unoZeroEndRound": MessageLookupByLibrary.simpleMessage(
-      'раунд кончается, когда у одного игрока все карты открыты. остальные открывают карты, сбрасывают совпавшие столбцы и суммируют оставшиеся. пустая сетка даёт 0. меньший счёт начинает следующий раунд.',
+      "раунд кончается, когда у одного игрока все карты открыты. остальные открывают карты, сбрасывают совпавшие столбцы и суммируют оставшиеся. пустая сетка даёт 0. меньший счёт начинает следующий раунд.",
     ),
     "unoZeroEndRoundTitle": MessageLookupByLibrary.simpleMessage(
-      'конец раунда:',
+      "конец раунда:",
     ),
     "unoZeroGameObjectiveDescription": MessageLookupByLibrary.simpleMessage(
-      'набирайте как можно меньше очков. обычная партия длится 9 раундов, а заканчивается после числа раундов, выбранного в начале. побеждает наименьшая сумма.',
+      "набирайте как можно меньше очков. обычная партия длится 9 раундов, а заканчивается после числа раундов, выбранного в начале. побеждает наименьшая сумма.",
     ),
-    "unoZeroHistory": MessageLookupByLibrary.simpleMessage(
-      'история',
-    ),
-    "unoZeroLeading": MessageLookupByLibrary.simpleMessage(
-      'лидирует',
-    ),
-    "unoZeroOk": MessageLookupByLibrary.simpleMessage(
-      'ок',
-    ),
+    "unoZeroHistory": MessageLookupByLibrary.simpleMessage("история"),
+    "unoZeroLeading": MessageLookupByLibrary.simpleMessage("лидирует"),
+    "unoZeroOk": MessageLookupByLibrary.simpleMessage("ок"),
     "unoZeroPreparationDeal": MessageLookupByLibrary.simpleMessage(
-      'каждому игроку сдайте 6 карт рубашкой вверх. остальные карты — колода. верхнюю карту откройте в сброс. если это карта действия, пропустите её и откройте следующую.',
+      "каждому игроку сдайте 6 карт рубашкой вверх. остальные карты — колода. верхнюю карту откройте в сброс. если это карта действия, пропустите её и откройте следующую.",
     ),
     "unoZeroPreparationFirstPlayer": MessageLookupByLibrary.simpleMessage(
-      'начинает игрок слева от сдающего. ход идёт по часовой стрелке.',
+      "начинает игрок слева от сдающего. ход идёт по часовой стрелке.",
     ),
     "unoZeroPreparationGrid": MessageLookupByLibrary.simpleMessage(
-      'разложите 6 карт сеткой 2×3 рубашкой вверх. каждый игрок открывает одну карту.',
+      "разложите 6 карт сеткой 2×3 рубашкой вверх. каждый игрок открывает одну карту.",
     ),
-    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage(
-      'осталось',
-    ),
-    "unoZeroRounds": MessageLookupByLibrary.simpleMessage(
-      'раунды',
-    ),
+    "unoZeroRoundLeft": MessageLookupByLibrary.simpleMessage("осталось"),
+    "unoZeroRounds": MessageLookupByLibrary.simpleMessage("раунды"),
     "unoZeroScoringNumbers": MessageLookupByLibrary.simpleMessage(
-      'карты с числами 0–6 стоят своё значение.',
+      "карты с числами 0–6 стоят своё значение.",
     ),
-    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage(
-      'счёт:',
-    ),
-    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage(
-      'этот раунд',
-    ),
-    "unoZeroTied": MessageLookupByLibrary.simpleMessage(
-      'ничья',
-    ),
+    "unoZeroScoringTitle": MessageLookupByLibrary.simpleMessage("счёт:"),
+    "unoZeroThisRound": MessageLookupByLibrary.simpleMessage("этот раунд"),
+    "unoZeroTied": MessageLookupByLibrary.simpleMessage("ничья"),
     "unoZeroTrademarkNotice": MessageLookupByLibrary.simpleMessage(
-      'uno zero® / uno golf® — зарегистрированный товарный знак mattel.',
+      "uno zero® / uno golf® — зарегистрированный товарный знак mattel.",
     ),
     "unoZeroTurnDiscardPile": MessageLookupByLibrary.simpleMessage(
-      'из сброса карту нужно положить в сетку.',
+      "из сброса карту нужно положить в сетку.",
     ),
     "unoZeroTurnDraw": MessageLookupByLibrary.simpleMessage(
-      'в свой ход возьмите верхнюю карту колоды или сброса.',
+      "в свой ход возьмите верхнюю карту колоды или сброса.",
     ),
     "unoZeroTurnKeep": MessageLookupByLibrary.simpleMessage(
-      'из колоды карту можно оставить и поменять с любой картой в сетке либо сбросить и открыть одну закрытую карту.',
+      "из колоды карту можно оставить и поменять с любой картой в сетке либо сбросить и открыть одну закрытую карту.",
     ),
     "unoZeroUnoCall": MessageLookupByLibrary.simpleMessage(
-      'когда осталась одна закрытая карта, скажите uno. если вас поймали до следующего хода, добавьте 2 закрытые карты новым столбцом.',
+      "когда осталась одна закрытая карта, скажите uno. если вас поймали до следующего хода, добавьте 2 закрытые карты новым столбцом.",
     ),
-    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage(
-      'uno:',
-    ),
+    "unoZeroUnoCallTitle": MessageLookupByLibrary.simpleMessage("uno:"),
     "unoZeroVictory": MessageLookupByLibrary.simpleMessage(
-      'после выбранного числа раундов побеждает наименьшая сумма. обычно их 9. ничья только если эту наименьшую сумму набрали несколько игроков.',
+      "после выбранного числа раундов побеждает наименьшая сумма. обычно их 9. ничья только если эту наименьшую сумму набрали несколько игроков.",
     ),
     "upgradeASettlementToACity1Point": MessageLookupByLibrary.simpleMessage(
       "улучшите поселение до города (+1 очко)",

@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1]
+
+### Technical updates
+- Updated Flutter dependencies to the latest compatible versions, including localization and build tooling.
+- Updated screenshot editor dependencies and refreshed dependency lockfiles.
+- Bumped the app version to 1.4.1 (build 39), including iOS project settings.
+
 ## [1.4.0]
 
 ### New Features
