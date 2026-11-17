@@ -1,0 +1,14 @@
+{
+  "appId": "6743980638",
+  "appInfoId": "86b69016-abd6-4a29-98d9-858f4f7cd599",
+  "bundleId": "com.khlebobul.boardBuddy",
+  "androidApplicationId": "com.khlebobul.board_buddy",
+  "profile": "minimo",
+  "platform": "IOS",
+  "version": "1.3.10",
+  "uiToStoreLocale": {
+    "en": "en-US", "ru": "ru", "de": "de-DE", "fr": "fr-FR",
+    "es": "es-ES", "it": "it", "zh": "zh-Hans", "ja": "ja", "ko": "ko", "hi": "hi"
+  },
+  "storeOnlyLocales": ["nl-NL", "pl", "pt-BR", "tr", "zh-Hant"]
+}
