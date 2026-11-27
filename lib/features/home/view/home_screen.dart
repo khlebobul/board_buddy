@@ -7,6 +7,7 @@ import 'package:board_buddy/shared/widgets/ui/pressable.dart';
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:gen_art_bg/gen_art_bg.dart';
+import 'package:material_ui/material_ui.dart' as material_ui;
 import 'package:upgrader/upgrader.dart';
 import 'package:use_scramble/use_scramble.dart';
 
@@ -29,8 +30,40 @@ class _HomeScreenState extends State<HomeScreen> {
     );
   }
 
+  @override
+  void dispose() {
+    _upgrader.dispose();
+    super.dispose();
+  }
+
   void _navigateTo(BuildContext context, String routeName) {
     Navigator.pushNamed(context, routeName);
+  }
+
+  material_ui.ThemeData _upgradeDialogTheme(UIThemes theme) {
+    final isDark = theme.isDarkTheme;
+    final background = theme.bgColor;
+    final foreground = theme.textColor;
+    return material_ui.ThemeData(
+      useMaterial3: true,
+      brightness: isDark ? Brightness.dark : Brightness.light,
+      fontFamily: 'RobotoMono',
+      scaffoldBackgroundColor: background,
+      colorScheme: isDark
+          ? material_ui.ColorScheme.dark(
+              primary: foreground,
+              onPrimary: background,
+              surface: background,
+              onSurface: foreground,
+            )
+          : material_ui.ColorScheme.light(
+              primary: foreground,
+              onPrimary: background,
+              surface: background,
+              onSurface: foreground,
+            ),
+      dialogTheme: material_ui.DialogThemeData(backgroundColor: background),
+    );
   }
 
   @override
@@ -99,17 +132,20 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
     );
 
-    final upgradeAlert = UpgradeAlert(
-      showReleaseNotes: false,
-      dialogStyle: Platform.isIOS
-          ? UpgradeDialogStyle.cupertino
-          : UpgradeDialogStyle.material,
-      cupertinoButtonTextStyle: const TextStyle(
-        color: CupertinoColors.activeBlue,
-        fontSize: 17,
+    final upgradeAlert = material_ui.Theme(
+      data: _upgradeDialogTheme(theme),
+      child: UpgradeAlert(
+        showReleaseNotes: false,
+        dialogStyle: Platform.isIOS
+            ? UpgradeDialogStyle.cupertino
+            : UpgradeDialogStyle.material,
+        cupertinoButtonTextStyle: const TextStyle(
+          color: CupertinoColors.activeBlue,
+          fontSize: 17,
+        ),
+        upgrader: _upgrader,
+        child: content,
       ),
-      upgrader: _upgrader,
-      child: content,
     );
 
     if (!Platform.isIOS) {
