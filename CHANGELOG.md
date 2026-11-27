@@ -1,5 +1,11 @@
 # Changelog
 
+## [1.4.2]
+
+### Technical updates
+- Updated `upgrader` to 14.0.0 and wired its dialog to the standalone Material and Cupertino libraries so the update prompt keeps the app theme and localizations.
+- Bumped the app version to 1.4.2 (build 40), including iOS project settings.
+
 ## [1.4.1]
 
 ### Technical updates

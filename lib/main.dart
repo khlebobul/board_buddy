@@ -6,9 +6,11 @@ import 'package:board_buddy/shared/services/preferences_service.dart';
 import 'package:board_buddy/shared/services/theme_service.dart';
 import 'package:board_buddy/config/theme/app_theme.dart';
 import 'package:board_buddy/config/routes/routes.dart';
+import 'package:cupertino_ui/cupertino_ui.dart' as cupertino_ui;
 import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:flutter_localizations/flutter_localizations.dart';
+import 'package:material_ui/material_ui.dart' as material_ui;
 import 'package:wakelock_plus/wakelock_plus.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:talker_flutter/talker_flutter.dart';
@@ -100,6 +102,10 @@ class MyApp extends StatelessWidget {
                   GlobalMaterialLocalizations.delegate,
                   GlobalWidgetsLocalizations.delegate,
                   GlobalCupertinoLocalizations.delegate,
+                  // UpgradeAlert in upgrader 14 looks up the standalone
+                  // design libraries, not the copies bundled with Flutter.
+                  material_ui.GlobalMaterialLocalizations.delegate,
+                  cupertino_ui.GlobalCupertinoLocalizations.delegate,
                 ],
                 supportedLocales: const [
                   Locale('en', ''),

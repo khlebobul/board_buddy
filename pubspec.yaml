@@ -2,7 +2,7 @@ name: board_buddy
 description: "A new Flutter project."
 publish_to: 'none' # Remove this line if you wish to publish to pub.dev
 
-version: 1.4.1+39
+version: 1.4.2+40
 
 environment:
   sdk: ^3.5.3
@@ -34,7 +34,9 @@ dependencies:
   talker: ^5.2.0
   talker_bloc_logger: ^5.2.0
   talker_flutter: ^5.2.0
-  upgrader: ^13.8.0
+  upgrader: ^14.0.0
+  material_ui: ^1.11.1
+  cupertino_ui: ^1.1.7
   not_static_icons: ^0.54.0
   motor: ^1.1.0
 
